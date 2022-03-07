@@ -1,0 +1,61 @@
+#
+# Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
+#
+
+[worldserver]
+
+########################################
+# Individual Progression Configuration
+########################################
+#
+#    IndividualProgression.Enable
+#        Description: Enable Individual Progression Module
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+
+IndividualProgression.Enable = 1
+#
+#
+#    IndividualProgression.VanillaPowerAdjustment
+#        Description: Adjustment to player's attack power before completing Vanilla content
+#                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
+#                     Applied linearly per level between levels 20 and 60
+#                     Set to 1 (100% of regular damage) to disable
+#
+#        Default:     0.6 - 60% of regular damage
+#
+IndividualProgression.VanillaPowerAdjustment = 0.6
+#
+#
+#    IndividualProgression.VanillaHealthAdjustmnet
+#        Description: Adjustment to player's max HP before completing Vanilla content
+#                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
+#                     Applied linearly per level between levels 20 and 60
+#                     Set to 1 (100% of regular health) to disable
+#
+#        Default:     0.5 - 50% of regular health
+#
+IndividualProgression.VanillaHealthAdjustment = 0.5
+#
+#
+#    IndividualProgression.TBCPowerAdjustment
+#        Description: Adjustment to player's attack power before completing TBC content
+#                     This is meant to provide a more accurate TBC feeling in TBC content
+#                     Unlike Vanilla adjustment, a flat value is always used
+#                     Set to 1 (100% of regular damage) to disable
+#
+#        Default:     0.8 - 80% of regular damage
+#
+IndividualProgression.TBCPowerAdjustment = 0.8
+#
+#
+#    IndividualProgression.TBCHealthAdjustment
+#        Description: Adjustment to player's max HP before completing TBC content
+#                     This is meant to provide a more accurate TBC feeling in TBC content
+#                     Unlike Vanilla adjustment, a flat value is always used
+#                     Set to 1 (100% of regular health) to disable
+#
+#        Default:     0.7 - 70% of regular health
+#
+IndividualProgression.VanillaHealthAdjustment = 0.7
