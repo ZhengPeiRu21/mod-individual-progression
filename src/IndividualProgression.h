@@ -5,6 +5,61 @@
 #include "Player.h"
 #include "Config.h"
 #include "Chat.h"
+#include "ScriptedCreature.h"
+#include "GameObjectAI.h"
+#include "MapMgr.h"
+#include "ObjectAccessor.h"
+#include "Group.h"
+
+enum ProgressionBossIDs
+{
+    RAGNAROS = 11502,
+    ONYXIA = 10184,
+    NEFARIAN = 11583,
+    CTHUN = 15727,
+    KELTHUZAD = 15990,
+    MALCHEZAAR = 15690,
+    KAELTHAS = 19622,
+    ILLIDAN = 22917,
+    ZULJIN = 23863,
+    KILJAEDEN = 25315,
+    YOGGSARON = 33288,
+    ANUBARAK = 34564,
+    LICH_KING = 36597,
+    HALION = 39863
+};
+
+enum ProgressionQuestIDs
+{
+    MIGHT_OF_KALIMDOR = 8742
+};
+
+enum ProgressionMaps
+{
+    MAP_BLACKWING_LAIR = 469,
+    MAP_AQ_20 = 509,
+    MAP_AQ_40 = 531,
+    MAP_OUTLANDS = 530,
+    MAP_ZUL_AMAN = 568,
+    MAP_NORTHREND = 571,
+    MAP_ULDUAR = 603,
+    MAP_TRIAL_OF_THE_CRUSADER = 649,
+    MAP_TRIAL_OF_THE_CHAMPION = 650,
+    MAP_ICC = 631,
+    MAP_FORGE_OF_SOULS = 632,
+    MAP_RUBY_SANTCUM = 724
+};
+
+enum ProgressionZones
+{
+    ZONE_AZUREMYST = 3524,
+    ZONE_BLOODMYST = 3525,
+    ZONE_GHOSTLANDS = 3433,
+    ZONE_EVERSONG = 3430,
+    ZONE_EXODAR = 3557,
+    ZONE_SILVERMOON = 3487,
+    ZONE_QUELDANAS = 4080
+};
 
 enum ProgressionSettings
 {

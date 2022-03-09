@@ -10,11 +10,19 @@
 #
 #    IndividualProgression.Enable
 #        Description: Enable Individual Progression Module
-#        Default:     0 - Disabled
-#                     1 - Enabled
+#        Default:     1 - Enabled
+#                     0 - Disabled
 #
 
 IndividualProgression.Enable = 1
+#
+#    IndividualProgression.EnforceGroupRules
+#        Description: Only allow players to group with others in the same progression phase
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+IndividualProgression.EnforceGroupRules = 1
 #
 #
 #    IndividualProgression.VanillaPowerAdjustment
@@ -45,9 +53,9 @@ IndividualProgression.VanillaHealthAdjustment = 0.5
 #                     Unlike Vanilla adjustment, a flat value is always used
 #                     Set to 1 (100% of regular damage) to disable
 #
-#        Default:     0.8 - 80% of regular damage
+#        Default:     0.6 - 60% of regular damage
 #
-IndividualProgression.TBCPowerAdjustment = 0.8
+IndividualProgression.TBCPowerAdjustment = 0.6
 #
 #
 #    IndividualProgression.TBCHealthAdjustment
@@ -56,6 +64,36 @@ IndividualProgression.TBCPowerAdjustment = 0.8
 #                     Unlike Vanilla adjustment, a flat value is always used
 #                     Set to 1 (100% of regular health) to disable
 #
-#        Default:     0.7 - 70% of regular health
+#        Default:     0.6 - 60% of regular health
 #
-IndividualProgression.VanillaHealthAdjustment = 0.7
+IndividualProgression.TBCHealthAdjustment = 0.6
+#
+#    IndividualProgression.QuestXPFix
+#        Description: Quest XP for Vanilla and TBC quests was boosted as a catchup mechanism in patches 2.3.0 and 3.0.2
+#                     Enable this option to reduce quest XP for affected quest to be closer to original values
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+IndividualProgression.QuestXPFix = 1
+#
+#    IndividualProgression.HunterPetLevelFix
+#        Description: In WotLK, a catch-up mechanism was added so that hunter pets are leveled up higher when tamed
+#                     Enable this option to restore Vanilla and TBC behavior and require more pet training
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+IndividualProgression.HunterPetLevelFix = 1
+#
+#    IndividualProgression.RequirePreAQQuests
+#        Description: AQ is the only vanilla tier that does not require attunement, because of the "server-wide attunement" quest line.
+#                     Enable this option to require players to complete the Bang a Gong quest line to enter AQ
+#                     Please note that this is a very grindly quest chain requiring quests to be completed 200+ times - to make this
+#                       more reasonable, some optional quest nerfs can be found in the module's SQL files.
+#                     If disabled, players can proceed to AQ immediately after Blackwing Lair
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+IndividualProgression.RequirePreAQQuests = 1
