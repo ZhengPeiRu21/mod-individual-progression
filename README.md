@@ -1,5 +1,6 @@
-#Individual Player Progression
-##Azerothcore Module
+# Individual Player Progression
+
+## Azerothcore Module
 
 This module is meant to simulate "progress through expansions and expansion tiers" for individual players. Players must complete each tier in order to access content for the next tier.
 
@@ -11,14 +12,14 @@ Note that this module either requires many players working together on a server 
 
 For content that is added in later expansion that is provided for use in lower-level content and is not "catch-up" content, I have decided to remain. This includes Draenei and Blood Elf starting zone, Inscription and Jewelcrafting skills, new quests and hubs added to Vanilla world in TBC, and so on. I feel this content does not negative impact the player journey like "catch-up" content.
 
-##Some Included Features
+## Some Included Features
 * Power level adjustment and health in Vanilla and TBC content to simulate Vanilla world difficulty
 * NPCs and Game Objects aware of individual player progress, visible based on player progression to each player
 * Restore of content removed or nerfed or later patch is released, such as Onyxia quests, TBC Attunements, and riding skills and quests.
 
 Options are provided to allow changes to experience based on preference. Please see config file.
 
-##Thank You
+## Thank You
 Special thanks to all contributors of the following projects which are make this module possible:
 * AzerothCore and TrinityCore, along with ancestors Mangos, etc.
 * AzerothCore Progression Module for Vanilla content and scripts
