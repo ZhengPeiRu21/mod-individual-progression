@@ -1,5 +1,8 @@
 # Individual Player Progression
 
+## Please Note
+The module uses a hook that is not yet merged into AzerothCore (see https://github.com/azerothcore/azerothcore-wotlk/pull/10934).  Until this PR is merged, you may need to comment out `OnQuestComputeXP` method in IndividualProgression.cpp. This function is used to give correct-era XP for Vanilla and TBC quests.
+
 ## Azerothcore Module
 
 This module is meant to simulate "progress through expansions and expansion tiers" for individual players. Players must complete each tier in order to access content for the next tier.
