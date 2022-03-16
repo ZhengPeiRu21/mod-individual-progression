@@ -4,22 +4,22 @@ DELETE FROM `npc_vendor` WHERE (`entry` = 14846) AND (`item` IN (21887, 22572, 2
 -- Lhara WotLK Items
 DELETE FROM `npc_vendor` WHERE (`entry` = 14846) AND (`item` IN (33568, 36901, 36903, 36904, 36905, 36906, 36907, 36908, 37700, 37701, 37702, 37703, 37704, 37705, 37921, 38425, 44128, 46812));
 
--- Enchant formulas
+-- Enchant formulas dropped as items
 DELETE FROM npc_trainer WHERE SpellID IN (20008, 20012, 20013, 20014, 20016, 20023, 20028, 32667);
 
--- Blacksmithing Plans
+-- Blacksmithing Plans dropped as items
 DELETE FROM npc_trainer WHERE SpellID IN (16642, 16643, 16644, 16652, 16653, 16662, 16969, 16971);
 
--- Alchemy recipes
+-- Alchemy recipes dropped as items
 DELETE FROM npc_trainer WHERE SpellID IN (2795, 17552, 17553, 17555, 17556, 17557, 17572, 17573);
 
--- Engineering Schematics
+-- Engineering Schematics dropped as items
 DELETE FROM npc_trainer WHERE SpellID IN (12615, 19790, 19791, 19792, 19794, 19795, 19800, 19825, 23071);
 
--- Tailoring Recipes
+-- Tailoring Recipes dropped as items
 DELETE FROM npc_trainer WHERE SpellID IN (18450, 18453, 18444, 18406, 18409, 18417, 18423);
 
--- First Aid Recipes
+-- First Aid Recipes dropped as items
 DELETE FROM npc_trainer WHERE SpellID IN (7929, 10840, 27032, 27033);
 
 -- Leatherworking Recipes

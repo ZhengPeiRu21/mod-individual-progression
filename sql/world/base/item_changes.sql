@@ -3716,9 +3716,6 @@ UPDATE item_template SET bonding = 1 WHERE entry=22282;
 /*  Malgen's Long Bow  */
 UPDATE item_template SET dmg_min1 = 63.0, dmg_max1 = 118.0 WHERE entry=22318;
 
-/*  Totem of Rebirth  */
-UPDATE item_template SET  WHERE entry=22345;
-
 /*  Fahrad's Reloading Repeater  */
 UPDATE item_template SET dmg_min1 = 85.0, dmg_max1 = 128.0 WHERE entry=22347;
 
@@ -3727,12 +3724,6 @@ UPDATE item_template SET dmg_min1 = 42.05, dmg_max1 = 82.05 WHERE entry=22379;
 
 /*  Simone's Cultivating Hammer  */
 UPDATE item_template SET dmg_min1 = 50.66, dmg_max1 = 97.66 WHERE entry=22380;
-
-/*  Totem of Rage  */
-UPDATE item_template SET  WHERE entry=22395;
-
-/*  Totem of Life  */
-UPDATE item_template SET  WHERE entry=22396;
 
 /*  Cryptstalker Tunic  */
 UPDATE item_template SET stat_value1 = 45 WHERE entry=22436;
