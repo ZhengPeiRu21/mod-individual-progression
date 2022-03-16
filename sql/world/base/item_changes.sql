@@ -3883,3 +3883,304 @@ UPDATE item_template SET Quality = 1 WHERE entry=23716;
 
 /*  Bland Dagger  */
 UPDATE item_template SET dmg_min1 = 82.0, dmg_max1 = 82.0 WHERE entry=24071;
+
+/* =========== NON-EQUIPMENT ITEMS ================ */
+
+/*  Horn of the Black Wolf  */
+UPDATE item_template SET Quality = 3 WHERE entry=1041;
+
+/*  Horn of the Winter Wolf  */
+UPDATE item_template SET Quality = 3 WHERE entry=1133;
+
+/*  Horn of the Gray Wolf  */
+UPDATE item_template SET Quality = 3 WHERE entry=1134;
+
+/*  Palomino  */
+UPDATE item_template SET Quality = 3 WHERE entry=2413;
+
+/*  White Stallion  */
+UPDATE item_template SET Quality = 3 WHERE entry=2415;
+
+/*  Hot Spices  */
+UPDATE item_template SET Quality = 1 WHERE entry=2692;
+
+/*  Dust of Decay  */
+UPDATE item_template SET Quality = 1 WHERE entry=2928;
+
+/*  Essence of Pain  */
+UPDATE item_template SET Quality = 1 WHERE entry=2930;
+
+/*  Maiden's Anguish  */
+UPDATE item_template SET Quality = 1 WHERE entry=2931;
+
+/*  Dog Whistle  */
+UPDATE item_template SET Quality = 2 WHERE entry=3456;
+
+/*  Belamoore's Research Journal  */
+UPDATE item_template SET Quality = 1 WHERE entry=3711;
+
+/*  Soothing Spices  */
+UPDATE item_template SET Quality = 1 WHERE entry=3713;
+
+/*  Crippling Poison II  */
+UPDATE item_template SET Quality = 1 WHERE entry=3776;
+
+/*  Mechanical Dragonling  */
+UPDATE item_template SET Quality = 1 WHERE entry=4396;
+
+/*  Gnomish Cloaking Device  */
+UPDATE item_template SET Quality = 1 WHERE entry=4397;
+
+/*  Accurate Scope  */
+UPDATE item_template SET Quality = 1 WHERE entry=4407;
+
+/*  Flint and Tinder  */
+UPDATE item_template SET Quality = 1 WHERE entry=4471;
+
+/*  Long Tail Feather  */
+UPDATE item_template SET Quality = 1 WHERE entry=5116;
+
+/*  Flash Powder  */
+UPDATE item_template SET Quality = 1 WHERE entry=5140;
+
+/*  Deathweed  */
+UPDATE item_template SET Quality = 1 WHERE entry=5173;
+
+/*  Horn of the Red Wolf  */
+UPDATE item_template SET Quality = 4 WHERE entry=5663;
+
+/*  Harness: Black Ram  */
+UPDATE item_template SET Quality = 3 WHERE entry=5874;
+
+/*  Harness: Blue Ram  */
+UPDATE item_template SET Quality = 3 WHERE entry=5875;
+
+/*  Snakeskin Bag  */
+UPDATE item_template SET Quality = 1 WHERE entry=6446;
+
+/*  Mind-numbing Poison II  */
+UPDATE item_template SET Quality = 1 WHERE entry=6951;
+
+/*  Shadowcat Hide  */
+UPDATE item_template SET Quality = 1 WHERE entry=7428;
+
+/*  Gni'kiv Medallion  */
+UPDATE item_template SET Quality = 1 WHERE entry=7740;
+
+/*  The Shaft of Tsol  */
+UPDATE item_template SET Quality = 1 WHERE entry=7741;
+
+/*  Wicked Claw  */
+UPDATE item_template SET Quality = 1 WHERE entry=8146;
+
+/*  Wildvine  */
+UPDATE item_template SET Quality = 1 WHERE entry=8153;
+
+/*  Jet Black Feather  */
+UPDATE item_template SET Quality = 1 WHERE entry=8168;
+
+/*  Thick Wolfhide  */
+UPDATE item_template SET Quality = 1 WHERE entry=8368;
+
+/*  Large Ruffled Feather  */
+UPDATE item_template SET Quality = 0 WHERE entry=8426;
+
+/*  Parrot Cage (Hyacinth Macaw)  */
+UPDATE item_template SET Quality = 1 WHERE entry=8494;
+
+/*  Horn of the Skeletal Mount  */
+UPDATE item_template SET Quality = 3 WHERE entry=8583;
+
+/*  Old Whistle of the Ivory Raptor  */
+UPDATE item_template SET Quality = 3 WHERE entry=8589;
+
+/*  Old Whistle of the Obsidian Raptor  */
+UPDATE item_template SET Quality = 3 WHERE entry=8590;
+
+/*  Reins of the Spotted Nightsaber  */
+UPDATE item_template SET Quality = 3 WHERE entry=8628;
+
+/*  Reins of the Bengal Tiger  */
+UPDATE item_template SET Quality = 3 WHERE entry=8630;
+
+/*  Reins of the Leopard  */
+UPDATE item_template SET Quality = 3 WHERE entry=8633;
+
+/*  Essence of Agony  */
+UPDATE item_template SET Quality = 1 WHERE entry=8923;
+
+/*  Dust of Deterioration  */
+UPDATE item_template SET Quality = 1 WHERE entry=8924;
+
+/*  Philosopher's Stone  */
+UPDATE item_template SET Quality = 1 WHERE entry=9149;
+
+/*  Mind-numbing Poison III  */
+UPDATE item_template SET Quality = 1 WHERE entry=9186;
+
+/*  Mallet of Zul'Farrak  */
+UPDATE item_template SET Quality = 2 WHERE entry=9240;
+
+/*  Undamaged Hippogryph Feather  */
+UPDATE item_template SET Quality = 1 WHERE entry=10450;
+
+/*  Mithril Mechanical Dragonling  */
+UPDATE item_template SET Quality = 1 WHERE entry=10576;
+
+/*  Goblin Mortar  */
+UPDATE item_template SET Quality = 1 WHERE entry=10577;
+
+/*  Gnomish Shrink Ray  */
+UPDATE item_template SET Quality = 1 WHERE entry=10716;
+
+/*  Gnomish Net-o-Matic Projector  */
+UPDATE item_template SET Quality = 1 WHERE entry=10720;
+
+/*  Goblin Engineer Membership Card  */
+UPDATE item_template SET Quality = 1 WHERE entry=10791;
+
+/*  Crystallized Note  */
+UPDATE item_template SET Quality = 1 WHERE entry=10839;
+
+/*  Crystallized Note  */
+UPDATE item_template SET Quality = 1 WHERE entry=10840;
+
+/*  Crystal Pylon User's Manual  */
+UPDATE item_template SET Quality = 1 WHERE entry=11482;
+
+/*  Deathcharger's Reins  */
+UPDATE item_template SET Quality = 3 WHERE entry=13335;
+
+/*  Crystal of Zin-Malor  */
+UPDATE item_template SET Quality = 2 WHERE entry=13347;
+
+/*  Recipe: Transmute Water to Air  */
+UPDATE item_template SET RequiredReputationRank = 0 WHERE entry=13485;
+
+/*  Zergling Leash  */
+UPDATE item_template SET Quality = 1 WHERE entry=13582;
+
+/*  Panda Collar  */
+UPDATE item_template SET Quality = 1 WHERE entry=13583;
+
+/*  Diablo Stone  */
+UPDATE item_template SET Quality = 1 WHERE entry=13584;
+
+/*  Ironfeather  */
+UPDATE item_template SET Quality = 1 WHERE entry=15420;
+
+/*  Frostsaber Leather  */
+UPDATE item_template SET Quality = 1 WHERE entry=15422;
+
+/*  Chimera Leather  */
+UPDATE item_template SET Quality = 1 WHERE entry=15423;
+
+/*  Commander's Steed  */
+UPDATE item_template SET Quality = 4 WHERE entry=16339;
+
+/*  Red Moro'gai Gem  */
+UPDATE item_template SET Quality = 2 WHERE entry=18153;
+
+/*  Flame Mantle of the Dawn  */
+UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18169;
+
+/*  Frost Mantle of the Dawn  */
+UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18170;
+
+/*  Arcane Mantle of the Dawn  */
+UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18171;
+
+/*  Nature Mantle of the Dawn  */
+UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18172;
+
+/*  Shadow Mantle of the Dawn  */
+UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18173;
+
+/*  Chromatic Mantle of the Dawn  */
+UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18182;
+
+/*  Sleeveless T-Shirt  */
+UPDATE item_template SET Quality = 0 WHERE entry=18231;
+
+/*  Heated Ancient Blade  */
+UPDATE item_template SET Quality = 4 WHERE entry=18488;
+
+/*  Treated Ancient Blade  */
+UPDATE item_template SET Quality = 4 WHERE entry=18492;
+
+/*  Essence of the Firelord DEPRECATED  */
+UPDATE item_template SET Quality = 5 WHERE entry=18566;
+
+/*  Essence of the Firelord  */
+UPDATE item_template SET Quality = 5 WHERE entry=19017;
+
+/*  Defiler's Enriched Ration  */
+UPDATE item_template SET RequiredReputationFaction = 510, RequiredReputationRank = 4 WHERE entry=20222;
+
+/*  Defiler's Field Ration  */
+UPDATE item_template SET RequiredReputationFaction = 510, RequiredReputationRank = 4 WHERE entry=20223;
+
+/*  Defiler's Iron Ration  */
+UPDATE item_template SET RequiredReputationFaction = 510, RequiredReputationRank = 4 WHERE entry=20224;
+
+/*  Highlander's Enriched Ration  */
+UPDATE item_template SET RequiredReputationFaction = 509, RequiredReputationRank = 4 WHERE entry=20225;
+
+/*  Highlander's Field Ration  */
+UPDATE item_template SET RequiredReputationFaction = 509, RequiredReputationRank = 4 WHERE entry=20226;
+
+/*  Highlander's Iron Ration  */
+UPDATE item_template SET RequiredReputationFaction = 509, RequiredReputationRank = 4 WHERE entry=20227;
+
+/*  Defiler's Mageweave Bandage  */
+UPDATE item_template SET RequiredReputationFaction = 510, RequiredReputationRank = 4 WHERE entry=20232;
+
+/*  Defiler's Runecloth Bandage  */
+UPDATE item_template SET RequiredReputationFaction = 510, RequiredReputationRank = 4 WHERE entry=20234;
+
+/*  Defiler's Silk Bandage  */
+UPDATE item_template SET RequiredReputationFaction = 510, RequiredReputationRank = 4 WHERE entry=20235;
+
+/*  Highlander's Mageweave Bandage  */
+UPDATE item_template SET RequiredReputationFaction = 509, RequiredReputationRank = 4 WHERE entry=20237;
+
+/*  Highlander's Runecloth Bandage  */
+UPDATE item_template SET RequiredReputationFaction = 509, RequiredReputationRank = 4 WHERE entry=20243;
+
+/*  Highlander's Silk Bandage  */
+UPDATE item_template SET RequiredReputationFaction = 509, RequiredReputationRank = 4 WHERE entry=20244;
+
+/*  Blue Murloc Egg  */
+UPDATE item_template SET Quality = 1 WHERE entry=20371;
+
+/*  Head of the Broodlord Lashlayer  */
+UPDATE item_template SET Quality = 4 WHERE entry=20383;
+
+/*  Orange Murloc Egg  */
+UPDATE item_template SET Quality = 1 WHERE entry=20651;
+
+/*  Pink Murloc Egg  */
+UPDATE item_template SET Quality = 1 WHERE entry=22114;
+
+/*  Staff Head of Atiesh  */
+UPDATE item_template SET Quality = 5 WHERE entry=22733;
+
+/*  Base of Atiesh  */
+UPDATE item_template SET Quality = 5 WHERE entry=22734;
+
+/*  White Murloc Egg  */
+UPDATE item_template SET Quality = 1 WHERE entry=22780;
+
+/*  Captured Flame  */
+UPDATE item_template SET Quality = 1 WHERE entry=23083;
+
+/*  White Tiger Cub  */
+UPDATE item_template SET Quality = 1 WHERE entry=23712;
+
+/*  Hippogryph Hatchling  */
+UPDATE item_template SET Quality = 1 WHERE entry=23713;
+
+/*  Riding Turtle  */
+UPDATE item_template SET Quality = 1 WHERE entry=23720;
+
+

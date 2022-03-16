@@ -1,0 +1,3466 @@
+/* NPC Tharynn Bouden - 66 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 66 AND `item` = 30817;
+
+
+/* NPC Brog Hamfist - 151 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 151 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (151, 4471, 0, 0);
+
+
+/* NPC Mabel Solaj - 227 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 227 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (227, 4471, 0, 0);
+
+
+/* NPC Avette Fellwood - 228 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 228 AND `item` = 28053;
+
+
+/* NPC Katie Hunter - 384 */
+/* Add Missing Vanilla item White Stallion Bridle */
+DELETE FROM `npc_vendor` WHERE `entry` = 384 AND `item` = 12353;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (384, 12353, 0, 0);
+/* Add Missing Vanilla item Palomino Bridle */
+DELETE FROM `npc_vendor` WHERE `entry` = 384 AND `item` = 12354;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (384, 12354, 0, 0);
+
+
+/* NPC Quartermaster Lewis - 491 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 491 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (491, 4471, 0, 0);
+
+
+/* NPC Corporal Bluth - 734 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 734 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 734 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 734 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (734, 4471, 0, 0);
+
+
+/* NPC Amy Davenport - 777 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 777 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (777, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 777 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (777, 2928, 0, 0);
+
+
+/* NPC Kimberly Hiett - 789 */
+/* Remove non-Vanilla item Jagged Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 789 AND `item` = 11285;
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 789 AND `item` = 28053;
+
+
+/* NPC Lindsay Ashlock - 791 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 791 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (791, 4471, 0, 0);
+
+
+/* NPC Gina MacGregor - 843 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 843 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (843, 2692, 0, 0);
+
+
+/* NPC Dawn Brightstar - 958 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 958 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (958, 17019, 0, 0);
+
+
+/* NPC Gunder Thornbush - 960 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 960 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (960, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 960 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (960, 3713, 0, 0);
+
+
+/* NPC Thultazor - 983 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 983 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (983, 17019, 0, 0);
+
+
+/* NPC Banalash - 989 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 989 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 989 AND `item` = 18256;
+/* Add Missing Vanilla item Bleach */
+DELETE FROM `npc_vendor` WHERE `entry` = 989 AND `item` = 2324;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (989, 2324, 0, 0);
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 989 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (989, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 989 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (989, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 989 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (989, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 989 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (989, 3777, 0, 0);
+
+
+/* NPC Nerrist - 1148 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 1148 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 1148 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1148 AND `item` = 18256;
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 1148 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1148, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 1148 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1148, 3713, 0, 0);
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 1148 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1148, 2692, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 1148 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1148, 3777, 0, 0);
+
+
+/* NPC Uthok - 1149 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 1149 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 1149 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1149 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1149, 4471, 0, 0);
+
+
+/* NPC Drake Lindgren - 1250 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 1250 AND `item` = 30817;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1250 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1250, 4471, 0, 0);
+
+
+/* NPC Edna Mullby - 1286 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1286, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1286, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1286, 3777, 0, 0);
+
+
+/* NPC Keldric Boucher - 1257 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 1257 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1257, 17019, 0, 0);
+
+
+/* NPC Veron Amberstill - 1261 */
+/* Add Missing Vanilla item Black Ram */
+DELETE FROM `npc_vendor` WHERE `entry` = 1261 AND `item` = 13328;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1261, 13328, 0, 0);
+/* Add Missing Vanilla item Frost Ram */
+DELETE FROM `npc_vendor` WHERE `entry` = 1261 AND `item` = 13329;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1261, 13329, 0, 0);
+
+
+/* NPC Kyra Boucher - 1275 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 1275 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1275, 17019, 0, 0);
+
+
+/* NPC Thurman Mullby - 1285 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 1285 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 1285 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1285 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1285, 4471, 0, 0);
+
+
+/* NPC Charys Yserian - 1307 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 1307 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1307, 17019, 0, 0);
+
+
+/* NPC Owen Vaughn - 1308 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1308, 17019, 0, 0);
+
+
+/* NPC Jessara Cordell - 1318 */
+/* Add Missing Vanilla item Formula: Enchant Chest - Minor Mana */
+DELETE FROM `npc_vendor` WHERE `entry` = 1318 AND `item` = 6342;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1318, 6342, 1, 7200);
+
+
+/* NPC Jasper Fel - 1325 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1325, 8925, 0, 0);
+
+
+/* NPC Sloan McCoy - 1326 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1326, 8925, 0, 0);
+
+
+/* NPC Brother Cassius - 1351 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 1351 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1351, 17019, 0, 0);
+
+
+/* NPC Neal Allen - 1448 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 1448 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 1448 AND `item` = 40533;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1448 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1448, 4471, 0, 0);
+
+
+/* NPC Gruham Rumdnul - 1452 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1452 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1452, 4471, 0, 0);
+
+
+/* NPC Jennabink Powerseam - 1454 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 1454 AND `item` = 38426;
+
+
+/* NPC Kersok Prond - 1456 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 1456 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1456, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 1456 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1456, 3713, 0, 0);
+
+
+/* NPC Samor Festivus - 1457 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 1457 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1457, 8925, 0, 0);
+
+
+/* NPC Naela Trance - 1459 */
+/* Add Missing Vanilla item Light Quiver */
+DELETE FROM `npc_vendor` WHERE `entry` = 1459 AND `item` = 2101;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1459, 2101, 0, 0);
+/* Add Missing Vanilla item Worn Shortbow */
+DELETE FROM `npc_vendor` WHERE `entry` = 1459 AND `item` = 2504;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1459, 2504, 0, 0);
+/* Add Missing Vanilla item Polished Shortbow */
+DELETE FROM `npc_vendor` WHERE `entry` = 1459 AND `item` = 2505;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1459, 2505, 0, 0);
+/* Add Missing Vanilla item Hornwood Recurve Bow */
+DELETE FROM `npc_vendor` WHERE `entry` = 1459 AND `item` = 2506;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1459, 2506, 0, 0);
+/* Add Missing Vanilla item Heavy Recurve Bow */
+DELETE FROM `npc_vendor` WHERE `entry` = 1459 AND `item` = 3027;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1459, 3027, 0, 0);
+/* Add Missing Vanilla item Razor Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 1459 AND `item` = 3030;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1459, 3030, 0, 0);
+
+
+/* NPC Unger Statforth - 1460 */
+/* Add Missing Vanilla item Swift Palomino */
+DELETE FROM `npc_vendor` WHERE `entry` = 1460 AND `item` = 18776;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1460, 18776, 0, 0);
+/* Add Missing Vanilla item Swift Brown Steed */
+DELETE FROM `npc_vendor` WHERE `entry` = 1460 AND `item` = 18777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1460, 18777, 0, 0);
+/* Add Missing Vanilla item Swift White Steed */
+DELETE FROM `npc_vendor` WHERE `entry` = 1460 AND `item` = 18778;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1460, 18778, 0, 0);
+/* Add Missing Vanilla item White Stallion Bridle */
+DELETE FROM `npc_vendor` WHERE `entry` = 1460 AND `item` = 12353;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1460, 12353, 0, 0);
+/* Add Missing Vanilla item Palomino Bridle */
+DELETE FROM `npc_vendor` WHERE `entry` = 1460 AND `item` = 12354;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1460, 12354, 0, 0);
+
+
+/* NPC Edwina Monzor - 1462 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 1462 AND `item` = 28053;
+
+
+/* NPC Falkan Armonis - 1463 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 1463 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1463, 17019, 0, 0);
+
+
+/* NPC Drac Roughcut - 1465 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 1465 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1465, 2692, 0, 0);
+
+
+/* NPC Rann Flamespinner - 1474 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 1474 AND `item` = 38426;
+
+
+/* NPC Lohgan Eva - 1672 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 1672 AND `item` = 38426;
+
+
+/* NPC Alyssa Eva - 1673 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 1673 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1673, 17019, 0, 0);
+
+
+/* NPC Yanni Stoutheart - 1682 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1682 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1682, 4471, 0, 0);
+
+
+/* NPC Xandar Goodbeard - 1685 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1685 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1685, 4471, 0, 0);
+
+
+/* NPC Kreg Bilmn - 1691 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 1691 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1691, 4471, 0, 0);
+
+
+/* NPC Golorn Frostbeard - 1692 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 1692 AND `item` = 30817;
+
+
+/* NPC Loslor Rudge - 1694 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 1694 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 1694 AND `item` = 40533;
+
+
+/* NPC Natheril Raincaller - 2084 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 2084 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2084 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2084 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2084, 4471, 0, 0);
+
+
+/* NPC Mrs. Winters - 2134 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2134 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2134, 4471, 0, 0);
+
+
+/* NPC Edwin Harly - 2140 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2140 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2140, 4471, 0, 0);
+
+
+/* NPC Merideth Carlson - 2357 */
+/* Add Missing Vanilla item White Stallion Bridle */
+DELETE FROM `npc_vendor` WHERE `entry` = 2357 AND `item` = 12353;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2357, 12353, 0, 0);
+/* Add Missing Vanilla item Palomino Bridle */
+DELETE FROM `npc_vendor` WHERE `entry` = 2357 AND `item` = 12354;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2357, 12354, 0, 0);
+
+
+/* NPC Knaz Blunderflame - 8679 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 8679 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 8679 AND `item` = 40533;
+
+
+/* NPC Gnaz Blunderflame - 2687 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 2687 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 2687 AND `item` = 40533;
+
+
+/* NPC Qia - 11189 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 11189 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 11189 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 11189 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 11189 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11189, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 11189 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11189, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 11189 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11189, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 11189 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11189, 3777, 0, 0);
+
+
+/* NPC Micha Yance - 2381 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 2381 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2381 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2381, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2381 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2381, 3713, 0, 0);
+
+
+/* NPC Christoph Jeffcoat - 2393 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2393 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2393, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2393 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2393, 3713, 0, 0);
+
+
+/* NPC Mallen Swain - 2394 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2394 AND `item` = 38426;
+
+
+/* NPC Derak Nightfall - 2397 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 2397 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2397 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2397, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2397 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2397, 3713, 0, 0);
+
+
+/* NPC Kayren Soothallow - 2401 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 2401 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2401 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2401 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2401, 4471, 0, 0);
+
+
+/* NPC Zarena Cromwind - 2482 */
+/* Add Missing Vanilla item Friendship Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2482 AND `item` = 23160;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2482, 23160, 0, 0);
+/* Add Missing Vanilla item Freshly-Squeezed Lemonade */
+DELETE FROM `npc_vendor` WHERE `entry` = 2482 AND `item` = 23161;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2482, 23161, 0, 0);
+
+
+/* NPC Sly Garrett - 2622 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 2622 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2622, 8925, 0, 0);
+
+
+/* NPC Old Man Heming - 2626 */
+/* Add Missing Vanilla item Expert Fishing - The Bass and You */
+DELETE FROM `npc_vendor` WHERE `entry` = 2626 AND `item` = 16083;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2626, 16083, 0, 0);
+
+
+/* NPC Kelsey Yance - 2664 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 2664 AND `item` = 30817;
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2664 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2664, 3713, 0, 0);
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2664 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2664, 2692, 0, 0);
+
+
+/* NPC Danielle Zipstitch - 2668 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2668 AND `item` = 38426;
+
+
+/* NPC Sheri Zipstitch - 2669 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2669 AND `item` = 38426;
+
+
+/* NPC Xizk Goodstitch - 2670 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2670 AND `item` = 38426;
+
+
+/* NPC Cowardly Crosby - 2672 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2672 AND `item` = 38426;
+
+
+/* NPC Fradd Swiftgear - 2682 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 2682 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 2682 AND `item` = 40533;
+
+
+/* NPC Rizz Loosebolt - 2684 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 2684 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 2684 AND `item` = 40533;
+
+
+/* NPC Mazk Snipeshot - 2685 */
+/* Remove non-Vanilla item Small Ammo Pouch */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 2102;
+/* Remove non-Vanilla item Light Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 2516;
+/* Remove non-Vanilla item Heavy Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 2519;
+/* Remove non-Vanilla item Solid Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 3033;
+/* Remove non-Vanilla item Accurate Slugs */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 11284;
+/* Remove non-Vanilla item Medium Shot Pouch */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 11363;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 28060;
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 2685 AND `item` = 40533;
+
+
+/* NPC Ruppo Zipcoil - 2688 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 2688 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 2688 AND `item` = 40533;
+
+
+/* NPC Clyde Ranthal - 2697 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2697 AND `item` = 38426;
+
+
+/* NPC George Candarte - 2698 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2698 AND `item` = 38426;
+
+
+/* NPC Rikqiz - 2699 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2699 AND `item` = 38426;
+
+
+/* NPC Malygen - 2803 */
+/* Remove non-Vanilla item Forest Mushroom Cap */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 4604;
+/* Remove non-Vanilla item Red-speckled Mushroom */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 4605;
+/* Remove non-Vanilla item Spongy Morel */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 4606;
+/* Remove non-Vanilla item Delicious Cave Mold */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 4607;
+/* Remove non-Vanilla item Raw Black Truffle */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 4608;
+/* Remove non-Vanilla item Morning Glory Dew */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 8766;
+/* Remove non-Vanilla item Dried King Bolete */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 8948;
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2803 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2803, 4471, 0, 0);
+
+
+/* NPC Deneb Walker - 2805 */
+/* Add Missing Vanilla item Expert First Aid - Under Wraps */
+DELETE FROM `npc_vendor` WHERE `entry` = 2805 AND `item` = 16084;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2805, 16084, 0, 0);
+/* Add Missing Vanilla item Manual: Heavy Silk Bandage */
+DELETE FROM `npc_vendor` WHERE `entry` = 2805 AND `item` = 16112;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2805, 16112, 0, 0);
+/* Add Missing Vanilla item Manual: Mageweave Bandage */
+DELETE FROM `npc_vendor` WHERE `entry` = 2805 AND `item` = 16113;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2805, 16113, 0, 0);
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 2805 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2805, 17019, 0, 0);
+
+
+/* NPC Bale - 2806 */
+/* Remove non-Vanilla item Forest Mushroom Cap */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 4604;
+/* Remove non-Vanilla item Red-speckled Mushroom */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 4605;
+/* Remove non-Vanilla item Spongy Morel */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 4606;
+/* Remove non-Vanilla item Delicious Cave Mold */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 4607;
+/* Remove non-Vanilla item Raw Black Truffle */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 4608;
+/* Remove non-Vanilla item Morning Glory Dew */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 8766;
+/* Remove non-Vanilla item Dried King Bolete */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 8948;
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2806 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2806, 4471, 0, 0);
+
+
+/* NPC Vikki Lonsav - 2808 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 2808 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2808 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2808 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2808, 4471, 0, 0);
+
+
+/* NPC Hammon Karwn - 2810 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 2810 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2810 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 2810 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2810 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2810, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 2810 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2810, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2810 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2810, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 2810 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2810, 3777, 0, 0);
+
+
+/* NPC Androd Fadran - 2816 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2816 AND `item` = 38426;
+
+
+/* NPC Tunkk - 2819 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2819 AND `item` = 38426;
+
+
+/* NPC Graud - 2820 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 2820 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2820 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2820 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2820, 4471, 0, 0);
+
+
+/* NPC Keena - 2821 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 2821 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2821 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 2821 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2821 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2821, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 2821 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2821, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2821 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2821, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 2821 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2821, 3777, 0, 0);
+
+
+/* NPC Burkrum - 6028 */
+/* Remove non-Vanilla item Small Ammo Pouch */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2102;
+/* Remove non-Vanilla item Rough Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2512;
+/* Remove non-Vanilla item Sharp Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2515;
+/* Remove non-Vanilla item Light Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2516;
+/* Remove non-Vanilla item Heavy Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2519;
+/* Remove non-Vanilla item Razor Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 3030;
+/* Remove non-Vanilla item Solid Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 3033;
+/* Remove non-Vanilla item Small Quiver */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 5439;
+/* Remove non-Vanilla item Accurate Slugs */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 11284;
+/* Remove non-Vanilla item Jagged Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 11285;
+/* Remove non-Vanilla item Medium Quiver */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 11362;
+/* Remove non-Vanilla item Medium Shot Pouch */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 11363;
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 28060;
+/* Add Missing Vanilla item Augmented Chain Leggings */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2418;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 2418, 0, 0);
+/* Add Missing Vanilla item Augmented Chain Vest */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2417;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 2417, 0, 0);
+/* Add Missing Vanilla item Metal Buckler */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 17189;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 17189, 0, 0);
+/* Add Missing Vanilla item Augmented Chain Helm */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 3891;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 3891, 0, 0);
+/* Add Missing Vanilla item Heavy Pavise */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2448;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 2448, 0, 0);
+/* Add Missing Vanilla item Augmented Chain Gloves */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2422;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 2422, 0, 0);
+/* Add Missing Vanilla item Augmented Chain Bracers */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2421;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 2421, 0, 0);
+/* Add Missing Vanilla item Augmented Chain Boots */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2420;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 2420, 0, 0);
+/* Add Missing Vanilla item Augmented Chain Belt */
+DELETE FROM `npc_vendor` WHERE `entry` = 6028 AND `item` = 2419;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6028, 2419, 0, 0);
+
+
+/* NPC Haren Kanmae - 2839 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 2839 AND `item` = 28053;
+
+
+/* NPC Blixrez Goodstitch - 2846 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 2846 AND `item` = 38426;
+
+
+/* NPC Grawl - 2908 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 2908 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 2908 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 2908 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2908, 4471, 0, 0);
+
+
+/* NPC Nardstrum Copperpinch - 13429 */
+/* Add Missing Vanilla item Fake Mistletoe */
+DELETE FROM `npc_vendor` WHERE `entry` = 13429 AND `item` = 17195;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13429, 17195, 0, 0);
+
+
+/* NPC Nan Mistrunner - 3017 */
+/* Remove non-Vanilla item Skethyl Berries */
+DELETE FROM `npc_vendor` WHERE `entry` = 3017 AND `item` = 27856;
+/* Remove non-Vanilla item Savory Snowplum */
+DELETE FROM `npc_vendor` WHERE `entry` = 3017 AND `item` = 35948;
+/* Remove non-Vanilla item Tundra Berries */
+DELETE FROM `npc_vendor` WHERE `entry` = 3017 AND `item` = 35949;
+
+
+/* NPC Naal Mistrunner - 3027 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3027 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3027, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3027 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3027, 3713, 0, 0);
+
+
+/* NPC Moorat Longstride - 3076 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3076 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3076, 4471, 0, 0);
+
+
+/* NPC Gloria Femmel - 3085 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 3085 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3085 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3085, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3085 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3085, 3713, 0, 0);
+
+
+/* NPC Gerald Crawley - 3090 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3090 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3090, 8925, 0, 0);
+
+
+/* NPC Franklin Hamar - 3091 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 3091 AND `item` = 38426;
+
+
+/* NPC Captured Servant of Azora - 3096 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 3096 AND `item` = 38426;
+
+
+/* NPC Herble Baubbletump - 3133 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 3133 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 3133 AND `item` = 40533;
+
+
+/* NPC Malissa - 3135 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3135 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3135, 8925, 0, 0);
+
+
+/* NPC Jark - 3164 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3164 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3164, 4471, 0, 0);
+
+
+/* NPC K'waii - 3186 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3186 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3186, 4471, 0, 0);
+
+
+/* NPC Trak'gen - 3313 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3313 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3313, 4471, 0, 0);
+
+
+/* NPC Horthus - 3323 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 3323 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3323, 17019, 0, 0);
+
+
+/* NPC Rekkul - 3334 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3334 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3334, 8925, 0, 0);
+
+
+/* NPC Hagrus - 3335 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 3335 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3335, 17019, 0, 0);
+
+
+/* NPC Asoran - 3350 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3350 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3350, 4471, 0, 0);
+
+
+/* NPC Magenius - 3351 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 3351 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3351, 17019, 0, 0);
+
+
+/* NPC Ogunaro Wolfrunner - 3362 */
+/* Add Missing Vanilla item Horn of the Red Wolf */
+DELETE FROM `npc_vendor` WHERE `entry` = 3362 AND `item` = 12330;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3362, 12330, 0, 0);
+/* Add Missing Vanilla item Horn of the Arctic Wolf */
+DELETE FROM `npc_vendor` WHERE `entry` = 3362 AND `item` = 12351;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3362, 12351, 0, 0);
+
+
+/* NPC Felika - 3367 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3367 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3367, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3367 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3367, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3367 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3367, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3367 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3367, 3777, 0, 0);
+
+
+/* NPC Xen'to - 3400 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3400 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3400, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3400 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3400, 3713, 0, 0);
+
+
+/* NPC Zeal'aya - 3405 */
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3405 AND `item` = 18256;
+
+
+/* NPC Barg - 3481 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3481 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3481, 4471, 0, 0);
+
+
+/* NPC Tari'qa - 3482 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3482 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3482, 2692, 0, 0);
+
+
+/* NPC Hula'mahi - 3490 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 8924, 0, 0);
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 3490 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3490, 17019, 0, 0);
+
+
+/* NPC Jazzik - 3498 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3498 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3498, 4471, 0, 0);
+
+
+/* NPC Ranik - 3499 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3499 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3499, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3499 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3499, 2928, 0, 0);
+
+
+/* NPC Sarah Raycroft - 3541 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 3541 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 3541 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3541 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3541, 4471, 0, 0);
+
+
+/* NPC Jaysin Lanyda - 3542 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 8925, 0, 0);
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 3542 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3542, 17019, 0, 0);
+
+
+/* NPC Patrice Dwyer - 3551 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 8925, 0, 0);
+
+
+/* NPC Andrew Hilbert - 3556 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3556 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3556, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3556 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3556, 2928, 0, 0);
+
+
+/* NPC Kyrai - 3561 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3561 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3561, 8925, 0, 0);
+
+
+/* NPC Alaindia - 3562 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 3562 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3562, 17019, 0, 0);
+
+
+/* NPC Aldia - 3608 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3608 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3608, 4471, 0, 0);
+
+
+/* NPC Narret Shadowgrove - 3614 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 3614 AND `item` = 30817;
+
+
+/* NPC Harb Clawhoof - 3685 */
+/* Add Missing Vanilla item Teal Kodo */
+DELETE FROM `npc_vendor` WHERE `entry` = 3685 AND `item` = 15293;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3685, 15293, 0, 0);
+/* Add Missing Vanilla item Green Kodo */
+DELETE FROM `npc_vendor` WHERE `entry` = 3685 AND `item` = 15292;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3685, 15292, 0, 0);
+
+
+/* NPC Syurana - 3779 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 3779 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 3779 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3779 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3779 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3779, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3779 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3779, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3779 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3779, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3779 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3779, 3777, 0, 0);
+
+
+/* NPC Dalria - 3954 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 3954 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 3954 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3954 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3954 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3954, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3954 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3954, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3954 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3954, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3954 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3954, 3777, 0, 0);
+
+
+/* NPC Shandrina - 3955 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 3955 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 3955 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3955 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3955 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3955, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3955 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3955, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 3955 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3955, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3955 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3955, 3777, 0, 0);
+/* Add Missing Vanilla item Expert Cookbook */
+DELETE FROM `npc_vendor` WHERE `entry` = 3955 AND `item` = 16072;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3955, 16072, 0, 0);
+
+
+/* NPC Lardan - 3958 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 3958 AND `item` = 38426;
+
+
+/* NPC Maliynn - 3961 */
+/* Add Missing Vanilla item Shinsollo */
+DELETE FROM `npc_vendor` WHERE `entry` = 3961 AND `item` = 16171;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3961, 16171, 0, 0);
+
+
+/* NPC Haljan Oakheart - 3962 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3962 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3962, 4471, 0, 0);
+
+
+/* NPC Fahran Silentblade - 3969 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 3969 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3969, 8925, 0, 0);
+
+
+/* NPC Llana - 3970 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 3970 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3970, 17019, 0, 0);
+
+
+/* NPC Grawnal - 4082 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 4082 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4082, 4471, 0, 0);
+
+
+/* NPC Jeeda - 4083 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 4083 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4083, 17019, 0, 0);
+
+
+/* NPC Chylina - 4084 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 4084 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4084, 4471, 0, 0);
+
+
+/* NPC Shadi Mistrunner - 8363 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 18256;
+/* Add Missing Vanilla item Bleach */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 2324;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8363, 2324, 0, 0);
+/* Add Missing Vanilla item Green Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 2605;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8363, 2605, 0, 0);
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8363, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8363, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8363, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8363, 3777, 0, 0);
+/* Add Missing Vanilla item Shiny Bauble */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 6529;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8363, 6529, 0, 0);
+/* Add Missing Vanilla item Blue Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 8363 AND `item` = 6260;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8363, 6260, 0, 0);
+
+
+/* NPC Elynna - 4168 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4168 AND `item` = 38426;
+
+
+/* NPC Jaeana - 4169 */
+/* Remove non-Vanilla item Smoked Talbuk Venison */
+DELETE FROM `npc_vendor` WHERE `entry` = 4169 AND `item` = 27854;
+/* Remove non-Vanilla item Filtered Draenic Water */
+DELETE FROM `npc_vendor` WHERE `entry` = 4169 AND `item` = 28399;
+/* Remove non-Vanilla item Pungent Seal Whey */
+DELETE FROM `npc_vendor` WHERE `entry` = 4169 AND `item` = 33444;
+/* Remove non-Vanilla item Honeymint Tea */
+DELETE FROM `npc_vendor` WHERE `entry` = 4169 AND `item` = 33445;
+/* Remove non-Vanilla item Salted Venison */
+DELETE FROM `npc_vendor` WHERE `entry` = 4169 AND `item` = 33454;
+/* Remove non-Vanilla item Mead Basted Caribou */
+DELETE FROM `npc_vendor` WHERE `entry` = 4169 AND `item` = 35953;
+/* Remove non-Vanilla item Sweetened Goat's Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 4169 AND `item` = 35954;
+
+
+/* NPC Ellandrieth - 4170 */
+/* Remove non-Vanilla item Moonberry Juice */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 1645;
+/* Remove non-Vanilla item Sweet Nectar */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 1708;
+/* Remove non-Vanilla item Accurate Slugs */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 11284;
+/* Remove non-Vanilla item Jagged Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 11285;
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4170, 4471, 0, 0);
+/* Add Missing Vanilla item Ice Cold Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 1179;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4170, 1179, 0, 0);
+/* Add Missing Vanilla item Blue Ribboned Wrapping Paper */
+DELETE FROM `npc_vendor` WHERE `entry` = 4170 AND `item` = 5048;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4170, 5048, 0, 0);
+
+
+/* NPC Landria - 4173 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4173 AND `item` = 28053;
+
+
+/* NPC Dalmond - 4182 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 4182 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4182, 4471, 0, 0);
+
+
+/* NPC Valdaron - 4189 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4189 AND `item` = 38426;
+
+
+/* NPC Allyndia - 4191 */
+/* Remove non-Vanilla item Shiny Red Apple */
+DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4536;
+/* Remove non-Vanilla item Tel'Abim Banana */
+DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4537;
+/* Remove non-Vanilla item Snapvine Watermelon */
+DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4538;
+/* Remove non-Vanilla item Goldenbark Apple */
+DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4539;
+/* Remove non-Vanilla item Moon Harvest Pumpkin */
+DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4602;
+/* Remove non-Vanilla item Deep Fried Plantains */
+DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 8953;
+
+
+/* NPC Ullanna - 4194 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4194 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4194, 2692, 0, 0);
+
+
+/* NPC Chardryn - 4216 */
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4216 AND `item` = 18256;
+
+
+/* NPC Cyroen - 4220 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 4220 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4220, 17019, 0, 0);
+
+
+/* NPC Talaelar - 4221 */
+/* Remove non-Vanilla item Sunspring Carp */
+DELETE FROM `npc_vendor` WHERE `entry` = 4221 AND `item` = 27858;
+/* Remove non-Vanilla item Fillet of Icefin */
+DELETE FROM `npc_vendor` WHERE `entry` = 4221 AND `item` = 33451;
+/* Remove non-Vanilla item Poached Emperor Salmon */
+DELETE FROM `npc_vendor` WHERE `entry` = 4221 AND `item` = 35951;
+
+
+/* NPC Fyldan - 4223 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 4223 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4223 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4223, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4223 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4223, 3713, 0, 0);
+
+
+/* NPC Saenorion - 4225 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4225 AND `item` = 38426;
+
+
+/* NPC Mythrin'dir - 4229 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 18256;
+/* Add Missing Vanilla item Shiny Bauble */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 6529;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4229, 6529, 0, 0);
+/* Add Missing Vanilla item Bleach */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 2324;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4229, 2324, 0, 0);
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4229, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4229, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4229, 3713, 0, 0);
+/* Add Missing Vanilla item Blue Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 6260;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4229, 6260, 0, 0);
+/* Add Missing Vanilla item Green Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 2605;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4229, 2605, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 4229 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4229, 3777, 0, 0);
+
+
+/* NPC Vaean - 4228 */
+/* Add Missing Vanilla item Formula: Enchant Chest - Minor Mana */
+DELETE FROM `npc_vendor` WHERE `entry` = 4228 AND `item` = 6342;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4228, 6342, 1, 1800);
+
+
+/* NPC Mydrannul - 4241 */
+/* Remove non-Vanilla item Melon Juice */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 1205;
+/* Remove non-Vanilla item Moonberry Juice */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 1645;
+/* Remove non-Vanilla item Sweet Nectar */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 1708;
+/* Remove non-Vanilla item Razor Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 3030;
+/* Remove non-Vanilla item Solid Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 3033;
+/* Remove non-Vanilla item Heavy Brown Bag */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 4497;
+/* Remove non-Vanilla item Accurate Slugs */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 11284;
+/* Remove non-Vanilla item Jagged Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 11285;
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 28060;
+/* Add Missing Vanilla item Ice Cold Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 1179;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4241, 1179, 0, 0);
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 4241 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4241, 4471, 0, 0);
+
+
+/* NPC Nyoma - 4265 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 4265 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4265 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4265, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4265 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4265, 3713, 0, 0);
+
+
+/* NPC Ronald Burch - 4553 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 4553 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4553 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4553, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4553 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4553, 3713, 0, 0);
+
+
+/* NPC Tawny Grisette - 4554 */
+/* Remove non-Vanilla item Zangar Caps */
+DELETE FROM `npc_vendor` WHERE `entry` = 4554 AND `item` = 27859;
+/* Remove non-Vanilla item Filtered Draenic Water */
+DELETE FROM `npc_vendor` WHERE `entry` = 4554 AND `item` = 28399;
+/* Remove non-Vanilla item Pungent Seal Whey */
+DELETE FROM `npc_vendor` WHERE `entry` = 4554 AND `item` = 33444;
+/* Remove non-Vanilla item Honeymint Tea */
+DELETE FROM `npc_vendor` WHERE `entry` = 4554 AND `item` = 33445;
+/* Remove non-Vanilla item Honey-Spiced Lichen */
+DELETE FROM `npc_vendor` WHERE `entry` = 4554 AND `item` = 33452;
+/* Remove non-Vanilla item Sparkling Frostcap */
+DELETE FROM `npc_vendor` WHERE `entry` = 4554 AND `item` = 35947;
+/* Remove non-Vanilla item Sweetened Goat's Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 4554 AND `item` = 35954;
+
+
+/* NPC Daniel Bartlett - 4561 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 3713, 0, 0);
+/* Add Missing Vanilla item Shiny Bauble */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 6529;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 6529, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 3777, 0, 0);
+
+
+/* NPC Thomas Mordan - 4562 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 4562 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4562, 17019, 0, 0);
+
+
+/* NPC Morley Bates - 4571 */
+/* Remove non-Vanilla item Zangar Caps */
+DELETE FROM `npc_vendor` WHERE `entry` = 4571 AND `item` = 27859;
+/* Remove non-Vanilla item Filtered Draenic Water */
+DELETE FROM `npc_vendor` WHERE `entry` = 4571 AND `item` = 28399;
+/* Remove non-Vanilla item Pungent Seal Whey */
+DELETE FROM `npc_vendor` WHERE `entry` = 4571 AND `item` = 33444;
+/* Remove non-Vanilla item Honeymint Tea */
+DELETE FROM `npc_vendor` WHERE `entry` = 4571 AND `item` = 33445;
+/* Remove non-Vanilla item Honey-Spiced Lichen */
+DELETE FROM `npc_vendor` WHERE `entry` = 4571 AND `item` = 33452;
+/* Remove non-Vanilla item Sparkling Frostcap */
+DELETE FROM `npc_vendor` WHERE `entry` = 4571 AND `item` = 35947;
+/* Remove non-Vanilla item Sweetened Goat's Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 4571 AND `item` = 35954;
+
+
+/* NPC Hannah Akeley - 4575 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 4575 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4575, 17019, 0, 0);
+
+
+/* NPC Millie Gregorian - 4577 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4577 AND `item` = 38426;
+
+
+/* NPC Ezekiel Graves - 4585 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 8925, 0, 0);
+
+
+/* NPC Elizabeth Van Talen - 4587 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 4587 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 4587 AND `item` = 40533;
+
+
+/* NPC Joseph Moore - 4589 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4589 AND `item` = 38426;
+
+
+/* NPC Abigail Sawyer - 4604 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4604 AND `item` = 28053;
+
+
+/* NPC Katrina Alliestar - 4615 */
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4615 AND `item` = 18256;
+
+
+/* NPC Thaddeus Webb - 4617 */
+/* Add Missing Vanilla item Formula: Enchant Chest - Minor Mana */
+DELETE FROM `npc_vendor` WHERE `entry` = 4617 AND `item` = 6342;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4617, 6342, 1, 7200);
+
+
+/* NPC Lelanai - 4730 */
+/* Add Missing Vanilla item Reins of the Ancient Frostsaber */
+DELETE FROM `npc_vendor` WHERE `entry` = 4730 AND `item` = 12302;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4730, 12302, 0, 0);
+/* Add Missing Vanilla item Reins of the Nightsaber */
+DELETE FROM `npc_vendor` WHERE `entry` = 4730 AND `item` = 12303;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4730, 12303, 0, 0);
+
+
+/* NPC Felicia Doan - 4775 */
+/* Remove non-Vanilla item Black Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 2325;
+/* Remove non-Vanilla item Gray Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 4340;
+/* Remove non-Vanilla item Yellow Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 4341;
+/* Remove non-Vanilla item Purple Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 4342;
+/* Remove non-Vanilla item Heavy Silken Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 8343;
+/* Remove non-Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 8925;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4775, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4775, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4775, 3713, 0, 0);
+/* Add Missing Vanilla item Bleach */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 2324;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4775, 2324, 0, 0);
+/* Add Missing Vanilla item Blue Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 6260;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4775, 6260, 0, 0);
+/* Add Missing Vanilla item Shiny Bauble */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 6529;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4775, 6529, 0, 0);
+/* Add Missing Vanilla item Green Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4775 AND `item` = 2605;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4775, 2605, 0, 0);
+
+
+/* NPC Jawn Highmesa - 4876 */
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 4876 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4876, 4471, 0, 0);
+
+
+/* NPC Jandia - 4877 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4877 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4877, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4877 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4877, 3713, 0, 0);
+
+
+/* NPC Montarr - 4878 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 4878 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4878, 17019, 0, 0);
+
+
+/* NPC Gregor MacVince - 4885 */
+/* Add Missing Vanilla item White Stallion Bridle */
+DELETE FROM `npc_vendor` WHERE `entry` = 4885 AND `item` = 12353;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4885, 12353, 0, 0);
+/* Add Missing Vanilla item Palomino Bridle */
+DELETE FROM `npc_vendor` WHERE `entry` = 4885 AND `item` = 12354;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4885, 12354, 0, 0);
+
+
+/* NPC Mishta - 15179 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 15179 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 15179 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 15179 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 15179 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15179, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 15179 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15179, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 15179 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15179, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 15179 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15179, 3777, 0, 0);
+
+
+/* NPC Piter Verance - 4890 */
+/* Remove non-Vanilla item Augmented Chain Boots */
+DELETE FROM `npc_vendor` WHERE `entry` = 4890 AND `item` = 2420;
+/* Remove non-Vanilla item Brigandine Boots */
+DELETE FROM `npc_vendor` WHERE `entry` = 4890 AND `item` = 2426;
+/* Remove non-Vanilla item Russet Boots */
+DELETE FROM `npc_vendor` WHERE `entry` = 4890 AND `item` = 2432;
+/* Remove non-Vanilla item Embroidered Boots */
+DELETE FROM `npc_vendor` WHERE `entry` = 4890 AND `item` = 2438;
+/* Remove non-Vanilla item Studded Boots */
+DELETE FROM `npc_vendor` WHERE `entry` = 4890 AND `item` = 2467;
+/* Remove non-Vanilla item Reinforced Leather Boots */
+DELETE FROM `npc_vendor` WHERE `entry` = 4890 AND `item` = 2473;
+/* Add Missing Vanilla item Glorious Shoulders */
+DELETE FROM `npc_vendor` WHERE `entry` = 4890 AND `item` = 4833;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4890, 4833, 1, 43200);
+/* Add Missing Vanilla item Elite Shoulders */
+DELETE FROM `npc_vendor` WHERE `entry` = 4890 AND `item` = 4835;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4890, 4835, 1, 43200);
+
+
+/* NPC Jensen Farran - 4892 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4892 AND `item` = 28053;
+
+
+/* NPC Charity Mipsy - 4896 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 4896 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 4896 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 4896 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4896, 4471, 0, 0);
+
+
+/* NPC Helenia Olden - 4897 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 4897 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4897 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 4897 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4897 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4897, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 4897 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4897, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 4897 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4897, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 4897 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4897, 3777, 0, 0);
+
+
+/* NPC Balai Lok'Wein - 13476 */
+/* Add Missing Vanilla item Manual: Mageweave Bandage */
+DELETE FROM `npc_vendor` WHERE `entry` = 13476 AND `item` = 16113;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13476, 16113, 0, 0);
+/* Add Missing Vanilla item Manual: Heavy Silk Bandage */
+DELETE FROM `npc_vendor` WHERE `entry` = 13476 AND `item` = 16112;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13476, 16112, 0, 0);
+/* Add Missing Vanilla item Expert First Aid - Under Wraps */
+DELETE FROM `npc_vendor` WHERE `entry` = 13476 AND `item` = 16084;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13476, 16084, 0, 0);
+
+
+/* NPC Uma Bartulm - 4899 */
+/* Remove non-Vanilla item Greater Healing Potion */
+DELETE FROM `npc_vendor` WHERE `entry` = 4899 AND `item` = 1710;
+/* Remove non-Vanilla item Mana Potion */
+DELETE FROM `npc_vendor` WHERE `entry` = 4899 AND `item` = 3827;
+
+
+/* NPC Namdo Bizzfizzle - 2683 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 2683 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 2683 AND `item` = 40533;
+
+
+/* NPC Fillius Fizzlespinner - 5100 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5100 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5100, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5100 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5100, 3713, 0, 0);
+
+
+/* NPC Bryllia Ironbrand - 5101 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 5101 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 5101 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 5101 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5101, 4471, 0, 0);
+
+
+/* NPC Barim Jurgenstaad - 5110 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 5110 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5110, 17019, 0, 0);
+
+
+/* NPC Innkeeper Firebrew - 5111 */
+/* Remove non-Vanilla item Smoked Talbuk Venison */
+DELETE FROM `npc_vendor` WHERE `entry` = 5111 AND `item` = 27854;
+/* Remove non-Vanilla item Filtered Draenic Water */
+DELETE FROM `npc_vendor` WHERE `entry` = 5111 AND `item` = 28399;
+/* Remove non-Vanilla item Pungent Seal Whey */
+DELETE FROM `npc_vendor` WHERE `entry` = 5111 AND `item` = 33444;
+/* Remove non-Vanilla item Honeymint Tea */
+DELETE FROM `npc_vendor` WHERE `entry` = 5111 AND `item` = 33445;
+/* Remove non-Vanilla item Salted Venison */
+DELETE FROM `npc_vendor` WHERE `entry` = 5111 AND `item` = 33454;
+/* Remove non-Vanilla item Mead Basted Caribou */
+DELETE FROM `npc_vendor` WHERE `entry` = 5111 AND `item` = 35953;
+/* Remove non-Vanilla item Sweetened Goat's Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 5111 AND `item` = 35954;
+
+
+/* NPC Skolmin Goldfury - 5122 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 5122 AND `item` = 28053;
+
+
+/* NPC Sognar Cliffbeard - 5124 */
+/* Remove non-Vanilla item Smoked Talbuk Venison */
+DELETE FROM `npc_vendor` WHERE `entry` = 5124 AND `item` = 27854;
+/* Remove non-Vanilla item Salted Venison */
+DELETE FROM `npc_vendor` WHERE `entry` = 5124 AND `item` = 33454;
+/* Remove non-Vanilla item Mead Basted Caribou */
+DELETE FROM `npc_vendor` WHERE `entry` = 5124 AND `item` = 35953;
+
+
+/* NPC Bombus Finespindle - 5128 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 5128 AND `item` = 38426;
+
+
+/* NPC Gwina Stonebranch - 5138 */
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5138 AND `item` = 18256;
+/* Add Missing Vanilla item Copper Rod */
+DELETE FROM `npc_vendor` WHERE `entry` = 5138 AND `item` = 6217;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5138, 6217, 0, 0);
+
+
+/* NPC Ginny Longberry - 5151 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 5151 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5151, 17019, 0, 0);
+
+
+/* NPC Poranna Snowbraid - 5154 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 5154 AND `item` = 38426;
+
+
+/* NPC Tilli Thistlefuzz - 5158 */
+/* Add Missing Vanilla item Formula: Enchant Chest - Minor Mana */
+DELETE FROM `npc_vendor` WHERE `entry` = 5158 AND `item` = 6342;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5158, 6342, 1, 7200);
+
+
+/* NPC Emrul Riknussun - 5160 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 5160 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5160 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5160, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5160 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5160, 3713, 0, 0);
+
+
+/* NPC Burbik Gearspanner - 5163 */
+/* Remove non-Vanilla item Black Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 2325;
+/* Remove non-Vanilla item Red Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 2604;
+/* Remove non-Vanilla item Gray Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 4340;
+/* Remove non-Vanilla item Yellow Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 4341;
+/* Remove non-Vanilla item Purple Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 4342;
+/* Remove non-Vanilla item Fishing Pole */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 6256;
+/* Remove non-Vanilla item Skinning Knife */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 7005;
+/* Remove non-Vanilla item Heavy Silken Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 8343;
+/* Remove non-Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 8925;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 18256;
+/* Add Missing Vanilla item Bleach */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 2324;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5163, 2324, 0, 0);
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5163, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5163 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5163, 3713, 0, 0);
+
+
+/* NPC Tynnus Venomsprout - 5169 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5169 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5169, 8925, 0, 0);
+
+
+/* NPC Gearcutter Cogspinner - 5175 */
+/* Remove non-Vanilla item Schematic: Steam Tonk Controller */
+DELETE FROM `npc_vendor` WHERE `entry` = 5175 AND `item` = 22729;
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 5175 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 5175 AND `item` = 40533;
+
+
+/* NPC Erika Tate - 5483 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 5483 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5483 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5483, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5483 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5483, 3713, 0, 0);
+
+
+/* NPC Lilly - 5757 */
+/* Add Missing Vanilla item Formula: Enchant Chest - Minor Mana */
+DELETE FROM `npc_vendor` WHERE `entry` = 5757 AND `item` = 6342;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5757, 6342, 1, 7200);
+
+
+/* NPC Leo Sarn - 5758 */
+/* Add Missing Vanilla item Formula: Enchant Chest - Minor Mana */
+DELETE FROM `npc_vendor` WHERE `entry` = 5758 AND `item` = 6342;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5758, 6342, 1, 7200);
+
+
+/* NPC Innkeeper Thulbek - 5814 */
+/* Add Missing Vanilla item Hunter's Boomstick */
+DELETE FROM `npc_vendor` WHERE `entry` = 5814 AND `item` = 2511;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5814, 2511, 0, 0);
+
+
+/* NPC Shimra - 5817 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5817 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5817, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 5817 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5817, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5817 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5817, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 5817 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5817, 3777, 0, 0);
+
+
+/* NPC Gorbold Steelhand - 6301 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 6301 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 6301 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 6301 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6301, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 6301 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6301, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 6301 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6301, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 6301 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6301, 3777, 0, 0);
+
+
+/* NPC Ghok'kah - 6567 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 6567 AND `item` = 38426;
+
+
+/* NPC Vizzklick - 6568 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 6568 AND `item` = 38426;
+
+
+/* NPC Jun'ha - 6574 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 6574 AND `item` = 38426;
+
+
+/* NPC Brienna Starglow - 6576 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 6576 AND `item` = 38426;
+
+
+/* NPC Jinky Twizzlefixxit - 6730 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 6730 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 6730 AND `item` = 40533;
+
+
+/* NPC Harlown Darkweave - 6731 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 6731 AND `item` = 38426;
+
+
+/* NPC Innkeeper Saelienne - 6735 */
+/* Remove non-Vanilla item Skethyl Berries */
+DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 27856;
+/* Remove non-Vanilla item Filtered Draenic Water */
+DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 28399;
+/* Remove non-Vanilla item Pungent Seal Whey */
+DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 33444;
+/* Remove non-Vanilla item Honeymint Tea */
+DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 33445;
+/* Remove non-Vanilla item Savory Snowplum */
+DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 35948;
+/* Remove non-Vanilla item Tundra Berries */
+DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 35949;
+/* Remove non-Vanilla item Sweetened Goat's Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 35954;
+
+
+/* NPC Innkeeper Norman - 6741 */
+/* Remove non-Vanilla item Zangar Caps */
+DELETE FROM `npc_vendor` WHERE `entry` = 6741 AND `item` = 27859;
+/* Remove non-Vanilla item Filtered Draenic Water */
+DELETE FROM `npc_vendor` WHERE `entry` = 6741 AND `item` = 28399;
+/* Remove non-Vanilla item Pungent Seal Whey */
+DELETE FROM `npc_vendor` WHERE `entry` = 6741 AND `item` = 33444;
+/* Remove non-Vanilla item Honeymint Tea */
+DELETE FROM `npc_vendor` WHERE `entry` = 6741 AND `item` = 33445;
+/* Remove non-Vanilla item Honey-Spiced Lichen */
+DELETE FROM `npc_vendor` WHERE `entry` = 6741 AND `item` = 33452;
+/* Remove non-Vanilla item Sparkling Frostcap */
+DELETE FROM `npc_vendor` WHERE `entry` = 6741 AND `item` = 35947;
+/* Remove non-Vanilla item Sweetened Goat's Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 6741 AND `item` = 35954;
+
+
+/* NPC Zan Shivsproket - 6777 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 6777 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 6777 AND `item` = 40533;
+
+
+/* NPC Smudge Thunderwood - 6779 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 6779 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6779, 8925, 0, 0);
+
+
+/* NPC Caretaker Alen - 11038 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 11038 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 11038 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 11038 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11038, 4471, 0, 0);
+
+
+/* NPC Yuka Screwspigot - 9544 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 9544 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 9544 AND `item` = 40533;
+
+
+/* NPC Master Smith Burninate - 14624 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 14624 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 14624 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 14624 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14624, 4471, 0, 0);
+
+
+/* NPC Pratt McGrubben - 7852 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 7852 AND `item` = 38426;
+
+
+/* NPC Jangdor Swiftstrider - 7854 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 7854 AND `item` = 38426;
+
+
+/* NPC Darnall - 7940 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 7940 AND `item` = 38426;
+
+
+/* NPC Faralorn - 7942 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 7942 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 7942 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 7942 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7942, 4471, 0, 0);
+
+
+/* NPC Vivianna - 7947 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 7947 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 7947 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 7947 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7947, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 7947 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7947, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 7947 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7947, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 7947 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7947, 3777, 0, 0);
+
+
+/* NPC Zjolnir - 7952 */
+/* Add Missing Vanilla item Whistle of the Mottled Red Raptor */
+DELETE FROM `npc_vendor` WHERE `entry` = 7952 AND `item` = 8586;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7952, 8586, 0, 0);
+/* Add Missing Vanilla item Whistle of the Ivory Raptor */
+DELETE FROM `npc_vendor` WHERE `entry` = 7952 AND `item` = 13317;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7952, 13317, 0, 0);
+
+
+/* NPC Milli Featherwhistle - 7955 */
+/* Add Missing Vanilla item White Mechanostrider Mod B */
+DELETE FROM `npc_vendor` WHERE `entry` = 7955 AND `item` = 13326;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7955, 13326, 0, 0);
+/* Add Missing Vanilla item Icy Blue Mechanostrider Mod A */
+DELETE FROM `npc_vendor` WHERE `entry` = 7955 AND `item` = 13327;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (7955, 13327, 0, 0);
+
+
+/* NPC Bimble Longberry - 7978 */
+/* Remove non-Vanilla item Skethyl Berries */
+DELETE FROM `npc_vendor` WHERE `entry` = 7978 AND `item` = 27856;
+/* Remove non-Vanilla item Savory Snowplum */
+DELETE FROM `npc_vendor` WHERE `entry` = 7978 AND `item` = 35948;
+/* Remove non-Vanilla item Tundra Berries */
+DELETE FROM `npc_vendor` WHERE `entry` = 7978 AND `item` = 35949;
+
+
+/* NPC Blizrik Buckshot - 8131 */
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 8131 AND `item` = 28060;
+
+
+/* NPC Jabbey - 8139 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 8139 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 8139 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 8139 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8139, 4471, 0, 0);
+
+
+/* NPC Sheendra Tallgrass - 8145 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 8145 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 8145 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 8145 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8145, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 8145 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8145, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 8145 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8145, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 8145 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8145, 3777, 0, 0);
+
+
+/* NPC Calandrath - 15174 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 15174 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 15174 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 15174 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15174, 4471, 0, 0);
+
+
+/* NPC Nioma - 8160 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 8160 AND `item` = 38426;
+
+
+/* NPC Tarban Hearthgrain - 8307 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 8307 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8307, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 8307 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8307, 3713, 0, 0);
+
+
+/* NPC Chepi - 8361 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 8361 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8361, 17019, 0, 0);
+
+
+/* NPC Kuruk - 8362 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 8362 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 8362 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 8362 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8362, 4471, 0, 0);
+
+
+/* NPC Jubie Gadgetspring - 8678 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 8678 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 8678 AND `item` = 40533;
+
+
+/* NPC Outfitter Eric - 8681 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 8681 AND `item` = 38426;
+
+
+/* NPC Christopher Hewen - 8934 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 8934 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8934, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 8934 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8934, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 8934 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8934, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 8934 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (8934, 3777, 0, 0);
+
+
+/* NPC Cawind Trueaim - 9548 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 9548 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 9548 AND `item` = 28060;
+
+
+/* NPC Starn - 9551 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 9551 AND `item` = 28053;
+
+
+/* NPC Zanara - 9552 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 9552 AND `item` = 28053;
+
+
+/* NPC Mu'uta - 9555 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 9555 AND `item` = 28053;
+
+
+/* NPC Kireena - 9636 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 3713, 0, 0);
+/* Add Missing Vanilla item Skinning Knife */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 7005;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 7005, 0, 0);
+/* Add Missing Vanilla item Shiny Bauble */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 6529;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 6529, 0, 0);
+/* Add Missing Vanilla item Gray Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 4340;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 4340, 0, 0);
+/* Add Missing Vanilla item Heavy Silken Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 8343;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 8343, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 8925, 0, 0);
+/* Add Missing Vanilla item Yellow Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 4341;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 4341, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 3777, 0, 0);
+/* Add Missing Vanilla item Red Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 2604;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 2604, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 2928, 0, 0);
+/* Add Missing Vanilla item Fishing Pole */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 6256;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 6256, 0, 0);
+/* Add Missing Vanilla item Black Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 2325;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 2325, 0, 0);
+/* Add Missing Vanilla item Purple Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 9636 AND `item` = 4342;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (9636, 4342, 0, 0);
+
+
+/* NPC Tink Sprocketwhistle - 9676 */
+/* Remove non-Vanilla item Copper Tube */
+DELETE FROM `npc_vendor` WHERE `entry` = 9676 AND `item` = 4361;
+/* Remove non-Vanilla item Copper Modulator */
+DELETE FROM `npc_vendor` WHERE `entry` = 9676 AND `item` = 4363;
+/* Remove non-Vanilla item Bronze Tube */
+DELETE FROM `npc_vendor` WHERE `entry` = 9676 AND `item` = 4371;
+/* Remove non-Vanilla item Gyrochronatom */
+DELETE FROM `npc_vendor` WHERE `entry` = 9676 AND `item` = 4389;
+/* Remove non-Vanilla item Silver Contact */
+DELETE FROM `npc_vendor` WHERE `entry` = 9676 AND `item` = 4404;
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 9676 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 9676 AND `item` = 40533;
+
+
+/* NPC Wixxrak - 11184 */
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 11184 AND `item` = 28060;
+
+
+/* NPC Xizzer Fizzbolt - 11185 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 11185 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 11185 AND `item` = 40533;
+
+
+/* NPC Evie Whirlbrew - 11188 */
+/* Add Missing Vanilla item Pattern: Mooncloth */
+DELETE FROM `npc_vendor` WHERE `entry` = 11188 AND `item` = 14526;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11188, 14526, 0, 0);
+
+
+/* NPC Gorn One Eye - 11555 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 11555 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 11555 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 11555 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11555, 4471, 0, 0);
+
+
+/* NPC Masat T'andr - 11874 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 11874 AND `item` = 38426;
+
+
+/* NPC Daeolyn Summerleaf - 12021 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 12021 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 12021 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 12021 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12021, 4471, 0, 0);
+
+
+/* NPC Lorelae Wintersong - 12022 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12022 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 12022 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12022 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12022, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 12022 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12022, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12022 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12022, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 12022 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12022, 3777, 0, 0);
+
+
+/* NPC Tukk - 12027 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 12027 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 12027 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 12027 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12027, 4471, 0, 0);
+
+
+/* NPC Lah'Mawhani - 12028 */
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12028 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 12028 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12028 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12028, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 12028 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12028, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12028 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12028, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 12028 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12028, 3777, 0, 0);
+
+
+/* NPC Wulan - 12033 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 12033 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12033 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12033, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12033 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12033, 3713, 0, 0);
+/* Add Missing Vanilla item Expert Cookbook */
+DELETE FROM `npc_vendor` WHERE `entry` = 12033 AND `item` = 16072;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12033, 16072, 0, 0);
+
+
+/* NPC Kulwia - 12043 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12043 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12043, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 12043 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12043, 2928, 0, 0);
+
+
+/* NPC Vendor-Tron 1000 - 12245 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 12245 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12245 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 12245 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12245 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12245, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 12245 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12245, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12245 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12245, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 12245 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12245, 3777, 0, 0);
+
+
+/* NPC Super-Seller 680 - 12246 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 12246 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 12246 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 12246 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12246, 4471, 0, 0);
+
+
+/* NPC Jase Farlane - 12941 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 12941 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12941 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 12941 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12941 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12941, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 12941 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12941, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12941 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12941, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 12941 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12941, 3777, 0, 0);
+
+
+/* NPC Leonard Porter - 12942 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12942 AND `item` = 38426;
+
+
+/* NPC Werg Thickblade - 12943 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12943 AND `item` = 38426;
+
+
+/* NPC Zannok Hidepiercer - 12956 */
+/* Remove non-Vanilla item Eternium Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12956 AND `item` = 38426;
+
+
+/* NPC Blimo Gadgetspring - 12957 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 12957 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12957 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 12957 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12957 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12957, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 12957 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12957, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12957 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12957, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 12957 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12957, 3777, 0, 0);
+
+
+/* NPC Gigget Zipcoil - 12958 */
+/* Remove non-Vanilla item Blacksmith Hammer */
+DELETE FROM `npc_vendor` WHERE `entry` = 12958 AND `item` = 5956;
+/* Remove non-Vanilla item Rune Thread */
+DELETE FROM `npc_vendor` WHERE `entry` = 12958 AND `item` = 14341;
+/* Remove non-Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 12958 AND `item` = 18256;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12958 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12958, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 12958 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12958, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 12958 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12958, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 12958 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12958, 3777, 0, 0);
+
+
+/* NPC Nergal - 12959 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 12959 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 12959 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 12959 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12959, 4471, 0, 0);
+
+
+/* NPC Christi Galvanis - 12960 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 12960 AND `item` = 28053;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 12960 AND `item` = 28060;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 12960 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (12960, 4471, 0, 0);
+
+
+/* NPC Thanthaldis Snowgleam - 13217 */
+/* Add Missing Vanilla item The Frostwolf Artichoke */
+DELETE FROM `npc_vendor` WHERE `entry` = 13217 AND `item` = 19484;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13217, 19484, 0, 0);
+
+
+/* NPC Jekyll Flandring - 13219 */
+/* Add Missing Vanilla item Peeling the Onion */
+DELETE FROM `npc_vendor` WHERE `entry` = 13219 AND `item` = 19483;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13219, 19483, 0, 0);
+
+
+/* NPC Penney Copperpinch - 13420 */
+/* Add Missing Vanilla item Fake Mistletoe */
+DELETE FROM `npc_vendor` WHERE `entry` = 13420 AND `item` = 17195;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13420, 17195, 0, 0);
+
+
+/* NPC Wulmort Jinglepocket - 13433 */
+/* Add Missing Vanilla item Fake Mistletoe */
+DELETE FROM `npc_vendor` WHERE `entry` = 13433 AND `item` = 17195;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13433, 17195, 0, 0);
+
+
+/* NPC Khole Jinglepocket - 13435 */
+/* Add Missing Vanilla item Fake Mistletoe */
+DELETE FROM `npc_vendor` WHERE `entry` = 13435 AND `item` = 17195;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13435, 17195, 0, 0);
+
+
+/* NPC Brinna Valanaar - 14301 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 14301 AND `item` = 28053;
+
+
+/* NPC Field Repair Bot 74A - 14337 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 14337 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 14337 AND `item` = 40533;
+
+
+/* NPC Zorbin Fandazzle - 14637 */
+/* Remove non-Vanilla item Hair Trigger */
+DELETE FROM `npc_vendor` WHERE `entry` = 14637 AND `item` = 39684;
+/* Remove non-Vanilla item Walnut Stock */
+DELETE FROM `npc_vendor` WHERE `entry` = 14637 AND `item` = 40533;
+
+
+/* NPC Otho Moji'ko - 14738 */
+/* Remove non-Vanilla item Simple Flour */
+DELETE FROM `npc_vendor` WHERE `entry` = 14738 AND `item` = 30817;
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 14738 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14738, 2692, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 14738 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14738, 3713, 0, 0);
+
+
+/* NPC Mystic Yayo'jin - 14739 */
+/* Add Missing Vanilla item Arcane Dust */
+DELETE FROM `npc_vendor` WHERE `entry` = 14739 AND `item` = 17019;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14739, 17019, 0, 0);
+
+
+/* NPC Lhara - 14846 */
+/* Remove non-Vanilla item Mountain Silversage */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 13465;
+/* Remove non-Vanilla item Black Lotus */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 13468;
+/* Add Missing Vanilla item Sylvan Shortbow */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 11308;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14846, 11308, 1, 43200);
+/* Add Missing Vanilla item Dense Shortbow */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 11305;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14846, 11305, 1, 43200);
+/* Add Missing Vanilla item Sturdy Recurve */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 11306;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14846, 11306, 1, 43200);
+/* Add Missing Vanilla item Fine Shortbow */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 11303;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14846, 11303, 1, 43200);
+/* Add Missing Vanilla item Salt */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 4289;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14846, 4289, 0, 0);
+/* Add Missing Vanilla item Daring Dirk */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 12248;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14846, 12248, 1, 3600);
+/* Add Missing Vanilla item Big Stick */
+DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` = 12251;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14846, 12251, 1, 3600);
+
+
+/* NPC Professor Thaddeus Paleo - 14847 */
+/* Remove non-Vanilla item Super Healing Potion */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 22829;
+/* Remove non-Vanilla item Super Mana Potion */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 22832;
+/* Remove non-Vanilla item Scroll of Agility V */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 27498;
+/* Remove non-Vanilla item Scroll of Intellect V */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 27499;
+/* Remove non-Vanilla item Scroll of Protection V */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 27500;
+/* Remove non-Vanilla item Scroll of Spirit V */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 27501;
+/* Remove non-Vanilla item Scroll of Stamina V */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 27502;
+/* Remove non-Vanilla item Scroll of Strength V */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 27503;
+/* Remove non-Vanilla item Runic Healing Potion */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 33447;
+/* Remove non-Vanilla item Scroll of Agility VI */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 33457;
+/* Remove non-Vanilla item Scroll of Intellect VI */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 33458;
+/* Remove non-Vanilla item Scroll of Protection VI */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 33459;
+/* Remove non-Vanilla item Scroll of Spirit VI */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 33460;
+/* Remove non-Vanilla item Scroll of Stamina VI */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 33461;
+/* Remove non-Vanilla item Scroll of Strength VI */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 33462;
+/* Remove non-Vanilla item Scroll of Intellect VII */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 37091;
+/* Remove non-Vanilla item Scroll of Stamina VII */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 37093;
+/* Remove non-Vanilla item Scroll of Spirit VII */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 37097;
+/* Remove non-Vanilla item Scroll of Agility VII */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 43463;
+/* Remove non-Vanilla item Scroll of Strength VII */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 43465;
+/* Remove non-Vanilla item Scroll of Protection VII */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 43467;
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14847, 8925, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14847, 3372, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14847, 3371, 0, 0);
+/* Add Missing Vanilla item Imbued Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 14847 AND `item` = 18256;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14847, 18256, 0, 0);
+
+
+/* NPC Khur Hornstriker - 15175 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 2928, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 2930, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 3372, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 3777, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 5060, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 8924, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 15175 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15175, 8925, 0, 0);
+
+
+/* NPC Kania - 15419 */
+/* Add Missing Vanilla item Formula: Enchant Chest - Minor Mana */
+DELETE FROM `npc_vendor` WHERE `entry` = 15419 AND `item` = 6342;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (15419, 6342, 1, 7200);
+
+
+/* NPC Renn'az - 17598 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 17598 AND `item` = 28053;
+
+
+/* NPC Kurdrum Barleybeard - 5139 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 2928, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 3372, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 5060, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 8925, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 3777, 0, 0);
+
+
+/* NPC Svalbrad Farmountain - 5135 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5135 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5135, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 5135 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5135, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 5135 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5135, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 5135 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5135, 3777, 0, 0);
+
+
+/* NPC Jonivera Farmountain - 5134 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 5134 AND `item` = 28053;
+/* Remove non-Vanilla item Blackflight Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 5134 AND `item` = 28056;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 5134 AND `item` = 28060;
+/* Remove non-Vanilla item Ironbite Shell */
+DELETE FROM `npc_vendor` WHERE `entry` = 5134 AND `item` = 28061;
+/* Remove non-Vanilla item Frostbite Bullets */
+DELETE FROM `npc_vendor` WHERE `entry` = 5134 AND `item` = 41584;
+/* Remove non-Vanilla item Terrorshaft Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 5134 AND `item` = 41586;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 5134 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5134, 4471, 0, 0);
+
+
+/* NPC Brogus Thunderbrew - 4255 */
+/* Add Missing Vanilla item Tough Jerky */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 117;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 117, 0, 0);
+/* Add Missing Vanilla item Refreshing Spring Water */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 159;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 159, 0, 0);
+/* Add Missing Vanilla item Dalaran Sharp */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 414;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 414, 0, 0);
+/* Add Missing Vanilla item Dwarven Mild */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 422;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 422, 0, 0);
+/* Add Missing Vanilla item Slitherskin Mackerel */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 787;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 787, 0, 0);
+/* Add Missing Vanilla item Ice Cold Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 1179;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 1179, 0, 0);
+/* Add Missing Vanilla item Melon Juice */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 1205;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 1205, 0, 0);
+/* Add Missing Vanilla item Moonberry Juice */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 1645;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 1645, 0, 0);
+/* Add Missing Vanilla item Stormwind Brie */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 1707;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 1707, 0, 0);
+/* Add Missing Vanilla item Sweet Nectar */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 1708;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 1708, 0, 0);
+/* Add Missing Vanilla item Darnassian Bleu */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 2070;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 2070, 0, 0);
+/* Add Missing Vanilla item Haunch of Meat */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 2287;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 2287, 0, 0);
+/* Add Missing Vanilla item Mutton Chop */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 3770;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 3770, 0, 0);
+/* Add Missing Vanilla item Wild Hog Shank */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 3771;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 3771, 0, 0);
+/* Add Missing Vanilla item Fine Aged Cheddar */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 3927;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 3927, 0, 0);
+/* Add Missing Vanilla item Shiny Red Apple */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4536;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4536, 0, 0);
+/* Add Missing Vanilla item Tel'Abim Banana */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4537;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4537, 0, 0);
+/* Add Missing Vanilla item Snapvine Watermelon */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4538;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4538, 0, 0);
+/* Add Missing Vanilla item Goldenbark Apple */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4539;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4539, 0, 0);
+/* Add Missing Vanilla item Tough Hunk of Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4540;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4540, 0, 0);
+/* Add Missing Vanilla item Freshly Baked Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4541;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4541, 0, 0);
+/* Add Missing Vanilla item Moist Cornbread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4542;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4542, 0, 0);
+/* Add Missing Vanilla item Mulgore Spice Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4544;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4544, 0, 0);
+/* Add Missing Vanilla item Longjaw Mud Snapper */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4592;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4592, 0, 0);
+/* Add Missing Vanilla item Bristle Whisker Catfish */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4593;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4593, 0, 0);
+/* Add Missing Vanilla item Rockscale Cod */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4594;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4594, 0, 0);
+/* Add Missing Vanilla item Cured Ham Steak */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4599;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4599, 0, 0);
+/* Add Missing Vanilla item Soft Banana Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4601;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4601, 0, 0);
+/* Add Missing Vanilla item Moon Harvest Pumpkin */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 4602;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 4602, 0, 0);
+/* Add Missing Vanilla item Striped Yellowtail */
+DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 21552;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 21552, 0, 0);
+
+
+/* NPC Zora Guthrek - 2225 */
+/* Add Missing Vanilla item Hot Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2225 AND `item` = 2692;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2225, 2692, 0, 0);
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 2225 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2225, 2928, 0, 0);
+/* Add Missing Vanilla item Soothing Spices */
+DELETE FROM `npc_vendor` WHERE `entry` = 2225 AND `item` = 3713;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2225, 3713, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 2225 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (2225, 3777, 0, 0);
+
+
+/* NPC Rarck - 3625 */
+/* Remove non-Vanilla item Wicked Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 3625 AND `item` = 28053;
+/* Remove non-Vanilla item Blackflight Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 3625 AND `item` = 28056;
+/* Remove non-Vanilla item Impact Shot */
+DELETE FROM `npc_vendor` WHERE `entry` = 3625 AND `item` = 28060;
+/* Remove non-Vanilla item Ironbite Shell */
+DELETE FROM `npc_vendor` WHERE `entry` = 3625 AND `item` = 28061;
+/* Remove non-Vanilla item Frostbite Bullets */
+DELETE FROM `npc_vendor` WHERE `entry` = 3625 AND `item` = 41584;
+/* Remove non-Vanilla item Terrorshaft Arrow */
+DELETE FROM `npc_vendor` WHERE `entry` = 3625 AND `item` = 41586;
+/* Add Missing Vanilla item Flint and Tinder */
+DELETE FROM `npc_vendor` WHERE `entry` = 3625 AND `item` = 4471;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3625, 4471, 0, 0);
+
+
+/* NPC Shrye Ragefist - 10367 */
+/* Add Missing Vanilla item Tough Jerky */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 117;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 117, 0, 0);
+/* Add Missing Vanilla item Refreshing Spring Water */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 159;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 159, 0, 0);
+/* Add Missing Vanilla item Dalaran Sharp */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 414;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 414, 0, 0);
+/* Add Missing Vanilla item Dwarven Mild */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 422;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 422, 0, 0);
+/* Add Missing Vanilla item Slitherskin Mackerel */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 787;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 787, 0, 0);
+/* Add Missing Vanilla item Ice Cold Milk */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 1179;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 1179, 0, 0);
+/* Add Missing Vanilla item Melon Juice */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 1205;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 1205, 0, 0);
+/* Add Missing Vanilla item Moonberry Juice */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 1645;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 1645, 0, 0);
+/* Add Missing Vanilla item Stormwind Brie */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 1707;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 1707, 0, 0);
+/* Add Missing Vanilla item Sweet Nectar */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 1708;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 1708, 0, 0);
+/* Add Missing Vanilla item Darnassian Bleu */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 2070;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 2070, 0, 0);
+/* Add Missing Vanilla item Haunch of Meat */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 2287;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 2287, 0, 0);
+/* Add Missing Vanilla item Mutton Chop */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 3770;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 3770, 0, 0);
+/* Add Missing Vanilla item Wild Hog Shank */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 3771;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 3771, 0, 0);
+/* Add Missing Vanilla item Fine Aged Cheddar */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 3927;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 3927, 0, 0);
+/* Add Missing Vanilla item Tough Hunk of Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4540;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4540, 0, 0);
+/* Add Missing Vanilla item Freshly Baked Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4541;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4541, 0, 0);
+/* Add Missing Vanilla item Moist Cornbread */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4542;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4542, 0, 0);
+/* Add Missing Vanilla item Mulgore Spice Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4544;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4544, 0, 0);
+/* Add Missing Vanilla item Longjaw Mud Snapper */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4592;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4592, 0, 0);
+/* Add Missing Vanilla item Bristle Whisker Catfish */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4593;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4593, 0, 0);
+/* Add Missing Vanilla item Rockscale Cod */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4594;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4594, 0, 0);
+/* Add Missing Vanilla item Cured Ham Steak */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4599;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4599, 0, 0);
+/* Add Missing Vanilla item Soft Banana Bread */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4601;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4601, 0, 0);
+/* Add Missing Vanilla item Forest Mushroom Cap */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4604;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4604, 0, 0);
+/* Add Missing Vanilla item Red-speckled Mushroom */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4605;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4605, 0, 0);
+/* Add Missing Vanilla item Spongy Morel */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4606;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4606, 0, 0);
+/* Add Missing Vanilla item Delicious Cave Mold */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4607;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4607, 0, 0);
+/* Add Missing Vanilla item Raw Black Truffle */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 4608;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 4608, 0, 0);
+/* Add Missing Vanilla item Striped Yellowtail */
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 21552;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10367, 21552, 0, 0);
+
+
+/* NPC Yaelika Farclaw - 10364 */
+/* Add Missing Vanilla item Dust of Decay */
+DELETE FROM `npc_vendor` WHERE `entry` = 10364 AND `item` = 2928;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10364, 2928, 0, 0);
+/* Add Missing Vanilla item Empty Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 10364 AND `item` = 3371;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10364, 3371, 0, 0);
+/* Add Missing Vanilla item Leaded Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 10364 AND `item` = 3372;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10364, 3372, 0, 0);
+/* Add Missing Vanilla item Thieves' Tools */
+DELETE FROM `npc_vendor` WHERE `entry` = 10364 AND `item` = 5060;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10364, 5060, 0, 0);
+/* Add Missing Vanilla item Crystal Vial */
+DELETE FROM `npc_vendor` WHERE `entry` = 10364 AND `item` = 8925;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10364, 8925, 0, 0);
+/* Add Missing Vanilla item Lethargy Root */
+DELETE FROM `npc_vendor` WHERE `entry` = 10364 AND `item` = 3777;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10364, 3777, 0, 0);
+
+
+/* NPC Seersa Copperpinch - 13432 */
+/* Add Missing Vanilla item Fake Mistletoe */
+DELETE FROM `npc_vendor` WHERE `entry` = 13432 AND `item` = 17195;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13432, 17195, 0, 0);
+
+
