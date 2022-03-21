@@ -1,0 +1,17 @@
+---------------------------------------------------
+To restore Vanilla and TBC crafting, recipes, and reagents:
+---------------------------------------------------
+SkillLineAbility.dbc and Spell.dbc files are for use by the server. Place them in server dbc dir and overwrite existing files (please backup first if you want to undo change! It is safe to leave backup in dbc folder with different names.)
+patch-V.mpq contains the client DBC files. Place them in the Data folder of client with existing .mpq files.
+To avoid confusing, please ensure both client and server files are used for this change! Server files will ensure correct logic, client files ensure correct display.
+
+---------------------------------------------------
+To have Vanilla login screen:
+---------------------------------------------------
+Place patch-j.mpq in Client Data folder. This is visual only change; no server change required.
+
+---------------------------------------------------
+To have Vanilla loading screens in Vanilla content:
+---------------------------------------------------
+Place patch-u.mpq in Client Data folder. This is visual only change; no server change required.
+Credit to slendydaddy for HD Vanilla loading screen art.
