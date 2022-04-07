@@ -181,7 +181,7 @@ public:
                 break;
             case 17731: // Eruption
                 spellInfo->Effects[EFFECT_0].DieSides = 375;
-                spellInfo->Effects[EFFECT_0].BasePoints = 1312;
+                spellInfo->Effects[EFFECT_0].BasePoints = 656;
                 break;
             case 17086: // Breath
             case 17087:

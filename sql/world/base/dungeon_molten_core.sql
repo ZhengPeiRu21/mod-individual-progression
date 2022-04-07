@@ -55,7 +55,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13278, 0, 0, 1, 62, 0, 100, 0, 5065, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Gossip Option 0 Selected - Close Gossip'),
 (13278, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 56, 17333, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Link - Add item \'Aqual Quintessence\''),
 (13278, 0, 2, 3, 62, 0, 100, 0, 5065, 1, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Gossip Option 1 Selected - Close Gossip'),
-(13278, 0, 3, 0, 61, 0, 100, 0, 0, 1, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Link - Add item \' Eternal Quintessence\'');
+(13278, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Link - Add item \' Eternal Quintessence\'');
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 5065 AND `OptionID` IN (0, 1);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
@@ -64,5 +64,3 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 
 -- MC - Require dusing the runes
 UPDATE `gameobject_template` SET `ScriptName` = 'go_firelord_rune' WHERE `entry` IN (176956, 176957, 176955, 176953, 176952, 176954, 176951);
-
-

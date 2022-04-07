@@ -207,7 +207,6 @@ public:
             }
             else if (me->HealthBelowPctDamaged(40, damage) && Phase == PHASE_AIRPHASE)
             {
-                me->InterruptNonMeleeSpells(false);
                 SetPhase(PHASE_LANDED);
             }
         }

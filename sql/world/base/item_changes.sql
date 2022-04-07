@@ -1,3 +1,11 @@
+-- Alter AzerothCore table to support Vanilla negative resistance values
+ALTER TABLE item_template MODIFY fire_res SMALLINT;
+ALTER TABLE item_template MODIFY holy_res SMALLINT;
+ALTER TABLE item_template MODIFY nature_res SMALLINT;
+ALTER TABLE item_template MODIFY frost_res SMALLINT;
+ALTER TABLE item_template MODIFY shadow_res SMALLINT;
+ALTER TABLE item_template MODIFY arcane_res SMALLINT;
+
 -- Restore rep requirement to Mantle of the Dawn
 UPDATE item_template SET RequiredReputationFaction=529, RequiredReputationRank=6 WHERE entry IN (18169, 18170, 18171, 18172, 18173);
 UPDATE item_template SET RequiredReputationFaction=529, RequiredReputationRank=7 WHERE entry=18182;
@@ -4054,9 +4062,6 @@ UPDATE item_template SET Quality = 3 WHERE entry=13335;
 /*  Crystal of Zin-Malor  */
 UPDATE item_template SET Quality = 2 WHERE entry=13347;
 
-/*  Recipe: Transmute Water to Air  */
-UPDATE item_template SET RequiredReputationRank = 0 WHERE entry=13485;
-
 /*  Zergling Leash  */
 UPDATE item_template SET Quality = 1 WHERE entry=13582;
 
@@ -4080,24 +4085,6 @@ UPDATE item_template SET Quality = 4 WHERE entry=16339;
 
 /*  Red Moro'gai Gem  */
 UPDATE item_template SET Quality = 2 WHERE entry=18153;
-
-/*  Flame Mantle of the Dawn  */
-UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18169;
-
-/*  Frost Mantle of the Dawn  */
-UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18170;
-
-/*  Arcane Mantle of the Dawn  */
-UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18171;
-
-/*  Nature Mantle of the Dawn  */
-UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18172;
-
-/*  Shadow Mantle of the Dawn  */
-UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18173;
-
-/*  Chromatic Mantle of the Dawn  */
-UPDATE item_template SET RequiredReputationFaction = 0, RequiredReputationRank = 0 WHERE entry=18182;
 
 /*  Sleeveless T-Shirt  */
 UPDATE item_template SET Quality = 0 WHERE entry=18231;

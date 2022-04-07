@@ -27,6 +27,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `position_x`, `posit
 DELETE FROM `reference_loot_template` WHERE `Entry` = 60000;
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (60000, 17111, 0, 0, 0, 1, 1, 1, 1, NULL),
+(60000, 17112, 0, 0, 0, 1, 1, 1, 1, NULL),
 (60000, 17113, 0, 0, 0, 1, 1, 1, 1, NULL),
 (60000, 18204, 0, 0, 0, 1, 1, 1, 1, NULL),
 (60000, 18543, 0, 0, 0, 1, 1, 1, 1, NULL),
