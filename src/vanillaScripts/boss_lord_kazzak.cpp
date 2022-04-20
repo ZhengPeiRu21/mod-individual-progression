@@ -158,10 +158,10 @@ public:
             Talk(SAY_KILL);
         }
 
-        void EnterEvadeMode() override
+        void EnterEvadeMode(EvadeReason why) override
         {
             Talk(SAY_WIPE);
-            ScriptedAI::EnterEvadeMode();
+            ScriptedAI::EnterEvadeMode(why);
 
             if (sConfigMgr->GetOption<int>("ProgressionSystem.60.WorldBosses.KazzakPhasing", 1))
             {
@@ -312,4 +312,3 @@ void AddSC_boss_lord_kazzak_60_2()
     new boss_lord_kazzak_60_2();
     new spell_mark_of_kazzak_60_2();
 }
-
