@@ -3463,4 +3463,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (10364
 DELETE FROM `npc_vendor` WHERE `entry` = 13432 AND `item` = 17195;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13432, 17195, 0, 0);
 
+/* Delete Simple Flour from TBC pre-60 vendors - they should technically have it but it is a catch-up mechanic so wait until TBC areas for it to be available */
+DELETE FROM `npc_vendor` WHERE `entry` IN (17246, 16253, 16262, 16261, 16677, 17490, 16718) AND `item` = 30817;
 
