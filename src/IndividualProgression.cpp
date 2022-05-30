@@ -164,7 +164,7 @@ public:
         // Player is still in Vanilla content - give Vanilla damage adjustment
         if (!hasPassedProgression(player, PROGRESSION_NAXX40))
         {
-            float computedAdjustment = player->getLevel() > 20 ? 1 - ((player->getLevel() - 20) / 40) * (1 - vanillaPowerAdjustment) : 1;
+            float computedAdjustment = player->getLevel() > 10 ? 1 - ((player->getLevel() - 10) / 50) * (1 - vanillaPowerAdjustment) : 1;
             base_attPower *= computedAdjustment;
         }
         // Player is in TBC content - give TBC damage adjustment
@@ -183,7 +183,7 @@ public:
         // Player is still in Vanilla content - give Vanilla damage adjustment
         if (!hasPassedProgression(player, PROGRESSION_NAXX40))
         {
-            float computedAdjustment = player->getLevel() > 20 ? 1 - ((player->getLevel() - 20) / 40) * (1 - vanillaHealthAdjustment) : 1;
+            float computedAdjustment = player->getLevel() > 10 ? 1 - ((player->getLevel() - 10) / 50) * (1 - vanillaHealthAdjustment) : 1;
             value *= computedAdjustment;
         }
             // Player is in TBC content - give TBC damage adjustment
