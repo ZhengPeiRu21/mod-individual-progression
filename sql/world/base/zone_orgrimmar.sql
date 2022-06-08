@@ -30,6 +30,9 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4347 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES (15, 4347, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');
 
+-- Vol'jin <King of Darkspear Trolls>
+UPDATE `creature_template` SET `subname`='King of Darkspear Trolls', `minlevel`=60, `maxlevel`=60 WHERE `entry`=10540;
+
 -- Nazgrel <Advisor to Thrall>
 DELETE FROM `creature` WHERE `id1`=3230;
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (3230, 1, 1938.55, -4133.22, 41.1424, 4.07636, 300);

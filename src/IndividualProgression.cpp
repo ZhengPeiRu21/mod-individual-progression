@@ -227,15 +227,16 @@ public:
 
     void OnBeforeGuardianInitStatsForLevel(Player* player, Guardian* guardian, CreatureTemplate const* cinfo, PetType& petType) override
     {
-        if (!enabled || !hunterPetLevelFix)
-        {
-            return;
-        }
-        // We don't want to scale hunter pet to its owners level, but we don't know of the original level, so use the maximum from the creature_template
-        if (guardian->IsPet() && player->getClass() == CLASS_HUNTER && guardian->getLevel() > cinfo->maxlevel)
-        {
-            guardian->SetLevel(cinfo->maxlevel);
-        }
+        // Currently bugged - disabled for now
+//        if (!enabled || !hunterPetLevelFix)
+//        {
+//            return;
+//        }
+//        // We don't want to scale hunter pet to its owners level, but we don't know of the original level, so use the maximum from the creature_template
+//        if (guardian->IsPet() && player->getClass() == CLASS_HUNTER && guardian->getLevel() > cinfo->maxlevel)
+//        {
+//            guardian->SetLevel(cinfo->maxlevel);
+//        }
     }
 
     bool OnBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
