@@ -22,6 +22,22 @@ DELETE FROM npc_trainer WHERE SpellID IN (18450, 18453, 18444, 18406, 18409, 184
 -- First Aid Recipes dropped as items
 DELETE FROM npc_trainer WHERE SpellID IN (7929, 10840, 27032, 27033);
 
+-- First Aid Skills should be from books or quests
+DELETE FROM npc_trainer WHERE SpellID IN (54254, 10847, 54255);
+UPDATE quest_template SET RewardItem3 = 16085, RewardAmount3 = 1 WHERE ID IN (6624, 6622);
+
+-- Cooking Skills learned from Books and Quests, not trainers
+DELETE FROM npc_trainer WHERE SpellID IN (18261, 19886, 54257, 54256);
+UPDATE quest_template SET RewardItem1=16073, RewardAmount1=1 WHERE id = 6610;
+UPDATE item_template SET spellid_1 = 19887 WHERE entry = 16073;
+
+-- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
+UPDATE npc_trainer SET ReqSkillRank = 200 WHERE SpellID = 37836;
+
+-- Fishing needs to be learned from Quests and Books, remove from trainers
+DELETE FROM npc_trainer WHERE SpellID IN (18249, 54083, 54084);
+UPDATE quest_template SET RewardItem2 = 16082, RewardAmount2 = 1 WHERE ID = 6607;
+
 -- Leatherworking Recipes
 DELETE
 FROM npc_trainer
