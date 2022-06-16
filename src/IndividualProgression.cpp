@@ -4,7 +4,7 @@
 
 #include "IndividualProgression.h"
 
-static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment;
+static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment;
 static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules;
 
 class gobject_ipp_wotlk : public GameObjectScript
@@ -118,13 +118,36 @@ private:
     {
         enabled = sConfigMgr->GetOption<bool>("IndividualProgression.Enable", true);
         vanillaPowerAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.VanillaPowerAdjustment", 1);
+        vanillaHealingAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.VanillaHealingAdjustment", 1);
         vanillaHealthAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.VanillaHealthAdjustment", 1);
         tbcPowerAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.TBCPowerAdjustment", 1);
+        tbcHealingAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.TBCHealingAdjustment", 1);
         tbcHealthAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.TBCHealthAdjustment", 1);
         questXpFix = sConfigMgr->GetOption<bool>("IndividualProgression.QuestXPFix", true);
         hunterPetLevelFix = sConfigMgr->GetOption<bool>("IndividualProgression.HunterPetLevelFix", true);
         requirePreAQQuests = sConfigMgr->GetOption<bool>("IndividualProgression.RequirePreAQQuests", true);
         enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
+    }
+
+    void LoadXpValues()
+    {
+        if (enabled && questXpFix)
+        {
+            LOG_INFO("module", "Loading Quest XP cache....");
+            uint32 questXpAmount = 0;
+            QueryResult result = WorldDatabase.Query("SELECT entry, xpValue FROM custom_quest_xp");
+            if (result)
+            {
+                do
+                {
+                    uint32 questId = (*result)[0].Get<uint32>();
+                    uint32 xpValue = (*result)[1].Get<uint32>();
+                    questXpMap.insert({questId, xpValue});
+                    questXpAmount++;
+                } while (result->NextRow());
+            }
+            LOG_INFO("module", "Loaded {} quest XP values into cache", questXpAmount);
+        }
     }
 
 public:
@@ -133,6 +156,84 @@ public:
     void OnBeforeConfigLoad(bool /*reload*/) override
     {
         LoadConfig();
+        LoadXpValues();
+    }
+};
+
+class IndividualPlayerProgression_PetScript : public PetScript
+{
+private:
+    bool hasPassedProgression(Player* player, ProgressionState state)
+    {
+        return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
+    }
+
+    void CheckAdjustments(Pet* pet)
+    {
+        if (!enabled)
+        {
+            return;
+        }
+        if (!pet || !pet->GetOwner())
+        {
+            return;
+        }
+        if (!hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40))
+        {
+            AdjustVanillaStats(pet);
+        }
+        else if (!hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5))
+        {
+            AdjustTBCStats(pet);
+        }
+
+    }
+
+    void AdjustVanillaStats(Pet* pet)
+    {
+        float adjustmentValue = -100.0 * (1.0 - vanillaPowerAdjustment);
+        float adjustmentApplyPercent = (pet->getLevel() - 10.0) / 50.0;
+        float computedAdjustment = pet->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+        float hpAdjustmentValue = -100.0 * (1.0 - vanillaHealthAdjustment);
+        float hpAdjustment = pet->getLevel() > 10 ? (hpAdjustmentValue * adjustmentApplyPercent) : 0;
+        AdjustStats(pet, computedAdjustment, hpAdjustment);
+    }
+
+    void AdjustTBCStats(Pet* pet)
+    {
+        float adjustmentValue = -100.0 * (1.0 - tbcPowerAdjustment);
+        float adjustmentApplyPercent = 1;
+        float computedAdjustment = pet->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+        float hpAdjustmentValue = -100.0 * (1.0 - tbcHealthAdjustment);
+        float hpAdjustment = pet->getLevel() > 10 ? (hpAdjustmentValue * adjustmentApplyPercent) : 0;
+        AdjustStats(pet, computedAdjustment, hpAdjustment);
+    }
+
+    void AdjustStats(Pet* pet, float computedAdjustment, float hpAdjustment)
+    {
+        int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+        int32 bp1 = static_cast<int32>(computedAdjustment);
+        int32 bp2 = static_cast<int32>(hpAdjustment);
+
+        pet->RemoveAura(DAMAGE_DONE_TAKEN_SPELL);
+        pet->CastCustomSpell(pet, DAMAGE_DONE_TAKEN_SPELL, &bp0, &bp1, nullptr, false);
+
+        pet->RemoveAura(ABSORB_SPELL);
+        pet->CastCustomSpell(pet, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
+
+        pet->RemoveAura(HEALING_DONE_SPELL);
+        pet->CastCustomSpell(pet, HEALING_DONE_SPELL, &bp1, nullptr, nullptr, false);
+
+        pet->RemoveAura(HP_AURA_SPELL);
+        pet->CastCustomSpell(pet, HP_AURA_SPELL, &bp2, nullptr, nullptr, false);
+    }
+
+public:
+    IndividualPlayerProgression_PetScript() : PetScript("IndividualProgression_PetScript") { }
+
+    void OnPetAddToWorld(Pet* pet) override
+    {
+        CheckAdjustments(pet);
     }
 };
 // Add player scripts
@@ -152,26 +253,76 @@ private:
         }
     }
 
-public:
-    IndividualPlayerProgression() : PlayerScript("IndividualProgression") { }
-
-    void OnAfterUpdateAttackPowerAndDamage(Player* player, float& /*level*/, float& base_attPower, float& attPowerMod, float& attPowerMultiplier, bool /*ranged*/) override
+    void CheckAdjustments(Player* player)
     {
         if (!enabled)
         {
             return;
         }
-        // Player is still in Vanilla content - give Vanilla damage adjustment
         if (!hasPassedProgression(player, PROGRESSION_NAXX40))
         {
-            float computedAdjustment = player->getLevel() > 10 ? 1 - ((player->getLevel() - 10) / 50) * (1 - vanillaPowerAdjustment) : 1;
-            base_attPower *= computedAdjustment;
+            AdjustVanillaStats(player);
         }
-        // Player is in TBC content - give TBC damage adjustment
         else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
-            base_attPower *= tbcPowerAdjustment;
+            AdjustTBCStats(player);
         }
+
+    }
+
+    void AdjustVanillaStats(Player* player)
+    {
+        float adjustmentValue = -100.0 * (1.0 - vanillaPowerAdjustment);
+        float adjustmentApplyPercent = (player->getLevel() - 10.0) / 50.0;
+        float computedAdjustment = player->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+        AdjustStats(player, computedAdjustment);
+    }
+
+    void AdjustTBCStats(Player* player)
+    {
+        float adjustmentValue = -100.0 * (1.0 - tbcPowerAdjustment);
+        float adjustmentApplyPercent = 1;
+        float computedAdjustment = player->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+        AdjustStats(player, computedAdjustment);
+    }
+
+    void AdjustStats(Player* player, float computedAdjustment)
+    {
+        int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+        int32 bp1 = static_cast<int32>(computedAdjustment);
+
+        player->RemoveAura(DAMAGE_DONE_TAKEN_SPELL);
+        player->CastCustomSpell(player, DAMAGE_DONE_TAKEN_SPELL, &bp0, &bp1, nullptr, false);
+
+        player->RemoveAura(ABSORB_SPELL);
+        player->CastCustomSpell(player, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
+
+        player->RemoveAura(HEALING_DONE_SPELL);
+        player->CastCustomSpell(player, HEALING_DONE_SPELL, &bp1, nullptr, nullptr, false);
+    }
+
+
+public:
+    IndividualPlayerProgression() : PlayerScript("IndividualProgression") { }
+
+    void OnLogin(Player* player) override
+    {
+        CheckAdjustments(player);
+    }
+
+    void OnMapChanged(Player* player) override
+    {
+        CheckAdjustments(player);
+    }
+
+    void OnLevelChanged(Player* player, uint8 /*oldLevel*/) override
+    {
+        CheckAdjustments(player);
+    }
+
+    void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
+    {
+        CheckAdjustments(player);
     }
 
     void OnAfterUpdateMaxHealth(Player* player, float& value) override
@@ -199,11 +350,15 @@ public:
         {
             return;
         }
-        // Note that this current implementation is too wide and will affect some undesired quests
-        int32 quest_level = quest->GetQuestLevel();
-        if (quest_level < 71 && quest_level > 29)
+        if (questXpMap.count(quest->GetQuestId()))
         {
-            xpValue = xpValue * 0.6;
+            uint32 vanillaXpValue = questXpMap[quest->GetQuestId()];
+            // If XP was already reduced due to out-leveling the quest or other reasons, use the reduced value
+            if (vanillaXpValue < xpValue)
+            {
+                // Otherwise, return the correct Vanilla/TBC Quest XP
+                xpValue = vanillaXpValue;
+            }
         }
     }
 
@@ -223,20 +378,6 @@ public:
         {
             amount = 0;
         }
-    }
-
-    void OnBeforeGuardianInitStatsForLevel(Player* player, Guardian* guardian, CreatureTemplate const* cinfo, PetType& petType) override
-    {
-        // Currently bugged - disabled for now
-//        if (!enabled || !hunterPetLevelFix)
-//        {
-//            return;
-//        }
-//        // We don't want to scale hunter pet to its owners level, but we don't know of the original level, so use the maximum from the creature_template
-//        if (guardian->IsPet() && player->getClass() == CLASS_HUNTER && guardian->getLevel() > cinfo->maxlevel)
-//        {
-//            guardian->SetLevel(cinfo->maxlevel);
-//        }
     }
 
     bool OnBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
@@ -411,6 +552,7 @@ void AddSC_mod_individual_progression()
 {
     new IndividualPlayerProgression();
     new IndividualPlayerProgression_WorldScript();
+    new IndividualPlayerProgression_PetScript();
     new npc_ipp_aq();
     new npc_ipp_tbc();
     new gobject_ipp_tbc();

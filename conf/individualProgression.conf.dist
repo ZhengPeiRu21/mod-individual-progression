@@ -36,6 +36,17 @@ IndividualProgression.EnforceGroupRules = 1
 IndividualProgression.VanillaPowerAdjustment = 0.6
 #
 #
+#    IndividualProgression.VanillaHealingAdjustment
+#        Description: Adjustment to player's healing power before completing Vanilla content
+#                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
+#                     Applied linearly per level between levels 11 and 60
+#                     Set to 1 (100% of regular damage) to disable
+#
+#        Default:     0.5 - 50% of regular healing
+#
+IndividualProgression.VanillaHealingAdjustmnet = 0.5
+#
+#
 #    IndividualProgression.VanillaHealthAdjustmnet
 #        Description: Adjustment to player's max HP before completing Vanilla content
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
@@ -56,6 +67,16 @@ IndividualProgression.VanillaHealthAdjustment = 0.5
 #        Default:     0.6 - 60% of regular damage
 #
 IndividualProgression.TBCPowerAdjustment = 0.6
+#
+#    IndividualProgression.TBCHealingAdjustment
+#        Description: Adjustment to player's healing power before completing TBC content
+#                     This is meant to provide a more accurate TBC feeling in TBC content
+#                     Unlike Vanilla adjustment, a flat value is always used
+#                     Set to 1 (100% of regular damage) to disable
+#
+#        Default:     0.5 - 50% of regular healing
+#
+IndividualProgression.TBCHealingAdjustment = 0.5
 #
 #
 #    IndividualProgression.TBCHealthAdjustment

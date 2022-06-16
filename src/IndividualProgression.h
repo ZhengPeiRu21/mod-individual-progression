@@ -10,6 +10,10 @@
 #include "MapMgr.h"
 #include "ObjectAccessor.h"
 #include "Group.h"
+#include "Pet.h"
+
+typedef std::unordered_map<uint32, uint32> questXpMapType;
+questXpMapType questXpMap;
 
 enum ProgressionBossIDs
 {
@@ -27,6 +31,16 @@ enum ProgressionBossIDs
     ANUBARAK = 34564,
     LICH_KING = 36597,
     HALION = 39863
+};
+
+enum BuffSpells
+{
+    HP_AURA_SPELL = 89501,
+    DAMAGE_DONE_TAKEN_SPELL = 89502,
+    BASE_STAT_AP_SPELL = 89503,
+    RAGE_FROM_DAMAGE_SPELL = 89504,
+    ABSORB_SPELL = 89505,
+    HEALING_DONE_SPELL = 89506
 };
 
 enum ProgressionQuestIDs

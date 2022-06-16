@@ -304,9 +304,6 @@ UPDATE quest_template SET RequiredItemId1 = 10699, RequiredItemId2 = 0, Required
 /*  Rise, Obsidion!  */
 UPDATE quest_template SET QuestLevel = 52 WHERE ID=3566;
 
-/*  <UNUSED>  */
-UPDATE quest_template SET LogTitle = Plainsrunning, QuestLevel = 60, MinLevel = 45 WHERE ID=3581;
-
 /*  Bring the Light  */
 UPDATE quest_template SET QuestLevel = 42, MinLevel = 39 WHERE ID=3636;
 

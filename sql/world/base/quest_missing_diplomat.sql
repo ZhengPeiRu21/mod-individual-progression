@@ -14,12 +14,12 @@ DELETE FROM creature_questender WHERE id = 4968 and quest = 11223;
 INSERT INTO creature_questender(id, quest) VALUES (1748, 11222);
 INSERT INTO creature_questender(id, quest) VALUES (4968, 11223);
 
-UPDATE creature_questender SET id=1748 WHERE quest=396;
+# UPDATE creature_questender SET id=1748 WHERE quest=396;
 UPDATE creature_questender SET id=1748 WHERE quest=6186;
 UPDATE creature_questender SET id=1748 WHERE quest=6187;
 UPDATE creature_questender SET id=1748 WHERE quest=7781;
 
-UPDATE creature_queststarter SET id=1748 WHERE quest=396;
-UPDATE creature_queststarter SET id=1748 WHERE quest=6182;
+# UPDATE creature_queststarter SET id=1748 WHERE quest=396;
+# UPDATE creature_queststarter SET id=1748 WHERE quest=6182;
 UPDATE creature_queststarter SET id=1748 WHERE quest=6187;
-UPDATE creature_queststarter SET id=1748 WHERE quest=7782;
+# UPDATE creature_queststarter SET id=1748 WHERE quest=7782;
