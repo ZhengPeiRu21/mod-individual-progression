@@ -618,3 +618,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (14581, 23466,
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (14581, 23467, 2291);
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (14581, 23468, 2291);
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (14581, 23469, 2291);
+
+-- Nogg Quest Flags fix
+UPDATE `creature_template` SET `npcflag` = `npcflag` | 2 WHERE `entry` = 3412;

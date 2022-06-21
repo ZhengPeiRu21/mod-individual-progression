@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `custom_quest_xp` (
                                                  `entry` int(9) unsigned NOT NULL,
                                                  `xpValue` int(9) unsigned NOT NULL,
                                                  PRIMARY KEY (`entry`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin0;
+) ENGINE=InnoDB;
 
 
 INSERT INTO `custom_quest_xp` (`entry`, `xpValue`) VALUES

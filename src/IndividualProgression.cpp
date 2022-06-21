@@ -85,6 +85,32 @@ public:
     }
 };
 
+class npc_ipp_wotlk : public CreatureScript
+{
+public:
+    npc_ipp_wotlk() : CreatureScript("npc_ipp_wotlk") { }
+
+    struct npc_ipp_wotlkAI: ScriptedAI
+    {
+        npc_ipp_wotlkAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= PROGRESSION_TBC_TIER_5;
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_wotlkAI(creature);
+    }
+};
+
 class npc_ipp_aq : public CreatureScript
 {
 public:
@@ -555,6 +581,7 @@ void AddSC_mod_individual_progression()
     new IndividualPlayerProgression_PetScript();
     new npc_ipp_aq();
     new npc_ipp_tbc();
+    new npc_ipp_wotlk();
     new gobject_ipp_tbc();
     new gobject_ipp_wotlk();
 }

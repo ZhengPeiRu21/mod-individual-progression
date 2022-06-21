@@ -131,6 +131,19 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (300001, 7837, 1000, 171, 130, 0);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (300001, 7845, 3000, 171, 140, 0);
 
+-- Expert Alchemist
+DELETE FROM `npc_trainer` WHERE `ID`=300002;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 3448, 5000, 171, 165, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 3450, 6000, 171, 175, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 3452, 5000, 171, 160, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 3465, 5000, 171, 125, 20, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 7181, 5000, 171, 155, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 11449, 6500, 171, 185, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 11450, 7500, 171, 195, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 53042, 10000, 171, 50, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (300002, 63732, 2000, 171, 135, 0, 0);
+
+
 -- Apprentice Blacksmith
 DELETE FROM `npc_trainer` WHERE `ID`=310000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (310000, 2020, 10, 0, 0, 5);
@@ -533,7 +546,336 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (450000, 33391, 9000000, 762, 75, 60);
 
 -- First Aid
-DELETE FROM `npc_trainer` WHERE `entry`=12939;
+DELETE FROM `npc_trainer` WHERE `ID`=12939;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (12939, 10843, 0, 129, 240, 0, 0);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (12939, 18631, 0, 129, 260, 35, 0);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (12939, 18632, 0, 129, 290, 35, 0);
+UPDATE `creature_template` SET `npcflag` = `npcflag` | 16 | 64, `trainer_type` = 2 WHERE `entry` = 12939;
+
+DELETE FROM `npc_trainer` WHERE `ID`=12920;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (12920, 10843, 0, 129, 240, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (12920, 18631, 0, 129, 260, 35, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (12920, 18632, 0, 129, 290, 35, 0);
+UPDATE `creature_template` SET `npcflag` = `npcflag` | 16 | 64, `trainer_type` = 2 WHERE `entry` = 12920;
+
+
+-- Blacksmith Trainers
+DELETE FROM `npc_trainer` WHERE `ID` IN (1241, 3136, 3557, 6299, 55356, 4596, 4258, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675);
+-- Journeyman Blacksmith
+UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith' WHERE `entry`=16583;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (1241, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3557, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (6299, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16583, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (17245, -310000, 0, 0, 0, 0);
+
+-- Expert Blacksmith
+UPDATE `creature_template` SET `subname` = 'Expert Blacksmith' WHERE `entry`=16669;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3136, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3136, -310001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4596, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4596, -310001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16669, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16669, -310001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16724, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16724, -310001, 0, 0, 0, 0);
+
+-- Artisan Blacksmith
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4258, -310000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4258, -310001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4258, -310002, 0, 0, 0, 0);
+
+-- Master Blacksmithing Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (16583, -201005, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (16823, -201005, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (19341, -201005, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33609, -201005, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33631, -201005, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33675, -201005, 0, 0, 0, 0, 0);
+
+-- Grandmaster Blacksmithing Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (26564, -201006, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (26904, -201006, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (26952, -201006, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (26981, -201006, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (26988, -201006, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (27034, -201006, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (28694, -201006, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (29924, -201006, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33591, -201006, 0, 0, 0, 0, 0);
+
+
+
+-- Alchemy Trainers
+DELETE FROM `npc_trainer` WHERE `ID` IN (1470, 2391, 2837, 3603, 3964, 4160, 4611, 4900, 5177, 16161, 16588, 16642, 16723, 18802, 19052, 27023, 27029, 33608, 33630, 33674);
+-- Journeyman Alchemy
+UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist' WHERE `entry`=16161;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (1470, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3603, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16161, -300000, 0, 0, 0, 0);
+
+-- Expert Alchemy
+UPDATE `creature_template` SET `subname` = 'Expert Alchemist' WHERE `entry` IN (16642, 16723);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (2391, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (2391, -300001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (2837, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (2837, -300001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3964, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3964, -300001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4900, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4900, -300001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5177, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5177, -300001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16642, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16642, -300001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16723, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16723, -300001, 0, 0, 0, 0);
+
+-- Artisan Alchemy
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4160, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4160, -300001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4160, -300002, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4611, -300000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4611, -300001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4611, -300002, 0, 0, 0, 0);
+
+-- Master Alchemy Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (16588, -201002, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (18802, -201002, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (19052, -201002, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (27023, -201002, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (27029, -201002, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33608, -201002, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33630, -201002, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33674, -201002, 0, 0, 0, 0, 0);
+
+-- Grandmaster Alchemy Trainer
+-- Grandmaster Alchemy Trainers already have their own unique template
+
+
+-- Enchanting Trainers
+DELETE FROM `npc_trainer` WHERE `ID` IN (3606, 4213, 4616, 5157, 7949, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676);
+-- Journeyman Enchanting
+UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter' WHERE `entry`=16160;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3606, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16160, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (19251, -330000, 0, 0, 0, 0);
+
+-- Expert Enchanting
+UPDATE `creature_template` SET `subname` = 'Expert Enchanter' WHERE `entry`=16633;
+UPDATE `creature_template` SET `subname` = 'Expert Enchanter' WHERE `entry`=16725;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4213, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4213, -330001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4616, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4616, -330001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5157, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5157, -330001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (7949, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (7949, -330001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16633, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16633, -330001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16725, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16725, -330001, 0, 0, 0, 0);
+
+-- Artisan Enchanting
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (11074, -330000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (11074, -330001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (11074, -330002, 0, 0, 0, 0);
+
+-- Master Enchanting Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (18753, -201010, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (18773, -201010, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (19252, -201010, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (19540, -201010, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33610, -201010, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33633, -201010, 0, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (33676, -201010, 0, 0, 0, 0, 0);
+
+-- Grandmaster Enchanting Trainer
+-- Grandmaster Enchanting Trainers already have their own unique template
+
+
+-- Engineering Trainers
+DELETE FROM `npc_trainer` WHERE `ID` IN (1676, 1702, 3290, 5174, 11031, 11037, 16667, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 33677);
+-- Journeyman Engineering
+UPDATE `creature_template` SET `subname` = 'Journeyman Engineer' WHERE `entry`=17222;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (1702, -340000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3290, -340000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (11037, -340000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (17222, -340000, 0, 0, 0, 0);
+
+-- Expert Engineering
+UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=1676;
+UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=16667;
+UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=16726;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (1676, -340000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (1676, -340001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (11031, -340000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (11031, -340001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16667, -340000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16667, -340001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16726, -340000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16726, -340001, 0, 0, 0, 0);
+
+-- Artisan Engineering
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5174, -340000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5174, -340001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5174, -340002, 0, 0, 0, 0);
+
+-- Master Engineering Trainer
+DELETE FROM `npc_trainer` WHERE `ID`=17634 AND `SpellID`=-201012;
+DELETE FROM `npc_trainer` WHERE `ID`=17637 AND `SpellID`=-201012;
+DELETE FROM `npc_trainer` WHERE `ID`=18752 AND `SpellID`=-201012;
+DELETE FROM `npc_trainer` WHERE `ID`=18775 AND `SpellID`=-201012;
+DELETE FROM `npc_trainer` WHERE `ID`=19576 AND `SpellID`=-201012;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33611, -201013, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33634, -201013, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33677, -201013, 0, 0, 0, 0);
+
+
+-- Grandmaster Engineering Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (25277, -201014, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (26907, -201014, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (26955, -201014, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (26991, -201014, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (28697, -201014, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33586, -201014, 0, 0, 0, 0);
+
+
+
+-- Tailoring Trainers
+DELETE FROM `npc_trainer` WHERE `ID` IN (2627, 3523, 4159, 4193, 4576, 5153, 16366, 16640, 16729, 17487, 18749, 18772, 26914, 26964, 26969, 27001, 28699, 33580, 33613, 33636, 33684);
+
+-- Journeyman Tailoring
+UPDATE `creature_template` SET `subname` = 'Journeyman Tailor' WHERE `entry`=16366;
+UPDATE `creature_template` SET `subname` = 'Journeyman Tailor' WHERE `entry`=17487;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3523, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4193, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16366, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (17487, -410000, 0, 0, 0, 0);
+
+-- Expert Tailoring
+UPDATE `creature_template` SET `subname` = 'Expert Tailor' WHERE `entry`=16640;
+UPDATE `creature_template` SET `subname` = 'Expert Tailor' WHERE `entry`=16729;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (2627, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (2627, -410001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4159, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4159, -410001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5153, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5153, -410001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16640, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16640, -410001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16729, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16729, -410001, 0, 0, 0, 0);
+
+-- Artisan Tailoring
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4576, -410000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4576, -410001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4576, -410002, 0, 0, 0, 0);
+
+-- Master Tailoring Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (18749, -201040, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (18772, -201040, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33613, -201040, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33636, -201040, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33684, -201040, 0, 0, 0, 0);
+
+-- Grandmaster Tailoring Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (26914, -201041, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (26964, -201041, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (26969, -201041, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (27001, -201041, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (28699, -201041, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33580, -201041, 0, 0, 0, 0);
+
+
+
+
+-- Leatherworking Trainers
+DELETE FROM `npc_trainer` WHERE `ID` IN (1385, 3605, 3967, 4212, 4588, 5127, 8153, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 26996, 33612, 33635, 33681);
+
+-- Journeyman Leatherworking
+UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry`=16278;
+UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry`=17442;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3605, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16278, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (17442, -380000, 0, 0, 0, 0);
+
+-- Expert Leatherworking
+UPDATE `creature_template` SET `subname` = 'Expert Leatherworker' WHERE `entry`=16688;
+UPDATE `creature_template` SET `subname` = 'Expert Leatherworker' WHERE `entry`=16728;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (1385, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (1385, -380001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3967, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (3967, -380001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4588, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4588, -380001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5127, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (5127, -380001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (8153, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (8153, -380001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16688, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16688, -380001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16728, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (16728, -380001, 0, 0, 0, 0);
+
+-- Artisan Leatherworking
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4212, -380000, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4212, -380001, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (4212, -380002, 0, 0, 0, 0);
+
+-- Master Leatherworking Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (18754, -201028, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (18771, -201028, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (19187, -201028, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (21087, -201028, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33612, -201028, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33635, -201028, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (33681, -201028, 0, 0, 0, 0);
+
+-- Grandmaster Leatherworking Trainer
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (26996, -201029, 0, 0, 0, 0);
+
+
+
+
+-- Optional - delete TBC trainers added in WotLK 3.1
+DELETE FROM creature WHERE `id1` IN (33676,
+                                     33680,
+                                     33682,
+                                     33674,
+                                     33678,
+                                     33675,
+                                     33677,
+                                     33683,
+                                     33684,
+                                     33681,
+                                     33640,
+                                     33637,
+                                     33633,
+                                     33631,
+                                     33634,
+                                     33635,
+                                     33636,
+                                     33641,
+                                     33608,
+                                     33609,
+                                     33610,
+                                     33611,
+                                     33612,
+                                     33613,
+                                     33614,
+                                     33615,
+                                     33616,
+                                     33617,
+                                     33618,
+                                     33619,
+                                     33621,
+                                     33623,
+                                     33630,
+                                     33639,
+                                     35099,
+                                     35101);
+
+-- Delete added riding trainers
+DELETE FROM creature WHERE `id1` IN (35093, 35100);

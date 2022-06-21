@@ -258,20 +258,21 @@ DELETE FROM `creature` WHERE `guid` = 500800 AND `id1` = 1749;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (500800, 1749, 0, 0, 0, 1, 1, 1, -8435, 335.559, 122.163, 2.56468, 300, 0, 3497, 2568, 0, 0, 0, 0, '', 0);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1749;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(30, 0, 1749, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Lady Katrana Prestor - Visibility - Require quest Dragonkin Menace rewarded.'),
-(30, 0, 1749, 0, 0, 47, 0, 6403, 64, 0, 1, 0, 0, '', 'Lady Katrana Prestor - Visibility - Require quest The Great Masquerade NOT rewarded.');
+# DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1749;
+# INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+# (30, 0, 1749, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Lady Katrana Prestor - Visibility - Require quest Dragonkin Menace rewarded.'),
+# (30, 0, 1749, 0, 0, 47, 0, 6403, 64, 0, 1, 0, 0, '', 'Lady Katrana Prestor - Visibility - Require quest The Great Masquerade NOT rewarded.');
 
 UPDATE `item_template` SET `startquest` = 4264 WHERE `entry` = 11446; -- A crumpled up note
 
+-- Spawn Bolvar
 DELETE FROM `creature` WHERE `guid` = 500801 AND `id1` = 1748;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (500801, 1748, 0, 0, 0, 1, 1, 1, -8445.01, 329.85, 122.163, 2.12562, 300, 0, 1055700, 67740, 0, 0, 0, 0, '', 0);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1748;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(30, 0, 1748, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Highlord Bolvar Fordring - Visibility - Require quest Dragonkin Menace rewarded.');
+# DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `SourceEntry` = 1748;
+# INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+# (30, 0, 1748, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Highlord Bolvar Fordring - Visibility - Require quest Dragonkin Menace rewarded.');
 
 DELETE FROM `script_waypoint` WHERE `entry` = 9023;
 INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `location_z`, `waittime`, `point_comment`) VALUES
