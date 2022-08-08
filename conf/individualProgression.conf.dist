@@ -44,7 +44,7 @@ IndividualProgression.VanillaPowerAdjustment = 0.6
 #
 #        Default:     0.5 - 50% of regular healing
 #
-IndividualProgression.VanillaHealingAdjustmnet = 0.5
+IndividualProgression.VanillaHealingAdjustment = 0.5
 #
 #
 #    IndividualProgression.VanillaHealthAdjustmnet
