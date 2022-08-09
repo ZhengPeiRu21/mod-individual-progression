@@ -19,14 +19,24 @@ INSERT INTO creature_questender (`id`, `quest`) VALUES
 (1749, 396), # Lady Prestor is the Vanilla ender for this quest
 (29611, 396); # Also allow King Wrynn to complete the quest in person if he is back
 
+DELETE FROM creature_questender WHERE quest=4184;
+INSERT INTO creature_questender (`id`, `quest`) VALUES
+(1748, 4184), # Bolvar is the Vanilla ender for this quest
+(29611, 4184); # Also allow King Wrynn to complete the quest in person if he is back
+
 UPDATE creature_questender SET id=1748 WHERE quest=6186;
 UPDATE creature_questender SET id=1748 WHERE quest=6187;
 UPDATE creature_questender SET id=1748 WHERE quest=7781;
 
 DELETE FROM `creature_queststarter` WHERE `quest`=6182;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(1748, 6182), # Bolver is Vanilla starter for this quest
+(1748, 6182), # Bolvar is Vanilla starter for this quest
 (29611, 6182); # Also allow King Wrynn to end it in person
+
+DELETE FROM `creature_queststarter` WHERE `quest`=4185;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(1748, 4185), # Bolvar is Vanilla starter for this quest
+(29611, 4185); # Also allow King Wrynn to end it in person
 
 UPDATE creature_queststarter SET id=1748 WHERE quest=6187;
 # UPDATE creature_queststarter SET id=1748 WHERE quest=7782;
