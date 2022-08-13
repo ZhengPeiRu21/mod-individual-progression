@@ -53,9 +53,9 @@ IndividualProgression.VanillaHealingAdjustment = 0.5
 #                     Applied linearly per level between levels 11 and 60
 #                     Set to 1 (100% of regular health) to disable
 #
-#        Default:     0.5 - 50% of regular health
+#        Default:     0.75 - 75% of regular health
 #
-IndividualProgression.VanillaHealthAdjustment = 0.5
+IndividualProgression.VanillaHealthAdjustment = 0.75
 #
 #
 #    IndividualProgression.TBCPowerAdjustment
@@ -85,9 +85,9 @@ IndividualProgression.TBCHealingAdjustment = 0.5
 #                     Unlike Vanilla adjustment, a flat value is always used
 #                     Set to 1 (100% of regular health) to disable
 #
-#        Default:     0.6 - 60% of regular health
+#        Default:     0.8 - 80% of regular health
 #
-IndividualProgression.TBCHealthAdjustment = 0.6
+IndividualProgression.TBCHealthAdjustment = 0.8
 #
 #    IndividualProgression.QuestXPFix
 #        Description: Quest XP for Vanilla and TBC quests was boosted as a catchup mechanism in patches 2.3.0 and 3.0.2

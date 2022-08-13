@@ -357,13 +357,15 @@ public:
         {
             return;
         }
-        // Player is still in Vanilla content - give Vanilla damage adjustment
+        // Player is still in Vanilla content - give Vanilla health adjustment
         if (!hasPassedProgression(player, PROGRESSION_NAXX40))
         {
-            float computedAdjustment = player->getLevel() > 10 ? 1 - ((player->getLevel() - 10) / 50) * (1 - vanillaHealthAdjustment) : 1;
+            float adjustmentAmount = 1.0 - vanillaHealthAdjustment;
+            float applyPercent = ((player->getLevel() - 10.0) / 50.0);
+            float computedAdjustment = player->getLevel() > 10 ? 1.0 - applyPercent * adjustmentAmount : 1.0;
             value *= computedAdjustment;
         }
-            // Player is in TBC content - give TBC damage adjustment
+            // Player is in TBC content - give TBC health adjustment
         else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
             value *= tbcHealthAdjustment;
