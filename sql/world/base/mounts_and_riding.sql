@@ -1,5 +1,5 @@
 -- Re-enable Summon Felsteed (Warlock)
-DELETE FROM `disables`WHERE `sourceType`=1 AND `entry` IN (3631, 4487, 4488, 4489, 4490);
+DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (3631, 4487, 4488, 4489, 4490);
 
 -- Remove incorrect mail about riding which doesn't match Vanilla levels
 DELETE FROM `mail_level_reward` WHERE `level` <= 60;
