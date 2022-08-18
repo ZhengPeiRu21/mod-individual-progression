@@ -2,7 +2,7 @@
 UPDATE quest_template SET RewardNextQuest=11222 WHERE ID=11142;
 UPDATE quest_template SET RewardNextQuest=11223 WHERE ID=11222;
 DELETE FROM creature_queststarter WHERE id = 4968 and quest = 11222;
-DELETE FROM creature_queststarter WHERE id = 1748 and quest = 11224;
+DELETE FROM creature_queststarter WHERE id = 1748 and quest = 11223;
 INSERT INTO creature_queststarter(id, quest) VALUES (4968, 11222);
 INSERT INTO creature_queststarter(id, quest) VALUES (1748, 11223);
 UPDATE quest_offer_reward SET RewardText="<Lady Jaina listens intently as you report the results of your aerial survey.>$B$BA rune circle, dragonkin? The Defias have allied themselves with HER? The traitor?$B$BAnd why would the black dragonkin be interested in an island full of naga? There are many unanswered questions, but I one thing is for certain: the Defias have a powerful ally in upper echelons of the Alliance."
