@@ -19,6 +19,9 @@ For content that is added in later expansion that is provided for use in lower-l
 
 Options are provided to allow changes to experience based on preference. Please see config file.
 
+## Please Note!
+This module uses Player Settings to save individual character progress. Please ensure that EnablePlayerSettings is set to 1 in worldserver.conf or progress will not be saved!
+
 ### Optional Data Files
 Some changes for Vanilla and TBC content require DBC modification. The .mpq file for the client and .dbc files for server can be found in the "optional" directory. These changes include Vanilla reagents such as Flint and Steel for campfires, Level 60 enchanting using Vanilla and not TBC ingredient, professional leveling adjustments, etc. These is all optional and the module will work without the patch, but these recipes will remain WotLK version.
 
