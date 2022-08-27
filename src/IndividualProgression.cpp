@@ -3,8 +3,9 @@
  */
 
 #include "IndividualProgression.h"
+#include "../../../src/server/shared/DataStores/DBCEnums.h"
 
-static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment;
+static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
 static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules;
 
 class gobject_ipp_wotlk : public GameObjectScript
@@ -153,6 +154,7 @@ private:
         hunterPetLevelFix = sConfigMgr->GetOption<bool>("IndividualProgression.HunterPetLevelFix", true);
         requirePreAQQuests = sConfigMgr->GetOption<bool>("IndividualProgression.RequirePreAQQuests", true);
         enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
+        previousGearTuning = sConfigMgr->GetOption<float>("IndividualProgression.PreviousGearTuning", 0.03);
     }
 
     void LoadXpValues()
@@ -293,7 +295,33 @@ private:
         {
             AdjustTBCStats(player);
         }
+        else
+        {
+            AdjustWotLKStats(player);
+        }
 
+    }
+
+    void ApplyGearStatsTuning(Player* player, float& computedAdjustment, ItemTemplate const* item)
+    {
+        if (item->Quality != ITEM_QUALITY_EPIC) // Non-endgame gear is okay
+            return;
+        if ((hasPassedProgression(player, PROGRESSION_NAXX40) && item->RequiredLevel <= 60) ||
+            hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && item->RequiredLevel <=70)
+        {
+            computedAdjustment -= (100.0 * previousGearTuning);
+        }
+    }
+
+    void ApplyGearHealthTuning(Player* player, float& computedAdjustment, ItemTemplate const* item)
+    {
+        if (item->Quality != ITEM_QUALITY_EPIC) // Non-endgame gear is okay
+            return;
+        if ((hasPassedProgression(player, PROGRESSION_NAXX40) && item->RequiredLevel <= 60) ||
+            hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && item->RequiredLevel <=70)
+        {
+            computedAdjustment += previousGearTuning;
+        }
     }
 
     void AdjustVanillaStats(Player* player)
@@ -309,6 +337,22 @@ private:
         float adjustmentValue = -100.0 * (1.0 - tbcPowerAdjustment);
         float adjustmentApplyPercent = 1;
         float computedAdjustment = player->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+        for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
+        {
+            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
+                ApplyGearStatsTuning(player, computedAdjustment, item->GetTemplate());
+        }
+        AdjustStats(player, computedAdjustment);
+    }
+
+    void AdjustWotLKStats(Player* player)
+    {
+        float computedAdjustment = 0;
+        for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
+        {
+            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
+                ApplyGearStatsTuning(player, computedAdjustment, item->GetTemplate());
+        }
         AdjustStats(player, computedAdjustment);
     }
 
@@ -346,6 +390,11 @@ public:
         CheckAdjustments(player);
     }
 
+    void OnEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
+    {
+        CheckAdjustments(player);
+    }
+
     void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
     {
         CheckAdjustments(player);
@@ -353,9 +402,16 @@ public:
 
     void OnAfterUpdateMaxHealth(Player* player, float& value) override
     {
+        // TODO: This should be adjust to use an aura like damage adjustment. This is more robust to update when changing equipment, etc.
         if (!enabled)
         {
             return;
+        }
+        float gearAdjustment = 0.0;
+        for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
+        {
+            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
+                ApplyGearHealthTuning(player, gearAdjustment, item->GetTemplate());
         }
         // Player is still in Vanilla content - give Vanilla health adjustment
         if (!hasPassedProgression(player, PROGRESSION_NAXX40))
@@ -368,7 +424,13 @@ public:
             // Player is in TBC content - give TBC health adjustment
         else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
-            value *= tbcHealthAdjustment;
+            LOG_ERROR("", "TbcHealthadjustment: {}, gearAdjustment: {}", tbcHealthAdjustment, gearAdjustment);
+            value *= (tbcHealthAdjustment - gearAdjustment);
+        }
+            // Player is in WotLK content - only need to check gear adjustment
+        else
+        {
+            value *= 1 - gearAdjustment;
         }
     }
 
@@ -570,6 +632,15 @@ public:
                 break;
         }
     }
+// Used in Naxx40, waiting for this AC PR to merge before can be used: https://github.com/azerothcore/azerothcore-wotlk/pull/12860
+//
+//    void OnBeforeChooseGraveyard(Player* player, TeamId /*teamId*/, bool /*nearCorpse*/, uint32& graveyardOverride) override
+//    {
+//        if (player->GetMapId() == MAP_NAXX && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
+//        {
+//            graveyardOverride = NAXX40_GRAVEYARD;
+//        }
+//    }
 
 
 
