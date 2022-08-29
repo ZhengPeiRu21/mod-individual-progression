@@ -3,7 +3,6 @@
  */
 
 #include "IndividualProgression.h"
-#include "../../../src/server/shared/DataStores/DBCEnums.h"
 
 static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
 static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules;
@@ -524,19 +523,18 @@ public:
         return true;
     }
 
-    bool OnBeforeQuestComplete(Player* player, uint32 quest_id) override
+    void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
     {
         if (!enabled)
         {
-            return true;
+            return;
         }
-        switch (quest_id)
+        switch (quest->GetQuestId())
         {
             case MIGHT_OF_KALIMDOR:
                 UpdateProgressionState(player, PROGRESSION_PRE_AQ);
                 break;
         }
-        return true;
     }
 
     bool CanGroupInvite(Player* player, std::string& membername) override

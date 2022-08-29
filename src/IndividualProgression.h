@@ -11,6 +11,7 @@
 #include "ObjectAccessor.h"
 #include "Group.h"
 #include "Pet.h"
+#include "DBCEnums.h"
 
 typedef std::unordered_map<uint32, uint32> questXpMapType;
 questXpMapType questXpMap;
