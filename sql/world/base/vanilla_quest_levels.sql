@@ -1,5 +1,20 @@
+/*  Kobold Camp Cleanup  */
+UPDATE quest_template SET RequiredNpcOrGoCount1 = 10 WHERE ID=7;
+
+/*  Investigate Echo Ridge  */
+UPDATE quest_template SET RequiredNpcOrGoCount1 = 10 WHERE ID=15;
+
+/*  Brotherhood of Thieves  */
+UPDATE quest_template SET RequiredItemCount1 = 12 WHERE ID=18;
+
 /*  Tharil'zun  */
 UPDATE quest_template SET RequiredItemId1 = 1260, RequiredItemId2 = 0, RequiredItemCount1 = 1, RequiredItemCount2 = 0 WHERE ID=19;
+
+/*  Skirmish at Echo Ridge  */
+UPDATE quest_template SET RequiredNpcOrGoCount1 = 12 WHERE ID=21;
+
+/*  Wolves Across the Border  */
+UPDATE quest_template SET RequiredItemId1 = 750 WHERE ID=33;
 
 /*  The Legend of Stalvan  */
 UPDATE quest_template SET QuestLevel = 35 WHERE ID=98;
@@ -57,6 +72,12 @@ UPDATE quest_template SET QuestLevel = 34 WHERE ID=304;
 
 /*  Stranglethorn Fever  */
 UPDATE quest_template SET RequiredItemCount1 = 10 WHERE ID=349;
+
+/*  The Mindless Ones  */
+UPDATE quest_template SET RequiredNpcOrGoCount1 = 8, RequiredNpcOrGoCount2 = 8 WHERE ID=364;
+
+/*  Night Web's Hollow  */
+UPDATE quest_template SET RequiredNpcOrGoCount1 = 10, RequiredNpcOrGoCount2 = 8 WHERE ID=380;
 
 /*  Wanted: Maggot Eye  */
 UPDATE quest_template SET MinLevel = 6 WHERE ID=398;
@@ -159,6 +180,18 @@ UPDATE quest_template SET MinLevel = 30 WHERE ID=684;
 
 /*  Wanted!  Otto and Falconcrest  */
 UPDATE quest_template SET MinLevel = 30 WHERE ID=685;
+
+/*  Rite of Strength  */
+UPDATE quest_template SET RequiredItemCount1 = 12 WHERE ID=757;
+
+/*  Cutting Teeth  */
+UPDATE quest_template SET RequiredNpcOrGoCount1 = 10 WHERE ID=788;
+
+/*  Sting of the Scorpid  */
+UPDATE quest_template SET RequiredItemCount1 = 10 WHERE ID=789;
+
+/*  Vile Familiars  */
+UPDATE quest_template SET RequiredNpcOrGoCount1 = 12 WHERE ID=792;
 
 /*  Gann's Reclamation  */
 UPDATE quest_template SET RequiredItemId1 = 5006, RequiredItemId3 = 0, RequiredItemCount1 = 1, RequiredItemCount3 = 0 WHERE ID=843;
@@ -319,6 +352,9 @@ UPDATE quest_template SET RewardItem1 = 10791, RewardAmount1 = 1 WHERE ID=3646;
 /*  Membership Card Renewal  */
 UPDATE quest_template SET RewardItem1 = 10790, RewardAmount1 = 1 WHERE ID=3647;
 
+/*  Rattling the Rattlecages  */
+UPDATE quest_template SET RequiredNpcOrGoCount1 = 12 WHERE ID=3901;
+
 /*  Disharmony of Fire  */
 UPDATE quest_template SET RequiredItemId1 = 11126, RequiredItemId2 = 0, RequiredItemCount1 = 1, RequiredItemCount2 = 0 WHERE ID=3907;
 
@@ -327,6 +363,9 @@ UPDATE quest_template SET RequiredItemId1 = 11149, RequiredItemId3 = 0, Required
 
 /*  KILL ON SIGHT: High Ranking Dark Iron Officials  */
 UPDATE quest_template SET MinLevel = 50 WHERE ID=4082;
+
+/*  Galgar's Cactus Apple Surprise  */
+UPDATE quest_template SET RequiredItemCount1 = 10 WHERE ID=4402;
 
 /*  Caught!  */
 UPDATE quest_template SET RequiredItemId1 = 4306, RequiredItemId2 = 0, RequiredItemCount1 = 15, RequiredItemCount2 = 0 WHERE ID=4449;

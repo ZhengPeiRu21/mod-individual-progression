@@ -1,3 +1,18 @@
+/*  Defias Thug  */
+UPDATE `creature_template` SET `faction` = 17 WHERE `entry` = 38;
+
+/*  [UNUSED] Antaris the Trader  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 72;
+
+/*  Garrick Padfoot  */
+UPDATE `creature_template` SET `faction` = 17 WHERE `entry` = 103;
+
+/*  Vaious  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 229;
+
+/*  Half-eaten body  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 262;
+
 /*  Earth Elemental  */
 UPDATE `creature_template` SET `faction` = 7 WHERE `entry` = 329;
 
@@ -15,6 +30,9 @@ UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 416;
 
 /*  Felhunter  */
 UPDATE `creature_template` SET `faction` = 115 WHERE `entry` = 417;
+
+/*  [UNUSED] Goreripper  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 444;
 
 /*  Watcher Bukouris  */
 UPDATE `creature_template` SET `faction` = 11 WHERE `entry` = 494;
@@ -124,8 +142,29 @@ UPDATE `creature_template` SET `faction` = 12 WHERE `entry` = 1444;
 /*  Negolash  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 1494;
 
+/*  Night Web Spider  */
+UPDATE `creature_template` SET `faction` = 22 WHERE `entry` = 1505;
+
+/*  Scarlet Convert  */
+UPDATE `creature_template` SET `faction` = 67 WHERE `entry` = 1506;
+
+/*  Scarlet Initiate  */
+UPDATE `creature_template` SET `faction` = 67 WHERE `entry` = 1507;
+
+/*  UNUSED Jordan Croft  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 1649;
+
+/*  Meven Korgal  */
+UPDATE `creature_template` SET `faction` = 67 WHERE `entry` = 1667;
+
+/*  Night Web Matriarch  */
+UPDATE `creature_template` SET `faction` = 22 WHERE `entry` = 1688;
+
 /*  Paxton Ganter  */
 UPDATE `creature_template` SET `faction` = 57 WHERE `entry` = 1700;
+
+/*  Defias Prisoner  */
+UPDATE `creature_template` SET `faction` = 17 WHERE `entry` = 1706;
 
 /*  Marzon the Silent Blade  */
 UPDATE `creature_template` SET `faction` = 84 WHERE `entry` = 1755;
@@ -210,9 +249,6 @@ UPDATE `creature_template` SET `faction` = 11 WHERE `entry` = 2053;
 
 /*  Sickly Refugee  */
 UPDATE `creature_template` SET `faction` = 11 WHERE `entry` = 2054;
-
-/*  Deathstalker Faerleia  */
-UPDATE `creature_template` SET `faction` = 71 WHERE `entry` = 2058;
 
 /*  Councilman Smithers  */
 UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 2060;
@@ -325,6 +361,9 @@ UPDATE `creature_template` SET `faction` = 82 WHERE `entry` = 2630;
 /*  Syndicate Spectre  */
 UPDATE `creature_template` SET `faction` = 70 WHERE `entry` = 2638;
 
+/*  Port Master Szik  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 2662;
+
 /*  Ward of Laze  */
 UPDATE `creature_template` SET `faction` = 45 WHERE `entry` = 2667;
 
@@ -379,6 +418,9 @@ UPDATE `creature_template` SET `faction` = 57 WHERE `entry` = 2801;
 /*  Deneb Walker  */
 UPDATE `creature_template` SET `faction` = 11 WHERE `entry` = 2805;
 
+/*  [UNUSED] Teresa Shore  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 2815;
+
 /*  Broken Tooth  */
 UPDATE `creature_template` SET `faction` = 66 WHERE `entry` = 2850;
 
@@ -406,17 +448,53 @@ UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 2931;
 /*  Ransin Donner  */
 UPDATE `creature_template` SET `faction` = 57 WHERE `entry` = 2943;
 
+/*  Bristleback Quilboar  */
+UPDATE `creature_template` SET `faction` = 111 WHERE `entry` = 2952;
+
+/*  Bristleback Shaman  */
+UPDATE `creature_template` SET `faction` = 111 WHERE `entry` = 2953;
+
+/*  Bristleback Battleboar  */
+UPDATE `creature_template` SET `faction` = 111 WHERE `entry` = 2954;
+
+/*  Battleboar  */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 2966;
+
+/*  Bael'dun Digger  */
+UPDATE `creature_template` SET `faction` = 57 WHERE `entry` = 2989;
+
+/*  Bael'dun Appraiser  */
+UPDATE `creature_template` SET `faction` = 57 WHERE `entry` = 2990;
+
 /*  Healing Ward V  */
 UPDATE `creature_template` SET `faction` = 152 WHERE `entry` = 2992;
+
+/*  Bluffwatcher  */
+UPDATE `creature_template` SET `faction` = 105 WHERE `entry` = 3084;
+
+/*  Vile Familiar  */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3101;
+
+/*  Felstalker  */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3102;
 
 /*  Bloodtalon Taillasher  */
 UPDATE `creature_template` SET `faction` = 48 WHERE `entry` = 3122;
 
+/*  Yarrog Baneshadow  */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 3183;
+
 /*  "Squealer" Thornmantle  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3229;
 
+/*  Nazgrel  */
+UPDATE `creature_template` SET `faction` = 29 WHERE `entry` = 3230;
+
 /*  Morgan Ladimore  */
 UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 3301;
+
+/*  Silithid Protector  */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 3503;
 
 /*  Tenaron Stormgrip  */
 UPDATE `creature_template` SET `faction` = 79 WHERE `entry` = 3514;
@@ -435,9 +513,6 @@ UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 3529;
 
 /*  Moonrage Tailor  */
 UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 3531;
-
-/*  Pyrewood Leatherworker  */
-UPDATE `creature_template` SET `faction` = 11 WHERE `entry` = 3532;
 
 /*  Moonrage Leatherworker  */
 UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 3533;
@@ -462,6 +537,9 @@ UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 3579;
 
 /*  Therylune  */
 UPDATE `creature_template` SET `faction` = 80 WHERE `entry` = 3584;
+
+/*  Miner Johnson  */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3586;
 
 /*  Lyrai  */
 UPDATE `creature_template` SET `faction` = 79 WHERE `entry` = 3587;
@@ -532,8 +610,17 @@ UPDATE `creature_template` SET `faction` = 71 WHERE `entry` = 3736;
 /*  Terrowulf Packlord  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3792;
 
+/*  Druid of the Talon  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 3794;
+
+/*  Druid of the Claw  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 3795;
+
 /*  Blink Dragon  */
 UPDATE `creature_template` SET `faction` = 7 WHERE `entry` = 3815;
+
+/*  [UNUSED] Ancient Guardian  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 3831;
 
 /*  Mountaineer Pebblebitty  */
 UPDATE `creature_template` SET `faction` = 57 WHERE `entry` = 3836;
@@ -676,6 +763,9 @@ UPDATE `creature_template` SET `faction` = 411 WHERE `entry` = 4425;
 /*  Death Speaker Jargba  */
 UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 4428;
 
+/*  [UNUSED] Charlga's Bodyguard  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 4439;
+
 /*  Wind Howler  */
 UPDATE `creature_template` SET `faction` = 152 WHERE `entry` = 4526;
 
@@ -724,6 +814,9 @@ UPDATE `creature_template` SET `faction` = 122 WHERE `entry` = 4961;
 /*  Slim's Friend  */
 UPDATE `creature_template` SET `faction` = 34 WHERE `entry` = 4971;
 
+/*  World Lockpicking Trainer  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 5027;
+
 /*  Theramore Deserter  */
 UPDATE `creature_template` SET `faction` = 1077 WHERE `entry` = 5057;
 
@@ -738,6 +831,9 @@ UPDATE `creature_template` SET `faction` = 85 WHERE `entry` = 5196;
 
 /*  Red Riding Wolf  */
 UPDATE `creature_template` SET `faction` = 85 WHERE `entry` = 5197;
+
+/*  Coast Crawl Clacker  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 5326;
 
 /*  Bloodroar the Stalker  */
 UPDATE `creature_template` SET `faction` = 32 WHERE `entry` = 5346;
@@ -819,6 +915,9 @@ UPDATE `creature_template` SET `faction` = 92 WHERE `entry` = 5898;
 
 /*  Minor Manifestation of Air  */
 UPDATE `creature_template` SET `faction` = 91 WHERE `entry` = 5902;
+
+/*  Deviate Faerie Dragon  */
+UPDATE `creature_template` SET `faction` = 32 WHERE `entry` = 5912;
 
 /*  Tremor Totem  */
 UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 5913;
@@ -1339,6 +1438,9 @@ UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 8510;
 /*  Rynthariel the Keymaster  */
 UPDATE `creature_template` SET `faction` = 79 WHERE `entry` = 8518;
 
+/*  Chief Sharptusk Thornmantle  */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 8554;
+
 /*  Magus Rimtori  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 8578;
 
@@ -1378,12 +1480,6 @@ UPDATE `creature_template` SET `faction` = 64 WHERE `entry` = 8856;
 /*  Sandfury Acolyte  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 8876;
 
-/*  Shadowforge Senator  */
-UPDATE `creature_template` SET `faction` = 15 WHERE `entry` = 8904;
-
-/*  Arena Spectator  */
-UPDATE `creature_template` SET `faction` = 15 WHERE `entry` = 8916;
-
 /*  Panzor the Invincible  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 8923;
 
@@ -1401,6 +1497,9 @@ UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 8980;
 
 /*  Malfunctioning Reaver  */
 UPDATE `creature_template` SET `faction` = 91 WHERE `entry` = 8981;
+
+/*  Voidwalker Minion  */
+UPDATE `creature_template` SET `faction` = 7 WHERE `entry` = 8996;
 
 /*  Sha'ni Proudtusk  */
 UPDATE `creature_template` SET `faction` = 85 WHERE `entry` = 9136;
@@ -1765,6 +1864,9 @@ UPDATE `creature_template` SET `faction` = 79 WHERE `entry` = 11218;
 /*  Blood Parrot  */
 UPDATE `creature_template` SET `faction` = 7 WHERE `entry` = 11236;
 
+/*  Frail Skeleton  */
+UPDATE `creature_template` SET `faction` = 233 WHERE `entry` = 11258;
+
 /*  Dark Shade  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 11284;
 
@@ -1933,6 +2035,9 @@ UPDATE `creature_template` SET `faction` = 875 WHERE `entry` = 12784;
 /*  Sergeant Major Clate  */
 UPDATE `creature_template` SET `faction` = 55 WHERE `entry` = 12785;
 
+/*  Legionnaire Teena  */
+UPDATE `creature_template` SET `faction` = 85 WHERE `entry` = 12788;
+
 /*  Blood Guard Hini'wana  */
 UPDATE `creature_template` SET `faction` = 126 WHERE `entry` = 12789;
 
@@ -1977,6 +2082,9 @@ UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 12918;
 
 /*  Milton Beats  */
 UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 13082;
+
+/*  Lieutenant Sanders  */
+UPDATE `creature_template` SET `faction` = 67 WHERE `entry` = 13158;
 
 /*  Discordant Surge  */
 UPDATE `creature_template` SET `faction` = 91 WHERE `entry` = 13279;
@@ -2116,33 +2224,6 @@ UPDATE `creature_template` SET `faction` = 32 WHERE `entry` = 14492;
 /*  Warlock Mount Ritual Mob Type 3, Infernal (DND)  */
 UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14501;
 
-/*  Shadowed Spirit  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14511;
-
-/*  Corrupted Spirit  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14512;
-
-/*  Malicious Spirit  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14513;
-
-/*  Banal Spirit  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14514;
-
-/*  Death Knight Darkreaver  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14516;
-
-/*  Aspect of Banality  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14518;
-
-/*  Aspect of Corruption  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14519;
-
-/*  Aspect of Malice  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14520;
-
-/*  Aspect of Shadow  */
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14521;
-
 /*  Simone the Inconspicuous  */
 UPDATE `creature_template` SET `faction` = 1194 WHERE `entry` = 14527;
 
@@ -2239,6 +2320,12 @@ UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14755;
 /*  Tiny Red Dragon  */
 UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14756;
 
+/*  GGOODMAN  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14824;
+
+/*  Stoneclaw Totem TEST  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14870;
+
 /*  High Priest Venoxis Transform Visual  */
 UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14877;
 
@@ -2283,6 +2370,9 @@ UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 15110;
 
 /*  Brain Wash Totem  */
 UPDATE `creature_template` SET `faction` = 28 WHERE `entry` = 15112;
+
+/*  Master Angler Form  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 15118;
 
 /*  Gahz'ranka Dead  */
 UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 15122;
@@ -2691,6 +2781,9 @@ UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 16111;
 
 /*  Kormok  */
 UPDATE `creature_template` SET `faction` = 21 WHERE `entry` = 16118;
+
+/*  Rhonin  */
+UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 16128;
 
 /*  Shadow Fissure  */
 UPDATE `creature_template` SET `faction` = 21 WHERE `entry` = 16129;

@@ -1,18 +1,3 @@
--- Restless Shade
-UPDATE `creature_template` SET `minlevel`=58, `maxlevel`=60 WHERE `entry`=7370;
-
--- Wailing Spectre
-UPDATE `creature_template` SET `minlevel`=58, `maxlevel`=60 WHERE `entry`=12377;
-
--- Damned Soul
-UPDATE `creature_template` SET `minlevel`=59, `maxlevel`=60 WHERE `entry`=12378;
-
--- Unliving Caretaker
-UPDATE `creature_template` SET `minlevel`=59, `maxlevel`=60 WHERE `entry`=12379;
-
--- Unliving Resident
-UPDATE `creature_template` SET `minlevel`=59, `maxlevel`=60 WHERE `entry`=12380;
-
 -- Deadwind Brute
 DELETE FROM `creature_loot_template` WHERE `Entry`=7369;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (7369, 2928, 0, 0.02, 0, 1, 0, 1, 1, 'Deadwind Brute - Dust of Decay');
