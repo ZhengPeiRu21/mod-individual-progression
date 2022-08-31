@@ -12,6 +12,8 @@
 #include "Group.h"
 #include "Pet.h"
 #include "DBCEnums.h"
+#include "QuestDef.h"
+#include "GameObject.h"
 
 typedef std::unordered_map<uint32, uint32> questXpMapType;
 questXpMapType questXpMap;
@@ -46,7 +48,10 @@ enum BuffSpells
 
 enum ProgressionQuestIDs
 {
-    MIGHT_OF_KALIMDOR = 8742
+    MIGHT_OF_KALIMDOR = 8742,
+    NAXX40_ATTUNEMENT_1 = 9121,
+    NAXX40_ATTUNEMENT_2 = 9122,
+    NAXX40_ATTUNEMENT_3 = 9123,
 };
 
 enum NaxxGraveyards
@@ -106,6 +111,11 @@ enum ProgressionState : uint8
     PROGRESSION_WOTLK_TIER_3    = 14, // TotC
     PROGRESSION_WOTLK_TIER_4    = 15, // ICC
     PROGRESSION_WOTLK_TIER_5    = 16  // Ruby Sanctum
+};
+
+enum ProgressionObjects
+{
+    NAXX_STRATH_GATE = 176424
 };
 
 #endif //AZEROTHCORE_INDIVIDUALPROGRESSION_H

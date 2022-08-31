@@ -137,6 +137,67 @@ public:
     }
 };
 
+class npc_naxx40_area_trigger : public CreatureScript
+{
+private:
+    static bool isAttuned(Player* player)
+    {
+        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED)
+            return true;
+        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED)
+            return true;
+        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED)
+            return true;
+        return false;
+    }
+
+public:
+    npc_naxx40_area_trigger() : CreatureScript("npc_naxx40_area_trigger") {}
+
+    struct npc_naxx40_area_triggerAI: public ScriptedAI
+    {
+        npc_naxx40_area_triggerAI(Creature* creature) : ScriptedAI(creature)
+        {
+            me->SetDisplayId(11686); // Invisible
+        }
+
+        void MoveInLineOfSight(Unit* who) override
+        {
+            if (who && me->GetDistance2d(who) < 5.0f)
+            {
+                if (Player* player = who->ToPlayer())
+                {
+                    if (isAttuned(player))
+                    {
+                        player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                        player->TeleportTo(533, 3005.68f, -3447.77f, 293.93f, 4.65f);
+                    }
+                }
+
+            }
+            else if (who && me->GetDistance2d(who) < 20.0f)
+            {
+                if (Player* player = who->ToPlayer())
+                {
+                    if (isAttuned(player))
+                    {
+                        GameObject* door = me->FindNearestGameObject(NAXX_STRATH_GATE, 100.0f);
+                        if (door)
+                        {
+                            door->SetGoState(GO_STATE_ACTIVE);
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_naxx40_area_triggerAI(creature);
+    }
+};
+
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {
 private:
@@ -653,6 +714,7 @@ void AddSC_mod_individual_progression()
     new npc_ipp_aq();
     new npc_ipp_tbc();
     new npc_ipp_wotlk();
+    new npc_naxx40_area_trigger();
     new gobject_ipp_tbc();
     new gobject_ipp_wotlk();
 }
