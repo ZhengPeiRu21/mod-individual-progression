@@ -163,9 +163,6 @@ UPDATE `creature_template` SET `faction` = 22 WHERE `entry` = 1688;
 /*  Paxton Ganter  */
 UPDATE `creature_template` SET `faction` = 57 WHERE `entry` = 1700;
 
-/*  Defias Prisoner  */
-UPDATE `creature_template` SET `faction` = 17 WHERE `entry` = 1706;
-
 /*  Marzon the Silent Blade  */
 UPDATE `creature_template` SET `faction` = 84 WHERE `entry` = 1755;
 
