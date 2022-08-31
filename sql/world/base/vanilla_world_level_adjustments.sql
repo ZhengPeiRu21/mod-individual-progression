@@ -19,7 +19,7 @@ UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` IN
 /* Event vendors */
 UPDATE `creature_template` SET `minlevel` = 35, `maxlevel` = 35 WHERE `entry` IN (34382, 34383, 34653, 38065, 32798, 32799, 26124,
                                                                                   23486, 23710, 26221, 25909, 25925, 25941, 27215,
-                                                                                  25944, 34382, 34383, 34653, 34654, 38065, );
+                                                                                  25944, 34382, 34383, 34653, 34654, 38065);
 
 UPDATE `creature_template` SET `minlevel` = 37, `maxlevel` = 37 WHERE `entry` IN (25915, 25920);
 UPDATE `creature_template` SET `minlevel` = 30, `maxlevel` = 37 WHERE `entry` IN (26123, 26124);
