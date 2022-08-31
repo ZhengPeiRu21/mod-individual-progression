@@ -494,7 +494,7 @@ public:
         }
     }
 
-    void OnQuestComputeXP(Player* /*player*/, Quest const* quest, uint32& xpValue) override
+    void OnQuestComputeXP(Player* player, Quest const* quest, uint32& xpValue) override
     {
         if (!enabled || !questXpFix)
         {
@@ -503,6 +503,10 @@ public:
         if (questXpMap.count(quest->GetQuestId()))
         {
             uint32 vanillaXpValue = questXpMap[quest->GetQuestId()];
+            if (player)
+            {
+                vanillaXpValue *= player->GetQuestRate();
+            }
             // If XP was already reduced due to out-leveling the quest or other reasons, use the reduced value
             if (vanillaXpValue < xpValue)
             {
