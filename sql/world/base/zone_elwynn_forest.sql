@@ -229,3 +229,16 @@ UPDATE `quest_template_addon` SET `SpecialFlags`=0 WHERE `ID`=3905;
 
 -- Eagan Peltskinner
 UPDATE `quest_template_addon` SET `SpecialFlags`=0 WHERE `ID`=5261;
+
+-- Timber Wolf
+DELETE FROM `creature_loot_template` WHERE `Entry`=69 AND `Item`=750;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Chance`, `QuestRequired`, `MinCount`, `MaxCount`, `Comment`) VALUES (69, 750, 80, 1, 1, 1, 'Timber Wolf - Tough Wolf Meat');
+
+-- Young Wolf
+DELETE FROM `creature_loot_template` WHERE `Entry`=299 AND `Item`=750;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Chance`, `QuestRequired`, `MinCount`, `MaxCount`, `Comment`) VALUES (299, 750, 80, 1, 1, 1, 'Young Wolf - Tough Wolf Meat');
+
+DELETE FROM `creature_questitem` WHERE `CreatureEntry` IN (69, 299);
+INSERT INTO `creature_questitem` (`CreatureEntry`, `Idx`, `ItemId`, `VerifiedBuild`) VALUES
+(69, 0, 750, 0),
+(299, 0, 750, 0);
