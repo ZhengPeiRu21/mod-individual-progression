@@ -7199,7 +7199,8 @@ UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=3337;
 UPDATE `creature_template` SET `DamageModifier` = 2.6, `ArmorModifier` = 1.1 WHERE `entry`=3338;
 
 /*  Captain Thalo'thas Brightsun  */
-UPDATE `creature_template` SET `modelid1` = 4245, `DamageModifier` = 0.9 WHERE `entry`=3339;
+/* UPDATE `creature_template` SET `modelid1` = 4245, `DamageModifier` = 0.9 WHERE `entry`=3339; -- This is the correct model, but it does not work in the WotLK client */
+UPDATE `creature_template` SET `DamageModifier` = 0.9 WHERE `entry`=3339;
 
 /*  Gann Stonespire  */
 UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=3341;
