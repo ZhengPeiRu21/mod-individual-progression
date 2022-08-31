@@ -26,9 +26,9 @@ UPDATE `creature_template` SET `minlevel` = 30, `maxlevel` = 37 WHERE `entry` IN
 UPDATE `creature_template` SET `minlevel` = 32, `maxlevel` = 37 WHERE `entry` IN (25975, 25920);
 
 /* Karazhan Quest NPCs */
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` IN (17613);
-UPDATE `creature_template` SET `minlevel` = 59, `maxlevel` = 59 WHERE `entry` IN (18253);
-UPDATE `creature_template` SET `minlevel` = 58, `maxlevel` = 58 WHERE `entry` IN (18255);
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `ScriptName`='npc_ipp_tbc' WHERE `entry` IN (17613);
+UPDATE `creature_template` SET `minlevel` = 59, `maxlevel` = 59, `ScriptName`='npc_ipp_tbc' WHERE `entry` IN (18253);
+UPDATE `creature_template` SET `minlevel` = 58, `maxlevel` = 58, `ScriptName`='npc_ipp_tbc' WHERE `entry` IN (18255);
 
 /* Arena NPCs */
 UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `ScriptName`='npc_ipp_tbc' WHERE `entry` IN

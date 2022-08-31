@@ -8086,12 +8086,6 @@ UPDATE `item_template` SET `dmg_min1` = 50.66, `dmg_max1` = 97.66, `DisenchantID
 /*  Staff of Metanoia  */
 UPDATE `item_template` SET `DisenchantID` = 49 WHERE entry=22394;
 
-/*  Totem of Rage  */
-UPDATE `item_template` SET  WHERE entry=22395;
-
-/*  Totem of Life  */
-UPDATE `item_template` SET  WHERE entry=22396;
-
 /*  Idol of Rejuvenation  */
 UPDATE `item_template` SET `DisenchantID` = 49 WHERE entry=22398;
 
