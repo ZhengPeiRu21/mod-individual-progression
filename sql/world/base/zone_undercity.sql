@@ -3,7 +3,7 @@ DELETE FROM `creature_queststarter` WHERE `id`=4563 AND `quest`=4489;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
 
 /* Replace orc guards with pre-wrathgate abomination guards */
-UPDATE `creature` SET `id1`=5624 WHERE `id1`=36213;
+UPDATE `creature` SET `id1`=5624, `equipment_id`=0 WHERE `id1`=36213;
 
 DELETE FROM `gossip_menu_option` WHERE (`MenuID`) IN (2847, 2848, 2849);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
