@@ -5,6 +5,8 @@ DELETE FROM `areatrigger_teleport` WHERE `ID` IN (5196, 5197, 5198, 5199);
 UPDATE `creature` SET `spawnMask` = 3 WHERE `spawnMask` = 7 AND `map` = 533;
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `spawnMask` = 3 AND `map` = 533;
 
+UPDATE `gameobject` SET `spawnMask` = 3 WHERE `id` IN (202278, 202277);  # Orb of Naxxramas does not exist in classic
+
 DELETE FROM `dungeon_access_template` WHERE `id`=122;
 INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES (122, 533, 2, 60, 0, 0, 'Naxxramas - 40man');
 
@@ -15,6 +17,25 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 DELETE FROM `creature` WHERE `guid` = 352042;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (352042, 351097, 0, 0, 329, 0, 0, 1, 1, 0, 3929.06, -3372.12, 119.653, 4.71395, 300, 0, 0, 6986, 0, 0, 0, 0, 0, '', 0);
+
+# Four horseman chest
+DELETE FROM `gameobject_template` WHERE `entry`=361000;
+INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, `unk1`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, `Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, `Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES
+(361000, 3, 1387, 'Four Horsemen Chest', '', '', '', 1, 1634, 361000, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 1);
+
+REPLACE INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+(314800, 22349, 0, 0.0, 0, 1, 1, 1),
+(314800, 22350, 0, 0.0, 0, 1, 1, 1),
+(314800, 22351, 0, 0.0, 0, 1, 1, 1);
+REPLACE INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+(361000, 314800, 314800, 100, 0, 0, 2, 2),
+(361000, 22691, 0, 0, 0, 2, 1, 1),
+(361000, 22726, 0, 30, 0, 0, 1, 1),
+(361000, 22809, 0, 0, 0, 2, 1, 1),
+(361000, 22811, 0, 0, 0, 2, 1, 1),
+(361000, 23025, 0, 0, 0, 2, 1, 1),
+(361000, 23027, 0, 0, 0, 2, 1, 1),
+(361000, 23071, 0, 0, 0, 2, 1, 1);
 
 DELETE FROM gameobject WHERE guid BETWEEN 351000 AND 351139;
 SET @GUID := 351000;

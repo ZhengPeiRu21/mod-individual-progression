@@ -25,6 +25,7 @@ enum ProgressionBossIDs
     NEFARIAN = 11583,
     CTHUN = 15727,
     KELTHUZAD = 15990,
+    KELTHUZAD_40 = 351019,
     MALCHEZAAR = 15690,
     KAELTHAS = 19622,
     ILLIDAN = 22917,
@@ -48,15 +49,7 @@ enum BuffSpells
 
 enum ProgressionQuestIDs
 {
-    MIGHT_OF_KALIMDOR = 8742,
-    NAXX40_ATTUNEMENT_1 = 9121,
-    NAXX40_ATTUNEMENT_2 = 9122,
-    NAXX40_ATTUNEMENT_3 = 9123,
-};
-
-enum NaxxGraveyards
-{
-    NAXX40_GRAVEYARD = 1449
+    MIGHT_OF_KALIMDOR = 8742
 };
 
 enum ProgressionMaps
@@ -65,7 +58,6 @@ enum ProgressionMaps
     MAP_AQ_20 = 509,
     MAP_AQ_40 = 531,
     MAP_OUTLANDS = 530,
-    MAP_NAXX = 533,
     MAP_ZUL_AMAN = 568,
     MAP_NORTHREND = 571,
     MAP_ULDUAR = 603,
@@ -113,9 +105,5 @@ enum ProgressionState : uint8
     PROGRESSION_WOTLK_TIER_5    = 16  // Ruby Sanctum
 };
 
-enum ProgressionObjects
-{
-    NAXX_STRATH_GATE = 176424
-};
 
 #endif //AZEROTHCORE_INDIVIDUALPROGRESSION_H

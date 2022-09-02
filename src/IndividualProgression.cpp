@@ -137,66 +137,6 @@ public:
     }
 };
 
-class npc_naxx40_area_trigger : public CreatureScript
-{
-private:
-    static bool isAttuned(Player* player)
-    {
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED)
-            return true;
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED)
-            return true;
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED)
-            return true;
-        return false;
-    }
-
-public:
-    npc_naxx40_area_trigger() : CreatureScript("npc_naxx40_area_trigger") {}
-
-    struct npc_naxx40_area_triggerAI: public ScriptedAI
-    {
-        npc_naxx40_area_triggerAI(Creature* creature) : ScriptedAI(creature)
-        {
-            me->SetDisplayId(11686); // Invisible
-        }
-
-        void MoveInLineOfSight(Unit* who) override
-        {
-            if (who && me->GetDistance2d(who) < 5.0f)
-            {
-                if (Player* player = who->ToPlayer())
-                {
-                    if (isAttuned(player))
-                    {
-                        player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                        player->TeleportTo(533, 3005.68f, -3447.77f, 293.93f, 4.65f);
-                    }
-                }
-
-            }
-            else if (who && me->GetDistance2d(who) < 20.0f)
-            {
-                if (Player* player = who->ToPlayer())
-                {
-                    if (isAttuned(player))
-                    {
-                        GameObject* door = me->FindNearestGameObject(NAXX_STRATH_GATE, 100.0f);
-                        if (door)
-                        {
-                            door->SetGoState(GO_STATE_ACTIVE);
-                        }
-                    }
-                }
-            }
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_naxx40_area_triggerAI(creature);
-    }
-};
 
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {
@@ -658,13 +598,8 @@ public:
                 // NOTE: Because NAXX40 is not currently implemented, defeating C'Thun ends Vanilla content
                 UpdateProgressionState(killer, PROGRESSION_NAXX40);
                 break;
-            case KELTHUZAD:
-                if (killed->getLevel() == 80) {
-                    UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
-                }
-                else {
-                    UpdateProgressionState(killer, PROGRESSION_NAXX40);
-                }
+            case KELTHUZAD_40:
+                UpdateProgressionState(killer, PROGRESSION_NAXX40);
                 break;
             case MALCHEZAAR:
                 UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
@@ -681,6 +616,9 @@ public:
             case KILJAEDEN:
                 UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
                 break;
+            case KELTHUZAD:
+                UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
+                break;
             case YOGGSARON:
                 UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_2);
                 break;
@@ -695,18 +633,6 @@ public:
                 break;
         }
     }
-// Used in Naxx40, waiting for this AC PR to merge before can be used: https://github.com/azerothcore/azerothcore-wotlk/pull/12860
-//
-//    void OnBeforeChooseGraveyard(Player* player, TeamId /*teamId*/, bool /*nearCorpse*/, uint32& graveyardOverride) override
-//    {
-//        if (player->GetMapId() == MAP_NAXX && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
-//        {
-//            graveyardOverride = NAXX40_GRAVEYARD;
-//        }
-//    }
-
-
-
 };
 
 // Add all scripts in one
@@ -718,7 +644,6 @@ void AddSC_mod_individual_progression()
     new npc_ipp_aq();
     new npc_ipp_tbc();
     new npc_ipp_wotlk();
-    new npc_naxx40_area_trigger();
     new gobject_ipp_tbc();
     new gobject_ipp_wotlk();
 }
