@@ -199,6 +199,8 @@ enum NX40NPCs
     NPC_LIVING_MONSTROSITY_40          = 351024,
     NPC_SURGICAL_ASSIST_40             = 351025,
     NPC_SLUDGE_BELCHER_40              = 351029,
+
+    NPC_ARCHMAGE_TARSIS                = 16381,
 };
 
 enum NXMisc

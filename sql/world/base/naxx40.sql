@@ -197,3 +197,34 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `posit
 (@GUID + 137, 181287, 533, 4, 2481.82, -2895.29, 244.105, 5.44543, 0, 0, -0.406736, 0.913545, 604800, 100, 1),
 (@GUID + 138, 181287, 533, 4, 2465.86, -2911.24, 244.093, 5.63741, 0, 0, -0.317305, 0.948324, 604800, 100, 1),
 (@GUID + 139, 181287, 533, 4, 2451.68, -2926.42, 243.533, 5.67232, 0, 0, -0.300705, 0.953717, 604800, 100, 1);
+
+/* Archmage Tarsis */
+DELETE FROM `gossip_menu` WHERE `MenuID` BETWEEN 64000 AND 64009;
+INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
+(64000, 8517),
+(64001, 8518),
+(64002, 8519),
+(64003, 8520),
+(64004, 8521),
+(64005, 8522),
+(64006, 8523),
+(64007, 8529),
+(64008, 8530),
+(64009, 8531);
+DELETE FROM `gossip_menu_option` WHERE `MenuID`  BETWEEN 60400 AND 64009;
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `OptionBroadcastTextID`, `BoxCoded`, `BoxMoney`, `BoxText`, `VerifiedBuild`) VALUES
+('64000', '0', '0', 'What are you talking about, mage?', '1', '1', '64001', '0', '0', '0', '0', NULL, '0'),
+('64001', '0', '0', 'Why have you done such horrible things?', '1', '1', '64002', '0', '0', '0', '0', NULL, '0'),
+('64002', '0', '0', 'I still do not understand.', '1', '1', '64003', '0', '0', '0', '0', NULL, '0'),
+('64003', '0', '0', 'You are talking nonsense, mage.', '1', '1', '64004', '0', '0', '0', '0', NULL, '0'),
+('64004', '0', '0', 'What staff?', '1', '1', '64005', '0', '0', '0', '0', NULL, '0'),
+('64005', '0', '0', 'You said you would have it back. What does that mean?', '1', '1', '64006', '0', '0', '0', '0', NULL, '0'),
+('64006', '0', '0', 'What happened to the staff?', '1', '1', '64007', '0', '0', '0', '0', NULL, '0'),
+('64007', '0', '0', 'So what has led you to Naxxramas?', '1', '1', '64008', '0', '0', '0', '0', NULL, '0'),
+('64008', '0', '0', 'So Kel\'Thuzad holds all of the pieces?', '1', '1', '64009', '0', '0', '0', '0', NULL, '0');
+UPDATE `creature_template` SET `gossip_menu_id`=64000, `npcflag`=1, `ScriptName`='npc_archmage_tarsis' WHERE `entry`=16381;
+UPDATE `npc_text` SET `em0_1`='13' WHERE `ID`='8517';
+
+
+/* Omarion */
+-- UPDATE `creature_template` SET `npcflag`=3, `ScriptName`='mob_craftsman_omarion' WHERE `entry`=16365;

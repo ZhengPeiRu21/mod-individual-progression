@@ -424,7 +424,6 @@ public:
             // Player is in TBC content - give TBC health adjustment
         else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
-            LOG_ERROR("", "TbcHealthadjustment: {}, gearAdjustment: {}", tbcHealthAdjustment, gearAdjustment);
             value *= (tbcHealthAdjustment - gearAdjustment);
         }
             // Player is in WotLK content - only need to check gear adjustment

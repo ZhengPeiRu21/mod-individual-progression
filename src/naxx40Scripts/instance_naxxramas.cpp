@@ -299,6 +299,9 @@ public:
                 case NPC_KELTHUZAD_40:
                     _kelthuzadGUID = creature->GetGUID();
                     return;
+                case NPC_ARCHMAGE_TARSIS:
+                    creature->SetStandState(UNIT_STAND_STATE_DEAD);
+                    return;
             }
         }
 
@@ -1279,6 +1282,35 @@ public:
     };
 };
 
+class npc_archmage_tarsis : public CreatureScript
+{
+private:
+
+public:
+    npc_archmage_tarsis() : CreatureScript("npc_archmage_tarsis") {}
+
+    struct npc_archmage_tarsisAI: public ScriptedAI
+    {
+        npc_archmage_tarsisAI(Creature* creature) : ScriptedAI(creature)
+        {
+            me->SetStandState(UNIT_STAND_STATE_DEAD);
+        }
+
+    };
+
+    bool OnGossipHello(Player* player, Creature* creature) override
+    {
+        if (creature->getStandState() != UNIT_STAND_STATE_SIT)
+            creature->SetStandState(UNIT_STAND_STATE_SIT);
+        return false;
+    }
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_archmage_tarsisAI(creature);
+    }
+};
+
 class npc_naxx40_area_trigger : public CreatureScript
 {
 private:
@@ -1451,5 +1483,6 @@ void AddSC_instance_naxxramas_combined()
     new naxx_exit_trigger();
     new naxx_northrend_entrance();
     new naxx_hub_portal();
+    new npc_archmage_tarsis();
 //    new boss_naxxramas_misc();
 }

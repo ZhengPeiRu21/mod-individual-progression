@@ -193,3 +193,24 @@ REPLACE INTO `creature_questender` (`id`, `quest`) VALUES
 (16376, 9244),
 (16376, 9245),
 (16376, 9246);
+
+update quest_template_addon set PrevQuestId = 9121 where ID = 9033; -- echoes of war requires 9121
+
+-- quest "The only song i know..." requires quest "Echoes of war" completed
+update quest_template_addon set PrevQuestId = 9033 where ID = 9232;
+
+-- The remaining craft quests require quest "Omarion's Handbook" completed
+update quest_template_addon set PrevQuestId = 9233 where ID in (
+9234,
+9235,
+9236,
+9237,
+9238,
+9239,
+9240,
+9241,
+9242,
+9243,
+9244,
+9245,
+9246);
