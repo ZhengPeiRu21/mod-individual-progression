@@ -1,5 +1,5 @@
 # Remove exit teleport and replace with script
-DELETE FROM `areatrigger_teleport` WHERE `ID` IN (5196, 5197, 5198, 5199);
+DELETE FROM `areatrigger_teleport` WHERE `ID` IN (5196, 5197, 5198, 5199, 4156);
 
 DELETE FROM `areatrigger_scripts` WHERE `entry` IN (5196, 5197, 5198, 5199);
 INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
@@ -14,6 +14,10 @@ INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
 (5192, 'naxx_northrend_entrance'),
 (5193, 'naxx_northrend_entrance'),
 (5194, 'naxx_northrend_entrance');
+
+DELETE FROM `areatrigger_scripts` WHERE `entry` = 4156;
+INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
+(4156, 'naxx_hub_portal');
 
 UPDATE `creature` SET `spawnMask` = 3 WHERE `spawnMask` = 7 AND `map` = 533;
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `spawnMask` = 3 AND `map` = 533;

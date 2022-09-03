@@ -1421,6 +1421,28 @@ public:
     }
 };
 
+
+class naxx_hub_portal : public AreaTriggerScript
+{
+public:
+    naxx_hub_portal() : AreaTriggerScript("naxx_hub_portal") { }
+
+    bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
+    {
+        if (player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
+        {
+            InstanceScript* instance = player->GetInstanceScript();
+            for (int i = 0; i < BOSS_SAPPHIRON; ++i)
+            {
+                if (instance->GetBossState(i) != DONE)
+                    return false;
+            }
+        }
+        player->TeleportTo(533, 3500.87f, -5339.03f, 145.0f, 1.34f);
+        return true;
+    }
+};
+
 void AddSC_instance_naxxramas_combined()
 {
     new instance_naxxramas_combined();
@@ -1428,5 +1450,6 @@ void AddSC_instance_naxxramas_combined()
     new NaxxPlayerScript();
     new naxx_exit_trigger();
     new naxx_northrend_entrance();
+    new naxx_hub_portal();
 //    new boss_naxxramas_misc();
 }
