@@ -1,6 +1,19 @@
-# Remove exits - classic Naxx does not allow the player to leave
-# Note that this currently affects both Naxx 40 and WotLK Naxx
+# Remove exit teleport and replace with script
 DELETE FROM `areatrigger_teleport` WHERE `ID` IN (5196, 5197, 5198, 5199);
+
+DELETE FROM `areatrigger_scripts` WHERE `entry` IN (5196, 5197, 5198, 5199);
+INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
+(5196, 'naxx_exit_trigger'),
+(5197, 'naxx_exit_trigger'),
+(5198, 'naxx_exit_trigger'),
+(5199, 'naxx_exit_trigger');
+
+DELETE FROM `areatrigger_scripts` WHERE `entry` IN (5191, 5192, 5193, 5194);
+INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
+(5191, 'naxx_northrend_entrance'),
+(5192, 'naxx_northrend_entrance'),
+(5193, 'naxx_northrend_entrance'),
+(5194, 'naxx_northrend_entrance');
 
 UPDATE `creature` SET `spawnMask` = 3 WHERE `spawnMask` = 7 AND `map` = 533;
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `spawnMask` = 3 AND `map` = 533;
