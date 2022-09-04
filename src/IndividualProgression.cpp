@@ -299,6 +299,13 @@ private:
         {
             AdjustWotLKStats(player);
         }
+        if (player->getClass() == CLASS_HUNTER)
+        {
+            // Remove the 15% built-in ranged haste that was added to hunters in WotLK
+            // This lets us add haste spells back to quivers
+            player->RemoveAura(RANGED_HASTE_SPELL);
+            player->CastSpell(player, RANGED_HASTE_SPELL, false);
+        }
 
     }
 
