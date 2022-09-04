@@ -7264,9 +7264,6 @@ UPDATE `item_template` SET `BuyPrice` = 657, `stat_type1` = 4, `stat_value1` = 2
 /*  Foreman Pants  */
 UPDATE `item_template` SET `BuyPrice` = 597, `stat_type1` = 4, `stat_type2` = 7, `stat_value2` = 1, `spellid_1` = 0, `spelltrigger_1` = 0 WHERE entry=10554;
 
-/*  Resist Test Item  */
-UPDATE `item_template` SET `armor` = -50, `holy_res` = -50, `fire_res` = -50, `nature_res` = -50, `frost_res` = -50, `shadow_res` = -50 WHERE entry=10555;
-
 /*  Quillshooter  */
 UPDATE `item_template` SET `dmg_min1` = 31.0, `dmg_max1` = 58.0 WHERE entry=10567;
 

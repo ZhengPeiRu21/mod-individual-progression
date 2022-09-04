@@ -38,7 +38,7 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 (2849, 11, 0, 'A profession trainer', 6635, 1, 1, 2847, 0, 0, 0, NULL, 0, 0);
 
 /* Restore Varimathras */
-UPDATE `creature` SET `id1`=2425 WHERE `id1`=36273;
+UPDATE `creature` SET `id1`=2425, `equipment_id`=0 WHERE `id1`=36273;
 
 /* Wrathgate NPCs - just deleting for now, but maybe can implement a post-Wrathgate world state later */
 DELETE FROM `creature` WHERE `guid` IN (43466, 79263);
