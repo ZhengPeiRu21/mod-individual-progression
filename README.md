@@ -33,3 +33,4 @@ Special thanks to all contributors of the following projects which are make this
 * AzerothCore Progression Module for Vanilla content and scripts
 * Wrath of the Vanilla Module for more Vanilla world adjustments
 * Vmangos for Vanilla game and patch progression data
+* SoglaHash for many Naxx 40 scripts and data

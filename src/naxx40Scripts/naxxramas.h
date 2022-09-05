@@ -240,7 +240,7 @@ enum NXMaps
 
 enum NXGraveyards
 {
-    NAXX40_GRAVEYARD = 1449
+    NAXX40_GRAVEYARD = 909
 };
 
 enum NXAttunementQuests

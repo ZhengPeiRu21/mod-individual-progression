@@ -1282,35 +1282,6 @@ public:
     };
 };
 
-class npc_archmage_tarsis : public CreatureScript
-{
-private:
-
-public:
-    npc_archmage_tarsis() : CreatureScript("npc_archmage_tarsis") {}
-
-    struct npc_archmage_tarsisAI: public ScriptedAI
-    {
-        npc_archmage_tarsisAI(Creature* creature) : ScriptedAI(creature)
-        {
-            me->SetStandState(UNIT_STAND_STATE_DEAD);
-        }
-
-    };
-
-    bool OnGossipHello(Player* player, Creature* creature) override
-    {
-        if (creature->getStandState() != UNIT_STAND_STATE_SIT)
-            creature->SetStandState(UNIT_STAND_STATE_SIT);
-        return false;
-    }
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_archmage_tarsisAI(creature);
-    }
-};
-
 class npc_naxx40_area_trigger : public CreatureScript
 {
 private:
@@ -1475,6 +1446,28 @@ public:
     }
 };
 
+class NaxxEntryFlag_AllMapScript : public AllMapScript
+{
+public:
+    NaxxEntryFlag_AllMapScript()
+            : AllMapScript("NaxxEntryFlag_AllMapScript")
+    {
+    }
+
+    void OnPlayerEnterAll(Map* map, Player* player)
+    {
+        if (player->IsGameMaster())
+            return;
+
+        // Check if mapId equals to Naxxramas (mapId: 533)
+        if (map->GetId() != 533)
+            return;
+
+        // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
+        player->CastSpell(player, 29296, true);
+    }
+};
+
 void AddSC_instance_naxxramas_combined()
 {
     new instance_naxxramas_combined();
@@ -1483,6 +1476,6 @@ void AddSC_instance_naxxramas_combined()
     new naxx_exit_trigger();
     new naxx_northrend_entrance();
     new naxx_hub_portal();
-    new npc_archmage_tarsis();
+    new NaxxEntryFlag_AllMapScript();
 //    new boss_naxxramas_misc();
 }
