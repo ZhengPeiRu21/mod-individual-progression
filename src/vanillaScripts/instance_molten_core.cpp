@@ -321,7 +321,7 @@ public:
             {
                 if (GameObject* rune = instance->GetGameObject(_runesGUIDs[bossId]))
                 {
-                    if (sConfigMgr->GetOption<int>("ProgressionSystem.60.MoltenCore.ManualRuneHandling", 1))
+                    if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1))
                     {
                         rune->SetGoState(GO_STATE_ACTIVE);
                         rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
@@ -432,7 +432,7 @@ public:
                 return false;
             }
 
-            if (sConfigMgr->GetOption<int>("ProgressionSystem.60.MoltenCore.ManualRuneHandling", 1))
+            if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1))
             {
                 return CheckFirelordRunes();
             }
@@ -556,7 +556,7 @@ public:
 
         if (uint32 cooldown = player->GetSpellCooldownDelay(SPELL_AQUAL_QUINTESSENCE))
         {
-            int32 cooldownredux = sConfigMgr->GetOption<int>("ProgressionSystem.60.MoltenCore.AqualEssenceCooldownReduction", 0);
+            int32 cooldownredux = sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.AqualEssenceCooldownReduction", 0);
             player->ModifySpellCooldown(SPELL_AQUAL_QUINTESSENCE, -(cooldownredux * MINUTE * IN_MILLISECONDS));
         }
 

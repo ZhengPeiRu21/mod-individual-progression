@@ -128,3 +128,24 @@ IndividualProgression.HunterPetLevelFix = 1
 #
 
 IndividualProgression.RequirePreAQQuests = 1
+#
+#
+#
+#    IndividualProgression.MoltenCore.ManualRuneHandling
+#        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) or automatic when bosses are defeated (WotLK default)
+#        Default:   1 - Enabled (requires dousing)
+#                   0 - Disabled (automatic, handled when bosses are defeated)
+#
+#
+
+IndividualProgression.MoltenCore.ManualRuneHandling = 1
+
+#
+#    IndividualProgression.MoltenCore.AqualEssenceCooldownReduction
+#        Description: Reduces the cooldown of Eternal Quintessences by the amount specified.
+#        Default:   0 - Disabled (1 hour cooldown)
+#                   60 - (No cooldown)
+#
+#
+
+IndividualProgression.MoltenCore.AqualEssenceCooldownReduction = 0
