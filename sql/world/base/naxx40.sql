@@ -1,3 +1,8 @@
+# Add MapDifficulty DBC Override
+DELETE FROM `mapdifficulty_dbc` WHERE `ID` = 754;
+INSERT INTO `mapdifficulty_dbc` (`ID`, `MapID`, `Difficulty`, `Message_Lang_enUS`, `Message_Lang_Mask`, `RaidDuration`, `MaxPlayers`, `Difficultystring`)
+VALUES (754, 533, 2, 'You must be level 60 and in a raid group to enter.', 16712190, 604800, 40, 'RAID_DIFFICULTY_40PLAYER');
+
 # Remove exit teleport and replace with script
 DELETE FROM `areatrigger_teleport` WHERE `ID` IN (5196, 5197, 5198, 5199, 4156);
 
