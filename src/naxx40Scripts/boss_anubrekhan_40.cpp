@@ -35,11 +35,17 @@ enum GuardSays
 
 enum Spells
 {
-    SPELL_IMPALE_10                 = 28783,
-    SPELL_LOCUST_SWARM_10           = 28785,
-    SPELL_SUMMON_CORPSE_SCRABS_5    = 29105,
-    SPELL_SUMMON_CORPSE_SCRABS_10   = 28864,
+    SPELL_IMPALE                    = 28783,
+    SPELL_LOCUST_SWARM              = 28785,
+    SPELL_SUMMON_CORPSE_SCRABS_5    = 90001, // Changed from 29105 to Level 60 Mob ID for summon
+    SPELL_SUMMON_CORPSE_SCRABS_10   = 90002, //  Changed from 29105 to Level 60 Mob ID for summon
     SPELL_BERSERK                   = 26662
+};
+
+enum SpellValues : int32
+{
+    IMPALE_BP1                      = 3937,
+    IMPALE_BP2                      = 299
 };
 
 enum Events
@@ -219,13 +225,15 @@ public:
                 case EVENT_IMPALE:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0))
                     {
-                        me->CastSpell(target, SPELL_IMPALE_10, false);
+                        int32 bp1 = IMPALE_BP1;
+                        int32 bp2 = IMPALE_BP2;
+                        me->CastCustomSpell(target, SPELL_IMPALE, 0, &bp1, &bp2, false, nullptr, nullptr, ObjectGuid::Empty);
                     }
                     events.RepeatEvent(20000);
                     break;
                 case EVENT_LOCUST_SWARM:
                     Talk(EMOTE_LOCUST);
-                    me->CastSpell(me, SPELL_LOCUST_SWARM_10, false);
+                    me->CastSpell(me, SPELL_LOCUST_SWARM, false);
                     events.ScheduleEvent(EVENT_SPAWN_GUARD, 3000);
                     events.RepeatEvent(90000);
                     break;

@@ -33,10 +33,20 @@ enum Yells
 
 enum Spells
 {
-    SPELL_POISON_BOLT_VOLLEY_10         = 28796,
-    SPELL_RAIN_OF_FIRE_10               = 28794,
-    SPELL_FRENZY_10                     = 28798,
+    SPELL_POISON_BOLT_VOLLEY            = 28796,
+    SPELL_RAIN_OF_FIRE                  = 28794,
+    SPELL_FRENZY                        = 28798,
     SPELL_WIDOWS_EMBRACE                = 28732
+};
+
+enum SpellValues : int32
+{
+    POISON_BOLT_VOLLEY_BP0              = 1224,
+    POISON_BOLT_VOLLEY_BP1              = 416,
+    RAIN_OF_FIRE_BP0                    = 1849,
+    FRENZY_BP0                          = 149,
+    FRENZY_BP1                          = 74,
+    FRENZY_BP2                          = 49
 };
 
 enum Events
@@ -194,23 +204,33 @@ public:
                 case EVENT_POISON_BOLT:
                     if (!me->HasAura(SPELL_WIDOWS_EMBRACE))
                     {
-                        me->CastCustomSpell(SPELL_POISON_BOLT_VOLLEY_10, SPELLVALUE_MAX_TARGETS, 10, me, false);
+                        CustomSpellValues values;
+                        int32 bp0 = POISON_BOLT_VOLLEY_BP0;
+                        int32 bp1 = POISON_BOLT_VOLLEY_BP1;
+                        values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 10);
+                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                        values.AddSpellMod(SPELLVALUE_BASE_POINT1, bp1);
+                        me->CastCustomSpell(SPELL_POISON_BOLT_VOLLEY, values, me, TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
                     }
                     events.RepeatEvent(urand(7000, 12000));
                     break;
                 case EVENT_RAIN_OF_FIRE:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0))
                     {
-                        me->CastSpell(target, SPELL_RAIN_OF_FIRE_10, false);
+                        int32 bp0 = RAIN_OF_FIRE_BP0;
+                        me->CastCustomSpell(target, SPELL_RAIN_OF_FIRE, &bp0, 0, 0, false, nullptr, nullptr, ObjectGuid::Empty);
                     }
                     events.RepeatEvent(urand(8000, 12000));
                     break;
                 case EVENT_FRENZY:
-                    if (!me->HasAura(SPELL_FRENZY_10))
+                    if (!me->HasAura(SPELL_FRENZY))
                     {
                         Talk(SAY_FRENZY);
                         Talk(EMOTE_FRENZY);
-                        me->CastSpell(me, SPELL_FRENZY_10, true);
+                        int32 bp0 = FRENZY_BP0;
+                        int32 bp1 = FRENZY_BP1;
+                        int32 bp2 = FRENZY_BP2;
+                        me->CastCustomSpell(me, SPELL_FRENZY, &bp0, &bp1, &bp2, true, nullptr, nullptr, ObjectGuid::Empty);
                         events.RepeatEvent(60000);
                     }
                     else
@@ -227,9 +247,9 @@ public:
             if (spell->Id == SPELL_WIDOWS_EMBRACE)
             {
                 Talk(EMOTE_WIDOWS_EMBRACE);
-                if (me->HasAura(SPELL_FRENZY_10))
+                if (me->HasAura(SPELL_FRENZY))
                 {
-                    me->RemoveAurasDueToSpell(SPELL_FRENZY_10);
+                    me->RemoveAurasDueToSpell(SPELL_FRENZY);
                     events.RescheduleEvent(EVENT_FRENZY, 60000);
                 }
                 pInstance->SetData(DATA_FRENZY_REMOVED, 0);
