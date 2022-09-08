@@ -651,5 +651,5 @@ void AddSC_mod_individual_progression()
     new npc_ipp_tbc();
     new npc_ipp_wotlk();
     new gobject_ipp_tbc();
-    new gobject_ipp_wotlk();
+//    new gobject_ipp_wotlk(); // Not used yet
 }

@@ -22,13 +22,14 @@
 
 ObjectData const creatureData[] =
         {
-                { NPC_ONYXIA, DATA_ONYXIA }
+                { NPC_ONYXIA, DATA_ONYXIA },
+                { NPC_ONYXIA_40, DATA_ONYXIA }
         };
 
-class instance_onyxias_lair_60_2 : public InstanceMapScript
+class instance_onyxias_lair_40 : public InstanceMapScript
 {
 public:
-    instance_onyxias_lair_60_2() : InstanceMapScript("instance_onyxias_lair", 249) {}
+    instance_onyxias_lair_40() : InstanceMapScript("instance_onyxias_lair", 249) {}
 
     InstanceScript* GetInstanceScript(InstanceMap* pMap) const override
     {
@@ -144,6 +145,10 @@ public:
 
         bool CheckAchievementCriteriaMeet(uint32 criteria_id, Player const*  /*source*/, Unit const*  /*target*/, uint32  /*miscvalue1*/) override
         {
+            if (instance->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+            {
+                return false; // No achievements in Onyxia 40man
+            }
             switch(criteria_id)
             {
                 case ACHIEV_CRITERIA_MANY_WHELPS_10_PLAYER:
@@ -158,6 +163,25 @@ public:
     };
 };
 
+class onyxia_entrance_trigger : public AreaTriggerScript
+{
+public:
+    onyxia_entrance_trigger() : AreaTriggerScript("onyxia_entrance_trigger") { }
+
+    bool OnTrigger(Player* player, AreaTrigger const* areaTrigger) override
+    {
+        if (player->getLevel() < 80)
+        {
+            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+        }
+        if (!sMapMgr->PlayerCannotEnter(249, player, true))
+        {
+            player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+        }
+        return true;
+    }
+};
+
 class global_onyxia_tuning_script : public GlobalScript
 {
 public:
@@ -165,6 +189,7 @@ public:
 
     void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
     {
+        // TODO: This is currently overriding 10 man spells
         switch (spellInfo->Id)
         {
             case 18435: // Flame Breath
@@ -293,8 +318,9 @@ public:
     }
 };
 
-void AddSC_instance_onyxias_lair_60_2()
+void AddSC_instance_onyxias_lair_40()
 {
-    new instance_onyxias_lair_60_2();
+    new instance_onyxias_lair_40();
     new global_onyxia_tuning_script();
+    new onyxia_entrance_trigger();
 }

@@ -4105,9 +4105,6 @@ UPDATE `item_template` SET `stat_type3` = 30 WHERE entry=34212;
 /*  Heroic Judicator's Chestguard  */
 UPDATE `item_template` SET `stat_type2` = 5, `stat_value2` = 22, `spellid_1` = 26158 WHERE entry=34216;
 
-/*  Deadman's Hand  */
-UPDATE `item_template` SET `DisenchantID` = 0 WHERE entry=34227;
-
 /*  Vicious Hawkstrider Hauberk  */
 UPDATE `item_template` SET `DisenchantID` = 0 WHERE entry=34228;
 

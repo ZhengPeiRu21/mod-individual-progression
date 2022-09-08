@@ -857,3 +857,4 @@ DELETE FROM creature WHERE `id1` IN (33676,
 
 -- Delete added riding trainers
 DELETE FROM creature WHERE `id1` IN (35093, 35100);
+DELETE FROM creature_addon WHERE `guid` IN (88165, 88166);

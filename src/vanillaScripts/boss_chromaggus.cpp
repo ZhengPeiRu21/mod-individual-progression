@@ -22,7 +22,7 @@
 class spell_bwl_chromaggus_time_lapse_60_2_A : public SpellScriptLoader
 {
 public:
-    spell_bwl_chromaggus_time_lapse_60_2_A() : SpellScriptLoader("spell_bwl_chromaggus_time_lapse_60_2_A") { }
+    spell_bwl_chromaggus_time_lapse_60_2_A() : SpellScriptLoader("spell_bwl_chromaggus_time_lapse") { }
 
     class spell_bwl_chromaggus_time_lapse_60_2_A_SpellScript : public SpellScript
     {

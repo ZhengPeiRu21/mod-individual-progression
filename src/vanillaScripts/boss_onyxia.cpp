@@ -117,15 +117,15 @@ enum Yells
     EMOTE_BREATH                = 4
 };
 
-class boss_onyxia_60_2 : public CreatureScript
+class boss_onyxia_40 : public CreatureScript
 {
 public:
-    boss_onyxia_60_2() : CreatureScript("boss_onyxia") {}
+    boss_onyxia_40() : CreatureScript("boss_onyxia_40") {}
 
-    struct boss_onyxiaAI_60_2 : public BossAI
+    struct boss_onyxiaAI_40 : public BossAI
     {
     public:
-        boss_onyxiaAI_60_2(Creature* pCreature) : BossAI(pCreature, DATA_ONYXIA)
+        boss_onyxiaAI_40(Creature* pCreature) : BossAI(pCreature, DATA_ONYXIA)
         {
             Initialize();
         }
@@ -172,7 +172,6 @@ public:
             me->SetCanFly(false);
             me->SetDisableGravity(false);
             me->SetSpeed(MOVE_RUN, me->GetCreatureTemplate()->speed_run, false);
-            instance->DoStopTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, ACHIEV_TIMED_START_EVENT);
             BossAI::Reset();
         }
 
@@ -194,8 +193,6 @@ public:
             Talk(SAY_AGGRO);
             SetPhase(PHASE_GROUNDED);
 
-            instance->DoStopTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, ACHIEV_TIMED_START_EVENT); // just in case at reset some players already left the instance
-            instance->DoStartTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, ACHIEV_TIMED_START_EVENT);
             BossAI::EnterCombat(who);
         }
 
@@ -539,11 +536,11 @@ public:
 
     CreatureAI* GetAI(Creature* creature) const override
     {
-        return GetOnyxiasLairAI<boss_onyxiaAI_60_2>(creature);
+        return GetOnyxiasLairAI<boss_onyxiaAI_40>(creature);
     };
 };
 
-void AddSC_boss_onyxia_60_2()
+void AddSC_boss_onyxia_40()
 {
-    new boss_onyxia_60_2();
+    new boss_onyxia_40();
 }

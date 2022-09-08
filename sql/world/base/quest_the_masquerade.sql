@@ -72,7 +72,7 @@ DELETE FROM `gossip_menu` WHERE `MenuID` = 12580 AND `TextID` = 5633;
 INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
 (12580, 5633);
 
-UPDATE `creature_template` SET `gossip_menu_id` = 12580 WHERE `entry` = 12580;
+UPDATE `creature_template` SET `gossip_menu_id` = 12580, `npcflag` = `npcflag` | 1 WHERE `entry` = 12580;
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 12580;
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextId`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextId`) VALUES
