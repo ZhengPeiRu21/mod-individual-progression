@@ -2,6 +2,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN (15293,15270,15306,15191,15181,15182,15306,15599,15282,15183,15194,15176,15270,16091,15701,15612,15613,15609,15540,15704,15693,15431,15903,15610,15180, 15499);
 
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (11102, 16113, 16112, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16114, 16376, 16212, 16225, 16228, 16229,
+                                                                                 16256, 16283, 16284, 16378);
+
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (29611, 27616, 27618, 27619, 27620, 27624, 34084);
 
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` IN (195141);

@@ -137,6 +137,32 @@ public:
     }
 };
 
+class npc_ipp_naxx40 : public CreatureScript
+{
+public:
+    npc_ipp_naxx40() : CreatureScript("npc_ipp_naxx40") { }
+
+    struct npc_ipp_naxx40AI: ScriptedAI
+    {
+        npc_ipp_naxx40AI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= PROGRESSION_BLACKWING_LAIR;
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_naxx40AI(creature);
+    }
+};
+
 
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {
@@ -648,6 +674,7 @@ void AddSC_mod_individual_progression()
     new IndividualPlayerProgression_WorldScript();
     new IndividualPlayerProgression_PetScript();
     new npc_ipp_aq();
+    new npc_ipp_naxx40();
     new npc_ipp_tbc();
     new npc_ipp_wotlk();
     new gobject_ipp_tbc();
