@@ -1015,3 +1015,5 @@ UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `id` = 7509;
 DELETE FROM `areatrigger_teleport` WHERE `ID` = 2848;
 INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
 (2848, 'onyxia_entrance_trigger');
+
+UPDATE `gameobject` SET `spawnMask` = 7 WHERE `map` = 249;
