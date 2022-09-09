@@ -15,7 +15,7 @@ For content that is added in later expansion that is provided for use in lower-l
 ## Some Included Features
 * Power level adjustment and health in Vanilla and TBC content to simulate Vanilla world difficulty
 * NPCs and Game Objects aware of individual player progress, visible based on player progression to each player
-* Restore of content removed or nerfed or later patch is released, such as Onyxia quests, TBC Attunements, and riding skills and quests.
+* Restore of content removed or nerfed or later patch is released, such as original Naxxramas, Onyxia quests, TBC Attunements, and riding skills and quests.
 
 Options are provided to allow changes to experience based on preference. Please see config file.
 
@@ -26,6 +26,9 @@ This module uses Player Settings to save individual character progress. Please e
 Some changes for Vanilla and TBC content require DBC modification. The .mpq file for the client and .dbc files for server can be found in the "optional" directory. These changes include Vanilla reagents such as Flint and Steel for campfires, Level 60 enchanting using Vanilla and not TBC ingredient, professional leveling adjustments, etc. These is all optional and the module will work without the patch, but these recipes will remain WotLK version.
 
 Please note that if optional files are not used, please avoid run `restore_rogue_poisons.sql`, as it will remove Rogue poisons from vendors due to them now being created through the skill, which requires the optional files.
+
+### Optional Recommended Addon
+For a more authentic experience, some player may prefer to have pre-3.2 behavior of item tooltip prices, where it is only display when at a vendor. This is handled by the client, so I have create an addon that will restore this behavior. The addon can be found here: https://github.com/ZhengPeiRu21/hide-vendor-price
 
 ## Thank You
 Special thanks to all contributors of the following projects which are make this module possible:
