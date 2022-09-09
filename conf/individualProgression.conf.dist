@@ -149,3 +149,14 @@ IndividualProgression.MoltenCore.ManualRuneHandling = 1
 #
 
 IndividualProgression.MoltenCore.AqualEssenceCooldownReduction = 0
+#
+#    IndividualProgression.FishingFix
+#        Description: Before patch 3.1, fishing skill had progression and had to be leveled in low level zones before high level areas could add skill
+#                     In patch 3.1, it was changed to allow leveling fishing even when catching junk in high level zones, allowing progression to be skipped
+#                     This reverts that changed.
+#        Default:   1 - Enabled (Pre 3.1 behavior - Fishing requires progression through zone levels)
+#                   0 - Disabled (Post 3.1 behavior - Allow leveling fishing in any area)
+#
+#
+
+IndividualProgression.FishingFix = 1

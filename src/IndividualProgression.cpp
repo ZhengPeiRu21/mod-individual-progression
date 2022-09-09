@@ -5,7 +5,7 @@
 #include "IndividualProgression.h"
 
 static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules;
+static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix;
 
 class gobject_ipp_wotlk : public GameObjectScript
 {
@@ -180,6 +180,7 @@ private:
         hunterPetLevelFix = sConfigMgr->GetOption<bool>("IndividualProgression.HunterPetLevelFix", true);
         requirePreAQQuests = sConfigMgr->GetOption<bool>("IndividualProgression.RequirePreAQQuests", true);
         enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
+        fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
         previousGearTuning = sConfigMgr->GetOption<float>("IndividualProgression.PreviousGearTuning", 0.03);
     }
 
@@ -665,6 +666,17 @@ public:
                 break;
         }
     }
+
+    // Once this PR is merged, this will be required: https://github.com/azerothcore/azerothcore-wotlk/pull/12996
+    // Currently, due to AC bug, the "enabled" behavior is actually the current behavior anyway
+//    bool OnUpdateFishingSkill(Player* player, int32 /*skill*/, int32 /*zone_skill*/, int32 chance, int32 roll) override
+//    {
+//        if (!enabled || !fishingFix)
+//            return true;
+//        if (chance < roll)
+//            return false;
+//        return true;
+//    }
 };
 
 // Add all scripts in one
