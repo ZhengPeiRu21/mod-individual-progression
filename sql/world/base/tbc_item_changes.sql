@@ -5063,7 +5063,7 @@ UPDATE `item_template` SET `stat_type3` = 30 WHERE entry=37928;
 UPDATE `item_template` SET `stat_type4` = 30 WHERE entry=37929;
 
 /*  Ruby Shades  */
-UPDATE `item_template` SET `BuyPrice` = 500000, `SellPrice` = 50000, `bonding` = 2 WHERE entry=38089;
+UPDATE `item_template` SET `BuyPrice` = 20000000, `SellPrice` = 50000, `bonding` = 2 WHERE entry=38089;
 
 /*  Direbrew Hops  */
 UPDATE `item_template` SET `spellcategorycooldown_2` = -1, `spellcategory_2` = 0 WHERE entry=38288;

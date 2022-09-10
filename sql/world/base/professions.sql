@@ -855,6 +855,31 @@ DELETE FROM creature WHERE `id1` IN (33676,
                                      35099,
                                      35101);
 
+-- TBC Recipes moved to trainers in 2.4.0
+DELETE FROM `npc_trainer` WHERE `SpellID` IN (28905, 34590, 28903, 28914, 28925, 28910, 28917, 28916, 28950, 28903);
+DELETE FROM npc_vendor WHERE item IN (23131, 28596, 23148, 23137, 23144, 23135, 23141, 23140, 23152, 23130);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23131);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23131);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 28596);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 28596);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23148);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23148);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23137);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23137);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23144);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23144);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23135);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23135);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23141);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23141);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23140);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23140);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23152);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23152);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18751, 0, 23130);
+INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23130);
+
+
 -- Delete added riding trainers
 DELETE FROM creature WHERE `id1` IN (35093, 35100);
 DELETE FROM creature_addon WHERE `guid` IN (88165, 88166);
