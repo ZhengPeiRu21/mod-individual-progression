@@ -6,6 +6,7 @@
 
 static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
 static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix;
+static questXpMapType questXpMap;
 
 class gobject_ipp_wotlk : public GameObjectScript
 {

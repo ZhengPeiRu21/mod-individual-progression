@@ -16,7 +16,6 @@
 #include "GameObject.h"
 
 typedef std::unordered_map<uint32, uint32> questXpMapType;
-questXpMapType questXpMap;
 
 enum ProgressionBossIDs
 {
