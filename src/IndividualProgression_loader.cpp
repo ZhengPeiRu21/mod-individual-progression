@@ -33,6 +33,7 @@ void AddSC_npc_omarion();
 void AddSC_Ipp_Wotlk_Modded_Scripts();
 void AddSC_aq_scripts();
 void AddSC_cot_scripts();
+void AddSC_ipp_spell_scripts();
 
 
 void Addmod_individual_progressionScripts()
@@ -67,5 +68,6 @@ void Addmod_individual_progressionScripts()
     AddSC_Ipp_Wotlk_Modded_Scripts();
     AddSC_aq_scripts();
     AddSC_cot_scripts();
+    AddSC_ipp_spell_scripts();
 }
 

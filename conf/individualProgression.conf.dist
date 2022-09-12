@@ -160,3 +160,19 @@ IndividualProgression.MoltenCore.AqualEssenceCooldownReduction = 0
 #
 
 IndividualProgression.FishingFix = 1
+#
+#    IndividualProgression.SimpleConfigOverride
+#        Description: If enabled, allow IndividualProgression module to set several AzerothCore values to suit individual progression
+#                     Many of these config options were added with IndividualProgression in mind.
+#                     For more advanced individual tuning, disable this option and change the respective values in worldserver.conf
+#
+#                     Changed options include:
+#                     Water Breath Timer to 1 Minute (Vanilla value, changed to 3 Minutes in WotLK)
+#                     Disable Quest Object sparkle and object quest markers (added in patch 2.3)
+#
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+IndividualProgression.SimpleConfigOverride = 1

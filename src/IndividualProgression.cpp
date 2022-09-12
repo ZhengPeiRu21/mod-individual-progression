@@ -5,7 +5,7 @@
 #include "IndividualProgression.h"
 
 static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix;
+static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride;
 static questXpMapType questXpMap;
 
 class gobject_ipp_wotlk : public GameObjectScript
@@ -182,6 +182,7 @@ private:
         requirePreAQQuests = sConfigMgr->GetOption<bool>("IndividualProgression.RequirePreAQQuests", true);
         enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
         fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
+        simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
         previousGearTuning = sConfigMgr->GetOption<float>("IndividualProgression.PreviousGearTuning", 0.03);
     }
 
@@ -213,6 +214,16 @@ public:
     {
         LoadConfig();
         LoadXpValues();
+    }
+
+    void OnAfterConfigLoad(bool /*reload*/) override
+    {
+        if (simpleConfigOverride)
+        {
+            sWorld->setIntConfig(CONFIG_WATER_BREATH_TIMER, 60000);
+//            sWorld->setBoolConfig(CONFIG_OBJECT_QUEST_MARKERS, false); Waiting for PR merge: https://github.com/azerothcore/azerothcore-wotlk/pull/13013
+//            sWorld->setBoolConfig(CONFIG_OBJECT_SPARKLES, false); Waiting for PR merge: https://github.com/azerothcore/azerothcore-wotlk/pull/13005
+        }
     }
 };
 

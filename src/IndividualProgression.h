@@ -14,6 +14,7 @@
 #include "DBCEnums.h"
 #include "QuestDef.h"
 #include "GameObject.h"
+#include "IWorld.h"
 
 typedef std::unordered_map<uint32, uint32> questXpMapType;
 
