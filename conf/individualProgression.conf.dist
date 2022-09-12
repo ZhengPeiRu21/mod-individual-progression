@@ -176,3 +176,15 @@ IndividualProgression.FishingFix = 1
 #
 
 IndividualProgression.SimpleConfigOverride = 1
+#
+#    IndividualProgression.ProgressionLimit
+#        Description: If enabled, players will not be able to proceed beyond this progression stage.
+#                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
+#                     For example, a value of 6 will limit players to Vanilla content.
+#
+#        Default:   0 - Disabled
+#                   1-16 - Maximum progression stage
+#
+#
+
+        IndividualProgression.ProgressionLimit = 0

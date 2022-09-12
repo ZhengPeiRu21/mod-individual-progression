@@ -6,6 +6,7 @@
 
 static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
 static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride;
+static int progressionLimit;
 static questXpMapType questXpMap;
 
 class gobject_ipp_wotlk : public GameObjectScript
@@ -184,6 +185,7 @@ private:
         fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
         simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
         previousGearTuning = sConfigMgr->GetOption<float>("IndividualProgression.PreviousGearTuning", 0.03);
+        progressionLimit = sConfigMgr->GetOption<uint8>("IndividualProgression.ProgressionLimit", 0);
     }
 
     void LoadXpValues()
@@ -232,6 +234,8 @@ class IndividualPlayerProgression_PetScript : public PetScript
 private:
     bool hasPassedProgression(Player* player, ProgressionState state)
     {
+        if (progressionLimit && state > progressionLimit)
+            return false;
         return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
     }
 
@@ -307,12 +311,16 @@ public:
 class IndividualPlayerProgression : public PlayerScript
 {
 private:
-    bool hasPassedProgression(Player* player, ProgressionState state)
+    static bool hasPassedProgression(Player* player, ProgressionState state)
     {
+        if (progressionLimit && state > progressionLimit)
+            return false;
         return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
     }
-    void UpdateProgressionState(Player* player, ProgressionState newState)
+    static void UpdateProgressionState(Player* player, ProgressionState newState)
     {
+        if (progressionLimit && newState > progressionLimit)
+            return;
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         if (newState > currentState)
         {
