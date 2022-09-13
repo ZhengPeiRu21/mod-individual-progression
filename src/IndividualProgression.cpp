@@ -533,6 +533,10 @@ public:
         {
             return true;
         }
+        if (mapid == MAP_ZUL_GURUB && !hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR))
+        {
+            return false;
+        }
         if (mapid == MAP_AQ_40 && !hasPassedProgression(player, PROGRESSION_PRE_AQ))
         {
             return false;

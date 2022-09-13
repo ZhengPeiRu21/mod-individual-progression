@@ -56,6 +56,7 @@ enum ProgressionQuestIDs
 enum ProgressionMaps
 {
     MAP_BLACKWING_LAIR = 469,
+    MAP_ZUL_GURUB = 309,
     MAP_AQ_20 = 509,
     MAP_AQ_40 = 531,
     MAP_OUTLANDS = 530,
