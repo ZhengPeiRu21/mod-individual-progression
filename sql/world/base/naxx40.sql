@@ -62,6 +62,7 @@ REPLACE INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`,
 -- Add Entrance transporter object. Necromantic Runestone (id: 189314, displayID: 7786)
 SET @TRANSPORTER_ENTRY:= 9000;
 SET @TRANSPORTER_COOLDOWN:= 5;
+SET @DEATH_KNIGHT_PORTAL_EFFECT:= 28444;
 SET @TRANSPORTER_X:= 3123.26;
 SET @TRANSPORTER_Y:= -3869.36;
 SET @TRANSPORTER_Z:= 138.34;
@@ -75,7 +76,7 @@ INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`,
                                    `VerifiedBuild`)
 VALUES
 (@TRANSPORTER_ENTRY, 10, 7786, 'Teleport To Naxxramas', '', '', '', 1, 0, 0, 0,
- 0, @TRANSPORTER_COOLDOWN, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+ 0, @TRANSPORTER_COOLDOWN, 0, 0, 0, 0, 0, @DEATH_KNIGHT_PORTAL_EFFECT, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
  0, 0, '', '', 12340);
 DELETE FROM `gameobject` WHERE `id`=@TRANSPORTER_ENTRY AND `map`=0 AND `zoneId`=0 AND `areaID`=0;
 INSERT INTO `gameobject`
@@ -87,6 +88,27 @@ VALUES
 (@TRANSPORTER_ENTRY, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y,
  @TRANSPORTER_Z, @TRANSPORTER_O, 0, 0,
  -0.063658, -1, 1, 0, 1, '', 0);
+
+-- Add condition Attunement to teleport spell
+-- Shows when not attuned Error Message 107: That spell is not available to you
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 17) AND
+(`SourceGroup` = 0) AND (`SourceEntry` = @DEATH_KNIGHT_PORTAL_EFFECT) AND
+(`SourceId` = 0) AND (`ElseGroup` IN (0)) AND (`ConditionTypeOrReference` =
+8) AND (`ConditionTarget` = 1) AND (`ConditionValue1` IN (9121, 9122, 9123)) AND
+(`ConditionValue2` = 0) AND (`ConditionValue3` = 0);
+INSERT INTO `conditions`
+(`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`,
+`ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`,
+`ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`,
+`ErrorTextId`, `ScriptName`, `Comment`)
+ VALUES
+(17, 0, @DEATH_KNIGHT_PORTAL_EFFECT, 0, 0, 8, 1, 9378, 0, 0, 0, 107, 0, '', 'Entered Naxxramas Flag');
+
+-- Update Teleport Positions of spells used by Naxxramas Portal
+SET @DEATH_KNIGHT_PORTAL_EFFECT:= 28444;
+DELETE FROM `spell_target_position` WHERE `ID` IN (@DEATH_KNIGHT_PORTAL_EFFECT);
+INSERT INTO `spell_target_position` (`ID`, `EffectIndex`, `MapID`, `PositionX`, `PositionY`, `PositionZ`, `Orientation`, `VerifiedBuild`)
+VALUES (@DEATH_KNIGHT_PORTAL_EFFECT, 0, 533, 3005.51, -3434.64, 304.195, 6.2831, 0);
 
 
 -- Add Floating Naxx Object (id: 181056)

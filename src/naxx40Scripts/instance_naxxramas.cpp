@@ -1315,7 +1315,7 @@ public:
                     if (isAttuned(player))
                     {
                         player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                        player->TeleportTo(533, 3005.68f, -3447.77f, 293.93f, 4.65f);
+                        player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
                     }
                 }
 
@@ -1348,15 +1348,14 @@ class NaxxPlayerScript : public PlayerScript
 public:
     NaxxPlayerScript() : PlayerScript("NaxxPlayerScript") { }
 
-// Used in Naxx40, waiting for this AC PR to merge before can be used: https://github.com/azerothcore/azerothcore-wotlk/pull/12860
-//
-//    void OnBeforeChooseGraveyard(Player* player, TeamId /*teamId*/, bool /*nearCorpse*/, uint32& graveyardOverride) override
-//    {
-//        if (player->GetMapId() == MAP_NAXX && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
-//        {
-//            graveyardOverride = NAXX40_GRAVEYARD;
-//        }
-//    }
+
+    void OnBeforeChooseGraveyard(Player* player, TeamId /*teamId*/, bool /*nearCorpse*/, uint32& graveyardOverride) override
+    {
+        if (player->GetMapId() == MAP_NAXX && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
+        {
+            graveyardOverride = NAXX40_GRAVEYARD;
+        }
+    }
 };
 
 class naxx_northrend_entrance : public AreaTriggerScript
@@ -1465,6 +1464,14 @@ public:
 
         // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
         player->CastSpell(player, 29296, true);
+        if (player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED)
+        {
+            // Mark player as having entered
+            Quest const* quest = sObjectMgr->GetQuestTemplate(NAXX40_ENTRANCE_FLAG);
+            player->AddQuest(quest, nullptr);
+            player->CompleteQuest(NAXX40_ENTRANCE_FLAG);
+            player->RewardQuest(quest, 0, player, false, false);
+        }
     }
 };
 

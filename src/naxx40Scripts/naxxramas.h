@@ -245,9 +245,10 @@ enum NXGraveyards
 
 enum NXAttunementQuests
 {
-    NAXX40_ATTUNEMENT_1 = 9121,
-    NAXX40_ATTUNEMENT_2 = 9122,
-    NAXX40_ATTUNEMENT_3 = 9123
+    NAXX40_ATTUNEMENT_1  = 9121,
+    NAXX40_ATTUNEMENT_2  = 9122,
+    NAXX40_ATTUNEMENT_3  = 9123,
+    NAXX40_ENTRANCE_FLAG = 9378
 };
 
 template <class AI, class T>

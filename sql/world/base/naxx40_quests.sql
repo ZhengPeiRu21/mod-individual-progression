@@ -8,7 +8,7 @@ DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (
 9236, 9078, 9071, 9043, 9090, 9107, 9061, 9240, 9244, 9073, 9074,
 9241, 9054, 9068, 9075, 9069, 9095, 9050, 9234, 9072, 9059, 9058,
 9245, 9093, 9056, 9243, 9091, 9104, 9108, 9246, 9086, 9092, 9055,
-9235, 9238, 9239 );
+9235, 9238, 9239, 9378);
 
 REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES
 (16115, 9033),
@@ -319,3 +319,6 @@ DELETE FROM `creature_queststarter` WHERE (`quest` IN (9237, 9239, 9240, 9238, 9
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (@NPC, 9237), (@NPC, 9239), (@NPC, 9240), (@NPC, 9238), (@NPC, 9235), (@NPC, 9236), (@NPC, 9234), (@NPC, 9244), (@NPC, 9246), (@NPC, 9245), (@NPC, 9241), (@NPC, 9242), (@NPC, 9243), (@NPC, 9232);
 DELETE FROM `creature_questender` WHERE (`quest` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243, 9232));
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (@NPC, 9237), (@NPC, 9239), (@NPC, 9240), (@NPC, 9238), (@NPC, 9235), (@NPC, 9236), (@NPC, 9234), (@NPC, 9244), (@NPC, 9246), (@NPC, 9245), (@NPC, 9241), (@NPC, 9242), (@NPC, 9243), (@NPC, 9232);
+
+-- We are going to re-use the deprecated Naxxramas attunement flag quest but need to change some values
+UPDATE `quest_template` SET `RequiredFactionId1` = 0, `RequiredFactionValue1` = 0, `RewardFactionID1` = 0, `RewardFactionValue1` = 0, `QuestSortID` = 0 WHERE `ID` = 9378;
