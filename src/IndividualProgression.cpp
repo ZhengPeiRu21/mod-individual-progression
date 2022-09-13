@@ -234,7 +234,7 @@ class IndividualPlayerProgression_PetScript : public PetScript
 private:
     bool hasPassedProgression(Player* player, ProgressionState state)
     {
-        if (progressionLimit && state > progressionLimit)
+        if (progressionLimit && state >= progressionLimit)
             return false;
         return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
     }
@@ -313,13 +313,13 @@ class IndividualPlayerProgression : public PlayerScript
 private:
     static bool hasPassedProgression(Player* player, ProgressionState state)
     {
-        if (progressionLimit && state > progressionLimit)
+        if (progressionLimit && state >= progressionLimit)
             return false;
         return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
     }
     static void UpdateProgressionState(Player* player, ProgressionState newState)
     {
-        if (progressionLimit && newState > progressionLimit)
+        if (progressionLimit && newState >= progressionLimit)
             return;
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         if (newState > currentState)
