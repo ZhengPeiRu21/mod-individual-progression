@@ -657,9 +657,7 @@ public:
                 }
                 break;
             case CTHUN:
-//                UpdateProgressionState(killer, PROGRESSION_AQ);
-                // NOTE: Because NAXX40 is not currently implemented, defeating C'Thun ends Vanilla content
-                UpdateProgressionState(killer, PROGRESSION_NAXX40);
+                UpdateProgressionState(killer, PROGRESSION_AQ);
                 break;
             case KELTHUZAD_40:
                 UpdateProgressionState(killer, PROGRESSION_NAXX40);
