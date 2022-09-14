@@ -9575,7 +9575,7 @@ UPDATE `item_template` SET `Quality` = 2, `armor` = 32, `BuyPrice` = 2103, `Sell
 UPDATE `item_template` SET `Quality` = 2, `BuyPrice` = 5279, `SellPrice` = 1055, `dmg_min1` = 9.0, `dmg_max1` = 18.0, `MaxDurability` = 40, `stat_value1` = 1, `stat_value2` = 1, `DisenchantID` = 22 WHERE entry=14151;
 
 /*  Robe of the Archmage  */
-UPDATE `item_template` SET `armor` = 96, `BuyPrice` = 144077, `SellPrice` = 28815 WHERE entry=14152;
+UPDATE `item_template` SET `armor` = 96, `BuyPrice` = 144077, `SellPrice` = 28815, `AllowableClass` = 31360 WHERE entry=14152;
 
 /*  Robe of the Void  */
 UPDATE `item_template` SET `armor` = 96, `BuyPrice` = 144603, `SellPrice` = 28920, `spelltrigger_3` = 0 WHERE entry=14153;
