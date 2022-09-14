@@ -161,7 +161,7 @@ public:
         return new gobject_scarab_gongAI(object);
     }
 
-    bool OnQuestReward(Player *player, GameObject *go, Quest const *quest, uint32 opt) override
+    bool OnQuestReward(Player *player, GameObject *go, Quest const *quest, uint32 /*opt*/) override
     {
         if (quest->GetQuestId() != QUEST_BANG_A_GONG)
             return false;

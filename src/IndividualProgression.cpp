@@ -362,8 +362,8 @@ private:
     {
         if (item->Quality != ITEM_QUALITY_EPIC) // Non-endgame gear is okay
             return;
-        if ((hasPassedProgression(player, PROGRESSION_NAXX40) && item->RequiredLevel <= 60) ||
-            hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && item->RequiredLevel <=70)
+        if ((hasPassedProgression(player, PROGRESSION_NAXX40) && (item->RequiredLevel <= 60)) ||
+            hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (item->RequiredLevel <=70))
         {
             computedAdjustment -= (100.0 * previousGearTuning);
         }
@@ -373,8 +373,8 @@ private:
     {
         if (item->Quality != ITEM_QUALITY_EPIC) // Non-endgame gear is okay
             return;
-        if ((hasPassedProgression(player, PROGRESSION_NAXX40) && item->RequiredLevel <= 60) ||
-            hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && item->RequiredLevel <=70)
+        if ((hasPassedProgression(player, PROGRESSION_NAXX40) && (item->RequiredLevel <= 60)) ||
+            hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (item->RequiredLevel <=70))
         {
             computedAdjustment += previousGearTuning;
         }

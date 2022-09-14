@@ -8,7 +8,7 @@ class spell_detect_magic : public SpellScript
 {
     PrepareSpellScript(spell_detect_magic);
 
-    void HandleDummy(SpellEffIndex effIndex)
+    void HandleDummy(SpellEffIndex /*effIndex*/)
     {
         if (GetCaster()->GetTypeId() != TYPEID_PLAYER)
             return;

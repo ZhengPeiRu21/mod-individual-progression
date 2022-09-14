@@ -168,7 +168,7 @@ class onyxia_entrance_trigger : public AreaTriggerScript
 public:
     onyxia_entrance_trigger() : AreaTriggerScript("onyxia_entrance_trigger") { }
 
-    bool OnTrigger(Player* player, AreaTrigger const* areaTrigger) override
+    bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
         if (player->getLevel() < 80)
         {
