@@ -6,7 +6,7 @@
 
 static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
 static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride;
-static int progressionLimit;
+static int progressionLimit, startingProgression;
 static questXpMapType questXpMap;
 
 class gobject_ipp_wotlk : public GameObjectScript
@@ -186,6 +186,7 @@ private:
         simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
         previousGearTuning = sConfigMgr->GetOption<float>("IndividualProgression.PreviousGearTuning", 0.03);
         progressionLimit = sConfigMgr->GetOption<uint8>("IndividualProgression.ProgressionLimit", 0);
+        startingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.StartingProgression", 0);
     }
 
     void LoadXpValues()
@@ -224,7 +225,7 @@ public:
         {
             sWorld->setIntConfig(CONFIG_WATER_BREATH_TIMER, 60000);
 //            sWorld->setBoolConfig(CONFIG_OBJECT_QUEST_MARKERS, false); Waiting for PR merge: https://github.com/azerothcore/azerothcore-wotlk/pull/13013
-//            sWorld->setBoolConfig(CONFIG_OBJECT_SPARKLES, false); Waiting for PR merge: https://github.com/azerothcore/azerothcore-wotlk/pull/13005
+            sWorld->setBoolConfig(CONFIG_OBJECT_SPARKLES, false);
         }
     }
 };
@@ -431,6 +432,10 @@ public:
 
     void OnLogin(Player* player) override
     {
+        if (startingProgression && !hasPassedProgression(player, static_cast<ProgressionState>(startingProgression)))
+        {
+            UpdateProgressionState(player, static_cast<ProgressionState>(startingProgression));
+        }
         CheckAdjustments(player);
     }
 

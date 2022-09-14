@@ -188,3 +188,16 @@ IndividualProgression.SimpleConfigOverride = 1
 #
 
         IndividualProgression.ProgressionLimit = 0
+#
+#    IndividualProgression.StartingProgression
+#        Description: If enabled, players will begin at this progression stage.
+#                     Existing players who are at an earlier stage will be set to this stage upon log in.
+#                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
+#
+#
+#        Default:   0 - Disabled
+#                   1-16 - Starting progression stage
+#
+#
+
+        IndividualProgression.StartingProgression = 0
