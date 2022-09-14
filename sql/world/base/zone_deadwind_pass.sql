@@ -1797,7 +1797,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (3509950, 43, -11178.248047, -2033.787109, 47.196342, 100.000000, 0);
 
 -- Spawn Point 2
-INSERT INTO `creature` (`guid`, `id`, `id2`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `movement_type`, `spawntimesecsmin`, `spawntimesecsmax`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `MovementType`, `spawntimesecs`) VALUES
 (350999, 12381, 12382, 0, -11153.000000, -2093.860107, 47.877800, 1.74458, 0, 2, 340);
 INSERT INTO `creature_addon` (`guid`, `path_id`) VALUES (350999, 3509990);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`) VALUES
@@ -1848,7 +1848,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (3509990, 45, -11153.730469, -2089.702393, 47.908920, 100.000000, 0);
 
 -- Spawn Point 3
-INSERT INTO `creature` (`guid`, `id`, `id2`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `movement_type`, `spawntimesecsmin`, `spawntimesecsmax`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `MovementType`, `spawntimesecs`) VALUES
 (350998, 12381, 12382, 0, -10993.299805, -1938.250000, 47.139301, 5.50472, 0, 2, 340);
 INSERT INTO `creature_addon` (`guid`, `path_id`) VALUES (350998, 3509980);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`) VALUES
@@ -1911,7 +1911,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (3509980, 57, -10992.474609, -1939.088135, 46.908199, 100.000000, 0);
 
 -- Spawn Point 4
-INSERT INTO `creature` (`guid`, `id`, `id2`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `movement_type`, `spawntimesecsmin`, `spawntimesecsmax`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `MovementType`, `spawntimesecs`) VALUES
 (350997, 12381, 12382, 0, -10807.400391, -2072.270020, 121.989998, 5.83641, 0, 2, 340);
 INSERT INTO `creature_addon` (`guid`, `path_id`) VALUES (350997, 3509970);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`) VALUES
@@ -1948,7 +1948,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (3509970, 31, -10805.780273, -2073.028076, 122.006348, 100.000000, 0);
 
 -- Spawn Point 5
-INSERT INTO `creature` (`guid`, `id`, `id2`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `movement_type`, `spawntimesecsmin`, `spawntimesecsmax`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `MovementType`, `spawntimesecs`) VALUES
 (350996, 12381, 12382, 0, -10922.000000, -1968.719971, 114.875999, 0.990982, 0, 2, 340);
 INSERT INTO `creature_addon` (`guid`, `path_id`) VALUES (350996, 3509960);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`) VALUES
