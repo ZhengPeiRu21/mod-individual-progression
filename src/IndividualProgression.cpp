@@ -355,6 +355,32 @@ private:
             player->RemoveAura(RANGED_HASTE_SPELL);
             player->CastSpell(player, RANGED_HASTE_SPELL, false);
         }
+        if (player->getClass() == CLASS_DEATH_KNIGHT)
+        {
+            // Apply a custom aura to fix Rune Tap if healing rate is modified
+            float computedHealingAdjustment;
+            if (!hasPassedProgression(player, PROGRESSION_NAXX40))
+            {
+                float adjustmentAmount = 1.0 - vanillaHealingAdjustment;
+                float applyPercent = ((player->getLevel() - 10.0) / 50.0);
+                computedHealingAdjustment = player->getLevel() > 10 ? 1.0 - applyPercent * adjustmentAmount : 1.0;
+            }
+                // Player is in TBC content - give TBC health adjustment
+            else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+            {
+                computedHealingAdjustment = tbcHealingAdjustment;
+            }
+            else {
+                computedHealingAdjustment = 1.0;
+            }
+            if (computedHealingAdjustment < 1.0)
+            {
+                int32 bp0 = int(((1.0f/computedHealingAdjustment) * 100.0) - 101.0);
+                int32 bp1 = 0; // Don't change the cooldown
+                player->RemoveAura(RUNE_TAP_FIX_SPELL);
+                player->CastCustomSpell(player, RUNE_TAP_FIX_SPELL, &bp0, &bp1, nullptr, false);
+            }
+        }
 
     }
 
@@ -385,7 +411,12 @@ private:
         float adjustmentValue = -100.0 * (1.0 - vanillaPowerAdjustment);
         float adjustmentApplyPercent = (player->getLevel() - 10.0) / 50.0;
         float computedAdjustment = player->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-        AdjustStats(player, computedAdjustment);
+
+        float adjustmentHealingValue = -100.0 * (1.0 - vanillaHealingAdjustment);
+        float adjustmentHealingApplyPercent = (player->getLevel() - 10.0) / 50.0;
+        float computedHealingAdjustment = player->getLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
+
+        AdjustStats(player, computedAdjustment, computedHealingAdjustment);
     }
 
     void AdjustTBCStats(Player* player)
@@ -393,12 +424,20 @@ private:
         float adjustmentValue = -100.0 * (1.0 - tbcPowerAdjustment);
         float adjustmentApplyPercent = 1;
         float computedAdjustment = player->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+
+        float adjustmentHealingValue = -100.0 * (1.0 - tbcHealingAdjustment);
+        float adjustmentHealingApplyPercent = 1;
+        float computedHealingAdjustment = player->getLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
+
         for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
         {
-            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
-                ApplyGearStatsTuning(player, computedAdjustment, item->GetTemplate());
+            if (Item *item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
+            {
+            ApplyGearStatsTuning(player, computedAdjustment, item->GetTemplate());
+            ApplyGearStatsTuning(player, computedHealingAdjustment, item->GetTemplate());
+            }
         }
-        AdjustStats(player, computedAdjustment);
+        AdjustStats(player, computedAdjustment, computedHealingAdjustment);
     }
 
     void AdjustWotLKStats(Player* player)
@@ -409,13 +448,14 @@ private:
             if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
                 ApplyGearStatsTuning(player, computedAdjustment, item->GetTemplate());
         }
-        AdjustStats(player, computedAdjustment);
+        AdjustStats(player, computedAdjustment, computedAdjustment);
     }
 
-    void AdjustStats(Player* player, float computedAdjustment)
+    void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment)
     {
         int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
         int32 bp1 = static_cast<int32>(computedAdjustment);
+        int32 bp1Healing = static_cast<int32>(computedHealingAdjustment);
 
         player->RemoveAura(DAMAGE_DONE_TAKEN_SPELL);
         player->CastCustomSpell(player, DAMAGE_DONE_TAKEN_SPELL, &bp0, &bp1, nullptr, false);
@@ -424,7 +464,7 @@ private:
         player->CastCustomSpell(player, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
 
         player->RemoveAura(HEALING_DONE_SPELL);
-        player->CastCustomSpell(player, HEALING_DONE_SPELL, &bp1, nullptr, nullptr, false);
+        player->CastCustomSpell(player, HEALING_DONE_SPELL, &bp1Healing, nullptr, nullptr, false);
     }
 
 
