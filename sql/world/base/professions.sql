@@ -889,3 +889,6 @@ INSERT INTO npc_vendor (entry, slot, item) VALUES (18774, 0, 23130);
 -- Delete added riding trainers
 DELETE FROM creature WHERE `id1` IN (35093, 35100);
 DELETE FROM creature_addon WHERE `guid` IN (88165, 88166);
+
+-- Remove TBC Gems from Prospecting Vanilla ore
+DELETE FROM `prospecting_loot_template` WHERE `Entry`=10620 AND `Item`=1;
