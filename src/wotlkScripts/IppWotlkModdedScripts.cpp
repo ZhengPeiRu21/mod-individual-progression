@@ -107,7 +107,7 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= PROGRESSION_TBC_TIER_5;
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5);
         }
 
         EventMap events;

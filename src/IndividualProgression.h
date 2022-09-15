@@ -108,5 +108,28 @@ enum ProgressionState : uint8
     PROGRESSION_WOTLK_TIER_5    = 16  // Ruby Sanctum
 };
 
+class IndividualProgression
+{
+public:
+    static IndividualProgression* instance();
+
+    questXpMapType questXpMap;
+    float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
+    bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap;
+    int progressionLimit, startingProgression;
+
+    bool hasPassedProgression(Player* player, ProgressionState state) const;
+    bool isBeforeProgression(Player* player, ProgressionState state) const;
+    void UpdateProgressionState(Player* player, ProgressionState newState) const;
+    void CheckAdjustments(Player* player) const;
+    void ApplyGearStatsTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
+    void ApplyGearHealthTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
+    void AdjustVanillaStats(Player* player) const;
+    void AdjustTBCStats(Player* player) const;
+    void AdjustWotLKStats(Player* player) const;
+    static void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment);
+};
+
+#define sIndividualProgression IndividualProgression::instance()
 
 #endif //AZEROTHCORE_INDIVIDUALPROGRESSION_H

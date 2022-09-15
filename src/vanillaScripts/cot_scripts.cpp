@@ -27,7 +27,7 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value < PROGRESSION_NAXX40;
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
         }
 
     };
