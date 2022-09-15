@@ -45,6 +45,12 @@ WHERE SpellID IN
       (19052, 19055, 19065, 19071, 19072, 19083, 19091, 19092, 19098, 19102, 19103, 18403, 18407, 18410, 18411, 18413,
        18414, 18415, 18416, 18420, 18421, 18424, 18437, 18438, 18441, 18442, 18446, 18449, 18451, 19082, 32455);
 
+-- Patch 2.3 added easy to get catch-up ammo pouches
+-- Allow these to remain available for completionists, but make them require having passed TBC progression
+UPDATE `npc_trainer` SET `ReqLevel` = 71 WHERE `SpellID` IN (44343, 44344);
+
+-- Black Sack of Gems was added in late TBC to make it easy to get gems
+DELETE FROM `creature_loot_template` WHERE `Entry`=17257 AND `Item`=34846 AND `Reference`=0 AND `GroupId`=0;
 
 
 -- Restore Vendor Formulas
