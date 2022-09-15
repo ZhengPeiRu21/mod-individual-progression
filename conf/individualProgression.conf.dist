@@ -202,3 +202,17 @@ IndividualProgression.SimpleConfigOverride = 1
 #
 
         IndividualProgression.StartingProgression = 0
+#
+#    IndividualProgression.QuestMoneyAtLevelCap
+#        Description: If enabled, players at the level cap for the current progression stage will receive
+#                     extra money when completing quests, as if they were level 80. This feature was added in patch 1.10
+#                     so it is a Vanilla feature.
+#                     Disable to not grant extra money at progression stage level cap. (Please note that completing quests at the level cap of the server,
+#                     configured in worldserver.conf will always provide extra money, as hard-coded in AzerothCore.)
+#
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+        IndividualProgression.QuestMoneyAtLevelCap = 1

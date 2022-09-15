@@ -5,7 +5,7 @@
 #include "IndividualProgression.h"
 
 static float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride;
+static bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap;
 static int progressionLimit, startingProgression;
 static questXpMapType questXpMap;
 
@@ -187,6 +187,7 @@ private:
         previousGearTuning = sConfigMgr->GetOption<float>("IndividualProgression.PreviousGearTuning", 0.03);
         progressionLimit = sConfigMgr->GetOption<uint8>("IndividualProgression.ProgressionLimit", 0);
         startingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.StartingProgression", 0);
+        questMoneyAtLevelCap = sConfigMgr->GetOption<bool>("IndividualProgression.QuestMoneyAtLevelCap", true);
     }
 
     void LoadXpValues()
@@ -498,6 +499,18 @@ public:
     void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
     {
         CheckAdjustments(player);
+    }
+
+    bool ShouldBeRewardedWithMoneyInsteadOfExp(Player* player) override
+    {
+        if (!questMoneyAtLevelCap)
+        {
+            return false;
+        }
+                // Player is still in Vanilla content - give money at 60 level cap
+        return ((!hasPassedProgression(player, PROGRESSION_NAXX40) && player->getLevel() == 60) ||
+                // Player is in TBC content - give money at 70 level cap
+                (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->getLevel() == 70));
     }
 
     void OnAfterUpdateMaxHealth(Player* player, float& value) override
