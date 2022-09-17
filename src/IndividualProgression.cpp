@@ -402,6 +402,7 @@ private:
         sIndividualProgression->progressionLimit = sConfigMgr->GetOption<uint8>("IndividualProgression.ProgressionLimit", 0);
         sIndividualProgression->startingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.StartingProgression", 0);
         sIndividualProgression->questMoneyAtLevelCap = sConfigMgr->GetOption<bool>("IndividualProgression.QuestMoneyAtLevelCap", true);
+        sIndividualProgression->repeatableVanillaQuestsXp = sConfigMgr->GetOption<bool>("IndividualProgression.RepeatableVanillaQuestsXP", true);
     }
 
     static void LoadXpValues()
@@ -705,6 +706,14 @@ public:
         {
             case MIGHT_OF_KALIMDOR:
                 sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                break;
+            case QUEST_MORROWGRAIN:
+            case QUEST_TROLL_NECKLACE:
+                if (sIndividualProgression->repeatableVanillaQuestsXp)
+                {
+                    // Reset the quest status so the player can take it and receive rewards again
+                    player->RemoveRewardedQuest(quest->GetQuestId());
+                }
                 break;
         }
     }

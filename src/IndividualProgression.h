@@ -51,7 +51,9 @@ enum BuffSpells
 
 enum ProgressionQuestIDs
 {
-    MIGHT_OF_KALIMDOR = 8742
+    MIGHT_OF_KALIMDOR    = 8742,
+    QUEST_MORROWGRAIN    = 3803,
+    QUEST_TROLL_NECKLACE = 2881
 };
 
 enum ProgressionMaps
@@ -115,7 +117,7 @@ public:
 
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-    bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap;
+    bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp;
     int progressionLimit, startingProgression;
 
     bool hasPassedProgression(Player* player, ProgressionState state) const;

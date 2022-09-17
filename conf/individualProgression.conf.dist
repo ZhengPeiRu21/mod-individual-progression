@@ -188,7 +188,7 @@ IndividualProgression.SimpleConfigOverride = 1
 #
 #
 
-        IndividualProgression.ProgressionLimit = 0
+IndividualProgression.ProgressionLimit = 0
 #
 #    IndividualProgression.StartingProgression
 #        Description: If enabled, players will begin at this progression stage.
@@ -201,7 +201,7 @@ IndividualProgression.SimpleConfigOverride = 1
 #
 #
 
-        IndividualProgression.StartingProgression = 0
+IndividualProgression.StartingProgression = 0
 #
 #    IndividualProgression.QuestMoneyAtLevelCap
 #        Description: If enabled, players at the level cap for the current progression stage will receive
@@ -215,4 +215,16 @@ IndividualProgression.SimpleConfigOverride = 1
 #
 #
 
-        IndividualProgression.QuestMoneyAtLevelCap = 1
+IndividualProgression.QuestMoneyAtLevelCap = 1
+#
+#    IndividualProgression.RepeatableVanillaQuestsXP
+#        Description: Some repeatable quests in Vanilla gave XP every time they were turned in.
+#                     Enable this feature to allow these quests to have the Vanilla behavior and give XP each turn in.
+#                     Disable to have the WotLK behavior and only grant XP once.
+#
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+IndividualProgression.RepeatableVanillaQuestsXP = 1
