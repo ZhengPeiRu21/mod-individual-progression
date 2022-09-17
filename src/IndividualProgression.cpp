@@ -18,7 +18,7 @@ bool IndividualProgression::hasPassedProgression(Player* player, ProgressionStat
     return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
 }
 
-bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState state) const
+bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState state)
 {
     return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value < state;
 }
@@ -32,6 +32,11 @@ void IndividualProgression::UpdateProgressionState(Player* player, ProgressionSt
     {
         player->UpdatePlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE, newState);
     }
+}
+
+void IndividualProgression::ForceUpdateProgressionState(Player* player, ProgressionState newState)
+{
+    player->UpdatePlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE, newState);
 }
 
 void IndividualProgression::CheckAdjustments(Player* player) const
@@ -532,6 +537,25 @@ public:
         }
         sIndividualProgression->CheckAdjustments(player);
     }
+
+    // Waiting for PR: https://github.com/azerothcore/azerothcore-wotlk/pull/13046
+//    void OnSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
+//    {
+//        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+//        {
+//            if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > 60)
+//            {
+//                maxPlayerLevel = 60;
+//            }
+//        }
+//        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+//        {
+//            if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > 70)
+//            {
+//                maxPlayerLevel = 70;
+//            }
+//        }
+//    }
 
     void OnMapChanged(Player* player) override
     {

@@ -33,10 +33,10 @@ public:
             handler->SendSysMessage("Invalid progression level.");
             return false;
         }
-        Player* target = player->GetConnectedPlayer();
-        if (target)
+        player = PlayerIdentifier::FromTargetOrSelf(handler);
+        if (player && player->GetConnectedPlayer())
         {
-            sIndividualProgression->UpdateProgressionState(target, static_cast<ProgressionState>(progressionLevel));
+            sIndividualProgression->ForceUpdateProgressionState(player->GetConnectedPlayer(), static_cast<ProgressionState>(progressionLevel));
             handler->SendSysMessage("Progression state updated successfully");
         }
         return true;

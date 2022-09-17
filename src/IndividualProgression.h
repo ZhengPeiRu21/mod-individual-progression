@@ -121,8 +121,9 @@ public:
     int progressionLimit, startingProgression;
 
     bool hasPassedProgression(Player* player, ProgressionState state) const;
-    bool isBeforeProgression(Player* player, ProgressionState state) const;
+    static bool isBeforeProgression(Player* player, ProgressionState state) ;
     void UpdateProgressionState(Player* player, ProgressionState newState) const;
+    static void ForceUpdateProgressionState(Player* player, ProgressionState newState) ;
     void CheckAdjustments(Player* player) const;
     void ApplyGearStatsTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
     void ApplyGearHealthTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
