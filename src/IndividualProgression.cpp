@@ -733,6 +733,8 @@ public:
                 break;
             case QUEST_MORROWGRAIN:
             case QUEST_TROLL_NECKLACE:
+            case QUEST_DEADWOOD:
+            case QUEST_WINTERFALL:
                 if (sIndividualProgression->repeatableVanillaQuestsXp)
                 {
                     // Reset the quest status so the player can take it and receive rewards again
