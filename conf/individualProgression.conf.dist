@@ -258,3 +258,13 @@ IndividualProgression.TbcRacesUnlockProgression = 0
 #
 
 IndividualProgression.DeathKnightUnlockProgression = 11
+#
+#    IndividualProgression.DeathKnightStartingProgression
+#        Description: The progression level at which Death Knight characters will begin.
+#
+#        Default:   11 - Death Knights start at the beginning of WotLK
+#                   0-16 - Progression level
+#
+#
+
+IndividualProgression.DeathKnightStartingProgression = 11

@@ -120,7 +120,7 @@ public:
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
     bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp;
-    int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel;
+    int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression;
 
     bool hasPassedProgression(Player* player, ProgressionState state) const;
     static bool isBeforeProgression(Player* player, ProgressionState state) ;

@@ -3,7 +3,6 @@
  */
 
 #include "IndividualProgression.h"
-#include "Tokenize.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
@@ -235,6 +234,7 @@ private:
         sIndividualProgression->repeatableVanillaQuestsXp = sConfigMgr->GetOption<bool>("IndividualProgression.RepeatableVanillaQuestsXP", true);
         sIndividualProgression->tbcRacesProgressionLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.TbcRacesUnlockProgression", 0);
         sIndividualProgression->deathKnightProgressionLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.DeathKnightUnlockProgression", 11);
+        sIndividualProgression->deathKnightStartingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.DeathKnightStartingProgression", 11);
     }
 
     static void LoadXpValues()
