@@ -228,3 +228,33 @@ IndividualProgression.QuestMoneyAtLevelCap = 1
 #
 
 IndividualProgression.RepeatableVanillaQuestsXP = 1
+#
+#    IndividualProgression.TbcRacesUnlockProgression
+#        Description: The progression level at which TBC races will be unlocked.
+#                     Races will be unlocked when the player reaches this level with any character on the account.
+#                     Disable to have TBC races available by default.
+#                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
+#
+#        Default:   0 - TBC Races always available
+#                   1-16 - Required progression level to create TBC Race characters
+#
+#
+
+IndividualProgression.TbcRacesUnlockProgression = 0
+#
+#    IndividualProgression.DeathKnightUnlockProgression
+#        Description: The progression level at which Death Knight characters can be created.
+#                     Death Knights will be available when the player reaches this levl with any character on the account.
+#                     Disable to Individual Progression not influence DK creation.
+#                     Please note that all other Death Knight creation restrictions from worldserver.conf still apply.
+#                     The default value is to not allow Death Knight creation until TBC content is cleared.
+#                     This is due to the game not having a proper progression balancing for Death Knights until WotLK,
+#                     but please adjust as desired.
+#
+#        Default:   11 - TBC must be completed to create Death Knights
+#                   0 - Disabled
+#                   1-16 - Required progression
+#
+#
+
+IndividualProgression.DeathKnightUnlockProgression = 11

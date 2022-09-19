@@ -120,7 +120,7 @@ public:
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
     bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp;
-    int progressionLimit, startingProgression;
+    int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel;
 
     bool hasPassedProgression(Player* player, ProgressionState state) const;
     static bool isBeforeProgression(Player* player, ProgressionState state) ;
@@ -133,6 +133,7 @@ public:
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;
     static void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment);
+    static uint8 GetAccountProgression(uint32 accountId);
 };
 
 #define sIndividualProgression IndividualProgression::instance()

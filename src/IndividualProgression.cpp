@@ -3,6 +3,7 @@
  */
 
 #include "IndividualProgression.h"
+#include "Tokenize.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
@@ -176,7 +177,37 @@ void IndividualProgression::AdjustStats(Player* player, float computedAdjustment
     player->CastCustomSpell(player, HEALING_DONE_SPELL, &bp1Healing, nullptr, nullptr, false);
 }
 
-
+/**
+ * Gets the highest progression level achieved by an account
+ * Note that this method makes a direct, non-sync DB call and should be used sparingly
+ *
+ * @return progression level
+ */
+uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
+{
+    uint8 progressionLevel = 0;
+    if (!sWorld->getBoolConfig(CONFIG_PLAYER_SETTINGS_ENABLED))
+    {
+        // Prevent crash if player settings are not enabled
+        return 0;
+    }
+    QueryResult result = CharacterDatabase.Query("SELECT `data` FROM `character_settings` WHERE `source` = 'mod-individual-progression' AND `guid` IN (SELECT `guid` FROM `characters` WHERE `account` = {});", accountId);
+    if (result)
+    {
+        do
+        {
+            std::string dataOne;
+            std::stringstream dataString((*result)[0].Get<std::string>());
+            dataString>>dataOne;
+            uint8 resultValue = atoi(dataOne.c_str());
+            if (resultValue > progressionLevel)
+            {
+                progressionLevel = resultValue;
+            }
+        } while (result->NextRow());
+    }
+    return progressionLevel;
+}
 
 
 class IndividualPlayerProgression_WorldScript : public WorldScript
@@ -202,6 +233,8 @@ private:
         sIndividualProgression->startingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.StartingProgression", 0);
         sIndividualProgression->questMoneyAtLevelCap = sConfigMgr->GetOption<bool>("IndividualProgression.QuestMoneyAtLevelCap", true);
         sIndividualProgression->repeatableVanillaQuestsXp = sConfigMgr->GetOption<bool>("IndividualProgression.RepeatableVanillaQuestsXP", true);
+        sIndividualProgression->tbcRacesProgressionLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.TbcRacesUnlockProgression", 0);
+        sIndividualProgression->deathKnightProgressionLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.DeathKnightUnlockProgression", 11);
     }
 
     static void LoadXpValues()

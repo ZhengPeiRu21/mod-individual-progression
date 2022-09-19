@@ -320,6 +320,43 @@ public:
     }
 };
 
+class IndividualPlayerProgression_AccountScript: public AccountScript
+{
+public:
+    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript")
+    {}
+
+    // Waiting for PR: https://github.com/azerothcore/azerothcore-wotlk/pull/13060
+//    bool CanAccountCreateCharacter(uint32 accountId, uint8 charRace, uint8 charClass) override
+//    {
+//        if ((!sIndividualProgression->enabled) ||
+//            (charRace != RACE_DRAENEI && charRace != RACE_BLOODELF && charClass != CLASS_DEATH_KNIGHT) ||
+//            (!sIndividualProgression->tbcRacesProgressionLevel && !sIndividualProgression->deathKnightProgressionLevel))
+//        {
+//            return true;
+//        }
+//        uint8 highestProgression = sIndividualProgression->GetAccountProgression(accountId);
+//        if (charRace == RACE_DRAENEI || charRace == RACE_BLOODELF)
+//        {
+//            if (sIndividualProgression->tbcRacesProgressionLevel)
+//            {
+//                if (highestProgression < sIndividualProgression->tbcRacesProgressionLevel)
+//                {
+//                    return false;
+//                }
+//            }
+//        }
+//        if (charClass == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightProgressionLevel)
+//        {
+//            if (highestProgression < sIndividualProgression->deathKnightProgressionLevel)
+//            {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+};
+
 
 class IndividualPlayerProgression_PetScript : public PetScript
 {
@@ -397,4 +434,5 @@ void AddSC_mod_individual_progression_player()
 {
     new IndividualPlayerProgression();
     new IndividualPlayerProgression_PetScript();
+    new IndividualPlayerProgression_AccountScript();
 }
