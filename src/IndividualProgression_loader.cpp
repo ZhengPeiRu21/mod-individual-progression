@@ -35,6 +35,8 @@ void AddSC_aq_scripts();
 void AddSC_cot_scripts();
 void AddSC_ipp_spell_scripts();
 void AddSC_individualProgression_commandscript();
+void AddSC_mod_individual_progression_awareness();
+void AddSC_mod_individual_progression_player();
 
 
 void Addmod_individual_progressionScripts()
@@ -71,5 +73,6 @@ void Addmod_individual_progressionScripts()
     AddSC_cot_scripts();
     AddSC_ipp_spell_scripts();
     AddSC_individualProgression_commandscript();
+    AddSC_mod_individual_progression_awareness();
+    AddSC_mod_individual_progression_player();
 }
-
