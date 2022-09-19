@@ -834,16 +834,14 @@ public:
         }
     }
 
-    // Once this PR is merged, this will be required: https://github.com/azerothcore/azerothcore-wotlk/pull/12996
-    // Currently, due to AC bug, the "enabled" behavior is actually the current behavior anyway
-//    bool OnUpdateFishingSkill(Player* player, int32 /*skill*/, int32 /*zone_skill*/, int32 chance, int32 roll) override
-//    {
-//        if (!enabled || !fishingFix)
-//            return true;
-//        if (chance < roll)
-//            return false;
-//        return true;
-//    }
+    bool OnUpdateFishingSkill(Player* player, int32 /*skill*/, int32 /*zone_skill*/, int32 chance, int32 roll) override
+    {
+        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix)
+            return true;
+        if (chance < roll)
+            return false;
+        return true;
+    }
 };
 
 // Add all scripts in one
