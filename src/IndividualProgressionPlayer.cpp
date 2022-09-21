@@ -209,7 +209,10 @@ public:
         switch (quest->GetQuestId())
         {
             case MIGHT_OF_KALIMDOR:
-                sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                if (!sIndividualProgression->disableDefaultProgression)
+                {
+                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                }
                 break;
             case QUEST_MORROWGRAIN:
             case QUEST_TROLL_NECKLACE:
@@ -257,6 +260,15 @@ public:
             return;
         }
 
+        if (sIndividualProgression->hasCustomProgressionValue(killed->GetEntry()))
+        {
+            sIndividualProgression->UpdateProgressionState(killer, static_cast<ProgressionState>(sIndividualProgression->customProgressionMap[killed->GetEntry()]));
+        }
+
+        if (sIndividualProgression->disableDefaultProgression)
+        {
+            return;
+        }
         switch (killed->GetEntry())
         {
             case RAGNAROS:

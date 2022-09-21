@@ -208,12 +208,39 @@ uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
     return progressionLevel;
 }
 
+void IndividualProgression::LoadCustomProgressionEntries(std::string const& customProgressionString)
+{
+    std::string delimitedValue;
+    std::stringstream customProgressionStream;
+
+    customProgressionStream.str(customProgressionString);
+    while (std::getline(customProgressionStream, delimitedValue, ','))
+    {
+        std::string pairOne, pairTwo;
+        std::stringstream progressionPairStream(delimitedValue);
+        progressionPairStream>>pairOne>>pairTwo;
+        uint32 creatureEntryId = atoi(pairOne.c_str());
+        uint8 progressionValue = atoi(pairTwo.c_str());
+        sIndividualProgression->customProgressionMap[creatureEntryId] = progressionValue;
+    }
+}
+
+bool IndividualProgression::hasCustomProgressionValue(uint32 creatureEntry)
+{
+    if (customProgressionMap.empty())
+    {
+        return false;
+    }
+    return (customProgressionMap.find(creatureEntry) != customProgressionMap.end());
+}
+
 
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {
 private:
     static void LoadConfig()
     {
+        sIndividualProgression->customProgressionMap.clear();
         sIndividualProgression->enabled = sConfigMgr->GetOption<bool>("IndividualProgression.Enable", true);
         sIndividualProgression->vanillaPowerAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.VanillaPowerAdjustment", 1);
         sIndividualProgression->vanillaHealingAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.VanillaHealingAdjustment", 1);
@@ -232,9 +259,11 @@ private:
         sIndividualProgression->startingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.StartingProgression", 0);
         sIndividualProgression->questMoneyAtLevelCap = sConfigMgr->GetOption<bool>("IndividualProgression.QuestMoneyAtLevelCap", true);
         sIndividualProgression->repeatableVanillaQuestsXp = sConfigMgr->GetOption<bool>("IndividualProgression.RepeatableVanillaQuestsXP", true);
+        sIndividualProgression->disableDefaultProgression = sConfigMgr->GetOption<bool>("IndividualProgression.DisableDefaultProgression", false);
         sIndividualProgression->tbcRacesProgressionLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.TbcRacesUnlockProgression", 0);
         sIndividualProgression->deathKnightProgressionLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.DeathKnightUnlockProgression", 11);
         sIndividualProgression->deathKnightStartingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.DeathKnightStartingProgression", 11);
+        sIndividualProgression->LoadCustomProgressionEntries(sConfigMgr->GetOption<std::string>("IndividualProgression.CustomProgression", ""));
     }
 
     static void LoadXpValues()

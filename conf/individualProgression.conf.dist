@@ -268,3 +268,27 @@ IndividualProgression.DeathKnightUnlockProgression = 11
 #
 
 IndividualProgression.DeathKnightStartingProgression = 11
+#
+#    IndividualProgression.DisableDefaultProgression
+#        Description: Disable the regular progression flow, so progression must be advanced through custom creature progression entries
+#
+#        Default:   0 - Disabled
+#                   1 - Enabled
+#
+#
+
+IndividualProgression.DisableDefaultProgression = 0
+#
+#    IndividualProgression.CustomProgression
+#        Description: A list of creature IDs paired to progression states. When a creature on the list is defeated by a player,
+#                     the player will be set to that progression state. Used for custom, non-standard progression.
+#                     Not needed for regular, Blizz-like progress through expansions, which works by default.
+#                     Example: IndividualProgression.CustomProgression="448 6, 639 11"
+#                     This example would allow players access to TBC content for defeating Hogger (entry 448), and Northrend content for defeating VanCleef (entry 639)
+#                     Leave empty to disable (default.)
+#
+#        Default:   "" - Disabled (default)
+#
+#
+
+IndividualProgression.CustomProgression = ""
