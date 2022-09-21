@@ -701,6 +701,27 @@ public:
             return 0;
         }
 
+        bool AreAllWingsCleared() const
+        {
+            return (GetBossState(BOSS_MAEXXNA) == DONE) && (GetBossState(BOSS_LOATHEB) == DONE) && (GetBossState(BOSS_THADDIUS) == DONE) && (GetBossState(BOSS_HORSEMAN) == DONE);
+        }
+
+        bool CheckRequiredBosses(uint32 bossId, Player const* /* player */) const override
+        {
+            switch (bossId)
+            {
+                case BOSS_SAPPHIRON:
+                    if (!AreAllWingsCleared())
+                    {
+                        return false;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return true;
+        }
+
         bool SetBossState(uint32 bossId, EncounterState state) override
         {
             // pull all the trash if not killed
@@ -1424,10 +1445,12 @@ public:
 };
 
 
+const Position sapphironEntryTP = { 3498.300049f, -5349.490234f, 144.968002f, 1.3698910f };
+
 class naxx_hub_portal : public AreaTriggerScript
 {
 public:
-    naxx_hub_portal() : AreaTriggerScript("naxx_hub_portal") { }
+    naxx_hub_portal() : AreaTriggerScript("at_naxxramas_hub_portal") { }
 
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
@@ -1440,8 +1463,18 @@ public:
                     return false;
             }
         }
-        player->TeleportTo(533, 3500.87f, -5339.03f, 145.0f, 1.34f);
-        return true;
+        if (player->IsAlive() && !player->IsInCombat())
+        {
+            if (InstanceScript *instance = player->GetInstanceScript())
+            {
+                if (instance->CheckRequiredBosses(BOSS_SAPPHIRON))
+                {
+                    player->TeleportTo(533, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 };
 
@@ -1453,7 +1486,7 @@ public:
     {
     }
 
-    void OnPlayerEnterAll(Map* map, Player* player)
+    void OnPlayerEnterAll(Map* map, Player* player) override
     {
         if (player->IsGameMaster())
             return;

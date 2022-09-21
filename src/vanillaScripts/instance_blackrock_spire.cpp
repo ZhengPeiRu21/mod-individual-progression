@@ -27,6 +27,7 @@
 #include "ObjectMgr.h"
 #include "ScriptedCreature.h"
 #include "ScriptMgr.h"
+#include "SpellScript.h"
 
 //uint32 const DragonspireRunes[7] = { GO_HALL_RUNE_1, GO_HALL_RUNE_2, GO_HALL_RUNE_3, GO_HALL_RUNE_4, GO_HALL_RUNE_5, GO_HALL_RUNE_6, GO_HALL_RUNE_7 };
 
@@ -61,8 +62,9 @@ Position ModSolakarPosBoss  = Position(80.0f, -280.0f, 93.0f, 3.0f * M_PI / 2.0)
 
 enum Texts
 {
-    SAY_NEFARIUS_REND_WIPE    = 11,
-    SAY_SOLAKAR_FIRST_HATCHER = 0
+    SAY_NEFARIUS_REND_WIPE      = 11,
+    SAY_SOLAKAR_FIRST_HATCHER   = 0,
+    SAY_SCARSHIELD_INF_WHISPER  = 0
 };
 
 MinionData const minionData[] =
@@ -87,7 +89,8 @@ public:
     {
         uint32 CurrentSolakarWave = 0;
         uint32 SolakarState = NOT_STARTED; // there should be a global instance encounter state, where is it?
-        std::vector<TempSummon*> SolakarSummons;
+        GuidVector SolakarSummons;
+        uint32 VaelastraszState   = NOT_STARTED;
 
 
         instance_blackrock_spireMapScript(InstanceMap* map) : InstanceScript(map)
@@ -98,6 +101,7 @@ public:
             CurrentSolakarWave = 0;
             SolakarState       = NOT_STARTED;
             SolakarSummons.clear();
+            VaelastraszState   = NOT_STARTED;
             UBRSDoorOpen = false;
         }
 
@@ -418,11 +422,11 @@ public:
                             }
                             break;
                         case FAIL:
-                            for (const auto& creature : SolakarSummons)
+                            for (ObjectGuid const& guid : SolakarSummons)
                             {
-                                if (creature)
+                                if (Creature* creature = instance->GetCreature(guid))
                                 {
-                                    creature->RemoveFromWorld();
+                                    creature->DespawnOrUnsummon();
                                 }
                             }
                             SolakarSummons.clear();
@@ -433,6 +437,9 @@ public:
                             break;
                     }
                     SolakarState = data;
+                    break;
+                case DATA_VAELASTRASZ:
+                    VaelastraszState = data;
                     break;
                 case DATA_UROK_DOOMHOWL:
                     if (data == FAIL)
@@ -479,6 +486,8 @@ public:
                     return SolakarState;
                 case DATA_UBRS_DOOR_OPEN:
                     return UBRSDoorOpen ? 1 : 0;
+                case DATA_VAELASTRASZ:
+                    return VaelastraszState;
                 default:
                     return InstanceScript::GetData(type);
             }
@@ -488,11 +497,19 @@ public:
         {
             if (number < MAX_WAVE_COUNT)
             {
-                SolakarSummons.push_back(instance->SummonCreature(NPC_ROOKERY_GUARDIAN, ModSolakarPosLeft));
-                SolakarSummons.push_back(instance->SummonCreature(NPC_ROOKERY_HATCHER, ModSolakarPosRight));
+                if (Creature* summon = instance->SummonCreature(NPC_ROOKERY_GUARDIAN, ModSolakarPosLeft))
+                {
+                    SolakarSummons.push_back(summon->GetGUID());
+                }
+
+                if (Creature* summon = instance->SummonCreature(NPC_ROOKERY_HATCHER, ModSolakarPosRight))
+                {
+                    SolakarSummons.push_back(summon->GetGUID());
+                }
+
                 if (number == 0)
                 {
-                    if (Creature* FirstHatcher = SolakarSummons.back()) // works because we spawned a hatcher second
+                    if (Creature* FirstHatcher = instance->GetCreature(SolakarSummons.back())) // works because we spawned a hatcher second
                     {
                         FirstHatcher->AI()->Talk(SAY_SOLAKAR_FIRST_HATCHER);
                     }
@@ -500,7 +517,10 @@ public:
             }
             else if (number == MAX_WAVE_COUNT)
             {
-                SolakarSummons.push_back(instance->SummonCreature(NPC_SOLAKAR, ModSolakarPosBoss));
+                if (Creature* summon = instance->SummonCreature(NPC_SOLAKAR, ModSolakarPosBoss))
+                {
+                    SolakarSummons.push_back(summon->GetGUID());
+                }
             }
         }
 
