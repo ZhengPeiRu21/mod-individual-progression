@@ -263,6 +263,7 @@ public:
         if (sIndividualProgression->hasCustomProgressionValue(killed->GetEntry()))
         {
             sIndividualProgression->UpdateProgressionState(killer, static_cast<ProgressionState>(sIndividualProgression->customProgressionMap[killed->GetEntry()]));
+            return;
         }
 
         if (sIndividualProgression->disableDefaultProgression)
