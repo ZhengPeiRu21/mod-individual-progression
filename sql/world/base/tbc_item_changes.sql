@@ -412,6 +412,9 @@ UPDATE `item_template` SET `armor` = 394, `stat_type3` = 0, `stat_value3` = 0 WH
 /*  Scaled Legs of Ruination  */
 UPDATE `item_template` SET `stat_type3` = 21 WHERE entry=25702;
 
+/*  Zhevra Leather */
+UPDATE `item_template` SET `Quality` = 1 WHERE entry=25703;
+
 /*  Moonkin Headdress  */
 UPDATE `item_template` SET `stat_type4` = 21 WHERE entry=25710;
 
