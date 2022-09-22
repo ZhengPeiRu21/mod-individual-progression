@@ -4,6 +4,8 @@ REPLACE INTO `creature_template` (`entry`, `modelid1`, `name`, `subname`, `minle
 (301001, 397, "Onyxian Whelp", "", 56, 57, 16, 1.11111, 1.14286, 18.0, 1.0, 0, 0, 3.7, 2000, 2000, 1.0, 1.0, 1, 0, 2048, 0, 2, 8, 0, 0, 0, 0, 0, '', 1, 1.0, 1.0, 1.0, 1.0, 1.0, 0, 1, 0, 0, 0, ''),
 (301002, 8711, "Onyxian Warder", "", 60, 63, 103, 0.888888, 1.14286, 20.0, 1.0, 1, 0, 9.8, 2000, 2000, 1.0, 1.0, 1, 64, 2048, 0, 2, 8, 301002, 0, 0, 1185, 4741, 'SmartAI', 1, 1.0, 25.0, 1.0, 1.0, 1.0, 0, 1, 617299803, 0, 0, '');
 
+DELETE FROM `creature_loot_template` WHERE `Item`=18705;
+
 REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `GroupId`, `MinCount`, `MaxCount`) VALUES
 (301000, 17966, 0, 100.0, 0, 0, 1, 1),
 (301000, 18422, 0, 100.0, 0, 0, 1, 1),
