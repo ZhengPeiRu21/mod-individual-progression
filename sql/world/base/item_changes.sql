@@ -20848,3 +20848,5 @@ UPDATE item_template SET Quality = 1, BuyPrice = 5000, SellPrice = 1250 WHERE en
 /*  Riding Turtle  */
 UPDATE item_template SET Quality = 1, RequiredLevel = 20 WHERE entry=23720;
 
+/* Correct drop rate for Mature Blue Dragon Sinew */
+UPDATE `creature_loot_template` SET `chance` = 0.5 WHERE `item` = 18704 AND `entry` IN (7435, 7436, 7437);
