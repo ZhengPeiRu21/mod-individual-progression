@@ -1,4 +1,6 @@
 /* Re-route The Bravery to follow the pre-WotLK path to Menethil Harbor - fix associated text */
+/* This restores the original separate between Kalimdor and Eastern Kingdom starting areas, and the notorious 'Wetlands run' for players trying to change continents early. */
+/* If not run, The Bravery will go directly to Stormwind Harbor, allowing players to skip to the other continent immediately any time */
 UPDATE `gameobject_template` SET `Data0` = 295 WHERE `entry` = 176310;
 UPDATE `transports` SET `name` = 'Menethil Harbor and Auberdine, Darkshore ("Ship (The Bravery)")' WHERE `guid` = 2;
 UPDATE `npc_text` SET `text0_1` = 'We\'ve sworn to do our very best to protect the passengers of The Bravery. The sea lane between Auberdine and Menethil Harbor must remain safe.' WHERE `ID` = 12270;
@@ -10,6 +12,6 @@ UPDATE `broadcast_text` SET `MaleText` = 'On the northern dock, you can board a 
 UPDATE `broadcast_text` SET `FemaleText` = 'No ship currently sails from this dock. If you''d like to reach Auberdine, The Bravery sails from Menethil Harbor.' WHERE `ID` = 28636;
 
 
-/* Removes a transport added in late WotLK (3.2.0) that remove separation between the continents in early game. */
+/* Like the above, removes a transport added in late WotLK (3.2.0) that remove intended separation between the continents in early game. */
 -- From Orgrimmar to Thunder Bluff
 DELETE FROM `transports` WHERE `guid`=20;
