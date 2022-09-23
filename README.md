@@ -19,6 +19,9 @@ For content that is added in later expansion that is provided for use in lower-l
 
 Options are provided to allow changes to experience based on preference. Please see config file.
 
+## How to Install
+Please see [How to Install](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/How-to-Install)
+
 ## Please Note!
 This module uses Player Settings to save individual character progress. Please ensure that EnablePlayerSettings is set to 1 in worldserver.conf or progress will not be saved!
 
