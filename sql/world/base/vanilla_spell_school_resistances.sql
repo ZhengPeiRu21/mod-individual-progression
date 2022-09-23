@@ -1053,14 +1053,6 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (225 , 12917, 6);
 
 
-/*  Spawn Point (Only GM can see it)  */
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 2, 2);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 2, 3);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 2, 4);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 2, 5);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 2, 6);
-
-
 /*  Kobold Miner  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (0 , 40, 2);
 
