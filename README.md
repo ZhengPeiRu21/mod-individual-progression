@@ -28,7 +28,7 @@ This module uses Player Settings to save individual character progress. Please e
 ### Optional Data Files
 Some changes for Vanilla and TBC content require DBC modification. The .mpq file for the client and .dbc files for server can be found in the "optional" directory. These changes include Vanilla reagents such as Flint and Steel for campfires, Level 60 enchanting using Vanilla and not TBC ingredient, professional leveling adjustments, etc. These is all optional and the module will work without the patch, but these recipes will remain WotLK version.
 
-Please note that if optional files are not used, please avoid run `restore_rogue_poisons.sql`, as it will remove Rogue poisons from vendors due to them now being created through the skill, which requires the optional files.
+Please note that if optional files are not used, please avoid run `optional_restore_rogue_poisons.sql`, as it will remove Rogue poisons from vendors due to them now being created through the skill, which requires the optional files.
 
 ### Optional Recommended Addon
 For a more authentic experience, some player may prefer to have pre-3.2 behavior of item tooltip prices, where it is only display when at a vendor. This is handled by the client, so I have create an addon that will restore this behavior. The addon can be found here: https://github.com/ZhengPeiRu21/hide-vendor-price
