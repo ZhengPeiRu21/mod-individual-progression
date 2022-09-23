@@ -992,7 +992,7 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 
 
 /*  Rookery Whelp  */
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (171 , 160015, 2);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (171 , 10161, 2);
 
 
 /*  Venture Co. Cutter  */
@@ -4002,11 +4002,11 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 
 
 /*  High Priest Thekal  */
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14599, 2);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14599, 3);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14599, 4);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14599, 5);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14599, 6);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14509, 2);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14509, 3);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14509, 4);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14509, 5);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15 , 14509, 6);
 
 
 /*  Brain Wash Totem  */
@@ -5045,14 +5045,6 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (175 , 15743, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (175 , 15743, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (175 , 15743, 6);
-
-
-/*  High Overlord Saurfang  */
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10 , 987000, 2);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10 , 987000, 3);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10 , 987000, 4);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10 , 987000, 5);
-REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10 , 987000, 6);
 
 
 /*  Magma Lord Bokk  */
