@@ -19982,7 +19982,7 @@ UPDATE item_template SET BuyPrice = 120, SellPrice = 30 WHERE entry=6950;
 UPDATE item_template SET Quality = 1 WHERE entry=6951;
 
 /*  Shadowcat Hide  */
-UPDATE item_template SET Quality = 1, BuyPrice = 1000, SellPrice = 250 WHERE entry=7428;
+UPDATE item_template SET Quality = 1, class = 7, BuyPrice = 1000, SellPrice = 250 WHERE entry=7428;
 
 /*  Gni'kiv Medallion  */
 UPDATE item_template SET Quality = 1 WHERE entry=7740;
@@ -20012,7 +20012,7 @@ UPDATE item_template SET Quality = 1 WHERE entry=8153;
 UPDATE item_template SET Quality = 1 WHERE entry=8168;
 
 /*  Thick Wolfhide  */
-UPDATE item_template SET Quality = 1 WHERE entry=8368;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=8368;
 
 /*  Large Ruffled Feather  */
 UPDATE item_template SET Quality = 0, BuyPrice = 0, SellPrice = 0 WHERE entry=8426;
@@ -20411,10 +20411,10 @@ UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 W
 UPDATE item_template SET Quality = 1 WHERE entry=15420;
 
 /*  Frostsaber Leather  */
-UPDATE item_template SET Quality = 1 WHERE entry=15422;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=15422;
 
 /*  Chimera Leather  */
-UPDATE item_template SET Quality = 1 WHERE entry=15423;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=15423;
 
 /*  Rotten Apple  */
 UPDATE item_template SET bonding = 4 WHERE entry=15875;
