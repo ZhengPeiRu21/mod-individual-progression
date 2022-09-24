@@ -156,6 +156,84 @@ public:
     }
 };
 
+class npc_ipp_wotlk_ulduar : public CreatureScript
+{
+public:
+    npc_ipp_wotlk_ulduar() : CreatureScript("npc_ipp_wotlk_ulduar") { }
+
+    struct npc_ipp_wotlk_ulduarAI: ScriptedAI
+    {
+        explicit npc_ipp_wotlk_ulduarAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_1);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_wotlk_ulduarAI(creature);
+    }
+};
+
+class npc_ipp_wotlk_totc : public CreatureScript
+{
+public:
+    npc_ipp_wotlk_totc() : CreatureScript("npc_ipp_wotlk_totc") { }
+
+    struct npc_ipp_wotlk_totcAI: ScriptedAI
+    {
+        explicit npc_ipp_wotlk_totcAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_2);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_wotlk_totcAI(creature);
+    }
+};
+
+class npc_ipp_wotlk_icc : public CreatureScript
+{
+public:
+    npc_ipp_wotlk_icc() : CreatureScript("npc_ipp_wotlk_icc") { }
+
+    struct npc_ipp_wotlk_iccAI: ScriptedAI
+    {
+        explicit npc_ipp_wotlk_iccAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_3);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_wotlk_iccAI(creature);
+    }
+};
+
 class npc_ipp_aq : public CreatureScript
 {
 public:
@@ -216,6 +294,9 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_tbc_t4();
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_wotlk();
+    new npc_ipp_wotlk_ulduar();
+    new npc_ipp_wotlk_totc();
+    new npc_ipp_wotlk_icc();
     new gobject_ipp_tbc();
 //    new gobject_ipp_wotlk(); // Not used yet
 }
