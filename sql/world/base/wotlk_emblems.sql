@@ -34,5 +34,5 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `entry` 
 
 /* Reference Tables */
 DELETE FROM `reference_loot_template` WHERE `Entry`=60001 AND `Item`=40753;
-INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `ReqLevel`, `Comment`) VALUES
-(60001, 40753, 0, 100, 0, 1, 0, 1, 1, 0, 'Emblem of Valor');
+INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(60001, 40753, 0, 100, 0, 1, 0, 1, 1, 'Emblem of Valor');
