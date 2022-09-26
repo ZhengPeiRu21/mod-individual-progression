@@ -23,6 +23,7 @@
 #include "ScriptedCreature.h"
 #include "DBCEnums.h"
 #include "ObjectMgr.h"
+#include "GameObjectAI.h"
 #include "naxxramas.h"
 
 const float HeiganPos[2] = {2796, -3707};
@@ -1364,6 +1365,45 @@ public:
     }
 };
 
+class gobject_naxx40_tele : public GameObjectScript
+{
+private:
+    static bool isAttuned(Player* player)
+    {
+        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED)
+            return true;
+        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED)
+            return true;
+        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED)
+            return true;
+        return false;
+    }
+
+public:
+    gobject_naxx40_tele() : GameObjectScript("gobject_naxx40_tele") { }
+
+    struct gobject_naxx40_teleAI: GameObjectAI
+    {
+        explicit gobject_naxx40_teleAI(GameObject* object) : GameObjectAI(object) { };
+
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_naxx40_teleAI(object);
+    }
+
+    bool OnGossipHello(Player* player, GameObject* go) override
+    {
+        if (player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED && isAttuned(player))
+        {
+            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+            player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+        }
+        return true;
+    }
+};
+
 class NaxxPlayerScript : public PlayerScript
 {
 public:
@@ -1517,5 +1557,6 @@ void AddSC_instance_naxxramas_combined()
     new naxx_northrend_entrance();
     new naxx_hub_portal();
     new NaxxEntryFlag_AllMapScript();
+    new gobject_naxx40_tele();
 //    new boss_naxxramas_misc();
 }
