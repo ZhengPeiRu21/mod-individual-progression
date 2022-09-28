@@ -194,7 +194,7 @@ public:
         {
             return false;
         }
-        if (mapid == MAP_RUBY_SANTCUM && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_4))
+        if (mapid == MAP_RUBY_SANCTUM && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_4))
         {
             return false;
         }
@@ -335,6 +335,36 @@ public:
         if (chance < roll)
             return false;
         return true;
+    }
+
+    void OnUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
+    {
+        switch (newArea) {
+            case AREA_LIGHTS_HOPE:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_ARGENT_TOURNAMENT:
+            case AREA_ARGENT_SUNREAVER_PAVILION:
+            case AREA_ARGENT_SILVER_COVENANT_PAVILION:
+            case AREA_ARGENT_RING_OF_CHAMPIONS:
+            case AREA_ARGENT_ASPIRANTS_RING:
+            case AREA_ARGENT_VALIANTS_RING:
+            case AREA_ARGENT_ALLIANCE_VALIANTS_RING:
+            case AREA_ARGENT_HORDE_VALIANTS_RING:
+            case AREA_ARGENT_PAVILION:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            default:
+                player->RemoveAura(IPP_PHASE);
+        }
     }
 };
 
