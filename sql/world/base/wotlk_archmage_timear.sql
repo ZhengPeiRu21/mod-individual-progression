@@ -76,3 +76,5 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 
 DELETE FROM `creature_template_addon` WHERE `entry`=31629;
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (31629, 0, 0, 50331648, 0, 0, 0, '');
+
+UPDATE `quest_template` SET `RewardItem1` = 40752 WHERE id IN (13245, 13246, 13247, 13248, 13249, 13250, 13251, 13252, 13253, 13254, 13255, 13256, 14199);
