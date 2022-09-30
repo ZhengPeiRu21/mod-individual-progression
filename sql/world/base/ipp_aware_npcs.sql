@@ -15,6 +15,12 @@ UPDATE `creature` SET `phaseMask` = 1 WHERE `guid` = 56932;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
 
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_ulduar' WHERE `entry` IN (34252, );
+
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_totc' WHERE `entry` IN (35498, 35577, 35496, 36208, 35500, 35497, 34244, );
+
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `entry` IN (37776, 40160);
+
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` IN (195141);
 
 -- Drop source for 2.3 Jewelcrafting Recipe
