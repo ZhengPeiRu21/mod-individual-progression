@@ -148,6 +148,10 @@ public:
         {
             return true;
         }
+        if (mapid == MAP_BLACKWING_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE))
+        {
+            return false;
+        }
         if (mapid == MAP_ZUL_GURUB && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR))
         {
             return false;
