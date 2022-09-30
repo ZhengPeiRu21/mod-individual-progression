@@ -15,7 +15,7 @@ UPDATE `creature` SET `phaseMask` = 1 WHERE `guid` = 56932;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_ulduar' WHERE `entry` IN (34252, );
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_ulduar' WHERE `entry` IN (34252);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_totc' WHERE `entry` IN (35498, 35577, 35496, 36208, 35500, 35497, 34244, );
 
