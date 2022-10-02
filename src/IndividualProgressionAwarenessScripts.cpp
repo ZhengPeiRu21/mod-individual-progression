@@ -289,7 +289,7 @@ public:
 void AddSC_mod_individual_progression_awareness()
 {
     new npc_ipp_aq();
-    new npc_ipp_naxx40();
+//    new npc_ipp_naxx40(); // Not used yet
     new npc_ipp_tbc();
     new npc_ipp_tbc_t4();
     new npc_ipp_tbc_pre_t4();
