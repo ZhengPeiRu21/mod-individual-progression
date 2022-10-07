@@ -89,7 +89,7 @@ enum Events
 class boss_sapphiron_40 : public CreatureScript
 {
 private:
-    static boolean isNaxx40Sapp(uint32 entry)
+    static bool isNaxx40Sapp(uint32 entry)
     {
         return (entry == NPC_SAPPHIRON_40);
     }
