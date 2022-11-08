@@ -17,6 +17,8 @@ For content that is added in later expansion that is provided for use in lower-l
 * NPCs and Game Objects aware of individual player progress, visible based on player progression to each player
 * Restore of content removed or nerfed or later patch is released, such as original Naxxramas, Onyxia quests, TBC Attunements, and riding skills and quests.
 
+For a complete list of changes, please see [here](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Changes).
+
 Options are provided to allow changes to experience based on preference. Please see config file.
 
 ## How to Install
