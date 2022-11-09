@@ -260,6 +260,36 @@ public:
     }
 };
 
+class npc_ipp_ds2 : public CreatureScript
+{
+public:
+    npc_ipp_ds2() : CreatureScript("npc_ipp_ds2") { }
+
+    struct npc_ipp_ds2AI: ScriptedAI
+    {
+        explicit npc_ipp_ds2AI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            if (sIndividualProgression->earlyDungeonSet2)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_ds2AI(creature);
+    }
+};
+
 class npc_ipp_naxx40 : public CreatureScript
 {
 public:
@@ -290,6 +320,7 @@ void AddSC_mod_individual_progression_awareness()
 {
     new npc_ipp_aq();
 //    new npc_ipp_naxx40(); // Not used yet
+    new npc_ipp_ds2();
     new npc_ipp_tbc();
     new npc_ipp_tbc_t4();
     new npc_ipp_tbc_pre_t4();

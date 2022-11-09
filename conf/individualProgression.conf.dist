@@ -292,3 +292,15 @@ IndividualProgression.DisableDefaultProgression = 0
 #
 
 IndividualProgression.CustomProgression = ""
+#
+#    IndividualProgression.AllowEarlyDungeonSet2
+#        Description: Dungeon Set 2 was introduced in patch 1.10 and requires completing some AQ content that is normally not available until a later phase
+#                     When enabled, this allows the relevant content to be accessed early so that Dungeon Set 2 can be acquired before it is made obsolete
+#                     by raid gear.
+#
+#        Default:   0 - Disabled
+#                   1 - Enabled
+#
+#
+
+IndividualProgression.AllowEarlyDungeonSet2 = 1
