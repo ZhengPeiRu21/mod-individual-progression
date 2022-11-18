@@ -252,7 +252,7 @@ public:
                     StartBalconyPhase();
                     break;
                 case EVENT_BLINK:
-                    DoResetThreat();
+                    DoResetThreatList();
                     me->CastSpell(me, SPELL_CRIPPLE, false);
                     me->CastSpell(me, SPELL_BLINK, true);
                     Talk(EMOTE_BLINK);
