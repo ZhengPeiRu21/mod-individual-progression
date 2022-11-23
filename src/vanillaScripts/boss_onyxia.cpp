@@ -31,7 +31,7 @@ enum Spells
     SPELL_FIREBALL                  = 18392,
     SPELL_BELLOWINGROAR             = 18431,
 
-    SPELL_SUMMON_WHELP              = 17646,
+    SPELL_SUMMON_WHELP              = 90003,
     SPELL_SUMMON_LAIR_GUARD         = 68968,
     SPELL_ERUPTION                  = 17731,
 
@@ -278,8 +278,8 @@ public:
                     {
                         float angle = rand_norm() * 2 * M_PI;
                         float dist  = rand_norm() * 4.0f;
-                        me->CastSpell(-33.18f + cos(angle) * dist, -258.80f + sin(angle) * dist, -89.0f, 17646, true);
-                        me->CastSpell(-32.535f + cos(angle) * dist, -170.190f + sin(angle) * dist, -89.0f, 17646, true);
+                        me->CastSpell(-33.18f + cos(angle) * dist, -258.80f + sin(angle) * dist, -89.0f, SPELL_SUMMON_WHELP, true);
+                        me->CastSpell(-32.535f + cos(angle) * dist, -170.190f + sin(angle) * dist, -89.0f, SPELL_SUMMON_WHELP, true);
                         whelpCount += 2;
                         whelpSpamTimer += 600;
                     }
@@ -508,8 +508,8 @@ public:
                 {
                     float angle = rand_norm() * 2 * M_PI;
                     float dist  = rand_norm() * 4.0f;
-                    me->CastSpell(-33.18f + cos(angle) * dist, -258.80f + sin(angle) * dist, -89.0f, 17646, true);
-                    me->CastSpell(-32.535f + cos(angle) * dist, -170.190f + sin(angle) * dist, -89.0f, 17646, true);
+                    me->CastSpell(-33.18f + cos(angle) * dist, -258.80f + sin(angle) * dist, -89.0f, SPELL_SUMMON_WHELP, true);
+                    me->CastSpell(-32.535f + cos(angle) * dist, -170.190f + sin(angle) * dist, -89.0f, SPELL_SUMMON_WHELP, true);
                     events.RepeatEvent(30000);
                     break;
                 }
