@@ -1019,6 +1019,7 @@ INSERT INTO spell_linked_spell (spell_trigger, spell_effect, TYPE, COMMENT) VALU
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `id` = 7509;
 
+DELETE FROM `areatrigger_scripts` WHERE `entry` = 2848;
 INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
 (2848, 'onyxia_entrance_trigger');
 
