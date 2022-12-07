@@ -320,7 +320,7 @@ UPDATE `item_template` SET `BuyPrice` = 4651 WHERE entry=1214;
 UPDATE `item_template` SET `spellid_1` = 133, `spellcooldown_1` = 30000, `spellcategorycooldown_1` = 30000, `spellcategory_1` = 24 WHERE entry=1258;
 
 /*  JYoo test item  */
-UPDATE `item_template` SET `dmg_min1` = 1.0, `dmg_max1` = 1.0, `dmg_min2` = 3000.0, `dmg_max2` = 3000.0, `MaxDurability` = 20 WHERE entry=1259;
+UPDATE `item_template` SET `dmg_min1` = 1.0, `dmg_max1` = 1.0, `dmg_min2` = 3000.0, `dmg_max2` = 3000.0, `MaxDurability` = 20, `RandomProperty` = 2191 WHERE entry=1259;
 
 /*  Brain Hacker  */
 UPDATE `item_template` SET `BuyPrice` = 395323 WHERE entry=1263;
@@ -2003,7 +2003,7 @@ UPDATE `item_template` SET `Quality` = 1, `armor` = 73, `BuyPrice` = 357, `SellP
 UPDATE `item_template` SET `BuyPrice` = 1498 WHERE entry=3473;
 
 /*  Gemmed Copper Gauntlets  */
-UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0 WHERE entry=3474;
+UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0, `RandomProperty` = 749 WHERE entry=3474;
 
 /*  Cloak of Flames  */
 UPDATE `item_template` SET `armor` = 50, `BuyPrice` = 130092, `SellPrice` = 26018 WHERE entry=3475;
@@ -3580,6 +3580,9 @@ UPDATE `item_template` SET `DisenchantID` = 0 WHERE entry=5742;
 /*  Prismstone Ring  */
 UPDATE `item_template` SET `DisenchantID` = 0 WHERE entry=5743;
 
+/*  Pale Skinner  */
+UPDATE `item_template` SET `RandomProperty` = 0 WHERE entry=5744;
+
 /*  Centaur Longbow  */
 UPDATE `item_template` SET `BuyPrice` = 3046, `dmg_min1` = 9.0, `dmg_max1` = 18.0, `MaxDurability` = 40 WHERE entry=5748;
 
@@ -4162,6 +4165,9 @@ UPDATE `item_template` SET `BuyPrice` = 6514, `SellPrice` = 1302 WHERE entry=657
 /*  Scouting Cloak  */
 UPDATE `item_template` SET `BuyPrice` = 2792, `SellPrice` = 558 WHERE entry=6585;
 
+/*  Viridian Band  */
+UPDATE `item_template` SET `RandomProperty` = 3475 WHERE entry=6589;
+
 /*  Battleforge Armor  */
 UPDATE `item_template` SET `BuyPrice` = 12239, `SellPrice` = 2447 WHERE entry=6592;
 
@@ -4586,7 +4592,7 @@ UPDATE `item_template` SET `BuyPrice` = 9293 WHERE entry=7107;
 UPDATE `item_template` SET `spellcooldown_1` = -1 WHERE entry=7108;
 
 /*  Pioneer Buckler  */
-UPDATE `item_template` SET `spellcooldown_1` = -1 WHERE entry=7109;
+UPDATE `item_template` SET `spellcooldown_1` = -1, `RandomProperty` = 0 WHERE entry=7109;
 
 /*  Silver-thread Armor  */
 UPDATE `item_template` SET `BuyPrice` = 10349, `SellPrice` = 2069 WHERE entry=7110;
@@ -4801,6 +4807,12 @@ UPDATE `item_template` SET `spellcooldown_1` = -1 WHERE entry=7463;
 /*  Knight's Crest  */
 UPDATE `item_template` SET `BuyPrice` = 33735, `spellcooldown_1` = -1 WHERE entry=7465;
 
+/*  Vermilion Band  */
+UPDATE `item_template` SET `RandomProperty` = 3479 WHERE entry=7466;
+
+/*  Vermilion Necklace  */
+UPDATE `item_template` SET `RandomProperty` = 3507 WHERE entry=7467;
+
 /*  Regal Robe  */
 UPDATE `item_template` SET `BuyPrice` = 33815 WHERE entry=7468;
 
@@ -4848,6 +4860,9 @@ UPDATE `item_template` SET `BuyPrice` = 47792, `spellcooldown_1` = -1 WHERE entr
 
 /*  Field Plate Shield  */
 UPDATE `item_template` SET `BuyPrice` = 44412, `spellcooldown_1` = -1 WHERE entry=7496;
+
+/*  Ivory Band  */
+UPDATE `item_template` SET `RandomProperty` = 3480 WHERE entry=7497;
 
 /*  Ley Orb  */
 UPDATE `item_template` SET `ItemLevel` = 10, `spellcooldown_1` = 1800000 WHERE entry=7508;
@@ -4911,6 +4926,9 @@ UPDATE `item_template` SET `BuyPrice` = 23290 WHERE entry=7545;
 
 /*  Onyx Ring  */
 UPDATE `item_template` SET `DisenchantID` = 0, `spellcooldown_1` = -1, `spellcategorycooldown_1` = -1 WHERE entry=7547;
+
+/*  Onyx Choker  */
+UPDATE `item_template` SET `RandomProperty` = 3511 WHERE entry=7548;
 
 /*  Fairy's Embrace  */
 UPDATE `item_template` SET `spellcooldown_1` = -1 WHERE entry=7549;
@@ -14222,7 +14240,7 @@ UPDATE `item_template` SET `BuyPrice` = 576, `SellPrice` = 115 WHERE entry=17922
 UPDATE `item_template` SET `BuyPrice` = 160783, `SellPrice` = 32156 WHERE entry=17943;
 
 /*  Ragnaros Core  */
-UPDATE `item_template` SET `DisenchantID` = 49, `spelltrigger_1` = 0, `spellcooldown_1` = -1 WHERE entry=17982;
+UPDATE `item_template` SET `DisenchantID` = 49, `spelltrigger_1` = 0, `spellcooldown_1` = -1, `RandomProperty` = 3474 WHERE entry=17982;
 
 /*  Royal Seal of Alexis  */
 UPDATE `item_template` SET `DisenchantID` = 49 WHERE entry=18022;
