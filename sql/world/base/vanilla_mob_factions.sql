@@ -800,7 +800,7 @@ UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 4857;
 UPDATE `creature_template` SET `faction` = 151 WHERE `entry` = 4923;
 
 /*  Thrall  */
-UPDATE `creature_template` SET `faction` = 125 WHERE `entry` = 4949;
+UPDATE `creature_template` SET `faction` = 1734 WHERE `entry` = 4949;
 
 /*  Haunting Spirit  */
 UPDATE `creature_template` SET `faction` = 92 WHERE `entry` = 4958;
