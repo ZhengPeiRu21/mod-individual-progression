@@ -80,7 +80,7 @@ public:
         for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
         {
             if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
-                sIndividualProgression->ApplyGearHealthTuning(player, gearAdjustment, item->GetTemplate());
+                sIndividualProgression->ComputeGearTuning(player, gearAdjustment, item->GetTemplate());
         }
         // Player is still in Vanilla content - give Vanilla health adjustment
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
@@ -459,14 +459,8 @@ private:
         auto bp1 = static_cast<int32>(computedAdjustment);
         auto bp2 = static_cast<int32>(hpAdjustment);
 
-        pet->RemoveAura(DAMAGE_DONE_TAKEN_SPELL);
-        pet->CastCustomSpell(pet, DAMAGE_DONE_TAKEN_SPELL, &bp0, &bp1, nullptr, false);
-
         pet->RemoveAura(ABSORB_SPELL);
         pet->CastCustomSpell(pet, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
-
-        pet->RemoveAura(HEALING_DONE_SPELL);
-        pet->CastCustomSpell(pet, HEALING_DONE_SPELL, &bp1, nullptr, nullptr, false);
 
         pet->RemoveAura(HP_AURA_SPELL);
         pet->CastCustomSpell(pet, HP_AURA_SPELL, &bp2, nullptr, nullptr, false);
@@ -481,9 +475,103 @@ public:
     }
 };
 
+class IndividualPlayerProgression_UnitScript : public UnitScript
+{
+private:
+    float computeTotalGearTuning(Player* player)
+    {
+        float gearAdjustment = 0.0;
+        for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
+        {
+            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
+                sIndividualProgression->ComputeGearTuning(player, gearAdjustment, item->GetTemplate());
+        }
+        return gearAdjustment;
+    }
+
+public:
+    IndividualPlayerProgression_UnitScript() : UnitScript("IndividualPlayerProgression_UnitScript") { }
+
+    void ModifyHealReceived(Unit* /*target*/, Unit *healer, uint32 &heal, SpellInfo const *spellInfo) override
+    {
+        // Skip potions, bandages, percentage based heals like Rune Tap, etc.
+        if (spellInfo->HasAttribute(SPELL_ATTR0_NO_IMMUNITIES) || spellInfo->Id == SPELL_RUNE_TAP)
+        {
+            return;
+        }
+
+        bool isPet = healer->GetOwner() && healer->GetOwner()->GetTypeId() == TYPEID_PLAYER;
+        if (!isPet && healer->GetTypeId() != TYPEID_PLAYER)
+        {
+            return;
+        }
+        Player* player = isPet ? healer->GetOwner()->ToPlayer() : healer->ToPlayer();
+        float gearAdjustment = computeTotalGearTuning(player);
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+        {
+            heal *= (sIndividualProgression->vanillaHealingAdjustment - gearAdjustment);
+        }
+        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        {
+            heal *= (sIndividualProgression->tbcHealingAdjustment - gearAdjustment);
+        }
+        else
+        {
+            heal *= 1.0f - gearAdjustment;
+        }
+    }
+
+    void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* spellInfo) override
+    {
+        bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
+        if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
+        {
+            return;
+        }
+        Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
+        float gearAdjustment = computeTotalGearTuning(player);
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+        {
+            damage *= (sIndividualProgression->vanillaPowerAdjustment - gearAdjustment);
+        }
+        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        {
+            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+        }
+        else
+        {
+            damage *= 1.0f - gearAdjustment;
+        }
+    }
+
+    void ModifyMeleeDamage(Unit* /*target*/, Unit* attacker, uint32& damage) override
+    {
+        bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
+        if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
+        {
+            return;
+        }
+        Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
+        float gearAdjustment = computeTotalGearTuning(player);
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+        {
+            damage *= (sIndividualProgression->vanillaPowerAdjustment - gearAdjustment);
+        }
+        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        {
+            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+        }
+        else
+        {
+            damage *= 1.0f - gearAdjustment;
+        }
+    }
+};
+
 void AddSC_mod_individual_progression_player()
 {
     new IndividualPlayerProgression();
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_AccountScript();
+    new IndividualPlayerProgression_UnitScript();
 }

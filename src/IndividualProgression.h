@@ -40,13 +40,9 @@ enum ProgressionBossIDs
 enum BuffSpells
 {
     HP_AURA_SPELL = 89501,
-    DAMAGE_DONE_TAKEN_SPELL = 89502,
-    BASE_STAT_AP_SPELL = 89503,
-    RAGE_FROM_DAMAGE_SPELL = 89504,
     ABSORB_SPELL = 89505,
-    HEALING_DONE_SPELL = 89506,
     RANGED_HASTE_SPELL = 89507,
-    RUNE_TAP_FIX_SPELL = 89508,
+    SPELL_RUNE_TAP = 48982,
     IPP_PHASE = 89509
 };
 
@@ -144,7 +140,7 @@ public:
     static void ForceUpdateProgressionState(Player* player, ProgressionState newState);
     void CheckAdjustments(Player* player) const;
     void ApplyGearStatsTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
-    void ApplyGearHealthTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
+    void ComputeGearTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
     void AdjustVanillaStats(Player* player) const;
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;
