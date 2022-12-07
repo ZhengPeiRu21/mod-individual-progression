@@ -389,16 +389,16 @@ UPDATE `item_template` SET `stat_type4` = 18 WHERE entry=25637;
 UPDATE `item_template` SET `stat_type1` = 21 WHERE entry=25640;
 
 /*  Wild Draenish Boots  */
-UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 11, `stat_type3` = 3, `stat_value3` = 11, `stat_type4` = 5, `stat_value4` = 11, `spellid_1` = 9342 WHERE entry=25673;
+UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 11, `stat_type3` = 3, `stat_value3` = 11, `stat_type4` = 5, `stat_value4` = 11, `spellid_1` = 9342, `StatsCount` = 4 WHERE entry=25673;
 
 /*  Wild Draenish Gloves  */
-UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 13, `stat_type2` = 3, `stat_value2` = 13, `stat_type3` = 7, `stat_value3` = 18, `stat_type4` = 5, `stat_value4` = 12, `spellid_1` = 9343 WHERE entry=25674;
+UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 13, `stat_type2` = 3, `stat_value2` = 13, `stat_type3` = 7, `stat_value3` = 18, `stat_type4` = 5, `stat_value4` = 12, `spellid_1` = 9343, `StatsCount` = 4 WHERE entry=25674;
 
 /*  Wild Draenish Leggings  */
-UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 18, `stat_type2` = 3, `stat_value2` = 18, `stat_type3` = 7, `stat_value3` = 27, `stat_type4` = 5, `stat_value4` = 17, `spellid_1` = 14248 WHERE entry=25675;
+UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 18, `stat_type2` = 3, `stat_value2` = 18, `stat_type3` = 7, `stat_value3` = 27, `stat_type4` = 5, `stat_value4` = 17, `spellid_1` = 14248, `StatsCount` = 4 WHERE entry=25675;
 
 /*  Wild Draenish Vest  */
-UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 19, `stat_type2` = 3, `stat_value2` = 19, `stat_value3` = 28, `stat_type4` = 5, `stat_value4` = 19, `spellid_1` = 15714 WHERE entry=25676;
+UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 19, `stat_type2` = 3, `stat_value2` = 19, `stat_value3` = 28, `stat_type4` = 5, `stat_value4` = 19, `spellid_1` = 15714, `StatsCount` = 4 WHERE entry=25676;
 
 /*  Heavy Clefthoof Vest  */
 UPDATE `item_template` SET `armor` = 500, `stat_type3` = 0, `stat_value3` = 0 WHERE entry=25689;
@@ -1448,10 +1448,10 @@ UPDATE `item_template` SET `dmg_min1` = 14.0, `dmg_max1` = 27.0, `MaxDurability`
 UPDATE `item_template` SET `dmg_min1` = 23.0, `dmg_max1` = 43.0, `MaxDurability` = 200 WHERE entry=29010;
 
 /*  Warbringer Greathelm  */
-UPDATE `item_template` SET `stat_value1` = 15, `stat_type2` = 3, `stat_value2` = 17, `stat_type3` = 7, `stat_value3` = 53, `stat_type4` = 12, `stat_value4` = 24, `stat_type5` = 15, `stat_value5` = 19 WHERE entry=29011;
+UPDATE `item_template` SET `stat_value1` = 15, `stat_type2` = 3, `stat_value2` = 17, `stat_type3` = 7, `stat_value3` = 53, `stat_type4` = 12, `stat_value4` = 24, `stat_type5` = 15, `stat_value5` = 19, `StatsCount` = 5 WHERE entry=29011;
 
 /*  Warbringer Chestguard  */
-UPDATE `item_template` SET `stat_value1` = 16, `stat_type2` = 3, `stat_value2` = 17, `stat_type3` = 7, `stat_value3` = 48, `stat_type4` = 12, `stat_value4` = 22, `stat_type5` = 15, `stat_value5` = 23 WHERE entry=29012;
+UPDATE `item_template` SET `stat_value1` = 16, `stat_type2` = 3, `stat_value2` = 17, `stat_type3` = 7, `stat_value3` = 48, `stat_type4` = 12, `stat_value4` = 22, `stat_type5` = 15, `stat_value5` = 23, `StatsCount` = 5 WHERE entry=29012;
 
 /*  Jagged Throwing Axe  */
 UPDATE `item_template` SET `dmg_min1` = 35.0, `dmg_max1` = 67.0, `MaxDurability` = 200 WHERE entry=29013;
@@ -1460,13 +1460,13 @@ UPDATE `item_template` SET `dmg_min1` = 35.0, `dmg_max1` = 67.0, `MaxDurability`
 UPDATE `item_template` SET `dmg_min1` = 35.0, `dmg_max1` = 67.0, `MaxDurability` = 200 WHERE entry=29014;
 
 /*  Warbringer Legguards  */
-UPDATE `item_template` SET `stat_value1` = 24, `stat_type2` = 3, `stat_value2` = 24, `stat_type3` = 7, `stat_value3` = 55, `stat_type4` = 12, `stat_value4` = 33, `stat_type5` = 13, `stat_value5` = 35 WHERE entry=29015;
+UPDATE `item_template` SET `stat_value1` = 24, `stat_type2` = 3, `stat_value2` = 24, `stat_type3` = 7, `stat_value3` = 55, `stat_type4` = 12, `stat_value4` = 33, `stat_type5` = 13, `stat_value5` = 35, `StatsCount` = 5 WHERE entry=29015;
 
 /*  Warbringer Shoulderguards  */
-UPDATE `item_template` SET `stat_value1` = 14, `stat_type2` = 3, `stat_value2` = 15, `stat_type3` = 7, `stat_value3` = 38, `stat_type4` = 12, `stat_value4` = 17, `stat_type5` = 13, `stat_value5` = 26 WHERE entry=29016;
+UPDATE `item_template` SET `stat_value1` = 14, `stat_type2` = 3, `stat_value2` = 15, `stat_type3` = 7, `stat_value3` = 38, `stat_type4` = 12, `stat_value4` = 17, `stat_type5` = 13, `stat_value5` = 26, `StatsCount` = 5 WHERE entry=29016;
 
 /*  Warbringer Handguards  */
-UPDATE `item_template` SET `stat_value1` = 17, `stat_type2` = 3, `stat_value2` = 20, `stat_type3` = 7, `stat_value3` = 38, `stat_type4` = 12, `stat_value4` = 23, `stat_type5` = 14, `stat_value5` = 29 WHERE entry=29017;
+UPDATE `item_template` SET `stat_value1` = 17, `stat_type2` = 3, `stat_value2` = 20, `stat_type3` = 7, `stat_value3` = 38, `stat_type4` = 12, `stat_value4` = 23, `stat_type5` = 14, `stat_value5` = 29, `StatsCount` = 5 WHERE entry=29017;
 
 /*  Cyclone Chestguard  */
 UPDATE `item_template` SET `stat_type3` = 21 WHERE entry=29033;
@@ -1958,7 +1958,7 @@ UPDATE `item_template` SET `BuyPrice` = 167823, `SellPrice` = 33564, `stat_type3
 UPDATE `item_template` SET `stat_type1` = 4, `stat_value1` = 35 WHERE entry=30068;
 
 /*  Earthforged Leggings  */
-UPDATE `item_template` SET `armor` = 479, `stat_value2` = 24, `stat_type3` = 3, `stat_type4` = 12, `stat_value4` = 10 WHERE entry=30069;
+UPDATE `item_template` SET `armor` = 479, `stat_value2` = 24, `stat_type3` = 3, `stat_type4` = 12, `stat_value4` = 10, `StatsCount` = 4 WHERE entry=30069;
 
 /*  Windforged Leggings  */
 UPDATE `item_template` SET `stat_value1` = 14, `stat_type2` = 7, `stat_value2` = 10, `stat_type3` = 5, `stat_type4` = 0, `stat_value4` = 0, `stat_type5` = 0, `stat_value5` = 0, `spellid_1` = 9335, `spellid_2` = 21363 WHERE entry=30070;
@@ -1991,19 +1991,19 @@ UPDATE `item_template` SET `stat_type2` = 21 WHERE entry=30109;
 UPDATE `item_template` SET `stat_type3` = 21 WHERE entry=30112;
 
 /*  Destroyer Chestguard  */
-UPDATE `item_template` SET `stat_value1` = 25, `stat_type2` = 3, `stat_value2` = 26, `stat_type3` = 7, `stat_value3` = 57, `stat_type4` = 12, `stat_value4` = 27, `stat_type5` = 13, `stat_type6` = 31, `stat_value6` = 24 WHERE entry=30113;
+UPDATE `item_template` SET `stat_value1` = 25, `stat_type2` = 3, `stat_value2` = 26, `stat_type3` = 7, `stat_value3` = 57, `stat_type4` = 12, `stat_value4` = 27, `stat_type5` = 13, `stat_type6` = 31, `stat_value6` = 24, `StatsCount` = 6 WHERE entry=30113;
 
 /*  Destroyer Handguards  */
-UPDATE `item_template` SET `stat_value1` = 16, `stat_type2` = 3, `stat_value2` = 16, `stat_type3` = 7, `stat_value3` = 44, `stat_type4` = 12, `stat_value4` = 25, `stat_type5` = 15, `stat_value5` = 23 WHERE entry=30114;
+UPDATE `item_template` SET `stat_value1` = 16, `stat_type2` = 3, `stat_value2` = 16, `stat_type3` = 7, `stat_value3` = 44, `stat_type4` = 12, `stat_value4` = 25, `stat_type5` = 15, `stat_value5` = 23, `StatsCount` = 5 WHERE entry=30114;
 
 /*  Destroyer Greathelm  */
-UPDATE `item_template` SET `stat_value1` = 28, `stat_type2` = 3, `stat_value2` = 28, `stat_type3` = 7, `stat_value3` = 48, `stat_type4` = 12, `stat_value4` = 30, `stat_type5` = 13, `stat_value5` = 33 WHERE entry=30115;
+UPDATE `item_template` SET `stat_value1` = 28, `stat_type2` = 3, `stat_value2` = 28, `stat_type3` = 7, `stat_value3` = 48, `stat_type4` = 12, `stat_value4` = 30, `stat_type5` = 13, `stat_value5` = 33, `StatsCount` = 5 WHERE entry=30115;
 
 /*  Destroyer Legguards  */
-UPDATE `item_template` SET `stat_value1` = 18, `stat_type2` = 3, `stat_value2` = 28, `stat_type3` = 7, `stat_value3` = 60, `stat_type4` = 12, `stat_value4` = 39, `stat_type5` = 15, `stat_value5` = 32 WHERE entry=30116;
+UPDATE `item_template` SET `stat_value1` = 18, `stat_type2` = 3, `stat_value2` = 28, `stat_type3` = 7, `stat_value3` = 60, `stat_type4` = 12, `stat_value4` = 39, `stat_type5` = 15, `stat_value5` = 32, `StatsCount` = 5 WHERE entry=30116;
 
 /*  Destroyer Shoulderguards  */
-UPDATE `item_template` SET `stat_value1` = 13, `stat_type2` = 3, `stat_value2` = 21, `stat_type3` = 7, `stat_value3` = 44, `stat_type4` = 12, `stat_value4` = 29 WHERE entry=30117;
+UPDATE `item_template` SET `stat_value1` = 13, `stat_type2` = 3, `stat_value2` = 21, `stat_type3` = 7, `stat_value3` = 44, `stat_type4` = 12, `stat_value4` = 29, `StatsCount` = 4 WHERE entry=30117;
 
 /*  Crystalforge Chestguard  */
 UPDATE `item_template` SET `stat_type2` = 5, `stat_value2` = 27, `spellid_1` = 17367 WHERE entry=30123;
@@ -2408,10 +2408,10 @@ UPDATE `item_template` SET `stat_type1` = 21 WHERE entry=30957;
 UPDATE `item_template` SET `stat_type1` = 21 WHERE entry=30958;
 
 /*  Onslaught Handguards  */
-UPDATE `item_template` SET `stat_value1` = 18, `stat_type5` = 15, `stat_value5` = 27 WHERE entry=30970;
+UPDATE `item_template` SET `stat_value1` = 18, `stat_type5` = 15, `stat_value5` = 27, `StatsCount` = 5 WHERE entry=30970;
 
 /*  Onslaught Greathelm  */
-UPDATE `item_template` SET `stat_value1` = 23, `stat_type2` = 3, `stat_value2` = 28, `stat_type3` = 7, `stat_value3` = 48, `stat_type4` = 12, `stat_value4` = 36, `stat_type5` = 15, `stat_value5` = 30 WHERE entry=30974;
+UPDATE `item_template` SET `stat_value1` = 23, `stat_type2` = 3, `stat_value2` = 28, `stat_type3` = 7, `stat_value3` = 48, `stat_type4` = 12, `stat_value4` = 36, `stat_type5` = 15, `stat_value5` = 30, `StatsCount` = 5 WHERE entry=30974;
 
 /*  Onslaught Chestguard  */
 UPDATE `item_template` SET `stat_type2` = 3 WHERE entry=30976;
@@ -2696,7 +2696,7 @@ UPDATE `item_template` SET `stat_type2` = 21 WHERE entry=31429;
 UPDATE `item_template` SET `stat_type1` = 21 WHERE entry=31431;
 
 /*  Explorer's Boots  */
-UPDATE `item_template` SET `stat_value3` = 7, `stat_type4` = 21, `stat_value4` = 6 WHERE entry=31432;
+UPDATE `item_template` SET `stat_value3` = 7, `stat_type4` = 21, `stat_value4` = 6, `StatsCount` = 4 WHERE entry=31432;
 
 /*  Fizit's Mantle of Drake Hunting  */
 UPDATE `item_template` SET `stat_type2` = 21 WHERE entry=31438;
@@ -2726,7 +2726,7 @@ UPDATE `item_template` SET `stat_type1` = 21 WHERE entry=31479;
 UPDATE `item_template` SET `armor` = 337, `stat_value3` = 11 WHERE entry=31486;
 
 /*  Boots of the Ancient-Killer  */
-UPDATE `item_template` SET `stat_value3` = 7, `stat_type4` = 21, `stat_value4` = 6 WHERE entry=31488;
+UPDATE `item_template` SET `stat_value3` = 7, `stat_type4` = 21, `stat_value4` = 6, `StatsCount` = 4 WHERE entry=31488;
 
 /*  Netherwing Sorceror's Charm  */
 UPDATE `item_template` SET `stat_type2` = 21 WHERE entry=31494;
@@ -2744,7 +2744,7 @@ UPDATE `item_template` SET `stat_type1` = 21 WHERE entry=31513;
 UPDATE `item_template` SET `stat_type3` = 21 WHERE entry=31515;
 
 /*  Expedition Defender's Shoulders  */
-UPDATE `item_template` SET `stat_value1` = 8, `stat_type2` = 21, `stat_value2` = 7, `stat_type3` = 7, `stat_value3` = 16, `stat_type4` = 4, `stat_value4` = 18 WHERE entry=31521;
+UPDATE `item_template` SET `stat_value1` = 8, `stat_type2` = 21, `stat_value2` = 7, `stat_type3` = 7, `stat_value3` = 16, `stat_type4` = 4, `stat_value4` = 18, `StatsCount` = 4 WHERE entry=31521;
 
 /*  Treebole's Hoop  */
 UPDATE `item_template` SET `stat_type2` = 21 WHERE entry=31523;
@@ -2762,7 +2762,7 @@ UPDATE `item_template` SET `stat_type4` = 21 WHERE entry=31538;
 UPDATE `item_template` SET `stat_type2` = 21 WHERE entry=31539;
 
 /*  Fairweather's Wristguards  */
-UPDATE `item_template` SET `stat_value3` = 14, `stat_type4` = 21, `stat_value4` = 14 WHERE entry=31540;
+UPDATE `item_template` SET `stat_value3` = 14, `stat_type4` = 21, `stat_value4` = 14, `StatsCount` = 4 WHERE entry=31540;
 
 /*  Adjudicator's Staff  */
 UPDATE `item_template` SET `dmg_min1` = 117.99, `dmg_max1` = 199.99, `stat_type2` = 21 WHERE entry=31543;
@@ -3890,7 +3890,7 @@ UPDATE `item_template` SET `dmg_min1` = 16.12, `dmg_max1` = 116.12, `stat_type4`
 UPDATE `item_template` SET `dmg_min1` = 141.0, `dmg_max1` = 212.0, `MaxDurability` = 285 WHERE entry=33765;
 
 /*  Vengeful Gladiator's War Staff  */
-UPDATE `item_template` SET `dmg_min1` = 90.4, `dmg_max1` = 198.4, `stat_type2` = 18, `stat_value2` = 0, `stat_type3` = 21, `stat_value3` = 46, `stat_type4` = 35, `stat_value4` = 29, `stat_type5` = 5, `stat_value5` = 46 WHERE entry=33766;
+UPDATE `item_template` SET `dmg_min1` = 90.4, `dmg_max1` = 198.4, `stat_type2` = 18, `stat_value2` = 0, `stat_type3` = 21, `stat_value3` = 46, `stat_type4` = 35, `stat_value4` = 29, `stat_type5` = 5, `stat_value5` = 46, `StatsCount` = 5 WHERE entry=33766;
 
 /*  Vengeful Gladiator's Wyrmhide Gloves  */
 UPDATE `item_template` SET `stat_type4` = 21 WHERE entry=33767;
@@ -4766,7 +4766,7 @@ UPDATE `item_template` SET `dmg_min1` = 86.4, `dmg_max1` = 199.4, `stat_type2` =
 UPDATE `item_template` SET `dmg_min1` = 147.0, `dmg_max1` = 222.0, `MaxDurability` = 285 WHERE entry=35108;
 
 /*  Brutal Gladiator's War Staff  */
-UPDATE `item_template` SET `dmg_min1` = 86.4, `dmg_max1` = 199.4, `stat_type2` = 18, `stat_value2` = 0, `stat_type3` = 21, `stat_value3` = 50, `stat_type4` = 35, `stat_value4` = 29, `stat_type5` = 5, `stat_value5` = 50 WHERE entry=35109;
+UPDATE `item_template` SET `dmg_min1` = 86.4, `dmg_max1` = 199.4, `stat_type2` = 18, `stat_value2` = 0, `stat_type3` = 21, `stat_value3` = 50, `stat_type4` = 35, `stat_value4` = 29, `stat_type5` = 5, `stat_value5` = 50, `StatsCount` = 5 WHERE entry=35109;
 
 /*  Brutal Gladiator's Wyrmhide Gloves  */
 UPDATE `item_template` SET `stat_type4` = 21 WHERE entry=35111;
