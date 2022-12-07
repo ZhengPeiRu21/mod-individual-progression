@@ -197,7 +197,7 @@ public:
                     Talk(EMOTE_WEB_WRAP);
                     for (uint8 i = 0; i < 2; ++i)
                     {
-                        if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, 0, true, -SPELL_WEB_WRAP))
+                        if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, 0, true, true, -SPELL_WEB_WRAP))
                         {
                             target->RemoveAura(SPELL_WEB_SPRAY);
                             uint8 pos = urand(0, 2);
