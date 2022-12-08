@@ -260,75 +260,20 @@ public:
 
     void OnCreatureKill(Player* killer, Creature* killed) override
     {
-        if (!sIndividualProgression->enabled)
+        sIndividualProgression->checkKillProgression(killer, killed);
+        Group* group = killer->GetGroup();
+        if (!group)
         {
             return;
         }
+        for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+        {
+            Player* member = itr->GetSource();
+            if (!member)
+                continue;
 
-        if (sIndividualProgression->hasCustomProgressionValue(killed->GetEntry()))
-        {
-            sIndividualProgression->UpdateProgressionState(killer, static_cast<ProgressionState>(sIndividualProgression->customProgressionMap[killed->GetEntry()]));
-            return;
-        }
-
-        if (sIndividualProgression->disableDefaultProgression)
-        {
-            return;
-        }
-        switch (killed->GetEntry())
-        {
-            case RAGNAROS:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
-                break;
-            case ONYXIA:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_ONYXIA);
-                break;
-            case NEFARIAN:
-                if (sIndividualProgression->requirePreAQQuests)
-                {
-                    sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
-                }
-                else
-                {
-                    sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_PRE_AQ);
-                }
-                break;
-            case CTHUN:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_AQ);
-                break;
-            case KELTHUZAD_40:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_NAXX40);
-                break;
-            case MALCHEZAAR:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
-                break;
-            case KAELTHAS:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_TBC_TIER_2);
-                break;
-            case ILLIDAN:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_TBC_TIER_3);
-                break;
-            case ZULJIN:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_TBC_TIER_4);
-                break;
-            case KILJAEDEN:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
-                break;
-            case KELTHUZAD:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
-                break;
-            case YOGGSARON:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_2);
-                break;
-            case ANUBARAK:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_3);
-                break;
-            case LICH_KING:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_4);
-                break;
-            case HALION:
-                sIndividualProgression->UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_5);
-                break;
+            if (killer->IsAtLootRewardDistance(member))
+                sIndividualProgression->checkKillProgression(member, killed);
         }
     }
 
