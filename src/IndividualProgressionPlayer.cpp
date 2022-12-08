@@ -423,7 +423,7 @@ public:
 class IndividualPlayerProgression_UnitScript : public UnitScript
 {
 private:
-    float computeTotalGearTuning(Player* player)
+    static float computeTotalGearTuning(Player* player)
     {
         float gearAdjustment = 0.0;
         for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)

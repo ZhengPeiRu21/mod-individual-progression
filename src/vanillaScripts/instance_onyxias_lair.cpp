@@ -57,7 +57,14 @@ public:
             switch (go->GetEntry())
             {
                 case GO_WHELP_SPAWNER:
-                    go->CastSpell((Unit*)nullptr, 17646);
+                    if (instance->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+                    {
+                        go->CastSpell((Unit*)nullptr, 90003);
+                    }
+                    else
+                    {
+                        go->CastSpell((Unit*)nullptr, 17646);
+                    }
                     if (Creature* onyxia = GetCreature(DATA_ONYXIA))
                     {
                         onyxia->AI()->DoAction(-1);
@@ -313,6 +320,12 @@ public:
             case 20228:
                 spellInfo->Effects[EFFECT_0].DieSides = 225;
                 spellInfo->Effects[EFFECT_0].BasePoints = 1387;
+                break;
+            case 90003:
+                spellInfo->Targets |= TARGET_FLAG_DEST_LOCATION;
+                spellInfo->Effects[EFFECT_0].TargetA = SpellImplicitTargetInfo(TARGET_DEST_DEST);
+                spellInfo->RangeEntry = sSpellRangeStore.LookupEntry(13); // 50000yd
+                spellInfo->DurationEntry = sSpellDurationStore.LookupEntry(5);
                 break;
         }
     }

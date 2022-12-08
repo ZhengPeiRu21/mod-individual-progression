@@ -112,9 +112,8 @@ enum Yells
     SAY_KILL                    = 1,
     SAY_PHASE_2_TRANS           = 2,
     SAY_PHASE_3_TRANS           = 3,
-
-    // Emote
-    EMOTE_BREATH                = 4
+    EMOTE_BREATH                = 4,
+    SAY_EVADE                   = 5
 };
 
 class boss_onyxia_40 : public CreatureScript
@@ -293,9 +292,21 @@ public:
             }
         }
 
+    bool CheckInRoom() override
+    {
+        if (me->GetDistance2d(me->GetHomePosition().GetPositionX(), me->GetHomePosition().GetPositionY()) > 95.0f)
+        {
+            Talk(SAY_EVADE);
+            EnterEvadeMode();
+            return false;
+        }
+
+        return true;
+    }
+
         void UpdateAI(uint32 diff) override
         {
-            if (!UpdateVictim())
+        if (!UpdateVictim() || !CheckInRoom())
             {
                 return;
             }
@@ -452,7 +463,7 @@ public:
                 {
                     Talk(EMOTE_BREATH);
                     me->SetFacingTo(OnyxiaMoveData[CurrentWP].o);
-                    DoCast(OnyxiaMoveData[CurrentWP].spellId);
+                    DoCastAOE(OnyxiaMoveData[CurrentWP].spellId);
                     events.ScheduleEvent(EVENT_SPELL_BREATH, 8250);
                     break;
                 }
@@ -500,7 +511,7 @@ public:
                 {
                     if (Creature* trigger = me->SummonCreature(12758, *me, TEMPSUMMON_TIMED_DESPAWN, 1000))
                     {
-                        trigger->AI()->DoCast(trigger, 17731);
+                        trigger->CastSpell(trigger, 17731, false);
                     }
                     break;
                 }
