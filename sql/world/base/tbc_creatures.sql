@@ -1200,7 +1200,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.403593 WHERE `entry`=16731;
 UPDATE `creature_template` SET `HealthModifier` = 1.6 WHERE `entry`=16732;
 
 /*  Exodar Peacekeeper  */
-UPDATE `creature_template` SET `minlevel` = 65, `maxlevel` = 65, `HealthModifier` = 5200.0 WHERE `entry`=16733;
+UPDATE `creature_template` SET `minlevel` = 65, `maxlevel` = 65, `HealthModifier` = 2 WHERE `entry`=16733;
 
 /*  Funaam  */
 UPDATE `creature_template` SET `DamageModifier` = 0.337077, `HealthModifier` = 1.8 WHERE `entry`=16734;
