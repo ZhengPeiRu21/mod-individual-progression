@@ -440,7 +440,7 @@ public:
     void ModifyHealReceived(Unit* /*target*/, Unit *healer, uint32 &heal, SpellInfo const *spellInfo) override
     {
         // Skip potions, bandages, percentage based heals like Rune Tap, etc.
-        if (spellInfo->HasAttribute(SPELL_ATTR0_NO_IMMUNITIES) || spellInfo->Id == SPELL_RUNE_TAP)
+        if (spellInfo->HasAttribute(SPELL_ATTR0_NO_IMMUNITIES) || spellInfo->Mechanic == MECHANIC_BANDAGE || spellInfo->Id == SPELL_RUNE_TAP)
         {
             return;
         }
