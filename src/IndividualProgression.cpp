@@ -347,6 +347,7 @@ public:
             sWorld->setBoolConfig(CONFIG_OBJECT_QUEST_MARKERS, false);
             sWorld->setBoolConfig(CONFIG_OBJECT_SPARKLES, false);
             sWorld->setBoolConfig(CONFIG_PLAYER_SETTINGS_ENABLED, true);
+            sWorld->setBoolConfig(CONFIG_LOW_LEVEL_REGEN_BOOST, false);
         }
     }
 };
