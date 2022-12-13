@@ -445,6 +445,10 @@ public:
             return;
         }
 
+        // NPCBots Compatibility - healer may be null
+        if (!healer)
+            return;
+
         bool isPet = healer->GetOwner() && healer->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && healer->GetTypeId() != TYPEID_PLAYER)
         {
@@ -468,6 +472,10 @@ public:
 
     void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* spellInfo) override
     {
+        // NPCBots Compatibility - attacker may be null
+        if (!attacker)
+            return;
+
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {
@@ -491,6 +499,10 @@ public:
 
     void ModifyMeleeDamage(Unit* /*target*/, Unit* attacker, uint32& damage) override
     {
+        // NPCBots Compatibility - attacker may be null
+        if (!attacker)
+            return;
+
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {
