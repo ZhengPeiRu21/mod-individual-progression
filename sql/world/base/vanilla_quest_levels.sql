@@ -206,7 +206,7 @@ UPDATE quest_template SET MinLevel = 11 WHERE ID=895;
 UPDATE quest_template SET RequiredItemId1 = 0, RequiredItemCount1 = 0 WHERE ID=934;
 
 /*  Luck Be With You  */
-UPDATE quest_template SET RequiredItemCount1 = 10 WHERE ID=969;
+UPDATE `quest_template` SET `RequiredItemCount1` = 10, `LogDescription` = "Collect 4 Frostmaul Shards for Witch Doctor Mau'ari in Everlook.", `QuestDescription` = "Ah, I can tell just by lookin' at ya -- you be wantin' to make a lucky charm. Mau'ari always knows!$B$BTo da south. you'll find a canyon, an' giants made a' solid ice. The giants sometimes be carryin' dem, but ya can always gather da shards yerself from da canyon. These shards have a powerful reflective quality.$B$BBring back 10 frostmaul shards, and my lucky charm will be yours." WHERE `ID`=969;
 
 /*  Knowledge in the Deeps  */
 UPDATE quest_template SET MinLevel = 10 WHERE ID=971;
