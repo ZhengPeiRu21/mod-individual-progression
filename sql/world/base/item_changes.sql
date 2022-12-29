@@ -19454,7 +19454,7 @@ UPDATE `item_template` SET `BuyPrice` = 90827, `SellPrice` = 18165, `DisenchantI
 UPDATE `item_template` SET `BuyPrice` = 94989, `SellPrice` = 18997, `DisenchantID` = 49 WHERE entry=23201;
 
 /*  Libram of Fervor  */
-UPDATE `item_template` SET `BuyPrice` = 95693, `SellPrice` = 19138, `DisenchantID` = 49, `spellid_1` = 28852 WHERE entry=23203;
+UPDATE `item_template` SET `BuyPrice` = 95693, `SellPrice` = 19138, `DisenchantID` = 49, `spellid_1` = 60804 WHERE entry=23203;
 
 /*  Girdle of the Mentor  */
 UPDATE `item_template` SET `armor` = 536, `BuyPrice` = 222368, `SellPrice` = 44473 WHERE entry=23219;
