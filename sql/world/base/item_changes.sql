@@ -9038,7 +9038,7 @@ UPDATE `item_template` SET `BuyPrice` = 99402, `SellPrice` = 19880, `DisenchantI
 UPDATE `item_template` SET `BuyPrice` = 62603, `SellPrice` = 12520, `DisenchantID` = 49 WHERE entry=13208;
 
 /*  Seal of the Dawn  */
-UPDATE `item_template` SET `spellid_2` = 0, `spelltrigger_2` = 0 WHERE entry=13209;
+UPDATE `item_template` SET `spellid_2` = 17670, `spelltrigger_2` = 1 WHERE entry=13209;
 
 /*  Pads of the Dread Wolf  */
 UPDATE `item_template` SET `BuyPrice` = 90122, `DisenchantID` = 49 WHERE entry=13210;
