@@ -10,7 +10,6 @@ DELETE FROM `npc_vendor` WHERE `item` IN (3775, 2892, 2893, 5237, 6947, 6949, 69
 
 DELETE FROM `npc_trainer` WHERE `ReqSkillLine` = 40;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(1411, 2094, 14000, 40, 1, 0),
 (1411, 2835, 10000, 40, 130, 0),
 (1411, 2837, 18000, 40, 170, 0),
 (1411, 3420, 3000, 40, 1, 0),
@@ -241,7 +240,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (26329, 26969, 65000, 40, 290, 0),
 (26329, 27282, 140000, 40, 330, 0),
 (26329, 27283, 80000, 40, 300, 0),
-(200016, 2094, 14000, 40, 1, 0),
 (200016, 2835, 10000, 40, 130, 0),
 (200016, 2837, 18000, 40, 170, 0),
 (200016, 3420, 3000, 40, 1, 0),
