@@ -1,5 +1,5 @@
 /* Stats per level from Vanilla and TBC data. This is already very close to WotLK values, so this is only changed for accuracy.*/
-INSERT INTO `player_class_stats` (`Class`, `Level`, `Strength`, `Agility`, `Stamina`, `Intellect`, `Spirit`) VALUES
+REPLACE INTO `player_class_stats` (`Class`, `Level`, `Strength`, `Agility`, `Stamina`, `Intellect`, `Spirit`) VALUES
 (1, 1, 23, 20, 22, 20, 21),
 (1, 2, 24, 21, 23, 20, 21),
 (1, 3, 25, 21, 24, 20, 22),
