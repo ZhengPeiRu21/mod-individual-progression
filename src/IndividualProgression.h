@@ -9,6 +9,7 @@
 #include "GameObjectAI.h"
 #include "MapMgr.h"
 #include "ObjectAccessor.h"
+#include "ObjectMgr.h"
 #include "Group.h"
 #include "Pet.h"
 #include "DBCEnums.h"

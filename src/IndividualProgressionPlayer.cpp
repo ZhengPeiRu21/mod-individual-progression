@@ -202,6 +202,19 @@ public:
         {
             return false;
         }
+
+        InstanceTemplate const* instanceTemplate = sObjectMgr->GetInstanceTemplate(mapid);
+        if (instanceTemplate)
+        {
+            if (instanceTemplate->Parent == MAP_OUTLANDS && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+            {
+                return false;
+            }
+            if (instanceTemplate->Parent == MAP_NORTHREND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+            {
+                return false;
+            }
+        }
         return true;
     }
 
