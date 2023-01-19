@@ -25,7 +25,7 @@ bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState
 
 void IndividualProgression::UpdateProgressionState(Player* player, ProgressionState newState) const
 {
-    if (progressionLimit && newState >= progressionLimit)
+    if (progressionLimit && newState > progressionLimit)
         return;
     uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
     if (newState > currentState)
