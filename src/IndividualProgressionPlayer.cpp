@@ -113,13 +113,8 @@ public:
             uint32 vanillaXpValue = sIndividualProgression->questXpMap[quest->GetQuestId()];
             if (player)
             {
-                vanillaXpValue *= player->GetQuestRate();
-            }
-            // If XP was already reduced due to out-leveling the quest or other reasons, use the reduced value
-            if (vanillaXpValue < xpValue)
-            {
-                // Otherwise, return the correct Vanilla/TBC Quest XP
-                xpValue = vanillaXpValue;
+                uint32 originalXpValue = quest->XPValue(quest->GetQuestLevel() == -1 ? player->GetLevel() : quest->GetQuestLevel());
+                xpValue *= vanillaXpValue * 1.0 / originalXpValue;
             }
         }
     }
