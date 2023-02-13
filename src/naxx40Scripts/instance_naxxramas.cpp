@@ -1181,55 +1181,14 @@ public:
             return ObjectGuid::Empty;
         }
 
-        std::string GetSaveData() override
-        {
-            OUT_SAVE_INST_DATA;
-
-            std::ostringstream saveStream;
-            saveStream << "N X X " << GetBossSaveData() << ' ' << immortalAchievement;
-
-            OUT_SAVE_INST_DATA_COMPLETE;
-            return saveStream.str();
-        }
-
-        void Load(const char* in) override
-        {
-            if (!in)
+        void ReadSaveDataMore(std::istringstream& data) override
             {
-                OUT_LOAD_INST_DATA_FAIL;
-                return;
-            }
-
-            OUT_LOAD_INST_DATA(in);
-
-            char dataHead1, dataHead2, dataHead3;
-            std::istringstream loadStream(in);
-            loadStream >> dataHead1 >> dataHead2 >> dataHead3;
-
-            if (dataHead1 == 'N' && dataHead2 == 'X' && dataHead3 == 'X')
-            {
-                for (uint8 i = 0; i < MAX_ENCOUNTERS; ++i)
-                {
-                    uint32 tmpState;
-                    loadStream >> tmpState;
-                    if (tmpState == IN_PROGRESS)
-                    {
-                        tmpState = NOT_STARTED;
+            data >> immortalAchievement;
                     }
-                    if (i == BOSS_HORSEMAN && tmpState == DONE)
-                    {
-                        _horsemanLoadDoneState = true;
-                    }
-                    SetBossState(i, EncounterState(tmpState));
-                }
-                loadStream >> immortalAchievement;
 
-                OUT_LOAD_INST_DATA_COMPLETE;
-            }
-            else
+        void WriteSaveDataMore(std::ostringstream& data) override
             {
-                OUT_LOAD_INST_DATA_FAIL;
-            }
+            data << immortalAchievement;
         }
     };
 };
@@ -1487,10 +1446,10 @@ public:
 
 const Position sapphironEntryTP = { 3498.300049f, -5349.490234f, 144.968002f, 1.3698910f };
 
-class naxx_hub_portal : public AreaTriggerScript
+class at_naxxramas_hub_portal : public AreaTriggerScript
 {
 public:
-    naxx_hub_portal() : AreaTriggerScript("at_naxxramas_hub_portal") { }
+    at_naxxramas_hub_portal() : AreaTriggerScript("at_naxxramas_hub_portal") { }
 
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
@@ -1555,7 +1514,7 @@ void AddSC_instance_naxxramas_combined()
     new NaxxPlayerScript();
     new naxx_exit_trigger();
     new naxx_northrend_entrance();
-    new naxx_hub_portal();
+    new at_naxxramas_hub_portal();
     new NaxxEntryFlag_AllMapScript();
     new gobject_naxx40_tele();
 //    new boss_naxxramas_misc();
