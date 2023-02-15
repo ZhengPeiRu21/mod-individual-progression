@@ -49,9 +49,9 @@ public:
     {
         boss_drakkisathAI_50_59_B(Creature* creature) : BossAI(creature, DATA_GENERAL_DRAKKISATH) {}
 
-        void EnterCombat(Unit* /*who*/) override
+        void JustEngagedWith(Unit* /*who*/) override
         {
-            _EnterCombat();
+            _JustEngagedWith();
             events.ScheduleEvent(EVENT_FLAMESTRIKE, 6000);
             events.ScheduleEvent(EVENT_CLEAVE,    8000);
             events.ScheduleEvent(EVENT_CONFLAGRATION, 15000);

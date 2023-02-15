@@ -148,7 +148,7 @@ public:
             blockList.clear();
         }
 
-        void EnterCombatSelfFunction()
+        void JustEngagedWithSelfFunction()
         {
             Map::PlayerList const& PlList = me->GetMap()->GetPlayers();
             if (PlList.IsEmpty())
@@ -171,10 +171,10 @@ public:
             }
         }
 
-        void EnterCombat(Unit* who) override
+        void JustEngagedWith(Unit* who) override
         {
-            BossAI::EnterCombat(who);
-            EnterCombatSelfFunction();
+            BossAI::JustEngagedWith(who);
+            JustEngagedWithSelfFunction();
             if (isNaxx40Sapp(me->GetEntry()))
             {
                 me->CastSpell(me, SPELL_FROST_AURA, true);

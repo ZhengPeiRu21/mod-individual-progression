@@ -187,12 +187,12 @@ public:
             }
         }
 
-        void EnterCombat(Unit* who) override
+        void JustEngagedWith(Unit* who) override
         {
             Talk(SAY_AGGRO);
             SetPhase(PHASE_GROUNDED);
 
-            BossAI::EnterCombat(who);
+            BossAI::JustEngagedWith(who);
         }
 
         void DamageTaken(Unit*, uint32& damage, DamageEffectType, SpellSchoolMask) override
