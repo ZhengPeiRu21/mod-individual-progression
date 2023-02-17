@@ -50,3 +50,14 @@ UPDATE `creature_classlevelstats` SET `damage_base` = 5.241, `attackpower` = 40 
 UPDATE `creature_classlevelstats` SET `damage_base` = 5.685, `attackpower` = 42 WHERE `level` = 12 AND `class` = 2;
 
 UPDATE `creature_classlevelstats` SET `damage_base` = 5.833, `attackpower` = 44 WHERE `level` = 13 AND `class` = 2;
+
+UPDATE `creature_classlevelstats` SET `damage_base` = 9.932, `attackpower` = 72 WHERE `level` = 22 AND `class` = 2;
+
+UPDATE `creature_classlevelstats` SET `damage_base` = 0.2226, `attackpower` = 10 WHERE `level` = 1 AND `class` = 8;
+
+UPDATE `creature_classlevelstats` SET `damage_base` = 0.3556, `attackpower` = 11 WHERE `level` = 2 AND `class` = 8;
+
+UPDATE `creature_classlevelstats` SET `damage_base` = 0.7131, `attackpower` = 13 WHERE `level` = 5 AND `class` = 8;
+
+UPDATE `creature_classlevelstats` SET `damage_base` = 1.119, `attackpower` = 14 WHERE `level` = 6 AND `class` = 8;
+

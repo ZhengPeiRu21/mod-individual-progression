@@ -227,12 +227,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1285,
 
 
 /* NPC Frederick Stover - 1298 */
-/* Remove non-Vanilla item Fine Shortbow */
-DELETE FROM `npc_vendor` WHERE `entry` = 1298 AND `item` = 11303;
-/* Remove non-Vanilla item Sturdy Recurve */
-DELETE FROM `npc_vendor` WHERE `entry` = 1298 AND `item` = 11306;
-/* Remove non-Vanilla item Massive Longbow */
-DELETE FROM `npc_vendor` WHERE `entry` = 1298 AND `item` = 11307;
 /* Remove non-Vanilla item Wicked Arrow */
 DELETE FROM `npc_vendor` WHERE `entry` = 1298 AND `item` = 28053;
 
@@ -1364,8 +1358,6 @@ DELETE FROM `npc_vendor` WHERE `entry` = 3405 AND `item` = 18256;
 
 
 /* NPC Jin'sora - 3410 */
-/* Remove non-Vanilla item Fine Shortbow */
-DELETE FROM `npc_vendor` WHERE `entry` = 3410 AND `item` = 11303;
 /* Remove non-Vanilla item Sturdy Recurve */
 DELETE FROM `npc_vendor` WHERE `entry` = 3410 AND `item` = 11306;
 /* Remove non-Vanilla item Massive Longbow */
@@ -1872,21 +1864,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4182,
 DELETE FROM `npc_vendor` WHERE `entry` = 4189 AND `item` = 38426;
 
 
-/* NPC Allyndia - 4191 */
-/* Remove non-Vanilla item Shiny Red Apple */
-DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4536;
-/* Remove non-Vanilla item Tel'Abim Banana */
-DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4537;
-/* Remove non-Vanilla item Snapvine Watermelon */
-DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4538;
-/* Remove non-Vanilla item Goldenbark Apple */
-DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4539;
-/* Remove non-Vanilla item Moon Harvest Pumpkin */
-DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 4602;
-/* Remove non-Vanilla item Deep Fried Plantains */
-DELETE FROM `npc_vendor` WHERE `entry` = 4191 AND `item` = 8953;
-
-
 /* NPC Ullanna - 4194 */
 /* Add Missing Vanilla item Hot Spices */
 DELETE FROM `npc_vendor` WHERE `entry` = 4194 AND `item` = 2692;
@@ -2060,6 +2037,15 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561,
 /* Add Missing Vanilla item Lethargy Root */
 DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 3777;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 3777, 0, 0);
+/* Add Missing Vanilla item Bleach */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 2324;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 2324, 0, 0);
+/* Add Missing Vanilla item Green Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 2605;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 2605, 0, 0);
+/* Add Missing Vanilla item Blue Dye */
+DELETE FROM `npc_vendor` WHERE `entry` = 4561 AND `item` = 6260;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4561, 6260, 0, 0);
 
 
 /* NPC Thomas Mordan - 4562 */
@@ -2345,8 +2331,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13476
 /* NPC Uma Bartulm - 4899 */
 /* Remove non-Vanilla item Greater Healing Potion */
 DELETE FROM `npc_vendor` WHERE `entry` = 4899 AND `item` = 1710;
-/* Remove non-Vanilla item Mana Potion */
-DELETE FROM `npc_vendor` WHERE `entry` = 4899 AND `item` = 3827;
 
 
 /* NPC Namdo Bizzfizzle - 2683 */
@@ -2636,13 +2620,6 @@ DELETE FROM `npc_vendor` WHERE `entry` = 5817 AND `item` = 3777;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5817, 3777, 0, 0);
 
 
-/* NPC Zansoa - 5942 */
-/* Remove non-Vanilla item Strong Fishing Pole */
-DELETE FROM `npc_vendor` WHERE `entry` = 5942 AND `item` = 6365;
-/* Remove non-Vanilla item Aquadynamic Fish Attractor */
-DELETE FROM `npc_vendor` WHERE `entry` = 5942 AND `item` = 6533;
-
-
 /* NPC Yonada - 5944 */
 /* Remove non-Vanilla item Eternium Thread */
 DELETE FROM `npc_vendor` WHERE `entry` = 5944 AND `item` = 38426;
@@ -2714,6 +2691,39 @@ DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 35948;
 DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 35949;
 /* Remove non-Vanilla item Sweetened Goat's Milk */
 DELETE FROM `npc_vendor` WHERE `entry` = 6735 AND `item` = 35954;
+
+
+/* NPC Innkeeper Kimlya - 6738 */
+/* Remove non-Vanilla item Slitherskin Mackerel */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 787;
+/* Remove non-Vanilla item Longjaw Mud Snapper */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 4592;
+/* Remove non-Vanilla item Bristle Whisker Catfish */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 4593;
+/* Remove non-Vanilla item Rockscale Cod */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 4594;
+/* Remove non-Vanilla item Spinefin Halibut */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 8957;
+/* Remove non-Vanilla item Striped Yellowtail */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 21552;
+/* Add Missing Vanilla item Deep Fried Plantains */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 8953;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6738, 8953, 0, 0);
+/* Add Missing Vanilla item Moon Harvest Pumpkin */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 4602;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6738, 4602, 0, 0);
+/* Add Missing Vanilla item Goldenbark Apple */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 4539;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6738, 4539, 0, 0);
+/* Add Missing Vanilla item Snapvine Watermelon */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 4538;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6738, 4538, 0, 0);
+/* Add Missing Vanilla item Tel'Abim Banana */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 4537;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6738, 4537, 0, 0);
+/* Add Missing Vanilla item Shiny Red Apple */
+DELETE FROM `npc_vendor` WHERE `entry` = 6738 AND `item` = 4536;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (6738, 4536, 0, 0);
 
 
 /* NPC Innkeeper Allison - 6740 */
@@ -3935,6 +3945,21 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139,
 /* Add Missing Vanilla item Lethargy Root */
 DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 3777;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 3777, 0, 0);
+/* Add Missing Vanilla item Essence of Pain */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 2930;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 2930, 0, 0);
+/* Add Missing Vanilla item Flash Powder */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 5140;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 5140, 0, 0);
+/* Add Missing Vanilla item Deathweed */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 5173;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 5173, 0, 0);
+/* Add Missing Vanilla item Essence of Agony */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 8923;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 8923, 0, 0);
+/* Add Missing Vanilla item Dust of Deterioration */
+DELETE FROM `npc_vendor` WHERE `entry` = 5139 AND `item` = 8924;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5139, 8924, 0, 0);
 
 
 /* NPC Svalbrad Farmountain - 5135 */
@@ -4111,6 +4136,12 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255,
 /* Add Missing Vanilla item Striped Yellowtail */
 DELETE FROM `npc_vendor` WHERE `entry` = 4255 AND `item` = 21552;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4255, 21552, 0, 0);
+
+
+/* NPC Gaelden Hammersmith - 13216 */
+/* Add Missing Vanilla item The Frostwolf Artichoke */
+DELETE FROM `npc_vendor` WHERE `entry` = 13216 AND `item` = 19484;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13216, 19484, 0, 0);
 
 
 /* NPC Zora Guthrek - 2225 */
