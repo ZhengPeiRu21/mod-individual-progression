@@ -125,6 +125,16 @@ enum ProgressionState : uint8
     PROGRESSION_WOTLK_TIER_5    = 16  // Ruby Sanctum
 };
 
+enum RandomDungeonIds : uint16
+{
+    // Values from LFGDungeons.dbc
+    RDF_CLASSIC = 258,
+    RDF_THE_BURNING_CRUSADE = 259,
+    RDF_THE_BURNING_CRUSADE_HEROIC = 260,
+    RDF_WRATH_OF_THE_LICH_KING = 261,
+    RDF_WRATH_OF_THE_LICH_KING_HEROIC = 262
+};
+
 class IndividualProgression
 {
 public:

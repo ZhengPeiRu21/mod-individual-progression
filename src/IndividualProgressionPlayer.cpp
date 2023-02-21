@@ -323,6 +323,22 @@ public:
                 player->RemoveAura(IPP_PHASE);
         }
     }
+
+    void OnQueueRandomDungeon(Player* player, uint32& rDungeonId) override
+    {
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+        {
+            rDungeonId = RDF_CLASSIC;
+        }
+        else if (rDungeonId == RDF_WRATH_OF_THE_LICH_KING && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        {
+            rDungeonId = RDF_THE_BURNING_CRUSADE;
+        }
+        else if (rDungeonId == RDF_WRATH_OF_THE_LICH_KING_HEROIC && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        {
+            rDungeonId = RDF_THE_BURNING_CRUSADE_HEROIC;
+        }
+    }
 };
 
 class IndividualPlayerProgression_AccountScript: public AccountScript
