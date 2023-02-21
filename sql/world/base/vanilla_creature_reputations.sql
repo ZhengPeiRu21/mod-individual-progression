@@ -307,3 +307,6 @@ UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 25 WHERE `creatur
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue2` = 500 WHERE `creature_id`=15727;
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 15 WHERE `creature_id`=16184;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 4, `RewOnKillRepValue1` = 20, `MaxStanding2` = 4, `RewOnKillRepValue2` = -100 WHERE `creature_id`=5602;
+
+-- Prevents reputation gained from Sethekk Halls to go beyond Honored
+UPDATE `creature_onkill_reputation` SET `MaxStanding1`=5 WHERE `creature_id` IN (18318,18319,18320,18321,18322,18323,18325,18326,18327,18328,18472,18473,19428,19429,21891,21904,21931);
