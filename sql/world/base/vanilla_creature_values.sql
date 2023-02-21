@@ -6272,7 +6272,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=3337;
 UPDATE `creature_template` SET `DamageModifier` = 2.6, `ArmorModifier` = 1.1 WHERE `entry`=3338;
 
 /*  Captain Thalo'thas Brightsun  */
-UPDATE `creature_template` SET `modelid1` = 4245, `DamageModifier` = 0.9 WHERE `entry`=3339;
+UPDATE `creature_template` SET `DamageModifier` = 0.9 WHERE `entry`=3339;
 
 /*  Gann Stonespire  */
 UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=3341;
@@ -6962,7 +6962,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=3649;
 UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=3650;
 
 /*  [UNUSED] Kolkar Observer  */
-UPDATE `creature_template` SET `modelid2` = 1257, `detection_range` = 18.0, `DamageModifier` = 1.0 WHERE `entry`=3651;
+UPDATE `creature_template` SET `detection_range` = 18.0, `DamageModifier` = 1.0 WHERE `entry`=3651;
 
 /*  Trigore the Lasher  */
 UPDATE `creature_template` SET `minlevel` = 19, `maxlevel` = 19, `rank` = 2, `DamageModifier` = 3.9, `HealthModifier` = 3.0, `ArmorModifier` = 0.95, `mingold` = 25, `maxgold` = 125 WHERE `entry`=3652;
@@ -13295,7 +13295,7 @@ UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier
 UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 3.25, `ArmorModifier` = 1.4 WHERE `entry`=7824;
 
 /*  Ambassador Ardalan  */
-UPDATE `creature_template` SET `modelid1` = 7010, `DamageModifier` = 1.05, `ArmorModifier` = 1.4 WHERE `entry`=7826;
+UPDATE `creature_template` SET `DamageModifier` = 1.05, `ArmorModifier` = 1.4 WHERE `entry`=7826;
 
 /*  Teremus the Devourer  */
 UPDATE `creature_template` SET `rank` = 3, `DamageModifier` = 7.2, `ArmorModifier` = 1.5, `mingold` = 8283, `maxgold` = 41416 WHERE `entry`=7846;
@@ -17171,7 +17171,7 @@ UPDATE `creature_template` SET `DamageModifier` = 4.8 WHERE `entry`=11444;
 UPDATE `creature_template` SET `DamageModifier` = 8.35, `ArmorModifier` = 1.1 WHERE `entry`=11445;
 
 /*  Gordok Spirit  */
-UPDATE `creature_template` SET `modelid3` = 13131, `ArmorModifier` = 1.1 WHERE `entry`=11446;
+UPDATE `creature_template` SET `ArmorModifier` = 1.1 WHERE `entry`=11446;
 
 /*  Mushgog  */
 UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 5.45, `ArmorModifier` = 1.1, `BaseAttackTime` = 1150, `RangeAttackTime` = 1265, `mingold` = 168, `maxgold` = 838 WHERE `entry`=11447;
@@ -19157,7 +19157,7 @@ UPDATE `creature_template` SET `speed_walk` = 1.0, `detection_range` = 18.0 WHER
 UPDATE `creature_template` SET `DamageModifier` = 3.2 WHERE `entry`=13084;
 
 /*  Myrokos Silentform  */
-UPDATE `creature_template` SET `modelid1` = 13150, `DamageModifier` = 1.0 WHERE `entry`=13085;
+UPDATE `creature_template` SET `DamageModifier` = 1.0 WHERE `entry`=13085;
 
 /*  Aggi Rumblestomp  */
 UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 3.35, `ArmorModifier` = 0.8, `BaseAttackTime` = 2000, `RangeAttackTime` = 1310, `mingold` = 143, `maxgold` = 713 WHERE `entry`=13086;
@@ -20279,7 +20279,7 @@ UPDATE `creature_template` SET `DamageModifier` = 2.4, `ArmorModifier` = 1.35, `
 UPDATE `creature_template` SET `DamageModifier` = 2.05, `ArmorModifier` = 0.95 WHERE `entry`=14386;
 
 /*  Lothos Riftwaker  */
-UPDATE `creature_template` SET `modelid1` = 7010, `DamageModifier` = 5.4, `ArmorModifier` = 1.35 WHERE `entry`=14387;
+UPDATE `creature_template` SET `DamageModifier` = 5.4, `ArmorModifier` = 1.35 WHERE `entry`=14387;
 
 /*  Rogue Black Drake  */
 UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 3.0, `HealthModifier` = 3.0, `ManaModifier` = 2.0 WHERE `entry`=14388;
@@ -24077,7 +24077,7 @@ UPDATE `creature_template` SET `speed_walk` = 1.0, `detection_range` = 18.0 WHER
 UPDATE `creature_template` SET `speed_walk` = 1.0, `detection_range` = 18.0 WHERE `entry`=16895;
 
 /*  Midsummer Merchant  */
-UPDATE `creature_template` SET `modelid2` = 16542, `minlevel` = 1, `maxlevel` = 1, `speed_walk` = 1.0, `DamageModifier` = 1.3 WHERE `entry`=16979;
+UPDATE `creature_template` `minlevel` = 1, `maxlevel` = 1, `speed_walk` = 1.0, `DamageModifier` = 1.3 WHERE `entry`=16979;
 
 /*  Midsummer Merchant Horde Costume  */
 UPDATE `creature_template` SET `minlevel` = 1, `maxlevel` = 1, `speed_walk` = 1.0, `DamageModifier` = 1.3 WHERE `entry`=16985;
