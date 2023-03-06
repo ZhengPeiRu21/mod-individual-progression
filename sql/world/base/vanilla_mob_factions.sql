@@ -1021,9 +1021,6 @@ UPDATE `creature_template` SET `faction` = 79 WHERE `entry` = 6246;
 /*  Crawler  */
 UPDATE `creature_template` SET `faction` = 18 WHERE `entry` = 6250;
 
-/*  Summoned Felhunter  */
-UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 6268;
-
 /*  Kurzen Mindslave  */
 UPDATE `creature_template` SET `faction` = 30 WHERE `entry` = 6366;
 
@@ -2250,27 +2247,6 @@ UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14603;
 
 /*  Zapped Land Walker  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14604;
-
-/*  Loggerhead Snapjaw  */
-UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14629;
-
-/*  Leatherback Snapjaw  */
-UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14630;
-
-/*  Olive Snapjaw  */
-UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14631;
-
-/*  Hawksbill Snapjaw  */
-UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14632;
-
-/*  Albino Snapjaw  */
-UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14633;
-
-/*  Sleepy Dark Iron Worker  */
-UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14635;
-
-/*  Chambermaid Pillaclencher  */
-UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 14636;
 
 /*  Zapped Wave Strider  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 14638;
