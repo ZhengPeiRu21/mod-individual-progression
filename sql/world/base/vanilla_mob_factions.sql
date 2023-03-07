@@ -2840,7 +2840,7 @@ UPDATE `creature_template` SET `faction` = 57 WHERE `entry` = 17080;
 UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 17231;
 
 /*  Kobold Laborer  */
-UPDATE `creature_template` SET `faction` = 26 WHERE `entry` = 257;
+UPDATE `creature_template` SET `faction` = 26, flags_extra = 0 WHERE `entry` = 257;
 
 /*  Kobold Worker  */
-UPDATE `creature_template` SET `faction` = 26 WHERE `entry` = 80;
+UPDATE `creature_template` SET `faction` = 26, flags_extra = 0 WHERE `entry` = 80;
