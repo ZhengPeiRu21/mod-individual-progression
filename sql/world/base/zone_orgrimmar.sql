@@ -34,7 +34,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 UPDATE `creature_template` SET `subname`='King of Darkspear Trolls', `minlevel`=60, `maxlevel`=60 WHERE `entry`=10540;
 
 -- Nazgrel <Advisor to Thrall>
-DELETE FROM `creature` WHERE `id1`=3230;
+DELETE FROM `creature` WHERE `id1`=3230 AND `map`=1;
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (3230, 1, 1938.55, -4133.22, 41.1424, 4.07636, 300);
 
 -- Orgrimmar Grunt
