@@ -129,6 +129,17 @@ IndividualProgression.HunterPetLevelFix = 1
 
 IndividualProgression.RequirePreAQQuests = 1
 #
+#    IndividualProgression.RequireNaxxStrathEntrance
+#        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme
+#                     before being able to use the teleportation crystal in EPL. This is consistent behavior with other Vanilla raids (MC, BL).
+#                     If disabled, players can enter Naxx 40 through the crystal as soon as they are attuned and they have reached the correct
+#                     progression level - no Stratholme run will be required.
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+IndividualProgression.RequireNaxxStrathEntrance = 1
+#
 #
 #
 #    IndividualProgression.MoltenCore.ManualRuneHandling
