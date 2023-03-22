@@ -65,6 +65,9 @@ REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 550);
 DELETE FROM `creature_loot_template` WHERE `Entry`=4421 AND `Item`=49205 AND `Reference`=0 AND `GroupId`=0;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (4421, 17008, 0, 100, 0, 1, 0, 1, 1, 'Charlga Razorflank - Small Scroll');
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 4421 AND `SourceEntry` = 49205 AND `SourceId` = 0 AND `ElseGroup` = 0 AND `ConditionTypeOrReference` = 6 AND `ConditionTarget` = 0 AND `ConditionValue1` = 67 AND `ConditionValue2` = 0 AND `ConditionValue3` = 0;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES (1, 4421, 17008, 0, 0, 6, 0, 67, 0, 0, 0, 0, 0, '', NULL);
+
 UPDATE `item_template` SET `flags` = 2048 WHERE `entry` = 17008;
 UPDATE `item_template` SET `description` = 'To be opened by Lord Varimathras.' WHERE `entry` = 3701;
 
