@@ -40,6 +40,23 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 /* Wrathgate NPCs - just deleting for now, but maybe can implement a post-Wrathgate world state later */
 DELETE FROM `creature` WHERE `guid` IN (43466, 79263);
 
+/* Restore quests series The Deathstalkers */
+DELETE FROM `creature_questender` WHERE `id` = 6467 AND `quest` = 14420;
+DELETE FROM `creature_questender` WHERE `id` = 6467 AND `quest` = 14421;
+DELETE FROM `creature_questender` WHERE `id` = 6522 AND `quest` = 14419;
+DELETE FROM `creature_questender` WHERE `id` = 36517 AND `quest` = 14418;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6467, 1886);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6467, 1899);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6522, 1898);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (36517, 1978);
+DELETE FROM `creature_queststarter` WHERE `id` = 6467 AND `quest` = 14418;
+DELETE FROM `creature_queststarter` WHERE `id` = 6467 AND `quest` = 14419;
+DELETE FROM `creature_queststarter` WHERE `id` = 6467 AND `quest` = 14420;
+DELETE FROM `creature_queststarter` WHERE `id` = 6522 AND `quest` = 14421;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6467, 1886);
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6467, 1898);
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6522, 1899);
+
 /* Restore Varimathras */
 UPDATE `creature` SET `id1`=2425, `equipment_id`=0 WHERE `id1`=36273;
 
