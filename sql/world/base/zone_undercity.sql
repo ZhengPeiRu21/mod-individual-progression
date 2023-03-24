@@ -45,17 +45,21 @@ DELETE FROM `creature_questender` WHERE `id` = 6467 AND `quest` = 14420;
 DELETE FROM `creature_questender` WHERE `id` = 6467 AND `quest` = 14421;
 DELETE FROM `creature_questender` WHERE `id` = 6522 AND `quest` = 14419;
 DELETE FROM `creature_questender` WHERE `id` = 36517 AND `quest` = 14418;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6467, 1886);
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6467, 1899);
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6522, 1898);
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (36517, 1978);
+REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (6467, 1886);
+REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (6467, 1899);
+REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (6522, 1898);
+REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (36517, 1978);
 DELETE FROM `creature_queststarter` WHERE `id` = 6467 AND `quest` = 14418;
 DELETE FROM `creature_queststarter` WHERE `id` = 6467 AND `quest` = 14419;
 DELETE FROM `creature_queststarter` WHERE `id` = 6467 AND `quest` = 14420;
 DELETE FROM `creature_queststarter` WHERE `id` = 6522 AND `quest` = 14421;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6467, 1886);
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6467, 1898);
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6522, 1899);
+REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (6467, 1886);
+REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (6467, 1898);
+REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (6522, 1899);
+
+UPDATE `quest_template` SET `RewardNextQuest` = 1898 WHERE `ID` = 1886;
+UPDATE `quest_template` SET `RewardNextQuest` = 1899 WHERE `ID` = 1898;
+UPDATE `quest_template` SET `RewardNextQuest` = 1978 WHERE `ID` = 1899;
 
 /* Restore Varimathras */
 UPDATE `creature` SET `id1`=2425, `equipment_id`=0 WHERE `id1`=36273;
@@ -80,10 +84,10 @@ DELETE FROM `creature_queststarter` WHERE `id`=2215 AND `quest`=14351;
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 550);
 
 DELETE FROM `creature_loot_template` WHERE `Entry`=4421 AND `Item`=49205 AND `Reference`=0 AND `GroupId`=0;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (4421, 17008, 0, 100, 0, 1, 0, 1, 1, 'Charlga Razorflank - Small Scroll');
+REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (4421, 17008, 0, 100, 0, 1, 0, 1, 1, 'Charlga Razorflank - Small Scroll');
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 4421 AND `SourceEntry` = 49205 AND `SourceId` = 0 AND `ElseGroup` = 0 AND `ConditionTypeOrReference` = 6 AND `ConditionTarget` = 0 AND `ConditionValue1` = 67 AND `ConditionValue2` = 0 AND `ConditionValue3` = 0;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES (1, 4421, 17008, 0, 0, 6, 0, 67, 0, 0, 0, 0, 0, '', NULL);
+REPLACE INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES (1, 4421, 17008, 0, 0, 6, 0, 67, 0, 0, 0, 0, 0, '', NULL);
 
 UPDATE `item_template` SET `flags` = 2048 WHERE `entry` = 17008;
 UPDATE `item_template` SET `description` = 'To be opened by Lord Varimathras.' WHERE `entry` = 3701;
