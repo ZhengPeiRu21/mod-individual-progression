@@ -22,3 +22,6 @@ DELETE FROM `creature_questender` WHERE `id`=18481 AND `quest`=13430;
 DELETE FROM `creature_queststarter` WHERE `id`=18481 AND `quest`=13430;
 DELETE FROM `creature_queststarter` WHERE `id`=18481 AND `quest`=10888;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (18481, 10888);
+
+/* A Distraction for Akama(13429) - Restore pre-3.0 version */
+UPDATE `quest_template` SET `RewardNextQuest` = 10985 WHERE `ID` = 10949;
