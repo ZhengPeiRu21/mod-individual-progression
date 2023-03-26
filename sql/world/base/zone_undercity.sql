@@ -81,7 +81,9 @@ REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 14355);
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 14356);
 
 DELETE FROM `creature_queststarter` WHERE `id`=2215 AND `quest`=14351;
+REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (2215, 550);
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 550);
+UPDATE `quest_template` SET `RewardNextQuest` = 550 WHERE `ID` = 541;
 
 DELETE FROM `creature_loot_template` WHERE `Entry`=4421 AND `Item`=49205 AND `Reference`=0 AND `GroupId`=0;
 REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (4421, 17008, 0, 100, 0, 1, 0, 1, 1, 'Charlga Razorflank - Small Scroll');
