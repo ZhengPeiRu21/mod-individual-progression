@@ -23,5 +23,12 @@ DELETE FROM `creature_queststarter` WHERE `id`=18481 AND `quest`=13430;
 DELETE FROM `creature_queststarter` WHERE `id`=18481 AND `quest`=10888;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (18481, 10888);
 
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` = 10888;
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` = 10901;
+UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` = 10901;
+UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10884;
+UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10885;
+UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10886;
+
 /* A Distraction for Akama(13429) - Restore pre-3.0 version */
 UPDATE `quest_template` SET `RewardNextQuest` = 10985 WHERE `ID` = 10949;
