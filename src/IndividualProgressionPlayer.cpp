@@ -2,6 +2,17 @@
 
 class IndividualPlayerProgression : public PlayerScript
 {
+
+private:
+    static bool IsTBCRaceStartingZone(uint32 mapid, float x, float y, float z)
+    {
+        Map const *map = sMapMgr->FindMap(mapid, 0);
+        uint32 zoneId = map->GetZoneId(0, x, y, z);
+        return (zoneId == ZONE_AZUREMYST || zoneId == ZONE_BLOODMYST || zoneId == ZONE_GHOSTLANDS ||
+                zoneId == ZONE_EVERSONG || zoneId == ZONE_EXODAR || zoneId == ZONE_SILVERMOON ||
+                zoneId == ZONE_VEILED_SEA);
+    }
+
 public:
     IndividualPlayerProgression() : PlayerScript("IndividualProgression") { }
 
@@ -161,13 +172,13 @@ public:
         }
         if (mapid == MAP_OUTLANDS)
         {
-            Map const* map = sMapMgr->FindMap(mapid, 0);
-            uint32 zoneId = map->GetZoneId(0, x, y, z);
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
             {
                 // The player may be in the Azuremyst area which is on the outlands map - check the area ID
-                return (zoneId == ZONE_AZUREMYST || zoneId == ZONE_BLOODMYST || zoneId == ZONE_GHOSTLANDS || zoneId == ZONE_EVERSONG || zoneId == ZONE_EXODAR || zoneId == ZONE_SILVERMOON);
+                return IsTBCRaceStartingZone(mapid, x, y, z);
             }
+            Map const *map = sMapMgr->FindMap(mapid, 0);
+            uint32 zoneId = map->GetZoneId(0, x, y, z);
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4) && zoneId == ZONE_QUELDANAS)
             {
                 return false;

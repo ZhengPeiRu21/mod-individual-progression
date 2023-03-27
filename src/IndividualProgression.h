@@ -82,7 +82,8 @@ enum ProgressionZones
     ZONE_EVERSONG = 3430,
     ZONE_EXODAR = 3557,
     ZONE_SILVERMOON = 3487,
-    ZONE_QUELDANAS = 4080
+    ZONE_QUELDANAS = 4080,
+    ZONE_VEILED_SEA = 3479
 };
 
 enum ProgressionAreas
