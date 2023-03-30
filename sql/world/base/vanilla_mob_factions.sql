@@ -815,7 +815,7 @@ UPDATE `creature_template` SET `faction` = 34 WHERE `entry` = 4971;
 UPDATE `creature_template` SET `faction` = 35 WHERE `entry` = 5027;
 
 /*  Theramore Deserter  */
-UPDATE `creature_template` SET `faction` = 1077 WHERE `entry` = 5057;
+-- UPDATE `creature_template` SET `faction` = 1077 WHERE `entry` = 5057;
 
 /*  Balos Jacken  */
 UPDATE `creature_template` SET `faction` = 84 WHERE `entry` = 5089;
