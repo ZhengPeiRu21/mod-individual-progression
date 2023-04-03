@@ -320,5 +320,42 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (@NPC, 9237), (@NPC, 
 DELETE FROM `creature_questender` WHERE (`quest` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243, 9232));
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (@NPC, 9237), (@NPC, 9239), (@NPC, 9240), (@NPC, 9238), (@NPC, 9235), (@NPC, 9236), (@NPC, 9234), (@NPC, 9244), (@NPC, 9246), (@NPC, 9245), (@NPC, 9241), (@NPC, 9242), (@NPC, 9243), (@NPC, 9232);
 
+REPLACE INTO `creature_questitem` (`CreatureEntry`, `Idx`, `ItemId`, `VerifiedBuild`) VALUES
+(351007, 0, 22708, 0),
+(351008, 0, 22708, 0),
+(351010, 0, 22708, 0),
+(351011, 0, 22708, 0),
+(351012, 0, 22708, 0),
+(351014, 0, 22708, 0),
+(351015, 0, 22708, 0),
+(351016, 0, 22708, 0),
+(351017, 0, 22708, 0),
+(351021, 0, 22708, 0),
+(351022, 0, 22708, 0),
+(351023, 0, 22708, 0),
+(351024, 0, 22708, 0),
+(351025, 0, 22708, 0),
+(351027, 0, 22708, 0),
+(351041, 0, 22708, 0),
+(351048, 0, 22708, 0),
+(351053, 0, 22708, 0),
+(351054, 0, 22708, 0),
+(351055, 0, 22708, 0),
+(351056, 0, 22708, 0),
+(351057, 0, 22708, 0),
+(351058, 0, 22708, 0),
+(351059, 0, 22708, 0),
+(351060, 0, 22708, 0),
+(351061, 0, 22708, 0),
+(351062, 0, 22708, 0),
+(351063, 0, 22708, 0),
+(351064, 0, 22708, 0),
+(351065, 0, 22708, 0),
+(351070, 0, 22708, 0),
+(351077, 0, 22708, 0),
+(351078, 0, 22708, 0);
+
+UPDATE `quest_template` SET `RequiredNpcOrGo1` = 351048, `RequiredNpcOrGo2` = 351012, `RequiredNpcOrGo3` = 351024, `RequiredNpcOrGo4` = 351059 WHERE `ID` = 9033;
+
 -- We are going to re-use the deprecated Naxxramas attunement flag quest but need to change some values
 UPDATE `quest_template` SET `RequiredFactionId1` = 0, `RequiredFactionValue1` = 0, `RewardFactionID1` = 0, `RewardFactionValue1` = 0, `QuestSortID` = 0 WHERE `ID` = 9378;
