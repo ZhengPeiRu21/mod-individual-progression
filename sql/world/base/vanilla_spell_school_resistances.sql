@@ -1737,6 +1737,18 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10 , 4047, 6);
 
 
+/*  Cenarion Caretaker  */
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (52 , 4050, 3);
+
+
+/*  Cenarion Druid  */
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (54 , 4052, 3);
+
+
+/*  Mirkfallon Keeper  */
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (80 , 4056, 3);
+
+
 /*  Dark Iron Bombardier  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (0 , 4062, 6);
 
