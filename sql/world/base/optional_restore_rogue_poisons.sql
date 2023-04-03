@@ -4,6 +4,12 @@
 DELETE FROM `spell_dbc` WHERE `ID`=2995;
 INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes`, `AttributesEx`, `AttributesEx2`, `AttributesEx3`, `AttributesEx4`, `AttributesEx5`, `AttributesEx6`, `AttributesEx7`, `ShapeshiftMask`, `unk_320_2`, `ShapeshiftExclude`, `unk_320_3`, `Targets`, `TargetCreatureType`, `RequiresSpellFocus`, `FacingCasterFlags`, `CasterAuraState`, `TargetAuraState`, `ExcludeCasterAuraState`, `ExcludeTargetAuraState`, `CasterAuraSpell`, `TargetAuraSpell`, `ExcludeCasterAuraSpell`, `ExcludeTargetAuraSpell`, `CastingTimeIndex`, `RecoveryTime`, `CategoryRecoveryTime`, `InterruptFlags`, `AuraInterruptFlags`, `ChannelInterruptFlags`, `ProcTypeMask`, `ProcChance`, `ProcCharges`, `MaxLevel`, `BaseLevel`, `SpellLevel`, `DurationIndex`, `PowerType`, `ManaCost`, `ManaCostPerLevel`, `ManaPerSecond`, `ManaPerSecondPerLevel`, `RangeIndex`, `Speed`, `ModalNextSpell`, `CumulativeAura`, `Totem_1`, `Totem_2`, `Reagent_1`, `Reagent_2`, `Reagent_3`, `Reagent_4`, `Reagent_5`, `Reagent_6`, `Reagent_7`, `Reagent_8`, `ReagentCount_1`, `ReagentCount_2`, `ReagentCount_3`, `ReagentCount_4`, `ReagentCount_5`, `ReagentCount_6`, `ReagentCount_7`, `ReagentCount_8`, `EquippedItemClass`, `EquippedItemSubclass`, `EquippedItemInvTypes`, `Effect_1`, `Effect_2`, `Effect_3`, `EffectDieSides_1`, `EffectDieSides_2`, `EffectDieSides_3`, `EffectRealPointsPerLevel_1`, `EffectRealPointsPerLevel_2`, `EffectRealPointsPerLevel_3`, `EffectBasePoints_1`, `EffectBasePoints_2`, `EffectBasePoints_3`, `EffectMechanic_1`, `EffectMechanic_2`, `EffectMechanic_3`, `ImplicitTargetA_1`, `ImplicitTargetA_2`, `ImplicitTargetA_3`, `ImplicitTargetB_1`, `ImplicitTargetB_2`, `ImplicitTargetB_3`, `EffectRadiusIndex_1`, `EffectRadiusIndex_2`, `EffectRadiusIndex_3`, `EffectAura_1`, `EffectAura_2`, `EffectAura_3`, `EffectAuraPeriod_1`, `EffectAuraPeriod_2`, `EffectAuraPeriod_3`, `EffectMultipleValue_1`, `EffectMultipleValue_2`, `EffectMultipleValue_3`, `EffectChainTargets_1`, `EffectChainTargets_2`, `EffectChainTargets_3`, `EffectItemType_1`, `EffectItemType_2`, `EffectItemType_3`, `EffectMiscValue_1`, `EffectMiscValue_2`, `EffectMiscValue_3`, `EffectMiscValueB_1`, `EffectMiscValueB_2`, `EffectMiscValueB_3`, `EffectTriggerSpell_1`, `EffectTriggerSpell_2`, `EffectTriggerSpell_3`, `EffectPointsPerCombo_1`, `EffectPointsPerCombo_2`, `EffectPointsPerCombo_3`, `EffectSpellClassMaskA_1`, `EffectSpellClassMaskA_2`, `EffectSpellClassMaskA_3`, `EffectSpellClassMaskB_1`, `EffectSpellClassMaskB_2`, `EffectSpellClassMaskB_3`, `EffectSpellClassMaskC_1`, `EffectSpellClassMaskC_2`, `EffectSpellClassMaskC_3`, `SpellVisualID_1`, `SpellVisualID_2`, `SpellIconID`, `ActiveIconID`, `SpellPriority`, `Name_Lang_enUS`, `Name_Lang_enGB`, `Name_Lang_koKR`, `Name_Lang_frFR`, `Name_Lang_deDE`, `Name_Lang_enCN`, `Name_Lang_zhCN`, `Name_Lang_enTW`, `Name_Lang_zhTW`, `Name_Lang_esES`, `Name_Lang_esMX`, `Name_Lang_ruRU`, `Name_Lang_ptPT`, `Name_Lang_ptBR`, `Name_Lang_itIT`, `Name_Lang_Unk`, `Name_Lang_Mask`, `NameSubtext_Lang_enUS`, `NameSubtext_Lang_enGB`, `NameSubtext_Lang_koKR`, `NameSubtext_Lang_frFR`, `NameSubtext_Lang_deDE`, `NameSubtext_Lang_enCN`, `NameSubtext_Lang_zhCN`, `NameSubtext_Lang_enTW`, `NameSubtext_Lang_zhTW`, `NameSubtext_Lang_esES`, `NameSubtext_Lang_esMX`, `NameSubtext_Lang_ruRU`, `NameSubtext_Lang_ptPT`, `NameSubtext_Lang_ptBR`, `NameSubtext_Lang_itIT`, `NameSubtext_Lang_Unk`, `NameSubtext_Lang_Mask`, `Description_Lang_enUS`, `Description_Lang_enGB`, `Description_Lang_koKR`, `Description_Lang_frFR`, `Description_Lang_deDE`, `Description_Lang_enCN`, `Description_Lang_zhCN`, `Description_Lang_enTW`, `Description_Lang_zhTW`, `Description_Lang_esES`, `Description_Lang_esMX`, `Description_Lang_ruRU`, `Description_Lang_ptPT`, `Description_Lang_ptBR`, `Description_Lang_itIT`, `Description_Lang_Unk`, `Description_Lang_Mask`, `AuraDescription_Lang_enUS`, `AuraDescription_Lang_enGB`, `AuraDescription_Lang_koKR`, `AuraDescription_Lang_frFR`, `AuraDescription_Lang_deDE`, `AuraDescription_Lang_enCN`, `AuraDescription_Lang_zhCN`, `AuraDescription_Lang_enTW`, `AuraDescription_Lang_zhTW`, `AuraDescription_Lang_esES`, `AuraDescription_Lang_esMX`, `AuraDescription_Lang_ruRU`, `AuraDescription_Lang_ptPT`, `AuraDescription_Lang_ptBR`, `AuraDescription_Lang_itIT`, `AuraDescription_Lang_Unk`, `AuraDescription_Lang_Mask`, `ManaCostPct`, `StartRecoveryCategory`, `StartRecoveryTime`, `MaxTargetLevel`, `SpellClassSet`, `SpellClassMask_1`, `SpellClassMask_2`, `SpellClassMask_3`, `MaxTargets`, `DefenseType`, `PreventionType`, `StanceBarOrder`, `EffectChainAmplitude_1`, `EffectChainAmplitude_2`, `EffectChainAmplitude_3`, `MinFactionID`, `MinReputation`, `RequiredAuraVision`, `RequiredTotemCategoryID_1`, `RequiredTotemCategoryID_2`, `RequiredAreasID`, `SchoolMask`, `RuneCostID`, `SpellMissileID`, `PowerDisplayID`, `EffectBonusMultiplier_1`, `EffectBonusMultiplier_2`, `EffectBonusMultiplier_3`, `SpellDescriptionVariableID`, `SpellDifficultyID`) VALUES (2995, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 36, 44, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 2842, 0, 8681, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 107, 0, 342, 0, 0, 'Poisons', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712190, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712188, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712188, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712188, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
 
+DELETE FROM `spell_dbc` WHERE `ID` = 11202;
+
+UPDATE `item_template` SET `class` = 0, `subclass` = 8, `spellppmRate_1` = -1 WHERE `entry` = 3776;
+UPDATE `item_template` SET `class` = 0, `subclass` = 8, `spellid_1` = 8693, `spellcharges_1` = -1 WHERE `entry` = 6951;
+UPDATE `item_template` SET `class` = 0, `subclass` = 8, `Flags` = 2097216, `spellid_1` = 11399, `spellcharges_1` = -1 WHERE `entry` = 9186;
+
 UPDATE `quest_template` SET `RewardSpell` = 2995 WHERE `ID` IN (2480, 2359);
 
 DELETE FROM `npc_vendor` WHERE `item` IN (3775, 2892, 2893, 5237, 6947, 6949, 6950, 6951, 8926, 8927, 8928, 8984, 8985, 3776, 9186, 10918, 10920, 10921, 10922, 20844, 21835, 21927, 22053, 22054, 22055);
@@ -16,6 +22,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (1411, 3421, 35000, 40, 230, 0),
 (1411, 5763, 5000, 40, 100, 0),
 (1411, 8687, 8000, 40, 120, 0),
+(1411, 6510, 14000, 40, 170, 0),
 (1411, 8691, 16000, 40, 160, 0),
 (1411, 8694, 18000, 40, 170, 0),
 (1411, 11341, 29000, 40, 200, 0),
@@ -39,6 +46,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (2130, 3421, 35000, 40, 230, 50),
 (2130, 5763, 5000, 40, 100, 24),
 (2130, 8687, 8000, 40, 120, 28),
+(2130, 6510, 14000, 40, 170, 34),
 (2130, 8691, 16000, 40, 160, 36),
 (2130, 8694, 18000, 40, 170, 38),
 (2130, 11341, 29000, 40, 200, 44),
@@ -62,6 +70,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (3170, 3421, 35000, 40, 230, 50),
 (3170, 5763, 5000, 40, 100, 24),
 (3170, 8687, 8000, 40, 120, 28),
+(3170, 6510, 14000, 40, 170, 34),
 (3170, 8691, 16000, 40, 160, 36),
 (3170, 8694, 18000, 40, 170, 38),
 (3170, 11341, 29000, 40, 200, 44),
@@ -85,6 +94,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (3327, 3421, 35000, 40, 230, 50),
 (3327, 5763, 5000, 40, 100, 24),
 (3327, 8687, 8000, 40, 120, 28),
+(3327, 6510, 14000, 40, 170, 34),
 (3327, 8691, 16000, 40, 160, 36),
 (3327, 8694, 18000, 40, 170, 38),
 (3327, 11341, 29000, 40, 200, 44),
@@ -108,6 +118,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (3328, 3421, 35000, 40, 230, 50),
 (3328, 5763, 5000, 40, 100, 24),
 (3328, 8687, 8000, 40, 120, 28),
+(3328, 6510, 14000, 40, 170, 34),
 (3328, 8691, 16000, 40, 160, 36),
 (3328, 8694, 18000, 40, 170, 38),
 (3328, 11341, 29000, 40, 200, 44),
@@ -131,6 +142,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (3401, 3421, 35000, 40, 230, 50),
 (3401, 5763, 5000, 40, 100, 24),
 (3401, 8687, 8000, 40, 120, 28),
+(3401, 6510, 14000, 40, 170, 34),
 (3401, 8691, 16000, 40, 160, 36),
 (3401, 8694, 18000, 40, 170, 38),
 (3401, 11341, 29000, 40, 200, 44),
@@ -154,6 +166,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (4582, 3421, 35000, 40, 230, 50),
 (4582, 5763, 5000, 40, 100, 24),
 (4582, 8687, 8000, 40, 120, 28),
+(4582, 6510, 14000, 40, 170, 34),
 (4582, 8691, 16000, 40, 160, 36),
 (4582, 8694, 18000, 40, 170, 38),
 (4582, 11341, 29000, 40, 200, 44),
@@ -177,6 +190,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (4583, 3421, 35000, 40, 230, 50),
 (4583, 5763, 5000, 40, 100, 24),
 (4583, 8687, 8000, 40, 120, 28),
+(4583, 6510, 14000, 40, 170, 34),
 (4583, 8691, 16000, 40, 160, 36),
 (4583, 8694, 18000, 40, 170, 38),
 (4583, 11341, 29000, 40, 200, 44),
@@ -200,6 +214,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (4584, 3421, 35000, 40, 230, 50),
 (4584, 5763, 5000, 40, 100, 24),
 (4584, 8687, 8000, 40, 120, 28),
+(4584, 6510, 14000, 40, 170, 34),
 (4584, 8691, 16000, 40, 160, 36),
 (4584, 8694, 18000, 40, 170, 38),
 (4584, 11341, 29000, 40, 200, 44),
@@ -223,6 +238,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (26329, 3421, 35000, 40, 230, 0),
 (26329, 5763, 5000, 40, 100, 0),
 (26329, 8687, 8000, 40, 120, 0),
+(26329, 6510, 14000, 40, 170, 0),
 (26329, 8691, 16000, 40, 160, 0),
 (26329, 8694, 18000, 40, 170, 0),
 (26329, 11341, 29000, 40, 200, 0),
@@ -246,6 +262,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (200016, 3421, 35000, 40, 230, 0),
 (200016, 5763, 5000, 40, 100, 0),
 (200016, 8687, 8000, 40, 120, 0),
+(200016, 6510, 14000, 40, 170, 0),
 (200016, 8691, 16000, 40, 160, 0),
 (200016, 8694, 18000, 40, 170, 0),
 (200016, 11341, 29000, 40, 200, 0),
