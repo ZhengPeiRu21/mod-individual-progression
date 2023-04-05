@@ -1,5 +1,5 @@
 -- Handle gossip with cpp script
-UPDATE `creature_template` SET `ScriptName`='npc_omarion_gossip',`gossip_menu_id`=0 WHERE `entry` = 16365;
+UPDATE `creature_template` SET `ScriptName`='npc_omarion_gossip',`gossip_menu_id`=0, `faction`=1766 WHERE `entry` = 16365;
 
 SET @ID:= 24400;
 -- Set correct text when gossip tailor/leatherwork/blacksmith option
