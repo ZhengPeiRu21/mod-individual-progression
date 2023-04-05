@@ -724,6 +724,16 @@ public:
             return true;
         }
 
+        void Load(const char* data) override
+        {
+            _horsemanLoadDoneState = true;
+            InstanceScript::Load(data);
+            if (GetBossState(BOSS_HORSEMAN) != DONE)
+            {
+                _horsemanLoadDoneState = false;
+            }
+        }
+
         bool SetBossState(uint32 bossId, EncounterState state) override
         {
             // pull all the trash if not killed
@@ -743,9 +753,9 @@ public:
             }
 
             // Horseman handling
-            if (bossId == BOSS_HORSEMAN && !_horsemanLoadDoneState)
+            if (bossId == BOSS_HORSEMAN)
             {
-                if (state == DONE)
+                if (state == DONE && !_horsemanLoadDoneState)
                 {
                     _horsemanTimer++;
                     _horsemanKilled++;
