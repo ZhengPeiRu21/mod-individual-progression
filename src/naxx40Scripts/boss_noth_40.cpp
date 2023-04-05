@@ -58,9 +58,9 @@ enum Events
 
 enum Misc
 {
-    NPC_PLAGUED_WARRIOR                     = 351088,
-    NPC_PLAGUED_CHAMPION                    = 351087,
-    NPC_PLAGUED_GUARDIAN                    = 351086
+    NPC_PLAGUED_WARRIOR                     = 351087,
+    NPC_PLAGUED_CHAMPION                    = 351086,
+    NPC_PLAGUED_GUARDIAN                    = 351085
 };
 
 const Position summoningPosition[5] =

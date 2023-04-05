@@ -23,6 +23,9 @@ INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
 UPDATE `creature` SET `spawnMask` = 3 WHERE `spawnMask` = 7 AND `map` = 533;
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `spawnMask` = 3 AND `map` = 533;
 
+# Lich King uses same entry in Naxx WotLK and Naxx 40 - Allow spawning in all versions
+UPDATE `creature` SET `spawnMask` = 7 WHERE `id1` = 16980;
+
 UPDATE `gameobject` SET `spawnMask` = 3 WHERE `id` IN (202278, 202277);  # Orb of Naxxramas does not exist in classic
 
 DELETE FROM `dungeon_access_template` WHERE `id`=122;
