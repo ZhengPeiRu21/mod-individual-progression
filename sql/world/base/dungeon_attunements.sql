@@ -8,6 +8,9 @@ REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_ty
 REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (63, 1, 10277, 'You must complete the quest "The Caverns of Time" to enter Old Hillsbrad.', 2, NULL, 0, NULL);
 REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (64, 2, 32649, 'You must possess the Medallion of Karabor to enter the Black Temple.', 2, NULL, 0, NULL);
 
+/* Maraudon Portal Requirement Script */
+UPDATE `gameobject_template` SET `ScriptName` = 'go_mara_portal' WHERE `entry` = 178404;
+
 /* TBC Attunement Quests - Restore pre-3.0 version */
 DELETE FROM `creature_questender` WHERE `id`=22421 AND `quest`=13431;
 DELETE FROM `creature_questender` WHERE `id`=22421 AND `quest`=10901;
