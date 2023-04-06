@@ -871,3 +871,197 @@ UPDATE quest_template SET MinLevel = 1 WHERE ID=9416;
 /*  Scouring the Desert  */
 UPDATE quest_template SET MinLevel = 1 WHERE ID=9419;
 
+/* ========== Update Quest Descriptions for Updated Counts =========== */
+
+/*  Kobold Camp Cleanup  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 10 Kobold Vermin, then return to Marshal McBride." WHERE `ID` = 7;
+
+
+/*  Investigate Echo Ridge  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 10 Kobold Workers, then report back to Marshal McBride." WHERE `ID` = 15;
+UPDATE `quest_template` SET `QuestDescription` = "$N, my scouts tell me that the kobold infestation is larger than we had thought.  A group of kobold workers has camped near the Echo Ridge Mine to the north.$B$BGo to the mine and remove them.  We know there are at least 10.  Kill them, see if there are more, then report back to me." WHERE `ID` = 15;
+
+
+/*  Brotherhood of Thieves  */
+UPDATE `quest_template` SET `LogDescription` = "Bring 12 Red Burlap Bandanas to Deputy Willem outside the Northshire Abbey." WHERE `ID` = 18;
+
+
+/*  Skirmish at Echo Ridge  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 12 Kobold Laborers, then return to Marshal McBride at Northshire Abbey." WHERE `ID` = 21;
+
+
+/*  Between a Rock and a Thistlefur  */
+UPDATE `quest_template` SET `LogDescription` = "Take down 12 Thistlefur Avengers and 12 Thistlefur Shaman; most are located east of Zoram Strand in Thistlefur Village.  Once completed, return to Karang Amakkar at Zoram'gar Outpost, Ashenvale." WHERE `ID` = 216;
+
+
+/*  Blisters on The Land  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 12 Fen Creepers, then return to Rethiel the Greenwarden in the Wetlands." WHERE `ID` = 275;
+
+
+/*  The Dark Iron War  */
+UPDATE `quest_template` SET `LogDescription` = "Motley Garmason at Dun Modr wants you to kill 15 Dark Iron Dwarves,  5 Dark Iron Tunnelers, 5 Dark Iron Saboteurs and 5 Dark Iron Demolitionists." WHERE `ID` = 303;
+UPDATE `quest_template` SET `QuestDescription` = "War rages both home and abroad.  While mighty Dwarven soldiers give their lives in far off territories in the name of the Alliance, our own lands fall prey to the evil deeds of the Dark Iron Dwarves.  They laid waste to the Thandol Span.  Dun Modr fell soon after.$b$bWe need you to gather force and push the front back.  If you can kill 15 Dark Iron Dwarves, 5 Tunnelers, 5 Saboteurs and 5 Demolitionists, the reserve might arrive in time to finish the drive.$b$bNow make haste!" WHERE `ID` = 303;
+
+
+/*  The Mindless Ones  */
+UPDATE `quest_template` SET `LogDescription` = "Shadow Priest Sarvis wants you to kill 8 Mindless Zombies and 8 Wretched Ghouls." WHERE `ID` = 364;
+
+
+/*  Night Web's Hollow  */
+UPDATE `quest_template` SET `LogDescription` = "Executor Arren wants you to kill 10 Young Night Web Spiders and 5 Night Web Spiders." WHERE `ID` = 380;
+
+
+/*  The Balance of Nature  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 7 Young Nightsabers and 7 Young Thistle Boars and return to Conservator Ilthalaine." WHERE `ID` = 456;
+
+
+/*  The Balance of Nature  */
+UPDATE `quest_template` SET `LogDescription` = "Conservator Ilthalaine needs you to kill 7 Mangy Nightsabers and 7 Thistle Boars." WHERE `ID` = 457;
+
+
+/*  Crushridge Warmongers  */
+UPDATE `quest_template` SET `LogDescription` = "Slay 15 Crushridge Warmongers, then return to Marshal Redpath in Southshore." WHERE `ID` = 504;
+
+
+/*  The Crown of Will  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 14 Crushridge Maulers for Melisara in Tarren Mill." WHERE `ID` = 518;
+
+
+/*  Battle of Hillsbrad  */
+UPDATE `quest_template` SET `LogDescription` = "Kill Magistrate Burnside and 5 Hillsbrad Councilmen.  Destroy the Hillsbrad Proclamation.  Steal the Hillsbrad Town Registry.  Report back to Darthalia in Tarren Mill afterwards." WHERE `ID` = 532;
+
+
+/*  Battle of Hillsbrad  */
+UPDATE `quest_template` SET `LogDescription` = "Travel to Dun Garok and kill 10 Mountaineers, 4 Riflemen, 2 Priests and Captain Ironhill and report back to Darthalia in Tarren Mill." WHERE `ID` = 541;
+
+
+/*  The Broken Sigil  */
+UPDATE `quest_template` SET `LogDescription` = "Retrieve the 11 Sigil Fragments from the defenders in Stromgarde, and bring them to Tor'gan in Hammerfall." WHERE `ID` = 640;
+
+
+/*  Call to Arms  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 15 Boulderfist Shaman and 3 Boulderfist Lords and return to Drum Fel in the Hammerfall outpost." WHERE `ID` = 679;
+
+
+/*  Stromgarde Badges  */
+UPDATE `quest_template` SET `LogDescription` = "Bring 15 Stromgarde Badges to Captain Nials at Refuge Pointe." WHERE `ID` = 682;
+
+
+/*  Rite of Strength  */
+UPDATE `quest_template` SET `LogDescription` = "Kill Bristlebacks in Brambleblade Ravine and bring 12 Bristleback Belts to Chief Hawkwind in Camp Narache." WHERE `ID` = 757;
+
+
+/*  Cutting Teeth  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 10 Mottled Boars then return to Gornek at the Den." WHERE `ID` = 788;
+
+
+/*  Sting of the Scorpid  */
+UPDATE `quest_template` SET `LogDescription` = "Get 10 Scorpid Worker Tails for Gornek in the Den." WHERE `ID` = 789;
+
+
+/*  Vile Familiars  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 12 Vile Familiars.$B$BReturn to Zureetha Fargaze outside the Den." WHERE `ID` = 792;
+
+
+/*  Luck Be With You  */
+UPDATE `quest_template` SET `LogDescription` = "Collect 10 Frostmaul Shards for Witch Doctor Mau'ari in Everlook." WHERE `ID` = 969;
+UPDATE `quest_template` SET `QuestDescription` = "Ah, I can tell just by lookin' at ya -- you be wantin' to make a lucky charm. Mau'ari always knows!$B$BTo da south. you'll find a canyon, an' giants made a' solid ice. The giants sometimes be carryin' dem, but ya can always gather da shards yerself from da canyon. These shards have a powerful reflective quality.$B$BBring back 10 frostmaul shards, and my lucky charm will be yours." WHERE `ID` = 969;
+
+
+/*  Army of the Black Dragon  */
+UPDATE `quest_template` SET `LogDescription` = "Tharg in Brackenwall Village wants you to kill 15 Firemane Scouts, 15 Firemane Ash Tails, and 5 Firemane Scalebanes." WHERE `ID` = 1168;
+
+
+/*  Identifying the Brood  */
+UPDATE `quest_template` SET `LogDescription` = "Draz'Zilb in Brackenwall Village would like you to bring him 15 Searing Tongues and 15 Searing Hearts." WHERE `ID` = 1169;
+
+
+/*  Hungry!  */
+UPDATE `quest_template` SET `LogDescription` = "Mudcrush Durtfeet in northern Dustwallow wants 12 Mirefin Heads." WHERE `ID` = 1177;
+
+
+/*  Jarl Needs Eyes  */
+UPDATE `quest_template` SET `LogDescription` = "Bring 40 Unpopped Darkmist Eyes to "Swamp Eye" Jarl at the Swamplight Manor." WHERE `ID` = 1206;
+
+
+/*  The Black Shield  */
+UPDATE `quest_template` SET `LogDescription` = "Acquire 6 Acidic Venom Sacs for Do'gol in Brackenwall Village." WHERE `ID` = 1322;
+
+
+/*  Pool of Tears  */
+UPDATE `quest_template` SET `LogDescription` = "Fel'zerul in Stonard wants you to gather 10 Atal'ai Artifacts." WHERE `ID` = 1424;
+
+
+/*  Rattling the Rattlecages  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 12 Rattlecage Skeletons, and then return to Shadow Priest Sarvis in Deathknell when you are done." WHERE `ID` = 3901;
+
+
+/*  Galgar's Cactus Apple Surprise  */
+UPDATE `quest_template` SET `LogDescription` = "Bring Galgar 10 Cactus Apples. You remember him saying that they could be found near cactuses." WHERE `ID` = 4402;
+UPDATE `quest_template` SET `QuestDescription` = "It sure gets hot out here in the Valley of Trials.$B$B<Galgar wipes his brow.>$B$BIf only I had some cactus apples, I could make my famous cactus apple surprise! Nothing cools you off faster than a piece of that delicious treat.$B$BI'll tell you what, $N. If you bring me 10 cactus apples, I'll make you a few portions of cactus apple surprise to take with you on your adventures. If you're interested, you can find cactus apples growing near the cactus plants around here." WHERE `ID` = 4402;
+
+
+/*  Beware of Pterrordax  */
+UPDATE `quest_template` SET `LogDescription` = "Kill 115 Frenzied Pterrordax, then speak to Spraggle Frock at Marshal's Refuge." WHERE `ID` = 4501;
+UPDATE `quest_template` SET `QuestDescription` = "Wanted: A skilled fighter to deal with the threat of the Pterrordax that inhabit the Un'Goro Crater. Their numbers are growing, and they are becoming a menace to travelers in the area.$B$BDecrease the population by slaying 115 frenzied pterrordax.$B$BSpeak with Spraggle Frock after completing the task for a reward." WHERE `ID` = 4501;
+
+
+/*  A Matter of Time  */
+UPDATE `quest_template` SET `LogDescription` = "Use the Temporal Displacer near one of Andorhal's silos and uncover Temporal Parasites.$B$BSlay 15 Temporal Parasites, and then return the Temporal Displacer to Chromie in the Andorhal Inn, Western Plaguelands." WHERE `ID` = 4971;
+
+
+/*  The Flesh Does Not Lie  */
+UPDATE `quest_template` SET `LogDescription` = "Recover 20 Plagued Flesh Samples from Stratholme and return them to Betina Bigglezink. You suspect that any creature in Stratholme would have said flesh sample." WHERE `ID` = 5212;
+
+
+/*  Clam Bait  */
+UPDATE `quest_template` SET `LogDescription` = "Find 110 pieces of Soft-shelled Clam Meat and bring it back to Mai'Lahii at Shadowprey Village." WHERE `ID` = 6142;
+UPDATE `quest_template` SET `QuestDescription` = "You have the look of a fisherman, $c! I love to fish - been fishing all my life. The best bait to use is soft-shelled clam meat; the fish just can't resist, you know what I mean?$B$BUp north you will find a wrecked ship off the coast. Soft-shelled clams are littered throughout the area. If you bring me back 110 pieces of soft-shelled clam meat, I will give you something in return." WHERE `ID` = 6142;
+
+
+/*  Twisted Evils  */
+UPDATE `quest_template` SET `LogDescription` = "Collect 25 Theradric Crystal Carvings for Willow in Desolace." WHERE `ID` = 7028;
+
+
+/*  Snapjaws, Mon!  */
+UPDATE `quest_template` SET `LogDescription` = "Katoom the Angler at Revantusk Village in the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles. Return to him when you have completed this task." WHERE `ID` = 7815;
+
+
+/*  Stalking the Stalkers  */
+UPDATE `quest_template` SET `LogDescription` = "Huntsman Markhor at Revantusk Village in the Hinterlands wants you to kill 15 Silvermane Stalkers and 15 Silvermane Howlers. Return to him once the task is complete.$B$BMarkhor mentioned that the wolves hide in the wilds of the Hinterlands." WHERE `ID` = 7828;
+
+
+/*  Hunt the Savages  */
+UPDATE `quest_template` SET `LogDescription` = "Huntsman Markhor at Revantusk Village in the Hinterlands wants you to kill 20 Savage Owlbeasts. Return to him once the task is complete.$B$BMarkhor mentioned that the Savage Owlbeasts occupy the wilds of the Hinterlands." WHERE `ID` = 7829;
+
+
+/*  Message to the Wildhammer  */
+UPDATE `quest_template` SET `LogDescription` = "Otho Moji'ko at Revantusk Village in the Hinterlands wants you to slaughter 15 Highvale Scouts, 5 Highvale Outrunners, 5 Highvale Rangers and 2 Highvale Marksman. Return to him when this task is complete.$B$BYou can find the Highvale high elves at the Quel'Danil Lodge in the northwestern region of the Hinterlands." WHERE `ID` = 7841;
+
+
+/*  Another Message to the Wildhammer  */
+UPDATE `quest_template` SET `LogDescription` = "Otho Moji'ko at Revantusk Village in the Hinterlands wants you to bring him 10 Long Elegant Feather from the gryphons that inhabit the Hinterlands. Return to him once this task is complete.$B$BGryphons are known to inhabit every region of the Hinterlands." WHERE `ID` = 7842;
+
+
+/*  Cannibalistic Cousins  */
+UPDATE `quest_template` SET `LogDescription` = "Mystic Yayo'jin at Revantusk Village in the Hinterlands wants you to kill 30 Vilebranch Scalpers and 2 Vilebranch Soothsayers. Return to her when this task is complete.$B$BYayo'jin indicated that these trolls could be found near the Shaol'watha and Agol'watha temples in the north by northeastern region of the Hinterlands." WHERE `ID` = 7844;
+
+
+/*  Dark Vessels  */
+UPDATE `quest_template` SET `LogDescription` = "Primal Torntusk at Revantusk Village in the Hinterlands wants you to recover 10 Vessels of Tainted Blood from Jintha'alor. Return to Primal Torntusk when this task is complete." WHERE `ID` = 7850;
+
+
+/*  Wanted: Vile Priestess Hexx and Her Minions  */
+UPDATE `quest_template` SET `LogDescription` = "You have been ordered to slay Vile Priestess Hexx and 20 Vilebranch Aman'zasi Guards. See Primal Torntusk at Revantusk Village in the Hinterlands once this task is complete.$B$BVile Priestess Hexx and the Aman'zasi Guards can be found atop Jintha'alor in the Hinterlands." WHERE `ID` = 7861;
+
+
+/*  Job Opening: Guard Captain of Revantusk Village  */
+UPDATE `quest_template` SET `LogDescription` = "You have been tasked with the decimation of 20 Vilebranch Berserkers, 3 Vilebranch Shadow Hunters, 3 Vilebranch Blood Drinkers, and 2 Vilebranch Soul Eaters.$B$BShould you complete this task, return to Primal Torntusk at Revantusk Village in the Hinterlands." WHERE `ID` = 7862;
+
+
+/*  Waskily Wabbits!  */
+UPDATE `quest_template` SET `LogDescription` = "Collect 160 Unlucky Wabbit Feet from the Waskily Wabbits." WHERE `ID` = 7961;
+
+
+/*  Twilight Marauders  */
+UPDATE `quest_template` SET `LogDescription` = "Slay Twilight Marauder Morna and 5 Twilight Marauders.  Report to Windcaller Proudhorn when your task is finished.  You must also bring Tactical Task Briefing IX in order to complete this quest." WHERE `ID` = 8740;
