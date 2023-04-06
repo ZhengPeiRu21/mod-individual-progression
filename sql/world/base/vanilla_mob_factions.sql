@@ -66,3 +66,30 @@ UPDATE `creature_template` SET `faction` = 26, flags_extra = 0 WHERE `entry` = 2
 
 /*  Kobold Worker  */
 UPDATE `creature_template` SET `faction` = 26, flags_extra = 0 WHERE `entry` = 80;
+
+/*  Tender  */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 15271;
+
+/*  Arcane Wraith  */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 15273;
+
+/*  Feral Tender  */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 15294;
+
+/*  Tainted Arcane Wraith  */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 15298;
+
+/*  Felendren the Banished  */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 15367;
+
+/*  Mutated Root Lasher  */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 16517;
+
+/*  Blood Elf Scout  */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 16521;
+
+/*  Surveyor Candress  */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 16522;
+
+/*  Mutated Owlkin  */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 16537;
