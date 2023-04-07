@@ -475,7 +475,7 @@ public:
     void ModifyHealReceived(Unit* /*target*/, Unit *healer, uint32 &heal, SpellInfo const *spellInfo) override
     {
         // Skip potions, bandages, percentage based heals like Rune Tap, etc.
-        if (spellInfo->HasAttribute(SPELL_ATTR0_NO_IMMUNITIES) || spellInfo->Mechanic == MECHANIC_BANDAGE || spellInfo->Id == SPELL_RUNE_TAP)
+        if (!sIndividualProgression->enabled || spellInfo->HasAttribute(SPELL_ATTR0_NO_IMMUNITIES) || spellInfo->Mechanic == MECHANIC_BANDAGE || spellInfo->Id == SPELL_RUNE_TAP)
         {
             return;
         }
@@ -507,8 +507,7 @@ public:
 
     void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* spellInfo) override
     {
-        // NPCBots Compatibility - attacker may be null
-        if (!attacker)
+        if (!sIndividualProgression->enabled || !attacker)
             return;
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
@@ -534,8 +533,7 @@ public:
 
     void ModifyMeleeDamage(Unit* /*target*/, Unit* attacker, uint32& damage) override
     {
-        // NPCBots Compatibility - attacker may be null
-        if (!attacker)
+        if (!sIndividualProgression->enabled || !attacker)
             return;
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;

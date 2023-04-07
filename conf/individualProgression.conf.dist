@@ -10,6 +10,9 @@
 #
 #    IndividualProgression.Enable
 #        Description: Enable Individual Progression Module
+#                     Please note that like all AzerothCore modules, database changes cannot be undone through config settings.
+#                     This means that world changes like restoring Vanilla quests and NPC stats will remain in place even if disabled.
+#                     Disabling the module will disable functionality like access restrictions, level caps, damage adjustments, etc.
 #        Default:     1 - Enabled
 #                     0 - Disabled
 #
