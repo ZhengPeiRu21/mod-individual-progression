@@ -981,7 +981,7 @@ UPDATE `quest_template` SET `LogDescription` = "Mudcrush Durtfeet in northern Du
 
 
 /*  Jarl Needs Eyes  */
-UPDATE `quest_template` SET `LogDescription` = "Bring 40 Unpopped Darkmist Eyes to "Swamp Eye" Jarl at the Swamplight Manor." WHERE `ID` = 1206;
+UPDATE `quest_template` SET `LogDescription` = "Bring 40 Unpopped Darkmist Eyes to \"Swamp Eye\" Jarl at the Swamplight Manor." WHERE `ID` = 1206;
 
 
 /*  The Black Shield  */
