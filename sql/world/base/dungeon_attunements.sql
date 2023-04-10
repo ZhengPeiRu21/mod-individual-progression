@@ -33,6 +33,11 @@ UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10884;
 UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10885;
 UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10886;
 
+/* The Vials of Eternity */
+DELETE FROM `creature_questender` WHERE `id` = 19935 AND `quest` = 13432;
+DELETE FROM `creature_queststarter` WHERE `id` = 19935 AND `quest` = 13432;
+REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (19935, 10445);
+
 /* A Distraction for Akama(13429) - Restore pre-3.0 version */
 UPDATE `quest_template` SET `RewardNextQuest` = 10985 WHERE `ID` = 10949;
 
