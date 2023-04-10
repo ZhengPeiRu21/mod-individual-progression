@@ -19757,13 +19757,13 @@ UPDATE `item_template` SET `spellid_1` = 31750, `spelltrigger_1` = 1 WHERE entry
 /* =========== NON-EQUIPMENT ITEMS ================ */
 
 /*  Scroll of Strength  */
-UPDATE item_template SET RequiredLevel = 10 WHERE entry=954;
+UPDATE item_template SET ItemLevel = 20, RequiredLevel = 10 WHERE entry=954;
 
 /*  Scroll of Intellect  */
-UPDATE item_template SET RequiredLevel = 5 WHERE entry=955;
+UPDATE item_template SET ItemLevel = 15, RequiredLevel = 5 WHERE entry=955;
 
 /*  Large Moneybag (old)  */
-UPDATE item_template SET bonding = 1 WHERE entry=1014;
+UPDATE item_template SET ItemLevel = 25, bonding = 1, class = 1 WHERE entry=1014;
 
 /*  Tablet of Serpent Totem  */
 UPDATE item_template SET BuyPrice = 80 WHERE entry=1029;
@@ -19784,22 +19784,25 @@ UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry
 UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry=1134;
 
 /*  Scroll of Stamina  */
-UPDATE item_template SET RequiredLevel = 5 WHERE entry=1180;
+UPDATE item_template SET ItemLevel = 15, RequiredLevel = 5 WHERE entry=1180;
+
+/*  Scroll of Spirit  */
+UPDATE item_template SET ItemLevel = 10 WHERE entry=1181;
 
 /*  Linen Bandage  */
 UPDATE item_template SET BuyPrice = 40, SellPrice = 10 WHERE entry=1251;
 
 /*  Scroll of Agility II  */
-UPDATE item_template SET RequiredLevel = 25 WHERE entry=1477;
+UPDATE item_template SET ItemLevel = 35, RequiredLevel = 25 WHERE entry=1477;
 
 /*  Scroll of Stamina II  */
-UPDATE item_template SET RequiredLevel = 20 WHERE entry=1711;
+UPDATE item_template SET ItemLevel = 30, RequiredLevel = 20 WHERE entry=1711;
 
 /*  Scroll of Strength II  */
-UPDATE item_template SET RequiredLevel = 25 WHERE entry=2289;
+UPDATE item_template SET ItemLevel = 35, RequiredLevel = 25 WHERE entry=2289;
 
 /*  Scroll of Intellect II  */
-UPDATE item_template SET RequiredLevel = 20 WHERE entry=2290;
+UPDATE item_template SET ItemLevel = 30, RequiredLevel = 20 WHERE entry=2290;
 
 /*  Light Leather  */
 UPDATE item_template SET BuyPrice = 60 WHERE entry=2318;
@@ -19816,8 +19819,11 @@ UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WH
 /*  White Stallion  */
 UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000, SellPrice = 0 WHERE entry=2415;
 
+/*  Earthroot  */
+UPDATE item_template SET ItemLevel = 5 WHERE entry=2449;
+
 /*  Recipe: Elixir of Tongues  */
-UPDATE item_template SET BuyPrice = 160 WHERE entry=2556;
+UPDATE item_template SET subclass = 6, BuyPrice = 160 WHERE entry=2556;
 
 /*  Hot Spices  */
 UPDATE item_template SET Quality = 1 WHERE entry=2692;
@@ -19829,19 +19835,25 @@ UPDATE item_template SET BuyPrice = 120, SellPrice = 30 WHERE entry=2892;
 UPDATE item_template SET BuyPrice = 220, SellPrice = 55 WHERE entry=2893;
 
 /*  Dust of Decay  */
-UPDATE item_template SET Quality = 1 WHERE entry=2928;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=2928;
 
 /*  Essence of Pain  */
-UPDATE item_template SET Quality = 1 WHERE entry=2930;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=2930;
 
 /*  Maiden's Anguish  */
-UPDATE item_template SET Quality = 1, BuyPrice = 100, SellPrice = 25 WHERE entry=2931;
+UPDATE item_template SET Quality = 1, ItemLevel = 34, class = 7, BuyPrice = 100, SellPrice = 25 WHERE entry=2931;
 
 /*  Scroll of Agility  */
-UPDATE item_template SET RequiredLevel = 10 WHERE entry=3012;
+UPDATE item_template SET ItemLevel = 20, RequiredLevel = 10 WHERE entry=3012;
+
+/*  Scroll of Protection  */
+UPDATE item_template SET ItemLevel = 10 WHERE entry=3013;
 
 /*  Grimoire of Burning Spirit II  */
 UPDATE item_template SET BuyPrice = 1800 WHERE entry=3144;
+
+/*  Grave Moss  */
+UPDATE item_template SET ItemLevel = 24 WHERE entry=3369;
 
 /*  Elixir of Ogre's Strength  */
 UPDATE item_template SET BuyPrice = 80, SellPrice = 20 WHERE entry=3391;
@@ -19862,10 +19874,13 @@ UPDATE item_template SET Quality = 1 WHERE entry=3713;
 UPDATE item_template SET BuyPrice = 52, SellPrice = 13 WHERE entry=3775;
 
 /*  Crippling Poison II  */
-UPDATE item_template SET Quality = 1 WHERE entry=3776;
+UPDATE item_template SET Quality = 1, class = 0 WHERE entry=3776;
+
+/*  Lethargy Root  */
+UPDATE item_template SET class = 7 WHERE entry=3777;
 
 /*  Carefully Folded Note  */
-UPDATE item_template SET RequiredLevel = 45 WHERE entry=4098;
+UPDATE item_template SET ItemLevel = 45, RequiredLevel = 45 WHERE entry=4098;
 
 /*  Tome of Conjure Food II  */
 UPDATE item_template SET BuyPrice = 500 WHERE entry=4143;
@@ -19880,16 +19895,16 @@ UPDATE item_template SET bonding = 3 WHERE entry=4401;
 UPDATE item_template SET Quality = 1 WHERE entry=4407;
 
 /*  Scroll of Intellect III  */
-UPDATE item_template SET RequiredLevel = 35 WHERE entry=4419;
+UPDATE item_template SET ItemLevel = 45, RequiredLevel = 35 WHERE entry=4419;
 
 /*  Scroll of Stamina III  */
-UPDATE item_template SET RequiredLevel = 35 WHERE entry=4422;
+UPDATE item_template SET ItemLevel = 45, RequiredLevel = 35 WHERE entry=4422;
 
 /*  Scroll of Agility III  */
-UPDATE item_template SET RequiredLevel = 40 WHERE entry=4425;
+UPDATE item_template SET ItemLevel = 50, RequiredLevel = 40 WHERE entry=4425;
 
 /*  Scroll of Strength III  */
-UPDATE item_template SET RequiredLevel = 40 WHERE entry=4426;
+UPDATE item_template SET ItemLevel = 50, RequiredLevel = 40 WHERE entry=4426;
 
 /*  Flint and Tinder  */
 UPDATE item_template SET Quality = 1 WHERE entry=4471;
@@ -19913,10 +19928,13 @@ UPDATE item_template SET subclass = 1, Quality = 1, description = '' WHERE entry
 UPDATE item_template SET BuyPrice = 900 WHERE entry=5150;
 
 /*  Deathweed  */
-UPDATE item_template SET Quality = 1 WHERE entry=5173;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=5173;
 
 /*  Mind-numbing Poison  */
 UPDATE item_template SET BuyPrice = 72, SellPrice = 18 WHERE entry=5237;
+
+/*  Glowing Cat Figurine  */
+UPDATE item_template SET ItemLevel = 1 WHERE entry=5332;
 
 /*  Dartol's Rod of Transformation  */
 UPDATE item_template SET bonding = 1 WHERE entry=5462;
@@ -19946,7 +19964,7 @@ UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WH
 UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=5668;
 
 /*  Henrig Lonebrow's Journal  */
-UPDATE item_template SET RequiredLevel = 29 WHERE entry=5791;
+UPDATE item_template SET ItemLevel = 29, RequiredLevel = 29 WHERE entry=5791;
 
 /*  Kravel's Scheme  */
 UPDATE item_template SET bonding = 0 WHERE entry=5826;
@@ -20000,7 +20018,7 @@ UPDATE item_template SET BuyPrice = 80, SellPrice = 20 WHERE entry=6949;
 UPDATE item_template SET BuyPrice = 120, SellPrice = 30 WHERE entry=6950;
 
 /*  Mind-numbing Poison II  */
-UPDATE item_template SET Quality = 1 WHERE entry=6951;
+UPDATE item_template SET Quality = 1, class = 0 WHERE entry=6951;
 
 /*  Shadowcat Hide  */
 UPDATE item_template SET Quality = 1, class = 7, BuyPrice = 1000, SellPrice = 250 WHERE entry=7428;
@@ -20024,7 +20042,7 @@ UPDATE item_template SET BuyPrice = 10000, SellPrice = 2500 WHERE entry=7988;
 UPDATE item_template SET BuyPrice = 8000, SellPrice = 2000 WHERE entry=7994;
 
 /*  Wicked Claw  */
-UPDATE item_template SET Quality = 1 WHERE entry=8146;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=8146;
 
 /*  Wildvine  */
 UPDATE item_template SET Quality = 1 WHERE entry=8153;
@@ -20144,13 +20162,13 @@ UPDATE item_template SET bonding = 4 WHERE entry=8663;
 UPDATE item_template SET BuyPrice = 4, SellPrice = 1 WHERE entry=8683;
 
 /*  Elixir of Water Walking  */
-UPDATE item_template SET RequiredLevel = 24 WHERE entry=8827;
+UPDATE item_template SET ItemLevel = 34, RequiredLevel = 24 WHERE entry=8827;
 
 /*  Essence of Agony  */
-UPDATE item_template SET Quality = 1 WHERE entry=8923;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=8923;
 
 /*  Dust of Deterioration  */
-UPDATE item_template SET Quality = 1 WHERE entry=8924;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=8924;
 
 /*  Instant Poison IV  */
 UPDATE item_template SET BuyPrice = 300, SellPrice = 75 WHERE entry=8926;
@@ -20174,28 +20192,28 @@ UPDATE item_template SET BuyPrice = 600, SellPrice = 150 WHERE entry=8985;
 UPDATE item_template SET BuyPrice = 80, SellPrice = 20 WHERE entry=9036;
 
 /*  Mind-numbing Poison III  */
-UPDATE item_template SET Quality = 1 WHERE entry=9186;
+UPDATE item_template SET Quality = 1, class = 0 WHERE entry=9186;
 
 /*  Troll Tribal Necklace  */
 UPDATE item_template SET bonding = 0 WHERE entry=9259;
 
 /*  Scroll of Protection IV  */
-UPDATE item_template SET RequiredLevel = 45 WHERE entry=10305;
+UPDATE item_template SET ItemLevel = 55, RequiredLevel = 45 WHERE entry=10305;
 
 /*  Scroll of Spirit IV  */
-UPDATE item_template SET RequiredLevel = 45 WHERE entry=10306;
+UPDATE item_template SET ItemLevel = 55, RequiredLevel = 45 WHERE entry=10306;
 
 /*  Scroll of Stamina IV  */
-UPDATE item_template SET RequiredLevel = 50 WHERE entry=10307;
+UPDATE item_template SET ItemLevel = 60, RequiredLevel = 50 WHERE entry=10307;
 
 /*  Scroll of Intellect IV  */
-UPDATE item_template SET RequiredLevel = 50 WHERE entry=10308;
+UPDATE item_template SET ItemLevel = 60, RequiredLevel = 50 WHERE entry=10308;
 
 /*  Scroll of Agility IV  */
-UPDATE item_template SET RequiredLevel = 55 WHERE entry=10309;
+UPDATE item_template SET ItemLevel = 65, RequiredLevel = 55 WHERE entry=10309;
 
 /*  Scroll of Strength IV  */
-UPDATE item_template SET RequiredLevel = 55 WHERE entry=10310;
+UPDATE item_template SET ItemLevel = 65, RequiredLevel = 55 WHERE entry=10310;
 
 /*  Black Kingsnake  */
 UPDATE item_template SET bonding = 3 WHERE entry=10360;
@@ -20267,37 +20285,31 @@ UPDATE item_template SET Quality = 1, bonding = 4 WHERE entry=11482;
 UPDATE item_template SET RequiredLevel = 0 WHERE entry=11609;
 
 /*  Lesser Arcanum of Rumination  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11622;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11622;
 
 /*  Lesser Arcanum of Constitution  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11642;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11642;
 
 /*  Lesser Arcanum of Tenacity  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11643;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11643;
 
 /*  Lesser Arcanum of Resilience  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11644;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11644;
 
 /*  Lesser Arcanum of Voracity  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11645;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11645;
 
 /*  Lesser Arcanum of Voracity  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11646;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11646;
 
 /*  Lesser Arcanum of Voracity  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11647;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11647;
 
 /*  Lesser Arcanum of Voracity  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11648;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11648;
 
 /*  Lesser Arcanum of Voracity  */
-UPDATE item_template SET bonding = 4, RequiredLevel = 0 WHERE entry=11649;
-
-/*  Pet Bombling  */
-UPDATE item_template SET bonding = 1 WHERE entry=11825;
-
-/*  Lil' Smoky  */
-UPDATE item_template SET bonding = 1 WHERE entry=11826;
+UPDATE item_template SET ItemLevel = 50, bonding = 4, RequiredLevel = 0 WHERE entry=11649;
 
 /*  Shadowforge Torch  */
 UPDATE item_template SET BuyPrice = 2846, SellPrice = 711 WHERE entry=11885;
@@ -20334,6 +20346,9 @@ UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 W
 
 /*  Smolderweb Carrier  */
 UPDATE item_template SET BuyPrice = 6000, SellPrice = 1500 WHERE entry=12529;
+
+/*  Attuned Dampener  */
+UPDATE item_template SET description = 'This object has been attuned to work against a specific being.' WHERE entry=12650;
 
 /*  Reins of the Winterspring Frostsaber  */
 UPDATE item_template SET SellPrice = 0, RequiredLevel = 60 WHERE entry=13086;
@@ -20429,7 +20444,7 @@ UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 W
 UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=15293;
 
 /*  Ironfeather  */
-UPDATE item_template SET Quality = 1 WHERE entry=15420;
+UPDATE item_template SET Quality = 1, class = 7 WHERE entry=15420;
 
 /*  Frostsaber Leather  */
 UPDATE item_template SET Quality = 1, class = 7 WHERE entry=15422;
@@ -20522,13 +20537,13 @@ UPDATE item_template SET BuyPrice = 30000, SellPrice = 1500 WHERE entry=18256;
 UPDATE item_template SET bonding = 1 WHERE entry=18260;
 
 /*  Arcanum of Rapidity  */
-UPDATE item_template SET RequiredLevel = 0 WHERE entry=18329;
+UPDATE item_template SET ItemLevel = 50, RequiredLevel = 0 WHERE entry=18329;
 
 /*  Arcanum of Focus  */
-UPDATE item_template SET RequiredLevel = 0 WHERE entry=18330;
+UPDATE item_template SET ItemLevel = 50, RequiredLevel = 0 WHERE entry=18330;
 
 /*  Arcanum of Protection  */
-UPDATE item_template SET RequiredLevel = 0 WHERE entry=18331;
+UPDATE item_template SET ItemLevel = 50, RequiredLevel = 0 WHERE entry=18331;
 
 /*  Heated Ancient Blade  */
 UPDATE item_template SET Quality = 4 WHERE entry=18488;
@@ -20642,16 +20657,16 @@ UPDATE item_template SET BuyPrice = 50000, SellPrice = 12500 WHERE entry=19045;
 UPDATE item_template SET BuyPrice = 50000, SellPrice = 12500 WHERE entry=19046;
 
 /*  Beasts Deck  */
-UPDATE item_template SET BuyPrice = 400000, SellPrice = 100000 WHERE entry=19228;
+UPDATE item_template SET ItemLevel = 1, BuyPrice = 400000, SellPrice = 100000 WHERE entry=19228;
 
 /*  Warlords Deck  */
-UPDATE item_template SET BuyPrice = 400000, SellPrice = 100000 WHERE entry=19257;
+UPDATE item_template SET ItemLevel = 1, BuyPrice = 400000, SellPrice = 100000 WHERE entry=19257;
 
 /*  Elementals Deck  */
-UPDATE item_template SET BuyPrice = 400000, SellPrice = 100000 WHERE entry=19267;
+UPDATE item_template SET ItemLevel = 1, BuyPrice = 400000, SellPrice = 100000 WHERE entry=19267;
 
 /*  Portals Deck  */
-UPDATE item_template SET BuyPrice = 400000, SellPrice = 100000 WHERE entry=19277;
+UPDATE item_template SET ItemLevel = 1, BuyPrice = 400000, SellPrice = 100000 WHERE entry=19277;
 
 /*  Harpy Hide Quiver  */
 UPDATE item_template SET BuyPrice = 350000, SellPrice = 87500 WHERE entry=19319;
@@ -20717,7 +20732,7 @@ UPDATE item_template SET RequiredReputationFaction = 509, RequiredReputationRank
 UPDATE item_template SET Quality = 1 WHERE entry=20371;
 
 /*  Head of the Broodlord Lashlayer  */
-UPDATE item_template SET Quality = 4 WHERE entry=20383;
+UPDATE item_template SET Quality = 4, description = 'Only ONE May Rise... (and consequently, only ONE may loot this head)' WHERE entry=20383;
 
 /*  Twilight Lexicon - Chapter 1  */
 UPDATE item_template SET bonding = 5 WHERE entry=20394;
@@ -20744,13 +20759,13 @@ UPDATE item_template SET BuyPrice = 600, SellPrice = 150 WHERE entry=20844;
 UPDATE item_template SET RequiredLevel = 58 WHERE entry=20880;
 
 /*  Hive'Zora Scout Report  */
-UPDATE item_template SET RequiredLevel = 58 WHERE entry=21158;
+UPDATE item_template SET ItemLevel = 60, RequiredLevel = 58 WHERE entry=21158;
 
 /*  Hive'Regal Scout Report  */
-UPDATE item_template SET RequiredLevel = 58 WHERE entry=21160;
+UPDATE item_template SET ItemLevel = 60, RequiredLevel = 58 WHERE entry=21160;
 
 /*  Hive'Ashi Scout Report  */
-UPDATE item_template SET RequiredLevel = 58 WHERE entry=21161;
+UPDATE item_template SET ItemLevel = 60, RequiredLevel = 58 WHERE entry=21161;
 
 /*  Baby Shark  */
 UPDATE item_template SET bonding = 3, BuyPrice = 6000 WHERE entry=21168;
