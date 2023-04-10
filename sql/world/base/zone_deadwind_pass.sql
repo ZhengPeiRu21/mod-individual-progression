@@ -108,6 +108,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Restless Shade
 DELETE FROM `creature_loot_template` WHERE `Entry`=7370;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (7370, 24480, 0, 80, 1, 1, 0, 1, 1, 'Restless Shade - Ghostly Essence');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (7370, 2928, 0, 0.02, 0, 1, 0, 1, 1, 'Restless Shade - Dust of Decay');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (7370, 4500, 0, 0.06, 0, 1, 0, 1, 1, 'Restless Shade - Traveler\'s Backpack');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (7370, 5759, 0, 0.18, 0, 1, 0, 1, 1, 'Restless Shade - Thorium Lockbox');
@@ -551,6 +552,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Wailing Spectre
 DELETE FROM `creature_loot_template` WHERE `Entry`=12377;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12377, 24480, 0, 80, 1, 1, 0, 1, 1, 'Wailing Spectre - Ghostly Essence');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12377, 4500, 0, 0.04, 0, 1, 0, 1, 1, 'Wailing Spectre - Traveler\'s Backpack');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12377, 5759, 0, 0.0119, 0, 1, 0, 1, 1, 'Wailing Spectre - Thorium Lockbox');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12377, 7909, 0, 0.008, 0, 1, 0, 1, 1, 'Wailing Spectre - Aquamarine');
@@ -628,6 +630,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Damned Soul
 DELETE FROM `creature_loot_template` WHERE `Entry`=12378;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12378, 24480, 0, 80, 1, 1, 0, 1, 1, 'Damned Soul - Ghostly Essence');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12378, 4500, 0, 0.06, 0, 1, 0, 1, 1, 'Damned Soul - Traveler\'s Backpack');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12378, 5759, 0, 0.2, 0, 1, 0, 1, 1, 'Damned Soul - Thorium Lockbox');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12378, 7909, 0, 0.12, 0, 1, 0, 1, 1, 'Damned Soul - Aquamarine');
@@ -710,6 +713,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Unliving Caretaker
 DELETE FROM `creature_loot_template` WHERE `Entry`=12379;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12379, 24480, 0, 80, 1, 1, 0, 1, 1, 'Unliving Caretaker - Ghostly Essence');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12379, 4500, 0, 0.06, 0, 1, 0, 1, 1, 'Unliving Caretaker - Traveler\'s Backpack');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12379, 5759, 0, 0.24, 0, 1, 0, 1, 1, 'Unliving Caretaker - Thorium Lockbox');
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (12379, 7909, 0, 0.14, 0, 1, 0, 1, 1, 'Unliving Caretaker - Aquamarine');

@@ -33,5 +33,22 @@ UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10884;
 UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10885;
 UPDATE `quest_template_addon` SET `NextQuestID` = 10888 WHERE `ID` = 10886;
 
+/* The Vials of Eternity */
+DELETE FROM `creature_questender` WHERE `id` = 19935 AND `quest` = 13432;
+DELETE FROM `creature_queststarter` WHERE `id` = 19935 AND `quest` = 13432;
+REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (19935, 10445);
+
 /* A Distraction for Akama(13429) - Restore pre-3.0 version */
 UPDATE `quest_template` SET `RewardNextQuest` = 10985 WHERE `ID` = 10949;
+
+/* Reward Title Scarab Lord */
+UPDATE `quest_template` SET `RewardTitle` = 46 WHERE `ID` = 8743;
+
+/* Reward Title Champion of the Naaru and Reward Item The Tempest Key */
+UPDATE `quest_template` SET `RewardItem1` = 31704, `RewardAmount1` = 1, `RewardItem2` = 31746, `RewardAmount2` = 1, `RewardTitle` = 53 WHERE `ID` = 10888;
+DELETE FROM `achievement_reward` WHERE `ID` = 432;
+DELETE FROM `achievement_reward_locale` WHERE `ID` = 432 AND `Locale` = 'frFR';
+
+/* Reward Title Hand of A'dal */
+REPLACE INTO `achievement_reward` (`ID`, `TitleA`, `TitleH`, `ItemID`, `Sender`, `Subject`, `Body`, `MailTemplateID`) VALUES (431, 64, 64, 0, 0, NULL, NULL, 0);
+
