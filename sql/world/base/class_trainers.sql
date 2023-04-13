@@ -1,3 +1,12 @@
+/* Remove Aquatic Form from Druid Trainers - it is a quest reward instead */
+DELETE FROM `npc_trainer` WHERE `SpellID` = 1066;
+
+/* Restore Aquatic Form as a reward for Aquatic Form quests */
+UPDATE `quest_template` SET `RewardSpell` = 1066 WHERE `ID` IN (31, 5061);
+
+/* Correct Vanilla level for Druid Travel Form */
+UPDATE `npc_trainer` SET `ReqLevel` = 30 WHERE `SpellID` = 783;
+
 /* Remove Summon Imp from Trainer - it is a quest reward instead */
 
 DELETE FROM `npc_trainer` WHERE `ID`=200009 AND `SpellID`=688;
