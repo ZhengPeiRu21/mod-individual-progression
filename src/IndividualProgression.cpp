@@ -143,6 +143,12 @@ void IndividualProgression::AdjustStats(Player* player, float computedAdjustment
     player->CastCustomSpell(player, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
 }
 
+float IndividualProgression::ComputeVanillaAdjustment(Player *player, float configAdjustmentValue)
+{
+    float adjustmentApplyPercent = (player->getLevel() - 10.0f) / 50.0f;
+    return player->getLevel() > 10 ? (1.0f - (configAdjustmentValue * adjustmentApplyPercent)) : 1;
+}
+
 /**
  * Gets the highest progression level achieved by an account
  * Note that this method makes a direct, non-sync DB call and should be used sparingly

@@ -44,6 +44,7 @@ enum BuffSpells
     ABSORB_SPELL = 89505,
     RANGED_HASTE_SPELL = 89507,
     SPELL_RUNE_TAP = 48982,
+    SPELL_LIFE_STEAL = 20004,
     IPP_PHASE = 89509
 };
 
@@ -161,6 +162,7 @@ public:
     void checkKillProgression(Player* player, Creature* killed);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
     static void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment);
+    static float ComputeVanillaAdjustment(Player* player, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);
 };
 
