@@ -1015,8 +1015,8 @@ UPDATE `quest_template` SET `LogDescription` = "Recover 20 Plagued Flesh Samples
 
 
 /*  Clam Bait  */
-UPDATE `quest_template` SET `LogDescription` = "Find 110 pieces of Soft-shelled Clam Meat and bring it back to Mai'Lahii at Shadowprey Village." WHERE `ID` = 6142;
-UPDATE `quest_template` SET `QuestDescription` = "You have the look of a fisherman, $c! I love to fish - been fishing all my life. The best bait to use is soft-shelled clam meat; the fish just can't resist, you know what I mean?$B$BUp north you will find a wrecked ship off the coast. Soft-shelled clams are littered throughout the area. If you bring me back 110 pieces of soft-shelled clam meat, I will give you something in return." WHERE `ID` = 6142;
+UPDATE `quest_template` SET `LogDescription` = "Find 10 pieces of Soft-shelled Clam Meat and bring it back to Mai'Lahii at Shadowprey Village." WHERE `ID` = 6142;
+UPDATE `quest_template` SET `QuestDescription` = "You have the look of a fisherman, $c! I love to fish - been fishing all my life. The best bait to use is soft-shelled clam meat; the fish just can't resist, you know what I mean?$B$BUp north you will find a wrecked ship off the coast. Soft-shelled clams are littered throughout the area. If you bring me back 10 pieces of soft-shelled clam meat, I will give you something in return." WHERE `ID` = 6142;
 
 
 /*  Twisted Evils  */
