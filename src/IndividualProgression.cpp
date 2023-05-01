@@ -146,7 +146,7 @@ void IndividualProgression::AdjustStats(Player* player, float computedAdjustment
 float IndividualProgression::ComputeVanillaAdjustment(Player *player, float configAdjustmentValue)
 {
     float adjustmentApplyPercent = (player->getLevel() - 10.0f) / 50.0f;
-    return player->getLevel() > 10 ? (1.0f - (configAdjustmentValue * adjustmentApplyPercent)) : 1;
+    return player->getLevel() > 10 ? 1 - ((1 - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 }
 
 /**
