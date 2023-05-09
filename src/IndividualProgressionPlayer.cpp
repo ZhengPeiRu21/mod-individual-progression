@@ -30,7 +30,7 @@ public:
     }
 
     // Waiting for PR: https://github.com/azerothcore/azerothcore-wotlk/pull/13046
-//    void OnSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
+//    void OnSetMaxLevel(Player* player, uint32& malayerLevel) override
 //    {
 //        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
 //        {
@@ -130,7 +130,7 @@ public:
         }
     }
 
-    void OnGiveXP(Player* player, uint32& amount, Unit* /*victim*/) override
+    void OnGiveXP(Player* player, uint32& amount, Unit* /*victim*/, xpSource) override
     {
         if (!sIndividualProgression->enabled)
         {
