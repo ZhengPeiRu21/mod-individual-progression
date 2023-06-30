@@ -2344,9 +2344,6 @@ UPDATE `creature_template` SET `speed_walk` = 1.0, `detection_range` = 18.0 WHER
 /*  Moorah Stormhoof  */
 UPDATE `creature_template` SET `speed_walk` = 1.0, `detection_range` = 18.0 WHERE `entry`=1409;
 
-/*  Firewing Bloodwarder  */
-UPDATE `creature_template` SET `subname` = 'Priest Trainer', `modelid1` = 4718, `minlevel` = 1, `maxlevel` = 1, `detection_range` = 18.0, `HealthModifier` = 1.25, `unit_class` = 1 WHERE `entry`=1410;
-
 /*  Ian Strom  */
 UPDATE `creature_template` SET `DamageModifier` = 0.95, `ArmorModifier` = 0.8 WHERE `entry`=1411;
 
@@ -9861,9 +9858,6 @@ UPDATE `creature_template` SET `modelid1` = 4494, `DamageModifier` = 0.95 WHERE 
 
 /*  Gnarl Leafbrother  */
 UPDATE `creature_template` SET `DamageModifier` = 3.25, `RangeAttackTime` = 1411 WHERE `entry`=5354;
-
-/*  Firewing Defender  */
-UPDATE `creature_template` SET `modelid1` = 8471, `minlevel` = 1, `maxlevel` = 1, `detection_range` = 18.0, `HealthModifier` = 1.3 WHERE `entry`=5355;
 
 /*  Land Walker  */
 UPDATE `creature_template` SET `speed_walk` = 0.777776, `DamageModifier` = 3.25 WHERE `entry`=5357;
