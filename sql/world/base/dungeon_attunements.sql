@@ -16,6 +16,9 @@ DELETE FROM `creature_questender` WHERE `id`=22421 AND `quest`=13431;
 DELETE FROM `creature_questender` WHERE `id`=22421 AND `quest`=10901;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (22421, 10901);
 
+-- Adds The Mark of Vashj spell to The Cudgel of Kar'desh (cosmetic)
+UPDATE `quest_template` SET `RewardSpell` = 39145 WHERE (`ID` = 10901);
+
 DELETE FROM `creature_queststarter` WHERE `id`=22421 AND `quest`=13431;
 DELETE FROM `creature_queststarter` WHERE `id`=22421 AND `quest`=10901;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (22421, 10901);
