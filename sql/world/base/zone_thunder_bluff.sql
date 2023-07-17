@@ -55,9 +55,6 @@ UPDATE `creature_template` SET `subname`='Expert Alchemist' WHERE `entry`=3009;
 -- Teg Dawnstrider <Expert Enchanter>
 UPDATE `creature_template` SET `subname`='Expert Enchanter' WHERE `entry`=3011;
 
--- Nida Winterhoof <Herbalism Supplier>
-UPDATE `creature_template` SET `subname`='Expert Enchanter' WHERE `entry`=3014;
-
 -- Kard Ragetotem <Sword and Dagger Merchant>
 UPDATE `creature_template` SET `subname`='Sword and Dagger Merchant' WHERE `entry`=3021;
 
