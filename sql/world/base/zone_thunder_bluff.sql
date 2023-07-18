@@ -34,6 +34,10 @@ INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, 
 DELETE FROM `creature` WHERE `id1`=12198;
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12198, 1, -995.143, 217.173, 104.729, 4.46804, 500);
 
+-- Remove WotLK Battlemasters
+DELETE FROM `creature` WHERE `id1`=34978;
+DELETE FROM `creature` WHERE `id1`=34976;
+
 -- Karn Stonehoof <Expert Blacksmith>
 UPDATE `creature_template` SET `subname`='Expert Blacksmith' WHERE `entry`=2998;
 
