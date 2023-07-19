@@ -26,6 +26,9 @@ DELETE FROM npc_trainer WHERE SpellID IN (7929, 10840, 27032, 27033);
 DELETE FROM npc_trainer WHERE SpellID IN (54254, 10847, 54255);
 UPDATE quest_template SET RewardItem3 = 16085, RewardAmount3 = 1 WHERE ID IN (6624, 6622);
 
+-- TBC First Aid vendors
+UPDATE `creature_template` SET `npcflag` = 128 WHERE `entry` IN (18990, 18991);
+
 -- Cooking Skills learned from Books and Quests, not trainers
 DELETE FROM npc_trainer WHERE SpellID IN (18261, 19886, 54257, 54256);
 UPDATE quest_template SET RewardItem1=16073, RewardAmount1=1 WHERE id = 6610;
