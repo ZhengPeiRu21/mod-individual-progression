@@ -67,7 +67,13 @@ WHERE SpellID IN (23028,
                   25295,
                   25296,
                   31016,
-                  21562);
+                  21562,
+                  19801);
+
+/* Restore Tome of Tranquilizing Shot to Lucifron */
+DELETE FROM `creature_loot_template` WHERE `Entry`=12118 AND `Item`=16665 AND `Reference`=0 AND `GroupId`=0;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(12118, 16665, 0, 100, 0, 1, 0, 1, 1, NULL);
 
 /* Restore AQ20 Book Drops */
 DELETE FROM `reference_loot_template` WHERE `entry` IN (30420, 30421, 30424, 30426, 30427);
