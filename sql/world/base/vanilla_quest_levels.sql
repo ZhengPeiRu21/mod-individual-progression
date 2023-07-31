@@ -1044,7 +1044,7 @@ UPDATE `quest_template` SET `LogDescription` = "Otho Moji'ko at Revantusk Villag
 
 
 /*  Cannibalistic Cousins  */
-UPDATE `quest_template` SET `LogDescription` = "Mystic Yayo'jin at Revantusk Village in the Hinterlands wants you to kill 30 Vilebranch Scalpers and 2 Vilebranch Soothsayers. Return to her when this task is complete.$B$BYayo'jin indicated that these trolls could be found near the Shaol'watha and Agol'watha temples in the north by northeastern region of the Hinterlands." WHERE `ID` = 7844;
+UPDATE `quest_template` SET `LogDescription` = "Mystic Yayo'jin at Revantusk Village in the Hinterlands wants you to kill 30 Vilebranch Scalpers and 15 Vilebranch Soothsayers. Return to her when this task is complete.$B$BYayo'jin indicated that these trolls could be found near the Shaol'watha and Agol'watha temples in the north by northeastern region of the Hinterlands." WHERE `ID` = 7844;
 
 
 /*  Dark Vessels  */
