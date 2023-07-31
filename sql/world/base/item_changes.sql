@@ -6013,6 +6013,9 @@ UPDATE `item_template` SET `BuyPrice` = 5046 WHERE entry=9609;
 /*  Dual Reinforced Leggings  */
 UPDATE `item_template` SET `BuyPrice` = 31721 WHERE entry=9625;
 
+/* Neeru's Herb Pouch */
+UPDATE `item_template` SET `name` = "Neeru's Herb Pouch" WHERE `entry`=9628;
+
 /*  Pratt's Handcrafted Boots  */
 UPDATE `item_template` SET `BuyPrice` = 28903 WHERE entry=9630;
 

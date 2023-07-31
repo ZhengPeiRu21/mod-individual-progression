@@ -621,3 +621,9 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (14581, 23469,
 
 -- Nogg Quest Flags fix
 UPDATE `creature_template` SET `npcflag` = `npcflag` | 2 WHERE `entry` = 3412;
+
+-- Fix quest A Strange Request to use Vanilla NPCs
+UPDATE `quest_template` SET `LogDescription` = "Take the Shrunken Head to Neeru Fireblade in Orgrimmar.", `QuestDescription` = "Neeru Fireblade in Orgrimmar has what I need to get started here! He has mixed up a concoction that I need for my... well, you'll see.$B$BOff with you now -- to Orgrimmar. Here, take this with you. It's a shrunken head that I promised Neeru in exchange for the herbs. It's the head of some poor dwarf I ventured across in the forest. I'm sure Neeru will be pleased.$B$BYou'll find Neeru in the Cleft of Shadow." WHERE `ID` = 3121;
+UPDATE `creature_questender` SET `id` = 3216 WHERE `quest` = 3121;
+UPDATE `creature_queststarter` SET `id` = 3216 WHERE `quest` = 3122;
+UPDATE `quest_template` SET `LogDescription` = "Deliver Neeru's Herb Pouch to Witch Doctor Uzer'i in Feralas." WHERE `ID` = 3122;
