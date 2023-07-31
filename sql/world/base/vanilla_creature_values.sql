@@ -4886,7 +4886,8 @@ UPDATE `creature_template` SET `minlevel` = 40, `maxlevel` = 40, `DamageModifier
 UPDATE `creature_template` SET `speed_run` = 0.571429 WHERE `entry`=2675;
 
 /*  Compact Harvest Reaper  */
-UPDATE `creature_template` SET `minlevel` = 40, `maxlevel` = 41, `DamageModifier` = 1.05 WHERE `entry`=2676;
+/* Currently scaling incorrectly due to an AzerothCore bug - see https://github.com/azerothcore/azerothcore-wotlk/issues/8945 */
+UPDATE `creature_template` SET `minlevel` = 21, `maxlevel` = 22, `DamageModifier` = 1.05 WHERE `entry`=2676;
 
 /*  Mechanical Dragonling  */
 UPDATE `creature_template` SET `DamageModifier` = 0.2, `HealthModifier` = 1e-06, `mingold` = 2, `maxgold` = 10 WHERE `entry`=2678;
