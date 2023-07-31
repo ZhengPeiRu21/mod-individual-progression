@@ -2,7 +2,7 @@
 DELETE FROM `npc_trainer` WHERE `SpellID` = 1066;
 
 /* Restore Aquatic Form as a reward for Aquatic Form quests */
-UPDATE `quest_template` SET `RewardSpell` = 1066 WHERE `ID` IN (31, 5061);
+UPDATE `quest_template` SET `RewardSpell` = 1446 WHERE `ID` IN (31, 5061);
 
 /* Correct Vanilla level for Druid Travel Form */
 UPDATE `npc_trainer` SET `ReqLevel` = 30 WHERE `SpellID` = 783;
