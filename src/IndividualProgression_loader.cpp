@@ -39,6 +39,7 @@ void AddSC_individualProgression_commandscript();
 void AddSC_mod_individual_progression_awareness();
 void AddSC_mod_individual_progression_player();
 void AddSC_npc_archmage_timear();
+void AddSC_karazhan_70();
 
 
 void Addmod_individual_progressionScripts()
@@ -79,4 +80,5 @@ void Addmod_individual_progressionScripts()
     AddSC_mod_individual_progression_awareness();
     AddSC_mod_individual_progression_player();
     AddSC_npc_archmage_timear();
+    AddSC_karazhan_70();
 }
