@@ -15212,10 +15212,10 @@ UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 13
 UPDATE `item_template` SET `BuyPrice` = 5393, `SellPrice` = 1078, `spellid_1` = 0, `spelltrigger_1` = 0 WHERE entry=19028;
 
 /*  Frostwolf Battle Tabard  */
-UPDATE `item_template` SET `BuyPrice` = 10000, `SellPrice` = 2500 WHERE entry=19031;
+UPDATE `item_template` SET `BuyPrice` = 10000, `SellPrice` = 2500, `RequiredReputationFaction` = 729, `RequiredReputationRank` = 4 WHERE entry=19031;
 
 /*  Stormpike Battle Tabard  */
-UPDATE `item_template` SET `BuyPrice` = 10000, `SellPrice` = 2500 WHERE entry=19032;
+UPDATE `item_template` SET `BuyPrice` = 10000, `SellPrice` = 2500, `RequiredReputationFaction` = 730, `RequiredReputationRank` = 4 WHERE entry=19032;
 
 /*  Emerald Peak Spaulders  */
 UPDATE `item_template` SET `BuyPrice` = 29389, `SellPrice` = 5877 WHERE entry=19037;
@@ -15671,10 +15671,10 @@ UPDATE `item_template` SET `armor` = 75, `BuyPrice` = 169028, `SellPrice` = 3380
 UPDATE `item_template` SET `armor` = 212, `BuyPrice` = 282763, `SellPrice` = 56552 WHERE entry=19439;
 
 /*  Warsong Battle Tabard  */
-UPDATE `item_template` SET `BuyPrice` = 50000, `SellPrice` = 12500 WHERE entry=19505;
+UPDATE `item_template` SET `BuyPrice` = 50000, `SellPrice` = 12500, `RequiredReputationFaction` = 889, `RequiredReputationRank` = 7 WHERE entry=19505;
 
 /*  Silverwing Battle Tabard  */
-UPDATE `item_template` SET `BuyPrice` = 50000, `SellPrice` = 12500 WHERE entry=19506;
+UPDATE `item_template` SET `BuyPrice` = 50000, `SellPrice` = 12500, `RequiredReputationFaction` = 890, `RequiredReputationRank` = 7 WHERE entry=19506;
 
 /*  Inquisitor's Shawl  */
 UPDATE `item_template` SET `Quality` = 2, `armor` = 40, `BuyPrice` = 8507, `SellPrice` = 1701, `MaxDurability` = 45, `stat_value1` = 8, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 9415 WHERE entry=19507;
