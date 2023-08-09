@@ -41,6 +41,7 @@ INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, 
 
 -- Captain Dirgehammer <Armor Quartermaster>
 DELETE FROM `creature` WHERE `id1`=12777;
+DELETE FROM `creature` WHERE `id1`=34075;
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12777, 0, -8768.77, 401.647, 109.665, 2.22999, 300);
 
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
@@ -61,10 +62,17 @@ INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, 
 
 -- Captain O'Neal <Weapons Quartermaster>
 DELETE FROM `creature` WHERE `id1`=12782;
+DELETE FROM `creature` WHERE `id1`=34081;
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12782, 0, -8778.3, 432.142, 105.309, 4.17386, 300);
 
 -- Lieutenant Jackspring <Legacy Weapon Quartermaster>
 DELETE FROM `creature` WHERE `id1`=12784;
+
+-- Knight-Lieutenant T'Maire Sydes <Northrend Armor Quartermaster>
+DELETE FROM `creature` WHERE `id1`=40607;
+
+-- Lieutenant Tristia <Veteran Armor Quartermaster>
+DELETE FROM `creature` WHERE `id1`=34078;
 
 -- Sergeant Major Clate <Legacy Armor Quartermaster>
 DELETE FROM `creature` WHERE `id1`=12785;
