@@ -13891,6 +13891,9 @@ UPDATE `item_template` SET `BuyPrice` = 12043, `SellPrice` = 2408 WHERE entry=17
 /*  Ornate Buckler  */
 UPDATE `item_template` SET `BuyPrice` = 34609, `SellPrice` = 6921 WHERE entry=17190;
 
+/* Scepter of Celebras - keep WotLK stats but make unsellable */
+UPDATE `item_template` SET `BuyPrice` = 0, `SellPrice` = 0, `DisenchantID` = 0, `RequiredDisenchantSkill` = 0 WHERE entry=17191;
+
 /*  Reinforced Targe  */
 UPDATE `item_template` SET `BuyPrice` = 4399, `SellPrice` = 879 WHERE entry=17192;
 
