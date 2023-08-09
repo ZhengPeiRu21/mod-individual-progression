@@ -327,4 +327,4 @@ IndividualProgression.AllowEarlyDungeonSet2 = 1
 #
 #
 
-IndividualProgression.PvPGearRequirements
+IndividualProgression.PvPGearRequirements = 1
