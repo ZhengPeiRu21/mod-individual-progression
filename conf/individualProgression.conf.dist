@@ -318,3 +318,13 @@ IndividualProgression.CustomProgression = ""
 #
 
 IndividualProgression.AllowEarlyDungeonSet2 = 1
+#
+#    IndividualProgression.PvPGearRequirements
+#        Description: Requires players to have earned relevant PvP Titles before high level PvP gear can be equipped
+#
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+IndividualProgression.PvPGearRequirements

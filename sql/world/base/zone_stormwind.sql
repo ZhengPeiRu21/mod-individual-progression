@@ -63,7 +63,8 @@ INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, 
 DELETE FROM `creature` WHERE `id1`=12782;
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12782, 0, -8778.3, 432.142, 105.309, 4.17386, 300);
 
-
+-- Lieutenant Jackspring <Legacy Weapon Quartermaster>
+DELETE FROM `creature` WHERE `id1`=12784;
 
 -- Sergeant Major Clate <Legacy Armor Quartermaster>
 DELETE FROM `creature` WHERE `id1`=12785;
