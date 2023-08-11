@@ -566,10 +566,24 @@ public:
             return;
         }
 
-        // NPCBots Compatibility - healer may be null
         if (!healer)
             return;
 
+        // NPCBots compatibility
+#ifdef _BOT_AI_H
+        if (healer->ToCreature()->IsNPCBotOrPet())
+        {
+            if (healer->getLevel() < 61)
+            {
+                damage *= (sIndividualProgression->ComputeVanillaAdjustment(healer->getLevel(), sIndividualProgression->vanillaHealingAdjustment));
+            }
+            else if (healer->getLevel() < 71)
+            {
+                damage *= (sIndividualProgression->tbcHealingAdjustment);
+            }
+            return;
+        }
+#endif
         bool isPet = healer->GetOwner() && healer->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && healer->GetTypeId() != TYPEID_PLAYER)
         {
@@ -579,7 +593,7 @@ public:
         float gearAdjustment = computeTotalGearTuning(player);
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
         {
-            heal *= (sIndividualProgression->ComputeVanillaAdjustment(player, sIndividualProgression->vanillaHealingAdjustment) - gearAdjustment);
+            heal *= (sIndividualProgression->ComputeVanillaAdjustment(player->getLevel(), sIndividualProgression->vanillaHealingAdjustment) - gearAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
@@ -595,7 +609,21 @@ public:
     {
         if (!sIndividualProgression->enabled || !attacker)
             return;
-
+        // NPCBots compatibility
+#ifdef _BOT_AI_H
+        if (attacker->ToCreature()->IsNPCBotOrPet())
+        {
+            if (attacker->getLevel() < 61)
+            {
+                damage *= (sIndividualProgression->ComputeVanillaAdjustment(attacker->getLevel(), sIndividualProgression->vanillaPowerAdjustment));
+            }
+            else if (attacker->getLevel() < 71)
+            {
+                damage *= (sIndividualProgression->tbcPowerAdjustment);
+            }
+            return;
+        }
+#endif
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {
@@ -605,7 +633,7 @@ public:
         float gearAdjustment = computeTotalGearTuning(player);
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
         {
-            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player, sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->getLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
@@ -622,6 +650,21 @@ public:
         if (!sIndividualProgression->enabled || !attacker)
             return;
 
+        // NPCBots compatibility
+#ifdef _BOT_AI_H
+        if (attacker->ToCreature()->IsNPCBotOrPet())
+        {
+            if (attacker->getLevel() < 61)
+            {
+                damage *= (sIndividualProgression->ComputeVanillaAdjustment(attacker->getLevel(), sIndividualProgression->vanillaPowerAdjustment));
+            }
+            else if (attacker->getLevel() < 71)
+            {
+                damage *= (sIndividualProgression->tbcPowerAdjustment);
+            }
+            return;
+        }
+#endif
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {
@@ -631,7 +674,7 @@ public:
         float gearAdjustment = computeTotalGearTuning(player);
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
         {
-            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player, sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->getLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
