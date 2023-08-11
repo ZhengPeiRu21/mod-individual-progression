@@ -571,7 +571,7 @@ public:
 
         // NPCBots compatibility
 #ifdef _BOT_AI_H
-        if (healer->ToCreature()->IsNPCBotOrPet())
+        if (healer->GetTypeId() != TYPEID_PLAYER && healer->ToCreature()->IsNPCBotOrPet())
         {
             if (healer->getLevel() < 61)
             {
@@ -611,7 +611,7 @@ public:
             return;
         // NPCBots compatibility
 #ifdef _BOT_AI_H
-        if (attacker->ToCreature()->IsNPCBotOrPet())
+        if (attacker->GetTypeId() != TYPEID_PLAYER && attacker->ToCreature()->IsNPCBotOrPet())
         {
             if (attacker->getLevel() < 61)
             {
@@ -652,7 +652,7 @@ public:
 
         // NPCBots compatibility
 #ifdef _BOT_AI_H
-        if (attacker->ToCreature()->IsNPCBotOrPet())
+        if (attacker->GetTypeId() != TYPEID_PLAYER && attacker->ToCreature()->IsNPCBotOrPet())
         {
             if (attacker->getLevel() < 61)
             {
