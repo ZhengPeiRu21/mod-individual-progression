@@ -569,21 +569,6 @@ public:
         if (!healer)
             return;
 
-        // NPCBots compatibility
-#ifdef _BOT_AI_H
-        if (healer->GetTypeId() != TYPEID_PLAYER && healer->ToCreature()->IsNPCBotOrPet())
-        {
-            if (healer->getLevel() < 61)
-            {
-                damage *= (sIndividualProgression->ComputeVanillaAdjustment(healer->getLevel(), sIndividualProgression->vanillaHealingAdjustment));
-            }
-            else if (healer->getLevel() < 71)
-            {
-                damage *= (sIndividualProgression->tbcHealingAdjustment);
-            }
-            return;
-        }
-#endif
         bool isPet = healer->GetOwner() && healer->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && healer->GetTypeId() != TYPEID_PLAYER)
         {
@@ -609,21 +594,6 @@ public:
     {
         if (!sIndividualProgression->enabled || !attacker)
             return;
-        // NPCBots compatibility
-#ifdef _BOT_AI_H
-        if (attacker->GetTypeId() != TYPEID_PLAYER && attacker->ToCreature()->IsNPCBotOrPet())
-        {
-            if (attacker->getLevel() < 61)
-            {
-                damage *= (sIndividualProgression->ComputeVanillaAdjustment(attacker->getLevel(), sIndividualProgression->vanillaPowerAdjustment));
-            }
-            else if (attacker->getLevel() < 71)
-            {
-                damage *= (sIndividualProgression->tbcPowerAdjustment);
-            }
-            return;
-        }
-#endif
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {
@@ -650,21 +620,6 @@ public:
         if (!sIndividualProgression->enabled || !attacker)
             return;
 
-        // NPCBots compatibility
-#ifdef _BOT_AI_H
-        if (attacker->GetTypeId() != TYPEID_PLAYER && attacker->ToCreature()->IsNPCBotOrPet())
-        {
-            if (attacker->getLevel() < 61)
-            {
-                damage *= (sIndividualProgression->ComputeVanillaAdjustment(attacker->getLevel(), sIndividualProgression->vanillaPowerAdjustment));
-            }
-            else if (attacker->getLevel() < 71)
-            {
-                damage *= (sIndividualProgression->tbcPowerAdjustment);
-            }
-            return;
-        }
-#endif
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {
