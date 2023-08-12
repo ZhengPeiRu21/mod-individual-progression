@@ -811,6 +811,9 @@ UPDATE quest_template SET QuestLevel = 39 WHERE ID=8268;
 /*  Ribbons of Sacrifice  */
 UPDATE quest_template SET MinLevel = 40 WHERE ID=8269;
 
+/* The Calling */
+UPDATE `quest_template` SET `flags` = `flags` | 64, `SuggestedGroupNum` = 0 WHERE `ID`= 8315;
+
 /*  Elemental Mastery  */
 UPDATE quest_template SET QuestLevel = 50 WHERE ID=8410;
 
