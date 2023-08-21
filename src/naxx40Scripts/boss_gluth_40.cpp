@@ -23,36 +23,36 @@
 
 enum Spells
 {
-    SPELL_MORTAL_WOUND                  = 25646,
-    SPELL_ENRAGE                        = 28371,
-    SPELL_DECIMATE                      = 28374,
-    SPELL_BERSERK                       = 26662,
-    SPELL_INFECTED_WOUND                = 29306,
-    SPELL_CHOW_SEARCHER                 = 28404
+    SPELL_MORTAL_WOUND = 25646,
+    SPELL_ENRAGE = 28371,
+    SPELL_DECIMATE = 28374,
+    SPELL_BERSERK = 26662,
+    SPELL_INFECTED_WOUND = 29306,
+    SPELL_CHOW_SEARCHER = 28404
 };
 
 enum Events
 {
-    EVENT_MORTAL_WOUND                  = 1,
-    EVENT_ENRAGE                        = 2,
-    EVENT_DECIMATE                      = 3,
-    EVENT_BERSERK                       = 4,
-    EVENT_SUMMON_ZOMBIE                 = 5,
-    EVENT_CAN_EAT_ZOMBIE                = 6
+    EVENT_MORTAL_WOUND = 1,
+    EVENT_ENRAGE = 2,
+    EVENT_DECIMATE = 3,
+    EVENT_BERSERK = 4,
+    EVENT_SUMMON_ZOMBIE = 5,
+    EVENT_CAN_EAT_ZOMBIE = 6
 };
 
 enum Misc
 {
-    NPC_ZOMBIE_CHOW                     = 351069
+    NPC_ZOMBIE_CHOW = 351069
 };
 
 enum Emotes
 {
-    EMOTE_SPOTS_ONE                     = 0,
-    EMOTE_DECIMATE                      = 1,
-    EMOTE_ENRAGE                        = 2,
-    EMOTE_DEVOURS_ALL                   = 3,
-    EMOTE_BERSERK                       = 4
+    EMOTE_SPOTS_ONE = 0,
+    EMOTE_DECIMATE = 1,
+    EMOTE_ENRAGE = 2,
+    EMOTE_DEVOURS_ALL = 3,
+    EMOTE_BERSERK = 4
 };
 
 const Position zombiePos[3] =
@@ -143,7 +143,7 @@ public:
             }
         }
 
-        void JustDied(Unit*  killer) override
+        void JustDied(Unit* killer) override
         {
             BossAI::JustDied(killer);
             summons.DespawnAll();
@@ -181,44 +181,65 @@ public:
 
             switch (events.ExecuteEvent())
             {
-                case EVENT_BERSERK:
-                    me->CastSpell(me, SPELL_BERSERK, true);
-                    break;
-                case EVENT_ENRAGE:
-                    Talk(EMOTE_ENRAGE);
-                    me->CastSpell(me, SPELL_ENRAGE, true);
-                    events.RepeatEvent(22000);
-                    break;
-                case EVENT_MORTAL_WOUND:
-                    me->CastSpell(me->GetVictim(), SPELL_MORTAL_WOUND, false);
-                    events.RepeatEvent(10000);
-                    break;
-                case EVENT_DECIMATE:
-                    Talk(EMOTE_DECIMATE);
-                    me->CastSpell(me, SPELL_DECIMATE, false);
-                    events.RepeatEvent(105000);
-                    break;
-                case EVENT_SUMMON_ZOMBIE:
+            case EVENT_BERSERK:
+                me->CastSpell(me, SPELL_BERSERK, true);
+                break;
+            case EVENT_ENRAGE:
+                Talk(EMOTE_ENRAGE);
+                me->CastSpell(me, SPELL_ENRAGE, true);
+                events.RepeatEvent(22000);
+                break;
+            case EVENT_MORTAL_WOUND:
+                me->CastSpell(me->GetVictim(), SPELL_MORTAL_WOUND, false);
+                events.RepeatEvent(10000);
+                break;
+            case EVENT_DECIMATE:
+                Talk(EMOTE_DECIMATE);
+                me->CastSpell(me, SPELL_DECIMATE, false);
+                // Apply Decimate effect to zombies
+                {
+                    std::list<Creature*> zombies;
+                    me->GetCreatureListWithEntryInGrid(zombies, NPC_ZOMBIE_CHOW, 150.0f);
+                    for (Creature* zombie : zombies)
                     {
-                        uint8 rand = urand(0, 2);
-                        for (int32 i = 0; i < 1; ++i)
+                        if (zombie->IsAlive())
                         {
-                            // In 40 man raid, use all gates
-                            me->SummonCreature(NPC_ZOMBIE_CHOW, zombiePos[urand(0, 2)]);
-                            (rand == 2 ? rand = 0 : rand++);
+                            int32 reduceHp = int32(zombie->GetMaxHealth() * 0.05f);
+                            if (zombie->GetHealth() > reduceHp)
+                                zombie->SetHealth(reduceHp); // Reduce HP to 5%
+                            zombie->SetWalk(true); // Set to walk
+                            zombie->GetMotionMaster()->MoveFollow(me, 0.0f, 0.0f, MOTION_SLOT_CONTROLLED); // Move to boss
+                            zombie->SetReactState(REACT_PASSIVE); // Set to passive
                         }
-                        events.RepeatEvent(10000);
-                        break;
                     }
-                case EVENT_CAN_EAT_ZOMBIE:
-                    events.RepeatEvent(1000);
-                    if (me->GetVictim()->GetEntry() == NPC_ZOMBIE_CHOW && me->IsWithinMeleeRange(me->GetVictim()))
+                }
+                events.RepeatEvent(105000);
+                break;
+            case EVENT_SUMMON_ZOMBIE:
+            {
+                uint8 rand = urand(0, 2);
+                for (int32 i = 0; i < 1; ++i)
+                {
+                    // In 40 man raid, use all gates
+                    me->SummonCreature(NPC_ZOMBIE_CHOW, zombiePos[urand(0, 2)]);
+                    (rand == 2 ? rand = 0 : rand++);
+                }
+                events.RepeatEvent(10000);
+                break;
+            }
+            case EVENT_CAN_EAT_ZOMBIE:
+                events.RepeatEvent(1000);
+                if (me->GetVictim() && me->GetVictim()->GetEntry() == NPC_ZOMBIE_CHOW && me->IsWithinMeleeRange(me->GetVictim()))
+                {
+                    if (me->GetVictim()->GetHealth() > 0) // Check if the zombie is alive
                     {
-                        me->CastCustomSpell(SPELL_CHOW_SEARCHER, SPELLVALUE_RADIUS_MOD, 20000, me, true);
+                        me->ModifyHealth(int32(me->GetMaxHealth() * 0.05f)); // Heal for 5% of max health
                         Talk(EMOTE_DEVOURS_ALL);
+                        Unit::DealDamage(me, me->GetVictim(), me->GetVictim()->GetHealth(), nullptr, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, nullptr, false); // Kill the zombie
                         return; // leave it to skip DoMeleeAttackIfReady
                     }
-                    break;
+                }
+                break;
             }
             DoMeleeAttackIfReady();
         }
@@ -269,5 +290,5 @@ public:
 void AddSC_boss_gluth_40()
 {
     new boss_gluth_40();
-//    new spell_gluth_decimate();
+    new spell_gluth_decimate();
 }
