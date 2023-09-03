@@ -640,7 +640,32 @@ public:
             damage *= 1.0f - gearAdjustment;
         }
     }
-};
+
+    void ModifyPeriodicDamageAurasTick(Unit* /*target*/, Unit* attacker, uint32& damage, SpellInfo const* /*spellInfo*/) override
+    {
+        if (!sIndividualProgression->enabled || !attacker)
+            return;
+
+        bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
+        if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
+        {
+            return;
+        }
+        Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
+        float gearAdjustment = computeTotalGearTuning(player);
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+        {
+            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->getLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+        }
+        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        {
+            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+        }
+        else
+        {
+            damage *= 1.0f - gearAdjustment;
+        }
+    }};
 
 void AddSC_mod_individual_progression_player()
 {
