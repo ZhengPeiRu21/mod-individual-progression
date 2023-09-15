@@ -4349,6 +4349,9 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (13432
 /* Delete Simple Flour from TBC pre-60 vendors - they should technically have it but it is a catch-up mechanic so wait until TBC areas for it to be available */
 DELETE FROM `npc_vendor` WHERE `entry` IN (17246, 16253, 16262, 16261, 16677, 17490, 16718) AND `item` = 30817;
 
+/* Remove Wicked Arrow and Impact Shot from vendors - these skip all end-game vanilla ammo progression */
+DELETE FROM `npc_vendor` WHERE `item` IN (28060, 28053);
+
 /* PvP Gear Vendor Rep Requirements */
 REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `comment`) VALUES
 (23, 13219, 17349, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
