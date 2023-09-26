@@ -328,3 +328,13 @@ IndividualProgression.AllowEarlyDungeonSet2 = 1
 #
 
 IndividualProgression.PvPGearRequirements = 1
+#
+#    IndividualProgression.DisableLFG
+#        Description: Enable or disable the Looking For Group feature within the context of Individual Progression.
+#                     If set to 1, the LFG feature will be completely disabled.
+#                     If set to 0, the LFG feature will operate as usual.
+#        Default:     0 - Enabled
+#                     1 - Disabled
+#
+
+IndividualProgression.DisableLFG = 0
