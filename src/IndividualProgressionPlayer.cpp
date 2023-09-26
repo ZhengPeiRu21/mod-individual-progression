@@ -371,18 +371,6 @@ public:
      }
  }
 
- bool CanJoinLfg(Player* player, uint8 roles, lfg::LfgDungeonSet& dungeons, const std::string& comment) override
- {
-     // Check if LFG is disabled in the context of Individual Progression
-     if (sConfigMgr->GetOption<bool>("IndividualProgression.DisableLFG", false))
-     {
-         player->GetSession()->SendNotification("The Looking For Group feature is currently disabled by the Individual Progression module.");
-         return false; // Prevent the player from joining LFG
-     }
-
-     return true;
- }
-
     bool CanEquipItem(Player* player, uint8 /*slot*/, uint16& /*dest*/, Item* pItem, bool /*swap*/, bool /*not_loading*/) override
     {
         if (sIndividualProgression->pvpGearRequirements)
