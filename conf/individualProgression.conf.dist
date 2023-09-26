@@ -329,12 +329,17 @@ IndividualProgression.AllowEarlyDungeonSet2 = 1
 
 IndividualProgression.PvPGearRequirements = 1
 #
-#    IndividualProgression.DisableLFG
-#        Description: Enable or disable the Looking For Group feature within the context of Individual Progression.
-#                     If set to 1, the LFG feature will be completely disabled.
-#                     If set to 0, the LFG feature will operate as usual.
+#    IndividualProgression.DisableRDF
+#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression.
 #        Default:     0 - Enabled
 #                     1 - Disabled
 #
+IndividualProgression.DisableRDF = 0
 
+#
+#    IndividualProgression.DisableLFG
+#        Description: Enable or disable the Looking For Group feature within the context of Individual Progression. (This will also disable RDF)
+#        Default:     0 - Enabled
+#                     1 - Disabled
+#
 IndividualProgression.DisableLFG = 0
