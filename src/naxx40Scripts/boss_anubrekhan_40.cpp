@@ -163,7 +163,7 @@ public:
         void JustEngagedWith(Unit* who) override
         {
             BossAI::JustEngagedWith(who);
-            me->CallForHelp(30.0f);
+            me->CallForHelp(60.0f);
             Talk(SAY_AGGRO);
             if (pInstance)
             {
