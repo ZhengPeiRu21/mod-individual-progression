@@ -231,21 +231,21 @@ public:
                     events.RepeatEvent(20000);
                     break;
                 case EVENT_LOCUST_SWARM:
+                {
                     Talk(EMOTE_LOCUST);
-
                     // Set damage for periodic trigger effect to a random value between 875 and 1125
-                    int32 modifiedLocustSwarmDamage = urand(875, 1125);                                    
+                    int32 modifiedLocustSwarmDamage = urand(875, 1125);
                     me->CastSpell(me, SPELL_LOCUST_SWARM, false);
-                    
                     // Update the periodic trigger effect with custom damage
                     me->CastCustomSpell(me, SPELL_LOCUST_SWARM_TRIGGER, &modifiedLocustSwarmDamage, nullptr, nullptr, true, nullptr, nullptr, me->GetGUID());
 
                     events.ScheduleEvent(EVENT_SPAWN_GUARD, 3000);
                     events.RepeatEvent(90000);
                     break;
+                }
                 case EVENT_SPAWN_GUARD:
                     me->SummonCreature(NPC_CRYPT_GUARD, 3331.217f, -3476.607f, 287.074f, 3.269f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-                    break;
+                    break; 
                 case EVENT_BERSERK:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
