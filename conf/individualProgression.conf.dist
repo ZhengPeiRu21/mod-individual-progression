@@ -328,3 +328,11 @@ IndividualProgression.AllowEarlyDungeonSet2 = 1
 #
 
 IndividualProgression.PvPGearRequirements = 1
+#
+#    IndividualProgression.DisableRDF
+#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
+#        Queing for specific dungeons will still be possible. (See worldserver.conf for total LFG removal).
+#        Default:     0 - Enabled
+#                     1 - Disabled
+#
+IndividualProgression.DisableRDF = 0
