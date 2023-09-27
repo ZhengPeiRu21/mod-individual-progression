@@ -37,6 +37,7 @@ enum Spells
 {
     SPELL_IMPALE                    = 28783,
     SPELL_LOCUST_SWARM              = 28785,
+    SPELL_LOCUST_SWARM_TRIGGER      = 28786, // periodic effect 
     SPELL_SUMMON_CORPSE_SCRABS_5    = 90001, // Changed from 29105 to Level 60 Mob ID for summon
     SPELL_SUMMON_CORPSE_SCRABS_10   = 90002, //  Changed from 29105 to Level 60 Mob ID for summon
     SPELL_BERSERK                   = 26662
@@ -89,12 +90,10 @@ public:
 
         void SummonCryptGuards()
         {
-            if (Is25ManRaid())
-            {
-                me->SummonCreature(NPC_CRYPT_GUARD, 3299.732f, -3502.489f, 287.077f, 2.378f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-                me->SummonCreature(NPC_CRYPT_GUARD, 3299.086f, -3450.929f, 287.077f, 3.999f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-            }
+            me->SummonCreature(NPC_CRYPT_GUARD, 3299.732f, -3502.489f, 287.077f, 2.378f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
+            me->SummonCreature(NPC_CRYPT_GUARD, 3299.086f, -3450.929f, 287.077f, 3.999f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
         }
+
 
         void Reset() override
         {
@@ -164,7 +163,7 @@ public:
         void JustEngagedWith(Unit* who) override
         {
             BossAI::JustEngagedWith(who);
-            me->CallForHelp(30.0f);
+            me->CallForHelp(60.0f);
             Talk(SAY_AGGRO);
             if (pInstance)
             {
@@ -232,14 +231,21 @@ public:
                     events.RepeatEvent(20000);
                     break;
                 case EVENT_LOCUST_SWARM:
+                {
                     Talk(EMOTE_LOCUST);
+                    // Set damage for periodic trigger effect to a random value between 875 and 1125
+                    int32 modifiedLocustSwarmDamage = urand(875, 1125);
                     me->CastSpell(me, SPELL_LOCUST_SWARM, false);
+                    // Update the periodic trigger effect with custom damage
+                    me->CastCustomSpell(me, SPELL_LOCUST_SWARM_TRIGGER, &modifiedLocustSwarmDamage, nullptr, nullptr, true, nullptr, nullptr, me->GetGUID());
+
                     events.ScheduleEvent(EVENT_SPAWN_GUARD, 3000);
                     events.RepeatEvent(90000);
                     break;
+                }
                 case EVENT_SPAWN_GUARD:
                     me->SummonCreature(NPC_CRYPT_GUARD, 3331.217f, -3476.607f, 287.074f, 3.269f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-                    break;
+                    break; 
                 case EVENT_BERSERK:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
