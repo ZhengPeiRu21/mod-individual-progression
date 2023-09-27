@@ -188,7 +188,7 @@ public:
                         {
                             if (Aura* aura = player->GetAura(SPELL_WEB_SPRAY))
                             {
-                                aura->SetDuration(7500);  // Set the duration to 8 seconds with 500 ms delay in mind
+                                aura->SetDuration(8000);  // Set the duration to 8 seconds 
                             }
                         }
                     }
