@@ -347,29 +347,34 @@ public:
     }
 
     void OnQueueRandomDungeon(Player* player, uint32& rDungeonId) override
- {
-     // Check if RDF is disabled in the context of Individual Progression
-     if (sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false))
-     {
-         // Notify the player
-         player->GetSession()->SendNotification("The Random Dungeon feature is currently disabled by the Individual Progression module.");
-         rDungeonId = 1000; // Set dungeon ID to an invalid value to cancel the queuing
-         return;
-     }
+    {
 
-     if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
-     {
-         rDungeonId = RDF_CLASSIC;
-     }
-     else if (rDungeonId == RDF_WRATH_OF_THE_LICH_KING && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-     {
-         rDungeonId = RDF_THE_BURNING_CRUSADE;
-     }
-     else if (rDungeonId == RDF_WRATH_OF_THE_LICH_KING_HEROIC && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-     {
-         rDungeonId = RDF_THE_BURNING_CRUSADE_HEROIC;
-     }
- }
+    std::set<uint32> seasonalEventIds = { 285, 286, 287, 288 }; // Allow Headless Horseman, Frost Lord Ahune, Coren Direbrew, Crown Chemical Co.
+    bool isSeasonalEvent = (seasonalEventIds.find(rDungeonId) != seasonalEventIds.end());
+
+    // Check if RDF is disabled in the context of Individual Progression
+    if (sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false) && !isSeasonalEvent)
+    {
+        // Notify the player
+        player->GetSession()->SendNotification("The Random Dungeon feature is currently disabled by the Individual Progression module.");
+        rDungeonId = 1000; // Set dungeon ID to an invalid value to cancel the queuing
+        return;
+    }
+
+    // Other logic for individual progression checks
+    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+    {
+        rDungeonId = RDF_CLASSIC;
+    }
+    else if (rDungeonId == RDF_WRATH_OF_THE_LICH_KING && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+    {
+        rDungeonId = RDF_THE_BURNING_CRUSADE;
+    }
+    else if (rDungeonId == RDF_WRATH_OF_THE_LICH_KING_HEROIC && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+    {
+        rDungeonId = RDF_THE_BURNING_CRUSADE_HEROIC;
+    }
+}
 
     bool CanEquipItem(Player* player, uint8 /*slot*/, uint16& /*dest*/, Item* pItem, bool /*swap*/, bool /*not_loading*/) override
     {
