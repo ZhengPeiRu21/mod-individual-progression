@@ -347,15 +347,22 @@ public:
     }
 
     void OnQueueRandomDungeon(Player* player, uint32& rDungeonId) override
+{
+    // List of exceptions for seasonal event dungeons
+    std::set<uint32> seasonalEventDungeons = { 285, 286, 287, 288 };
+    if (seasonalEventDungeons.find(rDungeonId) != seasonalEventDungeons.end())
     {
+        return;
+    }
+
     // Check if RDF is disabled in the context of Individual Progression
     if (sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false))
     {
-        // Notify the player
         player->GetSession()->SendNotification("The Random Dungeon feature is currently disabled by the Individual Progression module.");
         rDungeonId = 1000; // Set dungeon ID to an invalid value to cancel the queuing
         return;
     }
+
     if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
     {
         rDungeonId = RDF_CLASSIC;
