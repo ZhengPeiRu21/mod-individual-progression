@@ -94,7 +94,6 @@ public:
             me->SummonCreature(NPC_CRYPT_GUARD, 3299.086f, -3450.929f, 287.077f, 3.999f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
         }
 
-
         void Reset() override
         {
             BossAI::Reset();
@@ -112,15 +111,19 @@ public:
 
         void JustSummoned(Creature* cr) override
         {
-            if (me->IsInCombat())
-            {
-                cr->SetInCombatWithZone();
+                if (me->IsInCombat())
+                {
+                cr->SetInCombatWithZone(); // This line will set the creature in combat with the zone.
                 if (cr->GetEntry() == NPC_CRYPT_GUARD)
                 {
-                    cr->AI()->Talk(EMOTE_SPAWN, me);
+                     cr->AI()->Talk(EMOTE_SPAWN, me);
                 }
-            }
-            summons.Summon(cr);
+                else if (cr->GetEntry() == NPC_CORPSE_SCARAB) // Explicitly check for Corpse Scarabs here.
+                {
+                     cr->SetInCombatWithZone(); // Set the Corpse Scarabs in combat with the zone too.
+                }
+             }
+             summons.Summon(cr);
         }
 
         void SummonedCreatureDies(Creature* cr, Unit*) override
