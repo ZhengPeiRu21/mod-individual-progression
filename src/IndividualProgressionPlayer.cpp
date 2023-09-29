@@ -576,6 +576,13 @@ public:
         }
 
         // Skip percentage based heals or spells already nerfed by damage reduction
+        for (uint8 i = 0; i < 3; i++)
+        {
+            if (spellInfo->Effects[i].Effect == SPELL_EFFECT_HEAL_MAX_HEALTH)
+            {
+                return;
+            }
+        }
         if (spellInfo->Id == SPELL_RUNE_TAP || spellInfo->Id == SPELL_LIFE_STEAL)
         {
             return;
