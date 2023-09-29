@@ -184,6 +184,7 @@ IndividualProgression.FishingFix = 1
 #                     Water Breath Timer to 1 Minute (Vanilla value, changed to 3 Minutes in WotLK)
 #                     Disable Quest Object sparkle and object quest markers (added in patch 2.3)
 #                     Enable PlayerSettings (required by Individual Progression module)
+#                     Disable the LFG tool, aside from special Holiday events otherwise inaccessible
 #
 #        Default:   1 - Enabled
 #                   0 - Disabled
@@ -331,7 +332,8 @@ IndividualProgression.PvPGearRequirements = 1
 #
 #    IndividualProgression.DisableRDF
 #        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
-#        Queing for specific dungeons and Holiday Events will still be possible. (See worldserver.conf for total LFG removal).
+#        Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
+#        Please note that the LFG tool is disabled (except for Holiday events) by default if SimpleConfigOverride is enabled.
 #        Default:     0 - Enabled
 #                     1 - Disabled
 #
