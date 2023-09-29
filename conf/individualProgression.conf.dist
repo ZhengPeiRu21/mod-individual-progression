@@ -185,6 +185,7 @@ IndividualProgression.FishingFix = 1
 #                     Disable Quest Object sparkle and object quest markers (added in patch 2.3)
 #                     Enable PlayerSettings (required by Individual Progression module)
 #                     Disable the LFG tool, aside from special Holiday events otherwise inaccessible
+#                     Do not enforce DBC Item Attributes, so that Vanilla item changes can override client values
 #
 #        Default:   1 - Enabled
 #                   0 - Disabled
