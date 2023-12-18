@@ -423,7 +423,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.7 WHERE `entry`=16221;
 UPDATE `creature_template` SET `DamageModifier` = 0.6 WHERE `entry`=16231;
 
 /*  Night Elf Ambusher  */
-UPDATE `creature_template` SET `speed_run` = 1.38571, `DamageModifier` = 5.0 WHERE `entry`=16238;
+UPDATE `creature_template` SET `speed_run` = 1.38571 WHERE `entry`=16238;
 
 /*  Magister Kaendris  */
 UPDATE `creature_template` SET `DamageModifier` = 0.6 WHERE `entry`=16239;
