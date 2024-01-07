@@ -908,6 +908,12 @@ DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = 249;
 INSERT INTO `mapdifficulty_dbc` (`ID`, `MapID`, `Difficulty`, `RaidDuration`, `MaxPlayers`, `Difficultystring`) VALUES
 (755, 249, 2, 604800, 40, 'RAID_DIFFICULTY_40PLAYER');
 
+INSERT INTO `dungeonencounter_dbc` (`ID`, `MapID`, `Difficulty`, `OrderIndex`, `Bit`, `Name_Lang_enUS`, `Name_Lang_enGB`, `Name_Lang_koKR`, `Name_Lang_frFR`, `Name_Lang_deDE`, `Name_Lang_enCN`, `Name_Lang_zhCN`, `Name_Lang_enTW`, `Name_Lang_zhTW`, `Name_Lang_esES`, `Name_Lang_esMX`, `Name_Lang_ruRU`, `Name_Lang_ptPT`, `Name_Lang_ptBR`, `Name_Lang_itIT`, `Name_Lang_Unk`, `Name_Lang_Mask`, `SpellIconID`) VALUES
+(895, 249, 2, 0, 0, 'Onyxia', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 16712190, 0);
+
+INSERT INTO `instance_encounters` (`entry`, `creditType`, `creditEntry`, `lastEncounterDungeon`, `comment`) VALUES
+(895, 0, 301000, 0, 'Onyxia (Vanilla)');
+
 -- Victory for the Alliance - Bolvar or Varian
 DELETE FROM `creature_questender` WHERE `quest` = 7495;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
