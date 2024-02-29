@@ -1,3 +1,4 @@
+#include "IndividualProgression.h"
 #include "ScriptMgr.h"
 #include "Player.h"
 #include "GameObjectAI.h"
@@ -61,17 +62,32 @@ public:
                 {
                     switch (eventStage)
                     {
-                        case STAGE_OPEN_GATES:
-                            return HandleOpeningStage();
-                        case STAGE_WAR:
-                            return HandleWarStage();
-                        case STAGE_RESET:
-                            return ResetAQGates();
+                    case STAGE_OPEN_GATES:
+                        HandleOpeningStage();
+                        break;
+                    case STAGE_WAR:
+                        HandleWarStage();
+                        break;
+                    case STAGE_RESET:
+                        ResetAQGates();
+                        break;
                     }
-                } else
+                }
+                else
                     eventTimer -= diff;
             }
-        };
+        }
+
+        bool CanBeSeen(Player const* player) override
+        {
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            if (!target)
+            {
+                return false; 
+            }
+
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+        }
 
         void NextStage(uint32 timeUntil = 100)
         {
@@ -84,28 +100,26 @@ public:
         {
             switch (eventStep)
             {
-                case 0:
-                    go_aq_gate_roots->ResetDoorOrButton();
-                    go_aq_gate_roots->UseDoorOrButton();
-                    me->PlayDirectSound(SOUND_ROOTS_OPEN);
+            case 0:
+                go_aq_gate_roots->ResetDoorOrButton();
+                go_aq_gate_roots->UseDoorOrButton();
+                me->PlayDirectSound(SOUND_ROOTS_OPEN);
+                eventTimer = 5000;
+                break;
 
-                    eventTimer = 5000;
-                    break;
+            case 1:
+                go_aq_gate_runes->ResetDoorOrButton();
+                go_aq_gate_runes->UseDoorOrButton();
+                me->PlayDirectSound(SOUND_RUNES_OPEN);
+                eventTimer = 8000;
+                break;
 
-                case 1:
-                    go_aq_gate_runes->ResetDoorOrButton();
-                    go_aq_gate_runes->UseDoorOrButton();
-                    me->PlayDirectSound(SOUND_RUNES_OPEN);
-
-                    eventTimer = 8000;
-                    break;
-                case 2:
-                    go_aq_barrier->ResetDoorOrButton();
-                    go_aq_barrier->UseDoorOrButton();
-                    me->PlayDirectSound(SOUND_DOOR_OPEN);
-
-                    NextStage(10000);
-                    return;
+            case 2:
+                go_aq_barrier->ResetDoorOrButton();
+                go_aq_barrier->UseDoorOrButton();
+                me->PlayDirectSound(SOUND_DOOR_OPEN);
+                NextStage(10000);
+                return;
             }
 
             eventStep++;
@@ -117,15 +131,8 @@ public:
             NextStage(5 * MINUTE * IN_MILLISECONDS);
         }
 
-        void EventDone()
-        {
-            NextStage(0);
-            eventStage = STAGE_OPEN_GATES;
-        }
-
         void ResetAQGates()
         {
-//            go_aq_ghost_gate->SetGoState(GO_STATE_READY);
             go_aq_barrier->SetGoState(GO_STATE_READY);
             go_aq_gate_runes->SetGoState(GO_STATE_READY);
             go_aq_gate_roots->ResetDoorOrButton();
@@ -133,6 +140,13 @@ public:
 
             EventDone();
         }
+
+        void EventDone()
+        {
+            NextStage(0);
+            eventStage = STAGE_OPEN_GATES; // Reset to the initial stage for potential future events
+        }
+
 
         void OpenGate(Player *player, bool announce)
         {
@@ -188,8 +202,37 @@ public:
     }
 };
 
+class aq_gate : public GameObjectScript
+{
+public:
+    aq_gate() : GameObjectScript("aq_gate") {}
+
+    struct aq_gateAI : public GameObjectAI
+    {
+        explicit aq_gateAI(GameObject* go) : GameObjectAI(go) {}
+
+        bool CanBeSeen(Player const* player) override
+        {
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            if (!target)
+            {
+                return false; 
+            }
+
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* go) const override
+    {
+        return new aq_gateAI(go);
+    }
+};
+
 void AddSC_aq_scripts()
 {
+    new aq_gate();
     new gobject_scarab_gong();
 }
 
