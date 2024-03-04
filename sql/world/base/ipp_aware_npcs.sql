@@ -27,7 +27,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `entry` 
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` IN (195141);
 
 -- Drop source for 2.3 Jewelcrafting Recipe
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` = 19768;
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (19768, 19227, 23761);
 
 -- Argent Tournament
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` IN (25, 63129, 63236, 63370, 63371, 65274, 65275, 65283, 65284, 65285, 65325, 65327, 65350, 65351, 65371, 65451,
