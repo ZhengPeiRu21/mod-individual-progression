@@ -164,6 +164,25 @@ IndividualProgression.MoltenCore.ManualRuneHandling = 1
 
 IndividualProgression.MoltenCore.AqualEssenceCooldownReduction = 0
 #
+#    IndividualProgression.SerpentshrineCavern.RequireAllBosses
+#        Description: Requires all bosses being killed before accessing Vashj's console panel.
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+IndividualProgression.SerpentshrineCavern.RequireAllBosses = 1
+
+#
+#    IndividualProgression.TheEye.RequireAllBosses
+#        Description: Requires all bosses being killed to open the doors to Kael
+#        Default:   1 - Enabled
+#                   0 - Disabled
+#
+#
+
+IndividualProgression.TheEye.RequireAllBosses = 1
+#
 #    IndividualProgression.FishingFix
 #        Description: Before patch 3.1, fishing skill had progression and had to be leveled in low level zones before high level areas could add skill
 #                     In patch 3.1, it was changed to allow leveling fishing even when catching junk in high level zones, allowing progression to be skipped

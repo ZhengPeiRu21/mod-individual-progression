@@ -1,3 +1,6 @@
+/* Badges of Justice were not added to raids until later patches - remove them from raid drops */
+DELETE FROM `creature_loot_template` WHERE `Entry` IN  (17225, 15690, 15688, 15689, 16524, 15691, 17533, 18168, 17521, 16457, 15687, 16152, 21216, 21217, 21215, 21214, 21213, 21212, 19514, 19622, 19516, 18805) AND (`Item` IN (29434));
+
 /* Create alternate version of TBC Badge Vendor for pre-2.3 */
 DELETE FROM `npc_vendor` WHERE `entry` = 30201;
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
