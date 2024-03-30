@@ -5356,3 +5356,32 @@ UPDATE `creature_template` SET `name` = 'Death Lord', `speed_run` = 1.42857, `Da
 
 /*  Mr. Bigglesworth  */
 UPDATE `creature_template` SET `speed_run` = 0.857143, `DamageModifier` = 400.0, `RangeAttackTime` = 1265 WHERE `entry`=16998;
+
+/* Eye Stalk */
+DELETE FROM `creature_template` WHERE (`entry` = 351090);
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+(351090, 0, 0, 0, 0, 0, 15788, 0, 0, 0, 'Eye Stalk', '', '', 0, 61, 61, 2, 16, 0, 1, 1, 1, 1, 20, 1, 1, 0, 7.5, 1000, 2000, 1, 1, 1, 4, 2048, 8, 0, 0, 0, 0, 0, 10, 72, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 1, 1, 1, 1, 0, 0, 1, 1022042641, 0, 0, '', 12340);
+
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351090);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351090, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 14000, 17000, 0, 0, 11, 29407, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)');
+
+DELETE FROM `creature` WHERE `guid` BETWEEN 362043 AND 362059;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+(362043, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2798.06, -3788.95, 274.983, 1.51844, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362044, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2804.25, -3757.44, 274.983, 3.64774, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362045, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2867.35, -3778.54, 274.983, 2.47837, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362046, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2895.12, -3779.74, 274.983, 2.6529, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362047, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2830.7, -3777.03, 274.983, 2.9147, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362048, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2851.92, -3776.44, 274.983, 2.53073, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362049, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2789.62, -3752.53, 274.983, 2.61799, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362050, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2843.34, -3767.74, 274.983, 3.31613, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362051, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2797.94, -3776.81, 274.983, 2.35619, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362052, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2834.6, -3751.34, 274.983, 4.20624, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362053, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2862.27, -3758.34, 274.983, 3.36848, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362054, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2813.24, -3780.76, 274.983, 2.49582, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362055, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2881.55, -3782.26, 274.983, 2.47837, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362056, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2791.84, -3762.35, 274.983, 3.35103, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362057, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2877.97, -3761.82, 274.983, 3.64774, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362058, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2770.1, -3782.59, 274.983, 1.02974, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362059, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2846.52, -3789.07, 274.983, 2.23402, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL);
