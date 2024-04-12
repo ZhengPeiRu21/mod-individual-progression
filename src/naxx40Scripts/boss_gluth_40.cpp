@@ -204,7 +204,7 @@ public:
                     {
                         if (zombie->IsAlive())
                         {
-                            int32 reduceHp = int32(zombie->GetMaxHealth() * 0.05f);
+                            uint32 reduceHp = uint32(zombie->GetMaxHealth() * 0.05f);
                             if (zombie->GetHealth() > reduceHp)
                                 zombie->SetHealth(reduceHp); // Reduce HP to 5%
                             zombie->SetWalk(true); // Set to walk
