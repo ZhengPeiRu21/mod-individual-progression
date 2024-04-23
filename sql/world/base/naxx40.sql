@@ -104,3 +104,5 @@ INSERT INTO `transports` (`guid`, `entry`, `name`, `ScriptName`) VALUES
 -- https://wow.tools/dbc/?dbc=taxipathnode&build=3.3.5.12340#page=1&colFilter[1]=436
 -- Set speed (Data1) and map (Data6)
 UPDATE `gameobject_template` SET `Data1`=1,`Data6`=0 WHERE entry=181056;
+-- Naxxramas Trigger (frogger) should also spawn in Naxx40
+UPDATE `creature` SET `spawnMask` = (`spawnMask` | 4) WHERE (`id1` = 16082);
