@@ -179,16 +179,21 @@ public:
             if (me->HasUnitState(UNIT_STATE_CASTING))
                 return;
 
+
             switch (events.ExecuteEvent())
             {
             case EVENT_BERSERK:
                 me->CastSpell(me, SPELL_BERSERK, true);
                 break;
             case EVENT_ENRAGE:
+            {
                 Talk(EMOTE_ENRAGE);
-                me->CastSpell(me, SPELL_ENRAGE, true);
+                int32 bp1 = 99; // Enrage melee haste
+                int32 bp2 = 49; // Enrage damage percent
+                me->CastCustomSpell(me, SPELL_ENRAGE, &bp1, &bp2, 0, true);
                 events.RepeatEvent(22000);
                 break;
+            }
             case EVENT_MORTAL_WOUND:
                 me->CastSpell(me->GetVictim(), SPELL_MORTAL_WOUND, false);
                 events.RepeatEvent(10000);

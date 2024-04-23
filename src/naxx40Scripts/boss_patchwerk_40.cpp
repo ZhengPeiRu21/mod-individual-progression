@@ -155,7 +155,8 @@ public:
                         }
                         if (finalTarget)
                         {
-                            me->CastSpell(finalTarget, SPELL_HATEFUL_STRIKE, false);
+                            int32 dmg = urand(22100,22850);
+                            me->CastCustomSpell(finalTarget, SPELL_HATEFUL_STRIKE, &dmg, 0, 0, false);
                         }
                         events.RepeatEvent(1200);
                         break;

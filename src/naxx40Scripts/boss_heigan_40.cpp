@@ -17,7 +17,13 @@
 
 #include "Player.h"
 #include "ScriptMgr.h"
+//#include "SpellAuras.h"
 #include "ScriptedCreature.h"
+#include "ScriptedGossip.h"
+#include "SpellAuraEffects.h"
+#include "SpellInfo.h"
+#include "SpellScript.h"
+#include "SpellScriptLoader.h"
 #include "naxxramas.h"
 
 enum Says
@@ -36,6 +42,7 @@ enum Spells
     SPELL_SPELL_DISRUPTION          = 29310,
     SPELL_DECREPIT_FEVER            = 29998,
     SPELL_PLAGUE_CLOUD              = 29350,
+    SPELL_PLAGUE_CLOUD_TRIGGER      = 30122,
     SPELL_TELEPORT_SELF             = 30211
 };
 
@@ -187,9 +194,12 @@ public:
                     events.RepeatEvent(10000);
                     break;
                 case EVENT_DECEPIT_FEVER:
-                    me->CastSpell(me, SPELL_DECREPIT_FEVER, false);
+                {
+                    int32 bp1 = 499;
+                    me->CastCustomSpell(me, SPELL_DECREPIT_FEVER, 0, &bp1, 0, false, nullptr, nullptr, ObjectGuid::Empty);
                     events.RepeatEvent(urand(22000, 25000));
                     break;
+                }
                 case EVENT_PLAGUE_CLOUD:
                     me->CastSpell(me, SPELL_PLAGUE_CLOUD, false);
                     break;
@@ -245,7 +255,80 @@ public:
     };
 };
 
+class spell_heigan_plague_cloud_40 : public SpellScriptLoader
+{
+public:
+    spell_heigan_plague_cloud_40() : SpellScriptLoader("spell_heigan_plague_cloud_40") { }
+
+    class spell_heigan_plague_cloud_40_AuraScript : public AuraScript
+    {
+        PrepareAuraScript(spell_heigan_plague_cloud_40_AuraScript);
+
+        bool Validate(SpellInfo const* /*spellInfo*/) override
+        {
+            return ValidateSpellInfo({ SPELL_PLAGUE_CLOUD_TRIGGER });
+        }
+
+        void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
+        {
+            Unit* caster = GetCaster();
+            if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+            {
+                return;
+            }
+            PreventDefaultAction();
+            int32 bp0 = 4000;
+            caster->CastCustomSpell(caster, SPELL_PLAGUE_CLOUD_TRIGGER, &bp0, 0, 0, true);
+        }
+
+        void Register() override
+        {
+            OnEffectPeriodic += AuraEffectPeriodicFn(spell_heigan_plague_cloud_40_AuraScript::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_TRIGGER_SPELL);
+        }
+    };
+
+    AuraScript* GetAuraScript() const override
+    {
+        return new spell_heigan_plague_cloud_40_AuraScript();
+    }
+};
+
+
+class spell_heigan_eruption_40 : public SpellScriptLoader
+{
+public:
+    spell_heigan_eruption_40() : SpellScriptLoader("spell_heigan_eruption_40") { }
+
+    class spell_heigan_eruption_40_SpellScript : public SpellScript
+    {
+        PrepareSpellScript(spell_heigan_eruption_40_SpellScript);
+
+        void HandleDamageCalc(SpellEffIndex /*effIndex*/)
+        {
+            Unit* caster = GetCaster();
+            if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+            {
+                return;
+            }
+            uint32 damage = urand(3500, 4500);
+            SetHitDamage(damage);
+        }
+
+        void Register() override
+        {
+            OnEffectHitTarget += SpellEffectFn(spell_heigan_eruption_40_SpellScript::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+        }
+    };
+
+    SpellScript* GetSpellScript() const override
+    {
+        return new spell_heigan_eruption_40_SpellScript();
+    }
+};
+
 void AddSC_boss_heigan_40()
 {
     new boss_heigan_40();
+    new spell_heigan_plague_cloud_40();
+    new spell_heigan_eruption_40();
 }

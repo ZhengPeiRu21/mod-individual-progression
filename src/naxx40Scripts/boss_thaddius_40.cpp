@@ -61,7 +61,7 @@ enum Spells
     SPELL_STALAGG_CHAIN                 = 28096,
 
     // Feugen
-    SPELL_STATIC_FIELD                  = 28135,
+    SPELL_STATIC_FIELD                  = 90041, // power burn 500
     SPELL_FEUGEN_CHAIN                  = 28111,
 
     // Thaddius
@@ -338,9 +338,15 @@ public:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
                 case EVENT_THADDIUS_CHAIN_LIGHTNING:
-                    me->CastSpell(me->GetVictim(), SPELL_CHAIN_LIGHTNING, false);
+                {
+                    CustomSpellValues values;
+                    int32 customChainLightningDamage = 1850; // (1850, 2150), die 675
+                    values.AddSpellMod(SPELLVALUE_BASE_POINT0, customChainLightningDamage);
+                    values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 15);
+                    me->CastCustomSpell(SPELL_CHAIN_LIGHTNING, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
                     events.RepeatEvent(15000);
                     break;
+                }
                 case EVENT_THADDIUS_POLARITY_SHIFT:
                     me->CastSpell(me, SPELL_POLARITY_SHIFT, false);
                     events.RepeatEvent(30000);
@@ -358,7 +364,8 @@ public:
             {
                 if (Unit* target = SelectTarget(SelectTargetMethod::MaxThreat))
                 {
-                    me->CastSpell(target, SPELL_BALL_LIGHTNING, false);
+                    int32 customBallLightningDamage = 6000;
+                    me->CastCustomSpell(target, SPELL_BALL_LIGHTNING, &customBallLightningDamage, 0, 0, false);
                 }
             }
         }
@@ -538,7 +545,7 @@ public:
                     events.RepeatEvent(19000);
                     break;
                 case EVENT_MINION_STATIC_FIELD:
-                    me->CastSpell(me, SPELL_STATIC_FIELD, false);
+                    me->CastSpell(me, 90041, false);
                     events.RepeatEvent(3000);
                     break;
                 case EVENT_MINION_MAGNETIC_PULL:
@@ -582,7 +589,8 @@ public:
                             if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0, 1000.f, true))
                             {
                                 cr->CastStop(SPELL_TESLA_SHOCK);
-                                cr->CastSpell(target, SPELL_TESLA_SHOCK, true);
+                                int32 customTeslaShockDamage = 4374;
+                                cr->CastCustomSpell(target, SPELL_TESLA_SHOCK, &customTeslaShockDamage, 0, 0, true);
                             }
                             events.RepeatEvent(1500);
                             break;
@@ -601,14 +609,15 @@ public:
     };
 };
 
-class spell_thaddius_pos_neg_charge : public SpellScriptLoader
+// This will overwrite the declared 10 and 25 man pos_neg_charge to handle all versions of the spell script
+class spell_thaddius_pos_neg_charge_40 : public SpellScriptLoader
 {
 public:
-    spell_thaddius_pos_neg_charge() : SpellScriptLoader("spell_thaddius_pos_neg_charge") { }
+    spell_thaddius_pos_neg_charge_40() : SpellScriptLoader("spell_thaddius_pos_neg_charge") { }
 
-    class spell_thaddius_pos_neg_charge_SpellScript : public SpellScript
+    class spell_thaddius_pos_neg_charge_40_SpellScript : public SpellScript
     {
-        PrepareSpellScript(spell_thaddius_pos_neg_charge_SpellScript);
+        PrepareSpellScript(spell_thaddius_pos_neg_charge_40_SpellScript);
 
         void HandleTargets(std::list<WorldObject*>& targets)
         {
@@ -651,18 +660,23 @@ public:
             {
                 target->GetInstanceScript()->SetData(DATA_CHARGES_CROSSED, 0);
             }
+            // Adjust damage to 2000 from 4500 for naxx40
+            if (target->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+            {
+                SetHitDamage(2000);
+            }
         }
 
         void Register() override
         {
-            OnEffectHitTarget += SpellEffectFn(spell_thaddius_pos_neg_charge_SpellScript::HandleDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
-            OnObjectAreaTargetSelect += SpellObjectAreaTargetSelectFn(spell_thaddius_pos_neg_charge_SpellScript::HandleTargets, EFFECT_0, TARGET_UNIT_SRC_AREA_ALLY);
+            OnEffectHitTarget += SpellEffectFn(spell_thaddius_pos_neg_charge_40_SpellScript::HandleDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+            OnObjectAreaTargetSelect += SpellObjectAreaTargetSelectFn(spell_thaddius_pos_neg_charge_40_SpellScript::HandleTargets, EFFECT_0, TARGET_UNIT_SRC_AREA_ALLY);
         }
     };
 
     SpellScript* GetSpellScript() const override
     {
-        return new spell_thaddius_pos_neg_charge_SpellScript();
+        return new spell_thaddius_pos_neg_charge_40_SpellScript();
     }
 };
 
@@ -766,7 +780,7 @@ void AddSC_boss_thaddius_40()
     new boss_thaddius_40();
     new boss_thaddius_summon_40();
 //    new npc_tesla();
-//    new spell_thaddius_pos_neg_charge();
+    new spell_thaddius_pos_neg_charge_40();
 //    new spell_thaddius_polarity_shift();
 //    new at_thaddius_entrance();
 }

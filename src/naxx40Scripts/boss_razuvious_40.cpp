@@ -135,9 +135,9 @@ public:
         {
             BossAI::JustEngagedWith(who);
             Talk(SAY_AGGRO);
-            events.ScheduleEvent(EVENT_UNBALANCING_STRIKE, 20000);
+            events.ScheduleEvent(EVENT_UNBALANCING_STRIKE, 20000); //  TODO: This can be 30 seconds to match vanilla
             events.ScheduleEvent(EVENT_DISRUPTING_SHOUT, 15000);
-            events.ScheduleEvent(EVENT_JAGGED_KNIFE, 10000);
+            //events.ScheduleEvent(EVENT_JAGGED_KNIFE, 10000); // New wrath mechanic
             summons.DoZoneInCombat();
         }
 
@@ -157,9 +157,17 @@ public:
                     events.RepeatEvent(20000);
                     break;
                 case EVENT_DISRUPTING_SHOUT:
-                    me->CastSpell(me, SPELL_DISRUPTING_SHOUT, false);
+                {
+                    // TODO: Custom patch needed to implement power burn, or remove visual effect
+                    // 45yd that ignores line of sight
+                    CustomSpellValues values;
+                    int32 customDisruptingShoutDamage = 2200; // some value as we ignore LoS without patch
+                    values.AddSpellMod(SPELLVALUE_BASE_POINT0, customDisruptingShoutDamage);
+                    values.AddSpellMod(SPELLVALUE_RADIUS_MOD, 4500); // 45yd
+                    me->CastCustomSpell(SPELL_DISRUPTING_SHOUT, values, me, TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
                     events.RepeatEvent(15000);
                     break;
+                }
                 case EVENT_JAGGED_KNIFE:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0, 45.0f))
                     {
