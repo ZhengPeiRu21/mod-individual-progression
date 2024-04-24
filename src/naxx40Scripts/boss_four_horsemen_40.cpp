@@ -39,13 +39,11 @@ enum Spells
     SPELL_BLAUMEUX_SHADOW_BOLT_25       = 57464,
     SPELL_BLAUMEUX_VOID_ZONE_10         = 28863,
     SPELL_BLAUMEUX_VOID_ZONE_25         = 57463,
-    SPELL_BLAUMEUX_UNYIELDING_PAIN      = 57381,
     // Zeliek
     SPELL_ZELIEK_HOLY_WRATH_10          = 28883,
     SPELL_ZELIEK_HOLY_WRATH_25          = 57466,
     SPELL_ZELIEK_HOLY_BOLT_10           = 57376,
     SPELL_ZELIEK_HOLY_BOLT_25           = 57465,
-    SPELL_ZELIEK_CONDEMNATION           = 57377,
     // Mograine
     SPELL_RIVENDARE_UNHOLY_SHADOW_10    = 28882,
     SPELL_RIVENDARE_UNHOLY_SHADOW_25    = 57369
@@ -56,8 +54,7 @@ enum Events
     EVENT_MARK_CAST                     = 1,
     EVENT_PRIMARY_SPELL                 = 2,
     EVENT_SECONDARY_SPELL               = 3,
-    EVENT_PUNISH                        = 4,
-    EVENT_BERSERK                       = 5
+    EVENT_BERSERK                       = 4
 };
 
 enum Misc
@@ -85,17 +82,6 @@ enum FourHorsemen
 
 // MARKS
 const uint32 TABLE_SPELL_MARK[4] = {SPELL_MARK_OF_ZELIEK, SPELL_MARK_OF_BLAUMEUX, SPELL_MARK_OF_MOGRAINE, SPELL_MARK_OF_KORTHAZZ};
-
-// PRIMARY SPELL
-const uint32 TABLE_SPELL_PRIMARY_10[4] = {SPELL_ZELIEK_HOLY_BOLT_10, SPELL_BLAUMEUX_SHADOW_BOLT_10, SPELL_RIVENDARE_UNHOLY_SHADOW_10, SPELL_KORTHAZZ_METEOR_10};
-const uint32 TABLE_SPELL_PRIMARY_25[4] = {SPELL_ZELIEK_HOLY_BOLT_25, SPELL_BLAUMEUX_SHADOW_BOLT_25, SPELL_RIVENDARE_UNHOLY_SHADOW_25, SPELL_KORTHAZZ_METEOR_25};
-
-// PUNISH
-const uint32 TABLE_SPELL_PUNISH[4] = {SPELL_ZELIEK_CONDEMNATION, SPELL_BLAUMEUX_UNYIELDING_PAIN, 0, 0};
-
-// SECONDARY SPELL
-const uint32 TABLE_SPELL_SECONDARY_10[4] = {SPELL_ZELIEK_HOLY_WRATH_10, SPELL_BLAUMEUX_VOID_ZONE_10, 0, 0};
-const uint32 TABLE_SPELL_SECONDARY_25[4] = {SPELL_ZELIEK_HOLY_WRATH_25, SPELL_BLAUMEUX_VOID_ZONE_25, 0, 0};
 
 const Position WaypointPositions[12] =
 {
@@ -201,7 +187,6 @@ public:
             }
             else
             {
-                events.RescheduleEvent(EVENT_PUNISH, 5000);
                 events.RescheduleEvent(EVENT_SECONDARY_SPELL, 15000);
             }
             if (pInstance)
@@ -345,19 +330,41 @@ public:
                     return;
                 case EVENT_PRIMARY_SPELL:
                     Talk(SAY_TAUNT);
-                    me->CastSpell(me->GetVictim(), RAID_MODE(TABLE_SPELL_PRIMARY_10[horsemanId], TABLE_SPELL_PRIMARY_25[horsemanId]), false);
+                    if (horsemanId == HORSEMAN_ZELIEK)
+                    {
+                        int32 bp0 = 1109; // spell not used in vanilla, reduced damage from ~2.5 to ~1.2k
+                        me->CastCustomSpell(me->GetVictim(), SPELL_ZELIEK_HOLY_BOLT_10, &bp0, 0, 0, false);
+                    }
+                    else if (horsemanId == HORSEMAN_BLAUMEUX)
+                    {
+                        int32 bp0 = 1109; // spell not used in vanilla, reduced damage from ~2.5 to ~1.2k
+                        me->CastCustomSpell(me->GetVictim(), SPELL_BLAUMEUX_SHADOW_BOLT_10, &bp0, 0, 0, false);
+                    }
+                    else if (horsemanId == HORSEMAN_MOGRAINE)
+                    {
+                        // same dbc as vanilla. Shadow damage instead of fire
+                        me->CastSpell(me->GetVictim(), SPELL_RIVENDARE_UNHOLY_SHADOW_10, false);
+                    }
+                    else // HORSEMAN_KORTHAZZ
+                    {
+                        int32 bp0 = 12824; // 14.5k to 13.5k
+                        me->CastCustomSpell(me->GetVictim(), SPELL_KORTHAZZ_METEOR_10, &bp0, 0, 0, false);
+                    }
                     events.RepeatEvent(15000);
                     return;
-                case EVENT_PUNISH:
-                    if (!SelectTarget(SelectTargetMethod::MaxDistance, 0, 45.0f, true))
-                    {
-                        me->CastSpell(me, TABLE_SPELL_PUNISH[horsemanId], false);
-                        Talk(EMOTE_RAGECAST);
-                    }
-                    events.RepeatEvent(2010);
-                    return;
                 case EVENT_SECONDARY_SPELL:
-                    me->CastSpell(me->GetVictim(), RAID_MODE(TABLE_SPELL_SECONDARY_10[horsemanId], TABLE_SPELL_SECONDARY_25[horsemanId]), false);
+                    if (horsemanId == HORSEMAN_ZELIEK)
+                    {
+                        int32 bp0 = 443;
+                        CustomSpellValues values;
+                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                        values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 50); // 30yd
+                        me->CastCustomSpell(SPELL_ZELIEK_HOLY_WRATH_10, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
+                    }
+                    else // HORSEMAN_BLAUMEUX
+                    {
+                        me->CastSpell(me->GetVictim(), SPELL_BLAUMEUX_VOID_ZONE_10, false);
+                    }
                     events.RepeatEvent(15000);
                     return;
             }
@@ -366,7 +373,16 @@ public:
             {
                 if (Unit* target = SelectTarget(SelectTargetMethod::MaxDistance, 0, 45.0f, true))
                 {
-                    me->CastSpell(target, RAID_MODE(TABLE_SPELL_PRIMARY_10[horsemanId], TABLE_SPELL_PRIMARY_25[horsemanId]), false);
+                    if (horsemanId == HORSEMAN_ZELIEK)
+                    {
+                        int32 bp0 = 1109; // spell not used in vanilla, reduced damage from ~2.5 to ~1.2k
+                        me->CastCustomSpell(me->GetVictim(), SPELL_ZELIEK_HOLY_BOLT_10, &bp0, 0, 0, false);
+                    }
+                    else if (horsemanId == HORSEMAN_BLAUMEUX)
+                    {
+                        int32 bp0 = 1109; // spell not used in vanilla, reduced damage from ~2.5 to ~1.2k
+                        me->CastCustomSpell(me->GetVictim(), SPELL_BLAUMEUX_SHADOW_BOLT_10, &bp0, 0, 0, false);
+                    }
                 }
             }
             else
@@ -391,6 +407,7 @@ public:
             if (Unit* caster = GetCaster())
             {
                 int32 damage;
+
                 switch (GetStackAmount())
                 {
                     case 1:
@@ -415,6 +432,21 @@ public:
                         damage = 20000 + 1000 * (GetStackAmount() - 7);
                         break;
                 }
+
+                if (caster->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+                {
+                    switch (GetStackAmount())
+                    {
+                        case 1: damage =     0; break;
+                        case 2: damage =   250; break;
+                        case 3: damage =  1000; break;
+                        case 4: damage =  3000; break;
+                        default:
+                            damage = 1000 * GetStackAmount();
+                            break;
+                    }
+                }
+
                 if (damage)
                 {
                     caster->CastCustomSpell(SPELL_MARK_DAMAGE, SPELLVALUE_BASE_POINT0, damage, GetTarget());
@@ -453,6 +485,6 @@ class spell_four_horsemen_consumption : public SpellScript
 void AddSC_boss_four_horsemen_40()
 {
     new boss_four_horsemen_40();
-//    new spell_four_horsemen_mark();
+    new spell_four_horsemen_mark();
 //    RegisterSpellScript(spell_four_horsemen_consumption);
 }
