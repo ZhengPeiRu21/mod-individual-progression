@@ -545,7 +545,7 @@ public:
                     events.RepeatEvent(19000);
                     break;
                 case EVENT_MINION_STATIC_FIELD:
-                    me->CastSpell(me, 90041, false);
+                    me->CastSpell(me, SPELL_STATIC_FIELD, false);
                     events.RepeatEvent(3000);
                     break;
                 case EVENT_MINION_MAGNETIC_PULL:
