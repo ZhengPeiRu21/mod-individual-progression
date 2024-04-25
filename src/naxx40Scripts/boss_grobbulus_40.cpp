@@ -229,7 +229,7 @@ public:
             if (auraVisualTimer) // this has to be delayed to be visible
             {
                 auraVisualTimer += diff;
-                if (auraVisualTimer >= 1000) // Lowered to 3 seconds
+                if (auraVisualTimer >= 1000)
                 {
                     me->CastSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA, true);
                     auraVisualTimer = 0;
