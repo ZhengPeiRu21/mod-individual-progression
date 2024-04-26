@@ -301,10 +301,7 @@ public:
             {
                 if (Unit* victim = ObjectAccessor::GetUnit(*me, victimGUID))
                 {
-                    if (victim->HasAura(SPELL_WEB_WRAP))
-                    {
-                        victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP, me->GetGUID());
-                    }
+                    victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP, me->GetGUID());
                 }
             }
         }
