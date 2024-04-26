@@ -174,8 +174,8 @@ public:
                 break;
             case EVENT_POISON_SHOCK:
             {
-                int32 modifiedPoisonShockDamage = urand(1750, 2250);  // Set damage to a random value between 1750 and 2250
-                me->CastCustomSpell(me->GetVictim(), SPELL_POISON_SHOCK, &modifiedPoisonShockDamage, nullptr, nullptr, false, nullptr, nullptr, me->GetGUID());
+                int32 bp0 = 1499;
+                me->CastCustomSpell(me->GetVictim(), SPELL_POISON_SHOCK, &bp0, nullptr, nullptr, false, nullptr, nullptr, me->GetGUID());
                 events.RepeatEvent(10000);
                 break;
             }
@@ -249,9 +249,9 @@ public:
                 {
                     if (victim->GetTypeId() == TYPEID_PLAYER && victim->GetEntry() != NPC_WEB_WRAP)
                     {
-                        int32 modifiedBaseDamage = urand(650, 850);  // Set damage to a random value between 650 and 850
-                        int32 damageForEffect2 = modifiedBaseDamage;
-                        victim->CastCustomSpell(victim, SPELL_WEB_WRAP, nullptr, &damageForEffect2, nullptr, true, nullptr, nullptr, me->GetGUID());
+                        int32 bp1 = 242;
+                        victim->CastCustomSpell(victim, SPELL_WEB_WRAP, 0, &bp1, 0, true, nullptr, nullptr, me->GetGUID());
+                        victim->CastSpell(victim, SPELL_WEB_WRAP, true, nullptr, nullptr, me->GetGUID());
                     }
                 }
             }
