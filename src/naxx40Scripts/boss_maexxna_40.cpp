@@ -22,7 +22,6 @@
 #include "SpellAuras.h"
 #include "naxxramas.h"
 
-
 enum Spells
 {
     SPELL_WEB_WRAP = 28622,
@@ -39,8 +38,7 @@ enum Events
     EVENT_NECROTIC_POISON = 3,
     EVENT_WEB_WRAP = 4,
     EVENT_HEALTH_CHECK = 5,
-    EVENT_SUMMON_SPIDERLINGS = 6,
-    EVENT_MODIFY_WEB_SPRAY_AURA = 7
+    EVENT_SUMMON_SPIDERLINGS = 6
 };
 
 enum Emotes
@@ -62,8 +60,6 @@ const Position PosWrap[3] =
     {3531.271f, -3847.424f, 299.450f, 0.0f},
     {3497.067f, -3843.384f, 302.384f, 0.0f}
 };
-
-
 
 class boss_maexxna_40 : public CreatureScript
 {
@@ -173,28 +169,9 @@ public:
             case EVENT_WEB_SPRAY:
                 Talk(EMOTE_WEB_SPRAY);
                 me->CastSpell(me, SPELL_WEB_SPRAY, true);
-                events.ScheduleEvent(EVENT_MODIFY_WEB_SPRAY_AURA, 500);  // Schedule the modify aura event with a 500ms delay
+                me->CastCustomSpell(SPELL_WEB_SPRAY, SPELLVALUE_AURA_DURATION, 10000, nullptr, true);
                 events.RepeatEvent(40000);
                 break;
-
-            case EVENT_MODIFY_WEB_SPRAY_AURA:
-            {
-                Map::PlayerList const& PlayerList = me->GetMap()->GetPlayers();
-                for (Map::PlayerList::const_iterator i = PlayerList.begin(); i != PlayerList.end(); ++i)
-                {
-                    if (Player* player = i->GetSource())
-                    {
-                        if (player->IsAlive() && player->HasAura(SPELL_WEB_SPRAY))
-                        {
-                            if (Aura* aura = player->GetAura(SPELL_WEB_SPRAY))
-                            {
-                                aura->SetDuration(8000);  // Set the duration to 8 seconds 
-                            }
-                        }
-                    }
-                }
-            }
-            break;
             case EVENT_POISON_SHOCK:
             {
                 int32 modifiedPoisonShockDamage = urand(1750, 2250);  // Set damage to a random value between 1750 and 2250
