@@ -168,7 +168,6 @@ public:
             {
             case EVENT_WEB_SPRAY:
                 Talk(EMOTE_WEB_SPRAY);
-                me->CastSpell(me, SPELL_WEB_SPRAY, true);
                 me->CastCustomSpell(SPELL_WEB_SPRAY, SPELLVALUE_AURA_DURATION, 10000, nullptr, true);
                 events.RepeatEvent(40000);
                 break;
