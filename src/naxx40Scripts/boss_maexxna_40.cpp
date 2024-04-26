@@ -229,30 +229,15 @@ public:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, 0, true, true, -SPELL_WEB_WRAP))
                     {
                         target->RemoveAura(SPELL_WEB_SPRAY);
-                        float x, y, z;
-                        target->GetPosition(x, y, z);  // Get the current position of the target player
-
-                        // Set the destination position for the Web Wrap NPC
                         uint8 pos = urand(0, 2);
-                        float destX = PosWrap[pos].GetPositionX();
-                        float destY = PosWrap[pos].GetPositionY();
-                        float destZ = PosWrap[pos].GetPositionZ();
-
-                        if (Creature* wrap = me->SummonCreature(NPC_WEB_WRAP, x, y, z, 0.0f, TEMPSUMMON_TIMED_DESPAWN, 60000))
+                        if (Creature* wrap = me->SummonCreature(NPC_WEB_WRAP, PosWrap[pos].GetPositionX(), PosWrap[pos].GetPositionY(), PosWrap[pos].GetPositionZ(), 0.0f, TEMPSUMMON_TIMED_DESPAWN, 60000))
                         {
                             wrap->AI()->SetGUID(target->GetGUID());
-                            wrap->GetMotionMaster()->MoveJump(destX, destY, destZ, 20, 20);  // Make the Web Wrap NPC fly to the destination
-
-                            // Make the player fly to the same destination as Web Wrap NPC
-                            target->GetMotionMaster()->MoveJump(destX, destY, destZ, 20, 20);
-
-                            int32 modifiedBaseDamage = urand(650, 850);  // Set damage to a random value between 650 and 850
-                            int32 damageForEffect2 = modifiedBaseDamage;
-                            target->CastCustomSpell(target, SPELL_WEB_WRAP, nullptr, &damageForEffect2, nullptr, true, nullptr, nullptr, wrap->GetGUID());
+                            target->GetMotionMaster()->MoveJump(PosWrap[pos].GetPositionX(), PosWrap[pos].GetPositionY(), PosWrap[pos].GetPositionZ(), 20, 20);
                         }
                     }
                 }
-                events.RepeatEvent(40000);
+                events.Repeat(40s);
                 break;
             }
             DoMeleeAttackIfReady();
