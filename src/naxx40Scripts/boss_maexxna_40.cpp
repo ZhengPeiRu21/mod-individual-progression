@@ -208,7 +208,7 @@ public:
                 break;
             case EVENT_SUMMON_SPIDERLINGS:
                 Talk(EMOTE_SPIDERS);
-                for (uint8 i = 0; i < 8; ++i)
+                for (uint8 i = 0; i < 10; ++i)
                 {
                     me->SummonCreature(NPC_MAEXXNA_SPIDERLING, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), me->GetOrientation());
                 }
