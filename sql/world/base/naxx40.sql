@@ -1,9 +1,10 @@
-# Add MapDifficulty DBC Override
+-- Add MapDifficulty DBC Override
+-- https://wow.tools/dbc/?dbc=mapdifficulty&build=10.0.0.44895#page=1&search=533
 DELETE FROM `mapdifficulty_dbc` WHERE `ID` = 754;
 INSERT INTO `mapdifficulty_dbc` (`ID`, `MapID`, `Difficulty`, `Message_Lang_enUS`, `Message_Lang_Mask`, `RaidDuration`, `MaxPlayers`, `Difficultystring`)
 VALUES (754, 533, 2, 'You must be level 60 and in a raid group to enter.', 16712190, 604800, 40, 'RAID_DIFFICULTY_40PLAYER');
 
-# Remove exit teleport and replace with script
+-- Remove exit teleport and replace with script
 DELETE FROM `areatrigger_teleport` WHERE `ID` IN (5196, 5197, 5198, 5199, 4156);
 
 DELETE FROM `areatrigger_scripts` WHERE `entry` IN (5196, 5197, 5198, 5199);
@@ -23,7 +24,7 @@ INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
 UPDATE `creature` SET `spawnMask` = 3 WHERE `spawnMask` = 7 AND `map` = 533;
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `spawnMask` = 3 AND `map` = 533;
 
-# Lich King uses same entry in Naxx WotLK and Naxx 40 - Allow spawning in all versions
+-- Lich King uses same entry in Naxx WotLK and Naxx 40 - Allow spawning in all versions
 UPDATE `creature` SET `spawnMask` = 7 WHERE `id1` = 16980;
 
 UPDATE `gameobject` SET `spawnMask` = 3 WHERE `id` IN (202278, 202277);  # Orb of Naxxramas does not exist in classic
@@ -39,7 +40,7 @@ DELETE FROM `creature` WHERE `guid` = 352042;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (352042, 351097, 0, 0, 329, 0, 0, 1, 1, 0, 3929.06, -3372.12, 119.653, 4.71395, 300, 0, 0, 6986, 0, 0, 0, 0, 0, '', 0);
 
-# Four horseman chest
+-- Four horseman chest
 DELETE FROM `gameobject_template` WHERE `entry`=361000;
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, `unk1`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, `Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, `Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES
 (361000, 3, 1387, 'Four Horsemen Chest', '', '', '', 1, 1634, 361000, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 1);
@@ -104,3 +105,6 @@ INSERT INTO `transports` (`guid`, `entry`, `name`, `ScriptName`) VALUES
 -- https://wow.tools/dbc/?dbc=taxipathnode&build=3.3.5.12340#page=1&colFilter[1]=436
 -- Set speed (Data1) and map (Data6)
 UPDATE `gameobject_template` SET `Data1`=1,`Data6`=0 WHERE entry=181056;
+
+-- Naxxramas Trigger (frogger) should also spawn in Naxx40
+UPDATE `creature` SET `spawnMask` = (`spawnMask` | 4) WHERE (`id1` = 16082);

@@ -17,6 +17,8 @@
 
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
+#include "SpellAuraEffects.h"
+#include "SpellScript.h"
 #include "naxxramas.h"
 
 enum Says
@@ -35,6 +37,7 @@ enum Says
 enum Spells
 {
     SPELL_CURSE_OF_THE_PLAGUEBRINGER        = 29213,
+    SPELL_REVENGE_OF_THE_PLAGUEBRINGER      = 29214,
     SPELL_CRIPPLE                           = 29212,
     SPELL_SUMMON_PLAGUED_WARRIORS           = 29237,
     SPELL_TELEPORT                          = 29216,
@@ -103,7 +106,7 @@ public:
             me->SetControlled(false, UNIT_STATE_ROOT);
             events.Reset();
             events.ScheduleEvent(EVENT_MOVE_TO_BALCONY, 110000);
-            events.ScheduleEvent(EVENT_CURSE, 15000);
+            //events.ScheduleEvent(EVENT_CURSE, urand(50000, 60000)); // more curses, down from 150s to 50-60s
             events.ScheduleEvent(EVENT_SUMMON_PLAGUED_WARRIOR_ANNOUNCE, 10000);
             if (Is25ManRaid())
             {
@@ -232,9 +235,9 @@ public:
                 case EVENT_CURSE:
                     if (events.GetPhaseMask() == 0)
                     {
-                        me->CastCustomSpell(SPELL_CURSE_OF_THE_PLAGUEBRINGER, SPELLVALUE_MAX_TARGETS, 10, me, false);
+                        me->CastCustomSpell(SPELL_CURSE_OF_THE_PLAGUEBRINGER, SPELLVALUE_MAX_TARGETS, 10, me, false); // TODO: Increase to 20 on 40man
                     }
-                    events.RepeatEvent(25000);
+                    events.RepeatEvent(25000); // 50-60 seconds in 40man
                     break;
                 case EVENT_SUMMON_PLAGUED_WARRIOR_ANNOUNCE:
                     Talk(SAY_SUMMON);
@@ -297,7 +300,51 @@ public:
     };
 };
 
+class spell_gothik_curse_of_the_plaguebringer_40 : public SpellScriptLoader
+{
+    public:
+        spell_gothik_curse_of_the_plaguebringer_40() : SpellScriptLoader("spell_gothik_curse_of_the_plaguebringer_40") { }
+
+        class spell_gothik_curse_of_the_plaguebringer_40_AuraScript : public AuraScript
+        {
+            PrepareAuraScript(spell_gothik_curse_of_the_plaguebringer_40_AuraScript);
+
+            bool Validate(SpellInfo const* /*spellInfo*/) override
+            {
+                return ValidateSpellInfo({ SPELL_REVENGE_OF_THE_PLAGUEBRINGER }); // Revenge of the Plaguebringer
+            }
+
+            void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
+            {
+                Unit* caster = GetCaster();
+                if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+                {
+                    return;
+                }
+                PreventDefaultAction();
+                CustomSpellValues values;
+                int32 bp0 = 1757; // instant damage
+                int32 bp1 = 874; // periodic damage
+                values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                values.AddSpellMod(SPELLVALUE_BASE_POINT1, bp1);
+                values.AddSpellMod(SPELLVALUE_RADIUS_MOD, 3500); // 35yd
+                GetTarget()->CastCustomSpell(SPELL_REVENGE_OF_THE_PLAGUEBRINGER, values, GetTarget(), TRIGGERED_NONE, nullptr, nullptr, GetCasterGUID());
+            }
+
+            void Register() override
+            {
+                OnEffectPeriodic += AuraEffectPeriodicFn(spell_gothik_curse_of_the_plaguebringer_40_AuraScript::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_TRIGGER_SPELL);
+            }
+        };
+
+        AuraScript* GetAuraScript() const override
+        {
+            return new spell_gothik_curse_of_the_plaguebringer_40_AuraScript();
+        }
+};
+
 void AddSC_boss_noth_40()
 {
     new boss_noth_40();
+    new spell_gothik_curse_of_the_plaguebringer_40();
 }

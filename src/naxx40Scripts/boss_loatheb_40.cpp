@@ -22,7 +22,7 @@
 enum Spells
 {
     SPELL_NECROTIC_AURA                         = 55593,
-    SPELL_SUMMON_SPORE                          = 29234,
+    SPELL_SUMMON_SPORE                          = 90006,
     SPELL_DEATHBLOOM                            = 29865,
     SPELL_INEVITABLE_DOOM                       = 29204,
     SPELL_BERSERK                               = 26662
@@ -159,14 +159,21 @@ public:
                     events.RepeatEvent(20000);
                     break;
                 case EVENT_DEATHBLOOM:
-                    me->CastSpell(me, SPELL_DEATHBLOOM, false);
+                {
+                    //me->CastSpell(me, SPELL_DEATHBLOOM, false);
+                    int32 bp0 = 33; // TODO: Amplitude should be 6k, but is 1k. 200 dmg after 6 seconds
+                    me->CastCustomSpell(me, SPELL_DEATHBLOOM, &bp0, 0, 0, false);
                     events.RepeatEvent(30000);
                     break;
+                }
                 case EVENT_INEVITABLE_DOOM:
-                    me->CastSpell(me, SPELL_INEVITABLE_DOOM, false);
+                {
+                    int32 bp0 = 2549;
+                    me->CastCustomSpell(me, SPELL_INEVITABLE_DOOM, &bp0, 0, 0, false);
                     doomCounter++;
                     events.RepeatEvent(doomCounter < 6 ? 30000 : 15000);
                     break;
+                }
                 case EVENT_BERSERK:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;

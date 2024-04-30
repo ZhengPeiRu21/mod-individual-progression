@@ -1914,11 +1914,6 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `spawnMask`, `positi
 (361238, 351048, 0, 0, 533, 4, 2879.33, -3244.43, 298.33, 4.73, 7200, 0.0, 0),
 (361239, 351056, 0, 0, 533, 4, 2847.2, -3263.39, 298.27, 5.43, 7200, 0.0, 0),
 (361240, 351056, 0, 0, 533, 4, 2837.08, -3273.82, 298.27, 5.57, 7200, 0.0, 0),
-(361241, 351058, 0, 0, 533, 4, 2843.76, -3333.93, 298.5, 0.62, 7200, 0.0, 2),
-(361242, 351058, 0, 0, 533, 4, 2837.3, -3333.04, 300.45, 2.96, 7200, 15.0, 1),
-(361243, 351058, 0, 0, 533, 4, 2829.71, -3322.54, 300.01, 2.2, 7200, 15.0, 1),
-(361244, 351058, 0, 0, 533, 4, 2829.27, -3314.37, 299.31, 1.52, 7200, 15.0, 1),
-(361245, 351058, 0, 0, 533, 4, 2835.91, -3307.22, 298.33, 0.53, 7200, 0.0, 2),
 (361246, 351049, 0, 0, 533, 4, 2881.58, -3314.07, 298.32, 0.58, 7200, 0.0, 0),
 (361247, 351048, 0, 0, 533, 4, 2889.75, -3260.82, 298.146, 3.99846, 7200, 0.0, 0),
 (361248, 351048, 0, 0, 533, 4, 2886.46, -3257.89, 298.146, 3.98276, 7200, 0.0, 2),
@@ -4654,8 +4649,6 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (361230, 3612300, 0, 0, 0, 0, NULL),
 (361233, 3612330, 0, 0, 0, 0, NULL),
 (361234, 3612340, 0, 0, 0, 0, NULL),
-(361241, 3612410, 0, 0, 0, 0, NULL),
-(361245, 3612450, 0, 0, 0, 0, NULL),
 (361248, 3612480, 0, 0, 0, 0, NULL),
 (361253, 3612530, 0, 0, 0, 0, NULL),
 (361257, 3612570, 0, 0, 0, 0, NULL),
@@ -5385,3 +5378,300 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (362057, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2877.97, -3761.82, 274.983, 3.64774, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (362058, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2770.1, -3782.59, 274.983, 1.02974, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (362059, 351090, 0, 0, 533, 0, 0, 4, 1, 0, 2846.52, -3789.07, 274.983, 2.23402, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+
+-- Fix Patchwork Golem 4man group: Delete creature_formation, set wander_distance to 1, and set MovementType to 1
+UPDATE `creature` SET `wander_distance`=1, `MovementType`=1 WHERE `guid` BETWEEN 361326 and 361329;
+DELETE FROM `creature_formations` WHERE `leaderGUID` = 361329;
+
+-- Lightning Totem, summoned by Living Monstrosity
+DELETE FROM `creature_template` WHERE (`entry` = 351091);
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+(351091, 0, 0, 0, 0, 0, 4590, 0, 0, 0, 'Lightning Totem', '', '', 0, 62, 62, 2, 21, 0, 1.0, 1.0, 1.0, 1.0, 18.0, 1.0, 0, 0, 1.0, 2000, 2000, 1.0, 1.0, 1, 4, 2048, 8, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1.0, 0.2, 1.0, 1.0, 1.0, 0, 0, 1, 0, 0, 0, '', 12340);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351091;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351091);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351091, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 4000, 4000, 0, 0, 218, 28297, 0, 1899, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)');
+
+/*  Lightning Totem   */
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351091, 2);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351091, 3);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351091, 4);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351091, 5);
+REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351091, 6);
+
+ -- Toxic Slime Tunnel
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351072);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351072, 0, 0, 0, 1, 0, 0, '28370');
+DELETE FROM `creature_template_movement` WHERE (`CreatureId` = 351072);
+INSERT INTO `creature_template_movement` (`CreatureId`, `Ground`, `Swim`, `Flight`, `Rooted`, `Chase`, `Random`, `InteractionPauseTimer`) VALUES
+(351072, 1, 1, 0, 0, 0, 0, 0);
+-- set pathId to 1276310
+DELETE FROM `creature_addon` WHERE (`guid` IN (361539, 361540, 361541, 361542, 361543, 361544, 361545));
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(361539, 1276310, 0, 0, 0, 0, 0, '28370'),
+(361540, 1276310, 0, 0, 0, 0, 0, '28370'),
+(361541, 1276310, 0, 0, 0, 0, 0, '28370'),
+(361542, 1276310, 0, 0, 0, 0, 0, '28370'),
+(361543, 1276310, 0, 0, 0, 0, 0, '28370'),
+(361544, 1276310, 0, 0, 0, 0, 0, '28370'),
+(361545, 1276310, 0, 0, 0, 0, 0, '28370');
+-- Set disable move flag
+UPDATE `creature_template` SET `unit_flags` = (`unit_flags`|4) WHERE (`entry` = 351072);
+
+-- Necropolis Acolyte should cast Shadow Bolt Volley and Arcane Explosion
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351070;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351070);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351070, 0, 0, 0, 106, 0, 100, 0, 2000, 2000, 5000, 5000, 0, 13, 11, 22271, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Necropolis Acolyte - On Hostile in Range - Cast \'Arcane Explosion\''),
+(351070, 0, 1, 0, 0, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 0, 11, 28448, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Necropolis Acolyte - In Combat - Cast \'Shadow Bolt Volley\'');
+
+-- Plagued Ghoul
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351078);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351078, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 24318, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Ghoul - Between 0-30% Health - Cast \'Frenzy\' (No Repeat)'),
+(351078, 0, 1, 0, 0, 0, 100, 0, 5000, 15000, 9000, 18000, 0, 0, 11, 29915, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Ghoul - In Combat - Cast \'Flesh Rot\''),
+(351078, 0, 2, 0, 0, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 0, 11, 13738, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Ghoul - In Combat - Cast \'Rend\'');
+
+-- Plagued Deathhound
+-- stealth and invisibility detection
+UPDATE `creature_template_addon` SET `auras` = '18950' WHERE (`entry` = 16448);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 16448;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 16448);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(16448, 0, 0, 0, 0, 0, 100, 0, 6000, 12000, 9000, 16000, 0, 0, 11, 30121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Deathhound - In Combat - Cast \'Forceful Howl\'');
+-- Spirit of Naxxramas
+-- stealth and invisibility detection
+UPDATE `creature_template_addon` SET `auras` = '18950' WHERE (`entry` = 16449);
+-- Deathknight Vindicator
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 16451;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 16451);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(16451, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight Vindicator - In Combat - Cast \'Aura of Agony\''),
+(16451, 0, 1, 0, 0, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight Vindicator - In Combat - Cast \'Cleave\''),
+(16451, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight Vindicator - In Combat - Cast \'Death Coil\'');
+
+-- Necro Knight Guardian
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 16452;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 16452);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(16452, 0, 0, 0, 0, 0, 90, 0, 2000, 2000, 15000, 15000, 0, 0, 11, 30092, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Necro Knight Guardian - In Combat - Cast \'Blast Wave\''),
+(16452, 0, 1, 0, 0, 0, 90, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 30091, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Necro Knight Guardian - In Combat - Cast \'Flamestrike\''),
+(16452, 0, 2, 0, 0, 0, 90, 0, 8000, 8000, 15000, 15000, 0, 0, 11, 30094, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Necro Knight Guardian - In Combat - Cast \'Frost Nova\''),
+(16452, 0, 3, 0, 0, 0, 90, 0, 11000, 11000, 15000, 15000, 0, 0, 11, 30096, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Necro Knight Guardian - In Combat - Cast \'Arcane Explosion\''),
+(16452, 0, 4, 0, 0, 0, 90, 0, 12000, 12000, 15000, 15000, 0, 0, 11, 28391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Necro Knight Guardian - In Combat - Cast \'Blink\''),
+(16452, 0, 5, 0, 0, 0, 90, 0, 14000, 14000, 15000, 15000, 0, 0, 11, 30095, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Necro Knight Guardian - In Combat - Cast \'Cone of Cold\'');
+
+-- Update Bile Retcher 351022  - 27807 Bile Vomit - ~5k instant, ~1200 dot to ~1500 instant, 250 dot
+DELETE FROM `smart_scripts` WHERE (`entryorguid` = 351022) AND (`source_type` = 0) AND (`id` IN (0));
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`,
+ `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351022, 0, 0, 0, 0, 0, 100, 0, 3600, 6800, 13700, 19700, 0, 0, 218, 27807, 0, 1374, 249, 26, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Bile Retcher - In combat - Cast Bile Vomit (Naxx 40)');
+-- 351023 - Mad Scientist - Heal, reduced from ~20% hp to ~10% hp. Vanilla is raw ~3k
+-- 351023 - Mad Scientist - Mana Burn ~3.5k to ~1.5k
+DELETE FROM `smart_scripts` WHERE (`entryorguid` = 351023) AND (`source_type` = 0) AND (`id` IN (0, 2));
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351023, 0, 0, 0, 0, 0, 100, 0, 7600, 17300, 6000, 13300, 0, 0, 218, 28301, 0, 1062, 0, 0, 0, 5, 0, 0, 1, 0, 0, 0, 0, 0, 'Mad Scientist - In combat - Cast Mana Burn (Naxx 40)'),
+(351023, 0, 2, 0, 2, 0, 100, 0, 0, 30, 18000, 21000, 0, 0, 218, 28306, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Mad Scientist - At 30% HP - Cast Great Heal (Naxx 40)');
+-- 351025 - Surgical Assistant - Mind Flay damage from 1.5k to 600 per tick
+DELETE FROM `smart_scripts` WHERE (`entryorguid` = 351025) AND (`source_type` = 0) AND (`id` IN (0));
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351025, 0, 0, 0, 0, 0, 100, 0, 1600, 2800, 7700, 11900, 0, 0, 218, 28310, 0, 554, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Surgical Assistant - In combat - Cast Mind Flay (Naxx 40)');
+-- 351024 - Living Monstrosity - Chain Lightning damage from ~4k to ~1k. (Chain Lightning should 3 to 10. Range 45 to 30, requires custom script)
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351024);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351024, 0, 0, 0, 0, 0, 100, 0, 7100, 12500, 18100, 20900, 0, 0, 218, 28293, 0, 599, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Living Monstrosity - In combat - Cast Chain Lightning (Naxx 40)'),
+(351024, 0, 1, 0, 0, 0, 100, 0, 6400, 10000, 16900, 18500, 0, 0, 11, 90005, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Living Monstrosity - In combat - Cast Lightning Totem (Naxx 40)');
+
+-- Trash military quarter
+-- Military Quarter Trash
+-- Plagued Gargoyle
+-- stealth and invisibility detection
+UPDATE `creature_template_addon` SET `auras` = '18950' WHERE (`entry` = 35107);
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351077);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351077, 0, 0, 0, 0, 0, 100, 0, 0, 0, 10000, 10000, 0, 0, 218, 29325, 0, 0, 121, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Gargoyle - In Combat - Custom Cast Acid Volley'),
+(351077, 0, 1, 0, 2, 0, 75, 0, 0, 50, 30000, 30000, 0, 0, 11, 28995, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Gargoyle - Between 0-50% Health - Cast \'Stoneskin\'');
+-- Death Knight Captain
+-- Cast whirlwind every 5 seconds
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351048);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351048, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 5000, 5000, 0, 0, 11, 28335, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight Captain - In Combat - Cast \'Whirlwind\'');
+-- Death Knight Cavalier
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351055);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351055, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight Cavalier - In Combat - Cast \'Aura of Agony\''),
+(351055, 0, 1, 0, 0, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight Cavalier - In Combat - Cast \'Cleave\''),
+(351055, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight Cavalier - In Combat - Cast \'Death Coil\'');
+-- Death Lord
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 16861;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 16861);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(16861, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Death Lord - In Combat - Cast \'Aura of Agony\' (Naxx40)'),
+(16861, 0, 1, 0, 0, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Death Lord - In Combat - Cast \'Cleave\' (Naxx40)'),
+(16861, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Death Lord - In Combat - Cast \'Death Coil\' (Naxx40)');
+-- Deathknight
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351049);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351049, 0, 0, 0, 0, 0, 100, 0, 0, 0, 8000, 8000, 0, 0, 11, 19134, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight - In Combat - Cast \'Frightening Shout\''),
+(351049, 0, 1, 0, 0, 0, 100, 0, 0, 0, 7000, 7000, 0, 0, 11, 28350, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Deathknight - In Combat - Cast \'Veil of Darkness\'');
+-- Set Doom/Death Touched Warrior immune to disorient (1), charm (2)
+UPDATE `creature_template` SET `mechanic_immune_mask` = `mechanic_immune_mask` | 3 WHERE (`entry` IN (351054, 16158));
+-- Bony Construct
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351058);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351058, 0, 0, 0, 0, 0, 100, 0, 3000, 3000, 4000, 4000, 0, 0, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Bony Construct - In Combat - Cast \'Cleave\''),
+(351058, 0, 1, 0, 0, 0, 100, 0, 0, 0, 7000, 7000, 0, 0, 11, 25322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Bony Construct - In Combat - Cast \'Sweeping Slam\'');
+-- Skeletal Smith
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351060);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351060, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 2000, 2000, 0, 0, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Smith - In Combat - Cast \'Sunder Armor\''),
+(351060, 0, 1, 0, 0, 0, 85, 0, 0, 0, 6000, 6000, 0, 0, 11, 6713, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Smith - In Combat - Cast \'Disarm\''),
+(351060, 0, 2, 0, 0, 0, 90, 0, 2000, 2000, 10000, 10000, 0, 0, 11, 23931, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Smith - In Combat - Cast \'Thunderclap\'');
+-- fix: Bony Construct pathing
+DELETE FROM `creature_formations` WHERE `leaderGUID` = 361243;
+DELETE FROM `creature` WHERE `guid` BETWEEN 362060 AND 362065;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+(362060, 351058, 0, 0, 533, 0, 0, 4, 1, 0, 2845.06, -3296.36, 298.124, 5.63452, 3600, 0.0, 0, 65165, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(362061, 351058, 0, 0, 533, 0, 0, 4, 1, 0, 2839.23, -3337.89, 300.911, 0.349066, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362062, 351058, 0, 0, 533, 0, 0, 4, 1, 0, 2832.53, -3295.22, 298.121, 3.05074, 3600, 5.0, 0, 65165, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(362063, 351058, 0, 0, 533, 0, 0, 4, 1, 0, 2835.76, -3331.32, 299.364, 4.84961, 3600, 0.0, 0, 65165, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(362064, 351058, 0, 0, 533, 0, 0, 4, 1, 0, 2831.77, -3307.42, 298.659, 0.087266, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(362065, 351058, 0, 0, 533, 0, 0, 4, 1, 0, 2827.68, -3314.67, 300.318, 0.383972, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+DELETE FROM `waypoint_data` WHERE `id` IN (3620600, 3620630);
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES
+(3620600, 1, 2847.82, -3308.78, 298.147, NULL, 0, 0, 0, 100, 0),
+(3620600, 2, 2838.80, -3321.94, 298.152, NULL, 0, 0, 0, 100, 0),
+(3620600, 3, 2847.82, -3308.78, 298.147, NULL, 0, 0, 0, 100, 0),
+(3620600, 4, 2845.06, -3296.36, 298.124, NULL, 0, 0, 0, 100, 0),
+(3620600, 5, 2832.53, -3295.22, 298.150, NULL, 0, 0, 0, 100, 0),
+(3620600, 6, 2845.06, -3296.36, 298.124, NULL, 0, 0, 0, 100, 0),
+(3620630, 1, 2830.41, -3329.09, 304.837, NULL, 0, 0, 0, 100, 0),
+(3620630, 2, 2835.76, -3331.32, 299.364, NULL, 0, 0, 0, 100, 0),
+(3620630, 3, 2842.91, -3323.56, 298.155, NULL, 0, 0, 0, 100, 0),
+(3620630, 4, 2852.52, -3333.61, 298.146, NULL, 0, 0, 0, 100, 0),
+(3620630, 5, 2854.87, -3350.62, 298.146, NULL, 0, 0, 0, 100, 0),
+(3620630, 6, 2852.52, -3333.61, 298.146, NULL, 0, 0, 0, 100, 0),
+(3620630, 7, 2842.91, -3323.56, 298.155, NULL, 0, 0, 0, 100, 0),
+(3620630, 8, 2835.76, -3331.32, 299.364, NULL, 0, 0, 0, 100, 0);
+DELETE FROM `creature_addon` WHERE (`guid` IN (362060, 362063));
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(362060, 3620600, 0, 0, 1, 0, 0, ''),
+(362063, 3620630, 0, 0, 1, 0, 0, '');
+-- Shade of Naxxramas
+-- Shadow Bolt Volley bp0 to 1849
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351056);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351056, 0, 0, 0, 0, 0, 100, 0, 2800, 5100, 4500, 12000, 0, 0, 218, 28407, 0, 1849, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shade of Naxxramas - In Combat - Custom Cast Shadow Bolt Volley (Naxx40)'),
+(351056, 0, 1, 0, 0, 0, 100, 0, 4100, 8700, 60000, 60000, 0, 0, 11, 90004, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shade of Naxxramas - In Combat - Cast \'Portal of Shadows (Naxx40)\''),
+(351056, 0, 2, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 19, 351092, 0, 0, 0, 0, 0, 0, 0, 'Shade of Naxxramas - On Reset - Despawn In 500 ms (Naxx40)');
+-- Ghost of Naxxramas, summoned by custom Portal of Shadows (90004)
+DELETE FROM `creature_template` WHERE (`entry` = 351092);
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+(351092, 0, 0, 0, 0, 0, 14368, 0, 0, 0, 'Ghost of Naxxramas', NULL, NULL, 0, 60, 60, 2, 21, 0, 1.11111, 0.71429, 1, 1, 20, 1, 1, 0, 7.5, 2000, 2000, 1, 1, 1, 33587264, 2048, 0, 0, 0, 0, 0, 0, 7, 8, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 1, 1, 1, 1, 0, 88, 1, 0, 0, 0, '', 12340);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351092;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351092);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351092, 0, 0, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghost of Naxxramas - On spawn - Set in combat with zone (Naxx40)'),
+(351092, 0, 1, 0, 1, 0, 100, 512, 100, 100, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghost of Naxxramas - On OOC - Despawn if OOC (Naxx40)');
+-- Skeletal Steed
+-- Add trample, intercept
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351041);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351041, 0, 0, 0, 9, 0, 100, 0, 2000, 2000, 20000, 25000, 8, 25, 11, 27577, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Steed - Within 8-25 Range - Cast \'Intercept\' (Naxx 40)'),
+(351041, 0, 1, 0, 0, 0, 90, 0, 2000, 2000, 5000, 5000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Steed - In Combat - Cast Trample (Naxx 40)');
+
+-- Razuvious
+-- Deathknight Understudy
+-- Set attacking emote, add see invisibility and increase damage aura
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351084);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351084, 0, 0, 0, 1, 333, 3, '18950 29068');
+-- Add spells, taunt and bone barrier
+DELETE FROM `creature_template_spell` WHERE (`CreatureID` = 351084);
+INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES
+(351084, 3, 29060, 12340),
+(351084, 4, 29061, 12340);
+
+-- Trash
+-- Plague Quarter
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351065;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351065);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351065, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 9000, 12000, 0, 0, 11, 29915, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)'),
+(351065, 0, 1, 0, 0, 0, 100, 0, 3000, 3000, 15000, 15000, 0, 0, 11, 13738, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Infectious Ghoul - In Combat - Cast \'Rend\' (Naxx40)'),
+(351065, 0, 2, 0, 2, 0, 100, 0, 0, 30, 60000, 60000, 0, 0, 11, 24318, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Infectious Ghoul - On 30% HP - CastSelf Frenzy (Naxx 40)'),
+(351065, 0, 3, 0, 2, 0, 100, 1, 0, 30, 60000, 60000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Infectious Ghoul - Between 0-30% Health - Say Line 0 (Naxx40)');
+
+-- Stoneskin Gargoyle
+DELETE FROM `conditions` WHERE `SourceEntry` = 351059;
+INSERT INTO `conditions`
+(`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(22, 5, 351059, 0, 0, 21, 1, 16, 0, 0, 1, 0, 0, '', 'Stoneskin Gargoyle Not Roaming - Enable Script to set ''UNIT_STAND_STATE_SUBMERGED''(Naxx40)'),
+(22, 6, 351059, 0, 0, 21, 1, 16, 0, 0, 0, 0, 0, '', 'Stoneskin Gargoyle Roaming - Enable Script to remove ''UNIT_STAND_STATE_SUBMERGED'' (Naxx40)');
+
+-- Noth
+-- Plagued Champion
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351086;
+-- Reduce damage Plague Shock (30138) ~2.5k to ~500
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351086);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351086, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 9000, 11000, 0, 0, 11, 32736, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)'),
+(351086, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 13000, 15000, 0, 0, 218, 30138, 0, 554, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Champion - In Combat - Custom Cast Shadow Shock (Naxx 40)');
+-- Wrath of the Plaguebringer, if failed to decurse
+DELETE FROM `spell_script_names` WHERE `spell_id` = 29213;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES(29213, 'spell_gothik_curse_of_the_plaguebringer_40');
+
+-- Mutaged Grub
+-- Reduce damage Slime Burst - AoE ~450 to ~200
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351068);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351068, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 6000, 8000, 0, 0, 218, 30109, 0, 462, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Mutated Grub - In Combat - Custom Cast Slime Burst (Naxx40)');
+
+-- Frenzied Bat
+-- Update Frenzied Dive Id
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351031);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351031, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 11000, 17000, 0, 0, 11, 30112, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Frenzied Bat - In Combat - Cast Frenzied Dive (Naxx 40)');
+
+-- Plagued Bat
+-- Adjust IC timings
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351032);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351032, 0, 0, 0, 0, 0, 85, 0, 9000, 9000, 40000, 40000, 0, 0, 11, 30113, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Bat - In Combat - Cast \'Putrid Bite\' (Naxx40)');
+
+-- Plague Beast
+-- trample
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351030);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351030, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 3000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plague Beast - In Combat - Cast \'Trample\' (Naxx40)');
+
+-- Heigan, Plague Cloud
+DELETE FROM `spell_script_names` WHERE `spell_id` = 29350;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES(29350, 'spell_heigan_plague_cloud_40');
+-- Heigan, Eruption
+DELETE FROM `spell_script_names` WHERE `spell_id` = 29371;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES(29371, 'spell_heigan_eruption_40');
+-- Grobullus, Poison cast by Poison Cloud
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28158;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
+VALUES(28158, 'spell_grobbulus_poison_cloud_poison_40');
+
+-- Eye Stalk
+-- Reduce damage 2.5k to 750, movement speed reduction -50 to -20 (as unsigned int)
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351090);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351090, 0, 0, 0, 0, 0, 85, 0, 0, 0, 11000, 11000, 0, 0, 218, 29407, 0, 749, 4294967276, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - In Combat - Custom Cast Mind Flay (Naxx40)'),
+(351090, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 26586, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - On Respawn - Cast \'Birth\' (Naxx40)'),
+(351090, 0, 2, 0, 1, 0, 100, 0, 2000, 8000, 2000, 30000, 0, 0, 11, 28819, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - Out of Combat - Cast \'Submerge Visual\' (Naxx40)'),
+(351090, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 2000, 36, 90, 24, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - Within 36-90 Range - Evade (Naxx40)');
+
+-- Fungal Spore
+-- OnDeath Apply: Threat -100% (as unsigned int), Melee +50% crit, Casters +60% (up from 50%) crit
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351066);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351066, 0, 0, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 218, 29232, 2, 4294967196, 49, 59, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Spore - On Just Died - Custom Cast Fungal Creep (Naxx 40)');
+
