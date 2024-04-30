@@ -22,7 +22,6 @@
 #include "SpellAuras.h"
 #include "naxxramas.h"
 
-
 enum Spells
 {
     SPELL_WEB_WRAP = 28622,
@@ -39,8 +38,7 @@ enum Events
     EVENT_NECROTIC_POISON = 3,
     EVENT_WEB_WRAP = 4,
     EVENT_HEALTH_CHECK = 5,
-    EVENT_SUMMON_SPIDERLINGS = 6,
-    EVENT_MODIFY_WEB_SPRAY_AURA = 7
+    EVENT_SUMMON_SPIDERLINGS = 6
 };
 
 enum Emotes
@@ -62,8 +60,6 @@ const Position PosWrap[3] =
     {3531.271f, -3847.424f, 299.450f, 0.0f},
     {3497.067f, -3843.384f, 302.384f, 0.0f}
 };
-
-
 
 class boss_maexxna_40 : public CreatureScript
 {
@@ -172,33 +168,13 @@ public:
             {
             case EVENT_WEB_SPRAY:
                 Talk(EMOTE_WEB_SPRAY);
-                me->CastSpell(me, SPELL_WEB_SPRAY, true);
-                events.ScheduleEvent(EVENT_MODIFY_WEB_SPRAY_AURA, 500);  // Schedule the modify aura event with a 500ms delay
+                me->CastCustomSpell(SPELL_WEB_SPRAY, SPELLVALUE_AURA_DURATION, 10000, nullptr, true);
                 events.RepeatEvent(40000);
                 break;
-
-            case EVENT_MODIFY_WEB_SPRAY_AURA:
-            {
-                Map::PlayerList const& PlayerList = me->GetMap()->GetPlayers();
-                for (Map::PlayerList::const_iterator i = PlayerList.begin(); i != PlayerList.end(); ++i)
-                {
-                    if (Player* player = i->GetSource())
-                    {
-                        if (player->IsAlive() && player->HasAura(SPELL_WEB_SPRAY))
-                        {
-                            if (Aura* aura = player->GetAura(SPELL_WEB_SPRAY))
-                            {
-                                aura->SetDuration(8000);  // Set the duration to 8 seconds 
-                            }
-                        }
-                    }
-                }
-            }
-            break;
             case EVENT_POISON_SHOCK:
             {
-                int32 modifiedPoisonShockDamage = urand(1750, 2250);  // Set damage to a random value between 1750 and 2250
-                me->CastCustomSpell(me->GetVictim(), SPELL_POISON_SHOCK, &modifiedPoisonShockDamage, nullptr, nullptr, false, nullptr, nullptr, me->GetGUID());
+                int32 bp0 = 1499;
+                me->CastCustomSpell(me->GetVictim(), SPELL_POISON_SHOCK, &bp0, nullptr, nullptr, false, nullptr, nullptr, me->GetGUID());
                 events.RepeatEvent(10000);
                 break;
             }
@@ -208,7 +184,7 @@ public:
                 break;
             case EVENT_SUMMON_SPIDERLINGS:
                 Talk(EMOTE_SPIDERS);
-                for (uint8 i = 0; i < 8; ++i)
+                for (uint8 i = 0; i < 10; ++i)
                 {
                     me->SummonCreature(NPC_MAEXXNA_SPIDERLING, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), me->GetOrientation());
                 }
@@ -229,30 +205,15 @@ public:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, 0, true, true, -SPELL_WEB_WRAP))
                     {
                         target->RemoveAura(SPELL_WEB_SPRAY);
-                        float x, y, z;
-                        target->GetPosition(x, y, z);  // Get the current position of the target player
-
-                        // Set the destination position for the Web Wrap NPC
                         uint8 pos = urand(0, 2);
-                        float destX = PosWrap[pos].GetPositionX();
-                        float destY = PosWrap[pos].GetPositionY();
-                        float destZ = PosWrap[pos].GetPositionZ();
-
-                        if (Creature* wrap = me->SummonCreature(NPC_WEB_WRAP, x, y, z, 0.0f, TEMPSUMMON_TIMED_DESPAWN, 60000))
+                        if (Creature* wrap = me->SummonCreature(NPC_WEB_WRAP, PosWrap[pos].GetPositionX(), PosWrap[pos].GetPositionY(), PosWrap[pos].GetPositionZ(), 0.0f, TEMPSUMMON_TIMED_DESPAWN, 60000))
                         {
                             wrap->AI()->SetGUID(target->GetGUID());
-                            wrap->GetMotionMaster()->MoveJump(destX, destY, destZ, 20, 20);  // Make the Web Wrap NPC fly to the destination
-
-                            // Make the player fly to the same destination as Web Wrap NPC
-                            target->GetMotionMaster()->MoveJump(destX, destY, destZ, 20, 20);
-
-                            int32 modifiedBaseDamage = urand(650, 850);  // Set damage to a random value between 650 and 850
-                            int32 damageForEffect2 = modifiedBaseDamage;
-                            target->CastCustomSpell(target, SPELL_WEB_WRAP, nullptr, &damageForEffect2, nullptr, true, nullptr, nullptr, wrap->GetGUID());
+                            target->GetMotionMaster()->MoveJump(PosWrap[pos].GetPositionX(), PosWrap[pos].GetPositionY(), PosWrap[pos].GetPositionZ(), 20, 20);
                         }
                     }
                 }
-                events.RepeatEvent(40000);
+                events.Repeat(40s);
                 break;
             }
             DoMeleeAttackIfReady();
@@ -287,9 +248,9 @@ public:
                 {
                     if (victim->GetTypeId() == TYPEID_PLAYER && victim->GetEntry() != NPC_WEB_WRAP)
                     {
-                        int32 modifiedBaseDamage = urand(650, 850);  // Set damage to a random value between 650 and 850
-                        int32 damageForEffect2 = modifiedBaseDamage;
-                        victim->CastCustomSpell(victim, SPELL_WEB_WRAP, nullptr, &damageForEffect2, nullptr, true, nullptr, nullptr, me->GetGUID());
+                        int32 bp1 = 242;
+                        victim->CastCustomSpell(victim, SPELL_WEB_WRAP, 0, &bp1, 0, true, nullptr, nullptr, me->GetGUID());
+                        victim->CastSpell(victim, SPELL_WEB_WRAP, true, nullptr, nullptr, me->GetGUID());
                     }
                 }
             }
@@ -301,10 +262,7 @@ public:
             {
                 if (Unit* victim = ObjectAccessor::GetUnit(*me, victimGUID))
                 {
-                    if (victim->HasAura(SPELL_WEB_WRAP))
-                    {
-                        victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP, me->GetGUID());
-                    }
+                    victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP, me->GetGUID());
                 }
             }
         }
