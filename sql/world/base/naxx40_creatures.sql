@@ -5675,3 +5675,88 @@ DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351066)
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (351066, 0, 0, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 218, 29232, 2, 4294967196, 49, 59, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Spore - On Just Died - Custom Cast Fungal Creep (Naxx 40)');
 
+-- Blaumeux
+-- Void Zone damage
+-- upstream handles void zone damage incorrectly. Azerothcore (#18807)
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28865;
+INSERT INTO `spell_script_names` (`spell_id`,`ScriptName`) VALUES
+(28865,'spell_four_horsemen_consumption');
+DELETE FROM `creature_template_spell` WHERE `CreatureID` = 16697;
+UPDATE `creature_template` SET `ScriptName` = '', `AIName` = 'SmartAI' WHERE `entry` = 16697;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 16697);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(16697, 0, 0, 0, 60, 0, 100, 0, 0, 0, 2500, 2500, 0, 0, 11, 28865, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Void Zone - On Update - Cast \'Consumption\''),
+(16697, 0, 1, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Void Zone - On Initialize - Set Reactstate Passive');
+
+-- Venom Stalker
+-- Rupture, double attack aura; Poison Charge
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351012);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351012, 0, 0, 0, 0, 0, 0, '18943');
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351012);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351012, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 20000, 40000, 0, 0, 11, 28431, 0, 0, 0, 0, 0, 5, 40, 1, 0, 0, 0, 0, 0, 0, 'Venom Stalker - In Combat - Cast \'Poison Charge\' (Naxx 40)');
+
+-- Carrion Spinner
+-- Poison Spray and Spider Web
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 15975);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(15975, 0, 0, 0, 0, 0, 90, 0, 0, 0, 7000, 7000, 0, 0, 11, 30043, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Carrion Spinner - In Combat - Cast \'Poison Spray\' (Naxx 40)'),
+(15975, 0, 2, 0, 0, 0, 70, 0, 3000, 3000, 10000, 10000, 0, 0, 11, 28434, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Carrion Spinner - In Combat - Cast \'Spider Web\' (Naxx 40)');
+
+-- Dread Creeper
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351010);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351010, 0, 1, 0, 0, 0, 100, 0, 2000, 2000, 8000, 8000, 0, 0, 11, 28440, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Dread Creeper - In Combat - Cast \'Veil of Shadow\' (Naxx 40)');
+
+-- Skitterer, poison on attack
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351010);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351010, 0, 0, 0, 0, 0, 0, '28429');
+
+-- Crypt Reaver, poison proc
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351014);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351014, 0, 0, 0, 0, 0, 0, '22413');
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351014);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351014, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 6000, 9000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Crypt Reaver - In Combat - Cast \'Cleave\' (Naxx 40)'),
+(351014, 0, 1, 0, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Crypt Reaver - Between 0-50% Health - Cast \'Frenzy\' (Naxx 40)'),
+(351014, 0, 2, 0, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Crypt Reaver - Between 0-50% Health - Say Line 0 (Naxx 40)');
+
+-- Necro Stalker
+UPDATE `creature_template_addon` SET `auras` = '18943' WHERE (`entry` = 16453);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 16453;
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 16453);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(16453, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 20000, 40000, 0, 0, 11, 28431, 0, 0, 0, 0, 0, 5, 40, 1, 0, 0, 0, 0, 0, 0, 'Necro Stalker - In Combat - Cast \'Poison Charge\' (Naxx 40)');
+
+-- Tomb Horror
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351015);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351015, 0, 0, 0, 0, 0, 75, 0, 2000, 2000, 4000, 4000, 0, 0, 11, 28614, 0, 0, 0, 0, 0, 5, 45, 0, 0, 0, 0, 0, 0, 0, 'Tomb Horror - In Combat - Cast \'Pointy Spike\' (Naxx 40)'),
+(351015, 0, 2, 0, 0, 0, 75, 0, 5000, 5000, 8000, 8000, 0, 0, 11, 28615, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Tomb Horror - In Combat - Cast \'Spike Volley\' (Naxx 40)');
+
+-- Naxxramas Acolyte: Arcane Explosion, Shadow Bolt Volley
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351017);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351017, 0, 0, 0, 0, 0, 100, 0, 2000, 2000, 5000, 5000, 0, 0, 11, 28450, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Naxxramas Acolyte - In Combat - Cast \'Arcane Explosion\' (Naxx 40)'),
+(351017, 0, 1, 0, 0, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 0, 11, 28448, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Naxxramas Acolyte - In Combat - Cast \'Shadow Bolt Volley\' (Naxx 40)');
+-- Naxxramas Cultist: Shadow Burst
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351016);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351016, 0, 0, 0, 0, 0, 75, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28447, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Naxxramas Cultist - In Combat - Cast \'Shadow Burst\' (Naxx 40)');
+
+-- Kel'Thuzad
+-- Soldier of the Frozen Wastes: trigger dark blast on attack
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351073);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351073, 0, 0, 0, 1, 0, 0, '28458');
+-- Soul Weaver
+-- Wail of Souls
+DELETE FROM `creature_template_spell` WHERE (`CreatureID` = 351075);
+INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES
+(351075, 0, 28459, 12340);
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351075);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351075, 0, 0, 0, 1, 0, 0, '28460');
