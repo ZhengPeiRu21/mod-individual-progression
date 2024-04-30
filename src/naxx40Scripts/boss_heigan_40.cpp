@@ -309,13 +309,12 @@ public:
             {
                 return;
             }
-            uint32 damage = urand(3500, 4500);
-            SetHitDamage(damage);
+            SetEffectValue(urand(3500, 4500));
         }
 
         void Register() override
         {
-            OnEffectHitTarget += SpellEffectFn(spell_heigan_eruption_40_SpellScript::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+            OnEffectLaunchTarget += SpellEffectFn(spell_heigan_eruption_40_SpellScript::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
         }
     };
 
