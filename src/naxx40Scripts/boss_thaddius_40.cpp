@@ -61,7 +61,7 @@ enum Spells
     SPELL_STALAGG_CHAIN                 = 28096,
 
     // Feugen
-    SPELL_STATIC_FIELD                  = 90041, // power burn 500
+    SPELL_STATIC_FIELD                  = 28135,
     SPELL_FEUGEN_CHAIN                  = 28111,
 
     // Thaddius
@@ -775,6 +775,42 @@ public:
     }
 };
 
+class spell_feugen_static_field_40 : public SpellScriptLoader
+{
+public:
+    spell_feugen_static_field_40() : SpellScriptLoader("spell_feugen_static_field") { }
+
+    class spell_feugen_static_field_40_SpellScript : public SpellScript
+    {
+        PrepareSpellScript(spell_feugen_static_field_40_SpellScript);
+
+        void HandleDamageCalc(SpellEffIndex /*effIndex*/)
+        {
+            Unit* caster = GetCaster();
+            if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+            {
+                return;
+            }
+            if (Unit* target = GetHitUnit())
+            {
+                Powers PowerType = POWER_MANA;
+                int32 drainedAmount = -target->ModifyPower(PowerType, -500);
+                SetEffectValue(drainedAmount);
+            }
+        }
+
+        void Register() override
+        {
+            OnEffectLaunchTarget += SpellEffectFn(spell_feugen_static_field_40_SpellScript::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+        }
+    };
+
+    SpellScript* GetSpellScript() const override
+    {
+        return new spell_feugen_static_field_40_SpellScript();
+    }
+};
+
 void AddSC_boss_thaddius_40()
 {
     new boss_thaddius_40();
@@ -783,4 +819,5 @@ void AddSC_boss_thaddius_40()
     new spell_thaddius_pos_neg_charge_40();
 //    new spell_thaddius_polarity_shift();
 //    new at_thaddius_entrance();
+    new spell_feugen_static_field_40();
 }

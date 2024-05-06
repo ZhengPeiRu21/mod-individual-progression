@@ -295,7 +295,11 @@ public:
                 case EVENT_LIFE_DRAIN:
                     if (isNaxx40Sapp(me->GetEntry()))
                     {
-                        me->CastCustomSpell(SPELL_LIFE_DRAIN, SPELLVALUE_MAX_TARGETS, 5, me, false);
+                        CustomSpellValues values;
+                        int32 bp0 = 1700;
+                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                        values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 5);
+                        me->CastCustomSpell(SPELL_LIFE_DRAIN, values, me, TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
                     }
                     else
                     {

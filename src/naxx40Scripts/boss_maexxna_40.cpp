@@ -250,7 +250,6 @@ public:
                     {
                         int32 bp1 = 242;
                         victim->CastCustomSpell(victim, SPELL_WEB_WRAP, 0, &bp1, 0, true, nullptr, nullptr, me->GetGUID());
-                        victim->CastSpell(victim, SPELL_WEB_WRAP, true, nullptr, nullptr, me->GetGUID());
                     }
                 }
             }
