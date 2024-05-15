@@ -260,7 +260,7 @@ UPDATE quest_template SET RequiredItemCount1 = 12 WHERE ID=1177;
 UPDATE quest_template SET RequiredItemId1 = 5868, RequiredItemId2 = 0, RequiredItemCount1 = 1, RequiredItemCount2 = 0 WHERE ID=1195;
 
 /*  Jarl Needs a Blade  */
-UPDATE quest_template SET RequiredItemId1 = 3853 WHERE ID=1203;
+UPDATE quest_template SET RequiredItemId1 = 3853, `LogDescription` = "Bring a Moonsteel Broadsword to Jarl in Dustwallow Marsh.", `QuestDescription` = "I have cutting to do. I can't tell you what I'm going to cut, but... I need myself a blade. A certain blade... $B$BSome people call it a moonsteel broadsword. I call it a swing blade.$B$BYou help me? Maybe you find it in town, maybe you talk to a blacksmith and he'll make it special.$B$BBut don't sleep on this. What I'm cutting won't keep forever..." WHERE ID=1203;
 
 /*  Deadmire  */
 UPDATE quest_template SET QuestLevel = 45 WHERE ID=1205;
