@@ -59,7 +59,7 @@ public:
                 case GO_WHELP_SPAWNER:
                     if (instance->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
                     {
-                        go->CastSpell((Unit*)nullptr, 90003);
+                        go->CastSpell((Unit*)nullptr, 91003);
                     }
                     else
                     {
@@ -278,7 +278,7 @@ public:
                 spellInfo->Effects[EFFECT_0].DieSides = 225;
                 spellInfo->Effects[EFFECT_0].BasePoints = 1387;
                 break;
-            case 90003:
+            case 91003:
                 spellInfo->Targets |= TARGET_FLAG_DEST_LOCATION;
                 spellInfo->Effects[EFFECT_0].TargetA = SpellImplicitTargetInfo(TARGET_DEST_DEST);
                 spellInfo->RangeEntry = sSpellRangeStore.LookupEntry(13); // 50000yd

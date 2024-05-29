@@ -31,7 +31,7 @@ enum Spells
     SPELL_FIREBALL                  = 18392,
     SPELL_BELLOWINGROAR             = 18431,
 
-    SPELL_SUMMON_WHELP              = 90003,
+    SPELL_SUMMON_WHELP              = 91003,
     SPELL_SUMMON_LAIR_GUARD         = 68968,
     SPELL_ERUPTION                  = 17731,
 
