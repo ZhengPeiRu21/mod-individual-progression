@@ -4,6 +4,9 @@ DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (3631, 4487, 4488, 44
 -- Remove incorrect mail about riding which doesn't match Vanilla levels
 DELETE FROM `mail_level_reward` WHERE `level` <= 60;
 
+-- Move letter about cold weather flying to level 71 instead of 70, as in Wotlk classic
+UPDATE `mail_level_reward` SET `level` = 71 WHERE `mailTemplateId` IN (285, 284);
+
 
 -- Riding Skills
 UPDATE npc_trainer SET ReqLevel=40 WHERE SpellID=33388;
