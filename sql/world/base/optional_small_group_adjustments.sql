@@ -15,3 +15,14 @@
 
 UPDATE `smart_scripts` SET `action_param1` = 22754 WHERE `entryorguid` = 13278 AND `id` = 1;
 UPDATE `item_template` SET `spellcooldown_1` = 0, `spellcategorycooldown_1` = 0 WHERE `entry` = 22754;
+
+/* -- Fewer Firesworn in Garr fight --
+   The Garr fight in Molten Core was designed to have a group of 40 players split up to defeat the 8 Firesworn minions.
+   With a smaller group, this fight becomes very difficult to manage even when scaled down.
+
+   This change reduces the number of Firesworn to only 4, making the fight more reasonable for a smaller party without
+   having to resort to excessive scaling.
+ */
+DELETE FROM `creature` WHERE `guid` IN (56628, 56619, 56622, 56610);
+DELETE FROM `creature_formations` WHERE `memberGUID` IN (56628, 56619, 56622, 56610);
+DELETE FROM `linked_respawn` WHERE `guid` IN (56628, 56619, 56622, 56610);
