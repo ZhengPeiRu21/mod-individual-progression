@@ -5680,7 +5680,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- upstream handles void zone damage incorrectly. Azerothcore (#18807)
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28865;
 INSERT INTO `spell_script_names` (`spell_id`,`ScriptName`) VALUES
-(28865,'spell_four_horsemen_consumption');
+(28865,'spell_gen_consumption');
 DELETE FROM `creature_template_spell` WHERE `CreatureID` = 16697;
 UPDATE `creature_template` SET `ScriptName` = '', `AIName` = 'SmartAI' WHERE `entry` = 16697;
 DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 16697);
