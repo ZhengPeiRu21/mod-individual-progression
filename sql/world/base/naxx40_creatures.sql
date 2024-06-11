@@ -1,3 +1,6 @@
+-- Custom GUIDs
+-- `creature_template` [351000,351089] 351090 351091 351092
+-- `creature` [361000,362043] [362043,362059]
 DELETE FROM `creature_template` WHERE `entry` BETWEEN 351000 AND 351089;
 REPLACE INTO `creature_template` (`entry`, `modelid1`, `name`, `subname`, `minlevel`, `maxlevel`, `faction`, `speed_walk`, `speed_run`, `detection_range`,`scale`,`rank`,`dmgschool`,`DamageModifier`,`BaseAttackTime`,`RangeAttackTime`,`BaseVariance`,`RangeVariance`,`unit_class`,`unit_flags`,`unit_flags2`,`family`,`type`,`type_flags`,`lootid`,`skinloot`,`PetSpellDataId`,`mingold`,`maxgold`,`AIName`,`MovementType`,`HoverHeight`,`HealthModifier`,`ManaModifier`,`ArmorModifier`,`ExperienceModifier`,`movementId`,`RegenHealth`,`mechanic_immune_mask`,`spell_school_immune_mask`,`flags_extra`,`ScriptName`) VALUES
 (351000, 16137, "Thaddius", "", 63, 63, 21, 1.0, 1.42857, 20.0, 1.0, 3, 0, 50.0, 2000, 3700, 1.0, 1.0, 1, 0, 2048, 0, 6, 76, 351000, 0, 0, 1513636, 1850000, '', 0, 1.0, 2000.0, 2.0, 1.5, 1.0, 0, 1, 2093694843, 0, 3221225473, 'boss_thaddius_40'),
@@ -4583,7 +4586,6 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (351037, 1, 1, "Conserve your anger. Harness your rage. You will all have outlets for your frustrations soon enough.", 14, 0, 100, 0, 0, 8843, 13059, 3, 'mograine SAY_MOG_TAUNT2 (Naxx 40)'),
 (351037, 4, 0, "I... am... released... perhaps it's not too late to- No! I need... more... time...", 14, 0, 100, 0, 0, 8838, 13054, 0, 'mograine SAY_MOG_DEATH (Naxx 40)');
 
-
 DELETE FROM `creature_equip_template` WHERE `CreatureID` BETWEEN 351000 and 351089;
 REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`) VALUES
 (351005, 1, 13061, 0, 0),
@@ -4738,14 +4740,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351049, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351049, 6);
 
-
 /*  Spectral Horse  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351051, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351051, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351051, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351051, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351051, 6);
-
 
 /*  Risen Deathknight  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351053, 2);
@@ -4754,14 +4754,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351053, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351053, 6);
 
-
 /*  Dark Touched Warrior  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351054, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351054, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351054, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351054, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351054, 6);
-
 
 /*  Death Touched Warrior  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16158, 2);
@@ -4770,14 +4768,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16158, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16158, 6);
 
-
 /*  Deathknight Cavalier  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351055, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351055, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351055, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351055, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351055, 6);
-
 
 /*  Dread Creeper  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351010, 2);
@@ -4786,14 +4782,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351010, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351010, 6);
 
-
 /*  Necro Knight  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351057, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351057, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351057, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351057, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351057, 6);
-
 
 /*  Bony Construct  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351058, 2);
@@ -4802,14 +4796,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351058, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351058, 6);
 
-
 /*  Stoneskin Gargoyle  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351059, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351059, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351059, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351059, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351059, 6);
-
 
 /*  Skeletal Smith  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351060, 2);
@@ -4818,14 +4810,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351060, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351060, 6);
 
-
 /*  Unholy Axe  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351061, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351061, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351061, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351061, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351061, 6);
-
 
 /*  Unholy Staff  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351062, 2);
@@ -4834,14 +4824,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351062, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351062, 6);
 
-
 /*  Unholy Swords  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351063, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351063, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351063, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351063, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351063, 6);
-
 
 /*  Plague Slime  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351064, 2);
@@ -4850,14 +4838,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351064, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351064, 6);
 
-
 /*  Infectious Ghoul  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351065, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351065, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351065, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351065, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351065, 6);
-
 
 /*  Mutated Grub  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351068, 2);
@@ -4866,14 +4852,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351068, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351068, 6);
 
-
 /*  Plagued Gargoyle  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351077, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351077, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351077, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351077, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351077, 6);
-
 
 /*  Plagued Ghoul  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351078, 2);
@@ -4882,14 +4866,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351078, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351078, 6);
 
-
 /*  Plagued Deathhound  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16448, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16448, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16448, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16448, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16448, 6);
-
 
 /*  Necro Stalker  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16453, 2);
@@ -4898,14 +4880,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16453, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16453, 6);
 
-
 /*  Naxxramas Follower  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351080, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351080, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351080, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351080, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351080, 6);
-
 
 /*  Crypt Guard  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351082, 2);
@@ -4914,14 +4894,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351082, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351082, 6);
 
-
 /*  Anub'Rekhan  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351009, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351009, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351009, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351009, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351009, 6);
-
 
 /*  Bile Retcher  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351022, 2);
@@ -4930,14 +4908,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351022, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351022, 6);
 
-
 /*  Carrion Spinner  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351011, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351011, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351011, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351011, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351011, 6);
-
 
 /*  Crypt Reaver  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351014, 2);
@@ -4946,14 +4922,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351014, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351014, 6);
 
-
 /*  Feugen  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351002, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351002, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351002, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351002, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351002, 6);
-
 
 /*  Gluth  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351004, 2);
@@ -4962,14 +4936,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351004, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351004, 6);
 
-
 /*  Gothik the Harvester  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351035, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351035, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351035, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351035, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351035, 6);
-
 
 /*  Grand Widow Faerlina  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351007, 2);
@@ -4978,14 +4950,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351007, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351007, 6);
 
-
 /*  Grobbulus  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351003, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351003, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351003, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351003, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351003, 6);
-
 
 /*  Heigan the Unclean  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351005, 2);
@@ -4994,14 +4964,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351005, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351005, 6);
 
-
 /*  Highlord Mograine  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351037, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351037, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351037, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351037, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351037, 6);
-
 
 /*  Infectious Skitterer  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351013, 2);
@@ -5010,14 +4978,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351013, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351013, 6);
 
-
 /*  Kel'Thuzad  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351019, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351019, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (200, 351019, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (100, 351019, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351019, 6);
-
 
 /*  Lady Blaumeux  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351040, 2);
@@ -5026,14 +4992,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351040, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351040, 6);
 
-
 /*  Living Monstrosity  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351024, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351024, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351024, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351024, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351024, 6);
-
 
 /*  Loatheb  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351020, 2);
@@ -5042,14 +5006,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351020, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351020, 6);
 
-
 /*  Mad Scientist  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351023, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351023, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351023, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351023, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351023, 6);
-
 
 /*  Maexxna  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351006, 2);
@@ -5058,14 +5020,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351006, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351006, 6);
 
-
 /*  Naxxramas Cultist  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351016, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351016, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351016, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351016, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351016, 6);
-
 
 /*  Naxxramas Acolyte  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351017, 2);
@@ -5074,14 +5034,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351017, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351017, 6);
 
-
 /*  Noth the Plaguebringer  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351008, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351008, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351008, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351008, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351008, 6);
-
 
 /*  Patchwerk  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351028, 2);
@@ -5090,14 +5048,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351028, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351028, 6);
 
-
 /*  Patchwork Golem  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351021, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351021, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351021, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351021, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351021, 6);
-
 
 /*  Plague Beast  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351030, 2);
@@ -5106,14 +5062,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351030, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351030, 6);
 
-
 /*  Sapphiron  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351018, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351018, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351018, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351018, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351018, 6);
-
 
 /*  Shade of Naxxramas  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351056, 2);
@@ -5122,14 +5076,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351056, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351056, 6);
 
-
 /*  Sir Zeliek  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351038, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351038, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351038, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351038, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351038, 6);
-
 
 /*  Skeletal Steed  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351041, 2);
@@ -5138,14 +5090,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351041, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351041, 6);
 
-
 /*  Sludge Belcher  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351029, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351029, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351029, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351029, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351029, 6);
-
 
 /*  Stalagg  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351001, 2);
@@ -5154,14 +5104,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351001, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351001, 6);
 
-
 /*  Stitched Spewer  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351027, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351027, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351027, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351027, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351027, 6);
-
 
 /*  Thaddius  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351000, 2);
@@ -5170,14 +5118,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351000, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351000, 6);
 
-
 /*  Thane Korth'azz  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351039, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351039, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351039, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351039, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351039, 6);
-
 
 /*  Venom Stalker  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351012, 2);
@@ -5186,14 +5132,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351012, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351012, 6);
 
-
 /*  Deathknight Captain  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351048, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351048, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351048, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351048, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351048, 6);
-
 
 /*  Instructor Razuvious  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351036, 2);
@@ -5202,14 +5146,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351036, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351036, 6);
 
-
 /*  Unrelenting Deathknight  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351044, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351044, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351044, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351044, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351044, 6);
-
 
 /*  Unrelenting Rider  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351045, 2);
@@ -5218,14 +5160,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351045, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351045, 6);
 
-
 /*  Spectral Deathknight  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351050, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351050, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351050, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351050, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351050, 6);
-
 
 /*  Spectral Rider  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351052, 2);
@@ -5234,14 +5174,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351052, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (15, 351052, 6);
 
-
 /*  Plagued Guardian  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351085, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351085, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351085, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351085, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351085, 6);
-
 
 /*  Plagued Champion  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351086, 2);
@@ -5250,14 +5188,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351086, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351086, 6);
 
-
 /*  Plagued Warrior  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351087, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351087, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351087, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351087, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351087, 6);
-
 
 /*  Death Lord  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16861, 2);
@@ -5266,14 +5202,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16861, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16861, 6);
 
-
 /*  Necro Knight Guardian  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 16452, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 16452, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 16452, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 16452, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 16452, 6);
-
 
 /*  Deathknight Vindicator  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 16451, 2);
@@ -5282,14 +5216,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 16451, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 16451, 6);
 
-
 /*  Spirit of Naxxramas  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16449, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16449, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16449, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16449, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16449, 6);
-
 
 /*  Necropolis Acolyte  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351070, 2);
@@ -5298,14 +5230,12 @@ REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351070, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (10, 351070, 6);
 
-
 /*  Doom Touched Warrior  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16157, 2);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16157, 3);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16157, 4);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16157, 5);
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 16157, 6);
-
 
 /*  Tomb Horror  */
 REPLACE INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES (5, 351015, 2);
@@ -5618,10 +5548,6 @@ DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351086)
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (351086, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 9000, 11000, 0, 0, 11, 32736, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)'),
 (351086, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 13000, 15000, 0, 0, 218, 30138, 0, 554, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plagued Champion - In Combat - Custom Cast Shadow Shock (Naxx 40)');
--- Wrath of the Plaguebringer, if failed to decurse
-DELETE FROM `spell_script_names` WHERE `spell_id` = 29213;
-INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
-VALUES(29213, 'spell_gothik_curse_of_the_plaguebringer_40');
 
 -- Mutaged Grub
 -- Reduce damage Slime Burst - AoE ~450 to ~200
@@ -5647,27 +5573,10 @@ DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351030)
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (351030, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 3000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Plague Beast - In Combat - Cast \'Trample\' (Naxx40)');
 
--- Heigan, Plague Cloud
-DELETE FROM `spell_script_names` WHERE `spell_id` = 29350;
-INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
-VALUES(29350, 'spell_heigan_plague_cloud_40');
--- Heigan, Eruption
-DELETE FROM `spell_script_names` WHERE `spell_id` = 29371;
-INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
-VALUES(29371, 'spell_heigan_eruption_40');
--- Grobullus, Poison cast by Poison Cloud
-DELETE FROM `spell_script_names` WHERE `spell_id` = 28158;
-INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`)
-VALUES(28158, 'spell_grobbulus_poison_cloud_poison_40');
-
 -- Eye Stalk
 -- Reduce damage 2.5k to 750, movement speed reduction -50 to -20 (as unsigned int)
 DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351090);
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
-(351090, 0, 0, 0, 0, 0, 85, 0, 0, 0, 11000, 11000, 0, 0, 218, 29407, 0, 749, 4294967276, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - In Combat - Custom Cast Mind Flay (Naxx40)'),
-(351090, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 26586, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - On Respawn - Cast \'Birth\' (Naxx40)'),
-(351090, 0, 2, 0, 1, 0, 100, 0, 2000, 8000, 2000, 30000, 0, 0, 11, 28819, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - Out of Combat - Cast \'Submerge Visual\' (Naxx40)'),
-(351090, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 2000, 36, 90, 24, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Eye Stalk - Within 36-90 Range - Evade (Naxx40)');
+UPDATE `creature_template` SET `AIName` = '', `ScriptName` = 'boss_heigan_eye_stalk_40' WHERE (`entry` = 351090);
 
 -- Fungal Spore
 -- OnDeath Apply: Threat -100% (as unsigned int), Melee +50% crit, Casters +60% (up from 50%) crit
@@ -5678,9 +5587,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- Blaumeux
 -- Void Zone damage
 -- upstream handles void zone damage incorrectly. Azerothcore (#18807)
-DELETE FROM `spell_script_names` WHERE `spell_id` = 28865;
-INSERT INTO `spell_script_names` (`spell_id`,`ScriptName`) VALUES
-(28865,'spell_gen_consumption');
 DELETE FROM `creature_template_spell` WHERE `CreatureID` = 16697;
 UPDATE `creature_template` SET `ScriptName` = '', `AIName` = 'SmartAI' WHERE `entry` = 16697;
 DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 16697);
@@ -5760,3 +5666,54 @@ INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `Verified
 DELETE FROM `creature_template_addon` WHERE (`entry` = 351075);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (351075, 0, 0, 0, 1, 0, 0, '28460');
+
+-- Double Attack Aura that gives 25% chance to double attack
+-- Maexxna
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351006);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351006, 0, 0, 0, 0, 0, 0, '18943');
+-- Gluth
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351004);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351004, 0, 0, 0, 0, 0, 0, '18943');
+-- Anub'Rekhan, not sure. Present in CMangos, not in VMangos
+-- DELETE FROM `creature_template_addon` WHERE (`entry` = 351009);
+-- INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+-- (351009, 0, 0, 0, 0, 0, 0, '18943');
+
+-- Necro Knight Guardian
+-- Restore wielding of sword
+UPDATE `creature_template_addon` SET `bytes2` = 1 WHERE (`entry` = 16452);
+-- Death Lord
+-- Restore wielding of sword and make it blue
+UPDATE `creature_template_addon` SET `bytes2` = 1 WHERE (`entry` = 16861);
+UPDATE `creature_equip_template` SET `ItemID1` = 13623 WHERE (`CreatureID` = 16861);
+
+-- Horsemen spirits cast Mark, initial 20s, repeat 12s
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (16775, 16776, 16777, 16778);
+DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` IN (16775, 16776, 16777, 16778));
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(16775, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28834, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Spirit of Mograine - In Combat - Cast \'Mark of Mograine\''),
+(16776, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28833, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Spirit of Blaumeux - In Combat - Cast \'Mark of Blaumeux\''),
+(16777, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28835, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Spirit of Zeliek - In Combat - Cast \'Mark of Zeliek\''),
+(16778, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28832, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Spirit of Korthazz - In Combat - Cast \'Mark of Korthazz\'');
+-- fix: Mograine spirit is 73? and attackable
+UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `DamageModifier` = 10, `unit_flags` = 2, `MovementType` = 0 WHERE (`entry` = 16775);
+
+-- Heigan maggots
+-- Mechanic Disoriented: Scatter Shot
+UPDATE `creature_template` SET `mechanic_immune_mask` = (`mechanic_immune_mask` | 2) WHERE `entry` IN (351033, 351034);
+-- Mechanic Snare: Earthbind, Piercing Howl
+UPDATE `creature_template` SET `mechanic_immune_mask` = (`mechanic_immune_mask` | 1024) WHERE `entry` IN (351033, 351034);
+-- Disease aura 30080
+DELETE FROM `creature_template_addon` WHERE (`entry` = 351033);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(351033, 0, 0, 0, 0, 0, 0, '30080');
+-- Eye stalk HP should be 800hp ish
+UPDATE `creature_template` SET `HealthModifier` = 0.15 WHERE (`entry` = 351090);
+-- Trigger forced despawn if near the platform
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (351033, 351034);
+DELETE FROM `smart_scripts` WHERE (`entryorguid` IN (351033, 351034)) AND (`source_type` = 0);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(351033, 0, 0, 0, 76, 0, 100, 0, 0, 181202, 54, 1500, 0, 0, 41, 200, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Diseased Maggot - On Distance 54y To GameObject - Despawn In 200 ms'),
+(351034, 0, 0, 0, 76, 0, 100, 0, 0, 181202, 54, 1500, 0, 0, 41, 200, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Rotten Maggot - On Distance 54y To GameObject - Despawn In 200 ms');

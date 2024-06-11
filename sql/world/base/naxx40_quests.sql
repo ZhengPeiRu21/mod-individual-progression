@@ -1,4 +1,4 @@
-# Enable quests
+-- Enable T3 turn in Quests
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (
 9232, 9033, 9230, 9229, 9120, 9082, 9101, 9102, 9038, 9034, 9099,
 9237, 9057, 9042, 9037, 9039, 9041, 9036, 9233, 9089, 9118, 9098,
