@@ -47,7 +47,6 @@ public:
     }
 };
 
-
 void AddSC_custom_gameobjects_40()
 {
     new gobject_naxx40_tele();
