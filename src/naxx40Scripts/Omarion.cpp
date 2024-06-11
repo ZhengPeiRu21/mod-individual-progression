@@ -309,7 +309,7 @@ public:
     }
 };
 
-void AddSC_omarion_40()
+void AddSC_npc_omarion_40()
 {
     new npc_omarion();
 }
