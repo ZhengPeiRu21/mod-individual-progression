@@ -20149,6 +20149,9 @@ UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry
 /*  Reins of the Striped Nightsaber  */
 UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8629;
 
+/*  Reins of the Striped Dawnsaber  */
+UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=47100;
+
 /*  Reins of the Bengal Tiger  */
 UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000, SellPrice = 0 WHERE entry=8630;
 
@@ -20325,6 +20328,9 @@ UPDATE item_template SET bonding = 3 WHERE entry=11903;
 
 /*  Worg Carrier  */
 UPDATE item_template SET BuyPrice = 6000, SellPrice = 1500 WHERE entry=12264;
+
+/*  Reins of the Ancient Frostsaber  */
+UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=12302;
 
 /*  Reins of the Nightsaber  */
 UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=12303;
