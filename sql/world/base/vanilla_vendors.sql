@@ -5004,3 +5004,37 @@ REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`
 (23, 14754, 22673, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 22676, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 22651, 5, 889, 128, 'Vanilla PvP Gear Conditions');
+
+/* Add PvP Level 60 gear sets for Horde Paladins and Alliance Shamans - thanks StraysFromPath! */
+DELETE FROM npc_vendor WHERE `entry` = 12792 AND `item` IN (29612, 29613, 29614, 29615, 29616, 29617,
+                                                           29600, 29601, 29602, 29603, 29604, 29605);
+INSERT INTO npc_vendor (entry, slot, item, maxcount, incrtime, ExtendedCost, VerifiedBuild) VALUES
+    (12792, 0, 29612, 0, 0, 465, 0),
+    (12792, 0, 29613, 0, 0, 465, 0),
+    (12792, 0, 29614, 0, 0, 465, 0),
+    (12792, 0, 29615, 0, 0, 463, 0),
+    (12792, 0, 29616, 0, 0, 463, 0),
+    (12792, 0, 29617, 0, 0, 463, 0),
+    (12792, 0, 29600, 0, 0, 428, 0),
+    (12792, 0, 29601, 0, 0, 428, 0),
+    (12792, 0, 29602, 0, 0, 652, 0),
+    (12792, 0, 29603, 0, 0, 652, 0),
+    (12792, 0, 29604, 0, 0, 444, 0),
+    (12792, 0, 29605, 0, 0, 444, 0);
+
+DELETE FROM npc_vendor WHERE `entry` = 12777 AND `item` IN (29608, 29606, 29611, 29609, 29607,
+                                                           29610, 29595, 29599, 29597, 29596,
+                                                           29598, 29594);
+INSERT INTO npc_vendor (entry, slot, item, maxcount, incrtime, ExtendedCost, VerifiedBuild) VALUES
+    (12777, 0, 29608, 0, 0, 465, 0),
+    (12777, 0, 29606, 0, 0, 465, 0),
+    (12777, 0, 29611, 0, 0, 465, 0),
+    (12777, 0, 29609, 0, 0, 463, 0),
+    (12777, 0, 29607, 0, 0, 463, 0),
+    (12777, 0, 29610, 0, 0, 463, 0),
+    (12777, 0, 29595, 0, 0, 428, 0),
+    (12777, 0, 29599, 0, 0, 428, 0),
+    (12777, 0, 29597, 0, 0, 652, 0),
+    (12777, 0, 29596, 0, 0, 652, 0),
+    (12777, 0, 29598, 0, 0, 444, 0),
+    (12777, 0, 29594, 0, 0, 444, 0);
