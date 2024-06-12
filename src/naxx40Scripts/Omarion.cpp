@@ -1,4 +1,3 @@
-
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
@@ -116,7 +115,6 @@ class npc_omarion : public CreatureScript
 {
 public:
     npc_omarion() : CreatureScript("npc_omarion_gossip") { }
-
 
     bool OnGossipHello(Player* player, Creature* creature) override
     {
@@ -311,7 +309,7 @@ public:
     }
 };
 
-void AddSC_npc_omarion()
+void AddSC_npc_omarion_40()
 {
     new npc_omarion();
 }

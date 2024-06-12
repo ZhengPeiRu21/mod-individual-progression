@@ -29,7 +29,10 @@ void AddSC_boss_patchwerk_40();
 void AddSC_boss_razuvious_40();
 void AddSC_boss_sapphiron_40();
 void AddSC_boss_thaddius_40();
-void AddSC_npc_omarion();
+void AddSC_npc_omarion_40();
+void AddSC_custom_spells_40();
+void AddSC_custom_creatures_40();
+void AddSC_custom_gameobjects_40();
 void AddSC_Ipp_Wotlk_Modded_Scripts();
 void AddSC_aq_scripts();
 void AddSC_cot_scripts();
@@ -42,7 +45,6 @@ void AddSC_npc_archmage_timear();
 void AddSC_karazhan_70();
 void AddSC_the_eye_70();
 void AddSC_serpentshrine_cavern_70();
-
 
 void Addmod_individual_progressionScripts()
 {
@@ -72,7 +74,10 @@ void Addmod_individual_progressionScripts()
     AddSC_boss_razuvious_40();
     AddSC_boss_sapphiron_40();
     AddSC_boss_thaddius_40();
-    AddSC_npc_omarion();
+    AddSC_npc_omarion_40();
+    AddSC_custom_spells_40();
+    AddSC_custom_creatures_40();
+    AddSC_custom_gameobjects_40();
     AddSC_Ipp_Wotlk_Modded_Scripts();
     AddSC_aq_scripts();
     AddSC_cot_scripts();

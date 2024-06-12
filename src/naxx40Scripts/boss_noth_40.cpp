@@ -300,51 +300,7 @@ public:
     };
 };
 
-class spell_gothik_curse_of_the_plaguebringer_40 : public SpellScriptLoader
-{
-    public:
-        spell_gothik_curse_of_the_plaguebringer_40() : SpellScriptLoader("spell_gothik_curse_of_the_plaguebringer_40") { }
-
-        class spell_gothik_curse_of_the_plaguebringer_40_AuraScript : public AuraScript
-        {
-            PrepareAuraScript(spell_gothik_curse_of_the_plaguebringer_40_AuraScript);
-
-            bool Validate(SpellInfo const* /*spellInfo*/) override
-            {
-                return ValidateSpellInfo({ SPELL_REVENGE_OF_THE_PLAGUEBRINGER }); // Revenge of the Plaguebringer
-            }
-
-            void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
-            {
-                Unit* caster = GetCaster();
-                if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
-                {
-                    return;
-                }
-                PreventDefaultAction();
-                CustomSpellValues values;
-                int32 bp0 = 1757; // instant damage
-                int32 bp1 = 874; // periodic damage
-                values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
-                values.AddSpellMod(SPELLVALUE_BASE_POINT1, bp1);
-                values.AddSpellMod(SPELLVALUE_RADIUS_MOD, 3500); // 35yd
-                GetTarget()->CastCustomSpell(SPELL_REVENGE_OF_THE_PLAGUEBRINGER, values, GetTarget(), TRIGGERED_NONE, nullptr, nullptr, GetCasterGUID());
-            }
-
-            void Register() override
-            {
-                OnEffectPeriodic += AuraEffectPeriodicFn(spell_gothik_curse_of_the_plaguebringer_40_AuraScript::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_TRIGGER_SPELL);
-            }
-        };
-
-        AuraScript* GetAuraScript() const override
-        {
-            return new spell_gothik_curse_of_the_plaguebringer_40_AuraScript();
-        }
-};
-
 void AddSC_boss_noth_40()
 {
     new boss_noth_40();
-    new spell_gothik_curse_of_the_plaguebringer_40();
 }

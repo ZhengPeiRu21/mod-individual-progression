@@ -74,7 +74,10 @@ enum NXData
     DATA_KELTHUZAD_PORTAL_1         = 126,
     DATA_KELTHUZAD_PORTAL_2         = 127,
     DATA_KELTHUZAD_PORTAL_3         = 128,
-    DATA_KELTHUZAD_PORTAL_4         = 129
+    DATA_KELTHUZAD_PORTAL_4         = 129,
+    DATA_HEIGAN_EXIT_GATE_OLD       = 130,
+    DATA_HEIGAN_EXIT_GATE           = 131,
+    DATA_HEIGAN_ERUPTION_TUNNEL     = 130
 };
 
 enum NXGOs
@@ -85,6 +88,7 @@ enum NXGOs
     GO_NOTH_EXIT_GATE               = 181201,
     GO_HEIGAN_ENTRY_GATE            = 181202,
     GO_HEIGAN_EXIT_GATE             = 181203,
+    GO_HEIGAN_EXIT_GATE_OLD         = 181496,
     GO_LOATHEB_GATE                 = 181241,
     GO_ANUB_GATE                    = 181126,
     GO_ANUB_NEXT_GATE               = 181195,
@@ -199,6 +203,11 @@ enum NX40NPCs
     NPC_LIVING_MONSTROSITY_40          = 351024,
     NPC_SURGICAL_ASSIST_40             = 351025,
     NPC_SLUDGE_BELCHER_40              = 351029,
+
+    // Heigan
+    NPC_ROTTING_MAGGOT_40              = 351034,
+    NPC_DISEASED_MAGGOT_40             = 351033,
+    NPC_EYE_STALK_40                   = 351090,
 
     NPC_ARCHMAGE_TARSIS                = 16381,
 };

@@ -37,9 +37,9 @@ enum Spells
 {
     SPELL_IMPALE                    = 28783,
     SPELL_LOCUST_SWARM              = 28785,
-    SPELL_LOCUST_SWARM_TRIGGER      = 28786, // periodic effect 
+    SPELL_LOCUST_SWARM_TRIGGER      = 28786, // periodic effect
     SPELL_SUMMON_CORPSE_SCRABS_5    = 90001, // Changed from 29105 to Level 60 Mob ID for summon
-    SPELL_SUMMON_CORPSE_SCRABS_10   = 90002, //  Changed from 29105 to Level 60 Mob ID for summon
+    SPELL_SUMMON_CORPSE_SCRABS_10   = 90002, // Changed from 29105 to Level 60 Mob ID for summon
     SPELL_BERSERK                   = 26662
 };
 
@@ -243,7 +243,7 @@ public:
                 }
                 case EVENT_SPAWN_GUARD:
                     me->SummonCreature(NPC_CRYPT_GUARD, 3331.217f, -3476.607f, 287.074f, 3.269f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-                    break; 
+                    break;
                 case EVENT_BERSERK:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
@@ -253,49 +253,7 @@ public:
     };
 };
 
-class spell_anub_locust_swarm_40 : public SpellScriptLoader
-{
-public:
-    spell_anub_locust_swarm_40() : SpellScriptLoader("spell_anub_locust_swarm_40") { }
-
-    class spell_anub_locust_swarm_40_AuraScript : public AuraScript
-    {
-        PrepareAuraScript(spell_anub_locust_swarm_40_AuraScript);
-
-        bool Validate(SpellInfo const* /*spellInfo*/) override
-        {
-            return ValidateSpellInfo({ SPELL_LOCUST_SWARM_TRIGGER });
-        }
-
-        void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
-        {
-            Unit* caster = GetCaster();
-            if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
-            {
-                return;
-            }
-            PreventDefaultAction();
-            int32 modifiedLocustSwarmDamage = 812;
-            CustomSpellValues values;
-            values.AddSpellMod(SPELLVALUE_BASE_POINT0, modifiedLocustSwarmDamage);
-            values.AddSpellMod(SPELLVALUE_RADIUS_MOD, 3000); // 30yd
-            caster->CastCustomSpell(SPELL_LOCUST_SWARM_TRIGGER, values, caster, TRIGGERED_FULL_MASK, nullptr, nullptr, GetCasterGUID());
-        }
-
-        void Register() override
-        {
-            OnEffectPeriodic += AuraEffectPeriodicFn(spell_anub_locust_swarm_40_AuraScript::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_TRIGGER_SPELL);
-        }
-    };
-
-    AuraScript* GetAuraScript() const override
-    {
-        return new spell_anub_locust_swarm_40_AuraScript();
-    }
-};
-
 void AddSC_boss_anubrekhan_40()
 {
     new boss_anubrekhan_40();
-    new spell_anub_locust_swarm_40();
 }

@@ -25,7 +25,6 @@
 #include "ObjectMgr.h"
 #include "GameObjectAI.h"
 #include "naxxramas.h"
-#include "IndividualProgression.h"
 
 const float HeiganPos[2] = {2796, -3707};
 const float HeiganEruptionSlope[3] =
@@ -74,6 +73,7 @@ public:
 
             // NPCs
             PatchwerkRoomTrash.clear();
+            HeiganBackRoomAdds.clear();
 
             // Controls
             _horsemanKilled = 0;
@@ -95,6 +95,7 @@ public:
         }
 
         std::set<GameObject*> HeiganEruption[4];
+        std::set<GameObject*> HeiganEruptionTunnel;
 
         // GOs
         ObjectGuid _patchwerkGateGUID;
@@ -103,6 +104,7 @@ public:
         ObjectGuid _nothExitGateGUID;
         ObjectGuid _heiganGateGUID;
         ObjectGuid _heiganGateExitGUID;
+        ObjectGuid _heiganGateExitOldGUID;
         ObjectGuid _loathebGateGUID;
         ObjectGuid _anubGateGUID;
         ObjectGuid _anubNextGateGUID;
@@ -136,6 +138,7 @@ public:
 
         // NPCs
         GuidList PatchwerkRoomTrash;
+        GuidList HeiganBackRoomAdds;
         ObjectGuid _patchwerkGUID;
         ObjectGuid _thaddiusGUID;
         ObjectGuid _stalaggGUID;
@@ -179,6 +182,17 @@ public:
                     itr->SendCustomAnim(itr->GetGoAnimProgress());
                     itr->CastSpell(nullptr, SPELL_ERUPTION);
                 }
+
+            }
+        }
+
+        void HeiganEruptSectionsTunnel()
+        {
+            // doesn't work
+            for (auto itr : HeiganEruptionTunnel)
+            {
+                itr->SendCustomAnim(itr->GetGoAnimProgress());
+                itr->CastSpell(nullptr, SPELL_ERUPTION);
             }
         }
 
@@ -197,6 +211,15 @@ public:
 
             switch(creature->GetEntry())
             {
+                case NPC_ROTTING_MAGGOT_40:
+                    HeiganBackRoomAdds.push_back(creature->GetGUID());
+                    return;
+                case NPC_DISEASED_MAGGOT_40:
+                    HeiganBackRoomAdds.push_back(creature->GetGUID());
+                    return;
+                case NPC_EYE_STALK_40:
+                    HeiganBackRoomAdds.push_back(creature->GetGUID());
+                    return;
                 case NPC_PATCHWERK:
                     _patchwerkGUID = creature->GetGUID();
                     return;
@@ -314,6 +337,11 @@ public:
                 HeiganEruption[GetEruptionSection(pGo->GetPositionX(), pGo->GetPositionY())].insert(pGo);
                 return;
             }
+            if (pGo->GetGOInfo()->entry == 361001)
+            {
+                HeiganEruptionTunnel.insert(pGo);
+                return;
+            }
 
             switch(pGo->GetEntry())
             {
@@ -354,6 +382,13 @@ public:
                     break;
                 case GO_HEIGAN_EXIT_GATE:
                     _heiganGateExitGUID = pGo->GetGUID();
+                    if (GetBossState(BOSS_HEIGAN) == DONE)
+                    {
+                        pGo->SetGoState(GO_STATE_ACTIVE);
+                    }
+                    break;
+                case GO_HEIGAN_EXIT_GATE_OLD:
+                    _heiganGateExitOldGUID = pGo->GetGUID();
                     if (GetBossState(BOSS_HEIGAN) == DONE)
                     {
                         pGo->SetGoState(GO_STATE_ACTIVE);
@@ -688,6 +723,9 @@ public:
                 case DATA_HEIGAN_ERUPTION:
                     HeiganEruptSections(data);
                     return;
+                case DATA_HEIGAN_ERUPTION_TUNNEL:
+                    HeiganEruptSectionsTunnel();
+                    return;
                 case DATA_HAD_THADDIUS_GREET:
                     _hadThaddiusGreet = (data == 1);
                 default:
@@ -921,11 +959,22 @@ public:
                         }
                         break;
                     case BOSS_HEIGAN:
+                        for (auto& mobGUID : HeiganBackRoomAdds)
+                        {
+                            if (Creature* mob = instance->GetCreature(mobGUID))
+                            {
+                                mob->DespawnOrUnsummon();
+                            }
+                        }
                         if (GameObject* go = instance->GetGameObject(_heiganGateGUID))
                         {
                             go->SetGoState(GO_STATE_ACTIVE);
                         }
                         if (GameObject* go = instance->GetGameObject(_heiganGateExitGUID))
+                        {
+                            go->SetGoState(GO_STATE_ACTIVE);
+                        }
+                        if (GameObject* go = instance->GetGameObject(_heiganGateExitOldGUID))
                         {
                             go->SetGoState(GO_STATE_ACTIVE);
                         }
@@ -1143,6 +1192,10 @@ public:
                 // GameObjects
                 case DATA_HEIGAN_ENTER_GATE:
                     return _heiganGateGUID;
+                case DATA_HEIGAN_EXIT_GATE_OLD:
+                    return _heiganGateExitOldGUID;
+                case DATA_HEIGAN_EXIT_GATE:
+                    return _heiganGateExitGUID;
                 case DATA_LOATHEB_GATE:
                     return _loathebGateGUID;
                 case DATA_ANUB_GATE:
@@ -1203,6 +1256,7 @@ public:
         }
     };
 };
+
 class boss_naxxramas_misc : public CreatureScript
 {
 public:
@@ -1274,111 +1328,10 @@ public:
     };
 };
 
-class npc_naxx40_area_trigger : public CreatureScript
-{
-private:
-    static bool isAttuned(Player* player)
-    {
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED)
-            return true;
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED)
-            return true;
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED)
-            return true;
-        return false;
-    }
-
-public:
-    npc_naxx40_area_trigger() : CreatureScript("npc_naxx40_area_trigger") {}
-
-    struct npc_naxx40_area_triggerAI: public ScriptedAI
-    {
-        npc_naxx40_area_triggerAI(Creature* creature) : ScriptedAI(creature)
-        {
-            me->SetDisplayId(11686); // Invisible
-        }
-
-        void MoveInLineOfSight(Unit* who) override
-        {
-            if (who && me->GetDistance2d(who) < 5.0f)
-            {
-                if (Player* player = who->ToPlayer())
-                {
-                    if (isAttuned(player))
-                    {
-                        player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                        player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
-                    }
-                }
-
-            }
-            else if (who && me->GetDistance2d(who) < 20.0f)
-            {
-                if (Player* player = who->ToPlayer())
-                {
-                    if (isAttuned(player))
-                    {
-                        GameObject* door = me->FindNearestGameObject(NAXX_STRATH_GATE, 100.0f);
-                        if (door)
-                        {
-                            door->SetGoState(GO_STATE_ACTIVE);
-                        }
-                    }
-                }
-            }
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_naxx40_area_triggerAI(creature);
-    }
-};
-
-class gobject_naxx40_tele : public GameObjectScript
-{
-private:
-    static bool isAttuned(Player* player)
-    {
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED)
-            return true;
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED)
-            return true;
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED)
-            return true;
-        return false;
-    }
-
-public:
-    gobject_naxx40_tele() : GameObjectScript("gobject_naxx40_tele") { }
-
-    struct gobject_naxx40_teleAI: GameObjectAI
-    {
-        explicit gobject_naxx40_teleAI(GameObject* object) : GameObjectAI(object) { };
-
-    };
-
-    GameObjectAI* GetAI(GameObject* object) const override
-    {
-        return new gobject_naxx40_teleAI(object);
-    }
-
-    bool OnGossipHello(Player* player, GameObject* /*go*/) override
-    {
-        if ((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED) && isAttuned(player))
-        {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
-        }
-        return true;
-    }
-};
-
 class NaxxPlayerScript : public PlayerScript
 {
 public:
     NaxxPlayerScript() : PlayerScript("NaxxPlayerScript") { }
-
 
     void OnBeforeChooseGraveyard(Player* player, TeamId /*teamId*/, bool /*nearCorpse*/, uint32& graveyardOverride) override
     {
@@ -1419,7 +1372,8 @@ public:
                 player->TeleportTo(533, 2992.5f, -3434.42f, 293.94f, 3.13f);
                 break;
         }
-        return true;    }
+        return true;
+    }
 };
 
 class naxx_exit_trigger : public AreaTriggerScript
@@ -1453,7 +1407,6 @@ public:
         return true;
     }
 };
-
 
 const Position sapphironEntryTP = { 3498.300049f, -5349.490234f, 144.968002f, 1.3698910f };
 
@@ -1491,10 +1444,7 @@ public:
 class NaxxEntryFlag_AllMapScript : public AllMapScript
 {
 public:
-    NaxxEntryFlag_AllMapScript()
-            : AllMapScript("NaxxEntryFlag_AllMapScript")
-    {
-    }
+    NaxxEntryFlag_AllMapScript() : AllMapScript("NaxxEntryFlag_AllMapScript") { }
 
     void OnPlayerEnterAll(Map* map, Player* player) override
     {
@@ -1521,12 +1471,10 @@ public:
 void AddSC_instance_naxxramas_combined()
 {
     new instance_naxxramas_combined();
-    new npc_naxx40_area_trigger();
     new NaxxPlayerScript();
     new naxx_exit_trigger();
     new naxx_northrend_entrance();
     new at_naxxramas_hub_portal();
     new NaxxEntryFlag_AllMapScript();
-    new gobject_naxx40_tele();
 //    new boss_naxxramas_misc();
 }

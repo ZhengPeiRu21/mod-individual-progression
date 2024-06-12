@@ -610,126 +610,104 @@ public:
 };
 
 // This will overwrite the declared 10 and 25 man pos_neg_charge to handle all versions of the spell script
-class spell_thaddius_pos_neg_charge_40 : public SpellScriptLoader
+class spell_thaddius_pos_neg_charge : public SpellScript
 {
-public:
-    spell_thaddius_pos_neg_charge_40() : SpellScriptLoader("spell_thaddius_pos_neg_charge") { }
+    PrepareSpellScript(spell_thaddius_pos_neg_charge);
 
-    class spell_thaddius_pos_neg_charge_40_SpellScript : public SpellScript
+    void HandleTargets(std::list<WorldObject*>& targets)
     {
-        PrepareSpellScript(spell_thaddius_pos_neg_charge_40_SpellScript);
-
-        void HandleTargets(std::list<WorldObject*>& targets)
+        uint8 count = 0;
+        for (auto& ihit : targets)
         {
-            uint8 count = 0;
-            for (auto& ihit : targets)
+            if (ihit->GetGUID() != GetCaster()->GetGUID())
             {
-                if (ihit->GetGUID() != GetCaster()->GetGUID())
+                if (Player* target = ihit->ToPlayer())
                 {
-                    if (Player* target = ihit->ToPlayer())
+                    if (target->HasAura(GetTriggeringSpell()->Id))
                     {
-                        if (target->HasAura(GetTriggeringSpell()->Id))
-                        {
-                            ++count;
-                        }
+                        ++count;
                     }
                 }
             }
-
-            if (count)
-            {
-                uint32 spellId = GetSpellInfo()->Id == SPELL_POSITIVE_CHARGE ? SPELL_POSITIVE_CHARGE_STACK : SPELL_NEGATIVE_CHARGE_STACK;
-                GetCaster()->SetAuraStack(spellId, GetCaster(), count);
-            }
         }
 
-        void HandleDamage(SpellEffIndex /*effIndex*/)
+        if (count)
         {
-            if (!GetTriggeringSpell())
-                return;
-
-            Unit* target = GetHitUnit();
-            if (!target)
-                return;
-
-            if (target->HasAura(GetTriggeringSpell()->Id) || target->GetTypeId() != TYPEID_PLAYER)
-            {
-                SetHitDamage(0);
-            }
-            else if (target->GetInstanceScript())
-            {
-                target->GetInstanceScript()->SetData(DATA_CHARGES_CROSSED, 0);
-            }
-            // Adjust damage to 2000 from 4500 for naxx40
-            if (target->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
-            {
-                SetHitDamage(2000);
-            }
+            uint32 spellId = GetSpellInfo()->Id == SPELL_POSITIVE_CHARGE ? SPELL_POSITIVE_CHARGE_STACK : SPELL_NEGATIVE_CHARGE_STACK;
+            GetCaster()->SetAuraStack(spellId, GetCaster(), count);
         }
+    }
 
-        void Register() override
-        {
-            OnEffectHitTarget += SpellEffectFn(spell_thaddius_pos_neg_charge_40_SpellScript::HandleDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
-            OnObjectAreaTargetSelect += SpellObjectAreaTargetSelectFn(spell_thaddius_pos_neg_charge_40_SpellScript::HandleTargets, EFFECT_0, TARGET_UNIT_SRC_AREA_ALLY);
-        }
-    };
-
-    SpellScript* GetSpellScript() const override
+    void HandleDamage(SpellEffIndex /*effIndex*/)
     {
-        return new spell_thaddius_pos_neg_charge_40_SpellScript();
+        if (!GetTriggeringSpell())
+            return;
+
+        Unit* target = GetHitUnit();
+        if (!target)
+            return;
+
+        if (target->HasAura(GetTriggeringSpell()->Id) || target->GetTypeId() != TYPEID_PLAYER)
+        {
+            SetHitDamage(0);
+        }
+        else if (target->GetInstanceScript())
+        {
+            target->GetInstanceScript()->SetData(DATA_CHARGES_CROSSED, 0);
+        }
+        // Adjust damage to 2000 from 4500 for naxx40
+        if (target->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+        {
+            SetHitDamage(2000);
+        }
+    }
+
+    void Register() override
+    {
+        OnEffectHitTarget += SpellEffectFn(spell_thaddius_pos_neg_charge::HandleDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+        OnObjectAreaTargetSelect += SpellObjectAreaTargetSelectFn(spell_thaddius_pos_neg_charge::HandleTargets, EFFECT_0, TARGET_UNIT_SRC_AREA_ALLY);
     }
 };
 
-class spell_thaddius_polarity_shift : public SpellScriptLoader
+class spell_thaddius_polarity_shift : public SpellScript
 {
-public:
-    spell_thaddius_polarity_shift() : SpellScriptLoader("spell_thaddius_polarity_shift") { }
+    PrepareSpellScript(spell_thaddius_polarity_shift);
 
-    class spell_thaddius_polarity_shift_SpellScript : public SpellScript
+    bool Validate(SpellInfo const* /*spell*/) override
     {
-        PrepareSpellScript(spell_thaddius_polarity_shift_SpellScript);
+        return ValidateSpellInfo({ SPELL_POSITIVE_POLARITY, SPELL_NEGATIVE_POLARITY });
+    }
 
-        bool Validate(SpellInfo const* /*spell*/) override
+    void HandleDummy(SpellEffIndex /* effIndex */)
+    {
+        Unit* caster = GetCaster();
+        if (Unit* target = GetHitUnit())
         {
-            return ValidateSpellInfo({ SPELL_POSITIVE_POLARITY, SPELL_NEGATIVE_POLARITY });
+            target->RemoveAurasDueToSpell(SPELL_POSITIVE_CHARGE_STACK);
+            target->RemoveAurasDueToSpell(SPELL_NEGATIVE_CHARGE_STACK);
+            target->CastSpell(target, roll_chance_i(50) ? SPELL_POSITIVE_POLARITY : SPELL_NEGATIVE_POLARITY, true, nullptr, nullptr, caster->GetGUID());
         }
+    }
 
-        void HandleDummy(SpellEffIndex /* effIndex */)
+    void HandleAfterCast()
+    {
+        if (GetCaster())
         {
-            Unit* caster = GetCaster();
-            if (Unit* target = GetHitUnit())
+            if (Creature* caster = GetCaster()->ToCreature())
             {
-                target->RemoveAurasDueToSpell(SPELL_POSITIVE_CHARGE_STACK);
-                target->RemoveAurasDueToSpell(SPELL_NEGATIVE_CHARGE_STACK);
-                target->CastSpell(target, roll_chance_i(50) ? SPELL_POSITIVE_POLARITY : SPELL_NEGATIVE_POLARITY, true, nullptr, nullptr, caster->GetGUID());
-            }
-        }
-
-        void HandleAfterCast()
-        {
-            if (GetCaster())
-            {
-                if (Creature* caster = GetCaster()->ToCreature())
+                if (caster->GetEntry() == NPC_THADDIUS_40)
                 {
-                    if (caster->GetEntry() == NPC_THADDIUS_40)
-                    {
-                        caster->AI()->Talk(SAY_ELECT);
-                        caster->AI()->Talk(EMOTE_POLARITY_SHIFTED);
-                    }
+                    caster->AI()->Talk(SAY_ELECT);
+                    caster->AI()->Talk(EMOTE_POLARITY_SHIFTED);
                 }
             }
         }
+    }
 
-        void Register() override
-        {
-            OnEffectHitTarget += SpellEffectFn(spell_thaddius_polarity_shift_SpellScript::HandleDummy, EFFECT_0, SPELL_EFFECT_DUMMY);
-            AfterCast += SpellCastFn(spell_thaddius_polarity_shift_SpellScript::HandleAfterCast);
-        }
-    };
-
-    SpellScript* GetSpellScript() const override
+    void Register() override
     {
-        return new spell_thaddius_polarity_shift_SpellScript();
+        OnEffectHitTarget += SpellEffectFn(spell_thaddius_polarity_shift::HandleDummy, EFFECT_0, SPELL_EFFECT_DUMMY);
+        AfterCast += SpellCastFn(spell_thaddius_polarity_shift::HandleAfterCast);
     }
 };
 
@@ -775,39 +753,28 @@ public:
     }
 };
 
-class spell_feugen_static_field_40 : public SpellScriptLoader
+class spell_feugen_static_field : public SpellScript
 {
-public:
-    spell_feugen_static_field_40() : SpellScriptLoader("spell_feugen_static_field") { }
+    PrepareSpellScript(spell_feugen_static_field);
 
-    class spell_feugen_static_field_40_SpellScript : public SpellScript
+    void HandleDamageCalc(SpellEffIndex /*effIndex*/)
     {
-        PrepareSpellScript(spell_feugen_static_field_40_SpellScript);
-
-        void HandleDamageCalc(SpellEffIndex /*effIndex*/)
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
         {
-            Unit* caster = GetCaster();
-            if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
-            {
-                return;
-            }
-            if (Unit* target = GetHitUnit())
-            {
-                Powers PowerType = POWER_MANA;
-                int32 drainedAmount = -target->ModifyPower(PowerType, -500);
-                SetEffectValue(drainedAmount);
-            }
+            return;
         }
-
-        void Register() override
+        if (Unit* target = GetHitUnit())
         {
-            OnEffectLaunchTarget += SpellEffectFn(spell_feugen_static_field_40_SpellScript::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+            Powers PowerType = POWER_MANA;
+            int32 drainedAmount = -target->ModifyPower(PowerType, -500);
+            SetEffectValue(drainedAmount);
         }
-    };
+    }
 
-    SpellScript* GetSpellScript() const override
+    void Register() override
     {
-        return new spell_feugen_static_field_40_SpellScript();
+        OnEffectLaunchTarget += SpellEffectFn(spell_feugen_static_field::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
     }
 };
 
@@ -816,8 +783,8 @@ void AddSC_boss_thaddius_40()
     new boss_thaddius_40();
     new boss_thaddius_summon_40();
 //    new npc_tesla();
-    new spell_thaddius_pos_neg_charge_40();
-//    new spell_thaddius_polarity_shift();
+    RegisterSpellScript(spell_thaddius_pos_neg_charge);
+    // RegisterSpellScript(spell_thaddius_polarity_shift);
 //    new at_thaddius_entrance();
-    new spell_feugen_static_field_40();
+    RegisterSpellScript(spell_feugen_static_field);
 }

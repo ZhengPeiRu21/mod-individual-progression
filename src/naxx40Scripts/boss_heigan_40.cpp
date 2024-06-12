@@ -38,11 +38,12 @@ enum Says
 
 enum Spells
 {
-    SPELL_SPELL_DISRUPTION          = 29310,
+    SPELL_SUMMON_PLAYER             = 25104,
+    SPELL_DISRUPTION                = 55010, // 29310->55010: Mana Burn AoE spell similar to vanilla
     SPELL_DECREPIT_FEVER            = 29998,
     SPELL_PLAGUE_CLOUD              = 29350,
-    SPELL_PLAGUE_CLOUD_TRIGGER      = 30122,
-    SPELL_TELEPORT_SELF             = 30211
+    SPELL_TELEPORT_SELF             = 30211,
+    SPELL_TELEPORT_PLAYERS          = 29273 // updated target in db
 };
 
 enum Events
@@ -52,7 +53,8 @@ enum Events
     EVENT_ERUPT_SECTION             = 3,
     EVENT_SWITCH_PHASE              = 4,
     EVENT_SAFETY_DANCE              = 5,
-    EVENT_PLAGUE_CLOUD              = 6
+    EVENT_PLAGUE_CLOUD              = 6,
+    EVENT_TELEPORT_PLAYER           = 7
 };
 
 enum Misc
@@ -61,14 +63,38 @@ enum Misc
     PHASE_FAST_DANCE                = 1
 };
 
+const Position EyeStalkPositions[20] =
+{
+    { 2761.28f, -3765.37f, 275.08f, 1.24f },
+    { 2770.17f, -3782.11f, 275.08f, 1.33f },
+    { 2798.11f, -3788.94f, 275.08f, 2.35f },
+    { 2797.91f, -3776.86f, 275.08f, 2.25f },
+    { 2792.06f, -3762.52f, 275.08f, 2.9f, },
+    { 2789.87f, -3752.15f, 275.08f, 2.74f },
+    { 2804.21f, -3757.96f, 275.08f, 3.9f },
+    { 2821.16f, -3759.75f, 275.08f, 4.47f },
+    { 2834.64f, -3751.23f, 275.08f, 4.27f },
+    { 2843.54f, -3768.08f, 275.08f, 3.06f },
+    { 2862.4f,  -3758.3f,  275.08f, 4.8f },
+    { 2877.8f,  -3762.46f, 275.08f, 4.8f },
+    { 2894.11f, -3757.89f, 275.08f, 4.56f },
+    { 2895.25f, -3779.5f,  275.08f, 2.4f },
+    { 2881.59f, -3782.22f, 275.08f, 2.79f },
+    { 2867.2f,  -3778.21f, 275.08f, 3.01f },
+    { 2851.39f, -3776.54f, 275.08f, 2.69f },
+    { 2846.16f, -3789.13f, 275.08f, 1.79f },
+    { 2830.09f, -3776.49f, 275.08f, 0.94f },
+    { 2813.34f, -3780.97f, 275.08f, 1.84f },
+};
+
 class boss_heigan_40 : public CreatureScript
 {
 public:
     boss_heigan_40() : CreatureScript("boss_heigan_40") { }
 
-    CreatureAI* GetAI(Creature* pCreature) const override
+    CreatureAI* GetAI(Creature* creature) const override
     {
-        return GetNaxxramasAI<boss_heigan_40AI>(pCreature);
+        return GetNaxxramasAI<boss_heigan_40AI>(creature);
     }
 
     struct boss_heigan_40AI : public BossAI
@@ -83,6 +109,7 @@ public:
         uint8 currentPhase{};
         uint8 currentSection{};
         bool moveRight{};
+        GuidList portedPlayersThisPhase;
 
         void Reset() override
         {
@@ -90,12 +117,19 @@ public:
             events.Reset();
             currentPhase = 0;
             currentSection = 3;
+            portedPlayersThisPhase.clear();
+            KillPlayersInTheTunnel();
             moveRight = true;
             if (pInstance)
             {
                 if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_ENTER_GATE)))
                 {
                     go->SetGoState(GO_STATE_ACTIVE);
+                }
+                // Close tunnel door
+                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_EXIT_GATE)))
+                {
+                    go->SetGoState(GO_STATE_READY);
                 }
             }
         }
@@ -129,6 +163,16 @@ public:
                 {
                     go->SetGoState(GO_STATE_READY);
                 }
+                // Open tunnel door
+                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_EXIT_GATE)))
+                {
+                    go->SetGoState(GO_STATE_ACTIVE);
+                }
+                // Close loatheb door
+                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_EXIT_GATE_OLD)))
+                {
+                    go->SetGoState(GO_STATE_READY);
+                }
             }
             StartFightPhase(PHASE_SLOW_DANCE);
         }
@@ -147,6 +191,8 @@ public:
                 events.ScheduleEvent(EVENT_DECEPIT_FEVER, 17000);
                 events.ScheduleEvent(EVENT_ERUPT_SECTION, 15000);
                 events.ScheduleEvent(EVENT_SWITCH_PHASE, 90000);
+                events.ScheduleEvent(EVENT_TELEPORT_PLAYER, 40000);
+                portedPlayersThisPhase.clear();
             }
             else // if (phase == PHASE_FAST_DANCE)
             {
@@ -176,6 +222,60 @@ public:
             return true;
         }
 
+        void KillPlayersInTheTunnel()
+        {
+            // hackfix: kill everyone in the tunnel
+            Map::PlayerList const& PlayerList = me->GetMap()->GetPlayers();
+            for (const auto& itr : PlayerList)
+            {
+                if (Player* player = itr.GetSource())
+                {
+                    if (player->IsAlive() && !player->IsGameMaster())
+                    {
+                        if (player->GetPositionX() <= 2769.0f)
+                        {
+                            player->KillSelf();
+                        }
+                    }
+                }
+            }
+        }
+
+        void DoEventTeleportPlayer()
+        {
+            std::list<Unit*> candidates;
+            SelectTargetList(candidates, 3, SelectTargetMethod::Random, 0, [&](Unit* target)
+            {
+                if (!target->IsPlayer()) // never target nonplayers (pets, guardians, etc.)
+                    return false;
+                if (!target->IsAlive())
+                    return false;
+                if (me->GetVictim() == target) // never target tank
+                    return false;
+                // skip players who already have been teleported this phase
+                if (std::find(portedPlayersThisPhase.begin(), portedPlayersThisPhase.end(), target->GetGUID()) != portedPlayersThisPhase.end())
+                    return false;
+                return true;
+            });
+
+            if (candidates.empty())
+                return;
+
+            for (int i = 0; i < 3 ; i++)
+            {
+                if (candidates.empty())
+                    break;
+                auto itr = candidates.begin();
+                if (candidates.size() > 1)
+                    std::advance(itr, urand(0, candidates.size() - 1));
+                Unit *target = *itr;
+                candidates.erase(itr);
+                portedPlayersThisPhase.push_back(target->GetGUID());
+                DoModifyThreatByPercent(target, -99); // prevent heigan chasing and resetting
+                target->CastSpell(target, SPELL_TELEPORT_PLAYERS, true);
+            }
+        }
+
         void UpdateAI(uint32 diff) override
         {
             if (!IsInRoom(me))
@@ -184,12 +284,17 @@ public:
             if (!UpdateVictim())
                 return;
 
+            if (Unit* victim = me->GetVictim())
+            {
+                if (!me->IsWithinDistInMap(victim, VISIBILITY_DISTANCE_NORMAL))
+                    me->CastSpell(victim, SPELL_SUMMON_PLAYER, true);
+            }
             events.Update(diff);
 
             switch (events.ExecuteEvent())
             {
                 case EVENT_DISRUPTION:
-                    me->CastSpell(me, SPELL_SPELL_DISRUPTION, false);
+                    me->CastCustomSpell(SPELL_DISRUPTION, SPELLVALUE_RADIUS_MOD, 2500, me, false); // 25yd
                     events.RepeatEvent(10000);
                     break;
                 case EVENT_DECEPIT_FEVER:
@@ -216,6 +321,11 @@ public:
                 case EVENT_ERUPT_SECTION:
                     if (pInstance)
                     {
+                        if (currentPhase == PHASE_FAST_DANCE)
+                        {
+                            if (currentSection >= 1)
+                                KillPlayersInTheTunnel();
+                        }
                         pInstance->SetData(DATA_HEIGAN_ERUPTION, currentSection);
                         if (currentSection == 3)
                         {
@@ -248,85 +358,16 @@ public:
                         events.RepeatEvent(5000);
                         return;
                     }
+                case EVENT_TELEPORT_PLAYER:
+                    DoEventTeleportPlayer();
+                    break;
             }
             DoMeleeAttackIfReady();
         }
     };
 };
 
-class spell_heigan_plague_cloud_40 : public SpellScriptLoader
-{
-public:
-    spell_heigan_plague_cloud_40() : SpellScriptLoader("spell_heigan_plague_cloud_40") { }
-
-    class spell_heigan_plague_cloud_40_AuraScript : public AuraScript
-    {
-        PrepareAuraScript(spell_heigan_plague_cloud_40_AuraScript);
-
-        bool Validate(SpellInfo const* /*spellInfo*/) override
-        {
-            return ValidateSpellInfo({ SPELL_PLAGUE_CLOUD_TRIGGER });
-        }
-
-        void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
-        {
-            Unit* caster = GetCaster();
-            if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
-            {
-                return;
-            }
-            PreventDefaultAction();
-            int32 bp0 = 4000;
-            caster->CastCustomSpell(caster, SPELL_PLAGUE_CLOUD_TRIGGER, &bp0, 0, 0, true);
-        }
-
-        void Register() override
-        {
-            OnEffectPeriodic += AuraEffectPeriodicFn(spell_heigan_plague_cloud_40_AuraScript::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_TRIGGER_SPELL);
-        }
-    };
-
-    AuraScript* GetAuraScript() const override
-    {
-        return new spell_heigan_plague_cloud_40_AuraScript();
-    }
-};
-
-
-class spell_heigan_eruption_40 : public SpellScriptLoader
-{
-public:
-    spell_heigan_eruption_40() : SpellScriptLoader("spell_heigan_eruption_40") { }
-
-    class spell_heigan_eruption_40_SpellScript : public SpellScript
-    {
-        PrepareSpellScript(spell_heigan_eruption_40_SpellScript);
-
-        void HandleDamageCalc(SpellEffIndex /*effIndex*/)
-        {
-            Unit* caster = GetCaster();
-            if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
-            {
-                return;
-            }
-            SetEffectValue(urand(3500, 4500));
-        }
-
-        void Register() override
-        {
-            OnEffectLaunchTarget += SpellEffectFn(spell_heigan_eruption_40_SpellScript::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
-        }
-    };
-
-    SpellScript* GetSpellScript() const override
-    {
-        return new spell_heigan_eruption_40_SpellScript();
-    }
-};
-
 void AddSC_boss_heigan_40()
 {
     new boss_heigan_40();
-    new spell_heigan_plague_cloud_40();
-    new spell_heigan_eruption_40();
 }

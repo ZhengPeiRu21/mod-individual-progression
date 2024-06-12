@@ -1,10 +1,12 @@
 -- Add Archmage Tarsis Kir-Moldir
 UPDATE `creature_template` SET `gossip_menu_id` = 7229, `npcflag` = 1, `unit_flags` = 512 WHERE (`entry` = 16381);
-
--- Sleep
-DELETE FROM `creature_template_addon` WHERE (`entry` = 16381);
+DELETE FROM `creature_template_addon` WHERE `entry` = 16381;
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (16381, 0, 0, 3, 0, 0, 0, '');
+-- fix: archmage not sitting properly, wrong animation (sleep) to dead
+UPDATE `creature_template_addon` SET `bytes1` = 7, `bytes2` = 1 WHERE (`entry` = 16381);
+UPDATE `smart_scripts` SET `action_param1` = 7 WHERE (`entryorguid` = 16381) AND (`source_type` = 0) AND (`id` = 2);
+UPDATE `creature_template` SET `scale` = 1.2 WHERE (`entry` = 16381);
 
 -- CreatureText
 DELETE FROM `creature_text` WHERE `CreatureID`=16381;
@@ -15,8 +17,7 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (16381, 3, 0, '%s scratches at his throat.', 16, 0, 100, 0, 0, 0, 12314, 0, 'Archmage Tarsis Kir-Moldir');
 
 -- Menu
-DELETE FROM `gossip_menu` WHERE `MenuID` IN
-                                (7222, 7223, 7224, 7225, 7226, 7227, 7228, 7231, 7232, 7233);
+DELETE FROM `gossip_menu` WHERE `MenuID` IN (7222, 7223, 7224, 7225, 7226, 7227, 7228, 7231, 7232, 7233);
 INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
 (7222, 8523),
 (7223, 8522),
@@ -30,9 +31,7 @@ INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES
 (7233, 8529);
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (7222, 7223, 7224, 7225, 7226, 7227, 7228, 7232, 7233);
-INSERT INTO `gossip_menu_option`
-(`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`)
-VALUES
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
 (7222, 0, 0, 'What happened to the staff?', 12304, 1, 1, 7233, 0, 0, 0, '', 0, 0),
 (7223, 0, 0, 'You said you would have it back. What does that mean?', 12293, 1, 1, 7222, 0, 0, 0, '', 0, 0),
 (7224, 0, 0, 'What staff?', 12291, 1, 1, 7223, 0, 0, 0, '', 0, 0),
@@ -77,8 +76,3 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (16381, 0, 20, 0, 59, 0, 100, 0, 5, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Archmage Tarsis Kir-Moldir - On Timed Event 5 Triggered - Say Line 2'),
 (16381, 0, 22, 19, 59, 0, 100, 0, 6, 0, 0, 0, 0, 1, 3, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Archmage Tarsis Kir-Moldir - On Timed Event 6 Triggered - Say Line 3'),
 (16381, 0, 23, 19, 59, 0, 100, 0, 7, 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Archmage Tarsis Kir-Moldir - On Timed Event 7 Triggered - Kill Self');
-
--- fix: archmage not sitting properly, wrong animation (sleep) to dead
-UPDATE `creature_template_addon` SET `bytes1` = 7, `bytes2` = 1 WHERE (`entry` = 16381);
-UPDATE `smart_scripts` SET `action_param1` = 7 WHERE (`entryorguid` = 16381) AND (`source_type` = 0) AND (`id` = 2);
-UPDATE `creature_template` SET `scale` = 1.2 WHERE (`entry` = 16381);
