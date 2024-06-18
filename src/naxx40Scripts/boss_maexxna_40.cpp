@@ -300,7 +300,7 @@ public:
 class boss_maexxna_webwrap_40 : public CreatureScript
 {
 public:
-    boss_maexxna_webwrap_40() : CreatureScript("boss_maexxna_webwrap40") { }
+    boss_maexxna_webwrap_40() : CreatureScript("boss_maexxna_webwrap_40") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
