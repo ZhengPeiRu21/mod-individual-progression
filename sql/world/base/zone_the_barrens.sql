@@ -38,7 +38,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6251, 4490);
 UPDATE `creature_template` SET `gossip_menu_id`=0, `npcflag`=2 WHERE `entry`=3443;
 
 -- Gilthares Firebough
-UPDATE `creature_template` SET `modelid1`=4244 WHERE `entry`=3465;
+UPDATE `creature_template_model` SET `CreatureDisplayID`=4244 WHERE `CreatureID`=3465;
 
 -- Hraq <Blacksmithing Supplier>
 UPDATE `creature_template` SET `subname`='Blacksmithing Supplier' WHERE `entry`=3477;
