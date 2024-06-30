@@ -167,7 +167,57 @@ UPDATE quest_template SET QuestLevel = 51, MinLevel = 45 WHERE ID=630;
 UPDATE quest_template SET RequiredItemCount1 = 11 WHERE ID=640;
 
 /*  Tanaris Field Sampling  */
-UPDATE quest_template SET RequiredItemId1 = 9440, RequiredItemId2 = 9441, RequiredItemId3 = 9438, RequiredItemId4 = 8523, RequiredItemCount1 = 8, RequiredItemCount2 = 8, RequiredItemCount3 = 8, RequiredItemCount4 = 1 WHERE ID=654;
+UPDATE quest_template SET
+	ItemDrop1 = 9437,
+	ItemDropQuantity1 = 999,
+	ItemDrop2 = 9439,
+	ItemDropQuantity2 = 999,
+	ItemDrop3 = 9442,
+	ItemDropQuantity3 = 999,
+
+	RequiredItemId1 = 9440,
+	RequiredItemCount1 = 8,
+
+	RequiredItemId2 = 9441,
+	RequiredItemCount2 = 8,
+
+	RequiredItemId3 = 9438,
+	RequiredItemCount3 = 8,
+
+	RequiredItemId4 = 8523,
+	RequiredItemCount4 = 1,
+
+	RequiredItemId5 = 0,
+	RequiredItemId6 = 0
+WHERE ID=654;
+
+
+UPDATE item_template SET
+	spellid_1 = 11759
+WHERE entry = 9437;
+
+UPDATE item_template SET
+	spellid_1 = 11760
+WHERE entry = 9439;
+
+UPDATE item_template SET
+	spellid_1 = 11761
+WHERE entry = 9442;
+
+
+DELETE FROM spell_dbc
+WHERE
+	ID = 11759
+	OR ID = 11760
+	OR ID = 11761;
+
+INSERT INTO spell_dbc
+	(ID, Category, DispelType, Mechanic, Attributes, AttributesEx, AttributesEx2, AttributesEx3, AttributesEx4, AttributesEx5, AttributesEx6, AttributesEx7, ShapeshiftMask, unk_320_2, ShapeshiftExclude, unk_320_3, Targets, TargetCreatureType, RequiresSpellFocus, FacingCasterFlags, CasterAuraState, TargetAuraState, ExcludeCasterAuraState, ExcludeTargetAuraState, CasterAuraSpell, TargetAuraSpell, ExcludeCasterAuraSpell, ExcludeTargetAuraSpell, CastingTimeIndex, RecoveryTime, CategoryRecoveryTime, InterruptFlags, AuraInterruptFlags, ChannelInterruptFlags, ProcTypeMask, ProcChance, ProcCharges, MaxLevel, BaseLevel, SpellLevel, DurationIndex, PowerType, ManaCost, ManaCostPerLevel, ManaPerSecond, ManaPerSecondPerLevel, RangeIndex, Speed, ModalNextSpell, CumulativeAura, Totem_1, Totem_2, Reagent_1, Reagent_2, Reagent_3, Reagent_4, Reagent_5, Reagent_6, Reagent_7, Reagent_8, ReagentCount_1, ReagentCount_2, ReagentCount_3, ReagentCount_4, ReagentCount_5, ReagentCount_6, ReagentCount_7, ReagentCount_8, EquippedItemClass, EquippedItemSubclass, EquippedItemInvTypes, Effect_1, Effect_2, Effect_3, EffectDieSides_1, EffectDieSides_2, EffectDieSides_3, EffectRealPointsPerLevel_1, EffectRealPointsPerLevel_2, EffectRealPointsPerLevel_3, EffectBasePoints_1, EffectBasePoints_2, EffectBasePoints_3, EffectMechanic_1, EffectMechanic_2, EffectMechanic_3, ImplicitTargetA_1, ImplicitTargetA_2, ImplicitTargetA_3, ImplicitTargetB_1, ImplicitTargetB_2, ImplicitTargetB_3, EffectRadiusIndex_1, EffectRadiusIndex_2, EffectRadiusIndex_3, EffectAura_1, EffectAura_2, EffectAura_3, EffectAuraPeriod_1, EffectAuraPeriod_2, EffectAuraPeriod_3, EffectMultipleValue_1, EffectMultipleValue_2, EffectMultipleValue_3, EffectChainTargets_1, EffectChainTargets_2, EffectChainTargets_3, EffectItemType_1, EffectItemType_2, EffectItemType_3, EffectMiscValue_1, EffectMiscValue_2, EffectMiscValue_3, EffectMiscValueB_1, EffectMiscValueB_2, EffectMiscValueB_3, EffectTriggerSpell_1, EffectTriggerSpell_2, EffectTriggerSpell_3, EffectPointsPerCombo_1, EffectPointsPerCombo_2, EffectPointsPerCombo_3, EffectSpellClassMaskA_1, EffectSpellClassMaskA_2, EffectSpellClassMaskA_3, EffectSpellClassMaskB_1, EffectSpellClassMaskB_2, EffectSpellClassMaskB_3, EffectSpellClassMaskC_1, EffectSpellClassMaskC_2, EffectSpellClassMaskC_3, SpellVisualID_1, SpellVisualID_2, SpellIconID, ActiveIconID, SpellPriority, Name_Lang_enUS, Name_Lang_Mask, NameSubtext_Lang_Mask, Description_Lang_enUS, Description_Lang_Mask, AuraDescription_Lang_Mask, ManaCostPct, StartRecoveryCategory, StartRecoveryTime, MaxTargetLevel, SpellClassSet, SpellClassMask_1, SpellClassMask_2, SpellClassMask_3, MaxTargets, DefenseType, PreventionType, StanceBarOrder, EffectChainAmplitude_1, EffectChainAmplitude_2, EffectChainAmplitude_3, MinFactionID, MinReputation, RequiredAuraVision, RequiredTotemCategoryID_1, RequiredTotemCategoryID_2, RequiredAreasID, SchoolMask, RuneCostID, SpellMissileID, PowerDisplayID, EffectBonusMultiplier_1, EffectBonusMultiplier_2, EffectBonusMultiplier_3, SpellDescriptionVariableID, SpellDifficultyID)
+VALUES
+	(11759, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 15, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 8523, 0, 9437, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 24, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9440, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 92, 0, 1, 0, 0, 'Basilisk Sample', 16712190, 16712188, 'Test this sample for quality.  Requires Field Testing Kit.', 16712190, 16712188, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0),
+	(11760, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 15, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 8523, 0, 9439, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 24, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9441, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 92, 0, 1, 0, 0, 'Hyena Sample', 16712190, 16712188, 'Test this sample for quality.  Requires Field Testing Kit.', 16712190, 16712188, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0),
+	(11761, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 15, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 8523, 0, 9442, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 24, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9438, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 92, 0, 1, 0, 0, 'Scorpid Sample', 16712190, 16712188, 'Test this sample for quality.  Requires Field Testing Kit.', 16712190, 16712188, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0);
+
 
 /*  Call to Arms  */
 UPDATE quest_template SET RequiredNpcOrGoCount1 = 15, RequiredNpcOrGoCount2 = 10 WHERE ID=679;
