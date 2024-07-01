@@ -107,9 +107,9 @@ IndividualProgression.QuestXPFix = 1
 #                     as well as overpowering the leveling content. This is particularly true in TBC leveling due to the strength of Naxx 40 gear.
 #                     Set to 0 (0% adjustment) to disable
 #
-#        Default:     0.03 - 3% reduced health and damage per previous expansion epic
+#        Default:     0.01 - 1% reduced health and damage per previous expansion epic
 #
-IndividualProgression.PreviousGearTuning = 0.03
+IndividualProgression.PreviousGearTuning = 0.01
 #
 #    IndividualProgression.HunterPetLevelFix
 #        Description: In WotLK, a catch-up mechanism was added so that hunter pets are leveled up higher when tamed
