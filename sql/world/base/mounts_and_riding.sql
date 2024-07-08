@@ -20,7 +20,6 @@ DELETE FROM npc_trainer WHERE SpellID=13820; # Delete Summon Warhorse from more 
 DELETE FROM npc_trainer WHERE SpellID=23214;
 DELETE FROM npc_trainer WHERE SpellID=34767;
 DELETE FROM npc_trainer WHERE SpellID=23161;
-UPDATE npc_trainer SET ReqLevel=40 WHERE SpellID=13820;
 UPDATE npc_trainer SET ReqLevel=40 WHERE SpellID=34768;
 UPDATE npc_trainer SET ReqLevel=40 WHERE SpellID=1710;
 UPDATE npc_trainer SET ReqLevel=68 WHERE SpellID=33950;
