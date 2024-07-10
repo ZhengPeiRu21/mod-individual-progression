@@ -49,7 +49,7 @@ public:
                 {
                     if (isAttuned(player))
                     {
-                        GameObject* door = me->FindNearestGameObject(NAXX_STRATH_GATE, 100.0f);
+                        GameObject* door = me->FindNearestGameObject(GO_STRATH_GATE_40, 100.0f);
                         if (door)
                         {
                             door->SetGoState(GO_STATE_ACTIVE);
