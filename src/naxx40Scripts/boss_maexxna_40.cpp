@@ -32,7 +32,6 @@ enum Spells
     SPELL_FRENZY                        = 54123,
     SPELL_WEB_WRAP_STUN                 = 28622,
     SPELL_WEB_WRAP_SUMMON               = 28627,
-    SPELL_WEB_WRAP_SUMMON_40            = 90007, // custom summon entry: 16486 -> 351075
     SPELL_WEB_WRAP_PACIFY_5             = 28618
 };
 

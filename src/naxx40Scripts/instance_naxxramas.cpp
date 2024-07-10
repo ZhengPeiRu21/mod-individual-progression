@@ -23,7 +23,6 @@
 #include "ScriptedCreature.h"
 #include "DBCEnums.h"
 #include "ObjectMgr.h"
-#include "GameObjectAI.h"
 #include "naxxramas.h"
 
 const float HeiganPos[2] = {2796, -3707};
@@ -53,6 +52,18 @@ inline uint8 GetEruptionSection(float x, float y)
     return 3;
 }
 
+ObjectData const creatureData[] =
+{
+    { NPC_RAZUVIOUS,    DATA_RAZUVIOUS },
+    { NPC_RAZUVIOUS_40, DATA_RAZUVIOUS_40 },
+    { 0,                0              }
+};
+
+ObjectData const gameObjectData[] =
+{
+    { 0,             0              }
+};
+
 class instance_naxxramas_combined : public InstanceMapScript
 {
 public:
@@ -67,7 +78,9 @@ public:
     {
         explicit instance_naxxramas_combined_InstanceMapScript(Map* pMap) : InstanceScript(pMap)
         {
+            SetHeaders(DataHeader);
             SetBossNumber(MAX_ENCOUNTERS);
+            LoadObjectData(creatureData, gameObjectData);
             for (auto& i : HeiganEruption)
                 i.clear();
 
@@ -141,6 +154,7 @@ public:
         GuidList HeiganBackRoomAdds;
         ObjectGuid _patchwerkGUID;
         ObjectGuid _thaddiusGUID;
+        ObjectGuid _gothikGUID;
         ObjectGuid _stalaggGUID;
         ObjectGuid _feugenGUID;
         ObjectGuid _zeliekGUID;
@@ -252,6 +266,9 @@ public:
                 case NPC_FEUGEN:
                     _feugenGUID = creature->GetGUID();
                     return;
+                case NPC_GOTHIK:
+                    _gothikGUID = creature->GetGUID();
+                    return;
                 case NPC_LADY_BLAUMEUX:
                     _blaumeuxGUID = creature->GetGUID();
                     return;
@@ -274,6 +291,9 @@ public:
                     _lichkingGUID = creature->GetGUID();
                     return;
                 // Naxx 40 NPCs
+                case NPC_GOTHIK_40:
+                    _gothikGUID = creature->GetGUID();
+                    return;
                 case NPC_PATCHWERK_40:
                     _patchwerkGUID = creature->GetGUID();
                     return;
@@ -328,6 +348,8 @@ public:
                     creature->SetStandState(UNIT_STAND_STATE_DEAD);
                     return;
             }
+
+            InstanceScript::OnCreatureCreate(creature);
         }
 
         void OnGameObjectCreate(GameObject* pGo) override
@@ -585,6 +607,8 @@ public:
                     }
                     break;
             }
+
+            InstanceScript::OnGameObjectCreate(pGo);
         }
 
         void OnGameObjectRemove(GameObject* pGo) override
@@ -723,7 +747,7 @@ public:
                 case DATA_HEIGAN_ERUPTION:
                     HeiganEruptSections(data);
                     return;
-                case DATA_HEIGAN_ERUPTION_TUNNEL:
+                case DATA_HEIGAN_ERUPTION_TUNNEL_40:
                     HeiganEruptSectionsTunnel();
                     return;
                 case DATA_HAD_THADDIUS_GREET:
@@ -1192,9 +1216,9 @@ public:
                 // GameObjects
                 case DATA_HEIGAN_ENTER_GATE:
                     return _heiganGateGUID;
-                case DATA_HEIGAN_EXIT_GATE_OLD:
+                case DATA_HEIGAN_EXIT_GATE_OLD_40:
                     return _heiganGateExitOldGUID;
-                case DATA_HEIGAN_EXIT_GATE:
+                case DATA_HEIGAN_EXIT_GATE_40:
                     return _heiganGateExitGUID;
                 case DATA_LOATHEB_GATE:
                     return _loathebGateGUID;
@@ -1236,6 +1260,8 @@ public:
                     return _stalaggGUID;
                 case DATA_FEUGEN_BOSS:
                     return _feugenGUID;
+                case DATA_GOTHIK_BOSS:
+                    return _gothikGUID;
                 case DATA_LICH_KING_BOSS:
                     return _lichkingGUID;
                 default:
@@ -1328,6 +1354,39 @@ public:
     };
 };
 
+const Position sapphironEntryTP = { 3498.300049f, -5349.490234f, 144.968002f, 1.3698910f };
+
+class at_naxxramas_hub_portal : public AreaTriggerScript
+{
+public:
+    at_naxxramas_hub_portal() : AreaTriggerScript("at_naxxramas_hub_portal") { }
+
+    bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
+    {
+        if (player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
+        {
+            InstanceScript* instance = player->GetInstanceScript();
+            for (int i = 0; i < BOSS_SAPPHIRON; ++i)
+            {
+                if (instance->GetBossState(i) != DONE)
+                    return false;
+            }
+        }
+        if (player->IsAlive() && !player->IsInCombat())
+        {
+            if (InstanceScript *instance = player->GetInstanceScript())
+            {
+                if (instance->CheckRequiredBosses(BOSS_SAPPHIRON))
+                {
+                    player->TeleportTo(533, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+
 class NaxxPlayerScript : public PlayerScript
 {
 public:
@@ -1408,39 +1467,6 @@ public:
     }
 };
 
-const Position sapphironEntryTP = { 3498.300049f, -5349.490234f, 144.968002f, 1.3698910f };
-
-class at_naxxramas_hub_portal : public AreaTriggerScript
-{
-public:
-    at_naxxramas_hub_portal() : AreaTriggerScript("at_naxxramas_hub_portal") { }
-
-    bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
-    {
-        if (player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
-            InstanceScript* instance = player->GetInstanceScript();
-            for (int i = 0; i < BOSS_SAPPHIRON; ++i)
-            {
-                if (instance->GetBossState(i) != DONE)
-                    return false;
-            }
-        }
-        if (player->IsAlive() && !player->IsInCombat())
-        {
-            if (InstanceScript *instance = player->GetInstanceScript())
-            {
-                if (instance->CheckRequiredBosses(BOSS_SAPPHIRON))
-                {
-                    player->TeleportTo(533, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-};
-
 class NaxxEntryFlag_AllMapScript : public AllMapScript
 {
 public:
@@ -1471,10 +1497,10 @@ public:
 void AddSC_instance_naxxramas_combined()
 {
     new instance_naxxramas_combined();
+//    new boss_naxxramas_misc();
+    new at_naxxramas_hub_portal();
     new NaxxPlayerScript();
     new naxx_exit_trigger();
     new naxx_northrend_entrance();
-    new at_naxxramas_hub_portal();
     new NaxxEntryFlag_AllMapScript();
-//    new boss_naxxramas_misc();
 }

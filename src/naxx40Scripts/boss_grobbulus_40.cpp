@@ -32,7 +32,6 @@ enum Spells
     SPELL_SLIME_SPRAY                       = 28157,
     SPELL_POISON_CLOUD_DAMAGE_AURA          = 28158,
     SPELL_BERSERK                           = 26662,
-    SPELL_BOMBARD_SLIME                     = 90003 // update summon entry
 };
 
 enum Emotes

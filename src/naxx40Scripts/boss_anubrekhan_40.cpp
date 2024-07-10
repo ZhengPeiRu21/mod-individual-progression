@@ -38,8 +38,6 @@ enum Spells
     SPELL_IMPALE                    = 28783,
     SPELL_LOCUST_SWARM              = 28785,
     SPELL_LOCUST_SWARM_TRIGGER      = 28786, // periodic effect
-    SPELL_SUMMON_CORPSE_SCRABS_5    = 90001, // Changed from 29105 to Level 60 Mob ID for summon
-    SPELL_SUMMON_CORPSE_SCRABS_10   = 90002, // Changed from 29105 to Level 60 Mob ID for summon
     SPELL_BERSERK                   = 26662
 };
 

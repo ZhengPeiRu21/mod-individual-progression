@@ -20,6 +20,9 @@
 
 #include "CreatureAIImpl.h"
 #include "SpellScript.h"
+#include "naxxramas_40.h"
+
+#define DataHeader "NAX"
 
 #define NaxxramasScriptName "instance_naxxramas"
 
@@ -56,28 +59,27 @@ enum NXData
     DATA_STALAGG_BOSS               = 108,
     DATA_FEUGEN_BOSS                = 109,
     DATA_THADDIUS_GATE              = 110,
-    DATA_GOTHIK_ENTER_GATE          = 111,
-    DATA_GOTHIK_INNER_GATE          = 112,
-    DATA_GOTHIK_EXIT_GATE           = 113,
-    DATA_HORSEMEN_GATE              = 114,
-    DATA_LICH_KING_BOSS             = 115,
-    DATA_KELTHUZAD_FLOOR            = 116,
-    DATA_ABOMINATION_KILLED         = 117,
-    DATA_FRENZY_REMOVED             = 118,
-    DATA_CHARGES_CROSSED            = 119,
-    DATA_SPORE_KILLED               = 120,
-    DATA_HUNDRED_CLUB               = 121,
-    DATA_DANCE_FAIL                 = 122,
-    DATA_IMMORTAL_FAIL              = 123,
-    DATA_KELTHUZAD_GATE             = 124,
-    DATA_HAD_THADDIUS_GREET         = 125,
-    DATA_KELTHUZAD_PORTAL_1         = 126,
-    DATA_KELTHUZAD_PORTAL_2         = 127,
-    DATA_KELTHUZAD_PORTAL_3         = 128,
-    DATA_KELTHUZAD_PORTAL_4         = 129,
-    DATA_HEIGAN_EXIT_GATE_OLD       = 130,
-    DATA_HEIGAN_EXIT_GATE           = 131,
-    DATA_HEIGAN_ERUPTION_TUNNEL     = 130
+    DATA_RAZUVIOUS                  = 111, //
+    DATA_GOTHIK_BOSS                = 112, //
+    DATA_GOTHIK_ENTER_GATE          = 113,
+    DATA_GOTHIK_INNER_GATE          = 114,
+    DATA_GOTHIK_EXIT_GATE           = 115,
+    DATA_HORSEMEN_GATE              = 116,
+    DATA_LICH_KING_BOSS             = 117,
+    DATA_KELTHUZAD_FLOOR            = 118,
+    DATA_ABOMINATION_KILLED         = 119,
+    DATA_FRENZY_REMOVED             = 120,
+    DATA_CHARGES_CROSSED            = 121,
+    DATA_SPORE_KILLED               = 122,
+    DATA_HUNDRED_CLUB               = 123,
+    DATA_DANCE_FAIL                 = 124,
+    DATA_IMMORTAL_FAIL              = 125,
+    DATA_KELTHUZAD_GATE             = 126,
+    DATA_HAD_THADDIUS_GREET         = 127,
+    DATA_KELTHUZAD_PORTAL_1         = 128,
+    DATA_KELTHUZAD_PORTAL_2         = 129,
+    DATA_KELTHUZAD_PORTAL_3         = 130,
+    DATA_KELTHUZAD_PORTAL_4         = 131
 };
 
 enum NXGOs
@@ -104,7 +106,6 @@ enum NXGOs
 
     GO_HORSEMEN_CHEST_10            = 181366,
     GO_HORSEMEN_CHEST_25            = 193426,
-    GO_HORSEMEN_CHEST_40            = 361000,
 
     GO_SAPPHIRON_BIRTH              = 181356,
     GO_KELTHUZAD_FLOOR              = 181444,
@@ -130,9 +131,6 @@ enum NXGOs
     GO_PLAG_EYE_RAMP_BOSS           = 181231,
     GO_MILI_EYE_RAMP_BOSS           = 181230,
     GO_CONS_EYE_RAMP_BOSS           = 181232,
-
-    // Gate to enter Naxx 40 from Strath
-    NAXX_STRATH_GATE                = 176424
 };
 
 enum NXNPCs
@@ -141,6 +139,9 @@ enum NXNPCs
     NPC_THADDIUS                    = 15928,
     NPC_STALAGG                     = 15929,
     NPC_FEUGEN                      = 15930,
+
+    // Razuvious
+    NPC_RAZUVIOUS                   = 16061,
 
     // Four horseman
     NPC_BARON_RIVENDARE             = 30549,
@@ -168,48 +169,9 @@ enum NXNPCs
     NPC_LIVING_MONSTROSITY          = 16021,
     NPC_SURGICAL_ASSIST             = 16022,
     NPC_SLUDGE_BELCHER              = 16029,
-};
 
-enum NX40NPCs
-{
-    // Thaddius
-    NPC_THADDIUS_40                    = 351000,
-    NPC_STALAGG_40                     = 351001,
-    NPC_FEUGEN_40                      = 351002,
-
-    // Four horseman
-    NPC_HIGHLORD_MOGRAINE_40             = 351037,
-    NPC_SIR_ZELIEK_40                    = 351038,
-    NPC_LADY_BLAUMEUX_40                 = 351040,
-    NPC_THANE_KORTHAZZ_40                = 351039,
-
-    // Sapphiron
-    NPC_SAPPHIRON_40                   = 351018,
-
-    // Kel'Thuzad
-    NPC_KELTHUZAD_40                   = 351019,
-    NPC_LICH_KING_40                   = 16980,
-
-    // Frogger
-    NPC_LIVING_POISON_40               = 16027,
-    NPC_NAXXRAMAS_TRIGGER_40           = 16082,
-    NPC_MR_BIGGLESWORTH_40             = 16998,
-
-    // Patchwerk
-    NPC_PATCHWERK_40                   = 351028,
-    NPC_PATCHWORK_GOLEM_40             = 351021,
-    NPC_BILE_RETCHER_40                = 351022,
-    NPC_MAD_SCIENTIST_40               = 351023,
-    NPC_LIVING_MONSTROSITY_40          = 351024,
-    NPC_SURGICAL_ASSIST_40             = 351025,
-    NPC_SLUDGE_BELCHER_40              = 351029,
-
-    // Heigan
-    NPC_ROTTING_MAGGOT_40              = 351034,
-    NPC_DISEASED_MAGGOT_40             = 351033,
-    NPC_EYE_STALK_40                   = 351090,
-
-    NPC_ARCHMAGE_TARSIS                = 16381,
+    // Gothik
+    NPC_GOTHIK                      = 16060
 };
 
 enum NXMisc
@@ -240,24 +202,6 @@ enum NXEvents
     EVENT_THADDIUS_SCREAMS          = 0,
     EVENT_KELTHUZAD_WING_TAUNT      = 1,
     EVENT_FROSTWYRM_WATERFALL_DOOR  = 2
-};
-
-enum NXMaps
-{
-    MAP_NAXX = 533,
-};
-
-enum NXGraveyards
-{
-    NAXX40_GRAVEYARD = 909
-};
-
-enum NXAttunementQuests
-{
-    NAXX40_ATTUNEMENT_1  = 9121,
-    NAXX40_ATTUNEMENT_2  = 9122,
-    NAXX40_ATTUNEMENT_3  = 9123,
-    NAXX40_ENTRANCE_FLAG = 9378
 };
 
 template <class AI, class T>

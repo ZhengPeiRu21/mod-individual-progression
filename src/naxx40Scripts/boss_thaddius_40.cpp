@@ -753,31 +753,6 @@ public:
     }
 };
 
-class spell_feugen_static_field : public SpellScript
-{
-    PrepareSpellScript(spell_feugen_static_field);
-
-    void HandleDamageCalc(SpellEffIndex /*effIndex*/)
-    {
-        Unit* caster = GetCaster();
-        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
-        {
-            return;
-        }
-        if (Unit* target = GetHitUnit())
-        {
-            Powers PowerType = POWER_MANA;
-            int32 drainedAmount = -target->ModifyPower(PowerType, -500);
-            SetEffectValue(drainedAmount);
-        }
-    }
-
-    void Register() override
-    {
-        OnEffectLaunchTarget += SpellEffectFn(spell_feugen_static_field::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
-    }
-};
-
 void AddSC_boss_thaddius_40()
 {
     new boss_thaddius_40();
@@ -786,5 +761,4 @@ void AddSC_boss_thaddius_40()
     RegisterSpellScript(spell_thaddius_pos_neg_charge);
     // RegisterSpellScript(spell_thaddius_polarity_shift);
 //    new at_thaddius_entrance();
-    RegisterSpellScript(spell_feugen_static_field);
 }
