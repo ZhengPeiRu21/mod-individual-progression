@@ -8,11 +8,13 @@ UPDATE `gameobject` SET `spawnMask` = 3 WHERE `id` IN (202278, 202277);
 DELETE FROM `gameobject_template` WHERE `entry`=361000;
 INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, `unk1`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, `Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, `Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES
 (361000, 3, 1387, 'Four Horsemen Chest', '', '', '', 1, 1634, 361000, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 1);
-REPLACE INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+DELETE FROM `reference_loot_template` WHERE `entry`=314800;
+INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `GroupId`, `MinCount`, `MaxCount`) VALUES
 (314800, 22349, 0, 0.0, 0, 1, 1, 1),
 (314800, 22350, 0, 0.0, 0, 1, 1, 1),
 (314800, 22351, 0, 0.0, 0, 1, 1, 1);
-REPLACE INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `GroupId`, `MinCount`, `MaxCount`) VALUES
+DELETE FROM `gameobject_loot_template` WHERE `entry`=361000;
+INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `GroupId`, `MinCount`, `MaxCount`) VALUES
 (361000, 314800, 314800, 100, 0, 0, 2, 2),
 (361000, 22691, 0, 0, 0, 2, 1, 1),
 (361000, 22726, 0, 30, 0, 0, 1, 1),

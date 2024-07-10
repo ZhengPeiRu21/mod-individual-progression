@@ -1,4 +1,5 @@
 -- Enable T3 turn in Quests
+-- Enable exalted attunement quest (9378)
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (
 9232, 9033, 9230, 9229, 9120, 9082, 9101, 9102, 9038, 9034, 9099,
 9237, 9057, 9042, 9037, 9039, 9041, 9036, 9233, 9089, 9118, 9098,
@@ -11,7 +12,7 @@ DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (
 9235, 9238, 9239, 9378);
 
 REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES
-(16115, 9033),
+-- (16115, 9033), -- already exists
 (16112, 9034),
 (16112, 9036),
 (16112, 9037),
@@ -22,7 +23,7 @@ REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES
 (16112, 9042),
 (16115, 9043),
 (16115, 9044),
-(16115, 9045),
+-- (16115, 9045), -- already exists
 (16115, 9046),
 (16115, 9047),
 (16115, 9048),
@@ -86,23 +87,23 @@ REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES
 (16113, 9118),
 (16112, 9229),
 (16112, 9230),
-(16376, 9232),
-(16376, 9234),
-(16376, 9235),
-(16376, 9236),
-(16376, 9237),
-(16376, 9238),
-(16376, 9239),
-(16376, 9240),
-(16376, 9241),
-(16376, 9242),
-(16376, 9243),
-(16376, 9244),
-(16376, 9245),
-(16376, 9246);
+(16376, 9232);
+-- (16376, 9234), -- already exists
+-- (16376, 9235), -- already exists
+-- (16376, 9236), -- already exists
+-- (16376, 9237), -- already exists
+-- (16376, 9238), -- already exists
+-- (16376, 9239), -- already exists
+-- (16376, 9240), -- already exists
+-- (16376, 9241), -- already exists
+-- (16376, 9242), -- already exists
+-- (16376, 9243), -- already exists
+-- (16376, 9244), -- already exists
+-- (16376, 9245), -- already exists
+-- (16376, 9246); -- already exists
 
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES
-(16115, 9033),
+(16115, 9033), -- already exists
 (16112, 9034),
 (16112, 9036),
 (16112, 9037),
@@ -113,7 +114,7 @@ REPLACE INTO `creature_questender` (`id`, `quest`) VALUES
 (16112, 9042),
 (16115, 9043),
 (16115, 9044),
-(16115, 9045),
+-- (16115, 9045), -- already exists
 (16115, 9046),
 (16115, 9047),
 (16115, 9048),
@@ -178,42 +179,30 @@ REPLACE INTO `creature_questender` (`id`, `quest`) VALUES
 (16113, 9120),
 (16112, 9229),
 (16112, 9230),
-(16376, 9232),
-(16376, 9233),
-(16376, 9234),
-(16376, 9235),
-(16376, 9236),
-(16376, 9237),
-(16376, 9238),
-(16376, 9239),
-(16376, 9240),
-(16376, 9241),
-(16376, 9242),
-(16376, 9243),
-(16376, 9244),
-(16376, 9245),
-(16376, 9246);
+-- (16376, 9232), -- already exists
+(16376, 9233);
+-- (16376, 9234), -- already exists
+-- (16376, 9235), -- already exists
+-- (16376, 9236), -- already exists
+-- (16376, 9237), -- already exists
+-- (16376, 9238), -- already exists
+-- (16376, 9239), -- already exists
+-- (16376, 9240), -- already exists
+-- (16376, 9241), -- already exists
+-- (16376, 9242), -- already exists
+-- (16376, 9243), -- already exists
+-- (16376, 9244), -- already exists
+-- (16376, 9245), -- already exists
+-- (16376, 9246); -- already exists
 
-update quest_template_addon set PrevQuestId = 9121 where ID = 9033; -- echoes of war requires 9121
+-- echoes of war requires 9121
+UPDATE `quest_template_addon` SET `PrevQuestId` = 9121 WHERE `ID` = 9033;
 
 -- quest "The only song i know..." requires quest "Echoes of war" completed
-update quest_template_addon set PrevQuestId = 9033 where ID = 9232;
+UPDATE `quest_template_addon` SET `PrevQuestId` = 9033 WHERE `ID` = 9232;
 
 -- The remaining craft quests require quest "Omarion's Handbook" completed
-update quest_template_addon set PrevQuestId = 9233 where ID in (
-9234,
-9235,
-9236,
-9237,
-9238,
-9239,
-9240,
-9241,
-9242,
-9243,
-9244,
-9245,
-9246);
+UPDATE `quest_template_addon` SET `PrevQuestId` = 9233 WHERE `ID` IN (9234, 9235, 9236, 9237, 9238, 9239, 9240, 9241, 9242, 9243, 9244, 9245, 9246);
 
 -- warrior
 SET @NPC:= 16112;
@@ -311,7 +300,8 @@ DELETE FROM `creature_questender` WHERE (`quest` = 9233);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (16376, 9233);
 
 -- Frost Resistance quests from Craftsman Wilhelm
--- Echoes of War 9033; Omarion's Handbook quest: 9233
+-- Echoes of War 9033
+-- Omarion's Handbook quest 9233
 SET @NPC:= 16376;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 9033 WHERE `ID` = 9232;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 9233 WHERE (`ID` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243));
@@ -319,8 +309,8 @@ DELETE FROM `creature_queststarter` WHERE (`quest` IN (9237, 9239, 9240, 9238, 9
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (@NPC, 9237), (@NPC, 9239), (@NPC, 9240), (@NPC, 9238), (@NPC, 9235), (@NPC, 9236), (@NPC, 9234), (@NPC, 9244), (@NPC, 9246), (@NPC, 9245), (@NPC, 9241), (@NPC, 9242), (@NPC, 9243), (@NPC, 9232);
 DELETE FROM `creature_questender` WHERE (`quest` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243, 9232));
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (@NPC, 9237), (@NPC, 9239), (@NPC, 9240), (@NPC, 9238), (@NPC, 9235), (@NPC, 9236), (@NPC, 9234), (@NPC, 9244), (@NPC, 9246), (@NPC, 9245), (@NPC, 9241), (@NPC, 9242), (@NPC, 9243), (@NPC, 9232);
-
-REPLACE INTO `creature_questitem` (`CreatureEntry`, `Idx`, `ItemId`, `VerifiedBuild`) VALUES
+DELETE FROM `creature_questitem` WHERE `ItemId` = 22708;
+INSERT INTO `creature_questitem` (`CreatureEntry`, `Idx`, `ItemId`, `VerifiedBuild`) VALUES
 (351007, 0, 22708, 0),
 (351008, 0, 22708, 0),
 (351010, 0, 22708, 0),
