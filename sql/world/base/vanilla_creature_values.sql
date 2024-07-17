@@ -20185,12 +20185,6 @@ UPDATE `creature_template` SET `DamageModifier` = 1.3 WHERE `entry`=14633;
 /*  Lookout Captain Lolo Longstriker  */
 UPDATE `creature_template` SET `DamageModifier` = 1.05 WHERE `entry`=14634;
 
-/*  Sleepy Dark Iron Worker  */
-UPDATE `creature_template` SET `minlevel` = 1, `maxlevel` = 1, `DamageModifier` = 1.3 WHERE `entry`=14635;
-
-/*  Chambermaid Pillaclencher  */
-UPDATE `creature_template` SET `minlevel` = 1, `maxlevel` = 1, `DamageModifier` = 1.3 WHERE `entry`=14636;
-
 /*  Zorbin Fandazzle  */
 UPDATE `creature_template` SET `DamageModifier` = 1.5 WHERE `entry`=14637;
 
