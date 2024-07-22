@@ -91,12 +91,12 @@ void IndividualProgression::ComputeGearTuning(Player* player, float& computedAdj
 void IndividualProgression::AdjustVanillaStats(Player* player) const
 {
     float adjustmentValue = -100.0f * (1.0f - vanillaPowerAdjustment);
-    float adjustmentApplyPercent = (player->getLevel() - 10.0f) / 50.0f;
-    float computedAdjustment = player->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+    float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
+    float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
 
     float adjustmentHealingValue = -100.0f * (1.0f - vanillaHealingAdjustment);
-    float adjustmentHealingApplyPercent = (player->getLevel() - 10.0f) / 50.0f;
-    float computedHealingAdjustment = player->getLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
+    float adjustmentHealingApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
+    float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 
     AdjustStats(player, computedAdjustment, computedHealingAdjustment);
 }
@@ -105,11 +105,11 @@ void IndividualProgression::AdjustTBCStats(Player* player) const
 {
     float adjustmentValue = -100.0f * (1.0f - tbcPowerAdjustment);
     float adjustmentApplyPercent = 1;
-    float computedAdjustment = player->getLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+    float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
 
     float adjustmentHealingValue = -100.0f * (1.0f - tbcHealingAdjustment);
     float adjustmentHealingApplyPercent = 1;
-    float computedHealingAdjustment = player->getLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
+    float computedHealingAdjustment = player->GetLevel() > 10 ? (adjustmentHealingValue * adjustmentHealingApplyPercent) : 0;
 
     for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
     {
