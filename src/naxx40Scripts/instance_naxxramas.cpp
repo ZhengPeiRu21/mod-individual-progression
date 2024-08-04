@@ -1482,7 +1482,6 @@ public:
             return;
 
         // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
-        player->CastSpell(player, 29296, true);
         if (player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED)
         {
             // Mark player as having entered
@@ -1490,6 +1489,8 @@ public:
             player->AddQuest(quest, nullptr);
             player->CompleteQuest(NAXX40_ENTRANCE_FLAG);
             player->RewardQuest(quest, 0, player, false, false);
+            // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
+            player->CastSpell(player, 29296, true); // for visual effect only, possible crash if cast on login
         }
     }
 };
