@@ -3501,9 +3501,6 @@ DELETE FROM `npc_vendor` WHERE `entry` = 11186 AND `item` = 20824;
 /* NPC Evie Whirlbrew - 11188 */
 /* Remove non-Vanilla item Enchanted Vial */
 DELETE FROM `npc_vendor` WHERE `entry` = 11188 AND `item` = 40411;
-/* Add Missing Vanilla item Pattern: Mooncloth */
-DELETE FROM `npc_vendor` WHERE `entry` = 11188 AND `item` = 14526;
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11188, 14526, 0, 0);
 /* Add Missing Vanilla item Recipe: Major Healing Potion */
 DELETE FROM `npc_vendor` WHERE `entry` = 11188 AND `item` = 13480;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11188, 13480, 1, 7200);
