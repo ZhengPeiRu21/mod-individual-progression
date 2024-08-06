@@ -2540,8 +2540,13 @@ UPDATE quest_template SET RewardFactionOverride1=15000, RewardFactionOverride2=0
 UPDATE quest_template SET RewardFactionOverride1=50000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8446;
 UPDATE quest_template SET RewardFactionOverride1=50000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8447;
 UPDATE quest_template SET RewardFactionOverride1=15000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=6221;
+UPDATE quest_template SET RewardFactionOverride1=15000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8460;
 UPDATE quest_template SET RewardFactionOverride1=15000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8461;
-UPDATE quest_template SET RewardFactionOverride1=2500, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8465;
+UPDATE quest_template SET RewardFactionOverride1=5000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8466;
+UPDATE quest_template SET RewardFactionOverride1=5000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8467;
+UPDATE quest_template SET RewardFactionOverride1=5000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8469;
+UPDATE quest_template SET RewardFactionOverride1=15000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8470;
+UPDATE quest_template SET RewardFactionOverride1=15000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8471;
 UPDATE quest_template SET RewardFactionOverride1=5000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8496;
 UPDATE quest_template SET RewardFactionOverride1=5000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8497;
 UPDATE quest_template SET RewardFactionOverride1=5000, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=8498;
@@ -2915,6 +2920,8 @@ UPDATE quest_template SET RewardFactionOverride1=0, RewardFactionOverride2=0,Rew
 UPDATE quest_template SET RewardFactionOverride1=0, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=5647;
 UPDATE quest_template SET RewardFactionOverride1=0, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=7670;
 UPDATE quest_template SET RewardFactionOverride1=0, RewardFactionOverride2=0,RewardFactionOverride3=0,RewardFactionOverride4=0,RewardFactionOverride5=0 WHERE ID=9336;
+
+UPDATE reputation_reward_rate SET quest_rate=1, quest_daily_rate=1, quest_repeatable_rate=1 WHERE faction=576;
 
 UPDATE quest_template SET RewardFactionOverride1 = 0 WHERE RewardFactionId1=0;
 UPDATE quest_template SET RewardFactionOverride2 = 0 WHERE RewardFactionId2=0;
