@@ -24,9 +24,6 @@ UPDATE item_template SET stackable = 10 WHERE entry=769;
 /*  Light Hide  */
 UPDATE item_template SET stackable = 5 WHERE entry=783;
 
-/*  Broken Cog  */
-UPDATE item_template SET stackable = 5 WHERE entry=813;
-
 /*  Lesser Healing Potion  */
 UPDATE item_template SET stackable = 5 WHERE entry=858;
 
@@ -56,9 +53,6 @@ UPDATE item_template SET stackable = 5 WHERE entry=1180;
 
 /*  Scroll of Spirit  */
 UPDATE item_template SET stackable = 5 WHERE entry=1181;
-
-/*  Broken Tooth  */
-UPDATE item_template SET stackable = 10 WHERE entry=1222;
 
 /*  Potion of Fervor  */
 UPDATE item_template SET stackable = 10 WHERE entry=1450;
@@ -191,9 +185,6 @@ UPDATE item_template SET stackable = 5 WHERE entry=3013;
 
 /*  Mug of Shimmer Stout  */
 UPDATE item_template SET stackable = 10 WHERE entry=3087;
-
-/*  Chipped Scale  */
-UPDATE item_template SET stackable = 5 WHERE entry=3168;
 
 /*  Boar Intestines  */
 UPDATE item_template SET stackable = 10 WHERE entry=3172;
@@ -507,17 +498,11 @@ UPDATE item_template SET stackable = 5 WHERE entry=8169;
 /*  Rugged Leather  */
 UPDATE item_template SET stackable = 10 WHERE entry=8170;
 
-/*  Rugged Hide  */
-UPDATE item_template SET stackable = 5 WHERE entry=8171;
-
 /*  Cured Thick Hide  */
 UPDATE item_template SET stackable = 10 WHERE entry=8172;
 
 /*  Thick Wolfhide  */
 UPDATE item_template SET stackable = 5 WHERE entry=8368;
-
-/*  Large Ruffled Feather  */
-UPDATE item_template SET stackable = 20 WHERE entry=8426;
 
 /*  Elixir of Water Walking  */
 UPDATE item_template SET stackable = 5 WHERE entry=8827;
@@ -828,9 +813,6 @@ UPDATE item_template SET stackable = 10 WHERE entry=14343;
 /*  Large Brilliant Shard  */
 UPDATE item_template SET stackable = 10 WHERE entry=14344;
 
-/*  Cured Rugged Hide  */
-UPDATE item_template SET stackable = 5 WHERE entry=15407;
-
 /*  Devilsaur Leather  */
 UPDATE item_template SET stackable = 10 WHERE entry=15417;
 
@@ -864,14 +846,8 @@ UPDATE item_template SET stackable = 10 WHERE entry=16204;
 /*  Core Leather  */
 UPDATE item_template SET stackable = 10 WHERE entry=17012;
 
-/*  Arcane Dust  */
-UPDATE item_template SET stackable = 20 WHERE entry=17019;
-
 /*  Arcane Powder  */
 UPDATE item_template SET stackable = 20 WHERE entry=17020;
-
-/*  Scented Candle  */
-UPDATE item_template SET stackable = 20 WHERE entry=17027;
 
 /*  Ankh  */
 UPDATE item_template SET stackable = 5 WHERE entry=17030;
@@ -943,13 +919,10 @@ UPDATE item_template SET stackable = 10 WHERE entry=18594;
 UPDATE item_template SET stackable = 2 WHERE entry=18640;
 
 /*  Combat Healing Potion  */
-UPDATE item_template SET stackable = 5 WHERE entry=18839;
+UPDATE item_template SET stackable = 5 SET maxcount = 5 WHERE entry=18839;
 
 /*  Combat Mana Potion  */
-UPDATE item_template SET stackable = 5 WHERE entry=18841;
-
-/*  Hourglass Sand  */
-UPDATE item_template SET stackable = 5 WHERE entry=19183;
+UPDATE item_template SET stackable = 5 SET maxcount = 5 WHERE entry=18841;
 
 /*  Ace of Beasts  */
 UPDATE item_template SET stackable = 1 WHERE entry=19227;
@@ -1063,13 +1036,13 @@ UPDATE item_template SET stackable = 5 WHERE entry=20008;
 UPDATE item_template SET stackable = 20 WHERE entry=20404;
 
 /*  Warsong Gulch Mark of Honor  */
-UPDATE item_template SET stackable = 20 WHERE entry=20558;
+UPDATE item_template SET stackable = 20 SET maxcount = 20 WHERE entry=20558;
 
 /*  Arathi Basin Mark of Honor  */
-UPDATE item_template SET stackable = 20 WHERE entry=20559;
+UPDATE item_template SET stackable = 20 SET maxcount = 20 WHERE entry=20559;
 
 /*  Alterac Valley Mark of Honor  */
-UPDATE item_template SET stackable = 20 WHERE entry=20560;
+UPDATE item_template SET stackable = 20 SET maxcount = 20 WHERE entry=20560;
 
 /*  Nexus Crystal  */
 UPDATE item_template SET stackable = 10 WHERE entry=20725;
