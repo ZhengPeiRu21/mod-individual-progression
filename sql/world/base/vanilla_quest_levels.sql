@@ -1076,6 +1076,34 @@ UPDATE `quest_template` SET `QuestDescription` = "You have the look of a fisherm
 UPDATE `quest_template` SET `LogDescription` = "Collect 25 Theradric Crystal Carvings for Willow in Desolace." WHERE `ID` = 7028;
 
 
+/* Imperial Plate Belt */
+UPDATE `quest_request_items` SET `CompletionText` = "For the belt plans, I'll be needin' 20 thorium bars."   WHERE `ID` = 7653;
+
+
+/* Imperial Plate Boots */
+UPDATE `quest_request_items` SET `CompletionText` = "For the boot plans, I'll be needin' 40 thorium bars. Yep, 40. Are you gonna cry? Would you like a hanky?$B$B<Derotain laughs.>"   WHERE `ID` = 7654;
+
+
+/* Imperial Plate Bracer */
+UPDATE `quest_request_items` SET `CompletionText` = "For the bracer plans, I'll be needin' 20 thorium bars.$B$BAre you alright, sonny? Yer getting' all red."   WHERE `ID` = 7655;
+
+
+/* Imperial Plate Chest */
+UPDATE `quest_request_items` SET `CompletionText` = "For the chest piece plans, I'll be needin' 60 thorium bars.$B$BOh boy, there you go again. Are you gonna be runnin' to yer blue Gods, askin' why they have forsaken you?!? Toughen up, Nancy! Nobody ever said life's fair."   WHERE `ID` = 7656;
+
+
+/* Imperial Plate Helm */
+UPDATE `quest_request_items` SET `CompletionText` = "Just hand over 50 thorium bars and the helm plans are yers."   WHERE `ID` = 7657;
+
+
+/* Imperial Plate Leggings */
+UPDATE `quest_request_items` SET `CompletionText` = "Just hand over 60 thorium bars and the leg plans are yers.$B$BI know, I'm driving you into bankruptcy! I've heard it all before so you can save your sob story, weakling."   WHERE `ID` = 7658;
+
+
+/* Imperial Plate Shoulders */
+UPDATE `quest_request_items` SET `CompletionText` = "For the shoulder plans, I'll be needin' 20 thorium bars."   WHERE `ID` = 7659;
+
+
 /*  Snapjaws, Mon!  */
 UPDATE `quest_template` SET `LogDescription` = "Katoom the Angler at Revantusk Village in the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles. Return to him when you have completed this task." WHERE `ID` = 7815;
 
@@ -1111,29 +1139,10 @@ UPDATE `quest_template` SET `LogDescription` = "You have been ordered to slay Vi
 /*  Job Opening: Guard Captain of Revantusk Village  */
 UPDATE `quest_template` SET `LogDescription` = "You have been tasked with the decimation of 20 Vilebranch Berserkers, 3 Vilebranch Shadow Hunters, 3 Vilebranch Blood Drinkers, and 2 Vilebranch Soul Eaters.$B$BShould you complete this task, return to Primal Torntusk at Revantusk Village in the Hinterlands." WHERE `ID` = 7862;
 
-/* Imperial Plate Belt */
-UPDATE `quest_request_items` SET `CompletionText` = "For the belt plans, I'll be needin' 20 thorium bars."   WHERE `ID` = 7653;
-
-/* Imperial Plate Boots */
-UPDATE `quest_request_items` SET `CompletionText` = "For the boot plans, I'll be needin' 40 thorium bars. Yep, 40. Are you gonna cry? Would you like a hanky?$B$B<Derotain laughs.>"   WHERE `ID` = 7654;
-
-/* Imperial Plate Bracer */
-UPDATE `quest_request_items` SET `CompletionText` = "For the bracer plans, I'll be needin' 20 thorium bars.$B$BAre you alright, sonny? Yer getting' all red."   WHERE `ID` = 7655;
-
-/* Imperial Plate Chest */
-UPDATE `quest_request_items` SET `CompletionText` = "For the chest piece plans, I'll be needin' 60 thorium bars.$B$BOh boy, there you go again. Are you gonna be runnin' to yer blue Gods, askin' why they have forsaken you?!? Toughen up, Nancy! Nobody ever said life's fair."   WHERE `ID` = 7656;
-
-/* Imperial Plate Helm */
-UPDATE `quest_request_items` SET `CompletionText` = "Just hand over 50 thorium bars and the helm plans are yers."   WHERE `ID` = 7657;
-
-/* Imperial Plate Leggings */
-UPDATE `quest_request_items` SET `CompletionText` = "Just hand over 60 thorium bars and the leg plans are yers.$B$BI know, I'm driving you into bankruptcy! I've heard it all before so you can save your sob story, weakling."   WHERE `ID` = 7658;
-
-/* Imperial Plate Shoulders */
-UPDATE `quest_request_items` SET `CompletionText` = "For the shoulder plans, I'll be needin' 20 thorium bars."   WHERE `ID` = 7659;
 
 /*  Waskily Wabbits!  */
 UPDATE `quest_template` SET `LogDescription` = "Collect 160 Unlucky Wabbit Feet from the Waskily Wabbits." WHERE `ID` = 7961;
+
 
 /*  Twilight Marauders  */
 UPDATE `quest_template` SET `LogDescription` = "Slay Twilight Marauder Morna and 5 Twilight Marauders.  Report to Windcaller Proudhorn when your task is finished.  You must also bring Tactical Task Briefing IX in order to complete this quest." WHERE `ID` = 8740;
