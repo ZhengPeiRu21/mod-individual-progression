@@ -1,5 +1,6 @@
 /* Alliance Vanilla PvP Gear Rank Requirements */
 UPDATE `item_template` SET `requiredhonorrank` = 5 WHERE `entry` IN (15196);
+UPDATE `item_template` SET `requiredhonorrank` = 6 WHERE `entry` IN (18854, 18856, 18857, 18858, 18859, 18862, 18863, 18864, 29593);
 UPDATE `item_template` SET `requiredhonorrank` = 7 WHERE `entry` IN (16342, 18440, 18441);
 UPDATE `item_template` SET `requiredhonorrank` = 8 WHERE `entry` IN (18442, 18443, 18444);
 UPDATE `item_template` SET `requiredhonorrank` = 9 WHERE `entry` IN (16315, 16336, 16337, 18448, 18449, 18454, 18455, 18452, 18453, 18445, 18447, 18456, 18457);
@@ -14,6 +15,7 @@ UPDATE `item_template` SET `requiredhonorrank` = 18 WHERE `entry` IN (12584, 188
 
 /* Horde Vanilla PvP Gear Rank Requirements */
 UPDATE `item_template` SET `requiredhonorrank` = 5 WHERE `entry` IN (15197);
+UPDATE `item_template` SET `requiredhonorrank` = 6 WHERE `entry` IN (18834, 18845, 18846, 18849, 18850, 18851, 18852, 18853, 29592);
 UPDATE `item_template` SET `requiredhonorrank` = 7 WHERE `entry` IN (16341, 18427, 18461);
 UPDATE `item_template` SET `requiredhonorrank` = 8 WHERE `entry` IN (15200, 16335, 18428);
 UPDATE `item_template` SET `requiredhonorrank` = 9 WHERE `entry` IN (16340, 18434, 18436, 16497, 18435, 16532, 18432, 18429, 18430, 16486, 18437);
