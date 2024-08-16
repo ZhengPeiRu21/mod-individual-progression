@@ -919,10 +919,10 @@ UPDATE item_template SET stackable = 10 WHERE entry=18594;
 UPDATE item_template SET stackable = 2 WHERE entry=18640;
 
 /*  Combat Healing Potion  */
-UPDATE item_template SET stackable = 5 SET maxcount = 5 WHERE entry=18839;
+UPDATE item_template SET stackable = 5, maxcount = 5 WHERE entry=18839;
 
 /*  Combat Mana Potion  */
-UPDATE item_template SET stackable = 5 SET maxcount = 5 WHERE entry=18841;
+UPDATE item_template SET stackable = 5, maxcount = 5 WHERE entry=18841;
 
 /*  Ace of Beasts  */
 UPDATE item_template SET stackable = 1 WHERE entry=19227;
@@ -1036,13 +1036,13 @@ UPDATE item_template SET stackable = 5 WHERE entry=20008;
 UPDATE item_template SET stackable = 20 WHERE entry=20404;
 
 /*  Warsong Gulch Mark of Honor  */
-UPDATE item_template SET stackable = 20 SET maxcount = 20 WHERE entry=20558;
+UPDATE item_template SET stackable = 20, maxcount = 20 WHERE entry=20558;
 
 /*  Arathi Basin Mark of Honor  */
-UPDATE item_template SET stackable = 20 SET maxcount = 20 WHERE entry=20559;
+UPDATE item_template SET stackable = 20, maxcount = 20 WHERE entry=20559;
 
 /*  Alterac Valley Mark of Honor  */
-UPDATE item_template SET stackable = 20 SET maxcount = 20 WHERE entry=20560;
+UPDATE item_template SET stackable = 20, maxcount = 20 WHERE entry=20560;
 
 /*  Nexus Crystal  */
 UPDATE item_template SET stackable = 10 WHERE entry=20725;
