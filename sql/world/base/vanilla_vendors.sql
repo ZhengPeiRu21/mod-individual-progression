@@ -1065,6 +1065,11 @@ DELETE FROM `npc_vendor` WHERE `entry` = 2846 AND `item` = 38426;
 DELETE FROM `npc_vendor` WHERE `entry` = 2848 AND `item` = 40411;
 
 
+/* NPC Glyx Brewright - 2849 */
+/* Remove non-Vanilla item Noble's Elementium Signet */
+DELETE FROM `npc_vendor` WHERE `entry` = 2849 AND `item` = 37934;
+
+
 /* NPC Grawl - 2908 */
 /* Remove non-Vanilla item Wicked Arrow */
 DELETE FROM `npc_vendor` WHERE `entry` = 2908 AND `item` = 28053;
@@ -1728,7 +1733,20 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551,
 /* Add Missing Vanilla item Crystal Vial */
 DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 8925;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 8925, 0, 0);
-
+/* Remove non-Vanilla item Instant Poison VIII */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43230;
+/* Remove non-Vanilla item Instant Poison IX */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43231;
+/* Remove non-Vanilla item Deadly Poison VIII */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43232;
+/* Remove non-Vanilla item Deadly Poison IX */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43233;
+/* Remove non-Vanilla item Wound Poison VI */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43234;
+/* Remove non-Vanilla item Wound Poison VII */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43235;
+/* Remove non-Vanilla item Anesthetic Poison II */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43237;
 
 /* NPC Andrew Hilbert - 3556 */
 /* Add Missing Vanilla item Hot Spices */
@@ -2351,7 +2369,22 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585,
 /* Add Missing Vanilla item Crystal Vial */
 DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 8925;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (4585, 8925, 0, 0);
+/* Remove non-Vanilla item Instant Poison VIII */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43230;
+/* Remove non-Vanilla item Instant Poison IX */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43231;
+/* Remove non-Vanilla item Deadly Poison VIII */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43232;
+/* Remove non-Vanilla item Deadly Poison IX */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43233;
+/* Remove non-Vanilla item Wound Poison VI */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43234;
+/* Remove non-Vanilla item Wound Poison VII */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43235;
+/* Remove non-Vanilla item Anesthetic Poison II */
+DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43237;
 
+    
 
 /* NPC Elizabeth Van Talen - 4587 */
 /* Remove non-Vanilla item Hair Trigger */
@@ -4272,6 +4305,13 @@ DELETE FROM `npc_vendor` WHERE `entry` = 16015 AND `item` = 22148;
 /* NPC Renn'az - 17598 */
 /* Remove non-Vanilla item Wicked Arrow */
 DELETE FROM `npc_vendor` WHERE `entry` = 17598 AND `item` = 28053;
+
+
+/* NPC Engineer Torquespindle - 25082 */
+/* Remove non-Vanilla item Flintweed Seed */
+DELETE FROM `npc_vendor` WHERE `entry` = 25082 AND `item` = 22147;
+/* Remove non-Vanilla item Wild Quillvine */
+DELETE FROM `npc_vendor` WHERE `entry` = 25082 AND `item` = 22148;
 
 
 /* NPC Kurdrum Barleybeard - 5139 */
