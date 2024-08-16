@@ -1734,19 +1734,19 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551,
 DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 8925;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3551, 8925, 0, 0);
 /* Remove non-Vanilla item Instant Poison VIII */
-DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43230;
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 43230;
 /* Remove non-Vanilla item Instant Poison IX */
-DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43231;
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 43231;
 /* Remove non-Vanilla item Deadly Poison VIII */
-DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43232;
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 43232;
 /* Remove non-Vanilla item Deadly Poison IX */
-DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43233;
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 43233;
 /* Remove non-Vanilla item Wound Poison VI */
-DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43234;
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 43234;
 /* Remove non-Vanilla item Wound Poison VII */
-DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43235;
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 43235;
 /* Remove non-Vanilla item Anesthetic Poison II */
-DELETE FROM `npc_vendor` WHERE `entry` = 4585 AND `item` = 43237;
+DELETE FROM `npc_vendor` WHERE `entry` = 3551 AND `item` = 43237;
 
 /* NPC Andrew Hilbert - 3556 */
 /* Add Missing Vanilla item Hot Spices */
