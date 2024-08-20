@@ -1055,8 +1055,8 @@ UPDATE `quest_template` SET `QuestDescription` = "It sure gets hot out here in t
 
 
 /*  Beware of Pterrordax  */
-UPDATE `quest_template` SET `LogDescription` = "Kill 115 Frenzied Pterrordax, then speak to Spraggle Frock at Marshal's Refuge." WHERE `ID` = 4501;
-UPDATE `quest_template` SET `QuestDescription` = "Wanted: A skilled fighter to deal with the threat of the Pterrordax that inhabit the Un'Goro Crater. Their numbers are growing, and they are becoming a menace to travelers in the area.$B$BDecrease the population by slaying 115 frenzied pterrordax.$B$BSpeak with Spraggle Frock after completing the task for a reward." WHERE `ID` = 4501;
+UPDATE `quest_template` SET `LogDescription` = "Kill 10 Pterrordax and 15 Frenzied Pterrordax, then speak to Spraggle Frock at Marshal's Refuge." WHERE `ID` = 4501;
+UPDATE `quest_template` SET `QuestDescription` = "Wanted: A skilled fighter to deal with the threat of the Pterrordax that inhabit the Un'Goro Crater. Their numbers are growing, and they are becoming a menace to travelers in the area.$B$BDecrease the population by slaying 10 Pterrordax and 15 frenzied pterrordax.$B$BSpeak with Spraggle Frock after completing the task for a reward." WHERE `ID` = 4501;
 
 
 /*  A Matter of Time  */
