@@ -38,6 +38,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` = 1
 -- Phasing Nakodu - sells LW recipe that should not be available until TBC T4 - Copy of him is added to replace him until TBC T4.
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` = 21655;
 
+-- Phasing Urgronn - sells LW recipe that should not be available until TBC T4 - Copy of him is added to replace him until TBC T4.
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` = 17585;
+
 -- Argent Tournament
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` IN (25, 63129, 63236, 63370, 63371, 65274, 65275, 65283, 65284, 65285, 65325, 65327, 65350, 65351, 65371, 65451,
 65522, 65523, 65526, 65901, 66478, 66479, 66741, 66753, 66788, 66790, 66792, 66910, 66941, 67185, 67187, 68005, 68457, 68583, 68906, 68941, 68947, 68987, 68989, 68990, 69010,
