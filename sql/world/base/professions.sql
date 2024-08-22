@@ -904,61 +904,82 @@ DELETE FROM `prospecting_loot_template` WHERE `Entry`=10620 AND `Item`=1;
 /* Darmari shouldn't train certain leatherworking recipes until progression tier 10 */
 /* to solve this a copy of her is created that only sells recipes that were available before progression tier 10 */
 /* the original Darmari will replace her copy at progression tier 10 */
+SET @Darmari := 119187;
 
 /* Add copy of Darmari to creature_template with script npc_ipp_tbc_pre_t4 */
-DELETE FROM `creature_template` WHERE `entry` = 619187;
+DELETE FROM `creature_template` WHERE `entry` = @Darmari;
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) 
-VALUES (619187, 0, 0, 0, 0, 0, 'Darmari', 'Master Leatherworking Trainer', NULL, 7816, 63, 63, 0, 1818, 81, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 33024, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.05, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
+VALUES (@Darmari, 0, 0, 0, 0, 0, 'Darmari', 'Master Leatherworking Trainer', NULL, 7816, 63, 63, 0, 1818, 81, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 33024, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.05, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
 
 /* Add copy of Darmari to creature_template_addon */
-DELETE FROM `creature_template_addon` WHERE `entry` = 619187;
+DELETE FROM `creature_template_addon` WHERE `entry` = @Darmari;
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (619187, 0, 0, 0, 1, 0, 0, NULL);
 
 /* Add copy of Darmari to creature_locale */
-DELETE FROM `creature_template_locale` WHERE `entry` = 619187;
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (619187, 'deDE', 'Darmari', 'Lederverarbeitungslehrerin', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (619187, 'esES', 'Darmari', 'Instructora de peletería', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (619187, 'esMX', 'Darmari', 'Instructora de peletería', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (619187, 'frFR', 'Darmari', 'Maître des travailleurs du cuir', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (619187, 'koKR', '다마리', '전문 가죽세공인', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (619187, 'ruRU', 'Дармари', 'Учитель кожевничества', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (619187, 'zhCN', '达尔玛里', '制皮训练师', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (619187, 'zhTW', '達瑪莉', '製皮訓練師', 18019);
+DELETE FROM `creature_template_locale` WHERE `entry` = @Darmari;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Darmari, 'deDE', 'Darmari', 'Lederverarbeitungslehrerin', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Darmari, 'esES', 'Darmari', 'Instructora de peletería', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Darmari, 'esMX', 'Darmari', 'Instructora de peletería', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Darmari, 'frFR', 'Darmari', 'Maître des travailleurs du cuir', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Darmari, 'koKR', '다마리', '전문 가죽세공인', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Darmari, 'ruRU', 'Дармари', 'Учитель кожевничества', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Darmari, 'zhCN', '达尔玛里', '制皮训练师', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Darmari, 'zhTW', '達瑪莉', '製皮訓練師', 18019);
 
 /* Add copy of Darmari to creature_template_model */
-DELETE FROM `creature_template_model` WHERE `CreatureID` = 619187;
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (619187, 0, 18630, 1, 1, 12340);
+DELETE FROM `creature_template_model` WHERE `CreatureID` = @Darmari;
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Darmari, 0, 18630, 1, 1, 12340);
 
 /* Add copy of Darmari to creature */
-DELETE FROM `creature` WHERE `id1` = 619187;
+DELETE FROM `creature` WHERE `id1` = @Darmari;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
-VALUES (321001, 619187, 0, 0, 530, 0, 0, 1, 1, 1, -2060.92, 5256.68, -38.3819, 0.767945, 300, 0, 0, 3498, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+VALUES (321001, @Darmari, 0, 0, 530, 0, 0, 1, 1, 1, -2060.92, 5256.68, -38.3819, 0.767945, 300, 0, 0, 3498, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 /* Add copy of Darmari to creature_equip_template */
-DELETE FROM `creature_equip_template` WHERE `CreatureID` = 619187;
-INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (619187, 1, 2184, 0, 0, 18019);
+DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Darmari;
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (@Darmari, 1, 2184, 0, 0, 18019);
 
-/* Add leatherworking recipes to copy of Darmari */
-/* Add Master Leatherworker */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (619187, -201028, 0, 0, 0, 0, 0);
+/* Add correct leatherworking recipes to copy of Darmari */
+DELETE FROM `npc_trainer` WHERE `ID` = @Darmari;
+/* Add Knothide Leather */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32454, 10000, 165, 300, 0, 0);
+/* Add Knothide Armor Kit */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32456, 15000, 165, 300, 0, 0);
 /* Add Felscale Gloves */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (619187, 32462, 0, 0, 0, 0, 0);
-/* Knothide Armor Kit */
-/* Knothide Leather */
-/* Scaled Draenic Pants */
-/* Thick Draenic Gloves */
-/* Wild Draenish Boots */
-/* Felscale Boots */
-/* Scaled Draenic Gloves */
-/* Wild Draenish Gloves */
-/* Thick Draenic Pants */
-/* Felscale Pants */
-/* Thick Draenic Boots */
-/* Wild Draenish Leggings */
-/* Scaled Draenic Vest */
-/* Thick Draenic Vest */
-/* Wild Draenish Vest */
-/* Felscale Breastplate */
-/* Scaled Draenic Boots */
-/* Drums of War */
-/* Heavy Knothide Armor Kit */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32462, 15000, 165, 300, 0, 0);
+/* Add Felscale Boots */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32463, 20000, 165, 310, 0, 0);
+/* Add Felscale Pants */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32464, 20000, 165, 320, 0, 0);
+/* Add Felscale Breastplate */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32465, 25000, 165, 335, 0, 0);
+/* Add Scaled Draenic Pants */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32466, 15000, 165, 300, 0, 0);
+/* Add Scaled Draenic Gloves */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32467, 20000, 165, 310, 0, 0);
+/* Add Scaled Draenic Vest */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32468, 20000, 165, 325, 0, 0);
+/* Add Scaled Draenic Boots */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32469, 25000, 165, 335, 0, 0);
+/* Add Thick Draenic Gloves */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32470, 15000, 165, 300, 0, 0);
+/* Add Thick Draenic Pants */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32471, 20000, 165, 315, 0, 0);
+/* Add Thick Draenic Boots */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32472, 20000, 165, 320, 0, 0);
+/* Add Thick Draenic Vest */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32473, 25000, 165, 330, 0, 0);
+/* Add Wild Draenish Boots */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32478, 15000, 165, 300, 0, 0);
+/* Add Wild Draenish Gloves */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32479, 20000, 165, 310, 0, 0);
+/* Add Wild Draenish Leggings */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32480, 20000, 165, 320, 0, 0);
+/* Add Wild Draenish Vest */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32481, 25000, 165, 330, 0, 0);
+/* Add Master Leatherworker */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32550, 100000, 165, 275, 50, 0);
+/* Add Drums of War */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 35540, 20000, 165, 340, 0, 0);
+/* Add Heavy Knothide Armor Kit */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 44970, 50000, 165, 350, 0, 0);
