@@ -1111,3 +1111,42 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Brumman, 0, 10290, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Brumman, 0, 14341, 0, 0, 0, 0);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Brumman, 0, 38426, 0, 0, 0, 0);
+
+
+/* Grikka shouldn't train certain leatherworking recipes until progression tier 10 */
+/* to solve this a copy of her is created that only sells recipes that were available before progression tier 10 */
+/* the original Grikka will replace her copy at progression tier 10 */
+SET @Grikka := 121087;
+
+/* Add copy of Grikka to creature_template with script npc_ipp_tbc_pre_t4 */
+DELETE FROM `creature_template` WHERE `entry` = @Grikka;
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) 
+VALUES (@Grikka, 0, 0, 0, 0, 0, 'Grikka', 'Master Leatherworking Trainer', NULL, 0, 60, 60, 0, 1735, 80, 1.125, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 4608, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.25, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
+
+/* Add copy of Grikka to creature_template_addon */
+DELETE FROM `creature_template_addon` WHERE `entry` = @Grikka;
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (@Grikka, 0, 0, 0, 1, 0, 0, NULL);
+
+/* Add copy of Grikka to creature_template_locale */
+DELETE FROM `creature_template_locale` WHERE `entry` = @Grikka;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Grikka, 'deDE', 'Grikka', 'Lederverarbeitungslehrerin', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Grikka, 'esES', 'Grikka', 'Instructora de peletería', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Grikka, 'esMX', 'Grikka', 'Instructora de peletería', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Grikka, 'frFR', 'Grikka', 'Maître des travailleurs du cuir', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Grikka, 'koKR', '그리카', '전문 가죽세공인', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Grikka, 'ruRU', 'Грикка', 'Учитель кожевничества', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Grikka, 'zhCN', '格里卡', '制皮训练师', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Grikka, 'zhTW', '葛利卡', '製皮訓練師', 18019);
+
+/* Add copy of Grikka to creature_template_model */
+DELETE FROM `creature_template_model` WHERE `CreatureID` = @Grikka;
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Grikka, 0, 20059, 1, 1, 12340);
+
+/* Add copy of Grikka to creature */
+DELETE FROM `creature` WHERE `id1` = @Grikka;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
+VALUES (321007, @Grikka, 0, 0, 530, 0, 0, 1, 1, 0, 2039.82, 4675.43, 150.074, 0.977384, 300, 0, 0, 3815, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+
+/* Add correct leatherworking recipes to copy of Grikka */
+DELETE FROM `npc_trainer` WHERE `ID` = @Grikka;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Grikka, -201050, 0, 0, 0, 0, 0);
