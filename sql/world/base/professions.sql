@@ -898,6 +898,52 @@ DELETE FROM creature_addon WHERE `guid` IN (88165, 88166);
 DELETE FROM `prospecting_loot_template` WHERE `Entry`=10620 AND `Item`=1;
 
 
+/* Create new pre T4 Leatherworking Trainer */
+SET @lw_trainer_pre_t4 := 201050;
+/* Add Knothide Leather */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32454, 10000, 165, 300, 0, 0);
+/* Add Knothide Armor Kit */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32456, 15000, 165, 300, 0, 0);
+/* Add Felscale Gloves */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32462, 15000, 165, 300, 0, 0);
+/* Add Felscale Boots */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32463, 20000, 165, 310, 0, 0);
+/* Add Felscale Pants */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32464, 20000, 165, 320, 0, 0);
+/* Add Felscale Breastplate */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32465, 25000, 165, 335, 0, 0);
+/* Add Scaled Draenic Pants */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32466, 15000, 165, 300, 0, 0);
+/* Add Scaled Draenic Gloves */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32467, 20000, 165, 310, 0, 0);
+/* Add Scaled Draenic Vest */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32468, 20000, 165, 325, 0, 0);
+/* Add Scaled Draenic Boots */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32469, 25000, 165, 335, 0, 0);
+/* Add Thick Draenic Gloves */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32470, 15000, 165, 300, 0, 0);
+/* Add Thick Draenic Pants */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32471, 20000, 165, 315, 0, 0);
+/* Add Thick Draenic Boots */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32472, 20000, 165, 320, 0, 0);
+/* Add Thick Draenic Vest */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32473, 25000, 165, 330, 0, 0);
+/* Add Wild Draenish Boots */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32478, 15000, 165, 300, 0, 0);
+/* Add Wild Draenish Gloves */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32479, 20000, 165, 310, 0, 0);
+/* Add Wild Draenish Leggings */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32480, 20000, 165, 320, 0, 0);
+/* Add Wild Draenish Vest */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32481, 25000, 165, 330, 0, 0);
+/* Add Master Leatherworker */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 32550, 100000, 165, 275, 50, 0);
+/* Add Drums of War */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 35540, 20000, 165, 340, 0, 0);
+/* Add Heavy Knothide Armor Kit */
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@lw_trainer_pre_t4, 44970, 50000, 165, 350, 0, 0);
+
+
 /* Darmari shouldn't train certain leatherworking recipes until progression tier 10 */
 /* to solve this a copy of her is created that only sells recipes that were available before progression tier 10 */
 /* the original Darmari will replace her copy at progression tier 10 */
@@ -938,45 +984,67 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 
 /* Add correct leatherworking recipes to copy of Darmari */
 DELETE FROM `npc_trainer` WHERE `ID` = @Darmari;
-/* Add Knothide Leather */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32454, 10000, 165, 300, 0, 0);
-/* Add Knothide Armor Kit */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32456, 15000, 165, 300, 0, 0);
-/* Add Felscale Gloves */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32462, 15000, 165, 300, 0, 0);
-/* Add Felscale Boots */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32463, 20000, 165, 310, 0, 0);
-/* Add Felscale Pants */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32464, 20000, 165, 320, 0, 0);
-/* Add Felscale Breastplate */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32465, 25000, 165, 335, 0, 0);
-/* Add Scaled Draenic Pants */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32466, 15000, 165, 300, 0, 0);
-/* Add Scaled Draenic Gloves */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32467, 20000, 165, 310, 0, 0);
-/* Add Scaled Draenic Vest */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32468, 20000, 165, 325, 0, 0);
-/* Add Scaled Draenic Boots */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32469, 25000, 165, 335, 0, 0);
-/* Add Thick Draenic Gloves */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32470, 15000, 165, 300, 0, 0);
-/* Add Thick Draenic Pants */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32471, 20000, 165, 315, 0, 0);
-/* Add Thick Draenic Boots */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32472, 20000, 165, 320, 0, 0);
-/* Add Thick Draenic Vest */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32473, 25000, 165, 330, 0, 0);
-/* Add Wild Draenish Boots */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32478, 15000, 165, 300, 0, 0);
-/* Add Wild Draenish Gloves */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32479, 20000, 165, 310, 0, 0);
-/* Add Wild Draenish Leggings */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32480, 20000, 165, 320, 0, 0);
-/* Add Wild Draenish Vest */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32481, 25000, 165, 330, 0, 0);
-/* Add Master Leatherworker */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 32550, 100000, 165, 275, 50, 0);
-/* Add Drums of War */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 35540, 20000, 165, 340, 0, 0);
-/* Add Heavy Knothide Armor Kit */
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, 44970, 50000, 165, 350, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, -201050, 0, 0, 0, 0, 0);
+
+
+/* Barim Spilthoof shouldn't train certain leatherworking recipes until progression tier 10 */
+/* to solve this a copy of him is created that only sells recipes that were available before progression tier 10 */
+/* the original Barim Spilthoof will replace his copy at progression tier 10 */
+SET @Barim := 118754;
+
+/* Add copy of Barim to creature_template with script npc_ipp_tbc_pre_t4 */
+DELETE FROM `creature_template` WHERE `entry` = @Barim;
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) 
+VALUES (@Barim, 0, 0, 0, 0, 0, 'Barim Spilthoof', 'Master Leatherworking Trainer', NULL, 7816, 60, 60, 0, 29, 209, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.02, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
+
+/* Add copy of Barim to creature_template_addon */
+DELETE FROM `creature_template_addon` WHERE `entry` = @Barim;
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (@Barim, 0, 0, 0, 1, 0, 0, NULL);
+
+/* Add copy of Barim to creature_template_locale */
+DELETE FROM `creature_template_locale` WHERE `entry` = @Barim;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Barim, 'deDE', 'Barim Spalthuf', 'Lederverarbeitungslehrer', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Barim, 'esES', 'Barim Pezuña Partida', 'Instructor de peletería', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Barim, 'esMX', 'Barim Pezuña Partida', 'Instructor de peletería', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Barim, 'frFR', 'Barim Sabot-Fendu', 'Maître des travailleurs du cuir', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Barim, 'koKR', '바림 스필트후프', '전문 가죽세공인', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Barim, 'ruRU', 'Барим Треснувшее Копыто', 'Учитель кожевничества', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Barim, 'zhCN', '巴里姆·裂蹄', '制皮训练师', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Barim, 'zhTW', '巴瑞姆·裂蹄', '製皮訓練師', 18019);
+
+/* Add copy of Barim to creature_template_model */
+DELETE FROM `creature_template_model` WHERE `CreatureID` = @Barim;
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Barim, 0, 18176, 1, 1, 12340);
+
+/* Add copy of Barim to creature */
+DELETE FROM `creature` WHERE `id1` = @Barim;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
+VALUES (321005, @Barim, 0, 0, 530, 0, 0, 1, 1, 1, 148.588, 2636.02, 86.018, 1.27409, 300, 0, 0, 3113, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+
+/* Add copy of Barim to creature_equip_template */
+DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Barim;
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (@Barim, 1, 10616, 0, 0, 18019);
+
+/* Add correct leatherworking recipes to copy of Barim */
+DELETE FROM `npc_trainer` WHERE `ID` = @Barim;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Barim, -201050, 0, 0, 0, 0, 0);
+
+/* Add vendor items to copy of Barim */
+DELETE FROM `npc_vendor` WHERE `entry` = @Barim;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 2320, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 2321, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 2325, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 2604, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 2605, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 4289, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 4291, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 4340, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 4341, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 4342, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 6260, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 6261, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 7005, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 8343, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 10290, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 14341, 0, 0, 0, 0);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (@Barim, 0, 38426, 0, 0, 0, 0);
