@@ -32,8 +32,11 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN 
 -- Phasing for General Tiras'alan and Dathris Sunstriker - prevent early access to Isle of Quel'Danas
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
 
--- Phasing Darmari - sells LW recipes that should not be available until TBC T4 - Copy of her is added to replace her until TBC T4.
+-- Phasing Darmari - trains LW recipes that should not be available until TBC T4 - Copy of her is added to replace her until TBC T4.
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` = 19187;
+
+-- Phasing Nakodu - sells LW recipe that should not be available until TBC T4 - Copy of him is added to replace him until TBC T4.
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` = 21655;
 
 -- Argent Tournament
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` IN (25, 63129, 63236, 63370, 63371, 65274, 65275, 65283, 65284, 65285, 65325, 65327, 65350, 65351, 65371, 65451,
