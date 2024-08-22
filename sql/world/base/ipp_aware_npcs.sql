@@ -33,7 +33,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
 
 -- Phasing TBC vendors and trainers - Copies are added to replace them until TBC T4.
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (17585, 17657, 18754, 18771, 19187, 21655);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (17585, 17657, 18754, 18771, 19187, 21087, 21655);
 
 -- Argent Tournament
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` IN (25, 63129, 63236, 63370, 63371, 65274, 65275, 65283, 65284, 65285, 65325, 65327, 65350, 65351, 65371, 65451,
