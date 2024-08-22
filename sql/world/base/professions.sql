@@ -910,7 +910,7 @@ VALUES (@Darmari, 0, 0, 0, 0, 0, 'Darmari', 'Master Leatherworking Trainer', NUL
 
 /* Add copy of Darmari to creature_template_addon */
 DELETE FROM `creature_template_addon` WHERE `entry` = @Darmari;
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (619187, 0, 0, 0, 1, 0, 0, NULL);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (@Darmari, 0, 0, 0, 1, 0, 0, NULL);
 
 /* Add copy of Darmari to creature_locale */
 DELETE FROM `creature_template_locale` WHERE `entry` = @Darmari;
