@@ -4256,7 +4256,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm
 /* Add Missing Vanilla item Outrider's Silk Leggings (60)  */
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 22747, 0, 0);
 
-/* Disable the spawn of the original Kelm 6491 */
+/* Disable the spawn of the original Kelm */
 UPDATE `creature` SET `spawnMask` = 0 WHERE `id1` = 14754;
 
 /* Link related quests to clone of Kelm */
