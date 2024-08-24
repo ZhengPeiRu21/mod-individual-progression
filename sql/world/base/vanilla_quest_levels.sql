@@ -19,6 +19,9 @@ UPDATE quest_template SET RequiredItemId1 = 750 WHERE ID=33;
 /*  The Legend of Stalvan  */
 UPDATE quest_template SET QuestLevel = 35 WHERE ID=98;
 
+/* Shadow Magic */
+UPDATE quest_template SET QuestInfoID = 1, SuggestedGroupNum = 2 WHERE ID=115;
+
 /*  Howling in the Hills  */
 UPDATE quest_template SET QuestLevel = 25 WHERE ID=126;
 
