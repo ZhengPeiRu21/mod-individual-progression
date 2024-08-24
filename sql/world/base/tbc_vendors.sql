@@ -30,7 +30,8 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 
 /* Add copy of Nakodu to creature */
 DELETE FROM `creature` WHERE `id1` = @Nakodu;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES (321002, @Nakodu, 0, 0, 530, 0, 0, 1, 1, 0, -2073.21, 5325.57, -37.2402, 3.75246, 300, 0, 0, 6986, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
+VALUES (621655, @Nakodu, 0, 0, 530, 0, 0, 1, 1, 0, -2073.21, 5325.57, -37.2402, 3.75246, 300, 0, 0, 6986, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 /* Add correct items to copy of Nakodu - removed Pattern: Quiver of a Thousand Feathers (34200) */
 DELETE FROM `npc_vendor` WHERE `entry` = @Nakodu;
@@ -79,7 +80,7 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 /* Add copy of Urgronn to creature */
 DELETE FROM `creature` WHERE `id1` = @Urgronn;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
-VALUES (321003, @Urgronn, 0, 0, 530, 0, 0, 1, 1, 0, 179.435, 2704.33, 89.1009, 3.38594, 300, 0, 0, 16023, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+VALUES (617585, @Urgronn, 0, 0, 530, 0, 0, 1, 1, 0, 179.435, 2704.33, 89.1009, 3.38594, 300, 0, 0, 16023, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 /* Add correct items to copy of Urgronn - removed Pattern: Netherscale Ammo Pouch (34201) */
 DELETE FROM `npc_vendor` WHERE `entry` = @Urgronn;
@@ -130,7 +131,7 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 /* Add copy of Ulrike to creature */
 DELETE FROM `creature` WHERE `id1` = @Ulrike;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
-VALUES (321004, @Ulrike, 0, 0, 530, 0, 0, 1, 1, 1, -676.087, 2611.44, 86.6955, 6.10865, 300, 0, 0, 9711, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+VALUES (617657, @Ulrike, 0, 0, 530, 0, 0, 1, 1, 1, -676.087, 2611.44, 86.6955, 6.10865, 300, 0, 0, 9711, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 /* Add copy of Ulrike to creature_equip_template */
 DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Ulrike;
