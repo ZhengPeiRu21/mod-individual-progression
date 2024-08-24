@@ -16387,11 +16387,17 @@ UPDATE `item_template` SET `BuyPrice` = 52478, `SellPrice` = 10495, `RequiredRep
 /*  Highlander's Chain Girdle  */
 UPDATE `item_template` SET `BuyPrice` = 26040, `SellPrice` = 5208, `RequiredReputationFaction` = 509, `RequiredReputationRank` = 5 WHERE entry=20089;
 
+/*  Highlander's Chain Girdle  */
+UPDATE `item_template` SET `BuyPrice` = 9373 , `SellPrice` = 1874, `RequiredReputationFaction` = 509, `RequiredReputationRank` = 5 WHERE entry=20090;
+
 /*  Highlander's Chain Greaves  */
 UPDATE `item_template` SET `BuyPrice` = 74297, `SellPrice` = 14859, `stat_value2` = 12, `spellid_2` = 0, `spelltrigger_2` = 0, `RequiredReputationFaction` = 509, `RequiredReputationRank` = 6 WHERE entry=20091;
 
 /*  Highlander's Chain Greaves  */
 UPDATE `item_template` SET `BuyPrice` = 36875, `SellPrice` = 7375, `stat_value2` = 10, `spellid_2` = 0, `spelltrigger_2` = 0, `RequiredReputationFaction` = 509, `RequiredReputationRank` = 6 WHERE entry=20092;
+
+/*  Highlander's Chain Greaves  */
+UPDATE `item_template` SET `BuyPrice` = 13217, `SellPrice` = 2643, `stat_value2` = 8, `spellid_2` = 0, `spelltrigger_2` = 0, `RequiredReputationFaction` = 509, `RequiredReputationRank` = 6 WHERE entry=20093;
 
 /*  Highlander's Cloth Boots  */
 UPDATE `item_template` SET `BuyPrice` = 49873, `SellPrice` = 9974, `RequiredReputationFaction` = 509, `RequiredReputationRank` = 6 WHERE entry=20094;
@@ -16686,6 +16692,9 @@ UPDATE `item_template` SET `BuyPrice` = 87729, `SellPrice` = 17545, `spelltrigge
 
 /*  Defiler's Mail Girdle  */
 UPDATE `item_template` SET `BuyPrice` = 51547, `SellPrice` = 10309, `spelltrigger_2` = 0, `RequiredReputationFaction` = 510, `RequiredReputationRank` = 5 WHERE entry=20196;
+
+/*  Defiler's Mail Girdle  */
+UPDATE `item_template` SET `BuyPrice` = 9174, `SellPrice` = 1834, `spelltrigger_2` = 0, `RequiredReputationFaction` = 510, `RequiredReputationRank` = 5 WHERE entry=20197;
 
 /*  Defiler's Mail Girdle  */
 UPDATE `item_template` SET `BuyPrice` = 25672, `SellPrice` = 5134, `spelltrigger_2` = 0, `RequiredReputationFaction` = 510, `RequiredReputationRank` = 5 WHERE entry=20198;
