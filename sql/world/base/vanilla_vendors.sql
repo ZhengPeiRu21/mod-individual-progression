@@ -4089,183 +4089,52 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 VALUES (@Kelm, 0, 0, 0, 0, 0, 'Kelm Hargunth', 'Warsong Supply Officer', NULL, 0, 55, 55, 0, 1515, 4226, 1, 1.14286, 1, 1, 20, 1, 1, 0, 3.15, 2000, 2000, 1, 1, 1, 4096, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 20, 1, 1.4, 1, 0, 0, 1, 0, 0, 0, '', 12340);
 
 DELETE FROM `creature_template_locale` WHERE `entry` = @Kelm;
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Kelm, 'deDE', 'Kelm Hargunth', 'Versorgungsoffizier des Kriegshymnenklans', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Kelm, 'esES', 'Kelm Hargunth', 'Oficial de suministros Grito de Guerra', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Kelm, 'esMX', 'Kelm Hargunth', 'Oficial de suministros Grito de Guerra', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Kelm, 'frFR', 'Kelm Hargunth', 'Officier de ravitaillement Chanteguerre', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Kelm, 'koKR', '켈름 하건스', '전쟁노래 병참장교', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Kelm, 'ruRU', 'Кельм Харгюнт', 'Снабженец Песни Войны', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Kelm, 'zhCN', '凯尔姆·哈古斯', '战歌军需官', 18019);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES (@Kelm, 'zhTW', '戰歌補給員哈古斯', '戰歌物資官', 18019);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(@Kelm, 'deDE', 'Kelm Hargunth', 'Versorgungsoffizier des Kriegshymnenklans', 18019),
+(@Kelm, 'esES', 'Kelm Hargunth', 'Oficial de suministros Grito de Guerra', 18019),
+(@Kelm, 'esMX', 'Kelm Hargunth', 'Oficial de suministros Grito de Guerra', 18019),
+(@Kelm, 'frFR', 'Kelm Hargunth', 'Officier de ravitaillement Chanteguerre', 18019),
+(@Kelm, 'koKR', '켈름 하건스', '전쟁노래 병참장교', 18019),
+(@Kelm, 'ruRU', 'Кельм Харгюнт', 'Снабженец Песни Войны', 18019),
+(@Kelm, 'zhCN', '凯尔姆·哈古斯', '战歌军需官', 18019),
+(@Kelm, 'zhTW', '戰歌補給員哈古斯', '戰歌物資官', 18019);
 
 DELETE FROM `creature_template_model` WHERE `CreatureID` = @Kelm;
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Kelm, 0, 14785, 1, 1, 12340);
 
 DELETE FROM `creature` WHERE `id1` = @Kelm;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
-VALUES (321008, @Kelm, 0, 0, 1, 0, 0, 1, 1, 1, 1046.54, -2104.31, 123.065, 3.94444, 600, 0, 0, 52280, 0, 0, 0, 4226, 0, '', 0, 0, NULL);
+VALUES (614754, @Kelm, 0, 0, 1, 0, 0, 1, 1, 1, 1046.54, -2104.31, 123.065, 3.94444, 600, 0, 0, 52280, 0, 0, 0, 4226, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Kelm;
 INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (@Kelm, 1, 14870, 0, 0, 18019);
 
 DELETE FROM `npc_vendor` WHERE `entry` = @Kelm;
-/* Add Missing Vanilla item Superior Healing Draught */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES (@Kelm, 17349, 0, 0, 2354);
-/* Add Missing Vanilla item Superior Mana Draught */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES (@Kelm, 17352, 0, 0, 2354);
-/* Add Missing Vanilla item Warsong Gulch Enriched Ration */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `VerifiedBuild`) VALUES (@Kelm, 19060, 0, 0, 0);
-/* Add Missing Vanilla item Warsong Gulch Iron Ration */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `VerifiedBuild`) VALUES (@Kelm, 19061, 0, 0, 0);
-/* Add Missing Vanilla item Warsong Gulch Field Ration */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `VerifiedBuild`) VALUES (@Kelm, 19062, 0, 0, 0);
-/* Add Missing Vanilla item Warsong Gulch Runecloth Bandage */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `VerifiedBuild`) VALUES (@Kelm, 19066, 0, 0, 0);
-/* Add Missing Vanilla item Warsong Gulch Mageweave Bandage */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `VerifiedBuild`) VALUES (@Kelm, 19067, 0, 0, 0);
-/* Add Missing Vanilla item Warsong Gulch Silk Bandage */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `VerifiedBuild`) VALUES (@Kelm, 19068, 0, 0, 0);
-/* Add Missing Vanilla item Rune of Perfection (40)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 21565, 0, 0);
-/* Add Missing Vanilla item Rune of Perfection (20)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 21566, 0, 0);
-/* Add Missing Vanilla item Rune of Duty (40)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 21567, 0, 0);
-/* Add Missing Vanilla item Rune of Duty (20)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 21568, 0, 0);
-/* Add Missing Vanilla item Major Healing Draught */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES (@Kelm, 17348, 0, 0, 1564);
-/* Add Missing Vanilla item Major Mana Draught */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES (@Kelm, 17351, 0, 0, 1564);
-/* Add Missing Vanilla item Legionnaire's Band (58)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19510, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Band (48)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19511, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Band (38)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19512, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Band (28)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19513, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Band (18)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 20429, 0, 0);
-/* Add Missing Vanilla item Advisor's Ring (58)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19518, 0, 0);
-/* Add Missing Vanilla item Advisor's Ring (48)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19519, 0, 0);
-/* Add Missing Vanilla item Advisor's Ring (38)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19520, 0, 0);
-/* Add Missing Vanilla item Advisor's Ring (28)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19521, 0, 0);
-/* Add Missing Vanilla item Advisor's Ring (18)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 20426, 0, 0);
-/* Add Missing Vanilla item Battle Healer's Cloak (58)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19526, 0, 0);
-/* Add Missing Vanilla item Battle Healer's Cloak (48)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19527, 0, 0);
-/* Add Missing Vanilla item Battle Healer's Cloak (38)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19528, 0, 0);
-/* Add Missing Vanilla item Battle Healer's Cloak (28)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19529, 0, 0);
-/* Add Missing Vanilla item Battle Healer's Cloak (18)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 20427, 0, 0);
-/* Add Missing Vanilla item Scout's Medallion (58)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19534, 0, 0);
-/* Add Missing Vanilla item Scout's Medallion (48)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19535, 0, 0);
-/* Add Missing Vanilla item Scout's Medallion (38)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19536, 0, 0);
-/* Add Missing Vanilla item Scout's Medallion (28)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19537, 0, 0);
-/* Add Missing Vanilla item Scout's Medallion (18)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 20442, 0, 0);
-/* Add Missing Vanilla item Scout's Blade (58)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19542, 0, 0);
-/* Add Missing Vanilla item Scout's Blade (48)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19543, 0, 0);
-/* Add Missing Vanilla item Scout's Blade (38)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19544, 0, 0);
-/* Add Missing Vanilla item Scout's Blade (28)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19545, 0, 0);
-/* Add Missing Vanilla item Scout's Blade (18)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 20441, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Sword (58)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19550, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Sword (48)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19551, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Sword (38)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19552, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Sword (28)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19553, 0, 0);
-/* Add Missing Vanilla item Legionnaire's Sword (18)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 20430, 0, 0);
-/* Add Missing Vanilla item Outrider's Bow (58)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19558, 0, 0);
-/* Add Missing Vanilla item Outrider's Bow (48)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19559, 0, 0);
-/* Add Missing Vanilla item Outrider's Bow (38)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19560, 0, 0);
-/* Add Missing Vanilla item Outrider's Bow (28)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19561, 0, 0);
-/* Add Missing Vanilla item Outrider's Bow (18)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 20437, 0, 0);
-/* Add Missing Vanilla item Advisor's Gnarled Staff (58)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19566, 0, 0);
-/* Add Missing Vanilla item Advisor's Gnarled Staff (48)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19567, 0, 0);
-/* Add Missing Vanilla item Advisor's Gnarled Staff (38)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19568, 0, 0);
-/* Add Missing Vanilla item Advisor's Gnarled Staff (28)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19569, 0, 0);
-/* Add Missing Vanilla item Advisor's Gnarled Staff (18)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 20425, 0, 0);
-/* Add Missing Vanilla item Warsong Battle Tabard  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19505, 0, 0);
-/* Add Missing Vanilla item Berserker Bracers (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19578, 0, 0);
-/* Add Missing Vanilla item Berserker Bracers (50)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19580, 0, 0);
-/* Add Missing Vanilla item Berserker Bracers (40)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19581, 0, 0);
-/* Add Missing Vanilla item Windtalker's Wristguards (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19582, 0, 0);
-/* Add Missing Vanilla item Windtalker's Wristguards (50)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19583, 0, 0);
-/* Add Missing Vanilla item Windtalker's Wristguards (40)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19584, 0, 0);
-/* Add Missing Vanilla item Forest Stalker's Bracers (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19587, 0, 0);
-/* Add Missing Vanilla item Forest Stalker's Bracers (50)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19589, 0, 0);
-/* Add Missing Vanilla item Forest Stalker's Bracers (40)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19590, 0, 0);
-/* Add Missing Vanilla item Dryad's Wrist Bindings (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19595, 0, 0);
-/* Add Missing Vanilla item Dryad's Wrist Bindings (50)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19596, 0, 0);
-/* Add Missing Vanilla item Dryad's Wrist Bindings (40)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 19597, 0, 0);
-/* Add Missing Vanilla item Outrider's Plate Legguards (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 22651, 0, 0);
-/* Add Missing Vanilla item Outrider's Chain Leggings (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 22673, 0, 0);
-/* Add Missing Vanilla item Outrider's Mail Leggings (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 22676, 0, 0);
-/* Add Missing Vanilla item Outrider's Leather Pants (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 22740, 0, 0);
-/* Add Missing Vanilla item Outrider's Lizardhide Pants (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 22741, 0, 0);
-/* Add Missing Vanilla item Outrider's Silk Leggings (60)  */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (@Kelm, 22747, 0, 0);
+
+/* Add Warsong Gulch Healing and Mana Potions */
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `ExtendedCost`) VALUES 
+(@Kelm, 17349, 10, 2354), (@Kelm, 17352, 10, 2354), (@Kelm, 17348, 10, 1564), (@Kelm, 17351, 10, 1564);
+
+/* Add Warsong Gulch Rations and Bandages */
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
+(@Kelm, 19060, 0, 0, 0), (@Kelm, 19061, 0, 0, 0), (@Kelm, 19062, 0, 0, 0), (@Kelm, 19066, 0, 0, 0), (@Kelm, 19067), (@Kelm, 19068);
+
+/* Add Warsong Gulch Equipment */
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
+(@Kelm, 19505), (@Kelm, 19510), (@Kelm, 19511), (@Kelm, 19512), (@Kelm, 19513), (@Kelm, 19518), (@Kelm, 19519), (@Kelm, 19520), (@Kelm, 19521), 
+(@Kelm, 19526), (@Kelm, 19527), (@Kelm, 19528), (@Kelm, 19529), (@Kelm, 19534), (@Kelm, 19535), (@Kelm, 19536), (@Kelm, 19537), (@Kelm, 19542), 
+(@Kelm, 19543), (@Kelm, 19544), (@Kelm, 19545), (@Kelm, 19550), (@Kelm, 19551), (@Kelm, 19552), (@Kelm, 19553), (@Kelm, 19558), (@Kelm, 19559), 
+(@Kelm, 19560), (@Kelm, 19561), (@Kelm, 19566), (@Kelm, 19567), (@Kelm, 19568), (@Kelm, 19569), (@Kelm, 19578), (@Kelm, 19580), (@Kelm, 19581), 
+(@Kelm, 19582), (@Kelm, 19583), (@Kelm, 19584), (@Kelm, 19587), (@Kelm, 19589), (@Kelm, 19590), (@Kelm, 19595), (@Kelm, 19596), (@Kelm, 19597),
+(@Kelm, 20425), (@Kelm, 20426), (@Kelm, 20427), (@Kelm, 20429), (@Kelm, 20430), (@Kelm, 20437), (@Kelm, 20441), (@Kelm, 20442), (@Kelm, 21565), 
+(@Kelm, 21566), (@Kelm, 21567), (@Kelm, 21568), (@Kelm, 22651), (@Kelm, 22673), (@Kelm, 22676), (@Kelm, 22740), (@Kelm, 22741), (@Kelm, 22747);
 
 /* Disable the spawn of the original Kelm */
 UPDATE `creature` SET `spawnMask` = 0 WHERE `id1` = 14754;
 
 /* Link related quests to clone of Kelm */
-UPDATE `creature_queststarter` SET `id` = @Kelm WHERE `quest` = 7866;
-UPDATE `creature_queststarter` SET `id` = @Kelm WHERE `quest` = 7867;
-UPDATE `creature_queststarter` SET `id` = @Kelm WHERE `quest` = 7868;
-UPDATE `creature_questender` SET `id` = @Kelm WHERE `quest` = 7866;
-UPDATE `creature_questender` SET `id` = @Kelm WHERE `quest` = 7867;
-UPDATE `creature_questender` SET `id` = @Kelm WHERE `quest` = 7868;
+UPDATE `creature_queststarter` SET `id` = @Kelm WHERE `quest` IN (7866, 7867, 7868);
+UPDATE `creature_questender` SET `id` = @Kelm WHERE `quest` IN (7866, 7867, 7868);
 
 
 /* NPC Lhara - 14846 */
