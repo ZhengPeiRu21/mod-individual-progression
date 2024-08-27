@@ -47,11 +47,18 @@ DELETE FROM `npc_vendor` WHERE `entry` IN (915, 916, 2122, 3155, 3594);
 INSERT INTO `npc_vendor` (`entry`, `item`, `VerifiedBuild`) VALUES
 (915, 101784, 0), (916, 101784, 0), (2122, 101784, 0), (3155, 101784, 0), (3594, 101784, 0);
 
-/* Remove Stealth spells (1784) from rogue trainers */
+/* Remove stealth spell (1784) from rogue trainers */
 DELETE FROM `npc_trainer` WHERE `SpellID` = 1784;
 
+/* Add new stealth spells to spell_ranks */
+DELETE FROM `spell_ranks` WHERE `first_spell_id` = 101784;
+INSERT INTO `spell_ranks` (`first_spell_id`, `spell_id`, `rank`) VALUES 
+(101784, 101784, 1),
+(101784, 101785, 2),
+(101784, 101786, 3),
+(101784, 101787, 4);
 
-/* Update Gossip Menus */
+/* Update gossip menus */
 UPDATE `gossip_menu_option` SET `OptionID` = 5 WHERE `OptionID` = 4 AND `MenuID` IN 
 (85, 141, 381, 410, 411, 436, 3984, 4502, 4512, 4513, 4540, 4541, 4542, 4561, 4562, 4575, 4576, 4577, 4658, 4659, 4676, 4690, 5061, 6650, 21221);
 UPDATE `gossip_menu_option` SET `OptionID` = 3 WHERE `OptionID` = 2 AND `MenuID` IN 
