@@ -59,8 +59,6 @@ INSERT INTO `spell_ranks` (`first_spell_id`, `spell_id`, `rank`) VALUES
 (101784, 101787, 4);
 
 /* Update gossip menus */
-UPDATE `gossip_menu_option` SET `OptionID` = 5 WHERE `OptionID` = 4 AND `MenuID` IN 
-(85, 141, 381, 410, 411, 436, 3984, 4502, 4512, 4513, 4540, 4541, 4542, 4561, 4562, 4575, 4576, 4577, 4658, 4659, 4676, 4690, 5061, 6650, 21221);
 UPDATE `gossip_menu_option` SET `OptionID` = 3 WHERE `OptionID` = 2 AND `MenuID` IN 
 (85, 141, 381, 410, 411, 436, 3984, 4502, 4512, 4513, 4540, 4541, 4542, 4561, 4562, 4575, 4576, 4577, 4658, 4659, 4676, 4690, 5061, 6650, 21221);
 UPDATE `gossip_menu_option` SET `OptionID` = 2 WHERE `OptionID` = 1 AND `MenuID` IN 
