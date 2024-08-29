@@ -307,7 +307,7 @@ public:
         }
     }
 
-    bool OnUpdateFishingSkill(Player* player, int32 /*skill*/, int32 /*zone_skill*/, int32 chance, int32 roll) override
+    bool OnUpdateFishingSkill(Player* /*player*/, int32 /*skill*/, int32 /*zone_skill*/, int32 chance, int32 roll) override
     {
         if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix)
             return true;
@@ -530,7 +530,7 @@ private:
 
     static void AdjustStats(Pet* pet, float computedAdjustment, float hpAdjustment)
     {
-        int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
+        // int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
         auto bp1 = static_cast<int32>(computedAdjustment);
         auto bp2 = static_cast<int32>(hpAdjustment);
 
@@ -612,7 +612,7 @@ public:
         }
     }
 
-    void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* spellInfo) override
+    void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* /*spellInfo*/) override
     {
         if (!sIndividualProgression->enabled || !attacker)
             return;
