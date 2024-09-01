@@ -166,9 +166,9 @@ public:
             return false;
         }
         std::string accountName;
-        bool gotAccountName = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
+        bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
         std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
-        return (gotAccountName && std::regex_match(accountName, excludedAccountsRegex));
+        return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
     }
 
     bool OnBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
