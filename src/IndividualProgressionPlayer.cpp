@@ -31,10 +31,11 @@ public:
 
     void OnSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
     {
-        if (!sIndividualProgression->enabled)
+        if (!sIndividualProgression->enabled || isExcludedFromProgression(player))
         {
             return;
         }
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
         {
             if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > 60)
@@ -159,9 +160,20 @@ public:
         }
     }
 
+    bool isExcludedFromProgression(Player* player)
+    {
+        if(!sIndividualProgression->excludeAccounts) {
+            return false;
+        }
+        std::string accountName;
+        bool gotAccountName = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
+        std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
+        return (gotAccountName && std::regex_match(accountName, excludedAccountsRegex));
+    }
+
     bool OnBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
     {
-        if (!sIndividualProgression->enabled || player->IsGameMaster())
+        if (!sIndividualProgression->enabled || player->IsGameMaster() || isExcludedFromProgression(player))
         {
             return true;
         }
