@@ -991,6 +991,11 @@ UPDATE `quest_template` SET `LogDescription` = "Kill Magistrate Burnside and 5 H
 UPDATE `quest_template` SET `LogDescription` = "Travel to Dun Garok and kill 10 Mountaineers, 4 Riflemen, 2 Priests and Captain Ironhill and report back to Darthalia in Tarren Mill." WHERE `ID` = 541;
 
 
+/* Battle of Hillsbrad */
+UPDATE `quest_template` SET `LogDescription` = "Take Darthalia's Sealed Commendation to Varimathras in the Undercity." WHERE `ID` = 550;
+UPDATE `quest_template` SET `QuestDescription` = "Because you fought with such valor and perseverance in the Battle of Hillsbrad, I have written this commendation, extolling your heroics in combat for the high command to recognize.$b$bTake this sealed commendation to Varimathras in the Undercity.  Go with pride, $c." WHERE `ID` = 550;
+    
+
 /*  The Broken Sigil  */
 UPDATE `quest_template` SET `LogDescription` = "Retrieve the 11 Sigil Fragments from the defenders in Stromgarde, and bring them to Tor'gan in Hammerfall." WHERE `ID` = 640;
 
