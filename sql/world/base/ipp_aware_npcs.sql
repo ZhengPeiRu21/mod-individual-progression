@@ -32,6 +32,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN 
 -- Phasing for General Tiras'alan and Dathris Sunstriker - prevent early access to Isle of Quel'Danas
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
 
+-- Phasing TBC vendors and trainers - Copies are added to replace them until TBC T4.
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (17585, 17657, 18754, 18771, 19187, 21087, 21655);
+
 -- Argent Tournament
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` IN (25, 63129, 63236, 63370, 63371, 65274, 65275, 65283, 65284, 65285, 65325, 65327, 65350, 65351, 65371, 65451,
 65522, 65523, 65526, 65901, 66478, 66479, 66741, 66753, 66788, 66790, 66792, 66910, 66941, 67185, 67187, 68005, 68457, 68583, 68906, 68941, 68947, 68987, 68989, 68990, 69010,
