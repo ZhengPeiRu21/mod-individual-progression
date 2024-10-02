@@ -349,3 +349,7 @@ UPDATE `quest_template` SET `RequiredNpcOrGo1` = 351048, `RequiredNpcOrGo2` = 35
 
 -- We are going to re-use the deprecated Naxxramas attunement flag quest but need to change some values
 UPDATE `quest_template` SET `RequiredFactionId1` = 0, `RequiredFactionValue1` = 0, `RewardFactionID1` = 0, `RewardFactionValue1` = 0, `QuestSortID` = 0 WHERE `ID` = 9378;
+
+-- Update Argent Dawn reputation requirements of frost resistance quests from Craftsman Wilhelm.
+-- Rep requirements are part of quest requirement. The only requirement to pickup is Omarion's book hand in
+UPDATE `quest_template_addon` SET `RequiredMinRepFaction` = 0, `RequiredMinRepValue` = 0 WHERE `ID` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243);

@@ -46,7 +46,7 @@ enum Say
 enum Requirements
 {
     FACTION_ARGENT_DAWN = 529,
-    BOOK_REQ_RANK       = REP_REVERED,
+    BOOK_REQ_RANK       = REP_HONORED,
     CRAFT1_REQ_RANK     = REP_REVERED,
     CRAFT2_REQ_RANK     = REP_EXALTED,
     MASTER_REQ_SKILL    = 225,
