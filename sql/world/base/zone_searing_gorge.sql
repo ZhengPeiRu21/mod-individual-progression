@@ -15,6 +15,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (608504, 8504, 0, 0, 0, 0, 0, 1, 1, 1, -6630.98, -1233.1, 209.809, 1.29509, 300, 0, 0, 2578, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 /* Group Maltorius together with the 2 sentries */
+DELETE FROM `creature_formations` WHERE `leaderGUID` = 5845;
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
 (5845, 5845, 0, 0, 3, 0, 0),
 (5845, 5846, 0, 0, 3, 0, 0),
