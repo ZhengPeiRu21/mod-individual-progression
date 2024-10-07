@@ -173,6 +173,10 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3013, -370000);
 DELETE FROM `npc_trainer` WHERE `ID`=3026;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3026, -320000);
 
+-- Mahara Goldwheat <Cooking Trainer> (Thanksgiving NPC)
+DELETE FROM `npc_trainer` WHERE `ID`=34714;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (34714, -320000);
+
 -- Kah Mistrunner
 DELETE FROM `npc_trainer` WHERE `ID`=3028;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3028, -360000);
