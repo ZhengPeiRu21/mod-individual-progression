@@ -23,3 +23,7 @@ UPDATE `quest_template_addon` SET `SpecialFlags`=0 WHERE `ID`=1599;
  -- Cook Ghilm <Cooking Trainer> 
  DELETE FROM `npc_trainer` WHERE `ID`=1355;
  INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1355, -320000);
+
+ -- Caitrin Ironkettle <Cooking Trainer> (Thanksgiving NPC)
+ DELETE FROM `npc_trainer` WHERE `ID`=34708;
+ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (34708, -320000);
