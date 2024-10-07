@@ -19,3 +19,7 @@ UPDATE `quest_template_addon` SET `SpecialFlags`=0 WHERE `ID`=1599;
  -- Gremlock Pilsnor <Cooking Trainer>
  DELETE FROM `npc_trainer` WHERE `ID`=1699;
  INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1699, -320000);
+
+ -- Cook Ghilm <Cooking Trainer> 
+ DELETE FROM `npc_trainer` WHERE `ID`=1355;
+ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1355, -320000);
