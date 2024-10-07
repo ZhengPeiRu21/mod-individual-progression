@@ -18,6 +18,10 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3185, -370000);
 DELETE FROM `npc_trainer` WHERE `ID`=5943;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5943, -350000);
 
+-- Ondani Greatmill <Cooking Trainer> (Thanksgiving NPC)
+DELETE FROM `npc_trainer` WHERE `ID`=34713;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (34713, -320000);
+
 -- Xar'Ti <Riding Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=7953;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (7953, -450000);
