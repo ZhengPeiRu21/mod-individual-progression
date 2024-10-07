@@ -5,3 +5,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5172, 4487);
  -- Nissa Firestone <First Aid Trainer> 
  DELETE FROM `npc_trainer` WHERE `ID`=5150; 
  INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5150, -350000); 
+
+ -- Daryl Riknussun <Cooking Trainer> 
+ DELETE FROM `npc_trainer` WHERE `ID`=5159;
+ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5159, -320000);
