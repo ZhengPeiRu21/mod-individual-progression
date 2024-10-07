@@ -11,3 +11,7 @@ INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequire
  -- Kanaria <First Aid Trainer> 
  DELETE FROM `npc_trainer` WHERE `ID`=16272; 
  INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (16272, -350000); 
+
+-- Alice Rigsdale <Cooking Trainer> (Thanksgiving NPC)
+DELETE FROM `npc_trainer` WHERE `ID`=34786;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (34786, -320000);
