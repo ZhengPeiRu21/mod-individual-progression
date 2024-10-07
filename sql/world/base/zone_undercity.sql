@@ -10,6 +10,10 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
  DELETE FROM `npc_trainer` WHERE `ID`=4552;
  INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4552, -320000);
 
+ -- Roberta Carter <Cooking Trainer> (Thanksgiving NPC)
+ DELETE FROM `npc_trainer` WHERE `ID`=34712;
+ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (34712, -320000);
+
 /* Replace orc guards with pre-wrathgate abomination guards */
 UPDATE `creature` SET `id1`=5624, `equipment_id`=0 WHERE `id1`=36213;
 
