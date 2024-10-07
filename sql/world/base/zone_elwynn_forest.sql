@@ -109,6 +109,10 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1651, -360000);
 DELETE FROM `npc_trainer` WHERE `ID`=2329;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2329, -350000);
 
+-- Ellen Moore <Cooking Trainer> (Thanksgiving NPC)
+DELETE FROM `npc_trainer` WHERE `ID`=34710;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (34710, -320000);
+
 -- Randal Hunter <Riding Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=4732;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4732, -450000);
