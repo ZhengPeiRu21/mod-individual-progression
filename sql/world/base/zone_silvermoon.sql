@@ -1,3 +1,7 @@
+-- Alestus <First Aid Trainer> 
+DELETE FROM `npc_trainer` WHERE `ID`=16662; 
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (16662, -350000); 
+
 /* Restore Blood Knight quests to pre-2.4 state */
 SET @MURU_GUID := 352043;
 DELETE FROM `creature` WHERE `guid` = @MURU_GUID;
