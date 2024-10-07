@@ -134,7 +134,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (300002, 53042, 10000, 171, 50, 0, 0),
 (300002, 63732, 2000, 171, 135, 0, 0);
 
-
 -- Apprentice Blacksmith
 DELETE FROM `npc_trainer` WHERE `ID`=310000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
@@ -365,6 +364,20 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (350000, 3278, 1000, 129, 115, 0),
 (350000, 7928, 5000, 129, 150, 0);
 
+UPDATE `creature_template` SET `npcflag` = `npcflag` | 16 | 64, `trainer_type` = 2 WHERE `entry` = 12939;
+DELETE FROM `npc_trainer` WHERE `ID`=12939;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
+(12939, 10843, 0, 129, 240, 0, 0),
+(12939, 18631, 0, 129, 260, 35, 0),
+(12939, 18632, 0, 129, 290, 35, 0);
+
+UPDATE `creature_template` SET `npcflag` = `npcflag` | 16 | 64, `trainer_type` = 2 WHERE `entry` = 12920;
+DELETE FROM `npc_trainer` WHERE `ID`=12920;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
+(12920, 10843, 0, 129, 240, 0, 0),
+(12920, 18631, 0, 129, 260, 35, 0),
+(12920, 18632, 0, 129, 290, 35, 0);
+
 -- Fishing
 DELETE FROM `npc_trainer` WHERE `ID`=360000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -503,25 +516,25 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 -- Journeyman Tailor
 DELETE FROM `npc_trainer` WHERE `ID`=410001;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(410001, 3912, 500, 197, 50, 10);
-(410001, 3757, 200, 197, 80, 0);
-(410001, 3845, 300, 197, 80, 0);
-(410001, 2399, 300, 197, 85, 0);
-(410001, 3843, 400, 197, 85, 0);
-(410001, 6521, 400, 197, 90, 0);
-(410001, 2401, 300, 197, 95, 0);
-(410001, 2406, 200, 197, 100, 0);
-(410001, 3848, 500, 197, 110, 0);
-(410001, 3850, 500, 197, 110, 0);
-(410001, 3866, 250, 197, 110, 0);
-(410001, 8467, 250, 197, 110, 0);
-(410001, 3839, 500, 197, 125, 0);
-(410001, 3855, 700, 197, 125, 0);
-(410001, 3852, 700, 197, 130, 0);
-(410001, 6690, 1000, 197, 135, 0);
-(410001, 8758, 600, 197, 140, 0);
-(410001, 8760, 600, 197, 145, 0);
-(410001, 3813, 750, 197, 150, 0);
+(410001, 3912, 500, 197, 50, 10),
+(410001, 3757, 200, 197, 80, 0),
+(410001, 3845, 300, 197, 80, 0),
+(410001, 2399, 300, 197, 85, 0),
+(410001, 3843, 400, 197, 85, 0),
+(410001, 6521, 400, 197, 90, 0),
+(410001, 2401, 300, 197, 95, 0),
+(410001, 2406, 200, 197, 100, 0),
+(410001, 3848, 500, 197, 110, 0),
+(410001, 3850, 500, 197, 110, 0),
+(410001, 3866, 250, 197, 110, 0),
+(410001, 8467, 250, 197, 110, 0),
+(410001, 3839, 500, 197, 125, 0),
+(410001, 3855, 700, 197, 125, 0),
+(410001, 3852, 700, 197, 130, 0),
+(410001, 6690, 1000, 197, 135, 0),
+(410001, 8758, 600, 197, 140, 0),
+(410001, 8760, 600, 197, 145, 0),
+(410001, 3813, 750, 197, 150, 0),
 (410001, 3859, 700, 197, 150, 0);
 
 -- Expert Tailor
@@ -557,21 +570,6 @@ DELETE FROM `npc_trainer` WHERE `ID`=450000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (450000, 33388, 900000, 762, 0, 40),
 (450000, 33391, 9000000, 762, 75, 60);
-
--- First Aid
-UPDATE `creature_template` SET `npcflag` = `npcflag` | 16 | 64, `trainer_type` = 2 WHERE `entry` = 12939;
-DELETE FROM `npc_trainer` WHERE `ID`=12939;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
-(12939, 10843, 0, 129, 240, 0, 0),
-(12939, 18631, 0, 129, 260, 35, 0),
-(12939, 18632, 0, 129, 290, 35, 0);
-
-UPDATE `creature_template` SET `npcflag` = `npcflag` | 16 | 64, `trainer_type` = 2 WHERE `entry` = 12920;
-DELETE FROM `npc_trainer` WHERE `ID`=12920;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
-(12920, 10843, 0, 129, 240, 0, 0),
-(12920, 18631, 0, 129, 260, 35, 0),
-(12920, 18632, 0, 129, 290, 35, 0);
 
 
 -- Blacksmith Trainers
@@ -624,7 +622,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (28694, -201006, 0, 0, 0, 0, 0),
 (29924, -201006, 0, 0, 0, 0, 0),
 (33591, -201006, 0, 0, 0, 0, 0);
-
 
 
 -- Alchemy Trainers
