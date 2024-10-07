@@ -5,3 +5,7 @@
  -- Alegorn <Cooking Trainer> 
  DELETE FROM `npc_trainer` WHERE `ID`=4210;
  INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4210, -320000);
+
+ -- Mary Allerton <Cooking Trainer> (Thanksgiving NPC)
+ DELETE FROM `npc_trainer` WHERE `ID`=34711;
+ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (34711, -320000);
