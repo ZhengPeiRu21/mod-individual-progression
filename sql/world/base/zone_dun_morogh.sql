@@ -15,3 +15,7 @@ UPDATE `quest_template_addon` SET `SpecialFlags`=0 WHERE `ID`=1599;
  -- Thamner Pol <Physician> 
  DELETE FROM `npc_trainer` WHERE `ID`=2326;
  INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2326, -350000);
+
+ -- Cook Ghilm <Cooking Trainer> 
+ DELETE FROM `npc_trainer` WHERE `ID`=1355;
+ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1355, -320000);
