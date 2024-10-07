@@ -6,6 +6,10 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
  DELETE FROM `npc_trainer` WHERE `ID`=4591; 
  INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4591, -350000); 
 
+ -- Eunice Burch <Cooking Trainer> 
+ DELETE FROM `npc_trainer` WHERE `ID`=4552;
+ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4552, -320000);
+
 /* Replace orc guards with pre-wrathgate abomination guards */
 UPDATE `creature` SET `id1`=5624, `equipment_id`=0 WHERE `id1`=36213;
 
