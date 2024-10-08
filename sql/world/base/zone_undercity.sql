@@ -2,6 +2,10 @@
 DELETE FROM `creature_queststarter` WHERE `id`=4563 AND `quest`=4489;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
 
+-- Mary Edras <First Aid Trainer> 
+DELETE FROM `npc_trainer` WHERE `ID`=4591; 
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4591, -350000); 
+
 /* Replace orc guards with pre-wrathgate abomination guards */
 UPDATE `creature` SET `id1`=5624, `equipment_id`=0 WHERE `id1`=36213;
 
