@@ -864,7 +864,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (4212, -380002, 0, 0, 0, 0);
 
 -- Master Leatherworking Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (18754, -201028, 0, 0, 0, 0);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
+(18754, -201028, 0, 0, 0, 0),
 (18771, -201028, 0, 0, 0, 0),
 (19187, -201028, 0, 0, 0, 0),
 (21087, -201028, 0, 0, 0, 0),
