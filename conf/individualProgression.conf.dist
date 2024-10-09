@@ -358,3 +358,19 @@ IndividualProgression.PvPGearRequirements = 1
 #                     1 - Disabled
 #
 IndividualProgression.DisableRDF = 0
+#
+#    IndividualProgression.ExcludeAccounts
+#        Description: Enable or disable the exclusion of accounts from Individual Progression.
+#        This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.ExcludeAccounts = 0
+#
+#    IndividualProgression.ExcludedAccountsRegex
+#        Description: A regular expression to match account names that should be excluded from Individual Progression.
+#        This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
+#        Only used if ExcludeAccounts is enabled.
+#        Default:     ""
+#
+IndividualProgression.ExcludedAccountsRegex = ""
