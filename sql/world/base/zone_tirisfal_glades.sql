@@ -10,6 +10,8 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES (5667, 1470);
 -- Piercing the Veil (Warlock)
 DELETE FROM `creature_queststarter` WHERE `id`=5667 AND `quest`=1470;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5667, 1470);
+/* Drop chance for Rattlecage Skull was incorrectly set to 15 - updated to 80 */
+UPDATE `creature_loot_template` SET `Chance` = 80 WHERE `Entry` = 1890 AND `Item` = 6281;
 
 -- Wretched Zombie
 UPDATE `creature_template` SET `name`='Wretched Zombie' WHERE `entry`=1502;
