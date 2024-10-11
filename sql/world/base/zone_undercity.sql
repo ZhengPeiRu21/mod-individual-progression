@@ -6,6 +6,106 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
 DELETE FROM `npc_trainer` WHERE `ID`=4591; 
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4591, -350000); 
 
+-- Doctor Martin Felben <Journeyman Alchemist Trainer>
+UPDATE `creature_template` SET `subname`='Journeyman Alchemist Trainer', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11044;
+
+-- Doctor Marsh <Expert Alchemist>
+UPDATE `creature_template` SET `subname`='Expert Alchemist', `npcflag`=81, `trainer_type`=2, `type_flags`=134217728 WHERE `entry`=4609;
+
+-- Basil Frye <Journeyman Blacksmith>
+UPDATE `creature_template` SET `subname`='Journeyman Blacksmith', `npcflag`=81, `trainer_type`=2 WHERE `entry`=4605;
+
+-- Malcomb Wynn <Journeyman Enchanter>
+UPDATE `creature_template` SET `subname`='Journeyman Enchanter', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11067;
+
+-- Graham Van Talen <Journeyman Engineer>
+UPDATE `creature_template` SET `subname`='Journeyman Engineer', `npcflag`=81, `trainer_type`=2 WHERE `entry`=4586;
+
+-- Dan Golthas <Journeyman Leatherworker>
+UPDATE `creature_template` SET `subname`='Journeyman Leatherworker', `npcflag`=81, `trainer_type`=2 WHERE `entry`=223;
+
+-- Victor Ward <Journeyman Tailor>
+UPDATE `creature_template` SET `subname`='Journeyman Tailor', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11048;
+
+-- Rhiannon Davis <Expert Tailor>
+UPDATE `creature_template` SET `subname`='Expert Tailor', `npcflag`=81, `trainer_type`=2, `type_flags`=134217728 WHERE `entry`=11049;
+
+-- Doctor Martin Felben <Journeyman Alchemist Trainer>
+DELETE FROM `npc_trainer` WHERE `ID`=11044;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11044, -300000);
+
+-- Doctor Marsh <Expert Alchemist>
+DELETE FROM `npc_trainer` WHERE `ID`=4609;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4609, -300000);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4609, -300001);
+
+-- Basil Frye <Journeyman Blacksmith>
+DELETE FROM `npc_trainer` WHERE `ID`=4605;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4605, -310000);
+
+-- Malcomb Wynn <Journeyman Enchanter>
+DELETE FROM `npc_trainer` WHERE `ID`=11067;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11067, -330000);
+
+-- Graham Van Talen <Journeyman Engineer>
+DELETE FROM `npc_trainer` WHERE `ID`=4586;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4586, -340000);
+
+-- Dan Golthas <Journeyman Leatherworker>
+DELETE FROM `npc_trainer` WHERE `ID`=223;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (223, -380000);
+
+-- Victor Ward <Journeyman Tailor>
+DELETE FROM `npc_trainer` WHERE `ID`=11048;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11048, -410000);
+
+-- Rhiannon Davis <Expert Tailor>
+DELETE FROM `npc_trainer` WHERE `ID`=11049;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11049, -410000);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11049, -410001);
+
+-- Doctor Marsh <Expert Alchemist>
+DELETE FROM `gossip_menu_option` WHERE `MenuID`=4130;
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(4130, 0, 3, 'Train me.', 3266, 5, 16);
+
+-- Rhiannon Davis <Expert Tailor>
+DELETE FROM `gossip_menu_option` WHERE `MenuID`=4352;
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
+(4352, 0, 3, 'Train me.', 3266, 5, 16);
+
+
+-- Doctor Marsh <Expert Alchemist>
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4130 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
+(15, 4130, 0, 7, 171, 50, 'Show menu if alchemy is 50 or higher');
+
+-- James Van Brunt <Expert Blacksmith>
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=1022 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
+(15, 1022, 0, 7, 164, 50, 'Show menu if blacksmithing is 50 or higher');
+
+-- Lavinia Crowe <Expert Enchanter>
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4166 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
+(15, 4166, 0, 7, 333, 50, 'Show menu if enchanting is 50 or higher');
+
+-- Arthur Moore <Expert Leatherworker>
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4210 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
+(15, 4210, 0, 7, 165, 50, 'Show menu if leatherworking is 50 or higher');
+
+-- Rhiannon Davis <Expert Tailor>
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4352 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
+(15, 4352, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');
+
+-- Josef Gregorian <Artisan Tailor>
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4354 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
+(15, 4354, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');
+
+
 /* Replace orc guards with pre-wrathgate abomination guards */
 UPDATE `creature` SET `id1`=5624, `equipment_id`=0 WHERE `id1`=36213;
 
