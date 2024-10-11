@@ -100,7 +100,7 @@ UPDATE `item_template` SET `flags` = 2048 WHERE `entry` = 17008;
 UPDATE `item_template` SET `description` = 'To be opened by Lord Varimathras.' WHERE `entry` = 3701;
 
 UPDATE `quest_template`
-SET `QuestCompletionLog` = "Return to Varimathras in the Undercity."
+SET `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
 WHERE `ID` = 5725;
 
 UPDATE `quest_template`
