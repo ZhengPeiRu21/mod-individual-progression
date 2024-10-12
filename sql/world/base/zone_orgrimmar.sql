@@ -49,8 +49,7 @@ UPDATE `creature_template` SET `subname`='Expert Tailor' WHERE `entry`=3363;
 
 -- Snarl <Expert Blacksmith>
 DELETE FROM `npc_trainer` WHERE `ID`=1383;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1383, -310000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1383, -310001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1383, -310000), (1383, -310001);
 
 -- Snang <Journeyman Tailor>
 DELETE FROM `npc_trainer` WHERE `ID`=2855;
@@ -66,19 +65,15 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3332, -360000);
 
 -- Godan <Expert Enchanter>
 DELETE FROM `npc_trainer` WHERE `ID`=3345;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3345, -330000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3345, -330001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3345, -330000), (3345, -330001);
 
 -- Yelmak <Expert Alchemist>
 DELETE FROM `npc_trainer` WHERE `ID`=3347;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3347, -300000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3347, -300001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3347, -300000), (3347, -300001);
 
 -- Saru Steelfury <Artisan Blacksmith>
 DELETE FROM `npc_trainer` WHERE `ID`=3355;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3355, -310000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3355, -310001);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3355, -310002);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3355, -310000), (3355, -310001), (3355, -310002);
 
 -- Makaru <Mining Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=3357;
@@ -86,13 +81,11 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3357, -390000);
 
 -- Magar <Expert Tailor>
 DELETE FROM `npc_trainer` WHERE `ID`=3363;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3363, -410000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3363, -410001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3363, -410000), (3363, -410001);
 
 -- Karolek <Expert Leatherworker>
 DELETE FROM `npc_trainer` WHERE `ID`=3365;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3365, -380000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3365, -380001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3365, -380000), (3365, -380001);
 
 -- Arnok <First Aid Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=3373;
@@ -104,8 +97,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3399, -320000);
 
 -- Nogg <Expert Engineer>
 DELETE FROM `npc_trainer` WHERE `ID`=3412;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3412, -340000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3412, -340001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3412, -340000), (3412, -340001);
 
 -- Kildar <Riding Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=4752;
@@ -125,9 +117,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (10266, -310000);
 
 -- Roxxik <Artisan Engineer>
 DELETE FROM `npc_trainer` WHERE `ID`=11017;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11017, -340000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11017, -340001);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11017, -340002);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11017, -340000), (11017, -340001), (11017, -340002);
 
 -- Whuut <Journeyman Alchemist>
 DELETE FROM `npc_trainer` WHERE `ID`=11046;
@@ -412,11 +402,7 @@ DELETE FROM `npc_vendor` WHERE `entry`=3366 AND `item`=38426;
 -- Felika <General Trade Goods Merchant>
 DELETE FROM `npc_vendor` WHERE `entry`=3367 AND `item` IN (14341, 18256, 20856);
 DELETE FROM `npc_vendor` WHERE `entry`=3367 AND `item` IN (2324, 2605, 6260, 6529);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
-    (3367, 2324), 
-    (3367, 2605), 
-    (3367, 6260), 
-    (3367, 6529);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (3367, 2324), (3367, 2605), (3367, 6260), (3367, 6529);
 
 -- Borstan <Meat Vendor>
 DELETE FROM `npc_vendor` WHERE `entry`=3368 AND `item` IN (27854, 33454, 35953);
@@ -494,11 +480,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 -- Raider Bork <Mount Quartermaster>
 DELETE FROM `npc_vendor` WHERE `entry`=12796 AND `item` IN (29466, 29469, 29470, 29472, 34129);
 DELETE FROM `npc_vendor` WHERE `entry`=12796 AND `item` IN (18245, 18246, 18247, 18248);
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
-    (12796, 18245, 423), 
-    (12796, 18246, 423), 
-    (12796, 18247, 423), 
-    (12796, 18248, 423);
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423);
 
 -- Sergeant Thunderhorn <Weapons Quartermaster>
 DELETE FROM `npc_vendor` WHERE `entry`=14581 AND `item` IN (16345, 18826, 18828, 18831, 18835, 18837, 18840, 18844, 18848, 18860, 18866, 18868, 18871, 18874, 18877, 23464, 23465, 23466, 23467, 23468, 23469);
