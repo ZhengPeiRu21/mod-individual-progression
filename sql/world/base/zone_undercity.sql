@@ -1,11 +1,3 @@
--- Summon Felsteed (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id`=4563 AND `quest`=4489;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
-
--- Mary Edras <First Aid Trainer> 
-DELETE FROM `npc_trainer` WHERE `ID`=4591; 
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4591, -350000); 
-
 -- Doctor Martin Felben <Journeyman Alchemist Trainer>
 UPDATE `creature_template` SET `subname`='Journeyman Alchemist Trainer', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11044;
 
@@ -30,14 +22,14 @@ UPDATE `creature_template` SET `subname`='Journeyman Tailor', `npcflag`=81, `tra
 -- Rhiannon Davis <Expert Tailor>
 UPDATE `creature_template` SET `subname`='Expert Tailor', `npcflag`=81, `trainer_type`=2, `type_flags`=134217728 WHERE `entry`=11049;
 
+
 -- Doctor Martin Felben <Journeyman Alchemist Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=11044;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11044, -300000);
 
 -- Doctor Marsh <Expert Alchemist>
 DELETE FROM `npc_trainer` WHERE `ID`=4609;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4609, -300000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4609, -300001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4609, -300000), (4609, -300001);
 
 -- Basil Frye <Journeyman Blacksmith>
 DELETE FROM `npc_trainer` WHERE `ID`=4605;
@@ -61,8 +53,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11048, -410000);
 
 -- Rhiannon Davis <Expert Tailor>
 DELETE FROM `npc_trainer` WHERE `ID`=11049;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11049, -410000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11049, -410001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11049, -410000), (11049, -410001);
 
 -- Doctor Marsh <Expert Alchemist>
 DELETE FROM `gossip_menu_option` WHERE `MenuID`=4130;
@@ -104,6 +95,15 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4354 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
 (15, 4354, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');
+
+
+-- Summon Felsteed (Warlock)
+DELETE FROM `creature_queststarter` WHERE `id`=4563 AND `quest`=4489;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
+
+-- Mary Edras <First Aid Trainer> 
+DELETE FROM `npc_trainer` WHERE `ID`=4591; 
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4591, -350000); 
 
 
 /* Replace orc guards with pre-wrathgate abomination guards */
