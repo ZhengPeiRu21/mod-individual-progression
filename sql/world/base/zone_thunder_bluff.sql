@@ -38,8 +38,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2798, -350000);
 
 -- Karn Stonehoof <Expert Blacksmith>
 DELETE FROM `npc_trainer` WHERE `ID`=2998;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2998, -310000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2998, -310001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2998, -310000), (2998, -310001);
 
 -- Brek Stonehoof <Mining Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=3001;
@@ -47,14 +46,11 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3001, -390000);
 
 -- Tepa <Expert Tailor>
 DELETE FROM `npc_trainer` WHERE `ID`=3004;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3004, -410000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3004, -410001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3004, -410000), (3004, -410001);
 
 -- Una <Artisan Leatherworker>
 DELETE FROM `npc_trainer` WHERE `ID`=3007;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3007, -380000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3007, -380001);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3007, -380002);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3007, -380000), (3007, -380001), (3007, -380002);
 
 -- Mak <Journeyman Leatherworker>
 DELETE FROM `npc_trainer` WHERE `ID`=3008;
@@ -62,13 +58,11 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3008, -380000);
 
 -- Bena Winterhoof <Expert Alchemist>
 DELETE FROM `npc_trainer` WHERE `ID`=3009;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3009, -300000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3009, -300001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3009, -300000), (3009, -300001);
 
 -- Teg Dawnstrider <Expert Enchanter>
 DELETE FROM `npc_trainer` WHERE `ID`=3011;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3011, -330000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3011, -330001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3011, -330000), (3011, -330001);
 
 -- Komin Winterhoof
 DELETE FROM `npc_trainer` WHERE `ID`=3013;
@@ -104,29 +98,33 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11071, -330000);
 
 -- Tarn <Expert Leatherworker>
 DELETE FROM `npc_trainer` WHERE `ID`=11084;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11084, -380000);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11084, -380001);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11084, -380000), (11084, -380001);
 
 
 -- Bena Winterhoof <Expert Alchemist>
 DELETE FROM `gossip_menu_option` WHERE `MenuID`=4128;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES (4128, 0, 3, 'Train me.', 3266, 5, 16);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(4128, 0, 3, 'Train me.', 3266, 5, 16);
 
 -- Teg Dawnstrider <Expert Enchanter>
 DELETE FROM `gossip_menu_option` WHERE `MenuID`=4165;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES (4165, 0, 3, 'Train me.', 3266, 5, 16);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
+(4165, 0, 3, 'Train me.', 3266, 5, 16);
 
 -- Tarn <Expert Leatherworker>
 DELETE FROM `gossip_menu_option` WHERE `MenuID`=4207;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES (4207, 0, 3, 'Train me.', 3266, 5, 16);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
+(4207, 0, 3, 'Train me.', 3266, 5, 16);
 
 -- Una <Artisan Leatherworker>
 DELETE FROM `gossip_menu_option` WHERE `MenuID`=4242;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES (4242, 0, 3, 'Train me.', 3266, 5, 16);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
+(4242, 0, 3, 'Train me.', 3266, 5, 16);
 
 -- Tepa <Expert Tailor>
 DELETE FROM `gossip_menu_option` WHERE `MenuID`=4351;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES (4351, 0, 3, 'Train me.', 3266, 5, 16);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
+(4351, 0, 3, 'Train me.', 3266, 5, 16);
 
 
 -- Karn Stonehoof <Expert Blacksmith>
