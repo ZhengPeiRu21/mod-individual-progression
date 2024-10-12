@@ -412,10 +412,11 @@ DELETE FROM `npc_vendor` WHERE `entry`=3366 AND `item`=38426;
 -- Felika <General Trade Goods Merchant>
 DELETE FROM `npc_vendor` WHERE `entry`=3367 AND `item` IN (14341, 18256, 20856);
 DELETE FROM `npc_vendor` WHERE `entry`=3367 AND `item` IN (2324, 2605, 6260, 6529);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (3367, 2324);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (3367, 2605);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (3367, 6260);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (3367, 6529);
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
+    (3367, 2324), 
+    (3367, 2605), 
+    (3367, 6260), 
+    (3367, 6529);
 
 -- Borstan <Meat Vendor>
 DELETE FROM `npc_vendor` WHERE `entry`=3368 AND `item` IN (27854, 33454, 35953);
@@ -487,7 +488,7 @@ DELETE FROM `npc_vendor` WHERE `entry`=12794 AND `item` IN
 
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
     (12794, 117), (12794, 159), (12794, 1179), (12794, 1205), (12794, 1645), (12794, 1708), (12794, 2287), (12794, 2593), (12794, 2594), (12794, 2595), (12794, 2596), (12794, 2723),
-    (12794, 3770), (12794, 3771), (12794, 4536), (12794, 4537), (12794, 4538), (12794, 4539), (12794, 4540), (12794, 4541), (12794, 4542), (12794, 4544), (12794, 4599), (12794, 4601);
+    (12794, 3770), (12794, 3771), (12794, 4536), (12794, 4537), (12794, 4538), (12794, 4539), (12794, 4540), (12794, 4541), (12794, 4542), (12794, 4544), (12794, 4599), (12794, 4601),
     (12794, 4602), (12794, 4604), (12794, 4605), (12794, 4606), (12794, 4607), (12794, 4608), (12794, 8766), (12794, 8948), (12794, 8950), (12794, 8952), (12794, 8953);
 
 -- Raider Bork <Mount Quartermaster>
