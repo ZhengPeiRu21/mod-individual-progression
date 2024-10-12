@@ -4124,14 +4124,14 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 
 /* Add Warsong Gulch Rations and Bandages */
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
-(@Kelm, 19060), (@Kelm, 19061, (@Kelm, 19062, (@Kelm, 19066), (@Kelm, 19067), (@Kelm, 19068);
+(@Kelm, 19060), (@Kelm, 19061), (@Kelm, 19062), (@Kelm, 19066), (@Kelm, 19067), (@Kelm, 19068);
 
 /* Add Warsong Gulch Equipment */
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
 (@Kelm, 19505, 2969), (@Kelm, 19510, 491), (@Kelm, 19511, 930), (@Kelm, 19512, 884), (@Kelm, 19513, 838), (@Kelm, 19518, 491), (@Kelm, 19519, 930), (@Kelm, 19520, 884), (@Kelm, 19521, 838), 
 (@Kelm, 19526, 492), (@Kelm, 19527, 931), (@Kelm, 19528, 885), (@Kelm, 19529, 839), (@Kelm, 19534, 491), (@Kelm, 19535, 930), (@Kelm, 19536, 884), (@Kelm, 19537, 838), (@Kelm, 19542, 747), 
 (@Kelm, 19543, 968), (@Kelm, 19544, 917), (@Kelm, 19545, 871), (@Kelm, 19550, 701), (@Kelm, 19551, 968), (@Kelm, 19552, 917), (@Kelm, 19553, 871), (@Kelm, 19558, 747), (@Kelm, 19559, 968), 
-(@Kelm, 19560, 917), (@Kelm, 19561, 871), (@Kelm, 19566, 490), (@Kelm, 19567, 929), (@Kelm, 19568), 883, (@Kelm, 19569, 837), (@Kelm, 19578, 488), (@Kelm, 19580, 990), (@Kelm, 19581, 989), 
+(@Kelm, 19560, 917), (@Kelm, 19561, 871), (@Kelm, 19566, 490), (@Kelm, 19567, 929), (@Kelm, 19568, 883), (@Kelm, 19569, 837), (@Kelm, 19578, 488), (@Kelm, 19580, 990), (@Kelm, 19581, 989), 
 (@Kelm, 19582, 488), (@Kelm, 19583, 990), (@Kelm, 19584, 989), (@Kelm, 19587, 488), (@Kelm, 19589, 990), (@Kelm, 19590, 989), (@Kelm, 19595, 488), (@Kelm, 19596, 990), (@Kelm, 19597, 989),
 (@Kelm, 20425, 821), (@Kelm, 20426, 822), (@Kelm, 20427, 823), (@Kelm, 20429, 822), (@Kelm, 20430, 826), (@Kelm, 20437, 826), (@Kelm, 20441, 826), (@Kelm, 20442, 822), (@Kelm, 21565, 1054), 
 (@Kelm, 21566, 1055), (@Kelm, 21567, 1054), (@Kelm, 21568, 1055), (@Kelm, 22651, 748), (@Kelm, 22673, 748), (@Kelm, 22676, 748), (@Kelm, 22740, 748), (@Kelm, 22741, 748), (@Kelm, 22747, 748);
