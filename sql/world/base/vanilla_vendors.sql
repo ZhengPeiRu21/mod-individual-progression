@@ -4119,12 +4119,12 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 DELETE FROM `npc_vendor` WHERE `entry` = @Kelm;
 
 /* Add Warsong Gulch Healing and Mana Potions */
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `ExtendedCost`) VALUES 
-(@Kelm, 17349, 10, 2354), (@Kelm, 17352, 10, 2354), (@Kelm, 17348, 10, 1564), (@Kelm, 17351, 10, 1564);
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
+(@Kelm, 17348, 0, 0, 1564), (@Kelm, 17349, 0, 0, 2354), (@Kelm, 17351, 0, 0, 2354),  (@Kelm, 17352, 0, 0, 1564);
 
 /* Add Warsong Gulch Rations and Bandages */
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
-(@Kelm, 19060, 0, 0, 0), (@Kelm, 19061, 0, 0, 0), (@Kelm, 19062, 0, 0, 0), (@Kelm, 19066, 0, 0, 0), (@Kelm, 19067), (@Kelm, 19068);
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
+(@Kelm, 19060, 0, 0, 0), (@Kelm, 19061, 0, 0, 0), (@Kelm, 19062, 0, 0, 0), (@Kelm, 19066, 0, 0, 0), (@Kelm, 19067, 0, 0, 0), (@Kelm, 19068, 0, 0, 0);
 
 /* Add Warsong Gulch Equipment */
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
