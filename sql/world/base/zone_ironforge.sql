@@ -1,11 +1,3 @@
--- Summon Felsteed (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id`=5172 AND `quest`=4487;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5172, 4487);
-
--- Nissa Firestone <First Aid Trainer> 
-DELETE FROM `npc_trainer` WHERE `ID`=5150; 
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5150, -350000); 
-
 -- Vosur Brakthel <Journeyman Alchemist>
 UPDATE `creature_template` SET `subname`='Journeyman Alchemist', `npcflag`=81, `trainer_type`=2 WHERE `entry`=1246;
 
@@ -121,3 +113,12 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4345 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
 (15, 4345, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');
+
+
+-- Summon Felsteed (Warlock)
+DELETE FROM `creature_queststarter` WHERE `id`=5172 AND `quest`=4487;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5172, 4487);
+
+-- Nissa Firestone <First Aid Trainer> 
+DELETE FROM `npc_trainer` WHERE `ID`=5150; 
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5150, -350000); 
