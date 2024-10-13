@@ -72,9 +72,9 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4130, 0, 7, 171, 50, 'Show menu if alchemy is 50 or higher');
 
 -- Doctor Herbert Halsey <Artisan Alchemist>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=2501 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4132 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 2501, 0, 7, 171, 125, 'Show menu if alchemy is 125 or higher');
+(15, 4132, 0, 7, 171, 125, 'Show menu if alchemy is 125 or higher');
 
 -- James Van Brunt <Expert Blacksmith>
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=1022 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
