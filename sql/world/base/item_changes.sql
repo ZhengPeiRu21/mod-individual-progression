@@ -3506,7 +3506,7 @@ UPDATE `item_template` SET `BuyPrice` = 2361 WHERE entry=5459;
 UPDATE `item_template` SET `spellid_1` = 5405, `spellcharges_1` = -1, `spellcooldown_1` = -1, `spellcategorycooldown_1` = 120000, `spellcategory_1` = 1153, `spellid_2` = 0, `spellcharges_2` = 0, `spellcategorycooldown_2` = 0, `spellcategory_2` = 0, `spellcooldown_3` = -1, `spellcategorycooldown_3` = -1, `spellcooldown_4` = -1, `spellcategorycooldown_4` = -1, `RequiredLevel` = 23 WHERE entry=5514;
 
 /*  Iridescent Hammer  */
-UPDATE `item_template` SET `BuyPrice` = 18469, `SellPrice` = 3693, `dmg_min1` = 18.0, `dmg_max1` = 34.0, `stat_type1` = 4, `stat_type2` = 7, `stat_value2` = 3 WHERE entry=5541;
+UPDATE `item_template` SET `BuyPrice` = 18469, `SellPrice` = 3693, `dmg_min1` = 18.0, `dmg_max1` = 34.0, `stat_type1` = 4, `stat_type2` = 7, `stat_value2` = 3, `delay` = 1800 WHERE entry=5541;
 
 /*  Pearl-clasped Cloak  */
 UPDATE `item_template` SET `BuyPrice` = 1852 WHERE entry=5542;

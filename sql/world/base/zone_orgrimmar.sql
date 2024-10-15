@@ -90,6 +90,9 @@ INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, 
 DELETE FROM `creature` WHERE `id1`=15006;
 INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600);
 
+-- Master Pyreanor <Paladin Trainer>
+UPDATE `creature` SET `position_x`=1940.23, `position_y`=-4135.53, `position_z`=41.1522, `orientation`=3.12425  WHERE `id1`=23128;
+
 -- Summon Felsteed (Warlock)
 DELETE FROM `creature_queststarter` WHERE `id`=3326 AND `quest`=3631;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 3631);
