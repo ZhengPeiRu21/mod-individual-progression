@@ -4079,6 +4079,70 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (14739
 /* Remove non-Vanilla item Outrider's Lamellar Legguards */
 DELETE FROM `npc_vendor` WHERE `entry` = 14754 AND `item` = 30498;
 
+/* Kelm Hargunth refuses to show his vendor inventory */
+/* This will create a clone of Kelm Kargunth (14754) */
+
+SET @Kelm := 114754;
+
+DELETE FROM `creature_template` WHERE `entry` = @Kelm;
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, 
+`DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, 
+`trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, 
+`mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
+`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+(@Kelm, 0, 0, 0, 0, 0, 'Kelm Hargunth', 'Warsong Supply Officer', NULL, 0, 55, 55, 0, 1515, 4226, 1, 1.14286, 1, 1, 20, 1, 1, 0, 3.15, 
+2000, 2000, 1, 1, 1, 4096, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 20, 1, 1.4, 1, 0, 0, 1, 0, 0, 0, '', 12340);
+
+DELETE FROM `creature_template_locale` WHERE `entry` = @Kelm;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(@Kelm, 'deDE', 'Kelm Hargunth', 'Versorgungsoffizier des Kriegshymnenklans', 18019),
+(@Kelm, 'esES', 'Kelm Hargunth', 'Oficial de suministros Grito de Guerra', 18019),
+(@Kelm, 'esMX', 'Kelm Hargunth', 'Oficial de suministros Grito de Guerra', 18019),
+(@Kelm, 'frFR', 'Kelm Hargunth', 'Officier de ravitaillement Chanteguerre', 18019),
+(@Kelm, 'koKR', '켈름 하건스', '전쟁노래 병참장교', 18019),
+(@Kelm, 'ruRU', 'Кельм Харгюнт', 'Снабженец Песни Войны', 18019),
+(@Kelm, 'zhCN', '凯尔姆·哈古斯', '战歌军需官', 18019),
+(@Kelm, 'zhTW', '戰歌補給員哈古斯', '戰歌物資官', 18019);
+
+DELETE FROM `creature_template_model` WHERE `CreatureID` = @Kelm;
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Kelm, 0, 14785, 1, 1, 12340);
+
+DELETE FROM `creature` WHERE `id1` = @Kelm;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+(614754, @Kelm, 0, 0, 1, 0, 0, 1, 1, 1, 1046.54, -2104.31, 123.065, 3.94444, 600, 0, 0, 52280, 0, 0, 0, 4226, 0, '', 0, 0, NULL);
+
+DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Kelm;
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (@Kelm, 1, 14870, 0, 0, 18019);
+
+DELETE FROM `npc_vendor` WHERE `entry` = @Kelm;
+
+/* Add Warsong Gulch Healing and Mana Potions */
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
+(@Kelm, 17348, 1564), (@Kelm, 17349, 2354), (@Kelm, 17351, 2354),  (@Kelm, 17352, 1564);
+
+/* Add Warsong Gulch Rations and Bandages */
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
+(@Kelm, 19060), (@Kelm, 19061), (@Kelm, 19062), (@Kelm, 19066), (@Kelm, 19067), (@Kelm, 19068);
+
+/* Add Warsong Gulch Equipment */
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
+(@Kelm, 19505, 2969), (@Kelm, 19510, 491), (@Kelm, 19511, 930), (@Kelm, 19512, 884), (@Kelm, 19513, 838), (@Kelm, 19518, 491), (@Kelm, 19519, 930), (@Kelm, 19520, 884), (@Kelm, 19521, 838), 
+(@Kelm, 19526, 492), (@Kelm, 19527, 931), (@Kelm, 19528, 885), (@Kelm, 19529, 839), (@Kelm, 19534, 491), (@Kelm, 19535, 930), (@Kelm, 19536, 884), (@Kelm, 19537, 838), (@Kelm, 19542, 747), 
+(@Kelm, 19543, 968), (@Kelm, 19544, 917), (@Kelm, 19545, 871), (@Kelm, 19550, 701), (@Kelm, 19551, 968), (@Kelm, 19552, 917), (@Kelm, 19553, 871), (@Kelm, 19558, 747), (@Kelm, 19559, 968), 
+(@Kelm, 19560, 917), (@Kelm, 19561, 871), (@Kelm, 19566, 490), (@Kelm, 19567, 929), (@Kelm, 19568, 883), (@Kelm, 19569, 837), (@Kelm, 19578, 488), (@Kelm, 19580, 990), (@Kelm, 19581, 989), 
+(@Kelm, 19582, 488), (@Kelm, 19583, 990), (@Kelm, 19584, 989), (@Kelm, 19587, 488), (@Kelm, 19589, 990), (@Kelm, 19590, 989), (@Kelm, 19595, 488), (@Kelm, 19596, 990), (@Kelm, 19597, 989),
+(@Kelm, 20425, 821), (@Kelm, 20426, 822), (@Kelm, 20427, 823), (@Kelm, 20429, 822), (@Kelm, 20430, 826), (@Kelm, 20437, 826), (@Kelm, 20441, 826), (@Kelm, 20442, 822), (@Kelm, 21565, 1054), 
+(@Kelm, 21566, 1055), (@Kelm, 21567, 1054), (@Kelm, 21568, 1055), (@Kelm, 22651, 748), (@Kelm, 22673, 748), (@Kelm, 22676, 748), (@Kelm, 22740, 748), (@Kelm, 22741, 748), (@Kelm, 22747, 748);
+
+/* Disable the spawn of the original Kelm */
+UPDATE `creature` SET `spawnMask` = 0 WHERE `id1` = 14754;
+
+/* Link related quests to clone of Kelm */
+UPDATE `creature_queststarter` SET `id` = @Kelm WHERE `quest` IN (7866, 7867, 7868);
+UPDATE `creature_questender` SET `id` = @Kelm WHERE `quest` IN (7866, 7867, 7868);
+
 
 /* NPC Lhara - 14846 */
 /* Remove non-Vanilla item Mountain Silversage */
