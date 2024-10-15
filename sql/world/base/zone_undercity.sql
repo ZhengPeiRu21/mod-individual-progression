@@ -11,7 +11,7 @@ UPDATE `creature_template` SET `subname`='Journeyman Blacksmith', `npcflag`=81, 
 UPDATE `creature_template` SET `subname`='Journeyman Enchanter', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11067;
 
 -- Graham Van Talen <Journeyman Engineer>
-UPDATE `creature_template` SET `subname`='Journeyman Engineer', `npcflag`=81, `trainer_type`=2 WHERE `entry`=4586;
+UPDATE `creature_template` SET `subname`='Journeyman Engineer', `npcflag`=83, `trainer_type`=2 WHERE `entry`=4586;
 
 -- Dan Golthas <Journeyman Leatherworker>
 UPDATE `creature_template` SET `subname`='Journeyman Leatherworker', `npcflag`=81, `trainer_type`=2 WHERE `entry`=223;
