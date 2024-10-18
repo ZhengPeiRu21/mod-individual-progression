@@ -49,6 +49,7 @@ UPDATE `quest_template` SET `Flags`=8 WHERE `ID`=790;
 
 -- Vile Familiars
 UPDATE `quest_template` SET `Flags`=8, `LogDescription`='Kill 12 Vile Familiars.$b$bReturn to Zureetha Fargaze outside the Den.', `RequiredNpcOrGoCount1`=12 WHERE `ID`=792;
+UPDATE `quest_template_addon` SET `AllowableClasses` = 1279 WHERE `ID`=792;
 
 -- Burning Blade Medallion
 UPDATE `quest_template` SET `Flags`=8 WHERE `ID`=794;
