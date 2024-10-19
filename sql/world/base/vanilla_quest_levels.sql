@@ -483,6 +483,9 @@ UPDATE quest_template SET RequiredItemId1 = 16208, RequiredItemId2 = 0, Required
 /*  Earthen Arise  */
 UPDATE quest_template SET RequiredItemId2 = 0, RequiredItemCount2 = 0 WHERE ID=6481;
 
+/* An Unholy Alliance */
+UPDATE `quest_template` SET `LogDescription` = "Take the Small Scroll to Varimathras in the Undercity." WHERE `ID` = 6522;
+
 /*  King of the Foulweald  */
 UPDATE quest_template SET RequiredItemId2 = 0, RequiredItemCount2 = 0 WHERE ID=6621;
 
