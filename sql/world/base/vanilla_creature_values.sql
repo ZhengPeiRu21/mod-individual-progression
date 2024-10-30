@@ -16037,7 +16037,7 @@ UPDATE `creature_template` SET `minlevel` = 50, `maxlevel` = 51, `speed_walk` = 
 UPDATE `creature_template` SET `minlevel` = 50, `maxlevel` = 51, `speed_run` = 2.57143, `mingold` = 63, `maxgold` = 316 WHERE `entry`=10990;
 
 /*  Wildpaw Gnoll  */
-UPDATE `creature_template` SET `mingold` = 61, `maxgold` = 488 WHERE `entry`=10991;
+UPDATE `creature_template` SET `mingold` = 61, `maxgold` = 488, `speed_walk` = 0.666668 WHERE `entry`=10991;
 
 /*  Enraged Panther  */
 UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 3.0 WHERE `entry`=10992;
@@ -17405,7 +17405,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.75 WHERE `entry`=11834;
 UPDATE `creature_template` SET `maxlevel` = 14, `speed_walk` = 1.0, `DamageModifier` = 1.35, `RangeAttackTime` = 2057 WHERE `entry`=11836;
 
 /*  Wildpaw Shaman  */
-UPDATE `creature_template` SET `ArmorModifier` = 0.95, `mingold` = 61, `maxgold` = 721 WHERE `entry`=11837;
+UPDATE `creature_template` SET `ArmorModifier` = 0.95, `mingold` = 61, `maxgold` = 721, `speed_walk` = 0.666668 WHERE `entry`=11837;
 
 /*  Wildpaw Mystic  */
 UPDATE `creature_template` SET `mingold` = 63, `maxgold` = 316 WHERE `entry`=11838;
@@ -19286,7 +19286,7 @@ UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 3.55, `Arm
 UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 3.8, `ArmorModifier` = 1.25, `RangeAttackTime` = 1283, `unit_class` = 2 WHERE `entry`=13958;
 
 /*  Alterac Yeti  */
-UPDATE `creature_template` SET `DamageModifier` = 5.9, `ArmorModifier` = 1.15, `mingold` = 157, `maxgold` = 3066 WHERE `entry`=13959;
+UPDATE `creature_template` SET `DamageModifier` = 5.9, `ArmorModifier` = 1.15, `mingold` = 157, `maxgold` = 3066, `speed_walk` = 0.5, `mechanic_immune_mask` = 72785 WHERE `entry`=13959;
 
 /*  Tortured Drake  */
 UPDATE `creature_template` SET `minlevel` = 40, `maxlevel` = 40, `DamageModifier` = 0.15 WHERE `entry`=13976;
