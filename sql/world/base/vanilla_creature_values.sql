@@ -1121,19 +1121,19 @@ UPDATE `creature_template` SET `DamageModifier` = 0.5 WHERE `entry`=738;
 UPDATE `creature_template` SET `DamageModifier` = 0.5 WHERE `entry`=739;
 
 /*  Green Wyrmkin  */
-UPDATE `creature_template` SET `maxlevel` = 42, `speed_walk` = 0.888888 WHERE `entry`=742;
+UPDATE `creature_template` SET `maxlevel` = 42, `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 4.15, `HealthModifier` = 3 WHERE `entry`=742;
 
 /*  Wyrmkin Dreamwalker  */
-UPDATE `creature_template` SET `speed_walk` = 0.888888 WHERE `entry`=743;
+UPDATE `creature_template` SET `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 4.3, `HealthModifier` = 3, `ManaModifier` = 2.1 WHERE `entry`=743;
 
 /*  Green Scalebane  */
-UPDATE `creature_template` SET `maxlevel` = 43, `speed_walk` = 0.888888, `ArmorModifier` = 1.5 WHERE `entry`=744;
+UPDATE `creature_template` SET `maxlevel` = 43, `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 4, `HealthModifier` = 3, `ArmorModifier` = 1.5 WHERE `entry`=744;
 
 /*  Scalebane Captain  */
-UPDATE `creature_template` SET `speed_walk` = 0.888888, `ArmorModifier` = 1.5 WHERE `entry`=745;
+UPDATE `creature_template` SET `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 3.7, `HealthModifier` = 3, `ArmorModifier` = 1.5 WHERE `entry`=745;
 
 /*  Elder Dragonkin  */
-UPDATE `creature_template` SET `speed_walk` = 0.888888, `DamageModifier` = 1.05, `ArmorModifier` = 1.5 WHERE `entry`=746;
+UPDATE `creature_template` SET `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 3.5, `HealthModifier` = 3, `ArmorModifier` = 1.5 WHERE `entry`=746;
 
 /*  Marsh Murkdweller  */
 UPDATE `creature_template` SET `speed_walk` = 1.0, `detection_range` = 18.0 WHERE `entry`=749;
