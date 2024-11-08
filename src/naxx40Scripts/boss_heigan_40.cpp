@@ -232,7 +232,7 @@ public:
                 {
                     if (player->IsAlive() && !player->IsGameMaster())
                     {
-                        if (player->GetPositionX() <= 2769.0f)
+                        if (player->GetPositionY() <= -3735.0f)
                         {
                             player->KillSelf();
                         }

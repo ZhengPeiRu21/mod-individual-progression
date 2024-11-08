@@ -24,11 +24,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2926, 0, 1, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Silvermane Stalker - Out of Combat - Cast \'Sneak\'');
 
 /* Deviate Stalker (3634) should have sneak spell 22766 */
-UPDATE `creature_template` SET `AIName` = "SmartAI" WHERE `entry` = 3634;
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 3634;
 DELETE FROM `smart_scripts` WHERE `entryorguid` = 3634 AND `action_param1` = 22766;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 (3634, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Deviate Stalker - Out of Combat - Cast \'Sneak\'');
 
+/* Restore Silithid Pox to 30 Minutes */
 DELETE FROM `spell_dbc` WHERE `ID` = 8137;
 INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes`, `AttributesEx`, `AttributesEx2`, `AttributesEx3`, `AttributesEx4`, `AttributesEx5`, `AttributesEx6`, `AttributesEx7`, `ShapeshiftMask`, 
     `unk_320_2`, `ShapeshiftExclude`, `unk_320_3`, `Targets`, `TargetCreatureType`, `RequiresSpellFocus`, `FacingCasterFlags`, `CasterAuraState`, `TargetAuraState`, `ExcludeCasterAuraState`, `ExcludeTargetAuraState`, 
@@ -61,3 +62,22 @@ INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes
     'Increases the Physical damage taken by an enemy by $s1% for $d.', '', '', '', '受到物理攻击时所承受的伤害提高$s1%，$d。', '使敵人受到物理攻擊時所承受的傷害提高$s1%，持續$d。', 
     '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 'Physical damage taken is increased by $s1%.', '', '', '', '受到物理攻击时所承受的伤害提高$s1%。', '受到物理攻擊時所承受的傷害提高$s1%。', 
     '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0);
+
+/* Twilight cultists in Searing Gorge missing smart AI */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5860, 5861, 5862);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5860, 5861, 5862);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+
+/* Twilight Dark Shaman (5860) */
+(5860, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 15500, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Dark Shaman - In Combat CMC - Cast \'Shock\''),
+(5860, 0, 1, 0, 0, 0, 100, 0, 2500, 10000, 35000, 40000, 0, 0, 11, 7289, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Dark Shaman - In Combat - Cast Shrink'),
+(5860, 0, 2, 0, 14, 0, 100, 0, 1000, 30, 8000, 11000, 0, 0, 11, 12491, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Dark Shaman - Friendly Missing Health - Cast Healing Wave'),
+
+/* Twilight Fire Guard (5861) */
+(5861, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 18000, 26000, 0, 0, 11, 15243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Fire Guard - In Combat - Cast \'Fireball Volley\''),
+
+/* Twilight Geomancer (5862) */
+(5862, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 9053, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Geomancer - In Combat CMC - Cast \'Fireball\''),
+(5862, 0, 1, 0, 0, 0, 100, 0, 4000, 9000, 18000, 26000, 0, 0, 11, 11436, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Geomancer - In Combat - Cast \'Slow\''),
+(5862, 0, 2, 0, 2, 0, 100, 1, 30, 60, 0, 0, 0, 0, 11, 11990, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Geomancer - Between 30-60% Health - Cast \'11990\' (No Repeat)');
+
