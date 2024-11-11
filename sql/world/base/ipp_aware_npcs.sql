@@ -6,7 +6,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15282, 15270);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN (15293,15306,15191,15181,15306,15599,15183,15194,15176,15270,16091,15701,15612,15613,15540,15704,15693,15431,15903,15180, 15499, 15500, 15498);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN (15176, 15180, 15181, 15183, 15188, 15191, 15293, 15194, 15270, 
+                                                                             15306, 15431, 15498, 15499, 15500, 15540, 15599, 
+                                                                             15612, 15613, 15693, 15701, 15704, 15903, 16091);
 # Two Cenarion Scouts - 15609 and 15610 - should be in this progression but they have some quest AI that we don't want to override, so leave them for now
 
 # Light's Hope Chapel
