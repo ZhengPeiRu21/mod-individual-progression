@@ -1060,6 +1060,10 @@ UPDATE `quest_template` SET `LogDescription` = "Fel'zerul in Stonard wants you t
 UPDATE `quest_template` SET `LogDescription` = "Kill 12 Rattlecage Skeletons, and then return to Shadow Priest Sarvis in Deathknell when you are done." WHERE `ID` = 3901;
 
 
+/* What Is Going On? */
+UPDATE `quest_template` SET `QuestCompletionLog` = "Return to Thrall in Orgrimmar." WHERE `ID` = 4001;
+
+
 /*  Galgar's Cactus Apple Surprise  */
 UPDATE `quest_template` SET `LogDescription` = "Bring Galgar 10 Cactus Apples. You remember him saying that they could be found near cactuses." WHERE `ID` = 4402;
 UPDATE `quest_template` SET `QuestDescription` = "It sure gets hot out here in the Valley of Trials.$B$B<Galgar wipes his brow.>$B$BIf only I had some cactus apples, I could make my famous cactus apple surprise! Nothing cools you off faster than a piece of that delicious treat.$B$BI'll tell you what, $N. If you bring me 10 cactus apples, I'll make you a few portions of cactus apple surprise to take with you on your adventures. If you're interested, you can find cactus apples growing near the cactus plants around here." WHERE `ID` = 4402;
