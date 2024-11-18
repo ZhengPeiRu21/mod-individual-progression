@@ -29,6 +29,10 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `entry` 
 -- Hide the portals to Blasted Lands until TBC is unlocked
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` IN (195141, 195142);
 
+-- Drop source for 2.3 Jewelcrafting Recipe
+-- disabled phasing for now to prevent the creature from attacking while phased
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 19768;
+
 -- Phasing Zul'Aman quest npcs until TBC T4.
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (19227, 23761);
 
