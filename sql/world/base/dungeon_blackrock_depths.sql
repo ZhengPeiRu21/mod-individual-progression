@@ -31,7 +31,7 @@ INSERT INTO `gameobject` (`guid`,`id`,`map`,`spawnMask`,`phaseMask`,`position_x`
 (@GUID,165554,230,1,1, 802.907, -356.401, -48.9423,0,0,0,-0.382683, 0.92388, 7200, 100, 1);
 
 UPDATE `creature_template` SET `AIName`='SmartAI' WHERE `entry` IN (@Assemblage, @DOOM);
-UPDATE `gameobject_template` SET `AIName`='SmartGameObjectAI' WHERE `entry` IN (@cover, @Dark, @Portrait, @ReliCoffer, @ReliCoffer2, @ReliCoffer3, @ReliCoffer4, @ReliCoffer5, @ReliCoffer6, @ReliCoffer7, @ReliCoffer8, @ReliCoffer9, @ReliCoffer10, @ReliCoffer11, @ReliCoffer12, @Secret);
+UPDATE `gameobject_template` SET `AIName`='SmartGameObjectAI' WHERE `entry` IN (@cover, @Dark, @ReliCoffer, @ReliCoffer2, @ReliCoffer3, @ReliCoffer4, @ReliCoffer5, @ReliCoffer6, @ReliCoffer7, @ReliCoffer8, @ReliCoffer9, @ReliCoffer10, @ReliCoffer11, @ReliCoffer12, @Secret);
 
 DELETE FROM `smart_scripts` WHERE `entryorguid`=@Assemblage AND `source_type`=0;
 DELETE FROM `smart_scripts` WHERE `entryorguid`=-46610 AND `source_type`=0;
