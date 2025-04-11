@@ -6,10 +6,14 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15282, 15270);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN (15176, 15180, 15181, 15183, 15188, 15191, 15293, 15194, 
-                                                                             15306, 15431, 15498, 15499, 15500, 15540, 15599, 
-                                                                             15612, 15613, 15693, 15701, 15704, 15903, 16091);
-# Two Cenarion Scouts - 15609 and 15610 - should be in this progression but they have some quest AI that we don't want to override, so leave them for now
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN (15176, 15180, 15181, 15183, 15188, 15189, 15190, 15191, 15293, 15194, 
+                                                                             15306, 15419, 15431, 15498, 15499, 15500, 15540, 15599, 
+                                                                             15612, 15613, 15614, 15693, 15701, 15704, 15903, 16091, 16543, 17081, 17082);
+-- Phasing Cenarion Hold guards
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_aq' WHERE `id1` = 15184 AND `guid` IN (42782, 42783, 42768);
+
+-- Phasing Wanted Poster Deathclasp
+UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_aq' WHERE `entry` IN (180448);
 
 # Light's Hope Chapel
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (11102, 16113, 16112, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16114, 16376, 16212, 16225, 16228, 16229,
