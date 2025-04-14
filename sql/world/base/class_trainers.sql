@@ -4,6 +4,9 @@ DELETE FROM `npc_trainer` WHERE `SpellID` = 1066;
 /* Restore Aquatic Form as a reward for Aquatic Form quests */
 UPDATE `quest_template` SET `RewardSpell` = 1446 WHERE `ID` IN (31, 5061);
 
+/* Remove Conjure Water (Rank 7) from Mage Trainers - it is a quest reward instead */
+DELETE FROM `npc_trainer` WHERE `SpellID` = 10140;
+
 /* Correct Vanilla level for Druid Travel Form */
 UPDATE `npc_trainer` SET `ReqLevel` = 30 WHERE `SpellID` = 783;
 
@@ -22,55 +25,12 @@ INSERT INTO `playercreateinfo_skills` (`raceMask`, `classMask`, `skill`, `rank`,
 DELETE FROM `npc_trainer` WHERE `ID` = 200015 AND `SpellID` = 674;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (200015, 674, 300, 0, 0, 10);
 
-
 -- Class skills taught by dropped items that should not be taught by trainers
 DELETE FROM npc_trainer
-WHERE SpellID IN (23028,
-                  21849,
-                  21850,
-                  31018,
-                  31709,
-                  27090,
-                  27127,
-                  28609,
-                  28612,
-                  21564,
-                  25392,
-                  27683,
-                  39374,
-                  29228,
-                  26991,
-                  33717,
-                  25304,
-                  25306,
-                  25345,
-                  25307,
-                  25309,
-                  25311,
-                  28610,
-                  25314,
-                  25315,
-                  25316,
-                  25290,
-                  25291,
-                  25292,
-                  25357,
-                  25361,
-                  25297,
-                  25298,
-                  25299,
-                  25286,
-                  25289,
-                  25288,
-                  25300,
-                  21302,
-                  25302,
-                  25294,
-                  25295,
-                  25296,
-                  31016,
-                  21562,
-                  19801);
+WHERE SpellID IN (19801, 21302, 21562, 21564, 21849, 21850, 23028, 
+    25286, 25288, 25289, 25290, 25291, 25292, 25294, 25295, 25296, 25297, 25298, 25299, 
+    25300, 25302, 25304, 25306, 25307, 25309, 25311, 25314, 25315, 25316, 25345, 25357, 25361, 25392, 
+    26991, 27090, 27127, 27683, 28609, 28610, 28612, 29228, 31016, 31018, 31709, 33717, 39374);
 
 /* Restore Tome of Tranquilizing Shot to Lucifron */
 DELETE FROM `creature_loot_template` WHERE `Entry`=12118 AND `Item`=16665 AND `Reference`=0 AND `GroupId`=0;
