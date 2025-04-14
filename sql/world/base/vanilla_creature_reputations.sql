@@ -151,8 +151,10 @@ UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 15 WHERE `creatur
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 25 WHERE `creature_id`=10199;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10381;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10382;
+UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10383;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10384;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10385;
+UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10387;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10390;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10391;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 5, `RewOnKillRepValue1` = 5 WHERE `creature_id`=10398;
