@@ -171,6 +171,9 @@ UPDATE `quest_template` SET `RewardNextQuest` = 1898 WHERE `ID` = 1886;
 UPDATE `quest_template` SET `RewardNextQuest` = 1899 WHERE `ID` = 1898;
 UPDATE `quest_template` SET `RewardNextQuest` = 1978 WHERE `ID` = 1899;
 
+UPDATE `conditions` SET `ConditionValue1`= 1886,  `comment` = 'Astor Hadren - Show gossip if quest 1886 is taken' WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 126;
+
+
 /* Restore Varimathras */
 UPDATE `creature` SET `id1`=2425, `equipment_id`=0 WHERE `id1`=36273;
 
