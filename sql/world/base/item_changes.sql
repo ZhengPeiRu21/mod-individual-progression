@@ -7843,6 +7843,9 @@ UPDATE `item_template` SET `stat_value1` = 27, `stat_type2` = 6, `stat_value2` =
 /*  Lead Surveyor's Mantle  */
 UPDATE `item_template` SET `stat_type2` = 6, `stat_value2` = 8, `spellid_2` = 0, `spelltrigger_2` = 0, `StatsCount` = 2 WHERE entry=11842;
 
+/* Handmade Leather Bag */
+UPDATE `item_template` SET `ContainerSlots` = 4 WHERE `entry` = 11845;
+
 /*  Battered Cloak  */
 UPDATE `item_template` SET `BuyPrice` = 38 WHERE entry=11847;
 
