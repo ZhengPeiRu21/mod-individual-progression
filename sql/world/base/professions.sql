@@ -36,7 +36,7 @@ UPDATE `npc_trainer` SET `ReqLevel` = 71 WHERE `SpellID` = 47280;
 -- Cooking Skills learned from Books and Quests, not trainers
 DELETE FROM npc_trainer WHERE SpellID IN (18261, 19886, 54257, 54256);
 UPDATE quest_template SET RewardItem1=16073, RewardAmount1=1 WHERE id = 6610;
-UPDATE item_template SET spellid_1 = 19887 WHERE entry = 16073;
+UPDATE item_template SET spellid_1 = 19887, spellcharges_1 = -1, spellppmrate_1 = -1 WHERE entry = 16073;
 
 -- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
 UPDATE npc_trainer SET ReqSkillRank = 200 WHERE SpellID = 37836;
