@@ -33,6 +33,13 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `entry` 
 -- Hide the portals to Blasted Lands until TBC is unlocked
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` IN (195141, 195142);
 
+-- Phasing Eye of the Storm Emissary until TBC
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 22013;
+
+-- Phasing Isle of Conquest Emissary and banner until WotLK
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (34948, 34950);
+UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `entry` = 195533;
+
 -- Drop source for 2.3 Jewelcrafting Recipe
 -- disabled phasing for now to prevent the creature from attacking while phased
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 19768;
