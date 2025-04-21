@@ -150,6 +150,9 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 /* Wrathgate NPCs - just deleting for now, but maybe can implement a post-Wrathgate world state later */
 DELETE FROM `creature` WHERE `guid` IN (43466, 79263);
 
+/* Disable conversation between Faranell and deleted Wrathgate NPC Kraggosh */
+UPDATE `creature_template` SET `AINAME` = '' WHERE `entry` = 2055;
+
 /* Restore quests series The Deathstalkers */
 DELETE FROM `creature_questender` WHERE `id` = 6467 AND `quest` = 14420;
 DELETE FROM `creature_questender` WHERE `id` = 6467 AND `quest` = 14421;
