@@ -490,7 +490,7 @@ UPDATE `quest_template` SET `LogDescription` = "Take the Small Scroll to Varimat
 UPDATE quest_template SET RequiredItemId2 = 0, RequiredItemCount2 = 0 WHERE ID=6621;
 
 /*  Deeprun Rat Roundup  */
-UPDATE quest_template SET RequiredNpcOrGo1 = 13016, RequiredItemId1 = 17117, RequiredItemId2 = 0, RequiredItemCount1 = 1, RequiredItemCount2 = 0 WHERE ID=6661;
+UPDATE quest_template SET RequiredNpcOrGo1 = 13017, RequiredItemId1 = 17117, RequiredItemId2 = 0, RequiredItemCount1 = 1, RequiredItemCount2 = 0 WHERE ID=6661;
 
 /*  Master Ryson's All Seeing Eye  */
 UPDATE quest_template SET MinLevel = 51 WHERE ID=6848;
