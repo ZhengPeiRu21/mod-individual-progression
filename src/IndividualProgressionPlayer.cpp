@@ -328,6 +328,13 @@ public:
         return true;
     }
 
+    // void InitLevelupSpellsForLevel() override
+    // {
+    //      if (!sIndividualProgression->enabled || !sIndividualProgression->WarlockDemonTrainers || isExcludedFromProgression(player))
+    //          break;
+    //    
+    // }
+
     void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
     {
         switch (newArea) {
