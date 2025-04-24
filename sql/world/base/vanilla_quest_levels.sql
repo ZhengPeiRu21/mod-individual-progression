@@ -127,6 +127,9 @@ UPDATE quest_template SET RequiredItemId1 = 3672, RequiredItemId2 = 0, RequiredI
 /*  Battle of Hillsbrad  */
 UPDATE quest_template SET RequiredNpcOrGoCount1 = 10, RequiredNpcOrGoCount2 = 8, RequiredNpcOrGoCount3 = 4 WHERE ID=541;
 
+/* Humbert's Sword */
+UPDATE quest_template SET QuestInfoID = 1 WHERE ID=547;
+
 /*  Helcular's Revenge  */
 UPDATE quest_template SET RequiredItemId1 = 3710, RequiredItemId4 = 0, RequiredItemCount1 = 1, RequiredItemCount4 = 0 WHERE ID=553;
 
@@ -475,7 +478,7 @@ UPDATE quest_template SET RequiredItemId1 = 15847, RequiredItemId4 = 0, Required
 UPDATE quest_template SET RequiredItemId1 = 15924, RequiredItemId2 = 0, RequiredItemCount1 = 10, RequiredItemCount2 = 0 WHERE ID=6142;
 
 /*  Arachnophobia  */
-UPDATE quest_template SET MinLevel = 15 WHERE ID=6284;
+UPDATE quest_template SET MinLevel = 15, QuestInfoID = 1 WHERE ID=6284;
 
 /*  New Life  */
 UPDATE quest_template SET RequiredItemId1 = 16208, RequiredItemId2 = 0, RequiredItemCount1 = 1, RequiredItemCount2 = 0 WHERE ID=6381;
