@@ -19,9 +19,6 @@ UPDATE quest_template SET RequiredItemId1 = 750 WHERE ID=33;
 /*  The Legend of Stalvan  */
 UPDATE quest_template SET QuestLevel = 35 WHERE ID=98;
 
-/* Shadow Magic */
-UPDATE quest_template SET QuestInfoID = 1, SuggestedGroupNum = 2 WHERE ID=115;
-
 /*  Howling in the Hills  */
 UPDATE quest_template SET QuestLevel = 25 WHERE ID=126;
 
@@ -868,7 +865,7 @@ UPDATE quest_template SET QuestLevel = 39 WHERE ID=8268;
 UPDATE quest_template SET MinLevel = 40 WHERE ID=8269;
 
 /* The Calling */
-UPDATE `quest_template` SET `flags` = `flags` | 64, `SuggestedGroupNum` = 0 WHERE `ID`= 8315;
+UPDATE `quest_template` SET `flags` = `flags` | 64, `SuggestedGroupNum` = 0, `QuestInfoID` = 62 WHERE `ID`= 8315;
 
 /*  Elemental Mastery  */
 UPDATE quest_template SET QuestLevel = 50 WHERE ID=8410;
@@ -929,6 +926,19 @@ UPDATE quest_template SET MinLevel = 1 WHERE ID=9416;
 
 /*  Scouring the Desert  */
 UPDATE quest_template SET MinLevel = 1 WHERE ID=9419;
+
+
+/* ========== Label group quests =========== */
+
+UPDATE quest_template SET QuestInfoID = 1 WHERE ID IN 
+(55, 99, 115, 193, 197, 202, 206, 248, 249, 253, 255, 271, 278, 303, 304, 314, 442, 450, 452, 474, 504, 517, 518, 519, 520, 531, 540, 541, 547, 591, 
+611, 613, 628, 629, 630, 631, 639, 640, 643, 644, 645, 646, 652, 673, 679, 680, 682, 684, 685, 694, 695, 696, 697, 705, 706, 717, 762, 793,
+1089, 1100, 1107, 1151, 1166, 1168, 1172, 1380, 1381, 1383, 1424, 2078, 2203, 2359, 2478, 2499, 2501, 2721, 2935, 2944, 2954, 2967, 2977, 2993, 2994,
+3062, 3181, 3182, 3201, 3372, 3385, 3452, 3463, 3510, 3514, 3566, 4023, 4182, 4787, 5054, 5055, 5056, 5065, 5088, 5098, 5121, 5153, 5156, 5168,
+5247, 5264, 5265, 6025, 6041, 6135, 6136, 6283, 6284, 6481, 7603, 7636, 7701, 7704, 7816, 7845, 7846, 7847, 7849, 7850, 7861, 7862,
+8301, 8302, 8304, 8306, 8308, 8309, 8310, 8314, 8331, 8332, 8349, 8361, 8362, 8498, 8501, 8502, 8507, 8534, 8535, 8536, 8537, 8539, 
+8687, 8731, 8737, 8738, 8739, 8740, 8770, 8771, 8772, 8773, 8774, 8775, 8776, 8777);
+
 
 /* ========== Update Quest Descriptions for Updated Counts =========== */
 
