@@ -198,7 +198,7 @@ UPDATE `creature_template` SET `mechanic_immune_mask` = 8405008 WHERE `entry` = 
 UPDATE `creature_template` SET `mechanic_immune_mask` = 8405008 WHERE `entry` = 4945;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 8405008 WHERE `entry` = 4946;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 617299803 WHERE `entry` = 4949;
-UPDATE `creature_template` SET `mechanic_immune_mask` = 8405008WHERE `entry` = 4952;
+UPDATE `creature_template` SET `mechanic_immune_mask` = 8405008 WHERE `entry` = 4952;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 617299803 WHERE `entry` = 4968;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 16384 WHERE `entry` = 4978;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 8405008 WHERE `entry` = 5202;
