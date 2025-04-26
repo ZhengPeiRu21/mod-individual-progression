@@ -2,9 +2,7 @@
 UPDATE `quest_template` SET `LogDescription`='Speak to the Minor Manifestation of Water in Silverpine Forest.' WHERE `ID`=100;
 
 -- dalaran wizard's robe dropped by incorrect creatures
--- it's part of reference_loot_template 1011415, 1011515, 1011516, 1011616
 DELETE FROM `reference_loot_template` WHERE `item` = 5110;
-
 DELETE FROM `creature_loot_template` WHERE `Item` = 5110;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (1867, 5110, 0, 3, 0, 1, 0, 1, 1, 'Dalaran Apprentice - Dalaran Wizard\'s Robe'),
