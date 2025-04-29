@@ -17,8 +17,8 @@ UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_aq' WHERE `entry` I
 
 # Light's Hope Chapel
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (11102, 16113, 16112, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16114, 16376, 16212, 16225, 16228, 16229,
-                                                                                 16256, 16283, 16284, 16378);
-# The above query adds one undesired creature to the phasing, so put it back to normal
+                                                                                 16256, 16283, 16284, 16378, 17069, 17072);
+# The above query adds one undesired creature (Pack Mule, 16225) to the phasing, so put it back to normal 
 UPDATE `creature` SET `phaseMask` = 1 WHERE `guid` = 56932;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
