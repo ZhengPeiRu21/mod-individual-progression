@@ -7898,19 +7898,19 @@ UPDATE `creature_template` SET `minlevel` = 41, `maxlevel` = 42 WHERE `entry`=43
 UPDATE `creature_template` SET `minlevel` = 42, `maxlevel` = 43 WHERE `entry`=4324;
 
 /*  Firemane Scalebane  */
-UPDATE `creature_template` SET `minlevel` = 43, `maxlevel` = 44, `speed_walk` = 0.888888 WHERE `entry`=4328;
+UPDATE `creature_template` SET `minlevel` = 43, `maxlevel` = 44, `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 3.95, `HealthModifier` = 3, `ManaModifier` = 2 WHERE `entry`=4328;
 
 /*  Firemane Scout  */
-UPDATE `creature_template` SET `minlevel` = 41, `maxlevel` = 42, `speed_walk` = 0.888888, `ArmorModifier` = 0.9 WHERE `entry`=4329;
+UPDATE `creature_template` SET `minlevel` = 41, `maxlevel` = 42, `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 4.25, `HealthModifier` = 3, `ArmorModifier` = 0.9 WHERE `entry`=4329;
 
 /*  Firemane Ash Tail  */
-UPDATE `creature_template` SET `minlevel` = 42, `maxlevel` = 43, `speed_walk` = 0.888888, `DamageModifier` = 0.9 WHERE `entry`=4331;
+UPDATE `creature_template` SET `minlevel` = 42, `maxlevel` = 43, `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 4.3, `HealthModifier` = 3, `ManaModifier` =  2.1 WHERE `entry`=4331;
 
 /*  Firemane Devourer  */
 UPDATE `creature_template` SET `minlevel` = 38, `maxlevel` = 39, `speed_walk` = 1.0, `detection_range` = 18.0 WHERE `entry`=4333;
 
 /*  Firemane Flamecaller  */
-UPDATE `creature_template` SET `minlevel` = 43, `maxlevel` = 44, `speed_walk` = 0.888888 WHERE `entry`=4334;
+UPDATE `creature_template` SET `minlevel` = 43, `maxlevel` = 44, `speed_walk` = 0.888888, `rank` = 1, `DamageModifier` = 3.95, `HealthModifier` = 3, `ManaModifier` = 2 WHERE `entry`=4334;
 
 /*  Brimgore  */
 UPDATE `creature_template` SET `minlevel` = 45, `maxlevel` = 45, `DamageModifier` = 2.65, `ArmorModifier` = 1.45 WHERE `entry`=4339;
