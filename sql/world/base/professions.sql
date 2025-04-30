@@ -25,6 +25,7 @@ DELETE FROM npc_trainer WHERE SpellID IN (7929, 10840, 27032, 27033);
 -- First Aid Skills should be from books or quests
 DELETE FROM npc_trainer WHERE SpellID IN (54254, 10847, 54255);
 UPDATE quest_template SET RewardItem3 = 16085, RewardAmount3 = 1 WHERE ID IN (6624, 6622);
+UPDATE `item_template` SET `description` = 'Teaches you advanced first aid, allowing a maximum of 300 first aid skill.' WHERE `entry` = 16085;
 
 -- TBC First Aid vendors
 UPDATE `creature_template` SET `npcflag` = 128 WHERE `entry` IN (18990, 18991);
