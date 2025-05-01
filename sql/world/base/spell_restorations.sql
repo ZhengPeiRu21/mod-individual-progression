@@ -63,38 +63,34 @@ INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes
     '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 'Physical damage taken is increased by $s1%.', '', '', '', '受到物理攻击时所承受的伤害提高$s1%。', '受到物理攻擊時所承受的傷害提高$s1%。', 
     '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0);
 
+/* Restore Ghost Wolf level requirement to 20 */
+UPDATE `npc_trainer` SET `ReqLevel` = 20 WHERE `SpellID` = 2645;
+
+/* Restore Aspect of the Cheetah level requirement to 20 */
+UPDATE `npc_trainer` SET `ReqLevel` = 20 WHERE `SpellID` = 5118;
 
 /* Highborne undead in Winterspring missing smart AI */
 DELETE FROM `smart_scripts` WHERE `entryorguid` = 7523 AND `event_param1` = 14868;
 DELETE FROM `smart_scripts` WHERE `entryorguid` = 7524 AND `event_param1` = 13860;
 DELETE FROM `smart_scripts` WHERE `entryorguid` = 10684 AND `event_param1` = 13860;
-
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
-
 /* Suffering Highborne (7523) */
 (7523, 0, 4, 0, 0, 0, 100, 0, 3000, 6000, 13000, 19000, 0, 0, 11, 14868, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 'Suffering Highborne - In Combat - Cast Curse of Agony'),
-
 /* Anguished Highborne (7524) */
 (7524, 0, 4, 0, 0, 0, 100, 0, 2200, 3400, 9800, 12700, 0, 0, 11, 13860, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Anguished Highborne - In Combat - Cast \'13860\''),
-
 /* Remorseful Highborne (10684) */
 (10684, 0, 1, 0, 0, 0, 100, 0, 2200, 3400, 9800, 12700, 0, 0, 11, 13860, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Remorseful Highborne - In Combat - Cast \'13860\'');
-
-
 
 /* Twilight cultists in Searing Gorge missing smart AI */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5860, 5861, 5862);
 DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5860, 5861, 5862);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-
 /* Twilight Dark Shaman (5860) */
 (5860, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 15500, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Dark Shaman - In Combat CMC - Cast \'Shock\''),
 (5860, 0, 1, 0, 0, 0, 100, 0, 2500, 10000, 35000, 40000, 0, 0, 11, 7289, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Dark Shaman - In Combat - Cast Shrink'),
 (5860, 0, 2, 0, 14, 0, 100, 0, 1000, 30, 8000, 11000, 0, 0, 11, 12491, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Dark Shaman - Friendly Missing Health - Cast Healing Wave'),
-
 /* Twilight Fire Guard (5861) */
 (5861, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 18000, 26000, 0, 0, 11, 15243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Fire Guard - In Combat - Cast \'Fireball Volley\''),
-
 /* Twilight Geomancer (5862) */
 (5862, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 9053, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Geomancer - In Combat CMC - Cast \'Fireball\''),
 (5862, 0, 1, 0, 0, 0, 100, 0, 4000, 9000, 18000, 26000, 0, 0, 11, 11436, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Geomancer - In Combat - Cast \'Slow\''),
