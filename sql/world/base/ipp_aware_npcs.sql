@@ -36,6 +36,9 @@ UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` 
 -- Phasing Eye of the Storm Emissary until TBC
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 22013;
 
+-- Phasing Strand of the Ancients Emissary until WotLK
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (30566, 30567);
+
 -- Phasing Isle of Conquest Emissary and banner until WotLK
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (34948, 34950);
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `entry` = 195533;
