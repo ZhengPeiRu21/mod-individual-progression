@@ -9,3 +9,6 @@ DELETE FROM `creature_addon` WHERE `guid` IN
 
 -- set drop rate of sigil of strom to 5%, was 100%
 UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 4440;
+
+-- summoning the princess, quest 656, remove suggested player 2
+UPDATE `quest_template` SET `SuggestedGroupNum` = 0 WHERE `ID` = 656;
