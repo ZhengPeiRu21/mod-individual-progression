@@ -29,8 +29,8 @@ DELETE FROM `smart_scripts` WHERE `entryorguid` = 3634 AND `action_param1` = 227
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 (3634, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Deviate Stalker - Out of Combat - Cast \'Sneak\'');
 
-/* Restore Silithid Pox to 30 Minutes */
-DELETE FROM `spell_dbc` WHERE `ID` = 8137;
+/* Restore Maggot Slime and Silithid Pox to 30 Minutes */
+DELETE FROM `spell_dbc` WHERE `ID` IN (8137, 16449);
 INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes`, `AttributesEx`, `AttributesEx2`, `AttributesEx3`, `AttributesEx4`, `AttributesEx5`, `AttributesEx6`, `AttributesEx7`, `ShapeshiftMask`, 
     `unk_320_2`, `ShapeshiftExclude`, `unk_320_3`, `Targets`, `TargetCreatureType`, `RequiresSpellFocus`, `FacingCasterFlags`, `CasterAuraState`, `TargetAuraState`, `ExcludeCasterAuraState`, `ExcludeTargetAuraState`, 
     `CasterAuraSpell`, `TargetAuraSpell`, `ExcludeCasterAuraSpell`, `ExcludeTargetAuraSpell`, `CastingTimeIndex`, `RecoveryTime`, `CategoryRecoveryTime`, `InterruptFlags`, `AuraInterruptFlags`, `ChannelInterruptFlags`, 
@@ -61,8 +61,17 @@ INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes
     'Silithid Pox', '', '', '', '异种蝎群天灾', '異種蠍群瘟疫', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712188, 
     'Increases the Physical damage taken by an enemy by $s1% for $d.', '', '', '', '受到物理攻击时所承受的伤害提高$s1%，$d。', '使敵人受到物理攻擊時所承受的傷害提高$s1%，持續$d。', 
     '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 'Physical damage taken is increased by $s1%.', '', '', '', '受到物理攻击时所承受的伤害提高$s1%。', '受到物理攻擊時所承受的傷害提高$s1%。', 
-    '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0);
+    '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0),
 
+(16449, 0, 3, 0, 327696, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0, -1, 0, 0, 6, 6, 0, 1, 1, 0, 0, 0, 0, -51, -51, 0, 0, 0, 0, 6, 6, 0, 0, 0, 0, 0, 0, 0, 99, 124, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 854, 0, 1468, 0, 0, 
+    'Maggot Slime', '', '', '', '蛆虫粘液', '蛆蟲粘液', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712188, 
+    'Reduces an enemy\'s melee attack power by $s1 and its ranged attack power by $s2 for $d.', '', '', '', 
+    '使敌人的近战攻击强度降低$s1点，远程攻击强度降低$s2点，持续$d。', '使敵人的近戰攻擊強度降低$s1點，遠程攻擊強度降低$s2點，持續$d。', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 
+    'Melee attack power reduced by $s1.\nRanged attack power reduced by $s2.', '', '', '', '使敌人的近战攻击强度降低$s1点，远程攻击强度降低$s2点，持续$d。', '近戰攻擊強度降低$s1點。遠程攻擊強度降低$s2點。', 
+    '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 1, 1, 0, 0);
+
+    
 /* Restore Ghost Wolf level requirement to 20 */
 UPDATE `npc_trainer` SET `ReqLevel` = 20 WHERE `SpellID` = 2645;
 
