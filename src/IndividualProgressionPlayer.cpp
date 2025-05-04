@@ -87,7 +87,7 @@ public:
     void OnPlayerAfterUpdateMaxHealth(Player* player, float& value) override
     {
         // TODO: This should be adjust to use an aura like damage adjustment. This is more robust to update when changing equipment, etc.
-        if (!sIndividualProgression->enabled  || isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled || isExcludedFromProgression(player))
         {
             return;
         }
@@ -119,7 +119,7 @@ public:
 
     void OnPlayerQuestComputeXP(Player* player, Quest const* quest, uint32& xpValue) override
     {
-        if (!sIndividualProgression->enabled || !sIndividualProgression->questXpFix  || isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled || !sIndividualProgression->questXpFix || isExcludedFromProgression(player))
         {
             return;
         }
@@ -249,7 +249,7 @@ public:
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
     {
-        if (!sIndividualProgression->enabled  || isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled || isExcludedFromProgression(player))
         {
             return;
         }
@@ -321,7 +321,7 @@ public:
 
     bool OnPlayerUpdateFishingSkill(Player* player, int32 /*skill*/, int32 /*zone_skill*/, int32 chance, int32 roll) override
     {
-        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix  || isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix || isExcludedFromProgression(player))
             return true;
         if (chance < roll)
             return false;
