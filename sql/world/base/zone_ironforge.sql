@@ -122,3 +122,13 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5172, 4487);
 -- Nissa Firestone <First Aid Trainer> 
 DELETE FROM `npc_trainer` WHERE `ID`=5150; 
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5150, -350000); 
+
+-- Show AQ war effort objects during pre-AQ phase (this will probably be moved to separate sql)
+DELETE FROM `gameobject` WHERE `id` IN (180598, 180679, 180680, 180681);
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
+    `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES 
+
+(29294, 180598, 0, 0, 0, 1, 1, -4971.55, -1148.57, 501.648, 2.28638, 0, 0, 0.909961, 0.414693, 180, 100, 1, 'gobject_ipp_we', 0, NULL),
+(29299, 180681, 0, 0, 0, 1, 1, -4958.51, -1179.32, 501.659, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_we', 0, NULL),
+(29300, 180680, 0, 0, 0, 1, 1, -4913.85, -1226, 501.651, 2.25148, 0, 0, 0.902585, 0.430511, 180, 100, 1, 'gobject_ipp_we', 0, NULL),
+(29301, 180679, 0, 0, 0, 1, 1, -4937.29, -1282.74, 501.672, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_we', 0, NULL);
