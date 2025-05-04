@@ -1,4 +1,4 @@
--- Horde Pre-AQ War Npcs
+-- Horde Collector Npcs
 DELETE FROM `creature` WHERE `id1` IN (15383, 15431, 15432, 15434, 15437, 15445, 15446, 15448, 15450, 15451, 15452, 15453, 15455, 15456, 15457, 15700);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (3115452,15383,0,0,0,0,0,1,1,1,-4914.29,-1228.1,501.65,3.66003,300,0,0,13495,0,0,0,0,0,'',0),
@@ -18,7 +18,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (3115440,15457,0,0,0,0,0,1,1,1,-4933.33,-1278.1,501.666,2.70444,300,0,0,15260,0,0,0,0,0,'',0),
 (3115437,15700,0,0,1,0,0,1,1,1,16233.2,16262.5,13.6813,0.665966,300,0,0,30520,0,0,0,134217728,0,'',0);
 
--- Alliance Pre-AQ War Npcs
+-- Alliance Collector Npcs
 DELETE FROM `creature` WHERE `id1` IN (15459, 15460, 15469, 15477, 15508, 15512, 15515, 15522, 15525, 15528, 15529, 15532, 15533, 15534, 15535);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (3115472,15459,0,0,1,0,0,1,1,1,1671.67,-4107.41,36.0965,3.85839,300,0,0,13495,0,0,0,0,0,'',0),
@@ -109,9 +109,16 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_we' WHERE `entry` IN
 (15383, 15431, 15432, 15434, 15437, 15445, 15446, 15448, 15450, 15451, 15452, 15453, 15455, 15456, 15457, 15700, 15701, 15459, 15460, 15469, 15477, 15508, 15512, 15515, 
 15522, 15525, 15528, 15529, 15532, 15533, 15534, 15535, 21968, 15738, 15737, 15739, 15736, 15731, 15733, 15735, 15734, 21969, 15810, 15813, 15742, 15741, 15740, 15758, 15818);
 
--- Phase AQ War Effort Objects - Alliance
-DELETE FROM `gameobject` WHERE `id` IN (180598, 180679, 180680, 180681);
-INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES 
+-- Phase AQ War Effort Objects
+DELETE FROM `gameobject` WHERE `id` IN (180598, 180679, 180680, 180681, 180818, 180826, 180832, 180838);
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES 
+-- Horde
+(29294, 180818, 0, 0, 0, 1, 1, , , , , 0, 0, , , 180, 100, 1, 'gobject_ipp_we', 0, NULL),
+(29299, 180826, 0, 0, 0, 1, 1, , , , , 0, 0, , , 180, 100, 1, 'gobject_ipp_we', 0, NULL),
+(29300, 180832, 0, 0, 0, 1, 1, , , , , 0, 0, , , 180, 100, 1, 'gobject_ipp_we', 0, NULL),
+(29301, 180838, 0, 0, 0, 1, 1, , , , , 0, 0, , , 180, 100, 1, 'gobject_ipp_we', 0, NULL),
+-- Alliance
 (29294, 180598, 0, 0, 0, 1, 1, -4971.55, -1148.57, 501.648, 2.28638, 0, 0, 0.909961, 0.414693, 180, 100, 1, 'gobject_ipp_we', 0, NULL),
 (29299, 180681, 0, 0, 0, 1, 1, -4958.51, -1179.32, 501.659, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_we', 0, NULL),
 (29300, 180680, 0, 0, 0, 1, 1, -4913.85, -1226, 501.651, 2.25148, 0, 0, 0.902585, 0.430511, 180, 100, 1, 'gobject_ipp_we', 0, NULL),
