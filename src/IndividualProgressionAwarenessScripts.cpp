@@ -104,6 +104,41 @@ public:
     }
 };
 
+class gobject_ipp_we : public GameObjectScript
+{
+public:
+    gobject_ipp_we() : GameObjectScript("gobject_ipp_we") { }
+
+    struct gobject_ipp_weAI: GameObjectAI
+    {
+        explicit gobject_ipp_weAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
+            {
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+            }
+            else
+            {
+                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
+            }
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_weAI(object);
+    }
+};
+
 class npc_ipp_tbc_t4 : public CreatureScript
 {
 public:
@@ -312,6 +347,41 @@ public:
     }
 };
 
+class npc_ipp_we : public CreatureScript
+{
+public:
+    npc_ipp_we() : CreatureScript("npc_ipp_we") { }
+
+    struct npc_ipp_weAI: ScriptedAI
+    {
+        explicit npc_ipp_weAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+			
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+			
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
+            {
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+            }
+            else
+            {
+                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
+            }			
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_weAI(creature);
+    }
+};
+
 class npc_ipp_ds2 : public CreatureScript
 {
 public:
@@ -370,6 +440,7 @@ public:
 // Add all scripts in one
 void AddSC_mod_individual_progression_awareness()
 {
+    new npc_ipp_we(); // aq war effort
     new npc_ipp_aq();
 //    new npc_ipp_naxx40(); // Not used yet
     new npc_ipp_ds2();
@@ -383,5 +454,6 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_wotlk_icc();
     new gobject_ipp_tbc();
     new gobject_ipp_aq();
+    new gobject_ipp_we(); // aq war effort
 //    new gobject_ipp_wotlk(); // Not used yet
 }
