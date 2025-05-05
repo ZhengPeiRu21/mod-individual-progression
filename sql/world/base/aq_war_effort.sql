@@ -77,8 +77,6 @@ DELETE FROM `creature_template_addon` WHERE `entry` IN (@NPC);
 INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES
 (@NPC,@PATH,14347,0,1,0,0, '');
 
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `id1` = 15701;
-
 SET @NPC := 15700;
 SET @PATH := @NPC * 10;
 DELETE FROM `waypoint_data` WHERE `id` = @PATH;
@@ -99,9 +97,9 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (@PATH, 14, 1580.579590, -4161.104004, 35.596245, 1.116816, 0, 0, 0, 100, 0),
 (@PATH, 15, 1578.605957, -4182.716797, 39.134441, 1.467103, 0, 0, 0, 100, 0);
 
-UPDATE `creature_template_addon` SET `path_id` = @PATH WHERE `entry` = @NPC;
-
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `id1` = @NPC;
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@NPC);
+INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES
+(@NPC,@PATH,14573,0,0,0,0, '');
 
 -- Phase AQ War Effort Npcs
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_we' WHERE `entry` IN 
