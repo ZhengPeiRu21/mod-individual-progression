@@ -87,6 +87,11 @@ public:
                 return false; 
             }
 
+            /*
+            Gong can be seen even if the AQ raid is released because during the original event, 
+            some players could still activate the gong during the first 24 hours.
+            This allows to simulate this effect (IndividualProgression.RequirePreAQQuests = 0)
+            */
             return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
         }
 
@@ -221,7 +226,11 @@ public:
                 return false; 
             }
 
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+            /* 
+            Gate is visible and closed if the player has not passed the gong quest (IndividualProgression.RequirePreAQQuests = 1)
+            or has not yet benefited from the skip after defeating Nefarian (IndividualProgression.RequirePreAQQuests = 0)
+            */
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
         }
     };
 
