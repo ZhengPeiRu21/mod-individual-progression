@@ -226,11 +226,16 @@ public:
                 return false; 
             }
 
-            /* 
-            Gate is visible and closed if the player has not passed the gong quest if it's required (IndividualProgression.RequirePreAQQuests = 1)
-            or has not yet benefited from the skip before defeating Nefarian if gong quest not required (IndividualProgression.RequirePreAQQuests = 0)
-            */
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+            if (sIndividualProgression->requirePreAQQuests)
+            {
+                // Gate visible and closed if player has not passed the gong quest if it's required (IndividualProgression.RequirePreAQQuests = 1)
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+            }
+            else
+            {
+                // Gate visible and closed if player has not yet benefited from the skip before defeating Nefarian if gong quest not required (IndividualProgression.RequirePreAQQuests = 0)
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+            }
         }
     };
 
