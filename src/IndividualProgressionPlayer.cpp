@@ -600,15 +600,15 @@ private:
         {
             return;
         }
-        if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40) || (isExcludedFromProgression(player) && (pet->GetOwner()->GetLevel() < 61)))
+		
+        if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40))
         {
             AdjustVanillaStats(pet);
         }
-        else if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5) || (isExcludedFromProgression(player) && (pet->GetOwner()->GetLevel() < 71)))
+        else if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5))
         {
             AdjustTBCStats(pet);
         }
-
     }
 
     static void AdjustVanillaStats(Pet* pet)
@@ -669,6 +669,17 @@ private:
 
 public:
     IndividualPlayerProgression_UnitScript() : UnitScript("IndividualPlayerProgression_UnitScript") { }
+
+    bool isExcludedFromProgression(Player* player)
+    {
+        if(!sIndividualProgression->excludeAccounts) {
+            return false;
+        }
+        std::string accountName;
+        bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
+        std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
+        return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
+    }
 
     void ModifyHealReceived(Unit* /*target*/, Unit *healer, uint32 &heal, SpellInfo const *spellInfo) override
     {
