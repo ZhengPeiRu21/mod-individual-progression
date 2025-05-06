@@ -219,20 +219,23 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             if (!target)
             {
                 return false; 
             }
 
-        	if (!sIndividualProgression->requirePreAQQuests)
+            if (sIndividualProgression->requirePreAQQuests)
             {
-                // Gate visible and closed if player has not yet benefited from the skip before defeating Nefarian if gong quest not required (IndividualProgression.RequirePreAQQuests = 0)
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+                // (RequirePreAQQuests = 1) - AQ gate closed after Nefarian kill. War effort starts. AQ Quest line needs to be done to open the gate. 
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
             }
-
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+            else
+            {
+                // (RequirePreAQQuests = 0) - AQ gate open after Nefarian kill - you skip the war effort
+                // the AQ gate will be closed if you manually set yourself to the pre-aq phase and you will also have to manually set yourself to the next phase.
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+            }            
         }
     };
 
