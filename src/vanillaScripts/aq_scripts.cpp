@@ -233,7 +233,7 @@ public:
             else
             {
                 // (RequirePreAQQuests = 0) - AQ gate open after Nefarian kill - you skip the war effort
-                // the AQ gate will be closed if you manually set yourself to the pre-aq phase and you will also have to manually set yourself to the next phase.
+                // the AQ gate will be open if you manually set yourself to the pre-aq phase.
                 return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
             }            
         }
