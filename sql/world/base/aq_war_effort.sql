@@ -185,23 +185,6 @@ UPDATE `quest_offer_reward` SET `RewardText` = 'Ok, this stack of meat looks goo
 UPDATE `quest_offer_reward` SET `RewardText` = 'Oh ya, this be the good stuff. I pack it up real nice so it not go to waste. Thanks be to you for helpin\' me out like this. I\'m thinkin\' you an A-number-one fisherman for all this spotted yellowtail. An if you happen to fish up and cook even more, you bring it to me here; I make sure everyone know you did!' WHERE `ID` = 8613;
 UPDATE `quest_offer_reward` SET `RewardText` = 'Thank you for proving your interest in helping with the war effort here, $C. Many would simply ignore our needs, opting instead to make a profit. But they do not have the gratitude of the Horde, as you now do. Their hearts are not full, as yours must be filled with the pride that comes from selfless giving.$B$BAgain, I thank you. Should you find the time to assist us further before our preparations are complete, I will be here waiting.' WHERE `ID` = 8615;
 
--- Horde QuestCompletionLog fixes
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Miner Cromwell in Orgrimmar.' WHERE `ID` IN (8532, 8533);
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Grunt Maug in Orgrimmar.' WHERE `ID` IN (8542, 8543);
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Senior Sergeant T\'kelah in Orgrimmar.' WHERE `ID` IN (8545, 8546);
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Herbalist Proudfeather in Orgrimmar.' WHERE `ID` IN (8549, 8550);
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Batrider Pele\'keiki in Orgrimmar.' WHERE `ID` IN (8580, 8581);
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Apothecary Jezel in Orgrimmar.' WHERE `ID` IN (8582, 8583);
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skinner Jamani in Orgrimmar.' WHERE `ID` = 8589;
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sergeant Umala in Orgrimmar.' WHERE `ID` = 8591;
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Doctor Serratus in Orgrimmar.' WHERE `ID` = 8601;
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Healer Longrunner in Orgrimmar.' WHERE `ID` = 8605;
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Lady Callow in Orgrimmar.' WHERE `ID` = 8608;
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Stoneguard Clayhoof in Orgrimmar.' WHERE `ID` = 8610;
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Bloodguard Rawtar in Orgrimmar.' WHERE `ID` IN (8611, 8612);
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Fisherman Lin\'do in Orgrimmar.' WHERE `ID` IN (8613, 8614);
-UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Chief Sharpclaw in Orgrimmar.' WHERE `ID` IN (8615, 8616);
-
 -- Horde LogDescription fixes
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 copper bars to Miner Cromwell in Orgrimmar.' WHERE `ID` = 8533;
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 tin bars to Grunt Maug in Orgrimmar.' WHERE `ID` = 8543;
@@ -218,6 +201,23 @@ UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Runecloth Bandages to S
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Lean Wolf Steaks to Bloodguard Rawtar in Orgrimmar.' WHERE `ID` = 8612;
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Spotted Yellowtail to Fisherman Lin\'do in Orgrimmar.' WHERE `ID` = 8614;
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Baked Salmon to Chief Sharpclaw in Orgrimmar.' WHERE `ID` = 8616;
+
+-- Horde QuestCompletionLog fixes
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Miner Cromwell in Orgrimmar.' WHERE `ID` IN (8532, 8533);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Grunt Maug in Orgrimmar.' WHERE `ID` IN (8542, 8543);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Senior Sergeant T\'kelah in Orgrimmar.' WHERE `ID` IN (8545, 8546);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Herbalist Proudfeather in Orgrimmar.' WHERE `ID` IN (8549, 8550);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Batrider Pele\'keiki in Orgrimmar.' WHERE `ID` IN (8580, 8581);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Apothecary Jezel in Orgrimmar.' WHERE `ID` IN (8582, 8583);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skinner Jamani in Orgrimmar.' WHERE `ID` = 8589;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sergeant Umala in Orgrimmar.' WHERE `ID` = 8591;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Doctor Serratus in Orgrimmar.' WHERE `ID` = 8601;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Healer Longrunner in Orgrimmar.' WHERE `ID` = 8605;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Lady Callow in Orgrimmar.' WHERE `ID` = 8608;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Stoneguard Clayhoof in Orgrimmar.' WHERE `ID` = 8610;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Bloodguard Rawtar in Orgrimmar.' WHERE `ID` IN (8611, 8612);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Fisherman Lin\'do in Orgrimmar.' WHERE `ID` IN (8613, 8614);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Chief Sharpclaw in Orgrimmar.' WHERE `ID` IN (8615, 8616);
 
 -- Horde quest_template_addon fixes
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` = 8609;
