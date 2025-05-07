@@ -15977,7 +15977,7 @@ UPDATE `item_template` SET `BuyPrice` = 121433, `SellPrice` = 24286, `Disenchant
 UPDATE `item_template` SET `BuyPrice` = 91427, `SellPrice` = 18285, `DisenchantID` = 49 WHERE entry=19695;
 
 /*  Rune of the Dawn  */
-UPDATE `item_template` SET `spellid_2` = 0, `spelltrigger_2` = 0 WHERE entry=19812;
+UPDATE `item_template` SET `spellid_2` = 17670, `spelltrigger_2` = 1 WHERE entry=19812;
 
 /*  Zandalar Vindicator's Breastplate  */
 UPDATE `item_template` SET `armor` = 828 WHERE entry=19822;
