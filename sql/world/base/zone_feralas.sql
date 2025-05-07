@@ -28,3 +28,28 @@ UPDATE `quest_request_items` SET `CompletionText` =
 DELETE FROM `item_dbc` WHERE `ID` = 9594;
 INSERT INTO `item_dbc` (`ID`, `ClassID`, `SubclassID`, `Sound_Override_Subclassid`, `Material`, `DisplayInfoID`, `InventoryType`, `SheatheType`) VALUES
 (9594, 12, 0, -1, 1, 18094, 0, 0);
+
+-- update quest poi map markers
+DELETE FROM `quest_poi` WHERE `QuestID` = 3123;
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`, `VerifiedBuild`) VALUES
+(3123, 0, -1, 1, 121, 0, 0, 1, 0),
+(3123, 1, 4, 0, 26, 0, 0, 1, 0),
+(3123, 2, 4, 0, 26, 0, 0, 1, 0);
+
+DELETE FROM `quest_poi_points` WHERE `QuestID` = 3123;
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`, `VerifiedBuild`) VALUES 
+(3123, 0, 0, -4376, 270, 0),
+(3123, 1, 1, 218, -4582, 0),
+(3123, 1, 2, 314, -4217, 0),
+(3123, 1, 3, 217, -4117, 0),
+(3123, 1, 4, 16, -4117, 0),
+(3123, 1, 5, -83, -4149, 0),
+(3123, 2, 0, -150, -3551, 0),
+(3123, 2, 1, -81, -3551, 0),
+(3123, 2, 2, -17, -3550, 0),
+(3123, 2, 3, 249, -3415, 0),
+(3123, 2, 4, 382, -3152, 0),
+(3123, 2, 5, 351, -3056, 0),
+(3123, 2, 6, -50, -2983, 0),
+(3123, 2, 7, -85, -3015, 0),
+(3123, 2, 8, -250, -3183, 0);
