@@ -1,6 +1,8 @@
-/* Quest - Testing the Vessel - now asks for Wildkin Muisek instead of Beast Muisek */
+/* fix Gordunni Orb drop rate. Was set to 100 */
+UPDATE `creature_loot_template` SET `Chance` = 15 WHERE `Item` = 9371;
 
--- update name and displayid, was 61417
+
+/* Quest - Testing the Vessel - now asks for Wildkin Muisek instead of Beast Muisek */
 UPDATE `item_template` SET `name` = 'Wildkin Muisek', `displayid` = 18094 WHERE `entry` = 9594;
 UPDATE `item_template` SET `name` = 'Wildkin Muisek Vessel' WHERE `entry` = 9618;
 
