@@ -122,6 +122,47 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 (4180680, 180680, 0, 0, 0, 1, 1, -4913.85, -1226, 501.651, 2.25148, 0, 0, 0.902585, 0.430511, 180, 100, 1, 'gobject_ipp_we', 0, NULL),    -- bars
 (4180679, 180679, 0, 0, 0, 1, 1, -4937.29, -1282.74, 501.672, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_we', 0, NULL); -- cooking and herbs
 
+-- Alliance CompletionText fixes
+UPDATE `quest_request_items` SET `CompletionText` = 'I do so hope that you have been successful in gathering the thorium bars that we spoke of earlier.' WHERE `ID` = 8499;
+UPDATE `quest_request_items` SET `CompletionText` = 'Hello, $C, have you been able to get those twenty silk bandages yet?' WHERE `ID` = 8520;
+
+-- Alliance RewardText fixes
+UPDATE `quest_offer_reward` SET `RewardText` = 'Oh thank you, $C! Thank you! That\'s twenty down and an incalculable amount to go. You have the gratitude of the Alliance, and your efforts shall not go unrewarded. Speak to me again should you come across more thorium bars.' WHERE `ID` = 8499;
+
+-- Alliance LogDescription fixes
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Copper Bars to Sergeant Stonebrow in Ironforge.' WHERE `ID` = 8493;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Iron Bars to Corporal Carnes in Ironforge.' WHERE `ID` = 8495;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Thorium Bars to Dame Twinbraid at the Military Ward in Ironforge.' WHERE `ID` = 8500;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Stranglekelp to Private Draxlegauge in Ironforge.' WHERE `ID` = 8504;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Purple Lotus to Master Nightsong in Ironforge.' WHERE `ID` = 8506;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Arthas\' Tears to Sergeant Major Germaine in Ironforge.' WHERE `ID` = 8510;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Light Leather to Bonnie Stoneflayer in Ironforge.' WHERE `ID` = 8512;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Medium Leather to Private Porter in Ironforge.' WHERE `ID` = 8514;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Thick Leather to Marta Finespindle in Ironforge.' WHERE `ID` = 8516;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Linen Bandages to Sentinel Silversky in Ironforge.' WHERE `ID` = 8518;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Silk Bandages to Nurse Stonefield in Ironforge.' WHERE `ID` = 8521;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Runecloth Bandages to Keeper Moonshade in Ironforge.' WHERE `ID` = 8523;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Rainbow Fin Albacore to Slicky Gastronome in Ironforge.' WHERE `ID` = 8525;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Roast Raptor to Sarah Sadwhistle in Ironforge.' WHERE `ID` = 8527;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Spotted Yellowtail to Huntress Swiftriver in Ironforge.' WHERE `ID` = 8529;
+
+-- Alliance QuestCompletionLog fixes
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sergeant Stonebrow in Ironforge.' WHERE `ID` IN (8492, 8493);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Corporal Carnes in Ironforge.' WHERE `ID` IN (8494, 8495);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Dame Twinbraid in Ironforge.' WHERE `ID` IN (8499, 8500);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Private Draxlegauge in Ironforge.' WHERE `ID` IN (8503, 8504);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Master Nightsong in Ironforge.' WHERE `ID` IN (8505, 8506);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sergeant Major Germaine in Ironforge.' WHERE `ID` IN (8509, 8510);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Bonnie Stoneflayer in Ironforge.' WHERE `ID` IN (8511, 8512);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Private Porter in Ironforge.' WHERE `ID` IN (8513, 8514);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Marta Finespindle in Ironforge.' WHERE `ID` IN (8515, 8516);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sentinel Silversky in Ironforge.' WHERE `ID` IN (8517, 8518);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Nurse Stonefield in Ironforge.' WHERE `ID` IN (8520, 8521);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Keeper Moonshade in Ironforge.' WHERE `ID` IN (8522, 8523);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Slicky Gastronome in Ironforge.' WHERE `ID` IN (8524, 8525);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sarah Sadwhistle in Ironforge.' WHERE `ID` IN (8526, 8527);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Huntress Swiftriver in Ironforge.' WHERE `ID` IN (8528, 8529);
+
 -- Horde CompletionText fixes
 UPDATE `quest_request_items` SET `CompletionText` = 'How many tin bars do you have there, $c? After the war I think I\'m going to need someone to teach me how to count.' WHERE `ID` = 8542;
 UPDATE `quest_request_items` SET `CompletionText` = 'Back so soon with the peacebloom, $c?' WHERE `ID` = 8549;
