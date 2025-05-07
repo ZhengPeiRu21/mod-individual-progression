@@ -121,3 +121,104 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 (4180681, 180681, 0, 0, 0, 1, 1, -4958.51, -1179.32, 501.659, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_we', 0, NULL), -- skins
 (4180680, 180680, 0, 0, 0, 1, 1, -4913.85, -1226, 501.651, 2.25148, 0, 0, 0.902585, 0.430511, 180, 100, 1, 'gobject_ipp_we', 0, NULL),    -- bars
 (4180679, 180679, 0, 0, 0, 1, 1, -4937.29, -1282.74, 501.672, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_we', 0, NULL); -- cooking and herbs
+
+-- Alliance CompletionText fixes
+UPDATE `quest_request_items` SET `CompletionText` = 'I do so hope that you have been successful in gathering the thorium bars that we spoke of earlier.' WHERE `ID` = 8499;
+UPDATE `quest_request_items` SET `CompletionText` = 'Hello, $C, have you been able to get those twenty silk bandages yet?' WHERE `ID` = 8520;
+
+-- Alliance RewardText fixes
+UPDATE `quest_offer_reward` SET `RewardText` = 'Oh thank you, $C! Thank you! That\'s twenty down and an incalculable amount to go. You have the gratitude of the Alliance, and your efforts shall not go unrewarded. Speak to me again should you come across more thorium bars.' WHERE `ID` = 8499;
+
+-- Alliance LogDescription fixes
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Copper Bars to Sergeant Stonebrow in Ironforge.' WHERE `ID` = 8493;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Iron Bars to Corporal Carnes in Ironforge.' WHERE `ID` = 8495;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Thorium Bars to Dame Twinbraid at the Military Ward in Ironforge.' WHERE `ID` = 8500;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Stranglekelp to Private Draxlegauge in Ironforge.' WHERE `ID` = 8504;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Purple Lotus to Master Nightsong in Ironforge.' WHERE `ID` = 8506;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Arthas\' Tears to Sergeant Major Germaine in Ironforge.' WHERE `ID` = 8510;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Light Leather to Bonnie Stoneflayer in Ironforge.' WHERE `ID` = 8512;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Medium Leather to Private Porter in Ironforge.' WHERE `ID` = 8514;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Thick Leather to Marta Finespindle in Ironforge.' WHERE `ID` = 8516;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Linen Bandages to Sentinel Silversky in Ironforge.' WHERE `ID` = 8518;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Silk Bandages to Nurse Stonefield in Ironforge.' WHERE `ID` = 8521;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Runecloth Bandages to Keeper Moonshade in Ironforge.' WHERE `ID` = 8523;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Rainbow Fin Albacore to Slicky Gastronome in Ironforge.' WHERE `ID` = 8525;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Roast Raptor to Sarah Sadwhistle in Ironforge.' WHERE `ID` = 8527;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Spotted Yellowtail to Huntress Swiftriver in Ironforge.' WHERE `ID` = 8529;
+
+-- Alliance QuestCompletionLog fixes
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sergeant Stonebrow in Ironforge.' WHERE `ID` IN (8492, 8493);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Corporal Carnes in Ironforge.' WHERE `ID` IN (8494, 8495);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Dame Twinbraid in Ironforge.' WHERE `ID` IN (8499, 8500);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Private Draxlegauge in Ironforge.' WHERE `ID` IN (8503, 8504);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Master Nightsong in Ironforge.' WHERE `ID` IN (8505, 8506);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sergeant Major Germaine in Ironforge.' WHERE `ID` IN (8509, 8510);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Bonnie Stoneflayer in Ironforge.' WHERE `ID` IN (8511, 8512);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Private Porter in Ironforge.' WHERE `ID` IN (8513, 8514);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Marta Finespindle in Ironforge.' WHERE `ID` IN (8515, 8516);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sentinel Silversky in Ironforge.' WHERE `ID` IN (8517, 8518);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Nurse Stonefield in Ironforge.' WHERE `ID` IN (8520, 8521);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Keeper Moonshade in Ironforge.' WHERE `ID` IN (8522, 8523);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Slicky Gastronome in Ironforge.' WHERE `ID` IN (8524, 8525);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sarah Sadwhistle in Ironforge.' WHERE `ID` IN (8526, 8527);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Huntress Swiftriver in Ironforge.' WHERE `ID` IN (8528, 8529);
+
+-- Horde CompletionText fixes
+UPDATE `quest_request_items` SET `CompletionText` = 'How many tin bars do you have there, $c? After the war I think I\'m going to need someone to teach me how to count.' WHERE `ID` = 8542;
+UPDATE `quest_request_items` SET `CompletionText` = 'Back so soon with the peacebloom, $c?' WHERE `ID` = 8549;
+UPDATE `quest_request_items` SET `CompletionText` = 'Returned already with the purple lotus that I have requested, $C? It is critical that you do so in as timely as fashion as possible lest all that I am attempting here come to naught.' WHERE `ID` = 8582;
+UPDATE `quest_request_items` SET `CompletionText` = 'Ah, $C, have you returned so quickly with the wool bandages?' WHERE `ID` = 8604;
+UPDATE `quest_request_items` SET `CompletionText` = 'The war comes soon, I think, $C. I thank you for your time and effort devoted to helping with our gathering tasks. Do you return because you have obtained the runecloth bandages that we spoke of before?' WHERE `ID` = 8609;
+UPDATE `quest_request_items` SET `CompletionText` = 'Back with those lean wolf steaks so soon, $C? I don\'t care if they\'re overcooked or tartar, just make sure they\'re tasty and get them to me quick!' WHERE `ID` = 8611;
+UPDATE `quest_request_items` SET `CompletionText` = 'Back so soon with the spotted yellowtail, $C? You rememba\' to cook it up nice? We not servin\' raw fish to the soldiers out in the hot desert sun, to be sure.' WHERE `ID` = 8613;
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you returned with the baked salmon, $C? Remember, it must be cooked; I have no use for raw fish unfortunately.' WHERE `ID` = 8615;
+
+-- Horde RewardText fixes
+UPDATE `quest_offer_reward` SET `RewardText` = 'Well, I guess that looks like the right number of tin bars. Don\'t try to fool me, $C! Counting makes my skull hurt. Now I go and put these bars on the stack and you go out and bring me back more of the same.' WHERE `ID` = 8542;
+UPDATE `quest_offer_reward` SET `RewardText` = 'And so our efforts push us that much closer to war. Thank you for your hard work in gathering this peacebloom $C. I assure you that it will go to good use, and that your contribution has been noted $N. Should you find yourself willing, please return to me again with more of the flowers. Until then, may the Earth Mother guide you.' WHERE `ID` = 8549;
+UPDATE `quest_offer_reward` SET `RewardText` = '$C! Pele\'keiki happy for now. Pele\'keiki take all that firebloom and put it in box so it stay fresh. Pele\'keiki be seein\' to it that all the firebloom bein\' made into good stuff for the war. And if you be gettin\' anymore, you come see Pele\'keiki fast. Pele\'keiki prolly be needin\' more.' WHERE `ID` = 8580;
+UPDATE `quest_offer_reward` SET `RewardText` = 'A commendable effort, $C. I will measure these specimens for their appropriate usage and note your contribution. The purple lotus will then need to be properly stored until I am ready for them. As for you, if you are still available I should imagine that I\'ll still need more purple lotus. Please check back with me in a moment.' WHERE `ID` = 8582;
+UPDATE `quest_offer_reward` SET `RewardText` = 'Oh, so you do have the heavy leather I needed. Your blade is sharp indeed, $C; these are good skins! Now that we\'ve gotten off on the right foot with one another I\'ll make sure that your contribution is put to good use. And if you happen to come across more heavy leather, bring it my way.' WHERE `ID` = 8588;
+UPDATE `quest_offer_reward` SET `RewardText` = 'You have my thanks, $C, and the gratitude of the Horde. If you come across more wool bandages bring them to me here should you wish to further contribute to the war effort. Until then, may your ancestors watch over you!' WHERE `ID` = 8604;
+UPDATE `quest_offer_reward` SET `RewardText` = 'You are a credit to the Horde, $C. Thank you for your efforts; they are appreciated! I\'ll have to pack these fresh bandages away and take another count to see how far along we are to our goal. If you\'d like you could gather more runecloth bandages and return them to me here.' WHERE `ID` = 8609;
+UPDATE `quest_offer_reward` SET `RewardText` = 'Ok, this stack of meat looks good to me. I\'ll salt them, and then pack them away and hopefully they\'ll keep fresh enough to be edible when the time comes.$B$BThanks for the contribution, $C. Do you think you could bring me another rack?' WHERE `ID` = 8611;
+UPDATE `quest_offer_reward` SET `RewardText` = 'Oh ya, this be the good stuff. I pack it up real nice so it not go to waste. Thanks be to you for helpin\' me out like this. I\'m thinkin\' you an A-number-one fisherman for all this spotted yellowtail. An if you happen to fish up and cook even more, you bring it to me here; I make sure everyone know you did!' WHERE `ID` = 8613;
+UPDATE `quest_offer_reward` SET `RewardText` = 'Thank you for proving your interest in helping with the war effort here, $C. Many would simply ignore our needs, opting instead to make a profit. But they do not have the gratitude of the Horde, as you now do. Their hearts are not full, as yours must be filled with the pride that comes from selfless giving.$B$BAgain, I thank you. Should you find the time to assist us further before our preparations are complete, I will be here waiting.' WHERE `ID` = 8615;
+
+-- Horde LogDescription fixes
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 copper bars to Miner Cromwell in Orgrimmar.' WHERE `ID` = 8533;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 tin bars to Grunt Maug in Orgrimmar.' WHERE `ID` = 8543;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Mithril Bars to Senior Sergeant T\'kelah in Orgrimmar.' WHERE `ID` = 8546;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Peacebloom to Herbalist Proudfeather in Orgrimmar.' WHERE `ID` = 8550;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Firebloom to Batrider Pele\'keiki in Orgrimmar.' WHERE `ID` = 8581;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Purple Lotus to Apothecary Jezel in Orgrimmar.' WHERE `ID` = 8583;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Heavy Leather to Skinner Jamani in Orgrimmar.'  WHERE `ID` = 8589;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Thick Leather to Sergeant Umala in Orgrimmar.' WHERE `ID` = 8591;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 10 Rugged Leather to Doctor Serratus in Orgrimmar.' WHERE `ID` = 8601;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Wool Bandages to Healer Longrunner in Orgrimmar.' WHERE `ID` = 8605;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Mageweave Bandages to Lady Callow in Orgrimmar.' WHERE `ID` = 8608;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Runecloth Bandages to Stoneguard Clayhoof in Orgrimmar.' WHERE `ID` = 8610;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Lean Wolf Steaks to Bloodguard Rawtar in Orgrimmar.' WHERE `ID` = 8612;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Spotted Yellowtail to Fisherman Lin\'do in Orgrimmar.' WHERE `ID` = 8614;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Baked Salmon to Chief Sharpclaw in Orgrimmar.' WHERE `ID` = 8616;
+
+-- Horde QuestCompletionLog fixes
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Miner Cromwell in Orgrimmar.' WHERE `ID` IN (8532, 8533);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Grunt Maug in Orgrimmar.' WHERE `ID` IN (8542, 8543);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Senior Sergeant T\'kelah in Orgrimmar.' WHERE `ID` IN (8545, 8546);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Herbalist Proudfeather in Orgrimmar.' WHERE `ID` IN (8549, 8550);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Batrider Pele\'keiki in Orgrimmar.' WHERE `ID` IN (8580, 8581);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Apothecary Jezel in Orgrimmar.' WHERE `ID` IN (8582, 8583);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skinner Jamani in Orgrimmar.' WHERE `ID` = 8589;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Sergeant Umala in Orgrimmar.' WHERE `ID` = 8591;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Doctor Serratus in Orgrimmar.' WHERE `ID` = 8601;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Healer Longrunner in Orgrimmar.' WHERE `ID` = 8605;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Lady Callow in Orgrimmar.' WHERE `ID` = 8608;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Stoneguard Clayhoof in Orgrimmar.' WHERE `ID` = 8610;
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Bloodguard Rawtar in Orgrimmar.' WHERE `ID` IN (8611, 8612);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Fisherman Lin\'do in Orgrimmar.' WHERE `ID` IN (8613, 8614);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Chief Sharpclaw in Orgrimmar.' WHERE `ID` IN (8615, 8616);
+
+-- Horde quest_template_addon fixes
+UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` = 8609;
+UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` = 8610;
