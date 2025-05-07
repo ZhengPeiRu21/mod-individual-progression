@@ -1,4 +1,5 @@
 -- Nothing but the Truth, should require deepstrider tumor(6082)
+DELETE FROM `item_dbc` WHERE `ID` = 6082;
 INSERT INTO `item_dbc` (`ID`, `ClassID`, `SubclassID`, `Sound_Override_Subclassid`, `Material`, `DisplayInfoID`, `InventoryType`, `SheatheType`) VALUES
 (6082, 12, 0, -1, -1, 9734, 0, 0);
 
