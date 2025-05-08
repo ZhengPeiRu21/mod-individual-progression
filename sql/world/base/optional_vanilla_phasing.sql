@@ -2,7 +2,7 @@
     This includes quest givers and flight paths. 
 */
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 16288, -- Advisor Sorrelon, The Sepulcher
 17092, -- Advisor Duskingdawn, Tarren Mill
 17093, -- Magistrix Elosai, Freewind Post
