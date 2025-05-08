@@ -482,5 +482,5 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_aq();
     new gobject_ipp_we(); // aq war effort
     new gobject_ipp_naxx40();
-    //    new gobject_ipp_wotlk(); // Not used yet
+    new gobject_ipp_wotlk();
 }
