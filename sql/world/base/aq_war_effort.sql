@@ -132,7 +132,7 @@ UPDATE `quest_offer_reward` SET `RewardText` = 'Oh thank you, $C! Thank you! Tha
 -- Alliance LogDescription fixes
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Copper Bars to Sergeant Stonebrow in Ironforge.' WHERE `ID` = 8493;
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Iron Bars to Corporal Carnes in Ironforge.' WHERE `ID` = 8495;
-UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Thorium Bars to Dame Twinbraid at the Military Ward in Ironforge.' WHERE `ID` = 8500;
+UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Thorium Bars to Dame Twinbraid in Ironforge.' WHERE `ID` = 8500;
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Stranglekelp to Private Draxlegauge in Ironforge.' WHERE `ID` = 8504;
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Purple Lotus to Master Nightsong in Ironforge.' WHERE `ID` = 8506;
 UPDATE `quest_template` SET `LogDescription` = 'Bring 20 Arthas\' Tears to Sergeant Major Germaine in Ironforge.' WHERE `ID` = 8510;
