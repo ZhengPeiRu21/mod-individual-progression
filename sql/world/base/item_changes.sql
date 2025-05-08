@@ -19341,7 +19341,7 @@ UPDATE `item_template` SET `armor` = 425, `BuyPrice` = 465822, `SellPrice` = 931
 UPDATE `item_template` SET `armor` = 102, `BuyPrice` = 312809, `SellPrice` = 62561, `spelltrigger_2` = 0, `spelltrigger_3` = 0 WHERE entry=23035;
 
 /*  The Eye of Nerub  */
-UPDATE `item_template` SET `BuyPrice` = 1321961, `SellPrice` = 264392, `stat_value1` = 45, `stat_type3` = 31, `stat_value3` = 16, `spellid_1` = 0, `spellid_2` = 0, `spellid_3` = 0, `spellid_4` = 14052, `spelltrigger_4` = 1 WHERE entry=23039;
+UPDATE `item_template` SET `BuyPrice` = 1321961, `SellPrice` = 264392, `stat_value1` = 45, `stat_type3` = 31, `stat_value3` = 16, `spellid_1` = 0, `spellid_2` = 0, `spellid_3` = 0, `spellid_4` = 0, `spelltrigger_4` = 0 WHERE entry=23039;
 -- UPDATE `item_template` SET `BuyPrice` = 1321961, `SellPrice` = 264392, `stat_value1` = 45, `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 7569, `spellid_2` = 22188, `spellid_3` = 7581, `spellid_4` = 0, `spelltrigger_4` = 0 WHERE entry=23039;
 
 /*  Glyph of Deflection  */
