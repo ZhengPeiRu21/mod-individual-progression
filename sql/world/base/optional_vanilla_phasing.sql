@@ -27,8 +27,5 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN 
 16227 -- Bragok, Ratchet
 );
 
--- phase Flight Path objects
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `guid` IN (51272, 51679, 51688, 51944, 54765, 54783, 54796, 54857);
-
 -- remove interactions between Cersei, Lorrin and the orcs in Stonard 
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
