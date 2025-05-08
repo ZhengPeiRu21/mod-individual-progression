@@ -1535,7 +1535,8 @@ UPDATE `item_template` SET `dmg_min1` = 11.0, `dmg_max1` = 21.0 WHERE entry=2904
 UPDATE `item_template` SET `BuyPrice` = 266, `SellPrice` = 53 WHERE entry=2905;
 
 /*  Dwarven Tree Chopper  */
-UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 7552 WHERE entry=2907;
+UPDATE `item_template` SET `stat_type1` = 37, `stat_value1` = 4, `spellid_1` = 0 WHERE entry=2907;
+-- UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 7552 WHERE entry=2907;
 
 /*  Thornblade  */
 UPDATE `item_template` SET `BuyPrice` = 7048 WHERE entry=2908;
@@ -2837,7 +2838,8 @@ UPDATE `item_template` SET `BuyPrice` = 11010 WHERE entry=4545;
 UPDATE `item_template` SET `BuyPrice` = 41596, `spellcooldown_1` = -1, `spellcategorycooldown_1` = -1 WHERE entry=4547;
 
 /*  Servomechanic Sledgehammer  */
-UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 7560 WHERE entry=4548;
+UPDATE `item_template` SET `stat_type1` = 37, `stat_value1` = 17, `spellid_1` = 0 WHERE entry=4548;
+-- UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 7560 WHERE entry=4548;
 
 /*  Seafire Band  */
 UPDATE `item_template` SET `spellcooldown_1` = -1, `spellcategorycooldown_1` = -1 WHERE entry=4549;
@@ -5720,7 +5722,8 @@ UPDATE `item_template` SET `BuyPrice` = 97888, `spellcooldown_1` = -1, `spellcat
 UPDATE `item_template` SET `BuyPrice` = 18446, `stat_type2` = 6 WHERE entry=9366;
 
 /*  Expert Goldminer's Helmet  */
-UPDATE `item_template` SET `BuyPrice` = 21101, `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 15874 WHERE entry=9375;
+UPDATE `item_template` SET `BuyPrice` = 21101, `stat_type3` = 37, `stat_value3` = 17, `spellid_1` = 0 WHERE entry=9375;
+-- UPDATE `item_template` SET `BuyPrice` = 21101, `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 15874 WHERE entry=9375;
 
 /*  Shovelphlange's Mining Axe  */
 UPDATE `item_template` SET `BuyPrice` = 56901 WHERE entry=9378;
@@ -8111,7 +8114,8 @@ UPDATE `item_template` SET `spellcooldown_1` = -1 WHERE entry=12059;
 UPDATE `item_template` SET `BuyPrice` = 201060 WHERE entry=12061;
 
 /*  Skilled Fighting Blade  */
-UPDATE `item_template` SET `BuyPrice` = 201827, `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 15776 WHERE entry=12062;
+ UPDATE `item_template` SET `BuyPrice` = 201827, `stat_type1` = 37, `stat_value1` = 9, `spellid_1` = 0 WHERE entry=12062;
+-- UPDATE `item_template` SET `BuyPrice` = 201827, `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 15776 WHERE entry=12062;
 
 /*  Gamemaster Hood  */
 UPDATE `item_template` SET `BuyPrice` = 4 WHERE entry=12064;
@@ -8507,7 +8511,8 @@ UPDATE `item_template` SET `BuyPrice` = 165399, `SellPrice` = 33079 WHERE entry=
 UPDATE `item_template` SET `BuyPrice` = 180220 WHERE entry=12774;
 
 /*  Huge Thorium Battleaxe  */
-UPDATE `item_template` SET `BuyPrice` = 199746, `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 15768 WHERE entry=12775;
+UPDATE `item_template` SET `BuyPrice` = 199746, `stat_type1` = 37, `stat_value1` = 24, `spellid_1` = 0 WHERE entry=12775;
+-- UPDATE `item_template` SET `BuyPrice` = 199746, `stat_type1` = 0, `stat_value1` = 0, `spellid_1` = 15768 WHERE entry=12775;
 
 /*  Enchanted Battlehammer  */
 UPDATE `item_template` SET `BuyPrice` = 240624, `SellPrice` = 48124 WHERE entry=12776;
@@ -9086,7 +9091,8 @@ UPDATE `item_template` SET `BuyPrice` = 62170, `DisenchantID` = 49 WHERE entry=1
 UPDATE `item_template` SET `DisenchantID` = 49 WHERE entry=13253;
 
 /*  Trueaim Gauntlets  */
-UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 17818, `spellid_2` = 15464, `spellid_3` = 27743, `spellid_4` = 27744 WHERE entry=13255;
+UPDATE `item_template` SET `stat_type1` = 32, `stat_value1` = 21, `stat_type2` = 31, `stat_value2` = 10, `spellid_1` = 0, `spellid_2` = 0, `spellid_3` = 0, `spellid_4` = 0  WHERE entry=13255;
+-- UPDATE `item_template` SET `stat_type1` = 0, `stat_value1` = 0, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 17818, `spellid_2` = 15464, `spellid_3` = 27743, `spellid_4` = 27744 WHERE entry=13255;
 
 /*  Demonic Runed Spaulders  */
 UPDATE `item_template` SET `stat_type1` = 5, `stat_type3` = 4 WHERE entry=13257;
@@ -10139,7 +10145,8 @@ UPDATE `item_template` SET `armor` = 360, `BuyPrice` = 39038, `SellPrice` = 7807
 UPDATE `item_template` SET `armor` = 69, `BuyPrice` = 44011, `MaxDurability` = 40, `stat_value2` = 10, `stat_type3` = 6, `stat_type4` = 4, `stat_value4` = 6, `StatsCount` = 4 WHERE entry=14550;
 
 /*  Edgemaster's Handguards  */
-UPDATE `item_template` SET `armor` = 201, `stat_type1` = 0, `stat_value1` = 0, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 15874, `spellid_2` = 7578, `spellid_3` = 7527 WHERE entry=14551;
+UPDATE `item_template` SET `armor` = 201, `stat_type1` = 31, `stat_value1` = 19, `stat_type2` = 37, `stat_value2` = 17, `spellid_1` = 0, `spellid_2` = 0, `spellid_3` = 0 WHERE entry=14551;
+-- UPDATE `item_template` SET `armor` = 201, `stat_type1` = 0, `stat_value1` = 0, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 15874, `spellid_2` = 7578, `spellid_3` = 7527 WHERE entry=14551;
 
 /*  Stockade Pauldrons  */
 UPDATE `item_template` SET `armor` = 472, `BuyPrice` = 76890, `SellPrice` = 15378 WHERE entry=14552;
@@ -12395,7 +12402,8 @@ UPDATE `item_template` SET `BuyPrice` = 45014, `SellPrice` = 9002 WHERE entry=15
 UPDATE `item_template` SET `dmg_min1` = 53.0, `dmg_max1` = 100.0 WHERE entry=16004;
 
 /*  Flawless Arcanite Rifle  */
-UPDATE `item_template` SET `BuyPrice` = 203125, `SellPrice` = 40625, `dmg_min1` = 65.0, `dmg_max1` = 122.0, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 7581 WHERE entry=16007;
+UPDATE `item_template` SET `BuyPrice` = 203125, `SellPrice` = 40625, `dmg_min1` = 65.0, `dmg_max1` = 122.0, `stat_type1` = 32, `stat_value1` = 9, `DisenchantID` = 49, `spellid_1` = 0 WHERE entry=16007;
+-- UPDATE `item_template` SET `BuyPrice` = 203125, `SellPrice` = 40625, `dmg_min1` = 65.0, `dmg_max1` = 122.0, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 7581 WHERE entry=16007;
 
 /*  Master Engineer's Goggles  */
 UPDATE `item_template` SET `BuyPrice` = 58696 WHERE entry=16008;
@@ -14159,7 +14167,8 @@ UPDATE `item_template` SET `BuyPrice` = 143928, `RequiredLevel` = 45 WHERE entry
 UPDATE `item_template` SET `dmg_min1` = 53.0, `dmg_max1` = 100.0 WHERE entry=17753;
 
 /*  Infernal Trickster Leggings  */
-UPDATE `item_template` SET `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 7569, `RequiredLevel` = 45 WHERE entry=17754;
+UPDATE `item_template` SET `stat_type3` = 31, `stat_value3` = 9, `spellid_1` = 0, `RequiredLevel` = 45 WHERE entry=17754;
+-- UPDATE `item_template` SET `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 7569, `RequiredLevel` = 45 WHERE entry=17754;
 
 /*  Satyrmane Sash  */
 UPDATE `item_template` SET `BuyPrice` = 29093, `shadow_res` = 10, `spellid_1` = 0, `spelltrigger_1` = 0, `RequiredLevel` = 45 WHERE entry=17755;
@@ -14321,7 +14330,8 @@ UPDATE `item_template` SET `BuyPrice` = 331739, `SellPrice` = 66347, `dmg_min1` 
 UPDATE `item_template` SET `spellid_1` = 9358 WHERE entry=18289;
 
 /*  Marksman Bands  */
-UPDATE `item_template` SET `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 7570, `spellid_2` = 22811, `spellid_3` = 7582 WHERE entry=18296;
+UPDATE `item_template` SET `stat_type3` = 31, `stat_value3` = 10, `spellid_1` = 0, `spellid_2` = 0, `spellid_3` = 0 WHERE entry=18296;
+-- UPDATE `item_template` SET `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 7570, `spellid_2` = 22811, `spellid_3` = 7582 WHERE entry=18296;
 
 /*  Nimble Buckler  */
 UPDATE `item_template` SET `Quality` = 2, `armor` = 1776, `BuyPrice` = 126160, `SellPrice` = 25232, `ItemLevel` = 58, `block` = 32, `MaxDurability` = 85, `stat_type1` = 3, `stat_value1` = 5, `stat_type2` = 0, `stat_value2` = 0, `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 21475, `spelltrigger_1` = 1, `RequiredLevel` = 53, `StatsCount` = 3 WHERE entry=18303;
@@ -14468,7 +14478,8 @@ UPDATE `item_template` SET `BuyPrice` = 102943, `SellPrice` = 20588, `Disenchant
 UPDATE `item_template` SET `BuyPrice` = 47443, `SellPrice` = 9488, `stat_type3` = 0, `stat_value3` = 0, `DisenchantID` = 49, `spellid_1` = 18384 WHERE entry=18387;
 
 /*  Stoneshatter  */
-UPDATE `item_template` SET `BuyPrice` = 209641, `SellPrice` = 41928, `dmg_min1` = 73.0, `dmg_max1` = 111.0, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 22188 WHERE entry=18388;
+UPDATE `item_template` SET `BuyPrice` = 209641, `SellPrice` = 41928, `dmg_min1` = 73.0, `dmg_max1` = 111.0, `stat_type1` = 32, `stat_value1` = 11, `DisenchantID` = 49, `spellid_1` = 0 WHERE entry=18388;
+-- UPDATE `item_template` SET `BuyPrice` = 209641, `SellPrice` = 41928, `dmg_min1` = 73.0, `dmg_max1` = 111.0, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 22188 WHERE entry=18388;
 
 /*  Cloak of the Cosmos  */
 UPDATE `item_template` SET `BuyPrice` = 84152, `SellPrice` = 16830, `DisenchantID` = 49 WHERE entry=18389;
@@ -14480,7 +14491,8 @@ UPDATE `item_template` SET `BuyPrice` = 134059, `SellPrice` = 26811, `Disenchant
 UPDATE `item_template` SET `BuyPrice` = 65383, `SellPrice` = 13076, `DisenchantID` = 49 WHERE entry=18391;
 
 /*  Distracting Dagger  */
-UPDATE `item_template` SET `BuyPrice` = 283553, `SellPrice` = 56710, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 15717 WHERE entry=18392;
+UPDATE `item_template` SET `BuyPrice` = 283553, `SellPrice` = 56710, `stat_type1` = 37, `stat_value1` = 14, `DisenchantID` = 49, `spellid_1` = 0 WHERE entry=18392;
+-- UPDATE `item_template` SET `BuyPrice` = 283553, `SellPrice` = 56710, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 15717 WHERE entry=18392;
 
 /*  Warpwood Binding  */
 UPDATE `item_template` SET `BuyPrice` = 74724, `SellPrice` = 14944, `DisenchantID` = 49 WHERE entry=18393;
@@ -14702,7 +14714,8 @@ UPDATE `item_template` SET `BuyPrice` = 112609, `SellPrice` = 22521, `Disenchant
 UPDATE `item_template` SET `BuyPrice` = 70634, `SellPrice` = 14126, `DisenchantID` = 49 WHERE entry=18504;
 
 /*  Mugger's Belt  */
-UPDATE `item_template` SET `BuyPrice` = 65383, `SellPrice` = 13076, `stat_type2` = 0, `stat_value2` = 0, `DisenchantID` = 49, `spellid_2` = 7576 WHERE entry=18505;
+UPDATE `item_template` SET `BuyPrice` = 65383, `SellPrice` = 13076, `stat_type2` = 37, `stat_value2` = 12, `DisenchantID` = 49, `spellid_2` = 0 WHERE entry=18505;
+-- UPDATE `item_template` SET `BuyPrice` = 65383, `SellPrice` = 13076, `stat_type2` = 0, `stat_value2` = 0, `DisenchantID` = 49, `spellid_2` = 7576 WHERE entry=18505;
 
 /*  Mongoose Boots  */
 UPDATE `item_template` SET `BuyPrice` = 106702, `SellPrice` = 21340, `DisenchantID` = 49 WHERE entry=18506;
@@ -15029,10 +15042,12 @@ UPDATE `item_template` SET `BuyPrice` = 743570, `SellPrice` = 148714, `spellppmr
 UPDATE `item_template` SET `armor` = 392, `BuyPrice` = 319878, `SellPrice` = 63975, `stat_type4` = 0, `stat_value4` = 0, `spellid_1` = 7598 WHERE entry=18817;
 
 /*  Obsidian Edged Blade  */
-UPDATE `item_template` SET `BuyPrice` = 628843, `SellPrice` = 125768, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 15771 WHERE entry=18822;
+UPDATE `item_template` SET `BuyPrice` = 628843, `SellPrice` = 125768, `stat_type2` = 37, `stat_value2` = 19, `spellid_1` = 0 WHERE entry=18822;
+-- UPDATE `item_template` SET `BuyPrice` = 628843, `SellPrice` = 125768, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 15771 WHERE entry=18822;
 
 /*  Aged Core Leather Gloves  */
-UPDATE `item_template` SET `armor` = 130, `BuyPrice` = 132532, `SellPrice` = 26506, `stat_type3` = 0, `stat_value3` = 0, `spellid_2` = 7576 WHERE entry=18823;
+UPDATE `item_template` SET `armor` = 130, `BuyPrice` = 132532, `SellPrice` = 26506, `stat_type3` = 37, `stat_value3` = 12, `spellid_2` = 0 WHERE entry=18823;
+-- UPDATE `item_template` SET `armor` = 130, `BuyPrice` = 132532, `SellPrice` = 26506, `stat_type3` = 0, `stat_value3` = 0, `spellid_2` = 7576 WHERE entry=18823;
 
 /*  Magma Tempered Boots  */
 UPDATE `item_template` SET `armor` = 544, `BuyPrice` = 167591, `SellPrice` = 33518 WHERE entry=18824;
@@ -15527,7 +15542,8 @@ UPDATE `item_template` SET `armor` = 2893, `BuyPrice` = 490283, `SellPrice` = 98
 UPDATE `item_template` SET `BuyPrice` = 523048, `SellPrice` = 104609, `dmg_min1` = 80.0, `dmg_max1` = 149.0 WHERE entry=19350;
 
 /*  Maladath, Runed Blade of the Black Flight  */
-UPDATE `item_template` SET `BuyPrice` = 699948, `SellPrice` = 139989, `stat_type1` = 0, `stat_value1` = 0, `spellid_2` = 14121 WHERE entry=19351;
+UPDATE `item_template` SET `BuyPrice` = 699948, `SellPrice` = 139989, `stat_type1` = 37, `stat_value1` = 9, `spellid_2` = 0 WHERE entry=19351;
+-- UPDATE `item_template` SET `BuyPrice` = 699948, `SellPrice` = 139989, `stat_type1` = 0, `stat_value1` = 0, `spellid_2` = 14121 WHERE entry=19351;
 
 /*  Chromatically Tempered Sword  */
 UPDATE `item_template` SET `BuyPrice` = 794646, `SellPrice` = 158929 WHERE entry=19352;
@@ -16184,7 +16200,8 @@ UPDATE `item_template` SET `BuyPrice` = 134847, `SellPrice` = 26969 WHERE entry=
 UPDATE `item_template` SET `BuyPrice` = 108275, `SellPrice` = 21655, `spelltrigger_2` = 0 WHERE entry=19907;
 
 /*  Sceptre of Smiting  */
-UPDATE `item_template` SET `BuyPrice` = 312948, `SellPrice` = 62589, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 7546 WHERE entry=19908;
+UPDATE `item_template` SET `BuyPrice` = 312948, `SellPrice` = 62589, `stat_type1` = 37, `stat_value1` = 4, `DisenchantID` = 49, `spellid_1` = 0 WHERE entry=19908;
+-- UPDATE `item_template` SET `BuyPrice` = 312948, `SellPrice` = 62589, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 7546 WHERE entry=19908;
 
 /*  Will of Arlokk  */
 UPDATE `item_template` SET `BuyPrice` = 523538, `SellPrice` = 104707 WHERE entry=19909;
@@ -16205,7 +16222,8 @@ UPDATE `item_template` SET `BuyPrice` = 555015, `SellPrice` = 111003 WHERE entry
 UPDATE `item_template` SET `BuyPrice` = 158234, `SellPrice` = 31646 WHERE entry=19919;
 
 /*  Zulian Hacker  */
-UPDATE `item_template` SET `BuyPrice` = 304758, `SellPrice` = 60951, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 7540 WHERE entry=19921;
+UPDATE `item_template` SET `BuyPrice` = 304758, `SellPrice` = 60951, `stat_type1` = 37, `stat_value1` = 4, `DisenchantID` = 49, `spellid_1` = 0 WHERE entry=19921;
+-- UPDATE `item_template` SET `BuyPrice` = 304758, `SellPrice` = 60951, `stat_type1` = 0, `stat_value1` = 0, `DisenchantID` = 49, `spellid_1` = 7540 WHERE entry=19921;
 
 /*  Flowing Ritual Robes DEPRECATED  */
 UPDATE `item_template` SET `spellid_1` = 14047, `spelltrigger_1` = 1 WHERE entry=19926;
@@ -17153,7 +17171,8 @@ UPDATE `item_template` SET `armor` = 559, `BuyPrice` = 171494, `SellPrice` = 342
 UPDATE `item_template` SET `armor` = 311, `BuyPrice` = 247978, `SellPrice` = 49595 WHERE entry=20621;
 
 /*  Circlet of Restless Dreams  */
-UPDATE `item_template` SET `armor` = 175, `BuyPrice` = 223569, `SellPrice` = 44713, `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 15717 WHERE entry=20623;
+UPDATE `item_template` SET `armor` = 175, `BuyPrice` = 223569, `SellPrice` = 44713, `stat_type3` = 37, `stat_value3` = 14, `spellid_1` = 0 WHERE entry=20623;
+-- UPDATE `item_template` SET `armor` = 175, `BuyPrice` = 223569, `SellPrice` = 44713, `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 15717 WHERE entry=20623;
 
 /*  Belt of the Dark Bog  */
 UPDATE `item_template` SET `armor` = 61, `BuyPrice` = 114398, `SellPrice` = 22879 WHERE entry=20625;
@@ -17396,7 +17415,8 @@ UPDATE `item_template` SET `BuyPrice` = 7230, `SellPrice` = 1807, `spelltrigger_
 UPDATE `item_template` SET `BuyPrice` = 7230, `SellPrice` = 1807, `spelltrigger_2` = 0, `RequiredReputationFaction` = 510, `RequiredReputationRank` = 4 WHERE entry=21120;
 
 /*  Death's Sting  */
-UPDATE `item_template` SET `BuyPrice` = 1034835, `SellPrice` = 206967, `stat_type2` = 0, `stat_value2` = 0, `spellid_2` = 7574 WHERE entry=21126;
+UPDATE `item_template` SET `BuyPrice` = 1034835, `SellPrice` = 206967, `stat_type2` = 37, `stat_value2` = 7, `spellid_2` = 0 WHERE entry=21126;
+-- UPDATE `item_template` SET `BuyPrice` = 1034835, `SellPrice` = 206967, `stat_type2` = 0, `stat_value2` = 0, `spellid_2` = 7574 WHERE entry=21126;
 
 /*  Staff of the Qiraji Prophets  */
 UPDATE `item_template` SET `BuyPrice` = 840206, `SellPrice` = 168041, `dmg_min1` = 129.4, `dmg_max1` = 214.4 WHERE entry=21128;
@@ -18128,7 +18148,8 @@ UPDATE `item_template` SET `BuyPrice` = 126299, `SellPrice` = 25259, `Disenchant
 UPDATE `item_template` SET `armor` = 824, `BuyPrice` = 257851, `SellPrice` = 51570 WHERE entry=21814;
 
 /*  Anubisath Warhammer  */
-UPDATE `item_template` SET `BuyPrice` = 590879, `SellPrice` = 118175, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 15760 WHERE entry=21837;
+UPDATE `item_template` SET `BuyPrice` = 590879, `SellPrice` = 118175, `stat_type2` = 37, `stat_value2` = 9, `spellid_1` = 0 WHERE entry=21837;
+-- UPDATE `item_template` SET `BuyPrice` = 590879, `SellPrice` = 118175, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 15760 WHERE entry=21837;
 
 /*  Garb of Royal Ascension  */
 UPDATE `item_template` SET `armor` = 109, `BuyPrice` = 237168, `SellPrice` = 47433 WHERE entry=21838;
@@ -18395,7 +18416,8 @@ UPDATE `item_template` SET `DisenchantID` = 49 WHERE entry=22204;
 UPDATE `item_template` SET `BuyPrice` = 42610, `SellPrice` = 8522 WHERE entry=22205;
 
 /*  Sash of the Grand Hunt  */
-UPDATE `item_template` SET `BuyPrice` = 71165, `SellPrice` = 14233, `stat_type4` = 0, `stat_value4` = 0, `DisenchantID` = 49, `spellid_1` = 7570, `spellid_2` = 7582, `spellid_3` = 22811 WHERE entry=22207;
+UPDATE `item_template` SET `BuyPrice` = 71165, `SellPrice` = 14233, `stat_type4` = 31, `stat_value4` = 8, `DisenchantID` = 49, `spellid_1` = 0, `spellid_2` = 0, `spellid_3` = 0 WHERE entry=22207;
+-- UPDATE `item_template` SET `BuyPrice` = 71165, `SellPrice` = 14233, `stat_type4` = 0, `stat_value4` = 0, `DisenchantID` = 49, `spellid_1` = 7570, `spellid_2` = 7582, `spellid_3` = 22811 WHERE entry=22207;
 
 /*  Lavastone Hammer  */
 UPDATE `item_template` SET `stat_type2` = 5, `stat_value2` = 12, `stat_value3` = 10, `spellid_1` = 14799 WHERE entry=22208;
@@ -19319,7 +19341,8 @@ UPDATE `item_template` SET `armor` = 425, `BuyPrice` = 465822, `SellPrice` = 931
 UPDATE `item_template` SET `armor` = 102, `BuyPrice` = 312809, `SellPrice` = 62561, `spelltrigger_2` = 0, `spelltrigger_3` = 0 WHERE entry=23035;
 
 /*  The Eye of Nerub  */
-UPDATE `item_template` SET `BuyPrice` = 1321961, `SellPrice` = 264392, `stat_value1` = 45, `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 7569, `spellid_2` = 22188, `spellid_3` = 7581, `spellid_4` = 0, `spelltrigger_4` = 0 WHERE entry=23039;
+UPDATE `item_template` SET `BuyPrice` = 1321961, `SellPrice` = 264392, `stat_value1` = 45, `stat_type3` = 31, `stat_value3` = 16, `spellid_1` = 0, `spellid_2` = 0, `spellid_3` = 0, `spellid_4` = 14052, `spelltrigger_4` = 1 WHERE entry=23039;
+-- UPDATE `item_template` SET `BuyPrice` = 1321961, `SellPrice` = 264392, `stat_value1` = 45, `stat_type3` = 0, `stat_value3` = 0, `spellid_1` = 7569, `spellid_2` = 22188, `spellid_3` = 7581, `spellid_4` = 0, `spelltrigger_4` = 0 WHERE entry=23039;
 
 /*  Glyph of Deflection  */
 UPDATE `item_template` SET `spellcooldown_2` = 0, `spellcategorycooldown_2` = 0, `spellcategorycooldown_3` = -1, `spellcategory_3` = 0 WHERE entry=23040;
@@ -19745,7 +19768,8 @@ UPDATE `item_template` SET `spelltrigger_2` = 0 WHERE entry=23558;
 UPDATE `item_template` SET `spelltrigger_2` = 0 WHERE entry=23570;
 
 /*  The Hungering Cold  */
-UPDATE `item_template` SET `BuyPrice` = 1346265, `SellPrice` = 269253, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 15763, `spelltrigger_2` = 0 WHERE entry=23577;
+UPDATE `item_template` SET `BuyPrice` = 1346265, `SellPrice` = 269253, `stat_type2` = 37, `stat_value2` = 14, `spellid_1` = 0, `spelltrigger_2` = 1 WHERE entry=23577;
+-- UPDATE `item_template` SET `BuyPrice` = 1346265, `SellPrice` = 269253, `stat_type2` = 0, `stat_value2` = 0, `spellid_1` = 15763, `spelltrigger_2` = 0 WHERE entry=23577;
 
 /*  Girdle of Elemental Fury  */
 UPDATE `item_template` SET `armor` = 301, `BuyPrice` = 321323, `SellPrice` = 64264 WHERE entry=23663;
