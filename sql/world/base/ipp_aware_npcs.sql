@@ -1,5 +1,3 @@
-SET @IPPPHASE := 65536;
-
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16841, 19254, 16840,
                                                                               20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130,
                                                                               19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
@@ -15,11 +13,15 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_aq' WHERE `id1` = 15184 AND `guid`
 -- Phasing Wanted Poster Deathclasp
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_aq' WHERE `entry` IN (180448);
 
-# Light's Hope Chapel
-UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (11102, 16113, 16112, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16114, 16376, 16212, 16225, 16228, 16229,
-                                                                                 16256, 16283, 16284, 16378, 17069, 17072);
-# The above query adds one undesired creature (Pack Mule, 16225) to the phasing, so put it back to normal 
-UPDATE `creature` SET `phaseMask` = 1 WHERE `guid` = 56932;
+-- Lights Hope Chapel - npcs
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
+                                                                                 16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
+-- undo previous method of phasing (this can be removed later on)
+UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
+                                                      16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
+
+-- Lights Hope Chapel - gobjects
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `guid` IN (45603, 45606, 45607, 45764, 45765, 45766, 45767, 45768, 45769, 45770, 45771, 45838, 45839, 45840);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
 
@@ -27,7 +29,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_ulduar' WHERE `entr
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_totc' WHERE `entry` IN (35498, 35577, 35496, 36208, 35500, 35497, 34244, 28701);
 
-# TODO: Harold Winston (32172) has rings from all patches, so he needs special phasing applied - for now make him require ICC progression
+-- TODO: Harold Winston (32172) has rings from all patches, so he needs special phasing applied - for now make him require ICC progression
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `entry` IN (37776, 40160, 37780, 32172);
 
 -- Hide the portals to Blasted Lands until TBC is unlocked
@@ -41,11 +43,10 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 
 -- Phasing Isle of Conquest Emissary and banner until WotLK
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (34948, 34950);
-UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `entry` = 195533;
+UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `entry` IN (195532, 195533);
 
 -- Drop source for 2.3 Jewelcrafting Recipe
--- disabled phasing for now to prevent the creature from attacking while phased
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 19768;
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 19768; -- disabled for now to prevent the creature from attacking while phased
 
 -- Phasing Zul'Aman quest npcs until TBC T4.
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (19227, 23761);
@@ -57,6 +58,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
 
 -- Argent Tournament
+SET @IPPPHASE := 65536;
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` IN (25, 63129, 63236, 63370, 63371, 65274, 65275, 65283, 65284, 65285, 65325, 65327, 65350, 65351, 65371, 65451,
 65522, 65523, 65526, 65901, 66478, 66479, 66741, 66753, 66788, 66790, 66792, 66910, 66941, 67185, 67187, 68005, 68457, 68583, 68906, 68941, 68947, 68987, 68989, 68990, 69010,
 69011, 69065, 69077, 69078, 69880, 69973, 69976, 69990, 69992, 69995, 69996, 70000, 70001, 70002, 70003, 70005, 70006, 70007, 70178, 70179, 70180, 70181, 70448, 70539, 70548,
