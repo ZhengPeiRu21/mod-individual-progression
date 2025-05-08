@@ -17,8 +17,8 @@ UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_aq' WHERE `entry` I
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
                                                                                  16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
 -- undo previous method of phasing (this can be removed later on)
-UPDATE `creature` SET `phaseMask` = 1 WHERE `entry` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
-                                                        16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
+UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
+                                                      16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
 
