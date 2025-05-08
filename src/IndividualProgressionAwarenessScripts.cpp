@@ -104,6 +104,32 @@ public:
     }
 };
 
+class gobject_ipp_naxx40 : public GameObjectScript
+{
+public:
+    gobject_ipp_naxx40() : GameObjectScript("gobject_ipp_naxx40") { }
+
+    struct gobject_ipp_naxx40AI: GameObjectAI
+    {
+        explicit gobject_ipp_naxx40AI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_naxx40AI(object);
+    }
+};
+
 class gobject_ipp_we : public GameObjectScript
 {
 public:
@@ -442,7 +468,7 @@ void AddSC_mod_individual_progression_awareness()
 {
     new npc_ipp_we(); // aq war effort
     new npc_ipp_aq();
-//    new npc_ipp_naxx40(); // Not used yet
+    new npc_ipp_naxx40();
     new npc_ipp_ds2();
     new npc_ipp_tbc();
     new npc_ipp_tbc_t4();
@@ -455,5 +481,6 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_tbc();
     new gobject_ipp_aq();
     new gobject_ipp_we(); // aq war effort
-//    new gobject_ipp_wotlk(); // Not used yet
+    new gobject_ipp_naxx40();
+    //    new gobject_ipp_wotlk(); // Not used yet
 }
