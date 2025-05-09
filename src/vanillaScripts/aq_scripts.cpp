@@ -224,11 +224,9 @@ public:
             {
                 return false; 
             }
-
             // (RequirePreAQQuests = 1) - AQ gate closed after Nefarian kill. War effort starts. AQ War effort + AQ Quest line needs to be done to open the gate. 
             // (RequirePreAQQuests = 0) - AQ gate closed after Nefarian kill. War effort starts. AQ War effort needs to be done to open the gate. 
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ);
-            
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);            
         }
     };
 
