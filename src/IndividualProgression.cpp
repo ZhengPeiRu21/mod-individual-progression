@@ -234,7 +234,14 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
                 UpdateProgressionState(killer, PROGRESSION_ONYXIA);
                 break;
             case NEFARIAN:
-                UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
+                if (RequireAQWarEffort)
+                {
+                    UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
+                }
+                else
+                {
+                    UpdateProgressionState(killer, PROGRESSION_PRE_AQ);
+                }
                 break;
             case CTHUN:
                 UpdateProgressionState(killer, PROGRESSION_AQ);
