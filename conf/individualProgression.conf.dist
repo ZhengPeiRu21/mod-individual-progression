@@ -129,7 +129,7 @@ IndividualProgression.RequirePreAQQuests = 1
 #        Default:     1 - Enabled
 #                     0 - Disabled
 #
-RequireAQWarEffort = 1
+IndividualProgression.RequireAQWarEffort = 1
 
 # IndividualProgression.RequireNaxxStrathEntrance
 #        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme
