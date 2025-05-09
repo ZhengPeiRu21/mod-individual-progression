@@ -67,7 +67,7 @@ class gobject_ipp_aqwar : public GameObjectScript
 public:
     gobject_ipp_aqwar() : GameObjectScript("gobject_ipp_aqwar") { }
 
-    struct gobject_ipp_weAI: GameObjectAI
+    struct gobject_ipp_aqwarAI: GameObjectAI
     {
         explicit gobject_ipp_aqwarAI(GameObject* object) : GameObjectAI(object) { };
 
@@ -239,7 +239,7 @@ public:
 class npc_ipp_aqwar : public CreatureScript
 {
 public:
-    npc_ipp_we() : CreatureScript("npc_ipp_aqwar") { }
+    npc_ipp_aqwar() : CreatureScript("npc_ipp_aqwar") { }
 
     struct npc_ipp_aqwarAI: ScriptedAI
     {
