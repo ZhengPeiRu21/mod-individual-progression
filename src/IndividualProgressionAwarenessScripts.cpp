@@ -1,91 +1,14 @@
 #include "IndividualProgression.h"
 
-class gobject_ipp_wotlk : public GameObjectScript
+
+class gobject_ipp_preaq : public GameObjectScript
 {
 public:
-    gobject_ipp_wotlk() : GameObjectScript("gobject_ipp_wotlk") { }
+    gobject_ipp_preaq() : GameObjectScript("gobject_ipp_preaq") { }
 
-    struct gobject_ipp_wotlkAI: GameObjectAI
+    struct gobject_ipp_preaqAI: GameObjectAI
     {
-        explicit gobject_ipp_wotlkAI(GameObject* object) : GameObjectAI(object) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5);
-        }
-    };
-
-    GameObjectAI* GetAI(GameObject* object) const override
-    {
-        return new gobject_ipp_wotlkAI(object);
-    }
-};
-
-class gobject_ipp_tbc : public GameObjectScript
-{
-public:
-    gobject_ipp_tbc() : GameObjectScript("gobject_ipp_tbc") { }
-
-    struct gobject_ipp_tbcAI: GameObjectAI
-    {
-        explicit gobject_ipp_tbcAI(GameObject* object) : GameObjectAI(object) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40);
-        }
-    };
-
-    GameObjectAI* GetAI(GameObject* object) const override
-    {
-        return new gobject_ipp_tbcAI(object);
-    }
-};
-
-class npc_ipp_tbc : public CreatureScript
-{
-public:
-    npc_ipp_tbc() : CreatureScript("npc_ipp_tbc") { }
-
-    struct npc_ipp_tbcAI: ScriptedAI
-    {
-        explicit npc_ipp_tbcAI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40);
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_ipp_tbcAI(creature);
-    }
-};
-
-class gobject_ipp_aq : public GameObjectScript
-{
-public:
-    gobject_ipp_aq() : GameObjectScript("gobject_ipp_aq") { }
-
-    struct gobject_ipp_aqAI: GameObjectAI
-    {
-        explicit gobject_ipp_aqAI(GameObject* object) : GameObjectAI(object) { };
+        explicit gobject_ipp_preaqAI(GameObject* object) : GameObjectAI(object) { };
 
         bool CanBeSeen(Player const* player) override
         {
@@ -100,33 +23,7 @@ public:
 
     GameObjectAI* GetAI(GameObject* object) const override
     {
-        return new gobject_ipp_aqAI(object);
-    }
-};
-
-class gobject_ipp_naxx40 : public GameObjectScript
-{
-public:
-    gobject_ipp_naxx40() : GameObjectScript("gobject_ipp_naxx40") { }
-
-    struct gobject_ipp_naxx40AI: GameObjectAI
-    {
-        explicit gobject_ipp_naxx40AI(GameObject* object) : GameObjectAI(object) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ);
-        }
-    };
-
-    GameObjectAI* GetAI(GameObject* object) const override
-    {
-        return new gobject_ipp_naxx40AI(object);
+        return new gobject_ipp_preaqAI(object);
     }
 };
 
@@ -162,6 +59,293 @@ public:
     GameObjectAI* GetAI(GameObject* object) const override
     {
         return new gobject_ipp_weAI(object);
+    }
+};
+
+class gobject_ipp_aqwar : public GameObjectScript
+{
+public:
+    gobject_ipp_aqwar() : GameObjectScript("gobject_ipp_aqwar") { }
+
+    struct gobject_ipp_weAI: GameObjectAI
+    {
+        explicit gobject_ipp_aqwarAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
+            {
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+            }
+            else
+            {
+                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ);
+            }
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_aqwarAI(object);
+    }
+};
+
+class gobject_ipp_naxx40 : public GameObjectScript
+{
+public:
+    gobject_ipp_naxx40() : GameObjectScript("gobject_ipp_naxx40") { }
+
+    struct gobject_ipp_naxx40AI: GameObjectAI
+    {
+        explicit gobject_ipp_naxx40AI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_naxx40AI(object);
+    }
+};
+
+class gobject_ipp_tbc : public GameObjectScript
+{
+public:
+    gobject_ipp_tbc() : GameObjectScript("gobject_ipp_tbc") { }
+
+    struct gobject_ipp_tbcAI: GameObjectAI
+    {
+        explicit gobject_ipp_tbcAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_tbcAI(object);
+    }
+};
+
+class gobject_ipp_wotlk : public GameObjectScript
+{
+public:
+    gobject_ipp_wotlk() : GameObjectScript("gobject_ipp_wotlk") { }
+
+    struct gobject_ipp_wotlkAI: GameObjectAI
+    {
+        explicit gobject_ipp_wotlkAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_wotlkAI(object);
+    }
+};
+
+class npc_ipp_preaq : public CreatureScript
+{
+public:
+    npc_ipp_preaq() : CreatureScript("npc_ipp_preaq") { }
+
+    struct npc_ipp_preaqAI: ScriptedAI
+    {
+        explicit npc_ipp_preaqAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_preaqAI(creature);
+    }
+};
+
+class npc_ipp_we : public CreatureScript
+{
+public:
+    npc_ipp_we() : CreatureScript("npc_ipp_we") { }
+
+    struct npc_ipp_weAI: ScriptedAI
+    {
+        explicit npc_ipp_weAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+			
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+			
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
+            {
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+            }
+            else
+            {
+                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
+            }			
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_weAI(creature);
+    }
+};
+
+class npc_ipp_aqwar : public CreatureScript
+{
+public:
+    npc_ipp_we() : CreatureScript("npc_ipp_aqwar") { }
+
+    struct npc_ipp_aqwarAI: ScriptedAI
+    {
+        explicit npc_ipp_aqwarAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+			
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+			
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
+            {
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+            }
+            else
+            {
+                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ);
+            }			
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_aqwarAI(creature);
+    }
+};
+
+class npc_ipp_naxx40 : public CreatureScript
+{
+public:
+    npc_ipp_naxx40() : CreatureScript("npc_ipp_naxx40") { }
+
+    struct npc_ipp_naxx40AI: ScriptedAI
+    {
+        explicit npc_ipp_naxx40AI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_naxx40AI(creature);
+    }
+};
+
+class npc_ipp_tbc : public CreatureScript
+{
+public:
+    npc_ipp_tbc() : CreatureScript("npc_ipp_tbc") { }
+
+    struct npc_ipp_tbcAI: ScriptedAI
+    {
+        explicit npc_ipp_tbcAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_tbcAI(creature);
+    }
+};
+
+class npc_ipp_tbc_pre_t4 : public CreatureScript
+{
+public:
+    npc_ipp_tbc_pre_t4() : CreatureScript("npc_ipp_tbc_pre_t4") { }
+
+    struct npc_ipp_tbc_pre_t4AI: ScriptedAI
+    {
+        explicit npc_ipp_tbc_pre_t4AI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->isBeforeProgression(target,PROGRESSION_TBC_TIER_3);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_tbc_pre_t4AI(creature);
     }
 };
 
@@ -214,32 +398,6 @@ public:
     CreatureAI* GetAI(Creature* creature) const override
     {
         return new npc_ipp_tbc_t5AI(creature);
-    }
-};
-
-class npc_ipp_tbc_pre_t4 : public CreatureScript
-{
-public:
-    npc_ipp_tbc_pre_t4() : CreatureScript("npc_ipp_tbc_pre_t4") { }
-
-    struct npc_ipp_tbc_pre_t4AI: ScriptedAI
-    {
-        explicit npc_ipp_tbc_pre_t4AI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->isBeforeProgression(target,PROGRESSION_TBC_TIER_3);
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_ipp_tbc_pre_t4AI(creature);
     }
 };
 
@@ -347,67 +505,6 @@ public:
     }
 };
 
-class npc_ipp_aq : public CreatureScript
-{
-public:
-    npc_ipp_aq() : CreatureScript("npc_ipp_aq") { }
-
-    struct npc_ipp_aqAI: ScriptedAI
-    {
-        explicit npc_ipp_aqAI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_ipp_aqAI(creature);
-    }
-};
-
-class npc_ipp_we : public CreatureScript
-{
-public:
-    npc_ipp_we() : CreatureScript("npc_ipp_we") { }
-
-    struct npc_ipp_weAI: ScriptedAI
-    {
-        explicit npc_ipp_weAI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-			
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-			
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
-            {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
-            }
-            else
-            {
-                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
-            }			
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_ipp_weAI(creature);
-    }
-};
-
 class npc_ipp_ds2 : public CreatureScript
 {
 public:
@@ -438,49 +535,26 @@ public:
     }
 };
 
-class npc_ipp_naxx40 : public CreatureScript
-{
-public:
-    npc_ipp_naxx40() : CreatureScript("npc_ipp_naxx40") { }
-
-    struct npc_ipp_naxx40AI: ScriptedAI
-    {
-        explicit npc_ipp_naxx40AI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ);
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_ipp_naxx40AI(creature);
-    }
-};
 // Add all scripts in one
 void AddSC_mod_individual_progression_awareness()
 {
-    new npc_ipp_we(); // aq war effort
-    new npc_ipp_aq();
+    new gobject_ipp_preaq(); // wanted poster cenarion hold
+    new gobject_ipp_we(); // war effort supplies in cities
+    new gobject_ipp_aqwar(); // aq war crystals
+    new gobject_ipp_naxx40();
+    new gobject_ipp_tbc();
+    new gobject_ipp_wotlk();
+    new npc_ipp_preaq(); // cenarion hold npcs
+    new npc_ipp_we(); // war effort npcs in cities
+    new npc_ipp_aqwar(); // aq war bosses
     new npc_ipp_naxx40();
-    new npc_ipp_ds2();
     new npc_ipp_tbc();
+    new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();
     new npc_ipp_tbc_t5();
-    new npc_ipp_tbc_pre_t4();
     new npc_ipp_wotlk();
     new npc_ipp_wotlk_ulduar();
     new npc_ipp_wotlk_totc();
     new npc_ipp_wotlk_icc();
-    new gobject_ipp_tbc();
-    new gobject_ipp_aq();
-    new gobject_ipp_we(); // aq war effort
-    new gobject_ipp_naxx40();
-    new gobject_ipp_wotlk();
+    new npc_ipp_ds2();
 }
