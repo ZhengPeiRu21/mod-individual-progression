@@ -67,6 +67,17 @@ public:
         sIndividualProgression->CheckAdjustments(player);
     }
 
+    void AttackStart(Unit* target) override
+    {
+        if (target->IsPlayer())
+        {
+            if (!CanBeSeen(target->ToPlayer()))
+                return;
+        }
+
+        SmartAI::AttackStart(target);
+    }
+
     void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
     {
         sIndividualProgression->CheckAdjustments(player);
