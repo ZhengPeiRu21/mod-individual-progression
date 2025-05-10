@@ -337,7 +337,28 @@ public:
                     player->RemoveAura(IPP_PHASE);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
-                break;			
+                break;
+            case AREA_GROVE_OF_THE_ANCIENTS:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;	
+            case AREA_WILDBEND_RIVER:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_TWILIGHT_VALE:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;            
 			case AREA_SILITHUS:
                 if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
                 {
@@ -367,12 +388,12 @@ public:
                 }
                 break;	
             case AREA_LIGHTS_HOPE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
+            //    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
+            //    {
+            //        player->RemoveAura(IPP_PHASE);
+            //        player->CastSpell(player, IPP_PHASE, false);
+            //    }
+            //    break;
             case AREA_ARGENT_TOURNAMENT:
             case AREA_ARGENT_SUNREAVER_PAVILION:
             case AREA_ARGENT_SILVER_COVENANT_PAVILION:
