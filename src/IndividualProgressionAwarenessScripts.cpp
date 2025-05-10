@@ -546,7 +546,7 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_wotlk();
     new npc_ipp_preaq(); // cenarion hold npcs
     new npc_ipp_we(); // war effort npcs in cities
-    new npc_ipp_aqwar(); // aq war bosses
+    // new npc_ipp_aqwar(); // not used atm
     new npc_ipp_naxx40();
     new npc_ipp_tbc();
     new npc_ipp_tbc_pre_t4();
