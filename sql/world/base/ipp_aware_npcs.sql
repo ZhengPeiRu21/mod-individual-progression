@@ -4,23 +4,24 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15282, 15270);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN (15176, 15180, 15181, 15183, 15188, 15189, 15190, 15191, 15293, 15194, 
+-- Phasing Cenarion Hold npcs
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_preaq' WHERE `entry` IN (15176, 15180, 15181, 15183, 15188, 15189, 15190, 15191, 15293, 15194, 
                                                                              15306, 15419, 15431, 15498, 15499, 15500, 15540, 15599, 
                                                                              15612, 15613, 15614, 15693, 15701, 15704, 15903, 16091, 16543, 17081, 17082);
 -- Phasing Cenarion Hold guards
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_aq' WHERE `id1` = 15184 AND `guid` IN (42782, 42783, 42768);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` = 15184 AND `guid` IN (42782, 42783, 42768);
 
 -- Phasing Wanted Poster Deathclasp
-UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_aq' WHERE `entry` IN (180448);
+UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_preaq' WHERE `entry` IN (180448);
 
--- Lights Hope Chapel - npcs
+-- Phasing Lights Hope Chapel npcs
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
                                                                                  16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
 -- undo previous method of phasing (this can be removed later on)
 UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
                                                       16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
 
--- Lights Hope Chapel - gobjects
+-- Phasing Lights Hope Chapel game objects
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `guid` IN (45603, 45606, 45607, 45764, 45765, 45766, 45767, 45768, 45769, 45770, 45771, 45838, 45839, 45840);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
@@ -32,7 +33,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_totc' WHERE `entry`
 -- TODO: Harold Winston (32172) has rings from all patches, so he needs special phasing applied - for now make him require ICC progression
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `entry` IN (37776, 40160, 37780, 32172);
 
--- Hide the portals to Blasted Lands until TBC is unlocked
+-- Phasing the portals to Blasted Lands until TBC is unlocked
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` IN (195141, 195142);
 
 -- Phasing Eye of the Storm Emissary until TBC

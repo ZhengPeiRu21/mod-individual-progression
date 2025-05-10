@@ -90,7 +90,15 @@ enum ProgressionZones
 
 enum ProgressionAreas
 {
+	AREA_DARKSHORE = 148,
+    AREA_GROVE_OF_THE_ANCIENTS = 448,
+    AREA_WILDBEND_RIVER = 454,
+	AREA_SILITHUS = 1377,
+    AREA_TWILIGHT_VALE = 2077,
     AREA_LIGHTS_HOPE = 2268,
+    AREA_HIVE_ASHI = 2742,
+    AREA_HIVE_ZORA = 2743,
+    AREA_HIVE_REGAL = 2744,
     AREA_ARGENT_TOURNAMENT = 4658,
     AREA_ARGENT_SUNREAVER_PAVILION = 4666,
     AREA_ARGENT_SILVER_COVENANT_PAVILION = 4667,
@@ -181,7 +189,7 @@ public:
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-    bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, pvpGearRequirements, excludeAccounts;
+    bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, RequireAQWarEffort, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, pvpGearRequirements, excludeAccounts;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression;
     std::string excludedAccountsRegex;
 

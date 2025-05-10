@@ -23,6 +23,17 @@ bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState
     return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value < state;
 }
 
+bool isExcludedFromProgression(Player* player)
+{
+    if(!sIndividualProgression->excludeAccounts) {
+        return false;
+    }
+    std::string accountName;
+    bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
+    std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
+    return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
+}
+
 void IndividualProgression::UpdateProgressionState(Player* player, ProgressionState newState) const
 {
     if (progressionLimit && newState > progressionLimit)
@@ -45,11 +56,11 @@ void IndividualProgression::CheckAdjustments(Player* player) const
     {
         return;
     }
-    if (!hasPassedProgression(player, PROGRESSION_NAXX40))
+    if ((!hasPassedProgression(player, PROGRESSION_NAXX40)) || (isExcludedFromProgression(player) && (player->GetLevel() < 61)))
     {
         AdjustVanillaStats(player);
     }
-    else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+    else if ((!hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) || (isExcludedFromProgression(player) && (player->GetLevel() < 71)))
     {
         AdjustTBCStats(player);
     }
@@ -234,7 +245,7 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
                 UpdateProgressionState(killer, PROGRESSION_ONYXIA);
                 break;
             case NEFARIAN:
-                if (requirePreAQQuests)
+                if (RequireAQWarEffort)
                 {
                     UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
                 }
@@ -299,6 +310,7 @@ private:
         sIndividualProgression->questXpFix = sConfigMgr->GetOption<bool>("IndividualProgression.QuestXPFix", true);
         sIndividualProgression->hunterPetLevelFix = sConfigMgr->GetOption<bool>("IndividualProgression.HunterPetLevelFix", true);
         sIndividualProgression->requirePreAQQuests = sConfigMgr->GetOption<bool>("IndividualProgression.RequirePreAQQuests", true);
+        sIndividualProgression->RequireAQWarEffort = sConfigMgr->GetOption<bool>("IndividualProgression.RequireAQWarEffort", true);        
         sIndividualProgression->requireNaxxStrath = sConfigMgr->GetOption<bool>("IndividualProgression.RequireNaxxStrathEntrance", true);
         sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
         sIndividualProgression->fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);

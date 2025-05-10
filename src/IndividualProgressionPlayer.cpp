@@ -331,13 +331,69 @@ public:
     void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
     {
         switch (newArea) {
-            case AREA_LIGHTS_HOPE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
+			case AREA_DARKSHORE:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
+            case AREA_GROVE_OF_THE_ANCIENTS:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;	
+            case AREA_WILDBEND_RIVER:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_TWILIGHT_VALE:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;            
+			case AREA_SILITHUS:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;	
+            case AREA_HIVE_ASHI:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;	
+            case AREA_HIVE_ZORA:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;	
+            case AREA_HIVE_REGAL:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;	
+            case AREA_LIGHTS_HOPE:
+            //    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
+            //    {
+            //        player->RemoveAura(IPP_PHASE);
+            //        player->CastSpell(player, IPP_PHASE, false);
+            //    }
+            //    break;
             case AREA_ARGENT_TOURNAMENT:
             case AREA_ARGENT_SUNREAVER_PAVILION:
             case AREA_ARGENT_SILVER_COVENANT_PAVILION:
@@ -810,7 +866,9 @@ public:
         {
             damage *= 1.0f - gearAdjustment;
         }
-    }};
+    }
+		
+};
 
 void AddSC_mod_individual_progression_player()
 {
