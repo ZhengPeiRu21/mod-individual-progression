@@ -15,6 +15,7 @@
 #include "DBCEnums.h"
 #include "QuestDef.h"
 #include "GameObject.h"
+#include "AreaDefines.h"
 #include "IWorld.h"
 #include <regex>
 
@@ -22,31 +23,31 @@ typedef std::unordered_map<uint32, uint32> questXpMapType;
 
 enum ProgressionBossIDs
 {
-    RAGNAROS = 11502,
-    ONYXIA = 10184,
-    NEFARIAN = 11583,
-    CTHUN = 15727,
-    KELTHUZAD = 15990,
-    KELTHUZAD_40 = 351019,
-    MALCHEZAAR = 15690,
-    KAELTHAS = 19622,
-    ILLIDAN = 22917,
-    ZULJIN = 23863,
-    KILJAEDEN = 25315,
-    YOGGSARON = 33288,
-    ANUBARAK = 34564,
-    LICH_KING = 36597,
-    HALION = 39863
+    RAGNAROS             = 11502,
+    ONYXIA               = 10184,
+    NEFARIAN             = 11583,
+    CTHUN                = 15727,
+    KELTHUZAD            = 15990,
+    KELTHUZAD_40         = 351019,
+    MALCHEZAAR           = 15690,
+    KAELTHAS             = 19622,
+    ILLIDAN              = 22917,
+    ZULJIN               = 23863,
+    KILJAEDEN            = 25315,
+    YOGGSARON            = 33288,
+    ANUBARAK             = 34564,
+    LICH_KING            = 36597,
+    HALION               = 39863
 };
 
 enum BuffSpells
 {
-    HP_AURA_SPELL = 89501,
-    ABSORB_SPELL = 89505,
-    RANGED_HASTE_SPELL = 89507,
-    SPELL_RUNE_TAP = 48982,
-    SPELL_LIFE_STEAL = 20004,
-    IPP_PHASE = 89509
+    HP_AURA_SPELL        = 89501,
+    ABSORB_SPELL         = 89505,
+    RANGED_HASTE_SPELL   = 89507,
+    SPELL_RUNE_TAP       = 48982,
+    SPELL_LIFE_STEAL     = 20004,
+    IPP_PHASE            = 89509
 };
 
 enum ProgressionQuestIDs
@@ -58,56 +59,30 @@ enum ProgressionQuestIDs
     QUEST_WINTERFALL     = 6241
 };
 
-enum ProgressionMaps
-{
-    MAP_BLACKWING_LAIR = 469,
-    MAP_ZUL_GURUB = 309,
-    MAP_AQ_20 = 509,
-    MAP_AQ_40 = 531,
-    MAP_OUTLANDS = 530,
-    MAP_NAXXRAMAS = 533,
-    MAP_ZUL_AMAN = 568,
-    MAP_NORTHREND = 571,
-    MAP_ULDUAR = 603,
-    MAP_TRIAL_OF_THE_CRUSADER = 649,
-    MAP_TRIAL_OF_THE_CHAMPION = 650,
-    MAP_ICC = 631,
-    MAP_FORGE_OF_SOULS = 632,
-    MAP_RUBY_SANCTUM = 724
-};
-
 enum ProgressionZones
 {
-    ZONE_AZUREMYST = 3524,
-    ZONE_BLOODMYST = 3525,
-    ZONE_GHOSTLANDS = 3433,
-    ZONE_EVERSONG = 3430,
-    ZONE_EXODAR = 3557,
-    ZONE_SILVERMOON = 3487,
-    ZONE_QUELDANAS = 4080,
-    ZONE_VEILED_SEA = 3479
+    ZONE_AZUREMYST       = 3524,
+    ZONE_BLOODMYST       = 3525,
+    ZONE_GHOSTLANDS      = 3433,
+    ZONE_EVERSONG        = 3430,
+    ZONE_EXODAR          = 3557,
+    ZONE_SILVERMOON      = 3487,
+    ZONE_QUELDANAS       = 4080,
+    ZONE_VEILED_SEA      = 3479
 };
 
 enum ProgressionAreas
 {
-	AREA_DARKSHORE = 148,
-    AREA_GROVE_OF_THE_ANCIENTS = 448,
-    AREA_WILDBEND_RIVER = 454,
-	AREA_SILITHUS = 1377,
-    AREA_TWILIGHT_VALE = 2077,
-    AREA_LIGHTS_HOPE = 2268,
-    AREA_HIVE_ASHI = 2742,
-    AREA_HIVE_ZORA = 2743,
-    AREA_HIVE_REGAL = 2744,
-    AREA_ARGENT_TOURNAMENT = 4658,
-    AREA_ARGENT_SUNREAVER_PAVILION = 4666,
+    AREA_GROVE_OF_THE_ANCIENTS           = 448,
+    AREA_WILDBEND_RIVER                  = 454,
+    AREA_TWILIGHT_VALE                   = 2077,
+    AREA_LIGHTS_HOPE                     = 2268,
+    AREA_HIVE_ASHI                       = 2742,
+    AREA_HIVE_ZORA                       = 2743,
+    AREA_HIVE_REGAL                      = 2744,
+    AREA_ARGENT_SUNREAVER_PAVILION       = 4666,
     AREA_ARGENT_SILVER_COVENANT_PAVILION = 4667,
-    AREA_ARGENT_RING_OF_CHAMPIONS = 4669,
-    AREA_ARGENT_ASPIRANTS_RING = 4670,
-    AREA_ARGENT_VALIANTS_RING = 4671,
-    AREA_ARGENT_ALLIANCE_VALIANTS_RING = 4672,
-    AREA_ARGENT_HORDE_VALIANTS_RING = 4673,
-    AREA_ARGENT_PAVILION = 4674
+    AREA_ARGENT_PAVILION                 = 4674
 };
 
 enum ProgressionSettings
@@ -139,10 +114,10 @@ enum ProgressionState : uint8
 enum RandomDungeonIds : uint16
 {
     // Values from LFGDungeons.dbc
-    RDF_CLASSIC = 258,
-    RDF_THE_BURNING_CRUSADE = 259,
-    RDF_THE_BURNING_CRUSADE_HEROIC = 260,
-    RDF_WRATH_OF_THE_LICH_KING = 261,
+    RDF_CLASSIC                       = 258,
+    RDF_THE_BURNING_CRUSADE           = 259,
+    RDF_THE_BURNING_CRUSADE_HEROIC    = 260,
+    RDF_WRATH_OF_THE_LICH_KING        = 261,
     RDF_WRATH_OF_THE_LICH_KING_HEROIC = 262
 };
 

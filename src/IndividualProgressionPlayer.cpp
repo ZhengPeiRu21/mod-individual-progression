@@ -185,15 +185,15 @@ public:
         {
             return false;
         }
-        if (mapid == MAP_AQ_40 && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
+        if (mapid == MAP_AHN_QIRAJ_TEMPLE && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
         {
             return false;
         }
-        if (mapid == MAP_AQ_20 && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
+        if (mapid == MAP_RUINS_OF_AHN_QIRAJ && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
         {
             return false;
         }
-        if (mapid == MAP_OUTLANDS)
+        if (mapid == MAP_OUTLAND)
         {
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
             {
@@ -223,11 +223,11 @@ public:
             return false;
         }
         // This will also restrict other Frozen Halls dungeons, because Forge of Souls must be completed first to access them
-        if ((mapid == MAP_ICC || mapid == MAP_FORGE_OF_SOULS) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_3))
+        if ((mapid == MAP_ICECROWN_CITADEL || mapid == MAP_THE_FORGE_OF_SOULS) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_3))
         {
             return false;
         }
-        if (mapid == MAP_RUBY_SANCTUM && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_4))
+        if (mapid == MAP_THE_RUBY_SANCTUM && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_4))
         {
             return false;
         }
@@ -235,7 +235,7 @@ public:
         InstanceTemplate const* instanceTemplate = sObjectMgr->GetInstanceTemplate(mapid);
         if (instanceTemplate)
         {
-            if (instanceTemplate->Parent == MAP_OUTLANDS && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+            if (instanceTemplate->Parent == MAP_OUTLAND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
             {
                 return false;
             }
@@ -388,20 +388,14 @@ public:
                 }
                 break;	
             case AREA_LIGHTS_HOPE:
-            //    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
-            //    {
-            //        player->RemoveAura(IPP_PHASE);
-            //        player->CastSpell(player, IPP_PHASE, false);
-            //    }
-            //    break;
-            case AREA_ARGENT_TOURNAMENT:
+            case AREA_ARGENT_TOURNAMENT_GROUNDS:
             case AREA_ARGENT_SUNREAVER_PAVILION:
             case AREA_ARGENT_SILVER_COVENANT_PAVILION:
-            case AREA_ARGENT_RING_OF_CHAMPIONS:
-            case AREA_ARGENT_ASPIRANTS_RING:
-            case AREA_ARGENT_VALIANTS_RING:
-            case AREA_ARGENT_ALLIANCE_VALIANTS_RING:
-            case AREA_ARGENT_HORDE_VALIANTS_RING:
+            case AREA_THE_RING_OF_CHAMPIONS:
+            case AREA_THE_ASPIRANTS_RING:
+            case AREA_THE_ARGENT_VALIANTS_RING:
+            case AREA_THE_ALLIANCE_VALIANTS_RING:
+            case AREA_THE_HORDE_VALIANTS_RING:
             case AREA_ARGENT_PAVILION:
                 if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2))
                 {
