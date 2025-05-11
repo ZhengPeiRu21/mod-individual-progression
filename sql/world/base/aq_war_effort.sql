@@ -64,11 +64,11 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (3115708,15708,0,0,0,0,0,1,1,0,-8813.75, 654.068, 96.1603, 4.83456,300,0,0,15260,0,0,0,0,0,'',0),
 (3115709,15709,0,0,1,0,0,1,1,0,9945.15, 2494.24, 1317.52, 4.20624,300,0,0,15260,0,0,0,0,0,'',0);
 
-DELETE FROM creature_queststarter WHERE quest IN (8792, 8793, 8794, 8795, 8796, 8797);
-INSERT INTO creature_queststarter (id, quest) VALUES (15702, 8792), (15703, 8793), (15704, 8794), (15707, 8795), (15708, 8796), (15709, 8797);
+DELETE FROM `creature_queststarter` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797);
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15702, 8792), (15703, 8793), (15704, 8794), (15707, 8795), (15708, 8796), (15709, 8797);
 
-DELETE FROM creature_questender WHERE quest IN (8792, 8793, 8794, 8795, 8796, 8797);
-INSERT INTO creature_questender (id, quest) VALUES (15700, 8792), (15700, 8793), (15700, 8794), (15701, 8795), (15701, 8796), (15701, 8797);
+DELETE FROM `creature_questender` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15700, 8792), (15700, 8793), (15700, 8794), (15701, 8795), (15701, 8796), (15701, 8797);
     
 -- War Effort Commanders
 DELETE FROM `creature` WHERE `id1` IN (15700, 15701);
