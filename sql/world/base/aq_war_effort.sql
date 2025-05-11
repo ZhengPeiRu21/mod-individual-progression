@@ -128,7 +128,7 @@ INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes
 -- Phase AQ War Effort Npcs
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_we' WHERE `entry` IN 
 (15383, 15431, 15432, 15434, 15437, 15445, 15446, 15448, 15450, 15451, 15452, 15453, 15455, 15456, 15457, 15459, 15460, 15469, 15477, 15508, 15512, 15515, 15522, 15525, 
-15528, 15529, 15532, 15533, 15534, 15535, 15700, 15701, 15702, 15703, 15704, 15707, 15708, 15709, 15738, 15737, 15739, 15736, 15731, 15733, 15735, 15734, 21968, 21969);
+15528, 15529, 15532, 15533, 15534, 15535, 15700, 15701, 15702, 15703, 15704, 15707, 15708, 15709, 15738, 15737, 15739, 15736, 15731, 15733, 15735, 15734, 21155, 21156, 21968, 21969);
 
 -- undo previous phasing for aq bosses. this is done in table 'creature' now. (this can be removed later on)
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (15810, 15813, 15742, 15741, 15740, 15758, 15818);
