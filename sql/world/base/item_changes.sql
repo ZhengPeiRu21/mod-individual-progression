@@ -10,6 +10,10 @@ ALTER TABLE item_template MODIFY arcane_res SMALLINT;
 UPDATE item_template SET RequiredReputationFaction=529, RequiredReputationRank=6 WHERE entry IN (18169, 18170, 18171, 18172, 18173);
 UPDATE item_template SET RequiredReputationFaction=529, RequiredReputationRank=7 WHERE entry=18182;
 
+-- In 3.1 all ammo was changed to stack to 1000. This reduced the usefulness of quivers and ammo pouches
+UPDATE `item_template` SET `stackable` = 200 WHERE `stackable` = 1000 AND `InventoryType` = 24;
+UPDATE `item_template` SET `stackable` = 1000 WHERE `entry` IN (41164, 41165, 41584, 41586, 52020, 52021); -- WotLK ammo
+
 /*  Martin Fury  */
 UPDATE `item_template` SET `SellPrice` = 0, `spellcooldown_2` = -1, `spellcategorycooldown_2` = -1, `spellcooldown_3` = -1, `spellcategorycooldown_3` = -1, `spellcooldown_4` = -1, `spellcategorycooldown_4` = -1, `spellcooldown_5` = -1, `spellcategorycooldown_5` = -1 WHERE entry=17;
 
