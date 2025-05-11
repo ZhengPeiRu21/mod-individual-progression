@@ -10,3 +10,6 @@ UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (29273);
 
 /* Delete unused Creature Addon data */
 DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 133928);
+
+/* Remove script from database to avoid worldserver error. The code for this script has been commented out. Need to figure out why. */
+UPDATE `creature_template` SET `Scriptname` = '' WHERE `entry` = 351042;
