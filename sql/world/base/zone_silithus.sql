@@ -16,6 +16,9 @@ DELETE FROM `gameobject` WHERE `id`=180322;
 
 -- Gate of Ahn'Qiraj
 UPDATE `gameobject_template_addon` SET `flags`=4 WHERE `entry`=176146;
+UPDATE `gameobject_template` SET `ScriptName`='aq_gate' WHERE  `entry`=176148;
+UPDATE `gameobject_template` SET `ScriptName`='aq_gate' WHERE  `entry`=176147;
+UPDATE `gameobject_template` SET `ScriptName`='aq_gate' WHERE  `entry`=176146;
 
 -- Ahn'Qiraj Gate Roots
 UPDATE `gameobject_template_addon` SET `flags`=4 WHERE `entry`=176147;
