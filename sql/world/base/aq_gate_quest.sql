@@ -59,6 +59,17 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 
 (108743, 0, 60, 60, 1377, 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Bang a Gong!', '', '', NULL, 'Return to The Scarab Gong in Silithus.', 0, 0, 0, 0, 0, 0, 0, 0, 9240, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, '', '', '', '', 12340);
 
+-- update quest texts for the new 'Bang a Gong!' quest
+DELETE FROM `quest_request_items` WHERE `ID` = 108743;
+INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`, `CompletionText`, `VerifiedBuild`) VALUES 
+(108743, 1, 0, 'The Scarab Gong looms ominously before you. Steel yourself, $N; for once the Scarab Gong is rung, the gates of Ahn\'Qiraj will be opened.$B$BFrom the slackened maw of the beast can only come chaos and destruction. Defend your people!', 12340);
+
+DELETE FROM `quest_offer_reward` WHERE `ID` = 108743;
+INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, `EmoteDelay1`, `EmoteDelay2`, `EmoteDelay3`, `EmoteDelay4`, `RewardText`, `VerifiedBuild`) VALUES 
+(108743, 0, 0, 0, 0, 0, 0, 0, 0, 'From the ground near the gong springs a special crystal. Perhaps favor from the Brood.', 12340);
+
+UPDATE `quest_template` SET `QuestDescription` = 'Comleting this quest will end the AQ war effort.$B$BHowever, you get no fame and reward for simply banging a gong.' WHERE `ID` = 108743;    
+
 -- Connect new 'Bang a Gong!' quest to the Scarab Gong in Silithus
 DELETE FROM `gameobject_queststarter` WHERE `id` = 180717;
 INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 108743);
