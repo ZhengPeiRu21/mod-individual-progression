@@ -55,7 +55,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (3115486,21968,0,0,1,0,0,1,1,0,1601.01,-4091.87,35.5195,4.52778,300,0,0,2614,0,0,0,0,0,'',0);
 
 -- War Effort Recruiters
-DELETE FROM `creature` WHERE `id1` IN (15702, 15703, 15704, 15707, 15708, 15709);
+DELETE FROM `creature` WHERE `id1` IN (15702, 15703, 15704, 15707, 15708, 15709, 21155, 21156);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (3115702,15702,0,0,1,0,0,1,1,0,-1209.58, 100.22, 134.661, 3.15905,300,0,0,15260,0,0,0,0,0,'',0),
 (3115703,15703,0,0,0,0,0,1,1,0,1572.58, 272.707, -43.0193, 5.02655,300,0,0,15260,0,0,0,0,0,'',0),
@@ -63,12 +63,20 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (3115707,15707,0,0,0,0,0,1,1,0,-4956.09, -931.133, 503.347, 5.37561,300,0,0,15260,0,0,0,0,0,'',0),
 (3115708,15708,0,0,0,0,0,1,1,0,-8813.75, 654.068, 96.1603, 4.83456,300,0,0,15260,0,0,0,0,0,'',0),
 (3115709,15709,0,0,1,0,0,1,1,0,9945.15, 2494.24, 1317.52, 4.20624,300,0,0,15260,0,0,0,0,0,'',0);
+--(3121155,21155,0,0,520,0,0,1,1,0,x, y, z, o,300,0,0,15260,0,0,0,0,0,'',0),
+--(3121156,21156,0,0,520,0,0,1,1,0,x, y, z, o,300,0,0,15260,0,0,0,0,0,'',0);
 
-DELETE FROM `creature_queststarter` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797);
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15702, 8792), (15703, 8793), (15704, 8794), (15707, 8795), (15708, 8796), (15709, 8797);
+UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (8792, 8793, 8794, 10500);
+UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (8795, 8796, 8797, 10501);
 
-DELETE FROM `creature_questender` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797);
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15700, 8792), (15700, 8793), (15700, 8794), (15701, 8795), (15701, 8796), (15701, 8797);
+UPDATE quest_offer_reward SET RewardText = 'Throm\'ka, $c! Good to see so many of the Horde, such as yourself, $N, coming out to lend your support in laying the groundwork for the upcoming Ahn\'Qiraj War. The effort here will ensure that we are victorious against the Silithid and their evil masters hidden away inside Ahn\'Qiraj.$b$bSo now that you are here, be sure to speak with the various collectors and offer your assistance in gathering those materials that you are suited to.' WHERE `ID` IN (8792, 8793, 8794, 10500);
+UPDATE quest_offer_reward SET RewardText = 'Hail and well met lad! Good to see so many of the Alliance, such as yourself, $N, coming out to lend your support in laying the groundwork for the upcoming Ahn\'Qiraj War. The effort here will ensure that we are victorious against the Silithid and their evil masters hidden away inside Ahn\'Qiraj.$b$bSo now that you are here, be sure to speak with the various collectors and offer your assistance in gathering those materials that you are suited to.' WHERE `ID` IN (8795, 8796, 8797, 10501);
+
+DELETE FROM `creature_queststarter` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797, 10500, 10501);
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15702, 8792), (15703, 8793), (15704, 8794), (15707, 8795), (15708, 8796), (15709, 8797), (21155, 10500), (21156, 10501);
+
+DELETE FROM `creature_questender` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797, 10500, 10501);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15700, 8792), (15700, 8793), (15700, 8794), (15700, 10500), (15701, 8795), (15701, 8796), (15701, 8797), (15701, 10501);
     
 -- War Effort Commanders
 DELETE FROM `creature` WHERE `id1` IN (15700, 15701);
