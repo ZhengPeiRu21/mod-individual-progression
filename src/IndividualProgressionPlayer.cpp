@@ -766,7 +766,7 @@ public:
         {
             heal *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaHealingAdjustment) - gearAdjustment);
         }
-        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (isExcludedFromProgression(player) && (player->GetLevel() < 61)))
+        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (isExcludedFromProgression(player) && (player->GetLevel() < 71)))
         {
             heal *= (sIndividualProgression->tbcHealingAdjustment - gearAdjustment);
         }
