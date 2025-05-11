@@ -70,6 +70,11 @@ INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, 
 
 UPDATE `quest_template` SET `QuestDescription` = 'Comleting this quest will end the AQ war effort.$B$BHowever, you get no fame and reward for simply banging a gong.' WHERE `ID` = 108743;    
 
+DELETE FROM `quest_template_addon` WHERE `ID` = 108743;
+INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
+`RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES 
+(108743, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    
 -- Connect new 'Bang a Gong!' quest to the Scarab Gong in Silithus
 DELETE FROM `gameobject_queststarter` WHERE `id` = 180717;
 INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 108743);
