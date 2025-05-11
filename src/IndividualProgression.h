@@ -53,6 +53,7 @@ enum BuffSpells
 enum ProgressionQuestIDs
 {
     MIGHT_OF_KALIMDOR    = 8742,
+    BANG_A_GONG          = 108743,
     QUEST_MORROWGRAIN    = 3803,
     QUEST_TROLL_NECKLACE = 2881,
     QUEST_DEADWOOD       = 6221,
