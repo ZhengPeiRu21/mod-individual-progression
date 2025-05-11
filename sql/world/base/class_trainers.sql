@@ -7,7 +7,13 @@ UPDATE `quest_template` SET `RewardSpell` = 1446 WHERE `ID` IN (31, 5061);
 /* Remove Conjure Water (Rank 7) from Mage Trainers - it is a quest reward instead */
 DELETE FROM `npc_trainer` WHERE `SpellID` = 10140;
 
-/* Correct Vanilla level for Druid Travel Form */
+/* Restore Ghost Wolf level requirement to 20 */
+UPDATE `npc_trainer` SET `ReqLevel` = 20 WHERE `SpellID` = 2645;
+
+/* Restore Aspect of the Cheetah level requirement to 20 */
+UPDATE `npc_trainer` SET `ReqLevel` = 20 WHERE `SpellID` = 5118;
+
+/* Restore Travel Form level requirement to 30 */
 UPDATE `npc_trainer` SET `ReqLevel` = 30 WHERE `SpellID` = 783;
 
 /* Remove Summon Imp from Trainer - it is a quest reward instead */
