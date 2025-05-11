@@ -14,6 +14,20 @@ UPDATE item_template SET RequiredReputationFaction=529, RequiredReputationRank=7
 UPDATE `item_template` SET `stackable` = 200 WHERE `stackable` = 1000 AND `InventoryType` = 24;
 UPDATE `item_template` SET `stackable` = 1000 WHERE `entry` IN (41164, 41165, 41584, 41586, 52020, 52021); -- WotLK ammo
 
+-- Restore quiver functionality
+UPDATE `item_template` SET `spellid_1` = 29418 WHERE `entry` IN (2101, 3573, 5439, 7278, 11362); 
+UPDATE `item_template` SET `spellid_1` = 14824 WHERE `entry` IN (2102, 3574, 5441, 7279, 11363);
+UPDATE `item_template` SET `spellid_1` = 29414 WHERE `entry` IN (18714, 19319, 29143, 29144, 34100, 34105, 44448);
+UPDATE `item_template` SET `spellid_1` = 14829 WHERE `entry` IN (19320, 29118, 34099, 34106, 44447);
+UPDATE `item_template` SET `spellid_1` = 29415 WHERE `entry` = 2662;
+UPDATE `item_template` SET `spellid_1` = 14828 WHERE `entry` = 2663;
+UPDATE `item_template` SET `spellid_1` = 14825 WHERE `entry` = 3604;
+UPDATE `item_template` SET `spellid_1` = 29417 WHERE `entry` = 3605;
+UPDATE `item_template` SET `spellid_1` = 29416 WHERE `entry` = 7371;
+UPDATE `item_template` SET `spellid_1` = 14826 WHERE `entry` = 7372;
+UPDATE `item_template` SET `spellid_1` = 29413 WHERE `entry` = 8217;
+UPDATE `item_template` SET `spellid_1` = 14827 WHERE `entry` = 8218;
+
 /*  Martin Fury  */
 UPDATE `item_template` SET `SellPrice` = 0, `spellcooldown_2` = -1, `spellcategorycooldown_2` = -1, `spellcooldown_3` = -1, `spellcategorycooldown_3` = -1, `spellcooldown_4` = -1, `spellcategorycooldown_4` = -1, `spellcooldown_5` = -1, `spellcategorycooldown_5` = -1 WHERE entry=17;
 
