@@ -16,6 +16,9 @@ DELETE FROM `gameobject` WHERE `id`=180322;
 
 -- Gate of Ahn'Qiraj
 UPDATE `gameobject_template_addon` SET `flags`=4 WHERE `entry`=176146;
+UPDATE `gameobject_template` SET `ScriptName`='aq_gate' WHERE  `entry`=176148;
+UPDATE `gameobject_template` SET `ScriptName`='aq_gate' WHERE  `entry`=176147;
+UPDATE `gameobject_template` SET `ScriptName`='aq_gate' WHERE  `entry`=176146;
 
 -- Ahn'Qiraj Gate Roots
 UPDATE `gameobject_template_addon` SET `flags`=4 WHERE `entry`=176147;
@@ -36,3 +39,11 @@ SET @STRING_ENTRY := 41100;
 DELETE FROM `acore_string` WHERE `entry` IN  (@STRING_ENTRY);
 INSERT INTO `acore_string` (`entry`, `content_default`) VALUES
 (@STRING_ENTRY, '%s, Champion of the Bronze Dragonflight, has rung the Scarab Gong. The ancient gates of Ahn''Qiraj open, revealing the horrors of a forgotten war...');
+
+-- Fix drop rate for Nightmare_corruption
+UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 21146;
+UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 21147;
+UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 21148;
+
+-- FIx drop rate for Narain's Scrying Goggles
+UPDATE `creature_loot_template` SET `Chance` = 2 WHERE `Item` = 20951;

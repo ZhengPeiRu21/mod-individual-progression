@@ -1,6 +1,7 @@
-/* Reverts creatures that had model changes post-Vanilla to their original models.
-   There are a few exceptions due to some Vanilla models being removed from the game files.
- */
+/*
+    Reverts creatures that had model changes post-Vanilla to their original models.
+    There are a few exceptions due to some Vanilla models being removed from the game files.
+*/
 
 UPDATE `creature_template_model` SET `CreatureDisplayID`=143 WHERE `CreatureID`=29 AND `Idx`=0;
 UPDATE `creature_template_model` SET `CreatureDisplayID`=604 WHERE `CreatureID`=69 AND `Idx`=0;

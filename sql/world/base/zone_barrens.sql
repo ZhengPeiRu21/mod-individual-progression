@@ -34,6 +34,20 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5765, 1485);
 DELETE FROM `creature_queststarter` WHERE `id`=6251 AND `quest`=4490;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6251, 4490);
 
+/* Plainstriders flee at 15% health. They have no other abilities during vanilla */
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (3244, 3245, 3246);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+(3244, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Greater Plainstrider - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(3245, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Ornery Plainstrider - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(3246, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fleeting Plainstrider - Between 0-15% Health - Flee For Assist (No Repeat)');
+
+/* Deviate Stalker (3634) should have sneak spell 22766 */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 3634;
+DELETE FROM `smart_scripts` WHERE `entryorguid` = 3634;
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+(3634, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Deviate Stalker - Out of Combat - Cast \'Sneak\'');
+
 -- Grub
 UPDATE `creature_template` SET `gossip_menu_id`=0, `npcflag`=2 WHERE `entry`=3443;
 
