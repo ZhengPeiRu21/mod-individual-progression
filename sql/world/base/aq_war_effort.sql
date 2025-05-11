@@ -55,15 +55,34 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (3115486,21968,0,0,1,0,0,1,1,0,1601.01,-4091.87,35.5195,4.52778,300,0,0,2614,0,0,0,0,0,'',0);
 
 -- War Effort Recruiters
-DELETE FROM `creature` WHERE `id1` IN (15702, 15703, 15704, 15707, 15708, 15709);
+DELETE FROM `gossip_menu` WHERE `MenuID` IN (3118101, 3118103, 3118105, 3118107);
+INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES (3118101, 8101), (3118103, 8103), (3118105, 8105), (3118107, 8107);
+
+UPDATE `creature_template` SET `gossip_menu_id` = 3118101, `npcflag` = 3 WHERE `entry` = 15707;
+UPDATE `creature_template` SET `gossip_menu_id` = 3118103, `npcflag` = 3 WHERE `entry` IN (15708, 15709, 21156);
+UPDATE `creature_template` SET `gossip_menu_id` = 3118105, `npcflag` = 3 WHERE `entry` = 15703;
+UPDATE `creature_template` SET `gossip_menu_id` = 3118107, `npcflag` = 3 WHERE `entry` IN (15702, 15704, 21155);
+
+UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (8792, 8793, 8794, 10500);
+UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (8795, 8796, 8797, 10501);
+
+DELETE FROM `creature_queststarter` WHERE `quest` IN (8792, 8795, 8796, 8797, 10500, 10501);
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15702, 8792), (15703, 8792), (15704, 8792), (21155, 8792), (15707, 8795), (15708, 8795), (15709, 8795), (21156, 8795);
+
+DELETE FROM `creature_questender` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797, 10500, 10501);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15700, 8792), (15701, 8795);
+
+DELETE FROM `creature` WHERE `id1` IN (15702, 15703, 15704, 15707, 15708, 15709, 21155, 21156);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (3115702,15702,0,0,1,0,0,1,1,0,-1209.58, 100.22, 134.661, 3.15905,300,0,0,15260,0,0,0,0,0,'',0),
 (3115703,15703,0,0,0,0,0,1,1,0,1572.58, 272.707, -43.0193, 5.02655,300,0,0,15260,0,0,0,0,0,'',0),
 (3115704,15704,0,0,1,0,0,1,1,0,1653.07, -4403.81, 18.5819, 4.45059,300,0,0,15260,0,0,0,0,0,'',0),
 (3115707,15707,0,0,0,0,0,1,1,0,-4956.09, -931.133, 503.347, 5.37561,300,0,0,15260,0,0,0,0,0,'',0),
 (3115708,15708,0,0,0,0,0,1,1,0,-8813.75, 654.068, 96.1603, 4.83456,300,0,0,15260,0,0,0,0,0,'',0),
-(3115709,15709,0,0,1,0,0,1,1,0,9945.15, 2494.24, 1317.52, 4.20624,300,0,0,15260,0,0,0,0,0,'',0);
-    
+(3115709,15709,0,0,1,0,0,1,1,0,9945.15, 2494.24, 1317.52, 4.20624,300,0,0,15260,0,0,0,0,0,'',0),
+(3121155,21155,0,0,530,0,0,1,1,0,9526.53, -7190.16, 16.1257, 1.55872,300,0,0,15260,0,0,0,0,0,'',0),
+(3121156,21156,0,0,530,0,0,1,1,0,-3907.79, -11606.595, -138.176, 4.69083,300,0,0,15260,0,0,0,0,0,'',0);
+
 -- War Effort Commanders
 DELETE FROM `creature` WHERE `id1` IN (15700, 15701);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
@@ -114,7 +133,7 @@ INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes
 -- Phase AQ War Effort Npcs
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_we' WHERE `entry` IN 
 (15383, 15431, 15432, 15434, 15437, 15445, 15446, 15448, 15450, 15451, 15452, 15453, 15455, 15456, 15457, 15459, 15460, 15469, 15477, 15508, 15512, 15515, 15522, 15525, 
-15528, 15529, 15532, 15533, 15534, 15535, 15700, 15701, 15702, 15703, 15704, 15707, 15708, 15709, 15738, 15737, 15739, 15736, 15731, 15733, 15735, 15734, 21968, 21969);
+15528, 15529, 15532, 15533, 15534, 15535, 15700, 15701, 15702, 15703, 15704, 15707, 15708, 15709, 15738, 15737, 15739, 15736, 15731, 15733, 15735, 15734, 21155, 21156, 21968, 21969);
 
 -- undo previous phasing for aq bosses. this is done in table 'creature' now. (this can be removed later on)
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (15810, 15813, 15742, 15741, 15740, 15758, 15818);
