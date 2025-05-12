@@ -68,8 +68,8 @@ DELETE FROM `quest_offer_reward` WHERE `ID` = 108743;
 INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, `EmoteDelay1`, `EmoteDelay2`, `EmoteDelay3`, `EmoteDelay4`, `RewardText`, `VerifiedBuild`) VALUES 
 (108743, 0, 0, 0, 0, 0, 0, 0, 0, 'From the ground near the gong springs a special crystal. Perhaps favor from the Brood.', 12340);
 
-UPDATE `quest_template` SET `QuestDescription` = 'Comleting this quest will end the AQ war effort.$B$BHowever, you get no fame and reward for simply banging a gong.' WHERE `ID` = 108743;    
-
+UPDATE `quest_template` SET `QuestDescription` = '$N, comleting this quest will end the AQ war effort. The gates of Ahn\'Qiraj will be opened.$B$BHowever, you will miss out on the fame and rewards for helping the Brood of Nozdomu and the Cenarion Circle.' WHERE `ID` = 108743;    
+    
 DELETE FROM `quest_template_addon` WHERE `ID` = 108743;
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
 `RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES 
