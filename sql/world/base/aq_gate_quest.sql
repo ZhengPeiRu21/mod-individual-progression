@@ -76,8 +76,8 @@ INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `Sourc
 (108743, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     
 -- Connect new 'Bang a Gong!' quest to the Scarab Gong in Silithus
-DELETE FROM `gameobject_queststarter` WHERE `quest` = 108743;
-INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 108743);
+DELETE FROM `gameobject_queststarter` WHERE `id` = 180717;
+INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743);
 
-DELETE FROM `gameobject_questender` WHERE `quest` = 108743;
-INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES (180717, 108743);
+DELETE FROM `gameobject_questender` WHERE `id` = 180717;
+INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743);
