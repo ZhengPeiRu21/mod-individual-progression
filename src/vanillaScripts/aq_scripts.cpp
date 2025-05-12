@@ -88,11 +88,18 @@ public:
             }
 
             /*
-            Gong can be seen even if the AQ raid is released because during the original event, 
-            some players could still activate the gong during the first 24 hours.
-            This allows to simulate this effect (IndividualProgression.RequirePreAQQuests = 0)
-            */
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+            The Scarab Gong can still be seen after the AQ raid is released, 
+            because during the original event some players could still activate it during the first 24 hours.
+            */        
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
+            {
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+            }
+            else
+            {
+                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
+            }
+
         }
 
         void NextStage(uint32 timeUntil = 100)
