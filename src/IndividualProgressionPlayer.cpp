@@ -657,11 +657,11 @@ private:
             return;
         }
 		
-        if ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40)) || ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40)) && (pet->GetLevel() < 61)))
+        if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40) || ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40)) && (pet->GetLevel() < 61)))
         {
             AdjustVanillaStats(pet);
         }
-        else if ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5)) || ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5)) && (pet->GetLevel() < 71)))
+        else if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5) || ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5)) && (pet->GetLevel() < 71)))
         {
             AdjustTBCStats(pet);
         }
