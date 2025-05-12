@@ -23,17 +23,6 @@ bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState
     return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value < state;
 }
 
-bool isExcludedFromProgression(Player* player)
-{
-    if(!sIndividualProgression->excludeAccounts) {
-        return false;
-    }
-    std::string accountName;
-    bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
-    std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
-    return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
-}
-
 void IndividualProgression::UpdateProgressionState(Player* player, ProgressionState newState) const
 {
     if (progressionLimit && newState > progressionLimit)
@@ -56,11 +45,11 @@ void IndividualProgression::CheckAdjustments(Player* player) const
     {
         return;
     }
-    if ((!hasPassedProgression(player, PROGRESSION_NAXX40)) || (isExcludedFromProgression(player) && (player->GetLevel() < 61)))
+    if (!hasPassedProgression(player, PROGRESSION_NAXX40) || (!hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() < 61)))
     {
         AdjustVanillaStats(player);
     }
-    else if ((!hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) || (isExcludedFromProgression(player) && (player->GetLevel() < 71)))
+    else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() < 71)))
     {
         AdjustTBCStats(player);
     }
