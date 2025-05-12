@@ -72,6 +72,8 @@ DELETE FROM `quest_template_addon` WHERE `ID` = 108743;
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
 `RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES 
 (108743, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+UPDATE `quest_template` SET `QuestDescription` = '' WHERE `ID` = 108743;    
     
 -- Connect new 'Bang a Gong!' quest to the Scarab Gong in Silithus
 DELETE FROM `gameobject_queststarter` WHERE `id` = 180717;
