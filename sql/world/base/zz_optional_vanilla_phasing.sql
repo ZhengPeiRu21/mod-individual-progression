@@ -33,3 +33,17 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
 
 -- to do: mail boxes in cities and anvil + furnace at Orgrimmar entrance
+
+-- hide Rogg and his anvil + forge at the entrance of Orgrimmar until WotLK
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` = 37072;
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (347, 387);
+
+-- hide mailboxes, see: https://www.wowhead.com/classic/object=32349/mailbox
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 49832; -- Darnassus
+
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (
+150748, 150749, 150750, -- Orgrimmar
+100500, 100501, 100502, 100503, 268683, -- Undercity
+932, 933, 100156, 100157, 100158, 100159, 100505, 100506, 150736, 150737, 150738, 150740, 150742, 150743, 150744, 150746, 151239,  -- Stormwind
+121574 -- Darnassus
+);
