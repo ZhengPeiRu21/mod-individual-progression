@@ -5,5 +5,5 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2926, 0, 0, 0, 0, 0, 100, 0, 4000, 5000, 17000, 19000, 0, 0, 11, 7367, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Silvermane Stalker - In Combat - Cast Infected Bite'), 
 (2926, 0, 1, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Silvermane Stalker - Out of Combat - Cast \'Sneak\'');
 
--- Troll Necklace Bounty quest should be for allaince only
+-- Troll Necklace Bounty quest should be for Alliance only
 UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` = 2880;
