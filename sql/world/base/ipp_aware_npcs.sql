@@ -58,8 +58,13 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN 
 -- Phasing for General Tiras'alan and Dathris Sunstriker - prevent early access to Isle of Quel'Danas
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
 
+
+SET @IPPPHASE := 65536; -- this method of phasing is useful for aggressive creatures
+
+-- Dragons of Nightmare
+UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (14887, 14888, 14889, 14890);
+
 -- Argent Tournament
-SET @IPPPHASE := 65536;
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` IN (25, 63129, 63236, 63370, 63371, 65274, 65275, 65283, 65284, 65285, 65325, 65327, 65350, 65351, 65371, 65451,
 65522, 65523, 65526, 65901, 66478, 66479, 66741, 66753, 66788, 66790, 66792, 66910, 66941, 67185, 67187, 68005, 68457, 68583, 68906, 68941, 68947, 68987, 68989, 68990, 69010,
 69011, 69065, 69077, 69078, 69880, 69973, 69976, 69990, 69992, 69995, 69996, 70000, 70001, 70002, 70003, 70005, 70006, 70007, 70178, 70179, 70180, 70181, 70448, 70539, 70548,
