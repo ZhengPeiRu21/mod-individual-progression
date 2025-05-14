@@ -74,8 +74,13 @@ enum ProgressionZones
 
 enum ProgressionAreas
 {
+    AREA_SERADANE                        = 356,
+    AREA_BOUGH_SHADOW                    = 438,
     AREA_GROVE_OF_THE_ANCIENTS           = 448,
     AREA_WILDBEND_RIVER                  = 454,
+    AREA_TWILIGHT_GROVE                  = 856,
+    AREA_DREAM_BOUGH                     = 1111,
+    AREA_JADEMIR_LAKE                    = 1112,
     AREA_TWILIGHT_VALE                   = 2077,
     AREA_LIGHTS_HOPE                     = 2268,
     AREA_HIVE_ASHI                       = 2742,

@@ -393,6 +393,41 @@ public:
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;	
+            case AREA_BOUGH_SHADOW:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_SERADANE:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_DREAM_BOUGH:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_JADEMIR_LAKE:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_TWILIGHT_GROVE:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
             case AREA_LIGHTS_HOPE:
             case AREA_ARGENT_TOURNAMENT_GROUNDS:
             case AREA_ARGENT_SUNREAVER_PAVILION:
