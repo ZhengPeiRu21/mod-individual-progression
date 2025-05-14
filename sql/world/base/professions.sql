@@ -28,9 +28,18 @@ UPDATE quest_template SET RewardItem3 = 16085, RewardAmount3 = 1 WHERE ID IN (66
 UPDATE `item_template` SET `description` = 'Teaches you advanced first aid, allowing a maximum of 300 first aid skill.' WHERE `entry` = 16085;
 
 -- TBC First Aid vendors
-UPDATE `creature_template` SET `npcflag` = 128 WHERE `entry` IN (18990, 18991);
-DELETE FROM `npc_trainer` WHERE `ID` IN (18990, 18991);
+UPDATE `creature_template` SET `npcflag` = 128 WHERE `entry` IN (18990, 18991); -- set to vendors, no longer trainers
 
+DELETE FROM `npc_trainer` WHERE `ID` IN (16272, 16731, 17214, 17424, 18990, 18991, 19184, 19478, 22477);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
+(16272, -350000), -- Kanaria, Eversong Woods
+(16731, -350000), -- Nus, The Exodar
+(17214, -350000), -- Anchorite Fateema, Azuremyst Isle
+(17424, -350000), -- Anchorite Paetheus, Bloodmyst Isle
+(19184, -350000), -- Mildred Fletcher, Shattrath
+(19478, -350000), -- Fera Palerunner, Blades Edge Mountains
+(22477, -350000); -- Anchorite Ensham, Terokkar Forest
+   
 -- Make Brilliant Glass craft only available once WotLK is reached, to avoid early access to epic TBC gems
 UPDATE `npc_trainer` SET `ReqLevel` = 71 WHERE `SpellID` = 47280;
 
