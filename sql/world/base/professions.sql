@@ -56,16 +56,12 @@ DELETE FROM npc_trainer WHERE SpellID IN (18249, 54083, 54084);
 UPDATE quest_template SET RewardItem2 = 16082, RewardAmount2 = 1 WHERE ID = 6607;
 
 -- Leatherworking Recipes
-DELETE
-FROM npc_trainer
-WHERE SpellID IN
-      (19052, 19055, 19065, 19071, 19072, 19083, 19091, 19092, 19098, 19102, 19103, 18403, 18407, 18410, 18411, 18413,
-       18414, 18415, 18416, 18420, 18421, 18424, 18437, 18438, 18441, 18442, 18446, 18449, 18451, 19082, 32455);
-
+DELETE FROM npc_trainer WHERE SpellID IN
+(19052, 19055, 19065, 19071, 19072, 19083, 19091, 19092, 19098, 19102, 19103, 18403, 18407, 18410, 18411, 18413,
+ 18414, 18415, 18416, 18420, 18421, 18424, 18437, 18438, 18441, 18442, 18446, 18449, 18451, 19082, 32455);
 
 -- Black Sack of Gems was added in late TBC to make it easy to get gems
 DELETE FROM `creature_loot_template` WHERE `Entry`=17257 AND `Item`=34846 AND `Reference`=0 AND `GroupId`=0;
-
 
 -- Restore Vendor Formulas
 DELETE FROM npc_vendor WHERE entry = 11188 AND item = 13480;
@@ -87,7 +83,6 @@ DELETE FROM npc_vendor WHERE entry = 5175 AND item = 16042;
 DELETE FROM npc_vendor WHERE entry = 11185 AND item = 16047;
 DELETE FROM npc_vendor WHERE entry = 2685 AND item = 18651;
 
-
 INSERT INTO npc_vendor (entry, slot, item) VALUES 
 (2685, 0, 18651), 
 (3413, 0, 16041),
@@ -106,19 +101,17 @@ INSERT INTO npc_vendor (entry, slot, item) VALUES
 (18991, 0, 21992),
 (18991, 0, 21993);
 
--- Apprentice Alchemist
-DELETE FROM `npc_trainer` WHERE `ID`=300000;
+/*-- Alchemy --*/
+DELETE FROM `npc_trainer` WHERE `ID` IN (300000, 300001, 300002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
+-- Apprentice Alchemist
 (300000, 2275, 10, 0, 0, 5),
 (300000, 3170, 50, 171, 15, 0),
 (300000, 2331, 100, 171, 25, 0),
 (300000, 2332, 150, 171, 40, 0),
 (300000, 2334, 250, 171, 50, 0),
-(300000, 2337, 250, 171, 55, 0);
-
+(300000, 2337, 250, 171, 55, 0),
 -- Journeyman Alchemist
-DELETE FROM `npc_trainer` WHERE `ID`=300001;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (300001, 2280, 500, 171, 50, 10),
 (300001, 7836, 250, 171, 80, 0),
 (300001, 3171, 500, 171, 90, 0),
@@ -129,24 +122,64 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (300001, 3176, 1500, 171, 125, 0),
 (300001, 3177, 2000, 171, 130, 0),
 (300001, 7837, 1000, 171, 130, 0),
-(300001, 7845, 3000, 171, 140, 0);
-
+(300001, 7845, 3000, 171, 140, 0),
 -- Expert Alchemist
-DELETE FROM `npc_trainer` WHERE `ID`=300002;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
-(300002, 3448, 5000, 171, 165, 0, 0),
-(300002, 3450, 6000, 171, 175, 0, 0),
-(300002, 3452, 5000, 171, 160, 0, 0),
-(300002, 3465, 5000, 171, 125, 20, 0),
-(300002, 7181, 5000, 171, 155, 0, 0),
-(300002, 11449, 6500, 171, 185, 0, 0),
-(300002, 11450, 7500, 171, 195, 0, 0),
-(300002, 53042, 10000, 171, 50, 0, 0),
-(300002, 63732, 2000, 171, 135, 0, 0);
+(300002, 3448, 5000, 171, 165, 0),
+(300002, 3450, 6000, 171, 175, 0),
+(300002, 3452, 5000, 171, 160, 0),
+(300002, 3465, 5000, 171, 125, 20),
+(300002, 7181, 5000, 171, 155, 0),
+(300002, 11449, 6500, 171, 185, 0),
+(300002, 11450, 7500, 171, 195, 0),
+(300002, 53042, 10000, 171, 50, 0),
+(300002, 63732, 2000, 171, 135, 0);
 
--- Apprentice Blacksmith
-DELETE FROM `npc_trainer` WHERE `ID`=310000;
+UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist' WHERE `entry`=16161;
+UPDATE `creature_template` SET `subname` = 'Expert Alchemist' WHERE `entry` IN (16642, 16723);
+
+DELETE FROM `npc_trainer` WHERE `ID` IN (1470, 2391, 2837, 3603, 3964, 4160, 4611, 4900, 5177, 16161, 16588, 16642, 16723, 18802, 19052, 27023, 27029, 33608, 33630, 33674);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+-- Journeyman Alchemy
+(1470, -300000, 0, 0, 0, 0),
+(3603, -300000, 0, 0, 0, 0),
+(16161, -300000, 0, 0, 0, 0),
+-- Expert Alchemy
+(2391, -300000, 0, 0, 0, 0),
+(2391, -300001, 0, 0, 0, 0),
+(2837, -300000, 0, 0, 0, 0),
+(2837, -300001, 0, 0, 0, 0),
+(3964, -300000, 0, 0, 0, 0),
+(3964, -300001, 0, 0, 0, 0),
+(4900, -300000, 0, 0, 0, 0),
+(4900, -300001, 0, 0, 0, 0),
+(5177, -300000, 0, 0, 0, 0),
+(5177, -300001, 0, 0, 0, 0),
+(16642, -300000, 0, 0, 0, 0),
+(16642, -300001, 0, 0, 0, 0),
+(16723, -300000, 0, 0, 0, 0),
+(16723, -300001, 0, 0, 0, 0),
+-- Artisan Alchemy
+(4160, -300000, 0, 0, 0, 0),
+(4160, -300001, 0, 0, 0, 0),
+(4160, -300002, 0, 0, 0, 0),
+(4611, -300000, 0, 0, 0, 0),
+(4611, -300001, 0, 0, 0, 0),
+(4611, -300002, 0, 0, 0, 0),
+-- Master Alchemy Trainer
+(16588, -201002, 0, 0, 0, 0),
+(18802, -201002, 0, 0, 0, 0),
+(19052, -201002, 0, 0, 0, 0),
+(27023, -201002, 0, 0, 0, 0),
+(27029, -201002, 0, 0, 0, 0),
+(33608, -201002, 0, 0, 0, 0),
+(33630, -201002, 0, 0, 0, 0),
+(33674, -201002, 0, 0, 0, 0);
+-- Grandmaster Alchemy Trainers already have their own unique template
+
+/*-- Blacksmithing --*/
+DELETE FROM `npc_trainer` WHERE `ID` IN (310000, 310001, 310002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
+-- Apprentice Blacksmith
 (310000, 2020, 10, 0, 0, 5),
 (310000, 2662, 50, 164, 1, 0),
 (310000, 2737, 50, 164, 15, 0),
@@ -165,11 +198,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (310000, 7408, 300, 164, 65, 0),
 (310000, 2666, 200, 164, 70, 0),
 (310000, 3294, 500, 164, 70, 0),
-(310000, 3326, 250, 164, 75, 0);
-
+(310000, 3326, 250, 164, 75, 0),
 -- Journeyman Blacksmith
-DELETE FROM `npc_trainer` WHERE `ID`=310001;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (310001, 2021, 500, 164, 50, 10),
 (310001, 2664, 500, 164, 90, 0),
 (310001, 3292, 500, 164, 90, 0),
@@ -197,11 +227,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (310001, 2675, 1000, 164, 145, 0),
 (310001, 8768, 250, 164, 150, 0),
 (310001, 14379, 250, 164, 150, 0),
-(310001, 19667, 250, 164, 150, 0);
-
+(310001, 19667, 250, 164, 150, 0),
 -- Expert Blacksmith
-DELETE FROM `npc_trainer` WHERE `ID`=310002;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
 (310002, 3539, 4500, 164, 125, 20),
 (310002, 3506, 900, 164, 155, 0),
 (310002, 3501, 900, 164, 165, 0),
@@ -221,7 +248,49 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (310002, 9993, 9000, 164, 210, 0),
 (310002, 9935, 4500, 164, 215, 0);
 
--- Cooking
+UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith' WHERE `entry`=16583;
+UPDATE `creature_template` SET `subname` = 'Expert Blacksmith' WHERE `entry`=16669;
+
+DELETE FROM `npc_trainer` WHERE `ID` IN (1241, 3136, 3557, 6299, 55356, 4596, 4258, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+-- Journeyman Blacksmith
+(1241, -310000, 0, 0, 0, 0),
+(3557, -310000, 0, 0, 0, 0),
+(6299, -310000, 0, 0, 0, 0),
+(16583, -310000, 0, 0, 0, 0),
+(17245, -310000, 0, 0, 0, 0),
+-- Expert Blacksmith
+(3136, -310000, 0, 0, 0, 0),
+(3136, -310001, 0, 0, 0, 0),
+(4596, -310000, 0, 0, 0, 0),
+(4596, -310001, 0, 0, 0, 0),
+(16669, -310000, 0, 0, 0, 0),
+(16669, -310001, 0, 0, 0, 0),
+(16724, -310000, 0, 0, 0, 0),
+(16724, -310001, 0, 0, 0, 0),
+-- Artisan Blacksmith
+(4258, -310000, 0, 0, 0, 0),
+(4258, -310001, 0, 0, 0, 0),
+(4258, -310002, 0, 0, 0, 0),
+-- Master Blacksmithing Trainer
+(16583, -201005, 0, 0, 0, 0),
+(16823, -201005, 0, 0, 0, 0),
+(19341, -201005, 0, 0, 0, 0),
+(33609, -201005, 0, 0, 0, 0),
+(33631, -201005, 0, 0, 0, 0),
+(33675, -201005, 0, 0, 0, 0),
+-- Grandmaster Blacksmithing Trainer
+(26564, -201006, 0, 0, 0, 0),
+(26904, -201006, 0, 0, 0, 0),
+(26952, -201006, 0, 0, 0, 0),
+(26981, -201006, 0, 0, 0, 0),
+(26988, -201006, 0, 0, 0, 0),
+(27034, -201006, 0, 0, 0, 0),
+(28694, -201006, 0, 0, 0, 0),
+(29924, -201006, 0, 0, 0, 0),
+(33591, -201006, 0, 0, 0, 0);
+
+/*-- Cooking --*/
 DELETE FROM `npc_trainer` WHERE `ID`=320000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (320000, 2551, 100, 0, 0, 5),
@@ -234,9 +303,10 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (320000, 6500, 300, 185, 125, 0),
 (320000, 21175, 4000, 185, 200, 0);
 
--- Apprentice Enchanter
-DELETE FROM `npc_trainer` WHERE `ID`=330000;
+/*-- Enchanting --*/
+DELETE FROM `npc_trainer` WHERE `ID` IN (330000, 330001, 330002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
+-- Apprentice Enchanter
 (330000, 7414, 10, 0, 0, 5),
 (330000, 14293, 50, 333, 10, 0),
 (330000, 7420, 50, 333, 15, 0),
@@ -245,11 +315,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (330000, 7457, 250, 333, 50, 0),
 (330000, 7748, 250, 333, 60, 0),
 (330000, 7771, 200, 333, 70, 0),
-(330000, 14807, 200, 333, 70, 0);
-
+(330000, 14807, 200, 333, 70, 0),
 -- Journeyman Enchanter
-DELETE FROM `npc_trainer` WHERE `ID`=330001;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (330001, 7415, 500, 333, 50, 10),
 (330001, 7779, 400, 333, 80, 0),
 (330001, 7788, 500, 333, 90, 0),
@@ -268,11 +335,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (330001, 13607, 2400, 333, 145, 0),
 (330001, 13622, 2500, 333, 150, 0),
 (330001, 13626, 2500, 333, 150, 0),
-(330001, 13628, 2500, 333, 150, 0);
-
+(330001, 13628, 2500, 333, 150, 0),
 -- Expert Enchanter
-DELETE FROM `npc_trainer` WHERE `ID`=330002;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (330002, 7416, 5000, 333, 125, 20),
 (330002, 13635, 2600, 333, 155, 0),
 (330002, 13631, 2600, 333, 155, 0),
@@ -300,9 +364,47 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (330002, 13890, 4500, 333, 225, 0),
 (330002, 13887, 4500, 333, 225, 0);
 
--- Apprentice Engineer
-DELETE FROM `npc_trainer` WHERE `ID`=340000;
+UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter' WHERE `entry`=16160;
+UPDATE `creature_template` SET `subname` = 'Expert Enchanter' WHERE `entry`=16633;
+UPDATE `creature_template` SET `subname` = 'Expert Enchanter' WHERE `entry`=16725;
+
+DELETE FROM `npc_trainer` WHERE `ID` IN (3606, 4213, 4616, 5157, 7949, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+-- Journeyman Enchanting
+(3606, -330000, 0, 0, 0, 0),
+(16160, -330000, 0, 0, 0, 0),
+(19251, -330000, 0, 0, 0, 0),
+-- Expert Enchanting
+(4213, -330000, 0, 0, 0, 0),
+(4213, -330001, 0, 0, 0, 0),
+(4616, -330000, 0, 0, 0, 0),
+(4616, -330001, 0, 0, 0, 0),
+(5157, -330000, 0, 0, 0, 0),
+(5157, -330001, 0, 0, 0, 0),
+(7949, -330000, 0, 0, 0, 0),
+(7949, -330001, 0, 0, 0, 0),
+(16633, -330000, 0, 0, 0, 0),
+(16633, -330001, 0, 0, 0, 0),
+(16725, -330000, 0, 0, 0, 0),
+(16725, -330001, 0, 0, 0, 0),
+-- Artisan Enchanting
+(11074, -330000, 0, 0, 0, 0),
+(11074, -330001, 0, 0, 0, 0),
+(11074, -330002, 0, 0, 0, 0),
+-- Master Enchanting Trainer
+(18753, -201010, 0, 0, 0, 0),
+(18773, -201010, 0, 0, 0, 0),
+(19252, -201010, 0, 0, 0, 0),
+(19540, -201010, 0, 0, 0, 0),
+(33610, -201010, 0, 0, 0, 0),
+(33633, -201010, 0, 0, 0, 0),
+(33676, -201010, 0, 0, 0, 0);
+-- Grandmaster Enchanting Trainers already have their own unique template
+
+/*-- Engineering --*/
+DELETE FROM `npc_trainer` WHERE `ID` IN (340000, 340001, 340002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
+-- Apprentice Engineer
 (340000, 4039, 10, 0, 0, 5),
 (340000, 3922, 115, 202, 30, 0),
 (340000, 3923, 130, 202, 30, 0),
@@ -313,11 +415,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (340000, 3926, 225, 202, 65, 0),
 (340000, 3929, 250, 202, 75, 0),
 (340000, 3931, 250, 202, 75, 0),
-(340000, 3930, 250, 202, 75, 0);
-
+(340000, 3930, 250, 202, 75, 0),
 -- Journeyman Engineer
-DELETE FROM `npc_trainer` WHERE `ID`=340001;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (340001, 4040, 500, 202, 50, 10),
 (340001, 3932, 300, 202, 85, 0),
 (340001, 3973, 300, 202, 90, 0),
@@ -339,11 +438,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (340001, 9271, 470, 202, 150, 0),
 (340001, 3955, 700, 202, 150, 0),
 (340001, 12584, 1000, 202, 150, 0),
-(340001, 3956, 700, 202, 150, 0);
-
+(340001, 3956, 700, 202, 150, 0),
 -- Expert Engineer
-DELETE FROM `npc_trainer` WHERE `ID`=340002;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (340002, 4041, 4500, 202, 125, 20),
 (340002, 3958, 800, 202, 160, 0),
 (340002, 3961, 850, 202, 170, 0),
@@ -363,7 +459,46 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (340002, 12599, 1650, 202, 215, 0),
 (340002, 12603, 1700, 202, 215, 0);
 
--- First Aid
+UPDATE `creature_template` SET `subname` = 'Journeyman Engineer' WHERE `entry`=17222;
+UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=1676;
+UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=16667;
+UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=16726;
+
+DELETE FROM `npc_trainer` WHERE `ID` IN (17634, 17637, 18752, 18775, 19576) AND `SpellID` = -201012;
+DELETE FROM `npc_trainer` WHERE `ID` IN (1676, 1702, 3290, 5174, 11031, 11037, 16667, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 33677);
+
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+-- Journeyman Engineering
+(1702, -340000, 0, 0, 0, 0),
+(3290, -340000, 0, 0, 0, 0),
+(11037, -340000, 0, 0, 0, 0),
+(17222, -340000, 0, 0, 0, 0),
+-- Expert Engineering
+(1676, -340000, 0, 0, 0, 0),
+(1676, -340001, 0, 0, 0, 0),
+(11031, -340000, 0, 0, 0, 0),
+(11031, -340001, 0, 0, 0, 0),
+(16667, -340000, 0, 0, 0, 0),
+(16667, -340001, 0, 0, 0, 0),
+(16726, -340000, 0, 0, 0, 0),
+(16726, -340001, 0, 0, 0, 0),
+-- Artisan Engineering
+(5174, -340000, 0, 0, 0, 0),
+(5174, -340001, 0, 0, 0, 0),
+(5174, -340002, 0, 0, 0, 0),
+-- Master Engineering Trainer
+(33611, -201013, 0, 0, 0, 0),
+(33634, -201013, 0, 0, 0, 0),
+(33677, -201013, 0, 0, 0, 0),
+-- Grandmaster Engineering Trainer
+(25277, -201014, 0, 0, 0, 0),
+(26907, -201014, 0, 0, 0, 0),
+(26955, -201014, 0, 0, 0, 0),
+(26991, -201014, 0, 0, 0, 0),
+(28697, -201014, 0, 0, 0, 0),
+(33586, -201014, 0, 0, 0, 0);
+
+/*-- First Aid --*/
 DELETE FROM `npc_trainer` WHERE `ID`=350000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (350000, 3279, 100, 0, 0, 1),
@@ -388,13 +523,13 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (12920, 18631, 0, 129, 260, 35, 0),
 (12920, 18632, 0, 129, 290, 35, 0);
 
--- Fishing
+/*-- Fishing --*/
 DELETE FROM `npc_trainer` WHERE `ID`=360000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (360000, 7733, 100, 0, 0, 5),
 (360000, 7734, 500, 356, 50, 10);
 
--- Herbalism
+/*-- Herbalism --*/
 DELETE FROM `npc_trainer` WHERE `ID`=370000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (370000, 2372, 10, 0, 0, 1),
@@ -402,9 +537,10 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (370000, 3571, 5000, 182, 125, 10),
 (370000, 11994, 50000, 182, 200, 25);
 
--- Apprentice Leatherworker
-DELETE FROM `npc_trainer` WHERE `ID`=380000;
+/*-- Leatherworking --*/
+DELETE FROM `npc_trainer` WHERE `ID` IN (380000, 380001, 380002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+-- Apprentice Leatherworker
 (380000, 2155, 10, 0, 0, 5),
 (380000, 2153, 50, 165, 15, 0),
 (380000, 3753, 75, 165, 25, 0),
@@ -416,11 +552,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (380000, 3756, 150, 165, 55, 0),
 (380000, 2162, 100, 165, 60, 0),
 (380000, 9065, 450, 165, 70, 0),
-(380000, 3759, 2000, 165, 75, 0);
-
+(380000, 3759, 2000, 165, 75, 0),
 -- Journeyman Leatherworker
-DELETE FROM `npc_trainer` WHERE `ID`=380001;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (380001, 2154, 500, 165, 50, 10),
 (380001, 3763, 500, 165, 80, 0),
 (380001, 2159, 550, 165, 85, 0),
@@ -444,11 +577,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (380001, 3818, 1800, 165, 150, 0),
 (380001, 9193, 2000, 165, 150, 0),
 (380001, 9194, 2000, 165, 150, 0),
-(380001, 20649, 1800, 165, 150, 0);
-
+(380001, 20649, 1800, 165, 150, 0),
 -- Expert Leatherworker
-DELETE FROM `npc_trainer` WHERE `ID`=380002;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (380002, 3812, 5000, 165, 125, 20),
 (380002, 3774, 2500, 165, 160, 0),
 (380002, 7147, 2500, 165, 160, 0),
@@ -470,7 +600,49 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (380002, 14930, 4000, 165, 225, 0),
 (380002, 14932, 4000, 165, 225, 0);
 
--- Mining
+UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry`=16278;
+UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry`=17442;
+UPDATE `creature_template` SET `subname` = 'Expert Leatherworker' WHERE `entry`=16688;
+UPDATE `creature_template` SET `subname` = 'Expert Leatherworker' WHERE `entry`=16728;
+
+DELETE FROM `npc_trainer` WHERE `ID` IN (1385, 3605, 3967, 4212, 4588, 5127, 8153, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 26996, 33612, 33635, 33681);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+-- Journeyman Leatherworking
+(3605, -380000, 0, 0, 0, 0),
+(16278, -380000, 0, 0, 0, 0),
+(17442, -380000, 0, 0, 0, 0),
+-- Expert Leatherworking
+(1385, -380000, 0, 0, 0, 0),
+(1385, -380001, 0, 0, 0, 0),
+(3967, -380000, 0, 0, 0, 0),
+(3967, -380001, 0, 0, 0, 0),
+(4588, -380000, 0, 0, 0, 0),
+(4588, -380001, 0, 0, 0, 0),
+(5127, -380000, 0, 0, 0, 0),
+(5127, -380001, 0, 0, 0, 0),
+(8153, -380000, 0, 0, 0, 0),
+(8153, -380001, 0, 0, 0, 0),
+(16688, -380000, 0, 0, 0, 0),
+(16688, -380001, 0, 0, 0, 0),
+(16728, -380000, 0, 0, 0, 0),
+(16728, -380001, 0, 0, 0, 0),
+-- Artisan Leatherworking
+(4212, -380000, 0, 0, 0, 0),
+(4212, -380001, 0, 0, 0, 0),
+(4212, -380002, 0, 0, 0, 0),
+-- Master Leatherworking Trainer
+(18754, -201028, 0, 0, 0, 0),
+(18771, -201028, 0, 0, 0, 0),
+(19187, -201028, 0, 0, 0, 0),
+(21087, -201028, 0, 0, 0, 0),
+(33612, -201028, 0, 0, 0, 0),
+(33635, -201028, 0, 0, 0, 0),
+(33681, -201028, 0, 0, 0, 0),
+-- Grandmaster Leatherworking Trainer
+(26996, -201029, 0, 0, 0, 0);
+
+
+/*-- Mining --*/
 DELETE FROM `npc_trainer` WHERE `ID`=390000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (390000, 2581, 10, 186, 0, 1),
@@ -487,7 +659,10 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (390000, 10098, 10000, 186, 230, 0),
 (390000, 16153, 20000, 186, 250, 0);
 
--- Skinning
+-- Remove TBC Gems from Prospecting Vanilla ore
+DELETE FROM `prospecting_loot_template` WHERE `Entry`=10620 AND `Item`=1;
+
+/*-- Skinning --*/
 DELETE FROM `npc_trainer` WHERE `ID`=400000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (400000, 8615, 10, 0, 0, 1),
@@ -495,9 +670,10 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (400000, 8620, 5000, 393, 125, 10),
 (400000, 10769, 50000, 393, 200, 25);
 
--- Apprentice Tailor
-DELETE FROM `npc_trainer` WHERE `ID`=410000;
+/*-- Tailoring --*/
+DELETE FROM `npc_trainer` WHERE `ID` IN (410000, 410001, 410002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+-- Apprentice Tailor
 (410000, 3911, 10, 0, 0, 5),
 (410000, 2393, 25, 197, 1, 0),
 (410000, 3915, 25, 197, 1, 0),
@@ -521,11 +697,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (410000, 3842, 300, 197, 70, 0),
 (410000, 2402, 250, 197, 75, 0),
 (410000, 2964, 100, 197, 75, 0),
-(410000, 12046, 300, 197, 75, 0);
-
+(410000, 12046, 300, 197, 75, 0),
 -- Journeyman Tailor
-DELETE FROM `npc_trainer` WHERE `ID`=410001;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (410001, 3912, 500, 197, 50, 10),
 (410001, 3757, 200, 197, 80, 0),
 (410001, 3845, 300, 197, 80, 0),
@@ -545,11 +718,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (410001, 8758, 600, 197, 140, 0),
 (410001, 8760, 600, 197, 145, 0),
 (410001, 3813, 750, 197, 150, 0),
-(410001, 3859, 700, 197, 150, 0);
-
+(410001, 3859, 700, 197, 150, 0),
 -- Expert Tailor
-DELETE FROM `npc_trainer` WHERE `ID`=410002;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (410002, 3913, 5000, 197, 125, 20),
 (410002, 8483, 500, 197, 160, 0),
 (410002, 8762, 700, 197, 160, 0),
@@ -575,233 +745,19 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (410002, 12069, 5000, 197, 225, 0),
 (410002, 12070, 5000, 197, 225, 0);
 
--- Riding
-DELETE FROM `npc_trainer` WHERE `ID`=450000;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(450000, 33388, 900000, 762, 0, 40),
-(450000, 33391, 9000000, 762, 75, 60);
-
-
--- Blacksmith Trainers
-DELETE FROM `npc_trainer` WHERE `ID` IN (1241, 3136, 3557, 6299, 55356, 4596, 4258, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675);
-
--- Journeyman Blacksmith
-UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith' WHERE `entry`=16583;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(1241, -310000, 0, 0, 0, 0),
-(3557, -310000, 0, 0, 0, 0),
-(6299, -310000, 0, 0, 0, 0),
-(16583, -310000, 0, 0, 0, 0),
-(17245, -310000, 0, 0, 0, 0);
-
--- Expert Blacksmith
-UPDATE `creature_template` SET `subname` = 'Expert Blacksmith' WHERE `entry`=16669;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(3136, -310000, 0, 0, 0, 0),
-(3136, -310001, 0, 0, 0, 0),
-(4596, -310000, 0, 0, 0, 0),
-(4596, -310001, 0, 0, 0, 0),
-(16669, -310000, 0, 0, 0, 0),
-(16669, -310001, 0, 0, 0, 0),
-(16724, -310000, 0, 0, 0, 0),
-(16724, -310001, 0, 0, 0, 0);
-
--- Artisan Blacksmith
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(4258, -310000, 0, 0, 0, 0),
-(4258, -310001, 0, 0, 0, 0),
-(4258, -310002, 0, 0, 0, 0);
-
--- Master Blacksmithing Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
-(16583, -201005, 0, 0, 0, 0, 0),
-(16823, -201005, 0, 0, 0, 0, 0),
-(19341, -201005, 0, 0, 0, 0, 0),
-(33609, -201005, 0, 0, 0, 0, 0),
-(33631, -201005, 0, 0, 0, 0, 0),
-(33675, -201005, 0, 0, 0, 0, 0);
-
--- Grandmaster Blacksmithing Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
-(26564, -201006, 0, 0, 0, 0, 0),
-(26904, -201006, 0, 0, 0, 0, 0),
-(26952, -201006, 0, 0, 0, 0, 0),
-(26981, -201006, 0, 0, 0, 0, 0),
-(26988, -201006, 0, 0, 0, 0, 0),
-(27034, -201006, 0, 0, 0, 0, 0),
-(28694, -201006, 0, 0, 0, 0, 0),
-(29924, -201006, 0, 0, 0, 0, 0),
-(33591, -201006, 0, 0, 0, 0, 0);
-
-
--- Alchemy Trainers
-DELETE FROM `npc_trainer` WHERE `ID` IN (1470, 2391, 2837, 3603, 3964, 4160, 4611, 4900, 5177, 16161, 16588, 16642, 16723, 18802, 19052, 27023, 27029, 33608, 33630, 33674);
-
--- Journeyman Alchemy
-UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist' WHERE `entry`=16161;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(1470, -300000, 0, 0, 0, 0),
-(3603, -300000, 0, 0, 0, 0),
-(16161, -300000, 0, 0, 0, 0);
-
--- Expert Alchemy
-UPDATE `creature_template` SET `subname` = 'Expert Alchemist' WHERE `entry` IN (16642, 16723);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(2391, -300000, 0, 0, 0, 0);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(2391, -300001, 0, 0, 0, 0),
-(2837, -300000, 0, 0, 0, 0),
-(2837, -300001, 0, 0, 0, 0),
-(3964, -300000, 0, 0, 0, 0),
-(3964, -300001, 0, 0, 0, 0),
-(4900, -300000, 0, 0, 0, 0),
-(4900, -300001, 0, 0, 0, 0),
-(5177, -300000, 0, 0, 0, 0),
-(5177, -300001, 0, 0, 0, 0),
-(16642, -300000, 0, 0, 0, 0),
-(16642, -300001, 0, 0, 0, 0),
-(16723, -300000, 0, 0, 0, 0),
-(16723, -300001, 0, 0, 0, 0);
-
--- Artisan Alchemy
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(4160, -300000, 0, 0, 0, 0),
-(4160, -300001, 0, 0, 0, 0),
-(4160, -300002, 0, 0, 0, 0),
-(4611, -300000, 0, 0, 0, 0),
-(4611, -300001, 0, 0, 0, 0),
-(4611, -300002, 0, 0, 0, 0);
-
--- Master Alchemy Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
-(16588, -201002, 0, 0, 0, 0, 0),
-(18802, -201002, 0, 0, 0, 0, 0),
-(19052, -201002, 0, 0, 0, 0, 0),
-(27023, -201002, 0, 0, 0, 0, 0),
-(27029, -201002, 0, 0, 0, 0, 0),
-(33608, -201002, 0, 0, 0, 0, 0),
-(33630, -201002, 0, 0, 0, 0, 0),
-(33674, -201002, 0, 0, 0, 0, 0);
-
--- Grandmaster Alchemy Trainer
--- Grandmaster Alchemy Trainers already have their own unique template
-
-
--- Enchanting Trainers
-DELETE FROM `npc_trainer` WHERE `ID` IN (3606, 4213, 4616, 5157, 7949, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676);
-
--- Journeyman Enchanting
-UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter' WHERE `entry`=16160;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(3606, -330000, 0, 0, 0, 0),
-(16160, -330000, 0, 0, 0, 0),
-(19251, -330000, 0, 0, 0, 0);
-
--- Expert Enchanting
-UPDATE `creature_template` SET `subname` = 'Expert Enchanter' WHERE `entry`=16633;
-UPDATE `creature_template` SET `subname` = 'Expert Enchanter' WHERE `entry`=16725;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(4213, -330000, 0, 0, 0, 0),
-(4213, -330001, 0, 0, 0, 0),
-(4616, -330000, 0, 0, 0, 0),
-(4616, -330001, 0, 0, 0, 0),
-(5157, -330000, 0, 0, 0, 0),
-(5157, -330001, 0, 0, 0, 0),
-(7949, -330000, 0, 0, 0, 0),
-(7949, -330001, 0, 0, 0, 0),
-(16633, -330000, 0, 0, 0, 0),
-(16633, -330001, 0, 0, 0, 0),
-(16725, -330000, 0, 0, 0, 0),
-(16725, -330001, 0, 0, 0, 0);
-
--- Artisan Enchanting
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(11074, -330000, 0, 0, 0, 0),
-(11074, -330001, 0, 0, 0, 0),
-(11074, -330002, 0, 0, 0, 0);
-
--- Master Enchanting Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES
-(18753, -201010, 0, 0, 0, 0, 0),
-(18773, -201010, 0, 0, 0, 0, 0),
-(19252, -201010, 0, 0, 0, 0, 0),
-(19540, -201010, 0, 0, 0, 0, 0),
-(33610, -201010, 0, 0, 0, 0, 0),
-(33633, -201010, 0, 0, 0, 0, 0),
-(33676, -201010, 0, 0, 0, 0, 0);
-
--- Grandmaster Enchanting Trainer
--- Grandmaster Enchanting Trainers already have their own unique template
-
-
--- Engineering Trainers
-DELETE FROM `npc_trainer` WHERE `ID` IN (1676, 1702, 3290, 5174, 11031, 11037, 16667, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 33677);
-
--- Journeyman Engineering
-UPDATE `creature_template` SET `subname` = 'Journeyman Engineer' WHERE `entry`=17222;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(1702, -340000, 0, 0, 0, 0),
-(3290, -340000, 0, 0, 0, 0),
-(11037, -340000, 0, 0, 0, 0),
-(17222, -340000, 0, 0, 0, 0);
-
--- Expert Engineering
-UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=1676;
-UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=16667;
-UPDATE `creature_template` SET `subname` = 'Expert Engineer' WHERE `entry`=16726;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(1676, -340000, 0, 0, 0, 0),
-(1676, -340001, 0, 0, 0, 0),
-(11031, -340000, 0, 0, 0, 0),
-(11031, -340001, 0, 0, 0, 0),
-(16667, -340000, 0, 0, 0, 0),
-(16667, -340001, 0, 0, 0, 0),
-(16726, -340000, 0, 0, 0, 0),
-(16726, -340001, 0, 0, 0, 0);
-
--- Artisan Engineering
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(5174, -340000, 0, 0, 0, 0),
-(5174, -340001, 0, 0, 0, 0),
-(5174, -340002, 0, 0, 0, 0);
-
--- Master Engineering Trainer
-DELETE FROM `npc_trainer` WHERE `ID`=17634 AND `SpellID`=-201012;
-DELETE FROM `npc_trainer` WHERE `ID`=17637 AND `SpellID`=-201012;
-DELETE FROM `npc_trainer` WHERE `ID`=18752 AND `SpellID`=-201012;
-DELETE FROM `npc_trainer` WHERE `ID`=18775 AND `SpellID`=-201012;
-DELETE FROM `npc_trainer` WHERE `ID`=19576 AND `SpellID`=-201012;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(33611, -201013, 0, 0, 0, 0),
-(33634, -201013, 0, 0, 0, 0),
-(33677, -201013, 0, 0, 0, 0);
-
--- Grandmaster Engineering Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(25277, -201014, 0, 0, 0, 0),
-(26907, -201014, 0, 0, 0, 0),
-(26955, -201014, 0, 0, 0, 0),
-(26991, -201014, 0, 0, 0, 0),
-(28697, -201014, 0, 0, 0, 0),
-(33586, -201014, 0, 0, 0, 0);
-
-
--- Tailoring Trainers
-DELETE FROM `npc_trainer` WHERE `ID` IN (2627, 3523, 4159, 4193, 4576, 5153, 16366, 16640, 16729, 17487, 18749, 18772, 26914, 26964, 26969, 27001, 28699, 33580, 33613, 33636, 33684);
-
--- Journeyman Tailoring
 UPDATE `creature_template` SET `subname` = 'Journeyman Tailor' WHERE `entry`=16366;
 UPDATE `creature_template` SET `subname` = 'Journeyman Tailor' WHERE `entry`=17487;
+UPDATE `creature_template` SET `subname` = 'Expert Tailor' WHERE `entry`=16640;
+UPDATE `creature_template` SET `subname` = 'Expert Tailor' WHERE `entry`=16729;
+
+DELETE FROM `npc_trainer` WHERE `ID` IN (2627, 3523, 4159, 4193, 4576, 5153, 16366, 16640, 16729, 17487, 18749, 18772, 26914, 26964, 26969, 27001, 28699, 33580, 33613, 33636, 33684);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+-- Journeyman Tailoring
 (3523, -410000, 0, 0, 0, 0),
 (4193, -410000, 0, 0, 0, 0),
 (16366, -410000, 0, 0, 0, 0),
-(17487, -410000, 0, 0, 0, 0);
-
+(17487, -410000, 0, 0, 0, 0),
 -- Expert Tailoring
-UPDATE `creature_template` SET `subname` = 'Expert Tailor' WHERE `entry`=16640;
-UPDATE `creature_template` SET `subname` = 'Expert Tailor' WHERE `entry`=16729;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (2627, -410000, 0, 0, 0, 0),
 (2627, -410001, 0, 0, 0, 0),
 (4159, -410000, 0, 0, 0, 0),
@@ -811,24 +767,18 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (16640, -410000, 0, 0, 0, 0),
 (16640, -410001, 0, 0, 0, 0),
 (16729, -410000, 0, 0, 0, 0),
-(16729, -410001, 0, 0, 0, 0);
-
+(16729, -410001, 0, 0, 0, 0),
 -- Artisan Tailoring
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (4576, -410000, 0, 0, 0, 0),
 (4576, -410001, 0, 0, 0, 0),
-(4576, -410002, 0, 0, 0, 0);
-
+(4576, -410002, 0, 0, 0, 0),
 -- Master Tailoring Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (18749, -201040, 0, 0, 0, 0),
 (18772, -201040, 0, 0, 0, 0),
 (33613, -201040, 0, 0, 0, 0),
 (33636, -201040, 0, 0, 0, 0),
-(33684, -201040, 0, 0, 0, 0);
-
+(33684, -201040, 0, 0, 0, 0),
 -- Grandmaster Tailoring Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (26914, -201041, 0, 0, 0, 0),
 (26964, -201041, 0, 0, 0, 0),
 (26969, -201041, 0, 0, 0, 0),
@@ -837,95 +787,22 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (33580, -201041, 0, 0, 0, 0);
 
 
--- Leatherworking Trainers
-DELETE FROM `npc_trainer` WHERE `ID` IN (1385, 3605, 3967, 4212, 4588, 5127, 8153, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 26996, 33612, 33635, 33681);
-
--- Journeyman Leatherworking
-UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry`=16278;
-UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry`=17442;
+/*-- Riding --*/
+DELETE FROM `npc_trainer` WHERE `ID`=450000;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(3605, -380000, 0, 0, 0, 0),
-(16278, -380000, 0, 0, 0, 0),
-(17442, -380000, 0, 0, 0, 0);
+(450000, 33388, 900000, 762, 0, 40),
+(450000, 33391, 9000000, 762, 75, 60);
 
--- Expert Leatherworking
-UPDATE `creature_template` SET `subname` = 'Expert Leatherworker' WHERE `entry`=16688;
-UPDATE `creature_template` SET `subname` = 'Expert Leatherworker' WHERE `entry`=16728;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(1385, -380000, 0, 0, 0, 0),
-(1385, -380001, 0, 0, 0, 0),
-(3967, -380000, 0, 0, 0, 0),
-(3967, -380001, 0, 0, 0, 0),
-(4588, -380000, 0, 0, 0, 0),
-(4588, -380001, 0, 0, 0, 0),
-(5127, -380000, 0, 0, 0, 0),
-(5127, -380001, 0, 0, 0, 0),
-(8153, -380000, 0, 0, 0, 0),
-(8153, -380001, 0, 0, 0, 0),
-(16688, -380000, 0, 0, 0, 0),
-(16688, -380001, 0, 0, 0, 0),
-(16728, -380000, 0, 0, 0, 0),
-(16728, -380001, 0, 0, 0, 0);
-
--- Artisan Leatherworking
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(4212, -380000, 0, 0, 0, 0),
-(4212, -380001, 0, 0, 0, 0),
-(4212, -380002, 0, 0, 0, 0);
-
--- Master Leatherworking Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
-(18754, -201028, 0, 0, 0, 0),
-(18771, -201028, 0, 0, 0, 0),
-(19187, -201028, 0, 0, 0, 0),
-(21087, -201028, 0, 0, 0, 0),
-(33612, -201028, 0, 0, 0, 0),
-(33635, -201028, 0, 0, 0, 0),
-(33681, -201028, 0, 0, 0, 0);
-
--- Grandmaster Leatherworking Trainer
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (26996, -201029, 0, 0, 0, 0);
-
-
+-- Delete added riding trainers
+DELETE FROM creature WHERE `id1` IN (35093, 35100);
+DELETE FROM creature_addon WHERE `guid` IN (88165, 88166);
 
 
 -- Optional - delete TBC trainers added in WotLK 3.1
-DELETE FROM creature WHERE `id1` IN (33676,
-                                     33680,
-                                     33682,
-                                     33674,
-                                     33678,
-                                     33675,
-                                     33677,
-                                     33683,
-                                     33684,
-                                     33681,
-                                     33640,
-                                     33637,
-                                     33633,
-                                     33631,
-                                     33634,
-                                     33635,
-                                     33636,
-                                     33641,
-                                     33608,
-                                     33609,
-                                     33610,
-                                     33611,
-                                     33612,
-                                     33613,
-                                     33614,
-                                     33615,
-                                     33616,
-                                     33617,
-                                     33618,
-                                     33619,
-                                     33621,
-                                     33623,
-                                     33630,
-                                     33639,
-                                     35099,
-                                     35101);
+DELETE FROM creature WHERE `id1` IN 
+(33608, 33609, 33610, 33611, 33612, 33613, 33614, 33615, 33616, 33617, 33618, 33619, 
+33621, 33623, 33630, 33631, 33633, 33634, 33635, 33636, 33637, 33639, 33640, 33641, 
+33674, 33675, 33676, 33677, 33678, 33680, 33681, 33682, 33683, 33684, 35099, 35101);
 
 -- TBC Recipes moved to trainers in 2.4.0
 DELETE FROM `npc_trainer` WHERE `SpellID` IN (28905, 34590, 28903, 28914, 28925, 28910, 28917, 28916, 28950, 28903);
@@ -953,15 +830,15 @@ INSERT INTO npc_vendor (entry, slot, item) VALUES
 (18774, 0, 23130);
 
 
--- Delete added riding trainers
-DELETE FROM creature WHERE `id1` IN (35093, 35100);
-DELETE FROM creature_addon WHERE `guid` IN (88165, 88166);
+/* These NPCs shouldn't train or sell certain items until progression tier 10
+   to solve this copies are created that only train or sell what was available before progression tier 10
+   the originals replace their copies at progression tier 10 */
 
--- Remove TBC Gems from Prospecting Vanilla ore
-DELETE FROM `prospecting_loot_template` WHERE `Entry`=10620 AND `Item`=1;
+SET @Darmari := 119187;
+SET @Barim   := 118754;
+SET @Brumman := 118771;
+SET @Grikka  := 121087;
 
-
-/* Create new pre T4 Leatherworking Trainer */
 SET @lw_trainer_pre_t4 := 201050;
 
 DELETE FROM `npc_trainer` WHERE `ID` = @lw_trainer_pre_t4;
@@ -989,22 +866,22 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (@lw_trainer_pre_t4, 44970, 50000, 165, 350, 0, 0);
 
 
-/* Darmari shouldn't train certain leatherworking recipes until progression tier 10 */
-/* to solve this a copy of her is created that only sells recipes that were available before progression tier 10 */
-/* the original Darmari will replace her copy at progression tier 10 */
-SET @Darmari := 119187;
+/* Add copies with script npc_ipp_tbc_pre_t4 */
+DELETE FROM `creature_template` WHERE `entry` IN (@Darmari, @Barim, @Brumman, @Grikka);
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
+(@Darmari, 0, 0, 0, 0, 0, 'Darmari', 'Master Leatherworking Trainer', NULL, 7816, 63, 63, 0, 1818, 81, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 33024, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.05, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340),
+(@Barim, 0, 0, 0, 0, 0, 'Barim Spilthoof', 'Master Leatherworking Trainer', NULL, 7816, 60, 60, 0, 29, 209, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.02, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340),
+(@Brumman, 0, 0, 0, 0, 0, 'Brumman', 'Master Leatherworking Trainer', NULL, 0, 60, 60, 0, 1737, 209, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.02, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340),
+(@Grikka, 0, 0, 0, 0, 0, 'Grikka', 'Master Leatherworking Trainer', NULL, 0, 60, 60, 0, 1735, 80, 1.125, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 4608, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.25, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
 
-/* Add copy of Darmari to creature_template with script npc_ipp_tbc_pre_t4 */
-DELETE FROM `creature_template` WHERE `entry` = @Darmari;
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) 
-VALUES (@Darmari, 0, 0, 0, 0, 0, 'Darmari', 'Master Leatherworking Trainer', NULL, 7816, 63, 63, 0, 1818, 81, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 33024, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.05, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Darmari, @Barim, @Brumman, @Grikka);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(@Darmari, 0, 0, 0, 1, 0, 0, NULL),
+(@Barim, 0, 0, 0, 1, 0, 0, NULL),
+(@Brumman, 0, 0, 1, 1, 0, 0, NULL),
+(@Grikka, 0, 0, 0, 1, 0, 0, NULL);
 
-/* Add copy of Darmari to creature_template_addon */
-DELETE FROM `creature_template_addon` WHERE `entry` = @Darmari;
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (@Darmari, 0, 0, 0, 1, 0, 0, NULL);
-
-/* Add copy of Darmari to creature_locale */
-DELETE FROM `creature_template_locale` WHERE `entry` = @Darmari;
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Darmari, @Barim, @Brumman, @Grikka);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 (@Darmari, 'deDE', 'Darmari', 'Lederverarbeitungslehrerin', 18019),
 (@Darmari, 'esES', 'Darmari', 'Instructora de peletería', 18019),
@@ -1013,43 +890,7 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Darmari, 'koKR', '다마리', '전문 가죽세공인', 18019),
 (@Darmari, 'ruRU', 'Дармари', 'Учитель кожевничества', 18019),
 (@Darmari, 'zhCN', '达尔玛里', '制皮训练师', 18019),
-(@Darmari, 'zhTW', '達瑪莉', '製皮訓練師', 18019);
-
-/* Add copy of Darmari to creature_template_model */
-DELETE FROM `creature_template_model` WHERE `CreatureID` = @Darmari;
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Darmari, 0, 18630, 1, 1, 12340);
-
-/* Add copy of Darmari to creature */
-DELETE FROM `creature` WHERE `id1` = @Darmari;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
-VALUES (619187, @Darmari, 0, 0, 530, 0, 0, 1, 1, 1, -2060.92, 5256.68, -38.3819, 0.767945, 300, 0, 0, 3498, 0, 0, 0, 0, 0, '', 0, 0, NULL);
-
-/* Add copy of Darmari to creature_equip_template */
-DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Darmari;
-INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (@Darmari, 1, 2184, 0, 0, 18019);
-
-/* Add correct leatherworking recipes to copy of Darmari */
-DELETE FROM `npc_trainer` WHERE `ID` = @Darmari;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Darmari, -201050, 0, 0, 0, 0, 0);
-
-
-/* Barim Spilthoof shouldn't train certain leatherworking recipes until progression tier 10 */
-/* to solve this a copy of him is created that only sells recipes that were available before progression tier 10 */
-/* the original Barim Spilthoof will replace his copy at progression tier 10 */
-SET @Barim := 118754;
-
-/* Add copy of Barim to creature_template with script npc_ipp_tbc_pre_t4 */
-DELETE FROM `creature_template` WHERE `entry` = @Barim;
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) 
-VALUES (@Barim, 0, 0, 0, 0, 0, 'Barim Spilthoof', 'Master Leatherworking Trainer', NULL, 7816, 60, 60, 0, 29, 209, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.02, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
-
-/* Add copy of Barim to creature_template_addon */
-DELETE FROM `creature_template_addon` WHERE `entry` = @Barim;
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (@Barim, 0, 0, 0, 1, 0, 0, NULL);
-
-/* Add copy of Barim to creature_template_locale */
-DELETE FROM `creature_template_locale` WHERE `entry` = @Barim;
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(@Darmari, 'zhTW', '達瑪莉', '製皮訓練師', 18019),
 (@Barim, 'deDE', 'Barim Spalthuf', 'Lederverarbeitungslehrer', 18019),
 (@Barim, 'esES', 'Barim Pezuña Partida', 'Instructor de peletería', 18019),
 (@Barim, 'esMX', 'Barim Pezuña Partida', 'Instructor de peletería', 18019),
@@ -1057,51 +898,7 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Barim, 'koKR', '바림 스필트후프', '전문 가죽세공인', 18019),
 (@Barim, 'ruRU', 'Барим Треснувшее Копыто', 'Учитель кожевничества', 18019),
 (@Barim, 'zhCN', '巴里姆·裂蹄', '制皮训练师', 18019),
-(@Barim, 'zhTW', '巴瑞姆·裂蹄', '製皮訓練師', 18019);
-
-/* Add copy of Barim to creature_template_model */
-DELETE FROM `creature_template_model` WHERE `CreatureID` = @Barim;
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Barim, 0, 18176, 1, 1, 12340);
-
-/* Add copy of Barim to creature */
-DELETE FROM `creature` WHERE `id1` = @Barim;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
-VALUES (618754, @Barim, 0, 0, 530, 0, 0, 1, 1, 1, 148.588, 2636.02, 86.018, 1.27409, 300, 0, 0, 3113, 0, 0, 0, 0, 0, '', 0, 0, NULL);
-
-/* Add copy of Barim to creature_equip_template */
-DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Barim;
-INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (@Barim, 1, 10616, 0, 0, 18019);
-
-/* Add correct leatherworking recipes to copy of Barim */
-DELETE FROM `npc_trainer` WHERE `ID` = @Barim;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Barim, -201050, 0, 0, 0, 0, 0);
-
-/* Add vendor items to copy of Barim */
-DELETE FROM `npc_vendor` WHERE `entry` = @Barim;
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
-(@Barim, 0, 2320, 0, 0, 0, 0), (@Barim, 0, 2321, 0, 0, 0, 0), (@Barim, 0, 2325, 0, 0, 0, 0), (@Barim, 0, 2604, 0, 0, 0, 0), (@Barim, 0, 2605, 0, 0, 0, 0), 
-(@Barim, 0, 4289, 0, 0, 0, 0), (@Barim, 0, 4291, 0, 0, 0, 0), (@Barim, 0, 4340, 0, 0, 0, 0), (@Barim, 0, 4341, 0, 0, 0, 0), (@Barim, 0, 4342, 0, 0, 0, 0),
-(@Barim, 0, 6260, 0, 0, 0, 0), (@Barim, 0, 6261, 0, 0, 0, 0), (@Barim, 0, 7005, 0, 0, 0, 0), (@Barim, 0, 8343, 0, 0, 0, 0), (@Barim, 0, 10290, 0, 0, 0, 0),
-(@Barim, 0, 14341, 0, 0, 0, 0), (@Barim, 0, 38426, 0, 0, 0, 0);
-
-
-/* Brumman shouldn't train certain leatherworking recipes until progression tier 10 */
-/* to solve this a copy of him is created that only sells recipes that were available before progression tier 10 */
-/* the original Brumman will replace his copy at progression tier 10 */
-SET @Brumman := 118771;
-
-/* Add copy of Brumman to creature_template with script npc_ipp_tbc_pre_t4 */
-DELETE FROM `creature_template` WHERE `entry` = @Brumman;
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) 
-VALUES (@Brumman, 0, 0, 0, 0, 0, 'Brumman', 'Master Leatherworking Trainer', NULL, 0, 60, 60, 0, 1737, 209, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.02, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
-
-/* Add copy of Brumman to creature_template_addon */
-DELETE FROM `creature_template_addon` WHERE `entry` = @Brumman;
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (@Brumman, 0, 0, 1, 1, 0, 0, NULL);
-
-/* Add copy of Brumman to creature_template_locale */
-DELETE FROM `creature_template_locale` WHERE `entry` = @Brumman;
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(@Barim, 'zhTW', '巴瑞姆·裂蹄', '製皮訓練師', 18019),
 (@Brumman, 'deDE', 'Brumman', 'Lederverarbeitungslehrer', 18019),
 (@Brumman, 'esES', 'Brumman', 'Instructor de peletería', 18019),
 (@Brumman, 'esMX', 'Brumman', 'Instructor de peletería', 18019),
@@ -1109,51 +906,7 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Brumman, 'koKR', '브룸만', '전문 가죽세공인', 18019),
 (@Brumman, 'ruRU', 'Брумман', 'Учитель кожевничества', 18019),
 (@Brumman, 'zhCN', '布鲁曼', '制皮训练师', 18019),
-(@Brumman, 'zhTW', '布魯曼恩', '製皮訓練師', 18019);
-
-/* Add copy of Brumman to creature_template_model */
-DELETE FROM `creature_template_model` WHERE `CreatureID` = @Brumman;
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Brumman, 0, 18177, 1, 1, 12340);
-
-/* Add copy of Brumman to creature */
-DELETE FROM `creature` WHERE `id1` = @Brumman;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
-VALUES (618771, @Brumman, 0, 0, 530, 0, 0, 1, 1, 1, -721.657, 2745.26, 94.0548, 3.45575, 300, 0, 0, 3113, 0, 0, 0, 0, 0, '', 0, 0, NULL);
-
-/* Add copy of Brumman to creature_equip_template */
-DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Brumman;
-INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES (@Brumman, 1, 10616, 0, 0, 18019);
-
-/* Add correct leatherworking recipes to copy of Brumman */
-DELETE FROM `npc_trainer` WHERE `ID` = @Brumman;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Brumman, -201050, 0, 0, 0, 0, 0);
-
-/* Add vendor items to copy of Brumman */
-DELETE FROM `npc_vendor` WHERE `entry` = @Brumman;
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
-(@Brumman, 0, 2320, 0, 0, 0, 0), (@Brumman, 0, 2321, 0, 0, 0, 0), (@Brumman, 0, 2325, 0, 0, 0, 0), (@Brumman, 0, 2604, 0, 0, 0, 0), (@Brumman, 0, 2605, 0, 0, 0, 0),
-(@Brumman, 0, 4289, 0, 0, 0, 0), (@Brumman, 0, 4291, 0, 0, 0, 0), (@Brumman, 0, 4340, 0, 0, 0, 0), (@Brumman, 0, 4341, 0, 0, 0, 0), (@Brumman, 0, 4342, 0, 0, 0, 0),
-(@Brumman, 0, 6260, 0, 0, 0, 0), (@Brumman, 0, 6261, 0, 0, 0, 0), (@Brumman, 0, 7005, 0, 0, 0, 0), (@Brumman, 0, 8343, 0, 0, 0, 0), (@Brumman, 0, 10290, 0, 0, 0, 0),
-(@Brumman, 0, 14341, 0, 0, 0, 0), (@Brumman, 0, 38426, 0, 0, 0, 0);
-
-
-/* Grikka shouldn't train certain leatherworking recipes until progression tier 10 */
-/* to solve this a copy of her is created that only sells recipes that were available before progression tier 10 */
-/* the original Grikka will replace her copy at progression tier 10 */
-SET @Grikka := 121087;
-
-/* Add copy of Grikka to creature_template with script npc_ipp_tbc_pre_t4 */
-DELETE FROM `creature_template` WHERE `entry` = @Grikka;
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) 
-VALUES (@Grikka, 0, 0, 0, 0, 0, 'Grikka', 'Master Leatherworking Trainer', NULL, 0, 60, 60, 0, 1735, 80, 1.125, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 4608, 2048, 0, 0, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1.25, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_tbc_pre_t4', 12340);
-
-/* Add copy of Grikka to creature_template_addon */
-DELETE FROM `creature_template_addon` WHERE `entry` = @Grikka;
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES (@Grikka, 0, 0, 0, 1, 0, 0, NULL);
-
-/* Add copy of Grikka to creature_template_locale */
-DELETE FROM `creature_template_locale` WHERE `entry` = @Grikka;
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
+(@Brumman, 'zhTW', '布魯曼恩', '製皮訓練師', 18019),
 (@Grikka, 'deDE', 'Grikka', 'Lederverarbeitungslehrerin', 18019),
 (@Grikka, 'esES', 'Grikka', 'Instructora de peletería', 18019),
 (@Grikka, 'esMX', 'Grikka', 'Instructora de peletería', 18019),
@@ -1163,15 +916,40 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Grikka, 'zhCN', '格里卡', '制皮训练师', 18019),
 (@Grikka, 'zhTW', '葛利卡', '製皮訓練師', 18019);
 
-/* Add copy of Grikka to creature_template_model */
-DELETE FROM `creature_template_model` WHERE `CreatureID` = @Grikka;
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES (@Grikka, 0, 20059, 1, 1, 12340);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Darmari, @Barim, @Brumman, @Grikka);
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
+(@Darmari, 0, 18630, 1, 1, 12340),
+(@Barim, 0, 18176, 1, 1, 12340),
+(@Brumman, 0, 18177, 1, 1, 12340),
+(@Grikka, 0, 20059, 1, 1, 12340);
 
-/* Add copy of Grikka to creature */
-DELETE FROM `creature` WHERE `id1` = @Grikka;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) 
-VALUES (621087, @Grikka, 0, 0, 530, 0, 0, 1, 1, 0, 2039.82, 4675.43, 150.074, 0.977384, 300, 0, 0, 3815, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+DELETE FROM `creature` WHERE `id1` IN (@Darmari, @Barim, @Brumman, @Grikka);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(619187, @Darmari, 0, 0, 530, 0, 0, 1, 1, 1, -2060.92, 5256.68, -38.3819, 0.767945, 300, 0, 0, 3498, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(618754, @Barim, 0, 0, 530, 0, 0, 1, 1, 1, 148.588, 2636.02, 86.018, 1.27409, 300, 0, 0, 3113, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(618771, @Brumman, 0, 0, 530, 0, 0, 1, 1, 1, -721.657, 2745.26, 94.0548, 3.45575, 300, 0, 0, 3113, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(621087, @Grikka, 0, 0, 530, 0, 0, 1, 1, 0, 2039.82, 4675.43, 150.074, 0.977384, 300, 0, 0, 3815, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
-/* Add correct leatherworking recipes to copy of Grikka */
-DELETE FROM `npc_trainer` WHERE `ID` = @Grikka;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (@Grikka, -201050, 0, 0, 0, 0, 0);
+DELETE FROM `creature_equip_template` WHERE `CreatureID` IN (@Darmari, @Barim, @Brumman);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES 
+(@Darmari, 1, 2184, 0, 0, 18019),
+(@Barim, 1, 10616, 0, 0, 18019),
+(@Brumman, 1, 10616, 0, 0, 18019);
+
+DELETE FROM `npc_trainer` WHERE `ID` IN (@Darmari, @Barim, @Brumman, @Grikka);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES 
+(@Darmari, -201050, 0, 0, 0, 0, 0),
+(@Barim, -201050, 0, 0, 0, 0, 0),
+(@Brumman, -201050, 0, 0, 0, 0, 0),
+(@Grikka, -201050, 0, 0, 0, 0, 0);
+
+DELETE FROM `npc_vendor` WHERE `entry` IN (@Barim, @Brumman);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+(@Barim, 0, 2320, 0, 0, 0, 0), (@Barim, 0, 2321, 0, 0, 0, 0), (@Barim, 0, 2325, 0, 0, 0, 0), (@Barim, 0, 2604, 0, 0, 0, 0), (@Barim, 0, 2605, 0, 0, 0, 0), 
+(@Barim, 0, 4289, 0, 0, 0, 0), (@Barim, 0, 4291, 0, 0, 0, 0), (@Barim, 0, 4340, 0, 0, 0, 0), (@Barim, 0, 4341, 0, 0, 0, 0), (@Barim, 0, 4342, 0, 0, 0, 0),
+(@Barim, 0, 6260, 0, 0, 0, 0), (@Barim, 0, 6261, 0, 0, 0, 0), (@Barim, 0, 7005, 0, 0, 0, 0), (@Barim, 0, 8343, 0, 0, 0, 0), (@Barim, 0, 10290, 0, 0, 0, 0),
+(@Barim, 0, 14341, 0, 0, 0, 0), (@Barim, 0, 38426, 0, 0, 0, 0),
+(@Brumman, 0, 2320, 0, 0, 0, 0), (@Brumman, 0, 2321, 0, 0, 0, 0), (@Brumman, 0, 2325, 0, 0, 0, 0), (@Brumman, 0, 2604, 0, 0, 0, 0), (@Brumman, 0, 2605, 0, 0, 0, 0),
+(@Brumman, 0, 4289, 0, 0, 0, 0), (@Brumman, 0, 4291, 0, 0, 0, 0), (@Brumman, 0, 4340, 0, 0, 0, 0), (@Brumman, 0, 4341, 0, 0, 0, 0), (@Brumman, 0, 4342, 0, 0, 0, 0),
+(@Brumman, 0, 6260, 0, 0, 0, 0), (@Brumman, 0, 6261, 0, 0, 0, 0), (@Brumman, 0, 7005, 0, 0, 0, 0), (@Brumman, 0, 8343, 0, 0, 0, 0), (@Brumman, 0, 10290, 0, 0, 0, 0),
+(@Brumman, 0, 14341, 0, 0, 0, 0), (@Brumman, 0, 38426, 0, 0, 0, 0);
