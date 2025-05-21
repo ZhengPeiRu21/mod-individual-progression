@@ -85,7 +85,7 @@ UPDATE `quest_template` SET `QuestDescription` = '' WHERE `ID` = 108743;
     
 -- Connect new 'Bang a Gong!' quest to the Scarab Gong in Silithus
 DELETE FROM `gameobject_queststarter` WHERE `id` = 180717;
-INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743), (180717, 180744);
+INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743), (180717, 108744);
 
 DELETE FROM `gameobject_questender` WHERE `id` = 180717;
 INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743);
