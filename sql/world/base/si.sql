@@ -155,9 +155,9 @@ INSERT INTO `battlemaster_entry` (`entry`, `bg_template`) VALUES (@Deze, 3);
 
 /*-- Smart AI --*/
 
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (16230, 16422, 16423, 16437, 16438);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (16141, 16230, 16298, 16299, 16422, 16423, 16437, 16438);
 
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-660350, 16143, 16230, 16422, 16423, 16437, 16438);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-660350, 16141, 16230, 16298, 16299, 16422, 16423, 16437, 16438);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
 `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -180,13 +180,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (16422, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Soldier - In Combat - Cast Scourge Strike'),
 (16423, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Apparition - In Combat - Cast Scourge Strike'),
 (16437, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Spirit - In Combat - Cast Scourge Strike'), 
-(16438, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Trooper - In Combat - Cast Scourge Strike');
+(16438, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Trooper - In Combat - Cast Scourge Strike'),
 --
+(16141, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 7367, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghoul Berserker - In Combat - Cast Infected Bite'),
+(16141, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 28265, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghoul Berserker - In Combat - Cast Scourge Strike'),
+(16298, 0, 0, 0, 0, 0, 100, 0, 2000, 10000, 10000, 20000, 0, 0, 11, 13444, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Soldier - In Combat - Cast Sunder Armor'),
+(16298, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 28265, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Soldier - In Combat - Cast Scourge Strike'),
+(16299, 0, 0, 0, 11, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper - On Respawn - Cast Bone Shards'),
+(16299, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 28265, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper - In Combat - Cast Scourge Strike');
 
 
-
-
-/*-- Update objects and NPCs --*/
+/*-- Object and NPC Updates --*/
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `id` IN 
 (181154, 181172, 181215, 181223, 181227, 181254, 181255, 181256, 181373, 181374);
@@ -196,8 +200,7 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_si' WHERE `id1` IN
 
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN 
 (16136, 16230, 16422, 16423, 16437, 16438, 16995,
--- Sever, Balzaphon, Lady Falther'ess, Revanchion, Scorn
- 14682, 14684, 14686, 14690, 14693);
+ 14682, 14684, 14686, 14690, 14693); -- Sever, Balzaphon, Lady Falther'ess, Revanchion, Scorn
  
 UPDATE `creature_template` SET `name` = 'Mouth of Kel\'Thuzad' WHERE `entry` = 16995;
 
@@ -211,42 +214,16 @@ UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` IN (181154, 18
 UPDATE `creature_loot_template` SET `MinCount` = 30, `MaxCount` = 30 WHERE `Item` = 22484 AND `entry` = 16143;
 
 
-/**-- Gossip Menu and Creature Text --**/
-
-UPDATE `creature_template` SET `gossip_menu_id` = 66000, `npcflag` = 1, `flags_extra` = 4194304 WHERE `entry` = 16230;  -- 138412032
-
-DELETE FROM `npc_text` WHERE `ID` = 66000;
-INSERT INTO `npc_text` (`ID`, `text0_0`, `text0_1`) VALUES 
-(66000, 'The cultist is in a deep trance...', 'The cultist is in a deep trance...');
-
-DELETE FROM `gossip_menu` WHERE `MenuID` = 66000;
-INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES (66000, 66000);
-
-DELETE FROM `gossip_menu_option` WHERE `MenuID` = 66000;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, 
-`ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES 
-(66000, 0, 0, 'Use 8 necrotic runes and disrupt his ritual.', 0, 1, 1, 0, 0, 0, 0, NULL, 0, 0); 
-
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 66000;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
-`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
-(15, 66000, 0, 0, 0, 2, 0, 22484, 8, 0, 0, 0, 0, '', 'Cultist Engineer - Show gossip only if the player has 8 Necrotic Runes');
-
-DELETE FROM `creature_text` WHERE `CreatureID` = 16230 AND `GroupID` = 1;
-INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
-(16230, 1, 0, 'These heroics mean nothing, $c.  Your future is sealed and your soul is doomed to servitude!', 12, 0, 100, 0, 0, 0, 12421, 0, 'Cultist Engineer');
-
-
 /*-- Quests --*/
 
 -- Lieutenants, Investigate the Scourge
-UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9260, 9261, 9262, 12817); -- Stormwind, Ironforge, Darnassus, Exodar
-UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 9265, 12816);  -- Orgrimmar, Thunder Bluff, Undercity, Silvermoon
+UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9260, 9261, 9262); -- Stormwind, Ironforge, Darnassus, Exodar(12817)
+UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 9265);  -- Orgrimmar, Thunder Bluff, Undercity, Silvermoon(12816)
 
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16478, 16484, 16490, 16493, 16494, 16495);
 UPDATE `creature_template` SET `npcflag` = 0 WHERE `entry` IN (29441, 29442); -- there are no scourge outside Exodar and Silvermoon.
 
-DELETE FROM `creature_queststarter` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265, 12816, 12817);
+DELETE FROM `creature_queststarter` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265); -- 12816, 12817
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (16478, 9260),  -- Orrin
 (16484, 9261),  -- Nevell
@@ -257,7 +234,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 -- (29441, 12816), -- Julek
 -- (29442, 12817); -- Kregor
 
-DELETE FROM `creature_questender` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265, 12816, 12817);
+DELETE FROM `creature_questender` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265); -- 12816, 12817
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (16478, 9260),
 (16484, 9261),
@@ -305,10 +282,67 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 
 DELETE FROM `creature_questender` WHERE `quest` IN 
 (9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance
- 9333, 9334, 9335, 9336, 9320, 9343); -- Horde
+ 9320, 9333, 9334, 9335, 9336, 9343); -- Horde
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (16786, 9094), (16786, 9317), (16786, 9318), (16786, 9321), (16786, 9337), (16786, 9341),
 (16787, 9333), (16787, 9334), (16787, 9335), (16787, 9336), (16787, 9320), (16787, 9343);
 
 UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
 UPDATE `quest_template` SET `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
+
+
+/**-- Text Updates --**/
+
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you investigated the invasion yet? There\'s no time for dawdling!' WHERE `ID` IN 
+(9260, 9261, 9262, 9263, 9264, 9265);
+
+UPDATE `quest_request_items` SET `CompletionText` = 'You\'ve come to join our order, have you not?' WHERE `ID` = 9154;
+
+-- Alliance Quartermaster and Horde Outfitter Quests
+UPDATE `quest_template` SET `QuestDescription` = 'If you bring me thirty necrotic runes, I will give you your choice of hand protection in return. These should prove valuable in our fight against the undead Scourge.' WHERE `ID` IN (9094, 9333);
+UPDATE `quest_template` SET `QuestDescription` = 'If you bring me eight necrotic runes from the Scourge invaders, I can give you a consecrated sharpening stone. It should be of great help in your battle against the minions of the Lich King.' WHERE `ID` IN (9317, 9335);
+UPDATE `quest_template` SET `QuestDescription` = 'In exchange for the necrotic runes of the Scourge invaders, the Argent Dawn will give you one vial of blessed wizard oil.' WHERE `ID` IN (9318, 9334);
+UPDATE `quest_template` SET `QuestDescription` = 'In addition to our other supplies, we also have a number of major healing potions you may find useful. I will give you one in exchange for fifteen necrotic runes.' WHERE `ID` IN (9321, 9336);
+UPDATE `quest_template` SET `QuestDescription` = 'In addition to our other supplies, we also have a number of major mana potions you may find useful. I will give you one in exchange for fifteen necrotic runes.' WHERE `ID` IN (9320, 9337);
+UPDATE `quest_template` SET `QuestDescription` = 'You have aided our cause greatly, $N. If you wish, I can make available the tabard of the Argent Dawn. We are proud to have you among our allies.' WHERE `ID` IN (9341, 9343);
+
+DELETE FROM `quest_offer_reward` WHERE `ID` IN
+(9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance
+ 9320, 9333, 9334, 9335, 9336, 9343); -- Horde
+INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, `EmoteDelay1`, `EmoteDelay2`, `EmoteDelay3`, `EmoteDelay4`, `RewardText`, `VerifiedBuild`) VALUES 
+(9094, 0, 0, 0, 0, 0, 0, 0, 0, 'You\'ve done well, $N. Take your pick of hand protection in thanks for your efforts.', NULL),
+(9317, 0, 0, 0, 0, 0, 0, 0, 0, 'Thank you, $N. Here are your consecrated sharpening stones. Use them prudently.', NULL),
+(9318, 0, 0, 0, 0, 0, 0, 0, 0, 'I hope that you will find these items useful in future battles.', NULL),
+(9320, 0, 0, 0, 0, 0, 0, 0, 0, 'Here you are, $N. Be careful out there. Our numbers are not so large we can afford many battlefield casualties.', NULL),
+(9321, 0, 0, 0, 0, 0, 0, 0, 0, 'Here you are, $N. Be careful out there. Our numbers are not so large we can afford many battlefield casualties.', NULL),
+(9333, 0, 0, 0, 0, 0, 0, 0, 0, 'You\'ve done well, $N. Take your pick of hand protection in thanks for your efforts.', NULL),
+(9334, 0, 0, 0, 0, 0, 0, 0, 0, 'I hope that you will find these items useful in future battles.', NULL),
+(9335, 0, 0, 0, 0, 0, 0, 0, 0, 'Thank you, $N. Here are your consecrated sharpening stones. Use them prudently.', NULL),
+(9336, 0, 0, 0, 0, 0, 0, 0, 0, 'Here you are, $N. Be careful out there. Our numbers are not so large we can afford many battlefield casualties.', NULL),
+(9337, 0, 0, 0, 0, 0, 0, 0, 0, 'Here you are, $N. Be careful out there. Our numbers are not so large we can afford many battlefield casualties.', NULL),
+(9341, 0, 0, 0, 0, 0, 0, 0, 0, 'Take this tabard and wear it proudly. Perhaps your deeds might inspire others to take up arms in support of our fight against the Scourge.', NULL),
+(9343, 0, 0, 0, 0, 0, 0, 0, 0, 'Take this tabard and wear it proudly. Perhaps your deeds might inspire others to take up arms in support of our fight against the Scourge.', NULL);
+
+
+UPDATE `creature_template` SET `gossip_menu_id` = 66000, `npcflag` = 1, `flags_extra` = 4194304 WHERE `entry` = 16230;  -- 138412032
+
+DELETE FROM `npc_text` WHERE `ID` = 66000;
+INSERT INTO `npc_text` (`ID`, `text0_0`, `text0_1`) VALUES 
+(66000, 'The cultist is in a deep trance...', 'The cultist is in a deep trance...');
+
+DELETE FROM `gossip_menu` WHERE `MenuID` = 66000;
+INSERT INTO `gossip_menu` (`MenuID`, `TextID`) VALUES (66000, 66000);
+
+DELETE FROM `gossip_menu_option` WHERE `MenuID` = 66000;
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, 
+`ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES 
+(66000, 0, 0, 'Use 8 necrotic runes and disrupt his ritual.', 0, 1, 1, 0, 0, 0, 0, NULL, 0, 0); 
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 66000;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(15, 66000, 0, 0, 0, 2, 0, 22484, 8, 0, 0, 0, 0, '', 'Cultist Engineer - Show gossip only if the player has 8 Necrotic Runes');
+
+DELETE FROM `creature_text` WHERE `CreatureID` = 16230 AND `GroupID` = 1;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(16230, 1, 0, 'These heroics mean nothing, $c.  Your future is sealed and your soul is doomed to servitude!', 12, 0, 100, 0, 0, 0, 12421, 0, 'Cultist Engineer');
