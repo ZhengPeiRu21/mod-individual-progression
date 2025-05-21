@@ -80,9 +80,9 @@ public:
             
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
             {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ_WAR);
             }
             else
             {
@@ -254,9 +254,9 @@ public:
 			
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 			
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
             {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ_WAR);
             }
             else
             {

@@ -47,17 +47,19 @@ enum BuffSpells
     RANGED_HASTE_SPELL   = 89507,
     SPELL_RUNE_TAP       = 48982,
     SPELL_LIFE_STEAL     = 20004,
-    IPP_PHASE            = 89509
+    IPP_PHASE            = 89509,
+    IPP_PHASE_AQ         = 89511
 };
 
 enum ProgressionQuestIDs
 {
-    MIGHT_OF_KALIMDOR    = 8742,
-    BANG_A_GONG          = 108743,
-    QUEST_MORROWGRAIN    = 3803,
-    QUEST_TROLL_NECKLACE = 2881,
-    QUEST_DEADWOOD       = 6221,
-    QUEST_WINTERFALL     = 6241
+    MIGHT_OF_KALIMDOR     = 8742,
+    BANG_A_GONG           = 108743,
+    CHAOS_AND_DESTRUCTION = 108744,
+    QUEST_MORROWGRAIN     = 3803,
+    QUEST_TROLL_NECKLACE  = 2881,
+    QUEST_DEADWOOD        = 6221,
+    QUEST_WINTERFALL      = 6241
 };
 
 enum ProgressionZones
@@ -102,19 +104,20 @@ enum ProgressionState : uint8
     PROGRESSION_MOLTEN_CORE     = 1,
     PROGRESSION_ONYXIA          = 2,
     PROGRESSION_BLACKWING_LAIR  = 3,
-    PROGRESSION_PRE_AQ          = 4,
-    PROGRESSION_AQ              = 5,
-    PROGRESSION_NAXX40          = 6,
-    PROGRESSION_TBC_TIER_1      = 7,  // Karazhan, Gruul's Lair, Magtheridon's Lair
-    PROGRESSION_TBC_TIER_2      = 8,  // Serpentshrine Cavern, Tempest Keep
-    PROGRESSION_TBC_TIER_3      = 9,  // Hyjal Summit and Black Temple
-    PROGRESSION_TBC_TIER_4      = 10, // Zul'Aman
-    PROGRESSION_TBC_TIER_5      = 11, // Sunwell Plateau
-    PROGRESSION_WOTLK_TIER_1    = 12, // WotLK Naxx, EoE, OS
-    PROGRESSION_WOTLK_TIER_2    = 13, // Ulduar
-    PROGRESSION_WOTLK_TIER_3    = 14, // TotC
-    PROGRESSION_WOTLK_TIER_4    = 15, // ICC
-    PROGRESSION_WOTLK_TIER_5    = 16  // Ruby Sanctum
+    PROGRESSION_PRE_AQ          = 4,  // AQ War effort, AQ quest line
+    PROGRESSION_AQ_WAR          = 5,  // AQ outdoors war
+    PROGRESSION_AQ              = 6,  // AQ gates open, raid available
+    PROGRESSION_NAXX40          = 7,
+    PROGRESSION_TBC_TIER_1      = 8,  // Karazhan, Gruul's Lair, Magtheridon's Lair
+    PROGRESSION_TBC_TIER_2      = 9,  // Serpentshrine Cavern, Tempest Keep
+    PROGRESSION_TBC_TIER_3      = 10, // Hyjal Summit and Black Temple
+    PROGRESSION_TBC_TIER_4      = 11, // Zul'Aman
+    PROGRESSION_TBC_TIER_5      = 12, // Sunwell Plateau
+    PROGRESSION_WOTLK_TIER_1    = 13, // WotLK Naxx, EoE, OS
+    PROGRESSION_WOTLK_TIER_2    = 14, // Ulduar
+    PROGRESSION_WOTLK_TIER_3    = 15, // TotC
+    PROGRESSION_WOTLK_TIER_4    = 16, // ICC
+    PROGRESSION_WOTLK_TIER_5    = 17  // Ruby Sanctum
 };
 
 enum RandomDungeonIds : uint16
@@ -170,7 +173,7 @@ public:
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-    bool enabled, questXpFix, hunterPetLevelFix, requirePreAQQuests, RequireAQWarEffort, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, pvpGearRequirements, excludeAccounts;
+    bool enabled, questXpFix, hunterPetLevelFix, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, pvpGearRequirements, excludeAccounts;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression;
     std::string excludedAccountsRegex;
 

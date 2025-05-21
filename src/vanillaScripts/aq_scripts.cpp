@@ -87,11 +87,8 @@ public:
                 return false; 
             }
 
-            /*
-            The Scarab Gong can still be seen after the AQ raid is released, 
-            because during the original event some players could still activate it during the first 24 hours.
-            */        
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
+            /* The Scarab Gong can still be seen after during the outdoor AQ war.  */        
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
             {
                 return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
             }

@@ -111,26 +111,6 @@ IndividualProgression.PreviousGearTuning = 0.01
 #
 IndividualProgression.HunterPetLevelFix = 1
 
-# IndividualProgression.RequirePreAQQuests
-#        Description: AQ is the only vanilla tier that does not require attunement, because of the "server-wide attunement" quest line.
-#                     Enable this option to require players to complete the 'Bang a Gong' quest line to enter AQ
-#                     Please note that this is a very grindly quest chain requiring quests to be completed 200+ times - to make this
-#                     more reasonable, some optional quest nerfs can be found in the module's SQL files.
-#                     If disabled, players can proceed to AQ immediately after Blackwing Lair
-#        Default:     1 - Enabled
-#                     0 - Disabled
-#
-IndividualProgression.RequirePreAQQuests = 1
-
-# IndividualProgression.RequireAQWarEffort
-#        Description: The AQ war effort can be skipped by disabling this option.
-#                     If this option is diabled, the player will go directly to the AQ war phase after killing Nefarian
-#                     The player will skip the preAQ phase and the AQ gate will be open. The 'Bang a Gong' quest cannot be completed.
-#        Default:     1 - Enabled
-#                     0 - Disabled
-#
-IndividualProgression.RequireAQWarEffort = 1
-
 # IndividualProgression.RequireNaxxStrathEntrance
 #        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme
 #                     before being able to use the teleportation crystal in EPL. This is consistent behavior with other Vanilla raids (MC, BL).

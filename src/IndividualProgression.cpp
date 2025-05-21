@@ -234,14 +234,7 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
                 UpdateProgressionState(killer, PROGRESSION_ONYXIA);
                 break;
             case NEFARIAN:
-                if (RequireAQWarEffort)
-                {
-                    UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
-                }
-                else
-                {
-                    UpdateProgressionState(killer, PROGRESSION_PRE_AQ);
-                }
+                UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
                 break;
             case CTHUN:
                 UpdateProgressionState(killer, PROGRESSION_AQ);
@@ -298,8 +291,6 @@ private:
         sIndividualProgression->tbcHealthAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.TBCHealthAdjustment", 1);
         sIndividualProgression->questXpFix = sConfigMgr->GetOption<bool>("IndividualProgression.QuestXPFix", true);
         sIndividualProgression->hunterPetLevelFix = sConfigMgr->GetOption<bool>("IndividualProgression.HunterPetLevelFix", true);
-        sIndividualProgression->requirePreAQQuests = sConfigMgr->GetOption<bool>("IndividualProgression.RequirePreAQQuests", true);
-        sIndividualProgression->RequireAQWarEffort = sConfigMgr->GetOption<bool>("IndividualProgression.RequireAQWarEffort", true);        
         sIndividualProgression->requireNaxxStrath = sConfigMgr->GetOption<bool>("IndividualProgression.RequireNaxxStrathEntrance", true);
         sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
         sIndividualProgression->fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
