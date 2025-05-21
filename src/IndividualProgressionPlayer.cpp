@@ -484,6 +484,7 @@ public:
                 if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2))
                 {
                     player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_AQ);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
