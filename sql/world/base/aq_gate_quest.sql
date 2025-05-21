@@ -88,7 +88,7 @@ DELETE FROM `gameobject_queststarter` WHERE `id` = 180717;
 INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743), (180717, 180744);
 
 DELETE FROM `gameobject_questender` WHERE `id` = 180717;
-INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES (180717, 8743), (180717, 180743);
+INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743);
 
 DELETE FROM `creature_questender` WHERE `id` = 15693;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15693, 8745), (15693, 108744);
