@@ -10,6 +10,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 17094, -- Nemeth Hawkeye, Grom'gol Base Camp
 17095, -- Balandar Brightstar, Brackenwall Village
 17097, -- Advisor Sarophas, Kargath
+17099, -- Mehlar Dawnblade, The Bulwark
 17103, -- Emissary Taluun, Stormwind
 17106, -- Vindicator Palanaar, Astranaar
 17109, -- Cersei Dusksinger, Stonard
