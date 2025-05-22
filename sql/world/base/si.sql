@@ -164,7 +164,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 
 (16230, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Respawn - Set Faction 190'),
-(16230, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, 16136, 0, 15, 1, 0, 0, 0, 0, 'Cultist Engineer - On Death - Cast Scourge Beam'), -- doesn't work
+(16230, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, 16136, 0, 15, 1, 0, 0, 0, 0, 'Cultist Engineer - On Respawn - Cast Scourge Beam'),
 (16230, 0, 2, 3, 62, 0, 100, 0, 66000, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Say Line 1'),
 (16230, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 57, 22484, 8, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Remove 8 Necrotic Runes'),
 (16230, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, 16143, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Summon Shadow of Doom'),
