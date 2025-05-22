@@ -777,6 +777,45 @@ public:
                 }
                 break;
             default:
+                
+				uint32 mapid = player->GetMapId();
+			
+		        if (mapid == MAP_SHADOWFANG_KEEP && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_AQ);
+                    player->CastSpell(player, IPP_PHASE, false);
+                    break;
+                }	
+		        if (mapid == MAP_RAZORFEN_DOWNS && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+                {
+                    player->RemoveAura(IPP_PHASE);
+					player->RemoveAura(IPP_PHASE_AQ);
+					player->CastSpell(player, IPP_PHASE, false);
+					break;
+				}	
+				if (mapid == MAP_SCARLET_MONASTERY && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+				{
+					player->RemoveAura(IPP_PHASE);
+					player->RemoveAura(IPP_PHASE_AQ);
+					player->CastSpell(player, IPP_PHASE, false);
+					break;
+				}					
+				if (mapid == MAP_STRATHOLME && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+				{
+					player->RemoveAura(IPP_PHASE);
+					player->RemoveAura(IPP_PHASE_AQ);
+					player->CastSpell(player, IPP_PHASE, false);
+					break;
+				}					
+				if (mapid == MAP_DIRE_MAUL && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+				{
+					player->RemoveAura(IPP_PHASE);
+					player->RemoveAura(IPP_PHASE_AQ);
+					player->CastSpell(player, IPP_PHASE, false);
+					break;
+				}
+                
                 player->RemoveAura(IPP_PHASE);
                 player->RemoveAura(IPP_PHASE_AQ);
         }
