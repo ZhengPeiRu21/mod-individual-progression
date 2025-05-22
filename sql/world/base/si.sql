@@ -155,27 +155,32 @@ INSERT INTO `battlemaster_entry` (`entry`, `bg_template`) VALUES (@Deze, 3);
 
 /*-- Smart AI --*/
 
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (16141, 16230, 16298, 16299, 16422, 16423, 16437, 16438);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (14697, 16136, 16141, 16230, 16298, 16299, 16379, 16380, 16422, 16423, 16437, 16438);
 
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-660350, 16141, 16230, 16298, 16299, 16422, 16423, 16437, 16438);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (16136, 16141, 14697, 16230, 16298, 16299, 16379, 16380, 16422, 16423, 16437, 16438);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
 `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 
--- (-660350, 0, 0, 0, 1, 0, 100, 0, 500, 1000, 15000, 15000, 0, 0, 11, 47850, 0, 0, 0, 0, 0, 10, 660246, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - Cast Scourge Beam'),    -- doesn't work
-
-(16230, 0, 1, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Respawn - Set Faction 190'),
-
-(16230, 0, 2, 3, 62, 0, 100, 512, 66000, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Say Line 1'),
-(16230, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 57, 22484, 8, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Remove 8 Necrotic Runes'),
-(16230, 0, 4, 5, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 36, 16143, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Summon Shadow of Doom'),
-
-(16230, 0, 5, 6, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 142, 100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Set Health 100%'),
-(16230, 0, 6, 7, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Set Faction 14'),
-(16230, 0, 7, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Start Attacking'),
+(16230, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Respawn - Set Faction 190'),
+(16230, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, 16136, 0, 15, 1, 0, 0, 0, 0, 'Cultist Engineer - On Death - Cast Scourge Beam'), -- doesn't work
+(16230, 0, 2, 3, 62, 0, 100, 0, 66000, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Say Line 1'),
+(16230, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 57, 22484, 8, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Remove 8 Necrotic Runes'),
+(16230, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, 16143, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Summon Shadow of Doom'),
+(16230, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 142, 100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Set Health 100%'),
+(16230, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Set Faction 14'),
+(16230, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Cultist Engineer - On Gossip Option 0 Selected - Start Attacking'),
 (16230, 0, 8, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 16568, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadow of Doom - In Combat - Cast Mind Flay'),
 (16230, 0, 9, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadow of Doom - In Combat - Cast Fear'),
+--
+(14697, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 12000, 15000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Lumbering Horror - In Combat - Cast Knockdown'),
+(14697, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Lumbering Horror - In Combat - Cast Scourge Strike'),
+(14697, 0, 2, 0, 0, 0, 100, 0, 3200, 11900, 11500, 16100, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Lumbering Horror - In Combat - Cast Trample'),
+(16379, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 16243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spirit of the Damned - In Combat - Cast Ribbon of Souls'),
+(16379, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spirit of the Damned - In Combat - Cast Scourge Strike'),
+(16380, 0, 0, 0, 11, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Bone Witch - On Respawn - - Cast Bone Shards'),
+(16380, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Bone Witch - In Combat - Cast Scourge Strike'),
 --
 (16422, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Soldier - In Combat - Cast Scourge Strike'),
 (16423, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Apparition - In Combat - Cast Scourge Strike'),
@@ -183,34 +188,40 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (16438, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Trooper - In Combat - Cast Scourge Strike'),
 --
 (16141, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 7367, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghoul Berserker - In Combat - Cast Infected Bite'),
-(16141, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 28265, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghoul Berserker - In Combat - Cast Scourge Strike'),
+(16141, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghoul Berserker - In Combat - Cast Scourge Strike'),
 (16298, 0, 0, 0, 0, 0, 100, 0, 2000, 10000, 10000, 20000, 0, 0, 11, 13444, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Soldier - In Combat - Cast Sunder Armor'),
-(16298, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 28265, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Soldier - In Combat - Cast Scourge Strike'),
+(16298, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Soldier - In Combat - Cast Scourge Strike'),
 (16299, 0, 0, 0, 11, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper - On Respawn - Cast Bone Shards'),
-(16299, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 28265, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper - In Combat - Cast Scourge Strike');
+(16299, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper - In Combat - Cast Scourge Strike'),
+--
+(16136, 0, 0, 0, 12, 0, 100, 0, 0, 0, 0, 0, 0, 40, 11, 28032, 0, 39, 0, 0, 0, 9, 16141, 0, 40, 2, 0, 0, 0, 0, 'Necrotic Shard - Ghoul Berserker - Cast Zap Crystal'), -- doesn't work yet
+(16136, 0, 1, 0, 12, 0, 100, 0, 0, 0, 0, 0, 0, 40, 11, 28032, 0, 39, 0, 0, 0, 9, 16298, 0, 40, 2, 0, 0, 0, 0, 'Necrotic Shard - Spectral Soldier - Cast Zap Crystal'),
+(16136, 0, 2, 0, 12, 0, 100, 0, 0, 0, 0, 0, 0, 40, 11, 28032, 0, 39, 0, 0, 0, 9, 16299, 0, 40, 2, 0, 0, 0, 0, 'Necrotic Shard - Skeletal Shocktrooper - Cast Zap Crystal'); 
 
 
 /*-- Object and NPC Updates --*/
 
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `id` IN 
-(181154, 181172, 181215, 181223, 181227, 181254, 181255, 181256, 181373, 181374);
-
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_si' WHERE `id1` IN 
-(16241, 16255, 16281, 16285, 16359, 16361, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787); -- 29441, 29442
-
-UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN 
-(16136, 16230, 16422, 16423, 16437, 16438, 16995,
- 14682, 14684, 14686, 14690, 14693); -- Sever, Balzaphon, Lady Falther'ess, Revanchion, Scorn
- 
 UPDATE `creature_template` SET `name` = 'Mouth of Kel\'Thuzad' WHERE `entry` = 16995;
 
--- set Necrotic Shards to Not selectable
-UPDATE `creature_template` SET `unit_flags` = 33554432 WHERE `entry` = 16136;
+-- Necrotic Shards 256+4
+UPDATE `creature_template` SET `unit_flags` = 260 WHERE `entry` = 16136;
 
--- set Necropolis object to Not selectable
+-- Cultist Engineer
+UPDATE `creature_template` SET `gossip_menu_id` = 66000, `npcflag` = 1, `unit_flags` = 512, `flags_extra` = 4194304 WHERE `entry` = 16230;
+
+-- Lumbering Horror, fix movement
+UPDATE `creature_template` SET `unit_flags` = 0, `HealthModifier` = 5.4 WHERE `entry` = 14697;
+
+-- Spirit of the Damned, Bone Witch
+UPDATE `creature_template` SET `HealthModifier` = 5 WHERE `entry` IN (16379, 16380);
+
+-- Update Health
+UPDATE `creature_template` SET `HealthModifier` = 2.7 WHERE `entry` IN (16141, 16298, 16299);
+
+-- Necropolis Not selectable
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` IN (181154, 181215, 181223, 181373, 181374);
 
--- Shadow of Doom
+-- Shadow of Doom, fix Necrotic runes drop
 UPDATE `creature_loot_template` SET `MinCount` = 30, `MaxCount` = 30 WHERE `Item` = 22484 AND `entry` = 16143;
 
 
@@ -323,8 +334,6 @@ INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, 
 (9341, 0, 0, 0, 0, 0, 0, 0, 0, 'Take this tabard and wear it proudly. Perhaps your deeds might inspire others to take up arms in support of our fight against the Scourge.', NULL),
 (9343, 0, 0, 0, 0, 0, 0, 0, 0, 'Take this tabard and wear it proudly. Perhaps your deeds might inspire others to take up arms in support of our fight against the Scourge.', NULL);
 
-
-UPDATE `creature_template` SET `gossip_menu_id` = 66000, `npcflag` = 1, `flags_extra` = 4194304 WHERE `entry` = 16230;  -- 138412032
 
 DELETE FROM `npc_text` WHERE `ID` = 66000;
 INSERT INTO `npc_text` (`ID`, `text0_0`, `text0_1`) VALUES 
