@@ -177,7 +177,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14690, 0, 1, 0, 0, 4, 100, 0, 5000, 7000, 15000, 17000, 0, 0, 11, 15245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Revanchion - In Combat - Cast Shadow Bolt Volley'),
 --
 (16230, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Respawn - Set Faction 190'),
-(16230, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, 16136, 0, 15, 1, 0, 0, 0, 0,         'Cultist Engineer - On Respawn - Cast Scourge Beam'),
+(16230, 0, 1, 0, 1, 0, 100, 0, 1000, 2000, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, 16136, 0, 15, 1, 0, 0, 0, 0,    'Cultist Engineer - Out of Combat - Cast Scourge Beam'), -- wrong spell, visual incorrect
 (16230, 0, 2, 3, 62, 0, 100, 0, 66000, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Gossip Option 0 Selected - Say Line 1'),
 (16230, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 57, 22484, 8, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,              'Cultist Engineer - On Gossip Option 0 Selected - Remove 8 Necrotic Runes'),
 (16230, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, 16143, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cultist Engineer - On Gossip Option 0 Selected - Summon Shadow of Doom'),
@@ -273,13 +273,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 DELETE FROM `creature_questender` WHERE `quest` IN (9292, 9310);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (16478, 9292),
--- (16484, ),
--- (16490, ),
--- (16493, ),
 (16494, 9310);
--- (16495, ),
--- (29441, ),
--- (29442, ); 
 
 -- Argent Scout and Recruiter, Light's Hope Chapel
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16241, 16255);
