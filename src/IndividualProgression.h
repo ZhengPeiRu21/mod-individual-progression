@@ -58,23 +58,24 @@ enum ProgressionQuestIDs
     QUEST_WINTERFALL     = 6241
 };
 
-enum ProgressionMaps
-{
-    MAP_BLACKWING_LAIR = 469,
-    MAP_ZUL_GURUB = 309,
-    MAP_AQ_20 = 509,
-    MAP_AQ_40 = 531,
-    MAP_OUTLANDS = 530,
-    MAP_NAXXRAMAS = 533,
-    MAP_ZUL_AMAN = 568,
-    MAP_NORTHREND = 571,
-    MAP_ULDUAR = 603,
-    MAP_TRIAL_OF_THE_CRUSADER = 649,
-    MAP_TRIAL_OF_THE_CHAMPION = 650,
-    MAP_ICC = 631,
-    MAP_FORGE_OF_SOULS = 632,
-    MAP_RUBY_SANCTUM = 724
-};
+// now defined in azerothcore-wotlk\src\server\game\Maps\AreaDefines.h
+//enum ProgressionMaps
+//{
+//    MAP_BLACKWING_LAIR = 469,
+//    MAP_ZUL_GURUB = 309,
+//    MAP_AQ_20 = 509,
+//    MAP_AQ_40 = 531,
+//    MAP_OUTLANDS = 530,
+//    MAP_NAXXRAMAS = 533,
+//    MAP_ZUL_AMAN = 568,
+//    MAP_NORTHREND = 571,
+//    MAP_ULDUAR = 603,
+//    MAP_TRIAL_OF_THE_CRUSADER = 649,
+//    MAP_TRIAL_OF_THE_CHAMPION = 650,
+//    MAP_ICC = 631,
+//    MAP_FORGE_OF_SOULS = 632,
+//    MAP_RUBY_SANCTUM = 724
+//};
 
 enum ProgressionZones
 {
