@@ -4981,7 +4981,6 @@ REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`
 (23, 14753, 22748, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 22672, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 22753, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 30497, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21565, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21566, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21567, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
