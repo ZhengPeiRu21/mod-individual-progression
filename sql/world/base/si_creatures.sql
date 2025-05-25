@@ -1503,7 +1503,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+1720, 16299, 0, 0, 0, 0, 0, 1, 65536, 0, 1797.03, -2837.68, 71.2373, 1.05181, 300, 0, 0, 8241, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 
-UPDATE `creature` SET `wander_distance` = 5, `MovementType` = 1 WHERE `id1` IN (16141, 16298, 16299);
+UPDATE `creature` SET `wander_distance` = 4, `MovementType` = 1 WHERE `id1` IN (16141, 16298, 16299);
 UPDATE `creature` SET `wander_distance` = 20, `MovementType` = 1, `spawntimesecs` = 3600 WHERE `id1` IN (14697, 16379, 16380);
 
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_si' WHERE `id1` IN 
