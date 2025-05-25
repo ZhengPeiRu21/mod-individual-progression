@@ -25,6 +25,12 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 37888, -- Frax Bucketdrop, Thondroril River, Flight Master
 37915 -- Timothy Cunningham, The Bulwark, Flight Master
 );
+
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` IN (
+12788, -- Legionnaire Teena
+19850 -- Councilor Arial D'Anastasis
+) AND `map` = 1; -- Orgrimmar only
+
 -- fix bad phasing for Wrathscale Myrmidon, Azuremyst Isle 
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 17194;
 
@@ -47,7 +53,7 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (347,
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 49832; -- Darnassus
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (
-150747, 150748, 150749, 150750, 150751, 150752, 150753, -- Orgrimmar
+150747, 150748, 150749, 150750, 150751, 150752, 150753, 150755, -- Orgrimmar
 100500, 100501, 100502, 100503, 268683, -- Undercity
 932, 933, 100156, 100157, 100158, 100159, 100505, 100506, 150736, 150737, 150738, 150740, 150742, 150743, 150744, 150746, 151239,  -- Stormwind
 121574 -- Darnassus
