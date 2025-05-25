@@ -238,6 +238,17 @@ UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` IN (181154, 18
 -- Shadow of Doom, fix Necrotic runes drop
 UPDATE `creature_loot_template` SET `MinCount` = 30, `MaxCount` = 30 WHERE `Item` = 22484 AND `entry` = 16143;
 
+DELETE FROM `creature_onkill_reputation` WHERE `creature_id` IN (16141, 16298, 16299, 14697, 16379, 16380, 16143);
+INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`, `RewOnKillRepFaction2`, 
+`MaxStanding1`, `IsTeamAward1`, `RewOnKillRepValue1`, `MaxStanding2`, `IsTeamAward2`, `RewOnKillRepValue2`, `TeamDependent`) VALUES 
+(16141, 529, 0, 4, 0, 5, 0, 0, 0, 0),
+(16298, 529, 0, 4, 0, 5, 0, 0, 0, 0),
+(16299, 529, 0, 4, 0, 5, 0, 0, 0, 0),
+(14697, 529, 0, 5, 0, 10, 0, 0, 0, 0),
+(16379, 529, 0, 5, 0, 10, 0, 0, 0, 0),
+(16380, 529, 0, 5, 0, 10, 0, 0, 0, 0),
+(16143, 529, 0, 5, 0, 50, 0, 0, 0, 0);
+
 
 /*-- Quests --*/
 
