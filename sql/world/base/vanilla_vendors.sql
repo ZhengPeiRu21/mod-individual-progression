@@ -4763,7 +4763,12 @@ DELETE FROM `npc_vendor` WHERE `entry` IN (17246, 16253, 16262, 16261, 16677, 17
 DELETE FROM `npc_vendor` WHERE `item` IN (28060, 28053);
 
 /* PvP Gear Vendor Rep Requirements */
+-- these need to be hidden. they cannot get a reputation requirement 
+-- because some of these items have the same ID for both alliance and horde.
+-- you can only set 1 reputation requirement for an item.
+-- AB is an exception. all AB items are unique to either faction
 REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `comment`) VALUES
+-- Jekyll Flandring <Frostwolf Supply Officer>
 (23, 13219, 17349, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 13219, 17352, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 13219, 19031, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
@@ -4800,6 +4805,7 @@ REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`
 (23, 13219, 19325, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13219, 21563, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13219, 19324, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+-- Grunnda Wolfheart <Frostwolf Supply Officer>
 (23, 13218, 17349, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 13218, 17352, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 13218, 19031, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
@@ -4836,6 +4842,7 @@ REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`
 (23, 13218, 19325, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13218, 21563, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13218, 19324, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+-- Thanthaldis Snowgleam <Stormpike Supply Officer>
 (23, 13217, 17349, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 13217, 17352, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 13217, 19032, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
@@ -4872,6 +4879,7 @@ REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`
 (23, 13217, 19325, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13217, 21563, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13217, 19324, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+-- Gaelden Hammersmith <Stormpike Supply Officer>
 (23, 13216, 17349, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 13216, 17352, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 13216, 19032, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
@@ -4908,6 +4916,7 @@ REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`
 (23, 13216, 19325, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13216, 21563, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13216, 19324, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+-- Illiyana Moonblaze <Silverwing Supply Officer>
 (23, 14753, 21565, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 21566, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 21567, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
@@ -4981,6 +4990,7 @@ REPLACE INTO conditions (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`
 (23, 14753, 22748, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 22672, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 22753, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+-- Kelm Hargunth <Warsong Supply Officer>
 (23, 14754, 21565, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21566, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21567, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
