@@ -22,6 +22,8 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 22931, -- Gorrim, Emerald Sanctuary, Flight Master
 24366, -- Nizzle, Rebel Camp, Flight Master
 27705, -- Lorrin Foxfire, Stonard
+29093, -- Ian Drake, Stormwind
+29095, -- Edward Cairn, Undercity
 37888, -- Frax Bucketdrop, Thondroril River, Flight Master
 37915 -- Timothy Cunningham, The Bulwark, Flight Master
 );
@@ -42,6 +44,9 @@ UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 17194;
 10583, -- Gryfe, Marshal's Refuge, Flight Master
 16227 -- Bragok, Ratchet, Flight Master
 ); */
+
+-- Outland map outside Dark Portal
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 42457;
 
 -- remove interactions between Cersei, Lorrin and the orcs in Stonard 
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
