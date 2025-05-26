@@ -31,6 +31,9 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` IN (
 19850 -- Councilor Arial D'Anastasis
 ) AND `map` = 1; -- Orgrimmar only
 
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` = 19848 -- Harbinger Ennarth
+AND `map` = 0; -- Stormwind only
+
 -- fix bad phasing for Wrathscale Myrmidon, Azuremyst Isle 
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 17194;
 
