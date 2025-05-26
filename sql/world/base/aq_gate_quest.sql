@@ -45,7 +45,7 @@ UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 21146;
 UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 21147;
 UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 21148;
 
--- FIx drop rate for Narain's Scrying Goggles
+-- Fix drop rate for Narain's Scrying Goggles
 UPDATE `creature_loot_template` SET `Chance` = 2 WHERE `Item` = 20951;
 
 -- New 'Bang a Gong!' quest. No rewards for completing this version. No mount, no title. Currently the Mallet of Zul'Farrak is required to bang the gong.
