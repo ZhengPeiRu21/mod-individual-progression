@@ -25,12 +25,12 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 29093, -- Ian Drake, Stormwind
 29095, -- Edward Cairn, Undercity
 37888, -- Frax Bucketdrop, Thondroril River, Flight Master
-37915 -- Timothy Cunningham, The Bulwark, Flight Master
+37915  -- Timothy Cunningham, The Bulwark, Flight Master
 );
 
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` IN (
 12788, -- Legionnaire Teena
-19850 -- Councilor Arial D'Anastasis
+19850  -- Councilor Arial D'Anastasis
 ) AND `map` = 1; -- Orgrimmar only
 
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` = 19848 -- Harbinger Ennarth
@@ -42,7 +42,7 @@ UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 17194;
 -- the flight masters at Ratchet and Marshal's Refuge were originally added in patch 1.11 - disabled by default, because most players will expect these npcs to be there
 /* UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (
 10583, -- Gryfe, Marshal's Refuge, Flight Master
-16227 -- Bragok, Ratchet, Flight Master
+16227  -- Bragok, Ratchet, Flight Master
 ); */
 
 -- Outland map outside Dark Portal
@@ -50,8 +50,6 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 42457;
 
 -- remove interactions between Cersei, Lorrin and the orcs in Stonard 
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
-
--- to do: mail boxes in cities and anvil + furnace at Orgrimmar entrance
 
 -- hide Rogg and his anvil + forge at the entrance of Orgrimmar until WotLK
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` = 37072;
