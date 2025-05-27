@@ -259,7 +259,7 @@ UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 92
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16478, 16484, 16490, 16493, 16494, 16495);
 UPDATE `creature_template` SET `npcflag` = 0 WHERE `entry` IN (29441, 29442); -- there are no scourge outside Exodar and Silvermoon.
 
-DELETE FROM `creature_queststarter` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265); -- 12816, 12817
+DELETE FROM `creature_queststarter` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265, 12816, 12817);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (16478, 9260),  -- Orrin
 (16484, 9261),  -- Nevell
@@ -270,7 +270,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 -- (29441, 12816), -- Julek
 -- (29442, 12817); -- Kregor
 
-DELETE FROM `creature_questender` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265); -- 12816, 12817
+DELETE FROM `creature_questender` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265, 12816, 12817);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (16478, 9260),
 (16484, 9261),
