@@ -31,6 +31,9 @@ INSERT INTO `playercreateinfo_skills` (`raceMask`, `classMask`, `skill`, `rank`,
 DELETE FROM `npc_trainer` WHERE `ID` = 200015 AND `SpellID` = 674;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (200015, 674, 300, 0, 0, 10);
 
+-- fix Mai'ah <Mage Trainer> in Valley of Trials.
+DELETE FROM `npc_trainer` WHERE `ID` = 5884 AND `SpellID` = -200008;
+
 -- Class skills taught by dropped items that should not be taught by trainers
 DELETE FROM npc_trainer
 WHERE SpellID IN (19801, 21302, 21562, 21564, 21849, 21850, 23028, 
