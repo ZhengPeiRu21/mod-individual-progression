@@ -287,7 +287,7 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ_WAR);
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR);
         }
     };
 
