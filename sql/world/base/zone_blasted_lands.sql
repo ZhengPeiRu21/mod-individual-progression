@@ -31,3 +31,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (6059810, 12, -11396.9, -2926.05, 3.04129, NULL, 0, 0, 0, 100, 0),
 (6059810, 13, -11370.7, -2855.8, 4.71995, NULL, 0, 0, 0, 100, 0),
 (6059810, 14, -11358.6, -2796.98, 5.47431, NULL, 0, 0, 0, 100, 0);
+
+-- Quest: Into the Breach
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II WHERE `id1` IN (19284, 19285, 19286, 19287, 19311, 19322, 19391);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 19942;
