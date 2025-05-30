@@ -1,3 +1,8 @@
+-- Blackhand's Command quest requirement
+DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 26;
+INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES 
+(26, 1, 7761, 'You must complete the quest "Blackhand\'s Command" and be level 60 before entering Blackwing Lair.', 2, NULL, 0, NULL);
+    
 DELETE FROM `spell_script_names` WHERE `spell_id` = 23310 AND `ScriptName` = 'spell_bwl_chromaggus_time_lapse';
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 (23310, 'spell_bwl_chromaggus_time_lapse');
