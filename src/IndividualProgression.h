@@ -48,7 +48,7 @@ enum BuffSpells
     SPELL_RUNE_TAP       = 48982,
     SPELL_LIFE_STEAL     = 20004,
     IPP_PHASE            = 89509,
-    IPP_PHASE_AQ         = 89511
+    IPP_PHASE_II         = 89511
 };
 
 enum ProgressionQuestIDs
