@@ -36,7 +36,7 @@ public:
             return;
         }
 
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
         {
             if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > 60)
             {
@@ -79,7 +79,7 @@ public:
             return false;
         }
         // Player is still in Vanilla content - give money at 60 level cap
-        return ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() == 60) ||
+        return ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == 60) ||
                 // Player is in TBC content - give money at 70 level cap
                 (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == 70));
     }
@@ -98,7 +98,7 @@ public:
                 sIndividualProgression->ComputeGearTuning(player, gearAdjustment, item->GetTemplate());
         }
         // Player is still in Vanilla content - give Vanilla health adjustment
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() < 61)))
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() < 61)))
         {
             float adjustmentAmount = 1.0f - sIndividualProgression->vanillaHealthAdjustment;
             float applyPercent = ((player->GetLevel() - 10.0f) / 50.0f);
@@ -141,7 +141,7 @@ public:
             return;
         }
         // Player is still in Vanilla content - do not give XP past level 60
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() >= 60)
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() >= 60)
         {
             // Still award XP to pets - they won't be able to pass the player's level
             Pet* pet = player->GetPet();
@@ -195,7 +195,7 @@ public:
         }
         if (mapid == MAP_OUTLAND)
         {
-            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             {
                 // The player may be in the Azuremyst area which is on the outlands map - check the area ID
                 return IsTBCRaceStartingZone(mapid, x, y, z);
@@ -235,7 +235,7 @@ public:
         InstanceTemplate const* instanceTemplate = sObjectMgr->GetInstanceTemplate(mapid);
         if (instanceTemplate)
         {
-            if (instanceTemplate->Parent == MAP_OUTLAND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+            if (instanceTemplate->Parent == MAP_OUTLAND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             {
                 return false;
             }
@@ -271,6 +271,12 @@ public:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_AQ_WAR);
+                }
+                break;
+            case INTO_THE_BREACH:
+                if (!sIndividualProgression->disableDefaultProgression)
+                {
+                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
                 }
                 break;
             case QUEST_MORROWGRAIN:
@@ -606,7 +612,7 @@ public:
                     player->RemoveAura(IPP_PHASE_II);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
-                else if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) && player->GetLevel() <= 60)
+                else if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_PRE_TBC)))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -844,7 +850,7 @@ public:
             return;
         }
 
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() < 61)))
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() < 61)))
         {
             rDungeonId = RDF_CLASSIC;
         }
@@ -1070,7 +1076,7 @@ private:
             return;
         }
 		
-        if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40) || ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_NAXX40)) && (pet->GetLevel() < 61)))
+        if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC) || ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC)) && (pet->GetLevel() < 61)))
         {
             AdjustVanillaStats(pet);
         }
@@ -1170,7 +1176,7 @@ public:
         }
         Player* player = isPet ? healer->GetOwner()->ToPlayer() : healer->ToPlayer();
         float gearAdjustment = computeTotalGearTuning(player);
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() < 61)))
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() < 61)))
         {
             heal *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaHealingAdjustment) - gearAdjustment);
         }
@@ -1195,7 +1201,7 @@ public:
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
         float gearAdjustment = computeTotalGearTuning(player);
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() < 61)))
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() < 61)))
         {
             damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
         }
@@ -1221,7 +1227,7 @@ public:
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
         float gearAdjustment = computeTotalGearTuning(player);
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() < 61)))
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() < 61)))
         {
             damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
         }
@@ -1256,7 +1262,7 @@ public:
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
         float gearAdjustment = computeTotalGearTuning(player);
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() < 61)))
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() < 61)))
         {
             damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
         }
