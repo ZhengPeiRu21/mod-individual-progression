@@ -123,27 +123,27 @@ enum ProgressionSettings
     SETTING_PROGRESSION_STATE = 0
 };
 
-enum ProgressionState : uint8
+enum ProgressionState : uint8         // Progression stands for what has been completed
 {
     PROGRESSION_START           = 0,
-    PROGRESSION_MOLTEN_CORE     = 1,
-    PROGRESSION_ONYXIA          = 2,
-    PROGRESSION_BLACKWING_LAIR  = 3,  // AQ War effort, AQ quest line
-    PROGRESSION_PRE_AQ          = 4,  // AQ outdoors war 
-    PROGRESSION_AQ_WAR          = 5,  // AQ gates open, raid available
-    PROGRESSION_AQ              = 6,  
-    PROGRESSION_NAXX40          = 7,
-    PROGRESSION_PRE_TBC         = 8,  // Into the Breach
-    PROGRESSION_TBC_TIER_1      = 9,  // Karazhan, Gruul's Lair, Magtheridon's Lair
-    PROGRESSION_TBC_TIER_2      = 10, // Serpentshrine Cavern, Tempest Keep
-    PROGRESSION_TBC_TIER_3      = 11, // Hyjal Summit and Black Temple
-    PROGRESSION_TBC_TIER_4      = 12, // Zul'Aman
-    PROGRESSION_TBC_TIER_5      = 13, // Sunwell Plateau
-    PROGRESSION_WOTLK_TIER_1    = 14, // WotLK Naxx, EoE, OS
-    PROGRESSION_WOTLK_TIER_2    = 15, // Ulduar
-    PROGRESSION_WOTLK_TIER_3    = 16, // TotC
-    PROGRESSION_WOTLK_TIER_4    = 17, // ICC
-    PROGRESSION_WOTLK_TIER_5    = 18  // Ruby Sanctum
+    PROGRESSION_MOLTEN_CORE     = 1,  // BWL available
+    PROGRESSION_ONYXIA          = 2, 
+    PROGRESSION_BLACKWING_LAIR  = 3,  // ZG, AQ War effort, AQ quest line
+    PROGRESSION_PRE_AQ          = 4,  // AQ gates open, raids available, AQ outdoors war 
+    PROGRESSION_AQ_WAR          = 5,  // AQ gates open, raids, Field Duty quests and all Cenarion Hold npcs available
+    PROGRESSION_AQ              = 6,  // Naxx40 and Scourge Invasion
+    PROGRESSION_NAXX40          = 7,  // Into the Breach
+    PROGRESSION_PRE_TBC         = 8,  // Karazhan, Gruul's Lair, Magtheridon's Lair
+    PROGRESSION_TBC_TIER_1      = 9,  // Serpentshrine Cavern, Tempest Keep
+    PROGRESSION_TBC_TIER_2      = 10, // Hyjal Summit and Black Temple
+    PROGRESSION_TBC_TIER_3      = 11, // Zul'Aman
+    PROGRESSION_TBC_TIER_4      = 12, // Sunwell Plateau
+    PROGRESSION_TBC_TIER_5      = 13, // WotLK Naxx, EoE, OS
+    PROGRESSION_WOTLK_TIER_1    = 14, // Ulduar
+    PROGRESSION_WOTLK_TIER_2    = 15, // TotC
+    PROGRESSION_WOTLK_TIER_3    = 16, // ICC
+    PROGRESSION_WOTLK_TIER_4    = 17, // Ruby Sanctum
+    PROGRESSION_WOTLK_TIER_5    = 18 
 };
 
 enum RandomDungeonIds : uint16
