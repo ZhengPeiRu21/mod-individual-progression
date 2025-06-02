@@ -7,8 +7,8 @@
 ########################################
 # Individual Progression Configuration
 ########################################
-#
-#    IndividualProgression.Enable
+
+# IndividualProgression.Enable
 #        Description: Enable Individual Progression Module
 #                     Please note that like all AzerothCore modules, database changes cannot be undone through config settings.
 #                     This means that world changes like restoring Vanilla quests and NPC stats will remain in place even if disabled.
@@ -16,19 +16,16 @@
 #        Default:     1 - Enabled
 #                     0 - Disabled
 #
-
 IndividualProgression.Enable = 1
-#
-#    IndividualProgression.EnforceGroupRules
+
+# IndividualProgression.EnforceGroupRules
 #        Description: Only allow players to group with others in the same progression phase
 #        Default:     1 - Enabled
 #                     0 - Disabled
 #
-
 IndividualProgression.EnforceGroupRules = 1
-#
-#
-#    IndividualProgression.VanillaPowerAdjustment
+
+# IndividualProgression.VanillaPowerAdjustment
 #        Description: Adjustment to player's attack power before completing Vanilla content
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
@@ -37,9 +34,8 @@ IndividualProgression.EnforceGroupRules = 1
 #        Default:     0.6 - 60% of regular damage
 #
 IndividualProgression.VanillaPowerAdjustment = 0.6
-#
-#
-#    IndividualProgression.VanillaHealingAdjustment
+
+# IndividualProgression.VanillaHealingAdjustment
 #        Description: Adjustment to player's healing power before completing Vanilla content
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
@@ -48,9 +44,8 @@ IndividualProgression.VanillaPowerAdjustment = 0.6
 #        Default:     0.5 - 50% of regular healing
 #
 IndividualProgression.VanillaHealingAdjustment = 0.5
-#
-#
-#    IndividualProgression.VanillaHealthAdjustmnet
+
+# IndividualProgression.VanillaHealthAdjustmnet
 #        Description: Adjustment to player's max HP before completing Vanilla content
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
@@ -59,9 +54,8 @@ IndividualProgression.VanillaHealingAdjustment = 0.5
 #        Default:     0.75 - 75% of regular health
 #
 IndividualProgression.VanillaHealthAdjustment = 0.75
-#
-#
-#    IndividualProgression.TBCPowerAdjustment
+
+# IndividualProgression.TBCPowerAdjustment
 #        Description: Adjustment to player's attack power before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
@@ -70,8 +64,8 @@ IndividualProgression.VanillaHealthAdjustment = 0.75
 #        Default:     0.6 - 60% of regular damage
 #
 IndividualProgression.TBCPowerAdjustment = 0.6
-#
-#    IndividualProgression.TBCHealingAdjustment
+
+# IndividualProgression.TBCHealingAdjustment
 #        Description: Adjustment to player's healing power before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
@@ -80,9 +74,8 @@ IndividualProgression.TBCPowerAdjustment = 0.6
 #        Default:     0.5 - 50% of regular healing
 #
 IndividualProgression.TBCHealingAdjustment = 0.5
-#
-#
-#    IndividualProgression.TBCHealthAdjustment
+
+# IndividualProgression.TBCHealthAdjustment
 #        Description: Adjustment to player's max HP before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
@@ -91,17 +84,16 @@ IndividualProgression.TBCHealingAdjustment = 0.5
 #        Default:     0.8 - 80% of regular health
 #
 IndividualProgression.TBCHealthAdjustment = 0.8
-#
-#    IndividualProgression.QuestXPFix
+
+# IndividualProgression.QuestXPFix
 #        Description: Quest XP for Vanilla and TBC quests was boosted as a catchup mechanism in patches 2.3.0 and 3.0.2
 #                     Enable this option to reduce quest XP for affected quest to be closer to original values
 #        Default:     1 - Enabled
 #                     0 - Disabled
 #
 IndividualProgression.QuestXPFix = 1
-#
-#
-#    IndividualProgression.PreviousGearTuning
+
+# IndividualProgression.PreviousGearTuning
 #        Description: Reduces the power of previous expansion end-game gear when entering the next expansion for leveling.
 #                     This resolves a balancing problem where players would not get any useful gear until near the end of the leveling experience,
 #                     as well as overpowering the leveling content. This is particularly true in TBC leveling due to the strength of Naxx 40 gear.
@@ -110,29 +102,16 @@ IndividualProgression.QuestXPFix = 1
 #        Default:     0.01 - 1% reduced health and damage per previous expansion epic
 #
 IndividualProgression.PreviousGearTuning = 0.01
-#
-#    IndividualProgression.HunterPetLevelFix
+
+# IndividualProgression.HunterPetLevelFix (this option is currently not implemented)
 #        Description: In WotLK, a catch-up mechanism was added so that hunter pets are leveled up higher when tamed
 #                     Enable this option to restore Vanilla and TBC behavior and require more pet training
 #        Default:     1 - Enabled
 #                     0 - Disabled
 #
-
 IndividualProgression.HunterPetLevelFix = 1
-#
-#    IndividualProgression.RequirePreAQQuests
-#        Description: AQ is the only vanilla tier that does not require attunement, because of the "server-wide attunement" quest line.
-#                     Enable this option to require players to complete the Bang a Gong quest line to enter AQ
-#                     Please note that this is a very grindly quest chain requiring quests to be completed 200+ times - to make this
-#                       more reasonable, some optional quest nerfs can be found in the module's SQL files.
-#                     If disabled, players can proceed to AQ immediately after Blackwing Lair
-#        Default:     1 - Enabled
-#                     0 - Disabled
-#
 
-IndividualProgression.RequirePreAQQuests = 1
-#
-#    IndividualProgression.RequireNaxxStrathEntrance
+# IndividualProgression.RequireNaxxStrathEntrance
 #        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme
 #                     before being able to use the teleportation crystal in EPL. This is consistent behavior with other Vanilla raids (MC, BL).
 #                     If disabled, players can enter Naxx 40 through the crystal as soon as they are attuned and they have reached the correct
@@ -140,61 +119,47 @@ IndividualProgression.RequirePreAQQuests = 1
 #        Default:     1 - Enabled
 #                     0 - Disabled
 #
-
 IndividualProgression.RequireNaxxStrathEntrance = 1
-#
-#
-#
-#    IndividualProgression.MoltenCore.ManualRuneHandling
-#        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) or automatic when bosses are defeated (WotLK default)
+
+# IndividualProgression.MoltenCore.ManualRuneHandling
+#        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) 
+#                     or automatic when bosses are defeated (WotLK default)
 #        Default:   1 - Enabled (requires dousing)
 #                   0 - Disabled (automatic, handled when bosses are defeated)
 #
-#
-
 IndividualProgression.MoltenCore.ManualRuneHandling = 1
 
-#
-#    IndividualProgression.MoltenCore.AqualEssenceCooldownReduction
+# IndividualProgression.MoltenCore.AqualEssenceCooldownReduction
 #        Description: Reduces the cooldown of Eternal Quintessences by the amount specified.
 #        Default:   0 - Disabled (1 hour cooldown)
 #                   60 - (No cooldown)
 #
-#
-
 IndividualProgression.MoltenCore.AqualEssenceCooldownReduction = 0
-#
-#    IndividualProgression.SerpentshrineCavern.RequireAllBosses
+
+# IndividualProgression.SerpentshrineCavern.RequireAllBosses
 #        Description: Requires all bosses being killed before accessing Vashj's console panel.
 #        Default:   1 - Enabled
 #                   0 - Disabled
 #
-#
-
 IndividualProgression.SerpentshrineCavern.RequireAllBosses = 1
 
-#
-#    IndividualProgression.TheEye.RequireAllBosses
+# IndividualProgression.TheEye.RequireAllBosses
 #        Description: Requires all bosses being killed to open the doors to Kael
 #        Default:   1 - Enabled
 #                   0 - Disabled
 #
-#
-
 IndividualProgression.TheEye.RequireAllBosses = 1
-#
-#    IndividualProgression.FishingFix
+
+# IndividualProgression.FishingFix
 #        Description: Before patch 3.1, fishing skill had progression and had to be leveled in low level zones before high level areas could add skill
 #                     In patch 3.1, it was changed to allow leveling fishing even when catching junk in high level zones, allowing progression to be skipped
 #                     This reverts that changed.
 #        Default:   1 - Enabled (Pre 3.1 behavior - Fishing requires progression through zone levels)
 #                   0 - Disabled (Post 3.1 behavior - Allow leveling fishing in any area)
 #
-#
-
 IndividualProgression.FishingFix = 1
-#
-#    IndividualProgression.SimpleConfigOverride
+
+# IndividualProgression.SimpleConfigOverride
 #        Description: If enabled, allow IndividualProgression module to set several AzerothCore values to suit individual progression
 #                     Many of these config options were added with IndividualProgression in mind.
 #                     For more advanced individual tuning, disable this option and change the respective values in worldserver.conf
@@ -209,11 +174,9 @@ IndividualProgression.FishingFix = 1
 #        Default:   1 - Enabled
 #                   0 - Disabled
 #
-#
-
 IndividualProgression.SimpleConfigOverride = 1
-#
-#    IndividualProgression.ProgressionLimit
+
+# IndividualProgression.ProgressionLimit
 #        Description: If enabled, players will not be able to proceed beyond this progression stage.
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
 #                     For example, a value of 6 will limit players to Vanilla content.
@@ -221,11 +184,9 @@ IndividualProgression.SimpleConfigOverride = 1
 #        Default:   0 - Disabled
 #                   1-16 - Maximum progression stage
 #
-#
-
 IndividualProgression.ProgressionLimit = 0
-#
-#    IndividualProgression.StartingProgression
+
+# IndividualProgression.StartingProgression
 #        Description: If enabled, players will begin at this progression stage.
 #                     Existing players who are at an earlier stage will be set to this stage upon log in.
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
@@ -234,11 +195,9 @@ IndividualProgression.ProgressionLimit = 0
 #        Default:   0 - Disabled
 #                   1-16 - Starting progression stage
 #
-#
-
 IndividualProgression.StartingProgression = 0
-#
-#    IndividualProgression.QuestMoneyAtLevelCap
+
+# IndividualProgression.QuestMoneyAtLevelCap
 #        Description: If enabled, players at the level cap for the current progression stage will receive
 #                     extra money when completing quests, as if they were level 80. This feature was added in patch 1.10
 #                     so it is a Vanilla feature.
@@ -248,11 +207,9 @@ IndividualProgression.StartingProgression = 0
 #        Default:   1 - Enabled
 #                   0 - Disabled
 #
-#
-
 IndividualProgression.QuestMoneyAtLevelCap = 1
-#
-#    IndividualProgression.RepeatableVanillaQuestsXP
+
+# IndividualProgression.RepeatableVanillaQuestsXP
 #        Description: Some repeatable quests in Vanilla gave XP every time they were turned in.
 #                     Enable this feature to allow these quests to have the Vanilla behavior and give XP each turn in.
 #                     Disable to have the WotLK behavior and only grant XP once.
@@ -260,11 +217,9 @@ IndividualProgression.QuestMoneyAtLevelCap = 1
 #        Default:   1 - Enabled
 #                   0 - Disabled
 #
-#
-
 IndividualProgression.RepeatableVanillaQuestsXP = 1
-#
-#    IndividualProgression.TbcRacesUnlockProgression
+
+# IndividualProgression.TbcRacesUnlockProgression
 #        Description: The progression level at which TBC races will be unlocked.
 #                     Races will be unlocked when the player reaches this level with any character on the account.
 #                     Disable to have TBC races available by default.
@@ -273,11 +228,9 @@ IndividualProgression.RepeatableVanillaQuestsXP = 1
 #        Default:   0 - TBC Races always available
 #                   1-16 - Required progression level to create TBC Race characters
 #
-#
-
 IndividualProgression.TbcRacesUnlockProgression = 0
-#
-#    IndividualProgression.DeathKnightUnlockProgression
+
+# IndividualProgression.DeathKnightUnlockProgression
 #        Description: The progression level at which Death Knight characters can be created.
 #                     Death Knights will be available when the player reaches this levl with any character on the account.
 #                     Disable to Individual Progression not influence DK creation.
@@ -290,31 +243,25 @@ IndividualProgression.TbcRacesUnlockProgression = 0
 #                   0 - Disabled
 #                   1-16 - Required progression
 #
-#
-
 IndividualProgression.DeathKnightUnlockProgression = 11
-#
-#    IndividualProgression.DeathKnightStartingProgression
+
+# IndividualProgression.DeathKnightStartingProgression
 #        Description: The progression level at which Death Knight characters will begin.
 #
 #        Default:   11 - Death Knights start at the beginning of WotLK
 #                   0-16 - Progression level
 #
-#
-
 IndividualProgression.DeathKnightStartingProgression = 11
-#
-#    IndividualProgression.DisableDefaultProgression
+
+# IndividualProgression.DisableDefaultProgression
 #        Description: Disable the regular progression flow, so progression must be advanced through custom creature progression entries
 #
 #        Default:   0 - Disabled
 #                   1 - Enabled
 #
-#
-
 IndividualProgression.DisableDefaultProgression = 0
-#
-#    IndividualProgression.CustomProgression
+
+# IndividualProgression.CustomProgression
 #        Description: A list of creature IDs paired to progression states. When a creature on the list is defeated by a player,
 #                     the player will be set to that progression state. Used for custom, non-standard progression.
 #                     Not needed for regular, Blizz-like progress through expansions, which works by default.
@@ -324,11 +271,9 @@ IndividualProgression.DisableDefaultProgression = 0
 #
 #        Default:   "" - Disabled (default)
 #
-#
-
 IndividualProgression.CustomProgression = ""
-#
-#    IndividualProgression.AllowEarlyDungeonSet2
+
+# IndividualProgression.AllowEarlyDungeonSet2
 #        Description: Dungeon Set 2 was introduced in patch 1.10 and requires completing some AQ content that is normally not available until a later phase
 #                     When enabled, this allows the relevant content to be accessed early so that Dungeon Set 2 can be acquired before it is made obsolete
 #                     by raid gear.
@@ -336,21 +281,17 @@ IndividualProgression.CustomProgression = ""
 #        Default:   0 - Disabled
 #                   1 - Enabled
 #
-#
-
 IndividualProgression.AllowEarlyDungeonSet2 = 1
-#
-#    IndividualProgression.PvPGearRequirements
+
+# IndividualProgression.PvPGearRequirements
 #        Description: Requires players to have earned relevant PvP Titles before high level PvP gear can be equipped
 #
 #        Default:   1 - Enabled
 #                   0 - Disabled
 #
-#
-
 IndividualProgression.PvPGearRequirements = 1
-#
-#    IndividualProgression.DisableRDF
+
+# IndividualProgression.DisableRDF
 #        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
 #        Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
 #        Please note that the LFG tool is disabled (except for Holiday events) by default if SimpleConfigOverride is enabled.
@@ -358,16 +299,16 @@ IndividualProgression.PvPGearRequirements = 1
 #                     1 - Disabled
 #
 IndividualProgression.DisableRDF = 0
-#
-#    IndividualProgression.ExcludeAccounts
+
+# IndividualProgression.ExcludeAccounts
 #        Description: Enable or disable the exclusion of accounts from Individual Progression.
 #        This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
 #        Default:     0 - Disabled
 #                     1 - Enabled
 #
 IndividualProgression.ExcludeAccounts = 0
-#
-#    IndividualProgression.ExcludedAccountsRegex
+
+# IndividualProgression.ExcludedAccountsRegex
 #        Description: A regular expression to match account names that should be excluded from Individual Progression.
 #        This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
 #        Only used if ExcludeAccounts is enabled.

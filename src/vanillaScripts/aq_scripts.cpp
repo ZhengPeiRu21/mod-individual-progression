@@ -87,7 +87,16 @@ public:
                 return false; 
             }
 
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+            /* The Scarab Gong can still be seen during the outdoor AQ war.  */        
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
+            {
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+            }
+            else
+            {
+                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
+            }
+
         }
 
         void NextStage(uint32 timeUntil = 100)
@@ -214,14 +223,13 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             if (!target)
             {
                 return false; 
             }
 
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);            
         }
     };
 
