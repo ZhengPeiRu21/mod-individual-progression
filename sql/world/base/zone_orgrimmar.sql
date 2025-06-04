@@ -492,6 +492,12 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
     (14581, 18844, 2291), (14581, 18848, 2291), (14581, 18860, 2291), (14581, 18866, 2291), (14581, 18868, 2257), (14581, 18871, 2257), (14581, 18874, 2257), 
     (14581, 18877, 2257), (14581, 23464, 2291), (14581, 23465, 2257), (14581, 23466, 2291), (14581, 23467, 2291), (14581, 23468, 2291), (14581, 23469, 2291);
 
+
+DELETE FROM `creature` WHERE `id1` IN 
+(34038,  -- Sergeant Thunderhorn <Apprentice Armor Quartermaster>
+ 34060,  -- Doris Volanthius <Veteran Armor Quartermaster>
+ 34063); -- Blood Guard Zar'shi <Northrend Armor Quartermaster>
+
 -- Nogg Quest Flags fix
 UPDATE `creature_template` SET `npcflag` = `npcflag` | 2 WHERE `entry` = 3412;
 
