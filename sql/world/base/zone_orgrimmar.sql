@@ -186,75 +186,89 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 
 -- Nazgrel <Advisor to Thrall>
-DELETE FROM `creature` WHERE `id1`=3230 AND `map`=1;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (3230, 1, 1938.55, -4133.22, 41.1424, 4.07636, 300);
+DELETE FROM `creature` WHERE `id1` = 3230 AND `map`= 1;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(603230, 3230, 1, 1938.55, -4133.22, 41.1424, 4.07636, 300);
 
 -- Orgrimmar Grunt
 DELETE FROM `creature` WHERE `guid` IN (10299, 203492, 203493, 203494, 203495);
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (10299, 3296, 1, 1620.45, -4252.84, 47.5273, 3.7001, 300);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(10299, 3296, 1, 1620.45, -4252.84, 47.5273, 3.7001, 300);
 
 -- Brakgul Deathbringer <Warsong Gulch Battlemaster>
-DELETE FROM `creature` WHERE `id1`=3890;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (3890, 1, 1990.64, -4794.13, 56.0472, 3.22013, 300);
+DELETE FROM `creature` WHERE `id1` = 3890;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(603890, 3890, 1, 1990.64, -4794.13, 56.0472, 3.22013, 300);
 
 -- Legionnaire Teena
-DELETE FROM `creature` WHERE `id1`=12788;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 25);
+DELETE FROM `creature` WHERE `id1` = 12788;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 25);
 
 -- Lady Palanseer <Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`=34043;
-DELETE FROM `creature` WHERE `id1`=12792;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12792, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180);
+DELETE FROM `creature` WHERE `id1` = 34043;
+DELETE FROM `creature` WHERE `id1` = 12792;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612792, 12792, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180);
 
 -- Brave Stonehide <Officer Accessories Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12793;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12793, 1, 1657.6, -4191.97, 56.383, 4.52365, 180);
+DELETE FROM `creature` WHERE `id1` = 12793;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612793, 12793, 1, 1657.6, -4191.97, 56.383, 4.52365, 180);
 
 -- Stone Guard Zarg <Food and Drink>
-DELETE FROM `creature` WHERE `id1`=12794;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12794, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180);
+DELETE FROM `creature` WHERE `id1` = 12794;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612794, 12794, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180);
 
 -- First Sergeant Hola'mahi <Reagent Vendor>
-DELETE FROM `creature` WHERE `id1`=12795;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12795, 1, 1673.9, -4216, 56.3826, 2.93578, 180);
+DELETE FROM `creature` WHERE `id1` = 12795;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612795, 12795, 1, 1673.9, -4216, 56.3826, 2.93578, 180);
 
 -- Raider Bork <Mount Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12796;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12796, 1, 1674.43, -4212.55, 56.3829, 3.00254, 1290);
+DELETE FROM `creature` WHERE `id1` = 12796;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612796, 12796, 1, 1674.43, -4212.55, 56.3829, 3.00254, 1290);
 
 -- Sergeant Ba'sha <Accessories Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12799;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430);
+DELETE FROM `creature` WHERE `id1` = 12799;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430);
 
 -- Sergeant Thunderhorn <Weapons Quartermaster>
-DELETE FROM `creature` WHERE `id1`=14581;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (14581, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180);
+DELETE FROM `creature` WHERE `id1` = 14581;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(614581, 14581, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180);
 
 -- High Overlord Saurfang
-DELETE FROM `creature` WHERE `id1`=14720;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (14720, 1, 1565.79, -4395.27, 6.9866, 3.35103, 600);
+DELETE FROM `creature` WHERE `id1` = 14720;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(614720, 14720, 1, 1565.79, -4395.27, 6.9866, 3.35103, 600);
 
 -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
-DELETE FROM `creature` WHERE `id1`=14942;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (14942, 1, 1980.9, -4787.78, 55.8796, 5.13127, 600);
+DELETE FROM `creature` WHERE `id1` = 14942;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(614942, 14942, 1, 1980.9, -4787.78, 55.8796, 5.13127, 600);
 
 -- Deze Snowbane <Arathis Basin Battlemaster>
-DELETE FROM `creature` WHERE `id1`=15006;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600);
+DELETE FROM `creature` WHERE `id1` = 15006;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(615006, 15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600);
 
 -- Master Pyreanor <Paladin Trainer>
-UPDATE `creature` SET `position_x`=1940.23, `position_y`=-4135.53, `position_z`=41.1522, `orientation`=3.12425  WHERE `id1`=23128;
+UPDATE `creature` SET `position_x`= 1940.23, `position_y`= -4135.53, `position_z`= 41.1522, `orientation`= 3.12425  WHERE `id1` = 23128;
 
 -- Summon Felsteed (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id`=3326 AND `quest`=3631;
+DELETE FROM `creature_queststarter` WHERE `id` = 3326 AND `quest` = 3631;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 3631);
 
 -- Knowledge of the Orb of Orahil (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id`=3326 AND `quest`=4967;
+DELETE FROM `creature_queststarter` WHERE `id` = 3326 AND `quest` = 4967;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 4967);
 
 -- An Imp's Request (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id` IN (3324, 3325, 3326, 4564, 5495, 5496) AND `quest`=8419;
+DELETE FROM `creature_queststarter` WHERE `id` IN (3324, 3325, 3326, 4564, 5495, 5496) AND `quest`= 8419;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 8419);
 
 -- Vol'jin <King of Darkspear Trolls>
