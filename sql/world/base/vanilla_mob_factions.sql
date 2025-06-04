@@ -61,12 +61,6 @@ UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3229;
 /*  Chief Sharptusk Thornmantle  */
 UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 8554;
 
-/*  Kobold Laborer  */
-UPDATE `creature_template` SET `faction` = 26, flags_extra = 0 WHERE `entry` = 257;
-
-/*  Kobold Worker  */
-UPDATE `creature_template` SET `faction` = 26, flags_extra = 0 WHERE `entry` = 80;
-
 /*  Tender  */
 UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 15271;
 
