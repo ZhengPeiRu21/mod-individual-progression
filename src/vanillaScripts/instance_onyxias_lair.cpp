@@ -139,10 +139,9 @@ public:
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
         }
-        if (!sMapMgr->PlayerCannotEnter(249, player, true))
-        {
-            player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
-        }
+
+        player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+
         return true;
     }
 };
