@@ -44,3 +44,11 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`,`SourceGroup`,`SourceEntry`,
 (13,1,31324,0,0,31,0,3,17544,0,0,0,0,"","Naaru Drain Effect Condition");
 
 UPDATE `conditions` SET `ConditionValue2` = 17544 WHERE `SourceTypeOrReferenceId` = 13 AND `SourceEntry` = 45351;
+
+-- Restore Lady Liadrin and move Magister Astalor Bloodsworn a bit.
+DELETE FROM `creature` WHERE `guid` IN (96976, 617076);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(96976,  17718, 0, 0, 530, 0, 0, 1, 1, 0, 9859.45, -7519.19, -8.06573, 1.69273, 180, 0, 0, 3484, 5751, 0, 0, 0, 0, '', 0, 0, NULL),        -- Magister Astalor Bloodsworn
+(617076, 17076, 0, 0, 530, 0, 0, 1, 1, 0, 9862.12, -7518.44, -8.06524, 1.86945, 300, 0, 0, 1214000, 33870, 0, 0, 0, 0, '', NULL, 0, NULL); -- Lady Liadrin
+
+UPDATE `creature_template` SET `gossip_menu_id` = 0 WHERE `entry` = 17718; -- was 9142
