@@ -85,7 +85,7 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 -- Update heigan teleport player (unused in core)
 UPDATE `spell_target_position` SET `PositionX`=2917.43, `PositionY`=-3769.18, `PositionZ`=273.62, `Orientation`=3.1415 WHERE `ID`=29273;
 
--- Grobullus
+-- Grobbulus
 -- Poison damage by Poison Cloud ~3k to ~1k
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28241;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28241, 'spell_grobbulus_poison_cloud_poison_damage_40');
