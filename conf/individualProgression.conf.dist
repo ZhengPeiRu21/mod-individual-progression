@@ -116,10 +116,10 @@ IndividualProgression.HunterPetLevelFix = 1
 #                     before being able to use the teleportation crystal in EPL. This is consistent behavior with other Vanilla raids (MC, BL).
 #                     If disabled, players can enter Naxx 40 through the crystal as soon as they are attuned and they have reached the correct
 #                     progression level - no Stratholme run will be required.
-#        Default:     1 - Enabled
-#                     0 - Disabled
+#        Default:     0 - Disabled
+#                     1 - Enabled
 #
-IndividualProgression.RequireNaxxStrathEntrance = 1
+IndividualProgression.RequireNaxxStrathEntrance = 0
 
 # IndividualProgression.MoltenCore.ManualRuneHandling
 #        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) 
