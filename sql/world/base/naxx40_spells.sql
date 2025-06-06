@@ -48,8 +48,8 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28450, 'spel
 
 -- Sewage Slime
 -- 28153 Disease cloud 600->300
-DELETE FROM `spell_script_names` WHERE `spell_id` = 28153;
-INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28153, 'spell_disease_cloud_damage_40');
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28156;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28156, 'spell_disease_cloud_damage_40');
 
 -- Anub'Arak
 -- Locust Swarm: Reduce damage ~1500 to ~1000, increase radius 25yd to 30yd
