@@ -258,7 +258,7 @@ public:
             {
                 return false;
             }
-            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() < 80 && (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) || !isAttuned(player)) ) 
+            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() < 71 && (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) || !isAttuned(player)) ) 
             {
                 return false;
             }
