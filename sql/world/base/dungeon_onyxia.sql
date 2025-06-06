@@ -2,7 +2,7 @@ DELETE FROM `creature_template` WHERE `entry` BETWEEN 301000 AND 301003;
 REPLACE INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxlevel`, `faction`, `speed_walk`, `speed_run`, `detection_range`,`scale`,`rank`,`dmgschool`,`DamageModifier`,`BaseAttackTime`,`RangeAttackTime`,`BaseVariance`,`RangeVariance`,`unit_class`,`unit_flags`,`unit_flags2`,`family`,`type`,`type_flags`,`lootid`,`skinloot`,`PetSpellDataId`,`mingold`,`maxgold`,`AIName`,`MovementType`,`HoverHeight`,`HealthModifier`,`ManaModifier`,`ArmorModifier`,`ExperienceModifier`,`movementId`,`RegenHealth`,`mechanic_immune_mask`,`spell_school_immune_mask`,`flags_extra`,`ScriptName`) VALUES
 (301000, "Onyxia", "", 63, 63, 103, 1.0, 1.28571, 20.0, 1.0, 3, 0, 15.05, 2000, 2000, 1.0, 1.0, 1, 64, 2048, 0, 2, 108, 301000, 10184, 0, 914892, 1066294, '', 0, 1.0, 330.0, 1.0, 1.0, 1.0, 0, 1, 646659963, 0, 1073742337, 'boss_onyxia_40'),
 (301001, "Onyxian Whelp", "", 56, 57, 16, 1.11111, 1.14286, 18.0, 1.0, 0, 0, 3.7, 2000, 2000, 1.0, 1.0, 1, 0, 2048, 0, 2, 8, 0, 0, 0, 0, 0, '', 1, 1.0, 1.0, 1.0, 1.0, 1.0, 0, 1, 0, 0, 0, ''),
-(301002, "Onyxian Warder", "", 60, 63, 103, 0.888888, 1.14286, 20.0, 1.0, 1, 0, 9.8, 2000, 2000, 1.0, 1.0, 1, 64, 2048, 0, 2, 8, 301002, 0, 0, 1185, 4741, 'SmartAI', 1, 1.0, 25.0, 1.0, 1.0, 1.0, 0, 1, 617299803, 0, 0, '');
+(301002, "Onyxian Warder", "", 60, 63, 103, 0.888888, 1.14286, 20.0, 1.0, 1, 0, 9.8, 2000, 2000, 1.0, 1.0, 1, 64, 2048, 0, 2, 8, 301002, 12129, 0, 1185, 4741, 'SmartAI', 1, 1.0, 25.0, 1.0, 1.0, 1.0, 0, 1, 617299803, 0, 0, '');
 
 DELETE FROM `creature_template_model` WHERE (`CreatureID` BETWEEN 301000 AND 301002);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
@@ -21,6 +21,7 @@ REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (301000, 17966, 0, 100.0, 0, 0, 1, 1),
 (301000, 18422, 0, 100.0, 0, 0, 1, 1),
 (301000, 18423, 0, 100.0, 0, 0, 1, 1),
+(301000, 18492, 0, 100.0, 0, 0, 1, 1),
 (301000, 18705, 0, 40.0, 0, 0, 1, 1),
 (301000, 21108, 0, 100.0, 0, 0, 1, 1),
 (301000, 300000, 300000, 100.0, 0, 0, 2, 2),
@@ -899,12 +900,14 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (311003, 3110030, 0, 0, 0, 0, NULL),
 (311004, 3110040, 0, 0, 0, 0, NULL);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 301000 AND `SourceEntry` = 21108;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 301000 AND `SourceEntry` IN (18492, 21108);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(1, 301000, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player have The Only Prescription (8620) in their quest log');
+(1, 301000, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player has The Only Prescription (8620) in his quest log'),
+(1, 301000, 18492, 0, 0, 9, 0, 7509, 0, 0, 0, 0, 0, '', 'Treated Ancient Blade will only drop when a player has The Forging of Quel Serrar (7509) in his quest log');
 
 DELETE FROM `dungeon_access_template` WHERE `id`=123;
-INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES (123, 249, 2, 50, 0, 0, 'Onyxia\'s Lair - 40man');
+INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES
+(123, 249, 2, 50, 0, 0, 'Onyxia\'s Lair - 40man');
 
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 123;
 INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES
@@ -973,6 +976,13 @@ UPDATE `quest_template_addon` SET `PrevQuestID` = 7490 WHERE `ID` = 7493; -- Pre
 UPDATE `item_template` SET `startquest` = 7507 WHERE `entry` = 18401; -- Foror's Compendium of Dragonslaying
 UPDATE `item_template` SET `startquest` = 7508 WHERE `entry` = 18513; -- Dull Elven Blade
 
+-- The Forging of Quel'Serrar
+UPDATE `quest_template` SET `Flags` = 0 WHERE `ID` IN (7507, 7508); -- these were flagged as unavailable
+UPDATE `quest_template` SET `Flags` = 64 WHERE `ID` = 7509;
+
+-- Unfired Ancient Blade
+UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 0, `description` = 'Bring this blade with you to Onyxia\'s Lair.' WHERE `entry` = 18489; -- was flagged as depreciated item
+    
 DELETE FROM `creature_queststarter` WHERE `quest` = 7509;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (14368, 7509);
@@ -1026,7 +1036,7 @@ DELETE FROM `smart_scripts` WHERE `entryorguid` = 14368 AND `source_type` = 0 AN
 insert into `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) values('14368','0','1','0','62','0','100','0','60045','0','0','0','56','18513','1','0','0','0','0','7','0','0','0','0','0','0','0','Lorekeeper Lydros - Giving A Dull and Flat Elven Blade after cliking on last gossip');
 insert into `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) values('14368','0','2','0','62','0','100','0','60045','0','0','0','72','0','0','0','0','0','0','7','0','0','0','0','0','0','0','Lorekeeper Lydros - On Gossip Option 0 Selected - Close Gossip');
 
-UPDATE `item_template` SET `spellid_1` = 22905 WHERE `entry` = 18489;
+
 
 delete from `conditions` WHERE `SourceTypeOrReferenceId` = 17 AND  `SourceEntry` = 22905;
 insert into `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) values('17','0','22905','0','0','29','0','10184','10','1','0','0','0','','Place Unfired Blade - near dead onyxia');
