@@ -1,4 +1,5 @@
 #include "IndividualProgression.h"
+#include "naxxramas_40.h"
 
 class IndividualPlayerProgression : public PlayerScript
 {
@@ -171,6 +172,20 @@ public:
         return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
     }
 
+    static bool isAttuned(Player* player)
+    {
+        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || 
+		    (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
+		    (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
+		{
+            return true;
+		}
+        else
+		{
+            return false;
+	    }
+    }
+
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
     {
         if (!sIndividualProgression->enabled || player->IsGameMaster() || isExcludedFromProgression(player))
@@ -240,6 +255,10 @@ public:
                 return false;
             }
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid != MAP_NAXXRAMAS && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+            {
+                return false;
+            }
+            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() < 71 && !isAttuned(player))  
             {
                 return false;
             }
