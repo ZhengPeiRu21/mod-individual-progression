@@ -29,7 +29,7 @@ public:
         }
         sIndividualProgression->CheckAdjustments(player);
 
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_MC) != QUEST_STATUS_REWARDED))
+        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_FLAG_MC) != QUEST_STATUS_REWARDED))
         {
             Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_MC);
 
