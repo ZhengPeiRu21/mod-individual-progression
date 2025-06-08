@@ -36,3 +36,4 @@ DELETE FROM `creature_template_locale` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulr
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Nakodu, @Urgronn, @Ulrike);
 DELETE FROM `creature` WHERE `id1` IN (@Nakodu, @Urgronn, @Ulrike);
 DELETE FROM `npc_vendor` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
+DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Ulrike;
