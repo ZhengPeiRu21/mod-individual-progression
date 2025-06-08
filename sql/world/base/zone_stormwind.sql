@@ -124,67 +124,80 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 
 -- Thelman Slatefist <Alterac Valley Battlemaster>
-DELETE FROM `creature` WHERE `id1`=7410;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (7410, 0, -8424.43, 342.967, 120.886, 3.82018, 300);
+DELETE FROM `creature` WHERE `id1`= 7410;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(607410, 7410, 0, -8424.43, 342.967, 120.886, 3.82018, 300);
 
 -- Hank the Hammer <The Mitrhil Order>
-DELETE FROM `creature` WHERE `id1`=7798;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (7798, 0, -8422.17, 630.877, 95.8402, 5.044, 430);
+DELETE FROM `creature` WHERE `id1`= 7798;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(607798, 7798, 0, -8422.17, 630.877, 95.8402, 5.044, 430);
 
 -- Lieutenant Karter <War Mount Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12783;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12783, 0, -8779.7, 432.158, 105.233, 5.36374, 300);
+DELETE FROM `creature` WHERE `id1`= 12783;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612783, 12783, 0, -8779.7, 432.158, 105.233, 5.36374, 300);
 
 -- Captain Dirgehammer <Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12777;
-DELETE FROM `creature` WHERE `id1`=34075;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12777, 0, -8768.77, 401.647, 109.665, 2.22999, 300);
+DELETE FROM `creature` WHERE `id1`= 12777;
+DELETE FROM `creature` WHERE `id1`= 34075;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612777, 12777, 0, -8768.77, 401.647, 109.665, 2.22999, 300);
 
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12778;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12778, 0, -8783.7, 423.749, 105.276, 0.651345, 300);
+DELETE FROM `creature` WHERE `id1`= 12778;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612778, 12778, 0, -8783.7, 423.749, 105.276, 0.651345, 300);
 
 -- Archmage Gaiman
-DELETE FROM `creature` WHERE `id1`=12779;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12779, 0, -8783.33, 426.686, 105.276, 5.37159, 300);
+DELETE FROM `creature` WHERE `id1`= 12779;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612779, 12779, 0, -8783.33, 426.686, 105.276, 5.37159, 300);
 
 -- Sergeant Major Skyshadow
-DELETE FROM `creature` WHERE `id1`=12780;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12780, 0, -8779.46, 427.206, 105.275, 3.80473, 300);
+DELETE FROM `creature` WHERE `id1`= 12780;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612780, 12780, 0, -8779.46, 427.206, 105.275, 3.80473, 300);
 
 -- Master Sergeant Biggins <Accessories Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12781;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12781, 0, -8777.4, 417.124, 103.921, 6.23553, 300);
+DELETE FROM `creature` WHERE `id1`= 12781;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612781, 12781, 0, -8777.4, 417.124, 103.921, 6.23553, 300);
 
 -- Captain O'Neal <Weapons Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12782;
-DELETE FROM `creature` WHERE `id1`=34081;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12782, 0, -8778.3, 432.142, 105.309, 4.17386, 300);
+DELETE FROM `creature` WHERE `id1`= 12782;
+DELETE FROM `creature` WHERE `id1`= 34081;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612782, 12782, 0, -8778.3, 432.142, 105.309, 4.17386, 300);
 
 -- Lieutenant Jackspring <Legacy Weapon Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12784;
+DELETE FROM `creature` WHERE `id1`= 12784;
 
 -- Knight-Lieutenant T'Maire Sydes <Northrend Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`=40607;
+DELETE FROM `creature` WHERE `id1`= 40607;
 
 -- Lieutenant Tristia <Veteran Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`=34078;
+DELETE FROM `creature` WHERE `id1`= 34078;
 
 -- Sergeant Major Clate <Legacy Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12785;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12785, 0, -8771.31, 401.973, 109.665, 0.659191, 300);
+DELETE FROM `creature` WHERE `id1`= 12785;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612785, 12785, 0, -8771.31, 401.973, 109.665, 0.659191, 300);
 
 -- Officer Areyn <Accessories Quartermaster>
-DELETE FROM `creature` WHERE `id1`=12805;
-INSERT INTO `creature` (`id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (12805, 0, 1, -8759.18, 389.112, 101.056, 0.648394, 430);
+DELETE FROM `creature` WHERE `id1`= 12805;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(612805, 12805, 0, 1, -8759.18, 389.112, 101.056, 0.648394, 430);
 
 -- Elfarran <Warsong Gulch Battlemaster>
-DELETE FROM `creature` WHERE `id1`=14981;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (14981, 0, -8454.62, 318.853, 120.969, 0.698132, 180);
+DELETE FROM `creature` WHERE `id1`= 14981;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(614981, 14981, 0, -8454.62, 318.853, 120.969, 0.698132, 180);
 
 -- Lady Hoteshem <Arathi Basin Battlemaster>
-DELETE FROM `creature` WHERE `id1`=15008;
-INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES (15008, 0, -8420.48, 328.711, 120.886, 3.06638, 180);
+DELETE FROM `creature` WHERE `id1`= 15008;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(615008, 15008, 0, -8420.48, 328.711, 120.886, 3.06638, 180);
 
 -- Tome of Nobility (Paladin)
 DELETE FROM `creature_questender` WHERE `id`=6171 AND `quest`=1661;
@@ -382,10 +395,11 @@ DELETE FROM `npc_vendor` WHERE `entry`=12781 AND `item` IN
     30350, 30351, 31838, 31839, 31840, 31841, 31852, 31853, 31854, 31855, 32453, 32455, 37864, 38589, 44957);
 
 -- Captain O'Neal <Weapons Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12782 AND `item` IN (12584, 18825, 18827, 18830, 18833, 18836, 18838, 18843, 18847, 18855, 18865, 18867, 18869, 18873, 18876);
+DELETE FROM `npc_vendor` WHERE `entry`=12782 AND `item` IN (12584, 18825, 18827, 18830, 18833, 18836, 18838, 18843, 18847, 18855, 18865, 18867, 18869, 18873, 18876, 23451, 23452, 23453, 23454, 23455, 23456);
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
     (12782, 12584, 2291), (12782, 18825, 2291), (12782, 18827, 2291), (12782, 18830, 2257), (12782, 18833, 2291), (12782, 18836, 2291), (12782, 18838, 2291),
-    (12782, 18843, 2291), (12782, 18847, 2291), (12782, 18855, 2291), (12782, 18865, 2291), (12782, 18867, 2257), (12782, 18869, 2257), (12782, 18873, 2257), (12782, 18876, 2257);
+    (12782, 18843, 2291), (12782, 18847, 2291), (12782, 18855, 2291), (12782, 18865, 2291), (12782, 18867, 2257), (12782, 18869, 2257), (12782, 18873, 2257), 
+    (12782, 18876, 2257), (12782, 23451, 2291), (12782, 23452, 2257), (12782, 23453, 2291), (12782, 23454, 2291), (12782, 23455, 2291), (12782, 23456, 2291);
 
 -- Lieutenant Karter <War Mount Quartermaster>
 DELETE FROM `npc_vendor` WHERE `entry`=12783 AND `item` IN (29465, 29467, 29468, 29471, 35906);
@@ -413,6 +427,84 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
     (12805, 18445, 492), (12805, 18447, 931), (12805, 18448, 492), (12805, 18449, 931), (12805, 18454, 492), (12805, 18455, 931), (12805, 18456, 492), (12805, 18457, 931), 
     (12805, 18854, 634), (12805, 18856, 634), (12805, 18858, 634), (12805, 18859, 634), (12805, 18862, 634), (12805, 18863, 634), (12805, 18864, 634);
 
+
+/* Hide certain vendor items until the player has reached the progression tier for them */
+DELETE FROM `conditions` WHERE `SourceGroup` IN (12777, 12782);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(23, 12777, 16437, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Silk Footwraps until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16440, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Silk Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16441, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Coronet until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16442, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Silk Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16443, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Silk Vestments until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16444, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Silk Spaulders until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16446, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Leather Footguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16448, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dragonhide Gauntlets until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16449, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dragonhide Spaulders until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16450, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dragonhide Legguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16451, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dragonhide Helmet until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16452, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dragonhide Breastplate until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16453, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Leather Chestpiece until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16454, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Leather Handgrips until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16455, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Leather Mask until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Leather Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16457, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Leather Epaulets until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16459, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dragonhide Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16462, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Chain Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16463, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Chain Grips until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16465, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Chain Helm until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16466, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Chain Breastplate until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16467, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Chain Legguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16468, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Chain Spaulders until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16471, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Lamellar Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16472, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Lamellar Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16473, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Lamellar Chestplate until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16474, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Lamellar Faceguard until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16475, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Lamellar Legplates until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16476, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Lamellar Pauldrons until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16477, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Plate Armor until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16478, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Plate Helm until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16479, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Plate Legguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16480, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Plate Shoulderguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16483, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Plate Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16484, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Plate Gauntlets until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17578, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Coronal until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17579, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dreadweave Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17580, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dreadweave Shoulders until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17581, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dreadweave Robe until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17583, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dreadweave Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17584, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dreadweave Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17602, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Headdress until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17603, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Satin Pants until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17604, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Satin Mantle until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17605, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Satin Vestments until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17607, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Satin Sandals until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17608, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Satin Gloves until the player has completed PROGRESSION_ONYXIA'),
+--
+(23, 12782, 12584, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Longsword until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18825, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Aegis until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18827, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Handaxe until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18830, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Sunderer until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18833, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Bullseye until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18836, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Repeater until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18838, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Dirk until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18843, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Right Hand Blade until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18847, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Left Hand Blade until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18855, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Hand Cannon until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18865, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Punisher until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18867, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Battle Hammer until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18869, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Glaive until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18873, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Stave until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 18876, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Claymore until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 23451, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Mageblade until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 23452, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Power until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 23453, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Restoration until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 23454, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Warhammer until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 23455, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Demolisher until the player has completed PROGRESSION_ONYXIA'),
+(23, 12782, 23456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Swiftblade until the player has completed PROGRESSION_ONYXIA');
+
+ 
 -- Summon Felsteed (Warlock)
 DELETE FROM `quest_offer_reward` WHERE `ID`=4488;
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES 

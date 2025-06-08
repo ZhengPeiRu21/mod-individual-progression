@@ -13,3 +13,26 @@ DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 13
 
 /* Remove script from database to avoid worldserver error. The code for this script has been commented out. Need to figure out why. */
 UPDATE `creature_template` SET `Scriptname` = '' WHERE `entry` = 351042;
+
+
+-- undo previous method of Lights Hope Chapel phasing 
+UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN 
+(11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
+
+-- Drop source for 2.3 Jewelcrafting Recipe
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 19768; -- disabled for now to prevent the creature from attacking while phased
+
+-- undo TBC vendor phasing
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (17585, 17657, 21655);  
+
+-- UNDO previous cloning method to hide vendor item drops
+SET @Nakodu  := 121655;
+SET @Urgronn := 117585;
+SET @Ulrike  := 117657;
+
+DELETE FROM `creature_template` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Nakodu, @Urgronn, @Ulrike);
+DELETE FROM `creature` WHERE `id1` IN (@Nakodu, @Urgronn, @Ulrike);
+DELETE FROM `npc_vendor` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
