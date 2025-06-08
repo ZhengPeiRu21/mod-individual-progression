@@ -22,14 +22,12 @@ UPDATE `creature` SET `phaseMask` = @IPPPHASE_II WHERE `id1` IN (15612, 15613, 1
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_preaq' WHERE `entry` IN (180448);
 
 -- Phasing Lights Hope Chapel npcs
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
-                                                                                 16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
--- undo previous method of phasing (this can be removed later on)
-UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135,  
-                                                      16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN 
+(11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
 
 -- Phasing Lights Hope Chapel game objects
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `guid` IN (45603, 45606, 45607, 45764, 45765, 45766, 45767, 45768, 45769, 45770, 45771, 45838, 45839, 45840);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `guid` IN 
+(45603, 45606, 45607, 45764, 45765, 45766, 45767, 45768, 45769, 45770, 45771, 45838, 45839, 45840);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
 
@@ -54,14 +52,8 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (34948, 34949, 34950, 34951);
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `entry` IN (195532, 195533);
 
--- Drop source for 2.3 Jewelcrafting Recipe
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 19768; -- disabled for now to prevent the creature from attacking while phased
-
 -- Phasing Zul'Aman quest npcs until TBC T4.
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (19227, 23761);
-
--- Phasing TBC vendors and trainers - Copies are added to replace them until TBC T4.
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (17585, 17657, 18754, 18771, 19187, 21087, 21655);
 
 -- Phasing for General Tiras'alan and Dathris Sunstriker - prevent early access to Isle of Quel'Danas
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
