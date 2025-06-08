@@ -31,10 +31,12 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 (66018, 2, 60, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28006, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 'Progression Quest WotLK T5', NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, '', '', '', '', 12340);
 
 
+/* CREATURE DROPS */
+
 -- https://www.azerothcore.org/wiki/conditions
 DELETE FROM `conditions` WHERE `SourceGroup` = 19768 AND `SourceEntry` = 34689; -- Design: Chaotic Skyfire Diamond
 DELETE FROM `conditions` WHERE `SourceEntry` IN (20406, 20407, 20408); -- Cultist set items
-DELETE FROM `conditions` WHERE `SourceEntry` IN (22525, 22526, 22527, 22528); -- Lights Hope Chapel quest items
+DELETE FROM `conditions` WHERE `SourceEntry` IN (22525, 22526, 22527, 22528, 22529); -- Lights Hope Chapel quest items
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
@@ -304,5 +306,30 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 24818, 22528, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Dark Iron Scraps will only drop if the player has completed PROGRESSION_AQ'),
 (1, 24819, 22528, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Dark Iron Scraps will only drop if the player has completed PROGRESSION_AQ'),
 --
+(1, 5881, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 6509, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 6510, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 6511, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 6512, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 7138, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 7139, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 9601, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 11458, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 11459, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 11461, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 11462, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 11464, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 11465, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 11489, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 12220, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 12258, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 13021, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 13022, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 13196, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 13197, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 13285, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+(1, 14303, 22529, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Savage Frond will only drop if the player has completed PROGRESSION_AQ'),
+--
 (1, 19768, 34689, 0, 1, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'Design: Chaotic Skyfire Diamond will only drop if the player has completed PROGRESSION_TBC_TIER_3'),
 (1, 19768, 34689, 0, 1, 7, 0, 755, 1, 0, 0, 0, 0, '',   'Design: Chaotic Skyfire Diamond will only drop if the player has the Jewelcrafting skill');
+
