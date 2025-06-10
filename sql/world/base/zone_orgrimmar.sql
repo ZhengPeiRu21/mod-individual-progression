@@ -205,26 +205,10 @@ DELETE FROM `creature` WHERE `id1` = 12788;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 25);
 
--- Lady Palanseer <Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1` = 34043;
-DELETE FROM `creature` WHERE `id1` = 12792;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612792, 12792, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180);
-
--- Brave Stonehide <Officer Accessories Quartermaster>
-DELETE FROM `creature` WHERE `id1` = 12793;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612793, 12793, 1, 1657.6, -4191.97, 56.383, 4.52365, 180);
-
 -- Stone Guard Zarg <Food and Drink>
 DELETE FROM `creature` WHERE `id1` = 12794;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (612794, 12794, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180);
-
--- Raider Bork <Mount Quartermaster>
-DELETE FROM `creature` WHERE `id1` = 12796;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612796, 12796, 1, 1674.43, -4212.55, 56.3829, 3.00254, 1290);
 
 -- Sergeant Ba'sha <Accessories Quartermaster>
 DELETE FROM `creature` WHERE `id1` = 12799;
@@ -318,17 +302,8 @@ UPDATE `creature_template` SET `subname`='Zeppelin Master' WHERE `entry`=12136;
 -- Legionnaire Teena
 UPDATE `creature_template` SET `subname`=NULL, `npcflag`=0, `faction`=85 WHERE `entry`=12788;
 
--- Lady Palanseer <Armor Quartermaster>
-UPDATE `creature_template` SET `minlevel`=55, `maxlevel`=55 WHERE `entry`=12792;
-
--- Brave Stonehide <Officer Accessories Quartermaster>
-UPDATE `creature_template` SET `subname`='Officer Accessories Quartermaster' WHERE `entry`=12793;
-
 -- Stone Guard Zarg <Food and Drink>
 UPDATE `creature_template` SET `subname`='Food and Drink' WHERE `entry`=12794;
-
--- Raider Bork <Mount Quartermaster>
-UPDATE `creature_template` SET `subname`='Mount Quartermaster' WHERE `entry`=12796;
 
 -- Kor'kron Elite
 UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=14304;
@@ -347,9 +322,6 @@ UPDATE `creature_template` SET `minlevel`=62, `maxlevel`=62 WHERE `entry`=14720;
 
 -- Horde Warbringer
 UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=15350;
-
--- Raider Bork <Mount Quartermaster>
-UPDATE `creature_template_addon` SET `mount`=0 WHERE `entry`=12796;
 
 -- Olvia <Meat Vendor>
 DELETE FROM `npc_vendor` WHERE `entry`=3312 AND `item` IN (27854, 33454, 35953);
@@ -429,35 +401,6 @@ DELETE FROM `npc_vendor` WHERE `entry`=6929 AND `item` IN (27854, 28399, 33444, 
 -- Legionnaire Teena
 DELETE FROM `npc_vendor` WHERE `entry`=12788;
 
--- Lady Palanseer <Armor Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12792 AND `item` IN 
-    (16533, 16534, 16535, 16536, 16539, 16540, 16541, 16542, 16543, 16544, 16545, 16548, 16549, 16550, 16551, 16552, 16554, 16555, 16558, 
-    16560, 16561, 16562, 16563, 16564, 16565, 16566, 16567, 16568, 16569, 16571, 16573, 16574, 16577, 16578, 16579, 16580, 17586, 17588, 
-    17590, 17591, 17592, 17593, 17618, 17620, 17622, 17623, 17624, 17625, 22843, 22852, 22855, 22856, 22857, 22858, 22859, 
-    22860, 22862, 22863, 22864, 22865, 22867, 22868, 22869, 22870, 22872, 22873, 22874, 22875, 22876, 22877, 22878, 22879, 
-    22880, 22881, 22882, 22883, 22884, 22885, 22886, 22887, 23243, 23244, 23251, 23252, 23253, 23254, 23255, 23256, 23257, 23258, 23259, 23260, 23261, 23262, 23263, 23264);
-
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-    (12792, 16533, 464), (12792, 16534, 542), (12792, 16535, 463), (12792, 16536, 465), (12792, 16539, 465), (12792, 16540, 541), (12792, 16541, 463), (12792, 16542, 464), (12792, 16543, 542),
-    (12792, 16544, 465), (12792, 16545, 465), (12792, 16548, 541), (12792, 16549, 463), (12792, 16550, 464), (12792, 16551, 465), (12792, 16552, 542), (12792, 16554, 465), (12792, 16555, 541),
-    (12792, 16558, 465), (12792, 16560, 541), (12792, 16561, 464), (12792, 16562, 465), (12792, 16563, 463), (12792, 16564, 542), (12792, 16565, 463), (12792, 16566, 464), (12792, 16567, 542),
-    (12792, 16568, 465), (12792, 16569, 465), (12792, 16571, 541), (12792, 16573, 465), (12792, 16574, 541), (12792, 16577, 463), (12792, 16578, 464), (12792, 16579, 542), (12792, 16580, 465),    
-    (12792, 17586, 465), (12792, 17588, 541), (12792, 17590, 465), (12792, 17591, 464), (12792, 17592, 463), (12792, 17593, 542), (12792, 17618, 465), (12792, 17620, 541), (12792, 17622, 465),
-    (12792, 17623, 464), (12792, 17624, 463), (12792, 17625, 542), (12792, 22843, 427), (12792, 22852, 427), (12792, 22855, 427), (12792, 22856, 427), (12792, 22857, 427), (12792, 22858, 427),
-    (12792, 22859, 427), (12792, 22860, 427), (12792, 22862, 428), (12792, 22863, 428), (12792, 22864, 428), (12792, 22865, 428), (12792, 22867, 428), (12792, 22868, 428), (12792, 22869, 428),
-    (12792, 22870, 428), (12792, 22872, 652), (12792, 22873, 653), (12792, 22874, 652), (12792, 22875, 653), (12792, 22876, 652), (12792, 22877, 652), (12792, 22878, 653), (12792, 22879, 652),
-    (12792, 22880, 653), (12792, 22881, 653), (12792, 22882, 653), (12792, 22883, 653), (12792, 22884, 652), (12792, 22885, 652), (12792, 22886, 652), (12792, 22887, 653), (12792, 23243, 427),
-    (12792, 23244, 444), (12792, 23251, 444), (12792, 23252, 427), (12792, 23253, 444), (12792, 23254, 427), (12792, 23255, 444), (12792, 23256, 427), (12792, 23257, 444), (12792, 23258, 427),
-    (12792, 23259, 444), (12792, 23260, 427), (12792, 23261, 444), (12792, 23262, 427), (12792, 23263, 444), (12792, 23264, 427);
-
--- Brave Stonehide <Officer Accessories Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12793 AND `item` IN (15197, 15200, 16335, 16341, 16486, 16497, 16532, 18427, 18428, 18429, 18430, 18432, 18434, 18435, 18436, 18437, 18461, 18834, 18845, 18846, 18849, 18850, 18851, 18852, 18853, 24551, 28118, 28119, 28120, 28123, 28239, 28240, 28241, 28242, 28243, 28246, 28247, 28362, 28363, 28377, 28378, 29592, 30343, 30344, 30345, 30346, 31838, 31839, 31840, 31841, 31852, 31853, 31854, 31855, 32453, 32455, 37865, 38588, 44957);
-
-DELETE FROM `npc_vendor` WHERE `entry`=12795 AND `item` IN (5565, 16583, 17020, 17021, 17026, 17028, 17029, 17030, 17031, 17032, 17033, 17034, 17035, 17036, 17037, 17038);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
-    (12795, 5565), (12795, 16583), (12795, 17020), (12795, 17021), (12795, 17026), (12795, 17028), (12795, 17029), (12795, 17030),
-    (12795, 17031), (12795, 17032), (12795, 17033), (12795, 17034), (12795, 17035), (12795, 17036), (12795, 17037), (12795, 17038);
-
 -- Stone Guard Zarg <Food and Drink>
 DELETE FROM `npc_vendor` WHERE `entry`=12794 AND `item` IN 
     (16345, 18826, 18828, 18831, 18835, 18837, 18840, 18844, 18848, 18860, 18866, 18868, 18871, 18874, 18877, 23464, 23465, 23466, 23467, 23468, 23469);
@@ -469,17 +412,23 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
     (12794, 3770), (12794, 3771), (12794, 4536), (12794, 4537), (12794, 4538), (12794, 4539), (12794, 4540), (12794, 4541), (12794, 4542), (12794, 4544), (12794, 4599), (12794, 4601),
     (12794, 4602), (12794, 4604), (12794, 4605), (12794, 4606), (12794, 4607), (12794, 4608), (12794, 8766), (12794, 8948), (12794, 8950), (12794, 8952), (12794, 8953);
 
--- Raider Bork <Mount Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12796 AND `item` IN (29466, 29469, 29470, 29472, 34129);
-DELETE FROM `npc_vendor` WHERE `entry`=12796 AND `item` IN (18245, 18246, 18247, 18248);
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423);
 
 
 
 
-SET @Hola       := 112795; -- First Sergeant Hola'mahi, Vanilla version
-SET @TH_Classic := 26396;  -- Sergeant Thunderhorn, Vanilla version
-SET @TH_TBC     := 14581;  -- Sergeant Thunderhorn, TBC version
+
+
+
+
+
+
+
+SET @Stonehide  := 112793; -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
+SET @Hola       := 112795; -- First Sergeant Hola'mahi, Vanilla
+SET @TH_Classic := 26396;  -- Sergeant Thunderhorn, Vanilla
+SET @TH_TBC     := 14581;  -- Sergeant Thunderhorn, TBC
+SET @LP_Classic := 26397;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+SET @LP_TBC     := 12792;  -- Lady Palanseer <Armor Quartermaster>, TBC
 
 
 DELETE FROM `creature_template` WHERE `entry` = @Hola;
@@ -489,15 +438,21 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
 `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
 
+(@Stonehide, 0, 0, 0, 0, 0, 'Brave Stonehide', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 125, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.9, 2000, 2000, 1, 1, 1, 256, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
 (@Hola, 0, 0, 0, 0, 0, 'First Sergeant Hola\'mahi', 'Reagent Vendor', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.2, 2000, 1551, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340);
 
-
-UPDATE `creature_template` SET `subname` = 'Armor Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12795;     
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` = @TH_Classic;
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = @TH_TBC;
-
 DELETE FROM `creature_template_locale` WHERE `entry` = @Hola;
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+--
+(@Stonehide, 'deDE', 'Kriegerheldin Steinfell', 'Rüstmeisterin für Zubehör', 18019),
+(@Stonehide, 'esES', 'Valiente Piel Pétrea', 'Intendente de accesorios', 18019),
+(@Stonehide, 'esMX', 'Valiente Piel Pétrea', 'Intendente de accesorios', 18019),
+(@Stonehide, 'frFR', 'Brave Cuir-de-Pierre', 'Intendante des accessoires', 18019),
+(@Stonehide, 'koKR', '용사 스톤하이드', '보급품 병참장교', 18019),
+(@Stonehide, 'ruRU', 'Храбрец Каменная Шкура', 'Начальник снабжения аксессуарами', 18019),
+(@Stonehide, 'zhCN', '卫兵布莱恩·石皮', '杂货军需官', 18019),
+(@Stonehide, 'zhTW', '勇者石皮', '雜貨軍需官', 18019),
+--
 (@Hola, 'deDE', 'Stabsfeldwebel Hola\'mahi', 'Reagent Vendor', 18019),
 (@Hola, 'esES', 'Gran capataz Hola\'mahi', 'Reagent Vendor', 18019),
 (@Hola, 'esMX', 'Gran capataz Hola\'mahi', 'Reagent Vendor', 18019),
@@ -509,14 +464,44 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 
 DELETE FROM `creature_template_model` WHERE `CreatureID` = @Hola;
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
+(@Stonehide, 0, 12675, 1, 1, 12340),
 (@Hola, 0, 12677, 1, 1, 12340);
 
 
-DELETE FROM `creature` WHERE `guid` IN (612795, 614581, 626396);
+UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12793;
+UPDATE `creature_template` SET `subname` = 'Armor Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12795;
+UPDATE `creature_template` SET `subname` = 'Mount Quartermaster' WHERE `entry` = 12796;
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (20278, 23396);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (@TH_Classic, @LP_Classic);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (@TH_TBC, @LP_TBC);
+
+    
+UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
+
+
+
+DELETE FROM `creature` WHERE `guid` IN (125690, 125695, 612792, 612793, 612795, 612796, 614581, 620278, 623396, 626396, 626397);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612795, @Hola, 1, 1673.9, -4216, 56.3826, 2.93578, 180),
-(614581, @TH_TBC, 1, 1669.09, -4196.78, 56.4831, 4.10416, 180),
-(626396, @TH_Classic, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180);
+
+(626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+(612792, @LP_TBC, 1, 1674.48, -4211.93, 56.4831, 3.03786, 180),     -- Lady Palanseer <Armor Quartermaster>, TBC
+(612793, @Stonehide, 1, 1657.6, -4191.97, 56.383, 4.52365, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
+(125690, 12793, 1, 1672.24, -4206.81, 56.3827, 3.30568, 180),       -- Brave Stonehide <Officer Accessories Quartermaster>, TBC
+(612795, @Hola, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Armor Quartermaster>, Vanilla
+(125695, 12795, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Armor Quartermaster>, TBC
+(626396, @TH_Classic, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180), -- Sergeant Thunderhorn <Weapons Quartermaster>, Vanilla
+(614581, @TH_TBC, 1, 1669.09, -4196.78, 56.4831, 4.10416, 180),     -- Sergeant Thunderhorn <Weapons Quartermaster>, TBC
+(612796, 12796, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),       -- Raider Bork <Mount Quartermaster>
+(620278, 20278, 1, 1654.25, -4189.82, 56.3825, 4.71787, 180),       -- Vixton Pinchwhistle <Arena Vendor>
+(623396, 23396, 1, 1660.37, -4190.74, 56.3817, 4.54116, 180);       -- Krixel Pinchwhistle <Arena Vendor>
+
+
+
+
+-- Raider Bork <Mount Quartermaster>
+DELETE FROM `npc_vendor` WHERE `entry`= 12796;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423);
     
 -- First Sergeant Hola'mahi <Reagent Vendor> - vanilla
 DELETE FROM `npc_vendor` WHERE `entry` = @Hola; 
@@ -544,6 +529,76 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (12795,0,29602,0,0,652,0), (12795,0,29603,0,0,653,0), (12795,0,29604,0,0,444,0), (12795,0,29605,0,0,427,0), (12795,0,29612,0,0,465,0), (12795,0,29613,0,0,541,0), (12795,0,29614,0,0,542,0), 
 (12795,0,29615,0,0,463,0), (12795,0,29616,0,0,464,0), (12795,0,29617,0,0,465,0);
 
+-- Brave Stonehide <Officer Accessories Quartermaster> - Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` = @Stonehide;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
+(@Stonehide, 0, 15199, 0, 0, 1006, 0), (@Stonehide, 0, 18607, 0, 0, 386, 0), (@Stonehide, 0, 18839, 0, 0, 2354, 0), (@Stonehide, 0, 18841, 0, 0, 2354, 0);
+
+-- Brave Stonehide <Officer Accessories Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 12793;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+(12793, 15197, 0, 0, 1007), (12793, 15199, 0, 0, 1006), (12793, 15200, 0, 0, 838), (12793, 16335, 0, 0, 491), (12793, 16341, 0, 0, 986), (12793, 16486, 0, 0, 492),
+(12793, 16497, 0, 0, 492), (12793, 16532, 0, 0, 492), (12793, 18427, 0, 0, 1050), (12793, 18428, 0, 0, 930), (12793, 18429, 0, 0, 492), (12793, 18430, 0, 0, 931),
+(12793, 18432, 0, 0, 931), (12793, 18434, 0, 0, 492), (12793, 18435, 0, 0, 931), (12793, 18436, 0, 0, 931), (12793, 18437, 0, 0, 931), (12793, 18461, 0, 0, 774), 
+(12793, 18607, 0, 0, 386), (12793, 18834, 0, 0, 634), (12793, 18839, 0, 0, 460), (12793, 18841, 0, 0, 460), (12793, 18845, 0, 0, 634), (12793, 18846, 0, 0, 634),
+(12793, 18849, 0, 0, 634), (12793, 18850, 0, 0, 634), (12793, 18851, 0, 0, 634), (12793, 18852, 0, 0, 634), (12793, 18853, 0, 0, 634), (12793, 24551, 0, 0, 125),
+(12793, 28118, 0, 0, 95), (12793, 28119, 0, 0, 95), (12793, 28120, 0, 0, 95), (12793, 28123, 0, 0, 99), (12793, 28239, 0, 0, 2404), (12793, 28240, 0, 0, 2404),
+(12793, 28241, 0, 0, 2404), (12793, 28242, 0, 0, 2404), (12793, 28243, 0, 0, 2404), (12793, 28244, 0, 0, 125), (12793, 28245, 0, 0, 125), (12793, 28246, 0, 0, 129),
+(12793, 28247, 0, 0, 129), (12793, 28362, 0, 0, 95), (12793, 28363, 0, 0, 99), (12793, 28377, 0, 0, 165), (12793, 28378, 0, 0, 165), (12793, 28379, 0, 0, 165),
+(12793, 28380, 0, 0, 165), (12793, 29592, 0, 0, 634), (12793, 30343, 0, 0, 2404), (12793, 30344, 0, 0, 2404), (12793, 30345, 0, 0, 2404), (12793, 30346, 0, 0, 2404),
+(12793, 31838, 0, 0, 1648), (12793, 31839, 0, 0, 1649), (12793, 31840, 0, 0, 1648), (12793, 31841, 0, 0, 1649), (12793, 31852, 0, 0, 1652), (12793, 31853, 0, 0, 1653),
+(12793, 31854, 0, 0, 1652), (12793, 31855, 0, 0, 1653), (12793, 32453, 0, 0, 1564), (12793, 32455, 0, 0, 460);
+
+-- Vixton Pinchwhistle <Arena Vendor> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 20278;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+(20278, 24544, 0, 0, 22), (20278, 24545, 0, 0, 22), (20278, 24546, 0, 0, 24), (20278, 24547, 0, 0, 22), (20278, 24549, 0, 0, 21), (20278, 24550, 0, 0, 26),
+(20278, 24552, 0, 0, 22), (20278, 24553, 0, 0, 22), (20278, 24554, 0, 0, 24), (20278, 24555, 0, 0, 22), (20278, 24556, 0, 0, 21), (20278, 24557, 0, 0, 26),
+(20278, 25830, 0, 0, 22), (20278, 25831, 0, 0, 22), (20278, 25832, 0, 0, 24), (20278, 25833, 0, 0, 22), (20278, 25834, 0, 0, 21), (20278, 25854, 0, 0, 24),
+(20278, 25855, 0, 0, 22), (20278, 25856, 0, 0, 22), (20278, 25857, 0, 0, 21), (20278, 25858, 0, 0, 22), (20278, 25997, 0, 0, 22), (20278, 25998, 0, 0, 22),
+(20278, 25999, 0, 0, 24), (20278, 26000, 0, 0, 21), (20278, 26001, 0, 0, 22), (20278, 27469, 0, 0, 22), (20278, 27470, 0, 0, 21), (20278, 27471, 0, 0, 22),
+(20278, 27472, 0, 0, 22), (20278, 27473, 0, 0, 24), (20278, 27702, 0, 0, 22), (20278, 27703, 0, 0, 21), (20278, 27704, 0, 0, 22), (20278, 27705, 0, 0, 22),
+(20278, 27706, 0, 0, 24), (20278, 27707, 0, 0, 21), (20278, 27708, 0, 0, 22), (20278, 27709, 0, 0, 22), (20278, 27710, 0, 0, 24), (20278, 27711, 0, 0, 22),
+(20278, 27879, 0, 0, 22), (20278, 27880, 0, 0, 21), (20278, 27881, 0, 0, 22), (20278, 27882, 0, 0, 22), (20278, 27883, 0, 0, 24), (20278, 28126, 0, 0, 21),
+(20278, 28127, 0, 0, 22), (20278, 28128, 0, 0, 22), (20278, 28129, 0, 0, 24), (20278, 28130, 0, 0, 22), (20278, 28136, 0, 0, 21), (20278, 28137, 0, 0, 22),
+(20278, 28138, 0, 0, 22), (20278, 28139, 0, 0, 24), (20278, 28140, 0, 0, 22), (20278, 28294, 0, 0, 26), (20278, 28295, 0, 0, 133), (20278, 28297, 0, 0, 148),
+(20278, 28298, 0, 0, 26), (20278, 28299, 0, 0, 26), (20278, 28300, 0, 0, 26), (20278, 28302, 0, 0, 21), (20278, 28305, 0, 0, 133), (20278, 28307, 0, 0, 21),
+(20278, 28308, 0, 0, 133), (20278, 28309, 0, 0, 21), (20278, 28310, 0, 0, 21), (20278, 28312, 0, 0, 133), (20278, 28313, 0, 0, 133), (20278, 28314, 0, 0, 21),
+(20278, 28319, 0, 0, 2388), (20278, 28320, 0, 0, 2388), (20278, 28331, 0, 0, 22), (20278, 28332, 0, 0, 22), (20278, 28333, 0, 0, 24), (20278, 28334, 0, 0, 22),
+(20278, 28335, 0, 0, 21), (20278, 28346, 0, 0, 21), (20278, 28355, 0, 0, 2388), (20278, 28356, 0, 0, 2388), (20278, 28357, 0, 0, 2388), (20278, 28358, 0, 0, 22),
+(20278, 28476, 0, 0, 26), (20278, 30186, 0, 0, 24), (20278, 30187, 0, 0, 22), (20278, 30188, 0, 0, 21), (20278, 30200, 0, 0, 22), (20278, 30201, 0, 0, 22),
+(20278, 31375, 0, 0, 21), (20278, 31376, 0, 0, 22), (20278, 31377, 0, 0, 22), (20278, 31378, 0, 0, 24), (20278, 31379, 0, 0, 22), (20278, 31396, 0, 0, 22),
+(20278, 31397, 0, 0, 21), (20278, 31400, 0, 0, 22), (20278, 31406, 0, 0, 22), (20278, 31407, 0, 0, 24), (20278, 31409, 0, 0, 21), (20278, 31410, 0, 0, 22),
+(20278, 31411, 0, 0, 22), (20278, 31412, 0, 0, 24), (20278, 31413, 0, 0, 22), (20278, 31613, 0, 0, 22), (20278, 31614, 0, 0, 21), (20278, 31616, 0, 0, 22),
+(20278, 31618, 0, 0, 22), (20278, 31619, 0, 0, 24), (20278, 32450, 0, 0, 148), (20278, 32451, 0, 0, 148), (20278, 32452, 0, 0, 21), (20278, 33936, 0, 0, 2388),
+(20278, 33939, 0, 0, 2388), (20278, 33942, 0, 0, 2388), (20278, 33945, 0, 0, 2388), (20278, 33948, 0, 0, 2388), (20278, 33951, 0, 0, 2388);
+
+-- Krixel Pinchwhistle <Arena Vendor> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 23396;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+(23396, 30486, 0, 0, 2285), (23396, 30487, 0, 0, 2283), (23396, 30488, 0, 0, 2285), (23396, 30489, 0, 0, 2285), (23396, 30490, 0, 0, 2288), (23396, 31958, 0, 0, 2283),
+(23396, 31959, 0, 0, 1664), (23396, 31960, 0, 0, 2285), (23396, 31961, 0, 0, 2283), (23396, 31962, 0, 0, 2285), (23396, 31963, 0, 0, 2285), (23396, 31964, 0, 0, 2288),
+(23396, 31965, 0, 0, 2287), (23396, 31966, 0, 0, 1664), (23396, 31967, 0, 0, 2283), (23396, 31968, 0, 0, 2285), (23396, 31969, 0, 0, 2285), (23396, 31971, 0, 0, 2288),
+(23396, 31972, 0, 0, 2285), (23396, 31973, 0, 0, 2283), (23396, 31974, 0, 0, 2285), (23396, 31975, 0, 0, 2285), (23396, 31976, 0, 0, 2288), (23396, 31977, 0, 0, 2285),
+(23396, 31978, 0, 0, 2283), (23396, 31979, 0, 0, 2288), (23396, 31980, 0, 0, 2285), (23396, 31981, 0, 0, 2283), (23396, 31982, 0, 0, 2285), (23396, 31983, 0, 0, 2285),
+(23396, 31984, 0, 0, 1664), (23396, 31985, 0, 0, 2283), (23396, 31986, 0, 0, 1664), (23396, 31987, 0, 0, 2283), (23396, 31988, 0, 0, 2285), (23396, 31989, 0, 0, 2285),
+(23396, 31990, 0, 0, 2288), (23396, 31991, 0, 0, 2285), (23396, 31992, 0, 0, 2285), (23396, 31993, 0, 0, 2283), (23396, 31995, 0, 0, 2285), (23396, 31996, 0, 0, 2288),
+(23396, 31997, 0, 0, 2285), (23396, 31998, 0, 0, 2283), (23396, 31999, 0, 0, 2285), (23396, 32000, 0, 0, 2285), (23396, 32001, 0, 0, 2288), (23396, 32002, 0, 0, 2285),
+(23396, 32003, 0, 0, 2283), (23396, 32004, 0, 0, 2285), (23396, 32005, 0, 0, 2283), (23396, 32006, 0, 0, 2285), (23396, 32007, 0, 0, 2285), (23396, 32008, 0, 0, 2288),
+(23396, 32009, 0, 0, 2285), (23396, 32010, 0, 0, 2283), (23396, 32011, 0, 0, 2285), (23396, 32012, 0, 0, 2285), (23396, 32013, 0, 0, 2288), (23396, 32014, 0, 0, 1664),
+(23396, 32015, 0, 0, 2283), (23396, 32016, 0, 0, 2285), (23396, 32017, 0, 0, 2285), (23396, 32018, 0, 0, 2288), (23396, 32019, 0, 0, 2285), (23396, 32020, 0, 0, 2285),
+(23396, 32021, 0, 0, 2283), (23396, 32022, 0, 0, 2285), (23396, 32023, 0, 0, 2285), (23396, 32024, 0, 0, 2288), (23396, 32025, 0, 0, 1664), (23396, 32026, 0, 0, 2287),
+(23396, 32027, 0, 0, 2283), (23396, 32028, 0, 0, 2287), (23396, 32029, 0, 0, 2285), (23396, 32030, 0, 0, 2283), (23396, 32031, 0, 0, 2285), (23396, 32032, 0, 0, 2285),
+(23396, 32033, 0, 0, 2288), (23396, 32034, 0, 0, 2283), (23396, 32035, 0, 0, 2285), (23396, 32036, 0, 0, 2285), (23396, 32037, 0, 0, 2288), (23396, 32038, 0, 0, 2285),
+(23396, 32039, 0, 0, 2285), (23396, 32040, 0, 0, 2283), (23396, 32041, 0, 0, 2285), (23396, 32042, 0, 0, 2285), (23396, 32043, 0, 0, 2288), (23396, 32044, 0, 0, 2287),
+(23396, 32045, 0, 0, 2285), (23396, 32046, 0, 0, 2283), (23396, 32047, 0, 0, 2288), (23396, 32048, 0, 0, 2285), (23396, 32049, 0, 0, 2283), (23396, 32050, 0, 0, 2285),
+(23396, 32051, 0, 0, 2285), (23396, 32052, 0, 0, 2287), (23396, 32053, 0, 0, 2284), (23396, 32054, 0, 0, 1758), (23396, 32055, 0, 0, 1664), (23396, 32056, 0, 0, 2283),
+(23396, 32057, 0, 0, 2285), (23396, 32058, 0, 0, 2285), (23396, 32059, 0, 0, 2288), (23396, 32060, 0, 0, 2285), (23396, 32961, 0, 0, 2283), (23396, 32962, 0, 0, 1758),
+(23396, 32963, 0, 0, 2284), (23396, 32964, 0, 0, 2284), (23396, 33076, 0, 0, 1758), (23396, 33077, 0, 0, 1758), (23396, 33078, 0, 0, 1758), (23396, 33309, 0, 0, 2285),
+(23396, 33313, 0, 0, 2285), (23396, 33937, 0, 0, 1758), (23396, 33940, 0, 0, 1758), (23396, 33943, 0, 0, 1758), (23396, 33946, 0, 0, 1758), (23396, 33949, 0, 0, 1758),
+(23396, 33952, 0, 0, 1758);
+
+
 
 -- Sergeant Thunderhorn <Weapons Quartermaster> - vanilla
 DELETE FROM `npc_vendor` WHERE `entry` = @TH_Classic;
@@ -560,6 +615,42 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 (@TH_TBC, 28926, 0, 0, 2240), (@TH_TBC, 28928, 0, 0, 2239), (@TH_TBC, 28929, 0, 0, 2240), (@TH_TBC, 28930, 0, 0, 2240), (@TH_TBC, 28931, 0, 0, 2238),
 (@TH_TBC, 28933, 0, 0, 2237), (@TH_TBC, 28935, 0, 0, 2237), (@TH_TBC, 28937, 0, 0, 2239), (@TH_TBC, 28938, 0, 0, 2242), (@TH_TBC, 28939, 0, 0, 2242);
 
+-- Lady Palanseer <Armor Quartermaster> - vanilla
+DELETE FROM `npc_vendor` WHERE `entry`= @LP_Classic;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(@LP_Classic, 16533, 464), (@LP_Classic, 16534, 542), (@LP_Classic, 16535, 463), (@LP_Classic, 16536, 465), (@LP_Classic, 16539, 465), (@LP_Classic, 16540, 541), (@LP_Classic, 16541, 463), 
+(@LP_Classic, 16542, 464), (@LP_Classic, 16543, 542), (@LP_Classic, 16544, 465), (@LP_Classic, 16545, 465), (@LP_Classic, 16548, 541), (@LP_Classic, 16549, 463), (@LP_Classic, 16550, 464), 
+(@LP_Classic, 16551, 465), (@LP_Classic, 16552, 542), (@LP_Classic, 16554, 465), (@LP_Classic, 16555, 541), (@LP_Classic, 16558, 465), (@LP_Classic, 16560, 541), (@LP_Classic, 16561, 464), 
+(@LP_Classic, 16562, 465), (@LP_Classic, 16563, 463), (@LP_Classic, 16564, 542), (@LP_Classic, 16565, 463), (@LP_Classic, 16566, 464), (@LP_Classic, 16567, 542), (@LP_Classic, 16568, 465), 
+(@LP_Classic, 16569, 465), (@LP_Classic, 16571, 541), (@LP_Classic, 16573, 465), (@LP_Classic, 16574, 541), (@LP_Classic, 16577, 463), (@LP_Classic, 16578, 464), (@LP_Classic, 16579, 542), 
+(@LP_Classic, 16580, 465), (@LP_Classic, 17586, 465), (@LP_Classic, 17588, 541), (@LP_Classic, 17590, 465), (@LP_Classic, 17591, 464), (@LP_Classic, 17592, 463), (@LP_Classic, 17593, 542), 
+(@LP_Classic, 17618, 465), (@LP_Classic, 17620, 541), (@LP_Classic, 17622, 465), (@LP_Classic, 17623, 464), (@LP_Classic, 17624, 463), (@LP_Classic, 17625, 542), (@LP_Classic, 22843, 427), 
+(@LP_Classic, 22852, 427), (@LP_Classic, 22855, 427), (@LP_Classic, 22856, 427), (@LP_Classic, 22857, 427), (@LP_Classic, 22858, 427), (@LP_Classic, 22859, 427), (@LP_Classic, 22860, 427), 
+(@LP_Classic, 22862, 428), (@LP_Classic, 22863, 428), (@LP_Classic, 22864, 428), (@LP_Classic, 22865, 428), (@LP_Classic, 22867, 428), (@LP_Classic, 22868, 428), (@LP_Classic, 22869, 428),
+(@LP_Classic, 22870, 428), (@LP_Classic, 22872, 652), (@LP_Classic, 22873, 653), (@LP_Classic, 22874, 652), (@LP_Classic, 22875, 653), (@LP_Classic, 22876, 652), (@LP_Classic, 22877, 652), 
+(@LP_Classic, 22878, 653), (@LP_Classic, 22879, 652), (@LP_Classic, 22880, 653), (@LP_Classic, 22881, 653), (@LP_Classic, 22882, 653), (@LP_Classic, 22883, 653), (@LP_Classic, 22884, 652), 
+(@LP_Classic, 22885, 652), (@LP_Classic, 22886, 652), (@LP_Classic, 22887, 653), (@LP_Classic, 23243, 427), (@LP_Classic, 23244, 444), (@LP_Classic, 23251, 444), (@LP_Classic, 23252, 427), 
+(@LP_Classic, 23253, 444), (@LP_Classic, 23254, 427), (@LP_Classic, 23255, 444), (@LP_Classic, 23256, 427), (@LP_Classic, 23257, 444), (@LP_Classic, 23258, 427), (@LP_Classic, 23259, 444), 
+(@LP_Classic, 23260, 427), (@LP_Classic, 23261, 444), (@LP_Classic, 23262, 427), (@LP_Classic, 23263, 444), (@LP_Classic, 23264, 427);
+
+-- Lady Palanseer <Armor Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry`= @LP_TBC;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
+(@LP_TBC, 28805, 0, 0, 2259), (@LP_TBC, 28806, 0, 0, 2261), (@LP_TBC, 28807, 0, 0, 2263), (@LP_TBC, 28808, 0, 0, 2265), (@LP_TBC, 28809, 0, 0, 2267), (@LP_TBC, 28811, 0, 0, 2261),
+(@LP_TBC, 28812, 0, 0, 2263), (@LP_TBC, 28813, 0, 0, 2265), (@LP_TBC, 28814, 0, 0, 2267), (@LP_TBC, 28815, 0, 0, 2259), (@LP_TBC, 28817, 0, 0, 2261), (@LP_TBC, 28818, 0, 0, 2263),
+(@LP_TBC, 28819, 0, 0, 2265), (@LP_TBC, 28820, 0, 0, 2267), (@LP_TBC, 28821, 0, 0, 2259), (@LP_TBC, 28831, 0, 0, 2259), (@LP_TBC, 28832, 0, 0, 2261), (@LP_TBC, 28833, 0, 0, 2263),
+(@LP_TBC, 28834, 0, 0, 2265), (@LP_TBC, 28835, 0, 0, 2267), (@LP_TBC, 28836, 0, 0, 2261), (@LP_TBC, 28837, 0, 0, 2263), (@LP_TBC, 28838, 0, 0, 2265), (@LP_TBC, 28839, 0, 0, 2267),
+(@LP_TBC, 28840, 0, 0, 2259), (@LP_TBC, 28841, 0, 0, 2259), (@LP_TBC, 28842, 0, 0, 2261), (@LP_TBC, 28843, 0, 0, 2263), (@LP_TBC, 28844, 0, 0, 2265), (@LP_TBC, 28845, 0, 0, 2267),
+(@LP_TBC, 28846, 0, 0, 2259), (@LP_TBC, 28847, 0, 0, 2261), (@LP_TBC, 28848, 0, 0, 2263), (@LP_TBC, 28849, 0, 0, 2265), (@LP_TBC, 28850, 0, 0, 2267), (@LP_TBC, 28851, 0, 0, 2259),
+(@LP_TBC, 28852, 0, 0, 2261), (@LP_TBC, 28853, 0, 0, 2263), (@LP_TBC, 28854, 0, 0, 2265), (@LP_TBC, 28855, 0, 0, 2267), (@LP_TBC, 28856, 0, 0, 2261), (@LP_TBC, 28857, 0, 0, 2263),
+(@LP_TBC, 28858, 0, 0, 2265), (@LP_TBC, 28859, 0, 0, 2267), (@LP_TBC, 28860, 0, 0, 2259), (@LP_TBC, 28861, 0, 0, 2259), (@LP_TBC, 28862, 0, 0, 2261), (@LP_TBC, 28863, 0, 0, 2263), 
+(@LP_TBC, 28864, 0, 0, 2265), (@LP_TBC, 28865, 0, 0, 2267), (@LP_TBC, 28866, 0, 0, 2267), (@LP_TBC, 28867, 0, 0, 2263), (@LP_TBC, 28868, 0, 0, 2261), (@LP_TBC, 28869, 0, 0, 2259),
+(@LP_TBC, 28870, 0, 0, 2265), (@LP_TBC, 28871, 0, 0, 2261), (@LP_TBC, 28872, 0, 0, 2263), (@LP_TBC, 28873, 0, 0, 2265), (@LP_TBC, 28874, 0, 0, 2267), (@LP_TBC, 28875, 0, 0, 2259),
+(@LP_TBC, 31584, 0, 0, 2261), (@LP_TBC, 31585, 0, 0, 2263), (@LP_TBC, 31586, 0, 0, 2265), (@LP_TBC, 31587, 0, 0, 2267), (@LP_TBC, 31588, 0, 0, 2259), (@LP_TBC, 31621, 0, 0, 2261),
+(@LP_TBC, 31626, 0, 0, 2263), (@LP_TBC, 31627, 0, 0, 2265), (@LP_TBC, 31628, 0, 0, 2267), (@LP_TBC, 31629, 0, 0, 2259), (@LP_TBC, 31635, 0, 0, 2259), (@LP_TBC, 31636, 0, 0, 2261),
+(@LP_TBC, 31637, 0, 0, 2263), (@LP_TBC, 31638, 0, 0, 2265), (@LP_TBC, 31639, 0, 0, 2267), (@LP_TBC, 31646, 0, 0, 2259), (@LP_TBC, 31647, 0, 0, 2261), (@LP_TBC, 31648, 0, 0, 2263),
+(@LP_TBC, 31649, 0, 0, 2265), (@LP_TBC, 31650, 0, 0, 2267);
+
 
 
 /* Hide certain vendor items until the player has reached the progression tier for them */
@@ -567,54 +658,54 @@ DELETE FROM `conditions` WHERE `SourceGroup` IN (12792, @TH_Classic, @TH_TBC);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 -- 
-(23, 12792, 16533, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Cowl until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16534, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Trousers until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16535, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Raiment until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16536, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Amice until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16539, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Boots until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16540, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Handguards until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16541, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Plate Armor until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16542, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Plate Headpiece until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16543, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Plate Leggings until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16544, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Plate Shoulders until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16545, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Plate Boots until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16548, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Plate Gauntlets until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16549, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dragonhide Hauberk until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16550, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dragonhide Helmet until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16551, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dragonhide Epaulets until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16552, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dragonhide Leggings until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16554, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dragonhide Boots until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16555, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dragonshide Gloves until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16558, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Leather Treads until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16560, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Leather Mitts until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16561, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Leather Helm until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16562, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Leather Spaulders until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16563, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Leather Breastplate until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16564, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Leather Legguards until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16565, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Chain Chestpiece until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16566, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Chain Helmet until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16567, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Chain Legguards until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16568, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Chain Shoulders until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16569, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Chain Sabatons until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16571, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Chain Gloves until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16573, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Mail Boots until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16574, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Mail Gauntlets until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16577, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Mail Armor until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16578, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Mail Helm until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16579, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Mail Leggings until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 16580, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Mail Spaulders until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17586, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dreadweave Boots until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17588, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dreadweave Gloves until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17590, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dreadweave Mantle until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17591, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dreadweave Hood until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17592, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dreadweave Robe until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17593, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dreadweave Pants until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17618, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Satin Boots until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17620, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Satin Gloves until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17622, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Mantle until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17623, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Cowl until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17624, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Robes until the player has completed PROGRESSION_ONYXIA'),
-(23, 12792, 17625, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Satin Leggings until the player has completed PROGRESSION_ONYXIA'),    
+(23, @LP_Classic, 16533, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Cowl until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16534, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Trousers until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16535, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Raiment until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16536, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Amice until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16539, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16540, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Handguards until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16541, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Plate Armor until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16542, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Plate Headpiece until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16543, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Plate Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16544, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Plate Shoulders until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16545, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Plate Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16548, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Plate Gauntlets until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16549, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dragonhide Hauberk until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16550, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dragonhide Helmet until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16551, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dragonhide Epaulets until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16552, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dragonhide Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16554, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dragonhide Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16555, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dragonshide Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16558, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Leather Treads until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16560, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Leather Mitts until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16561, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Leather Helm until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16562, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Leather Spaulders until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16563, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Leather Breastplate until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16564, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Leather Legguards until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16565, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Chain Chestpiece until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16566, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Chain Helmet until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16567, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Chain Legguards until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16568, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Chain Shoulders until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16569, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Chain Sabatons until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16571, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Chain Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16573, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Mail Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16574, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Mail Gauntlets until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16577, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Mail Armor until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16578, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Mail Helm until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16579, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Mail Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 16580, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Mail Spaulders until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17586, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dreadweave Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17588, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dreadweave Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17590, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dreadweave Mantle until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17591, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dreadweave Hood until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17592, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Dreadweave Robe until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17593, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Dreadweave Pants until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17618, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Satin Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17620, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Satin Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17622, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Mantle until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17623, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Cowl until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17624, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Robes until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 17625, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Satin Leggings until the player has completed PROGRESSION_ONYXIA'),    
 --
 (23, @TH_Classic, 16345, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Blade until the player has completed PROGRESSION_ONYXIA'),
 (23, @TH_Classic, 18826, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Shield Wall until the player has completed PROGRESSION_ONYXIA'),
@@ -638,10 +729,13 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @TH_Classic, 23468, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Tome of Destruction until the player has completed PROGRESSION_ONYXIA'),
 (23, @TH_Classic, 23469, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Tome of Mending until the player has completed PROGRESSION_ONYXIA');
 
+-- WotLK pvp vendors
 DELETE FROM `creature` WHERE `id1` IN 
 (34038,  -- Sergeant Thunderhorn <Apprentice Armor Quartermaster>
+ 34043,  -- Lady Palanseer <Armor Quartermaster>
  34060,  -- Doris Volanthius <Veteran Armor Quartermaster>
  34063); -- Blood Guard Zar'shi <Northrend Armor Quartermaster>
+
 
 -- Nogg Quest Flags fix
 UPDATE `creature_template` SET `npcflag` = `npcflag` | 2 WHERE `entry` = 3412;
