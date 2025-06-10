@@ -384,6 +384,33 @@ public:
     }
 };
 
+class npc_ipp_pre_tbc : public CreatureScript
+{
+public:
+    npc_ipp_pre_tbc() : CreatureScript("npc_ipp_pre_tbc") { }
+
+    struct npc_ipp_pre_tbcAI: ScriptedAI
+    {
+        explicit npc_ipp_pre_tbcAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());            
+            return sIndividualProgression->isBeforeProgression(target,PROGRESSION_PRE_TBC);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_pre_tbcAI(creature);
+    }
+};
+
 class npc_ipp_tbc : public CreatureScript
 {
 public:
@@ -638,6 +665,7 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_si();          // Scourge Invasion
     new npc_ipp_pre_naxx40();  // Scourge Invasion
     new npc_ipp_naxx40();
+    new npc_ipp_pre_tbc();     // vanilla pvp vendors
     new npc_ipp_tbc();
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();
