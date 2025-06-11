@@ -483,7 +483,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 
 -- Brave Stonehide <Officer Accessories Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 12793;
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
 (12793, 15197, 0, 0, 1007), (12793, 15199, 0, 0, 1006), (12793, 15200, 0, 0, 838), (12793, 16335, 0, 0, 491), (12793, 16341, 0, 0, 986), (12793, 16486, 0, 0, 492),
 (12793, 16497, 0, 0, 492), (12793, 16532, 0, 0, 492), (12793, 18427, 0, 0, 1050), (12793, 18428, 0, 0, 930), (12793, 18429, 0, 0, 492), (12793, 18430, 0, 0, 931),
 (12793, 18432, 0, 0, 931), (12793, 18434, 0, 0, 492), (12793, 18435, 0, 0, 931), (12793, 18436, 0, 0, 931), (12793, 18437, 0, 0, 931), (12793, 18461, 0, 0, 774), 
