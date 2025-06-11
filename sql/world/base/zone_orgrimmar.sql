@@ -46,7 +46,6 @@ UPDATE `creature_template` SET `subname`='Journeyman Tailor', `npcflag`=81, `tra
 -- Magar <Expert Tailor>
 UPDATE `creature_template` SET `subname`='Expert Tailor' WHERE `entry`=3363;
 
-
 -- Snarl <Expert Blacksmith>
 DELETE FROM `npc_trainer` WHERE `ID`=1383;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1383, -310000), (1383, -310001);
@@ -127,7 +126,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11046, -300000);
 DELETE FROM `npc_trainer` WHERE `ID`=11066;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11066, -330000);
 
-
 -- Snarl <Expert Blacksmith>
 DELETE FROM `gossip_menu_option` WHERE `MenuID`=2782;
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
@@ -142,7 +140,6 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 DELETE FROM `gossip_menu_option` WHERE `MenuID`=4151;
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
 (4151, 0, 3, 'Train me.', 3266, 5, 16);
-
 
 -- Saru Steelfury <Artisan Blacksmith>
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=1012 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
@@ -184,7 +181,6 @@ DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=43
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
 (15, 4347, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');
 
-
 -- Nazgrel <Advisor to Thrall>
 DELETE FROM `creature` WHERE `id1` = 3230 AND `map`= 1;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
@@ -204,11 +200,6 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 DELETE FROM `creature` WHERE `id1` = 12788;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 25);
-
--- Stone Guard Zarg <Food and Drink>
-DELETE FROM `creature` WHERE `id1` = 12794;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612794, 12794, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180);
 
 -- Sergeant Ba'sha <Accessories Quartermaster>
 DELETE FROM `creature` WHERE `id1` = 12799;
@@ -301,9 +292,6 @@ UPDATE `creature_template` SET `subname`='Zeppelin Master' WHERE `entry`=12136;
 
 -- Legionnaire Teena
 UPDATE `creature_template` SET `subname`=NULL, `npcflag`=0, `faction`=85 WHERE `entry`=12788;
-
--- Stone Guard Zarg <Food and Drink>
-UPDATE `creature_template` SET `subname`='Food and Drink' WHERE `entry`=12794;
 
 -- Kor'kron Elite
 UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=14304;
@@ -399,31 +387,11 @@ DELETE FROM `npc_vendor` WHERE `entry`=5817 AND `item` IN (10648, 14341, 18256, 
 DELETE FROM `npc_vendor` WHERE `entry`=6929 AND `item` IN (27854, 28399, 33444, 33445, 33454, 35953, 35954);
 
 -- Legionnaire Teena
-DELETE FROM `npc_vendor` WHERE `entry`=12788;
-
--- Stone Guard Zarg <Food and Drink>
-DELETE FROM `npc_vendor` WHERE `entry`=12794 AND `item` IN 
-    (16345, 18826, 18828, 18831, 18835, 18837, 18840, 18844, 18848, 18860, 18866, 18868, 18871, 18874, 18877, 23464, 23465, 23466, 23467, 23468, 23469);
-DELETE FROM `npc_vendor` WHERE `entry`=12794 AND `item` IN
-    (117, 159, 1179, 1205, 1645, 1708, 2287, 2593, 2594, 2595, 2596, 2723, 3770, 3771, 4536, 4537, 4538, 4539, 4540, 4541, 4542, 4544, 4599, 4601, 4602, 4604, 4605, 4606, 4607, 4608, 8766, 8948, 8950, 8952, 8953);
-
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
-    (12794, 117), (12794, 159), (12794, 1179), (12794, 1205), (12794, 1645), (12794, 1708), (12794, 2287), (12794, 2593), (12794, 2594), (12794, 2595), (12794, 2596), (12794, 2723),
-    (12794, 3770), (12794, 3771), (12794, 4536), (12794, 4537), (12794, 4538), (12794, 4539), (12794, 4540), (12794, 4541), (12794, 4542), (12794, 4544), (12794, 4599), (12794, 4601),
-    (12794, 4602), (12794, 4604), (12794, 4605), (12794, 4606), (12794, 4607), (12794, 4608), (12794, 8766), (12794, 8948), (12794, 8950), (12794, 8952), (12794, 8953);
-
-
-
-
-
-
-
-
-
-
+DELETE FROM `npc_vendor` WHERE `entry`= 12788;
 
 
 SET @Stonehide  := 112793; -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
+SET @Zarg       := 112794; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Hola       := 112795; -- First Sergeant Hola'mahi, Vanilla
 SET @TH_Classic := 26396;  -- Sergeant Thunderhorn, Vanilla
 SET @TH_TBC     := 14581;  -- Sergeant Thunderhorn, TBC
@@ -431,7 +399,7 @@ SET @LP_Classic := 26397;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
 SET @LP_TBC     := 12792;  -- Lady Palanseer <Armor Quartermaster>, TBC
 
 
-DELETE FROM `creature_template` WHERE `entry` = @Hola;
+DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
 `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
 `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
@@ -439,9 +407,10 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
 
 (@Stonehide, 0, 0, 0, 0, 0, 'Brave Stonehide', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 125, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.9, 2000, 2000, 1, 1, 1, 256, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
+(@Zarg, 0, 0, 0, 0, 0, 'Stone Guard Zarg', 'Food and Drink', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 1606, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
 (@Hola, 0, 0, 0, 0, 0, 'First Sergeant Hola\'mahi', 'Reagent Vendor', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.2, 2000, 1551, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340);
 
-DELETE FROM `creature_template_locale` WHERE `entry` = @Hola;
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 --
 (@Stonehide, 'deDE', 'Kriegerheldin Steinfell', 'Rüstmeisterin für Zubehör', 18019),
@@ -453,57 +422,95 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Stonehide, 'zhCN', '卫兵布莱恩·石皮', '杂货军需官', 18019),
 (@Stonehide, 'zhTW', '勇者石皮', '雜貨軍需官', 18019),
 --
-(@Hola, 'deDE', 'Stabsfeldwebel Hola\'mahi', 'Reagent Vendor', 18019),
-(@Hola, 'esES', 'Gran capataz Hola\'mahi', 'Reagent Vendor', 18019),
-(@Hola, 'esMX', 'Gran capataz Hola\'mahi', 'Reagent Vendor', 18019),
-(@Hola, 'frFR', 'Sergent Hola\'mahi', 'Reagent Vendor', 18019),
-(@Hola, 'koKR', '선임하사 홀라마히', 'Reagent Vendor', 18019),
-(@Hola, 'ruRU', 'Первый сержант Хола\'махи', 'Reagent Vendor', 18019),
-(@Hola, 'zhCN', '一等军士长霍拉麦', 'Reagent Vendor', 18019),
-(@Hola, 'zhTW', '一等士官霍拉麥', 'Reagent Vendor', 18019);
+(@Zarg, 'deDE', 'Steingardist Zarg', 'Speis & Trank', 18019),
+(@Zarg, 'esES', 'Guardia de piedra Zarg', 'Alimentos y bebidas', 18019),
+(@Zarg, 'esMX', 'Guardia de piedra Zarg', 'Alimentos y bebidas', 18019),
+(@Zarg, 'frFR', 'Garde de pierre Zarg', 'Nourriture & boissons', 18019),
+(@Zarg, 'koKR', '투사 자르그', '식료품 상인', 18019),
+(@Zarg, 'ruRU', 'Каменный страж Зарг', 'Еда и напитки', 18019),
+(@Zarg, 'zhCN', '石头守卫扎尔格', '食物和饮料', 18019),
+(@Zarg, 'zhTW', '石衛士札爾格', '食物和飲料', 18019),
+--
+(@Hola, 'deDE', 'Stabsfeldwebel Hola\'mahi', 'Reagenzien', 18019),
+(@Hola, 'esES', 'Gran capataz Hola\'mahi', 'Componentes', 18019),
+(@Hola, 'esMX', 'Gran capataz Hola\'mahi', 'Componentes', 18019),
+(@Hola, 'frFR', 'Sergent Hola\'mahi', 'Composants', 18019),
+(@Hola, 'koKR', '선임하사 홀라마히', '마법 재료 상인', 18019),
+(@Hola, 'ruRU', 'Первый сержант Хола\'махи', 'Реагенты', 18019),
+(@Hola, 'zhCN', '一等军士长霍拉麦', '材料商', 18019),
+(@Hola, 'zhTW', '一等士官霍拉麥', '施法材料', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` = @Hola;
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Stonehide, @Zarg, @Hola);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@Stonehide, 0, 12675, 1, 1, 12340),
+(@Zarg, 0, 12676, 1, 1, 12340),
 (@Hola, 0, 12677, 1, 1, 12340);
 
-
 UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12793;
+UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12794;
 UPDATE `creature_template` SET `subname` = 'Armor Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12795;
 UPDATE `creature_template` SET `subname` = 'Mount Quartermaster' WHERE `entry` = 12796;
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (20278, 23396);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (20278, 23396, 23447);
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (@TH_Classic, @LP_Classic);
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (@TH_TBC, @LP_TBC);
 
-    
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
 
-
-DELETE FROM `creature` WHERE `guid` IN (125690, 125695, 612792, 612793, 612795, 612796, 614581, 620278, 623396, 626396, 626397);
+DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125695, 612792, 612793, 612794, 612795, 612796, 614581, 620278, 623396, 626396, 626397);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 
 (626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
 (612792, @LP_TBC, 1, 1674.48, -4211.93, 56.4831, 3.03786, 180),     -- Lady Palanseer <Armor Quartermaster>, TBC
 (612793, @Stonehide, 1, 1657.6, -4191.97, 56.383, 4.52365, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
 (125690, 12793, 1, 1672.24, -4206.81, 56.3827, 3.30568, 180),       -- Brave Stonehide <Officer Accessories Quartermaster>, TBC
-(612795, @Hola, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Armor Quartermaster>, Vanilla
+(612794, @Zarg, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Food and Drink>, Vanilla
+(125688, 12794, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Weapons Quartermaster>, TBC
+(612795, @Hola, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Reagent Vendor>, Vanilla
 (125695, 12795, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Armor Quartermaster>, TBC
 (626396, @TH_Classic, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180), -- Sergeant Thunderhorn <Weapons Quartermaster>, Vanilla
 (614581, @TH_TBC, 1, 1669.09, -4196.78, 56.4831, 4.10416, 180),     -- Sergeant Thunderhorn <Weapons Quartermaster>, TBC
 (612796, 12796, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),       -- Raider Bork <Mount Quartermaster>
-(620278, 20278, 1, 1654.25, -4189.82, 56.3825, 4.71787, 180),       -- Vixton Pinchwhistle <Arena Vendor>
-(623396, 23396, 1, 1660.37, -4190.74, 56.3817, 4.54116, 180);       -- Krixel Pinchwhistle <Arena Vendor>
+(623447, 23447, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180),       -- Sergeant Kien <Armor Quartermaster>, TBC
+(620278, 20278, 1, 1654.25, -4189.82, 56.3825, 4.71787, 180),       -- Vixton Pinchwhistle <Arena Vendor>, TBC
+(623396, 23396, 1, 1660.37, -4190.74, 56.3817, 4.54116, 180);       -- Krixel Pinchwhistle <Arena Vendor>, TBC
 
 
+-- Brave Stonehide <Officer Accessories Quartermaster> - Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` = @Stonehide;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
+(@Stonehide, 0, 15199, 0, 0, 1006, 0), (@Stonehide, 0, 18607, 0, 0, 386, 0), (@Stonehide, 0, 18839, 0, 0, 2354, 0), (@Stonehide, 0, 18841, 0, 0, 2354, 0);
 
+-- Brave Stonehide <Officer Accessories Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 12793;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+(12793, 15197, 0, 0, 1007), (12793, 15199, 0, 0, 1006), (12793, 15200, 0, 0, 838), (12793, 16335, 0, 0, 491), (12793, 16341, 0, 0, 986), (12793, 16486, 0, 0, 492),
+(12793, 16497, 0, 0, 492), (12793, 16532, 0, 0, 492), (12793, 18427, 0, 0, 1050), (12793, 18428, 0, 0, 930), (12793, 18429, 0, 0, 492), (12793, 18430, 0, 0, 931),
+(12793, 18432, 0, 0, 931), (12793, 18434, 0, 0, 492), (12793, 18435, 0, 0, 931), (12793, 18436, 0, 0, 931), (12793, 18437, 0, 0, 931), (12793, 18461, 0, 0, 774), 
+(12793, 18607, 0, 0, 386), (12793, 18834, 0, 0, 634), (12793, 18839, 0, 0, 460), (12793, 18841, 0, 0, 460), (12793, 18845, 0, 0, 634), (12793, 18846, 0, 0, 634),
+(12793, 18849, 0, 0, 634), (12793, 18850, 0, 0, 634), (12793, 18851, 0, 0, 634), (12793, 18852, 0, 0, 634), (12793, 18853, 0, 0, 634), (12793, 24551, 0, 0, 125),
+(12793, 28118, 0, 0, 95), (12793, 28119, 0, 0, 95), (12793, 28120, 0, 0, 95), (12793, 28123, 0, 0, 99), (12793, 28239, 0, 0, 2404), (12793, 28240, 0, 0, 2404),
+(12793, 28241, 0, 0, 2404), (12793, 28242, 0, 0, 2404), (12793, 28243, 0, 0, 2404), (12793, 28244, 0, 0, 125), (12793, 28245, 0, 0, 125), (12793, 28246, 0, 0, 129),
+(12793, 28247, 0, 0, 129), (12793, 28362, 0, 0, 95), (12793, 28363, 0, 0, 99), (12793, 28377, 0, 0, 165), (12793, 28378, 0, 0, 165), (12793, 28379, 0, 0, 165),
+(12793, 28380, 0, 0, 165), (12793, 29592, 0, 0, 634), (12793, 30343, 0, 0, 2404), (12793, 30344, 0, 0, 2404), (12793, 30345, 0, 0, 2404), (12793, 30346, 0, 0, 2404),
+(12793, 31838, 0, 0, 1648), (12793, 31839, 0, 0, 1649), (12793, 31840, 0, 0, 1648), (12793, 31841, 0, 0, 1649), (12793, 31852, 0, 0, 1652), (12793, 31853, 0, 0, 1653),
+(12793, 31854, 0, 0, 1652), (12793, 31855, 0, 0, 1653), (12793, 32453, 0, 0, 1564), (12793, 32455, 0, 0, 460);
 
--- Raider Bork <Mount Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`= 12796;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423);
-    
--- First Sergeant Hola'mahi <Reagent Vendor> - vanilla
+-- Stone Guard Zarg <Food and Drink>, Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` = @Zarg; 
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
+(@Zarg, 117), (@Zarg, 159), (@Zarg, 1179), (@Zarg, 1205), (@Zarg, 1645), (@Zarg, 1708), (@Zarg, 2287), (@Zarg, 2593), (@Zarg, 2594), (@Zarg, 2595), (@Zarg, 2596), (@Zarg, 2723),
+(@Zarg, 3770), (@Zarg, 3771), (@Zarg, 4536), (@Zarg, 4537), (@Zarg, 4538), (@Zarg, 4539), (@Zarg, 4540), (@Zarg, 4541), (@Zarg, 4542), (@Zarg, 4544), (@Zarg, 4599), (@Zarg, 4601),
+(@Zarg, 4602), (@Zarg, 4604), (@Zarg, 4605), (@Zarg, 4606), (@Zarg, 4607), (@Zarg, 4608), (@Zarg, 8766), (@Zarg, 8948), (@Zarg, 8950), (@Zarg, 8952), (@Zarg, 8953);
+
+-- Stone Guard Zarg <Weapons Quartermaster>, TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 12794;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
+(12794,0,16345,0,0,2291,0), (12794,0,18826,0,0,2291,0), (12794,0,18828,0,0,2291,0), (12794,0,18831,0,0,2257,0), (12794,0,18835,0,0,2291,0), (12794,0,18837,0,0,2291,0), (12794,0,18840,0,0,2291,0), 
+(12794,0,18844,0,0,2291,0), (12794,0,18848,0,0,2291,0), (12794,0,18860,0,0,2291,0), (12794,0,18866,0,0,2291,0), (12794,0,18868,0,0,2257,0), (12794,0,18871,0,0,2257,0), (12794,0,18874,0,0,2257,0), 
+(12794,0,18877,0,0,2257,0), (12794,0,23464,0,0,2291,0), (12794,0,23465,0,0,2257,0), (12794,0,23466,0,0,2291,0), (12794,0,23467,0,0,2291,0), (12794,0,23468,0,0,2291,0), (12794,0,23469,0,0,2291,0);
+
+-- First Sergeant Hola'mahi <Reagent Vendor> - Vanilla
 DELETE FROM `npc_vendor` WHERE `entry` = @Hola; 
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Hola, 5565), (@Hola, 16583), (@Hola, 17020), (@Hola, 17021), (@Hola, 17026), (@Hola, 17028), (@Hola, 17029), (@Hola, 17030),
@@ -529,25 +536,10 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (12795,0,29602,0,0,652,0), (12795,0,29603,0,0,653,0), (12795,0,29604,0,0,444,0), (12795,0,29605,0,0,427,0), (12795,0,29612,0,0,465,0), (12795,0,29613,0,0,541,0), (12795,0,29614,0,0,542,0), 
 (12795,0,29615,0,0,463,0), (12795,0,29616,0,0,464,0), (12795,0,29617,0,0,465,0);
 
--- Brave Stonehide <Officer Accessories Quartermaster> - Vanilla
-DELETE FROM `npc_vendor` WHERE `entry` = @Stonehide;
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
-(@Stonehide, 0, 15199, 0, 0, 1006, 0), (@Stonehide, 0, 18607, 0, 0, 386, 0), (@Stonehide, 0, 18839, 0, 0, 2354, 0), (@Stonehide, 0, 18841, 0, 0, 2354, 0);
-
--- Brave Stonehide <Officer Accessories Quartermaster> - TBC
-DELETE FROM `npc_vendor` WHERE `entry` = 12793;
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
-(12793, 15197, 0, 0, 1007), (12793, 15199, 0, 0, 1006), (12793, 15200, 0, 0, 838), (12793, 16335, 0, 0, 491), (12793, 16341, 0, 0, 986), (12793, 16486, 0, 0, 492),
-(12793, 16497, 0, 0, 492), (12793, 16532, 0, 0, 492), (12793, 18427, 0, 0, 1050), (12793, 18428, 0, 0, 930), (12793, 18429, 0, 0, 492), (12793, 18430, 0, 0, 931),
-(12793, 18432, 0, 0, 931), (12793, 18434, 0, 0, 492), (12793, 18435, 0, 0, 931), (12793, 18436, 0, 0, 931), (12793, 18437, 0, 0, 931), (12793, 18461, 0, 0, 774), 
-(12793, 18607, 0, 0, 386), (12793, 18834, 0, 0, 634), (12793, 18839, 0, 0, 460), (12793, 18841, 0, 0, 460), (12793, 18845, 0, 0, 634), (12793, 18846, 0, 0, 634),
-(12793, 18849, 0, 0, 634), (12793, 18850, 0, 0, 634), (12793, 18851, 0, 0, 634), (12793, 18852, 0, 0, 634), (12793, 18853, 0, 0, 634), (12793, 24551, 0, 0, 125),
-(12793, 28118, 0, 0, 95), (12793, 28119, 0, 0, 95), (12793, 28120, 0, 0, 95), (12793, 28123, 0, 0, 99), (12793, 28239, 0, 0, 2404), (12793, 28240, 0, 0, 2404),
-(12793, 28241, 0, 0, 2404), (12793, 28242, 0, 0, 2404), (12793, 28243, 0, 0, 2404), (12793, 28244, 0, 0, 125), (12793, 28245, 0, 0, 125), (12793, 28246, 0, 0, 129),
-(12793, 28247, 0, 0, 129), (12793, 28362, 0, 0, 95), (12793, 28363, 0, 0, 99), (12793, 28377, 0, 0, 165), (12793, 28378, 0, 0, 165), (12793, 28379, 0, 0, 165),
-(12793, 28380, 0, 0, 165), (12793, 29592, 0, 0, 634), (12793, 30343, 0, 0, 2404), (12793, 30344, 0, 0, 2404), (12793, 30345, 0, 0, 2404), (12793, 30346, 0, 0, 2404),
-(12793, 31838, 0, 0, 1648), (12793, 31839, 0, 0, 1649), (12793, 31840, 0, 0, 1648), (12793, 31841, 0, 0, 1649), (12793, 31852, 0, 0, 1652), (12793, 31853, 0, 0, 1653),
-(12793, 31854, 0, 0, 1652), (12793, 31855, 0, 0, 1653), (12793, 32453, 0, 0, 1564), (12793, 32455, 0, 0, 460);
+-- Raider Bork <Mount Quartermaster>
+DELETE FROM `npc_vendor` WHERE `entry`= 12796;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423);
 
 -- Vixton Pinchwhistle <Arena Vendor> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 20278;
@@ -598,7 +590,18 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (23396, 33313, 0, 0, 2285), (23396, 33937, 0, 0, 1758), (23396, 33940, 0, 0, 1758), (23396, 33943, 0, 0, 1758), (23396, 33946, 0, 0, 1758), (23396, 33949, 0, 0, 1758),
 (23396, 33952, 0, 0, 1758);
 
-
+-- Sergeant Kien <Armor Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 23447;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
+(23447, 32785, 0, 0, 1911), (23447, 32786, 0, 0, 1911), (23447, 32787, 0, 0, 1911), (23447, 32788, 0, 0, 1911), (23447, 32789, 0, 0, 1911), (23447, 32790, 0, 0, 1911), 
+(23447, 32791, 0, 0, 1911), (23447, 32792, 0, 0, 1911), (23447, 32793, 0, 0, 1911), (23447, 32794, 0, 0, 1911), (23447, 32795, 0, 0, 1911), (23447, 32796, 0, 0, 1911), 
+(23447, 32797, 0, 0, 1923), (23447, 32798, 0, 0, 1923), (23447, 32799, 0, 0, 1923), (23447, 32800, 0, 0, 1923), (23447, 32801, 0, 0, 1923), (23447, 32802, 0, 0, 1923), 
+(23447, 32803, 0, 0, 1923), (23447, 32804, 0, 0, 1923), (23447, 32805, 0, 0, 1923), (23447, 32806, 0, 0, 1923), (23447, 32807, 0, 0, 1923), (23447, 32808, 0, 0, 1923), 
+(23447, 32809, 0, 0, 1935), (23447, 32810, 0, 0, 1935), (23447, 32811, 0, 0, 1935), (23447, 32812, 0, 0, 1935), (23447, 32813, 0, 0, 1935), (23447, 32814, 0, 0, 1935),
+(23447, 32816, 0, 0, 1935), (23447, 32817, 0, 0, 1935), (23447, 32818, 0, 0, 1935), (23447, 32819, 0, 0, 1935), (23447, 32820, 0, 0, 1935), (23447, 32821, 0, 0, 1935), 
+(23447, 32979, 0, 0, 1923), (23447, 32980, 0, 0, 1935), (23447, 32981, 0, 0, 1911), (23447, 32988, 0, 0, 1923), (23447, 32989, 0, 0, 1935), (23447, 32990, 0, 0, 1911),
+(23447, 32997, 0, 0, 1935), (23447, 32998, 0, 0, 1923), (23447, 32999, 0, 0, 1911), (23447, 33056, 0, 0, 129), (23447, 33057, 0, 0, 129), (23447, 33064, 0, 0, 129), 
+(23447, 33065, 0, 0, 127), (23447, 33066, 0, 0, 127), (23447, 33067, 0, 0, 127), (23447, 33068, 0, 0, 127);
 
 -- Sergeant Thunderhorn <Weapons Quartermaster> - vanilla
 DELETE FROM `npc_vendor` WHERE `entry` = @TH_Classic;
