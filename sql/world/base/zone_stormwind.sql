@@ -138,12 +138,6 @@ DELETE FROM `creature` WHERE `id1`= 12783;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (612783, 12783, 0, -8779.7, 432.158, 105.233, 5.36374, 300);
 
--- Captain Dirgehammer <Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 12777;
-DELETE FROM `creature` WHERE `id1`= 34075;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612777, 12777, 0, -8768.77, 401.647, 109.665, 2.22999, 300);
-
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 DELETE FROM `creature` WHERE `id1`= 12778;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
@@ -159,30 +153,11 @@ DELETE FROM `creature` WHERE `id1`= 12780;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (612780, 12780, 0, -8779.46, 427.206, 105.275, 3.80473, 300);
 
--- Master Sergeant Biggins <Accessories Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 12781;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612781, 12781, 0, -8777.4, 417.124, 103.921, 6.23553, 300);
-
--- Captain O'Neal <Weapons Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 12782;
-DELETE FROM `creature` WHERE `id1`= 34081;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612782, 12782, 0, -8778.3, 432.142, 105.309, 4.17386, 300);
-
--- Lieutenant Jackspring <Legacy Weapon Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 12784;
-
 -- Knight-Lieutenant T'Maire Sydes <Northrend Armor Quartermaster>
 DELETE FROM `creature` WHERE `id1`= 40607;
 
 -- Lieutenant Tristia <Veteran Armor Quartermaster>
 DELETE FROM `creature` WHERE `id1`= 34078;
-
--- Sergeant Major Clate <Legacy Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 12785;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612785, 12785, 0, -8771.31, 401.973, 109.665, 0.659191, 300);
 
 -- Officer Areyn <Accessories Quartermaster>
 DELETE FROM `creature` WHERE `id1`= 12805;
@@ -250,17 +225,8 @@ UPDATE `creature_template` SET `subname`='Weapon Crafter' WHERE `entry`=7232;
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 UPDATE `creature_template` SET `subname`=NULL, `minlevel`=55, `maxlevel`=55, `npcflag`=0 WHERE `entry`=12778;
 
--- Master Sergeant Biggins <Accessories Quartermaster>
-UPDATE `creature_template` SET `subname`='Officer Accessories Quartermaster' WHERE `entry`=12781;
-
--- Captain O'Neal <Weapons Quartermaster>
-UPDATE `creature_template` SET `minlevel`=55, `maxlevel`=55 WHERE `entry`=12782;
-
 -- Lieutenant Karter <War Mount Quartermaster>
 UPDATE `creature_template` SET `subname`='Mount Vendor' WHERE `entry`=12783;
-
--- Sergeant Major Clate <Legacy Armor Quartermaster>
-UPDATE `creature_template` SET `subname`='Food and Drink' WHERE `entry`=12785;
 
 -- Officer Jaxon
 UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14423;
@@ -365,61 +331,15 @@ DELETE FROM `npc_vendor` WHERE `entry`=5565 AND `item`=38426;
 -- Innkeeper Allison <Innkeeper>
 DELETE FROM `npc_vendor` WHERE `entry`=6740 AND `item` IN (4536, 4537, 4538, 4539, 4602, 8953, 27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
 
--- Captain Dirgehammer <Armor Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12777 AND `item` IN 
-    (16437, 16440, 16441, 16442, 16443, 16444, 16446, 16448, 16449, 16450, 16451, 16452, 16453, 16454, 16455, 16456, 16457, 16459, 16462, 16463, 16465, 16466, 16467, 16468, 
-    16471, 16472, 16473, 16474, 16475, 16476, 16477, 16478, 16479, 16480, 16483, 16484, 17578, 17579, 17580, 17581, 17583, 17584, 17602, 17603, 17604, 17605, 17607, 17608, 
-    23272, 23273, 23274, 23275, 23276, 23277, 23278, 23279, 23280, 23281, 23282, 23283, 23284, 23285, 23286, 23287, 23288, 23289, 23290, 23291, 23292, 23293, 23294, 23295, 23296, 23297, 23298, 23299, 
-    23300, 23301, 23302, 23303, 23304, 23305, 23306, 23307, 23308, 23309, 23310, 23311, 23312, 23313, 23314, 23315, 23316, 23317, 23318, 23319);
-
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-    (12777, 16437, 465), (12777, 16440, 541), (12777, 16441, 464), (12777, 16442, 542), (12777, 16443, 463), (12777, 16444, 465), (12777, 16446, 465), (12777, 16448, 541), (12777, 16449, 465),
-    (12777, 16450, 542), (12777, 16451, 464), (12777, 16452, 463), (12777, 16453, 463), (12777, 16454, 541), (12777, 16455, 464), (12777, 16456, 542), (12777, 16457, 465), (12777, 16459, 465),
-    (12777, 16462, 465), (12777, 16463, 541), (12777, 16465, 464), (12777, 16466, 463), (12777, 16467, 542), (12777, 16468, 465), (12777, 16471, 541), (12777, 16472, 465), (12777, 16473, 463),
-    (12777, 16474, 464), (12777, 16475, 542), (12777, 16476, 465), (12777, 16477, 463), (12777, 16478, 464), (12777, 16479, 542), (12777, 16480, 465), (12777, 16483, 465), (12777, 16484, 541),
-    (12777, 17578, 464), (12777, 17579, 542), (12777, 17580, 465), (12777, 17581, 463), (12777, 17583, 465), (12777, 17584, 541), (12777, 17602, 464), (12777, 17603, 542), (12777, 17604, 465),
-    (12777, 17605, 463), (12777, 17607, 465), (12777, 17608, 541), (12777, 23272, 652), (12777, 23273, 653), (12777, 23274, 428), (12777, 23275, 427), (12777, 23276, 444), (12777, 23277, 427),
-    (12777, 23278, 427), (12777, 23279, 428), (12777, 23280, 428), (12777, 23281, 427), (12777, 23282, 428), (12777, 23283, 427), (12777, 23284, 428), (12777, 23285, 427), (12777, 23286, 428),
-    (12777, 23287, 427), (12777, 23288, 428), (12777, 23289, 427), (12777, 23290, 428), (12777, 23291, 427), (12777, 23292, 652), (12777, 23293, 653), (12777, 23294, 652), (12777, 23295, 653),
-    (12777, 23296, 653), (12777, 23297, 652), (12777, 23298, 652), (12777, 23299, 653), (12777, 23300, 652), (12777, 23301, 653), (12777, 23302, 653), (12777, 23303, 652), (12777, 23304, 653),
-    (12777, 23305, 652), (12777, 23306, 444), (12777, 23307, 427), (12777, 23308, 444), (12777, 23309, 427), (12777, 23310, 444), (12777, 23311, 427), (12777, 23312, 444), (12777, 23313, 427),
-    (12777, 23314, 444), (12777, 23315, 427), (12777, 23316, 444), (12777, 23317, 427), (12777, 23318, 444), (12777, 23319, 427);
-
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 DELETE FROM `npc_vendor` WHERE `entry`=12778;
 
--- Master Sergeant Biggins <Accessories Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12781 AND `item` IN 
-    (15196, 16342, 18440, 18441, 18442, 18443, 18444, 18445, 18447, 18448, 18449, 18452, 18453, 18454, 18455, 18456, 18457, 18854, 18856, 18857, 18858, 18859, 
-    18862, 18863, 18864, 25829, 28118, 28119, 28120, 28123, 28234, 28235, 28236, 28237, 28238, 28246, 28247, 28362, 28363, 28379, 28380, 29593, 30348, 30349, 
-    30350, 30351, 31838, 31839, 31840, 31841, 31852, 31853, 31854, 31855, 32453, 32455, 37864, 38589, 44957);
 
--- Captain O'Neal <Weapons Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12782 AND `item` IN (12584, 18825, 18827, 18830, 18833, 18836, 18838, 18843, 18847, 18855, 18865, 18867, 18869, 18873, 18876, 23451, 23452, 23453, 23454, 23455, 23456);
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
-    (12782, 12584, 2291), (12782, 18825, 2291), (12782, 18827, 2291), (12782, 18830, 2257), (12782, 18833, 2291), (12782, 18836, 2291), (12782, 18838, 2291),
-    (12782, 18843, 2291), (12782, 18847, 2291), (12782, 18855, 2291), (12782, 18865, 2291), (12782, 18867, 2257), (12782, 18869, 2257), (12782, 18873, 2257), 
-    (12782, 18876, 2257), (12782, 23451, 2291), (12782, 23452, 2257), (12782, 23453, 2291), (12782, 23454, 2291), (12782, 23455, 2291), (12782, 23456, 2291);
 
 -- Lieutenant Karter <War Mount Quartermaster>
 DELETE FROM `npc_vendor` WHERE `entry`=12783 AND `item` IN (29465, 29467, 29468, 29471, 35906);
 DELETE FROM `npc_vendor` WHERE `entry`=12783 AND `item` IN (18241, 18242, 18243, 18244);
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (12783, 18241, 423), (12783, 18242, 423), (12783, 18243, 423), (12783, 18244, 423);
-
--- Sergeant Major Clate <Legacy Armor Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12785 AND `item` IN
-    (16437, 16440, 16441, 16442, 16443, 16444, 16446, 16448, 16449, 16450, 16451, 16452, 16453, 16454, 16455, 16456, 16457, 16459, 16462, 16463, 16465, 16466, 16467, 16468, 
-    16471, 16472, 16473, 16474, 16475, 16476, 16477, 16478, 16479, 16480, 16483, 16484, 17578, 17579, 17580, 17581, 17583, 17584, 17602, 17603, 17604, 17605, 17607, 17608, 
-    23272, 23273, 23274, 23275, 23276, 23277, 23278, 23279, 23280, 23281, 23282, 23283, 23284, 23285, 23286, 23287, 23288, 23289, 23290, 23291, 23292, 23293, 23294, 23295, 23296, 23297, 23298, 23299,
-    23300, 23301, 23302, 23303, 23304, 23305, 23306, 23307, 23308, 23309, 23310, 23311, 23312, 23313, 23314, 23315, 23316, 23317, 23318, 23319, 29594, 29595, 29596, 29597, 29598, 29599, 
-    29606, 29607, 29608, 29609, 29610, 29611);
-DELETE FROM `npc_vendor` WHERE `entry`=12785 AND `item` IN 
-    (117, 159, 1179, 1205, 1645, 1708, 2287, 2593, 2594, 2595, 2596, 2723, 3770, 3771, 4536, 4537, 4538, 4539, 4540, 4541, 4542, 4544, 4599, 4601, 4602, 4604, 4605, 4606, 4607, 4608, 8766, 8948, 8950, 8952, 8953);
-
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
-    (12785, 117), (12785, 159), (12785, 1179), (12785, 1205), (12785, 1645), (12785, 1708), (12785, 2287), (12785, 2593), (12785, 2594), (12785, 2595), (12785, 2596), 
-    (12785, 2723), (12785, 3770), (12785, 3771), (12785, 4536), (12785, 4537), (12785, 4538), (12785, 4539), (12785, 4540), (12785, 4541), (12785, 4542), (12785, 4544), (12785, 4599),
-    (12785, 4601), (12785, 4602), (12785, 4604), (12785, 4605), (12785, 4606), (12785, 4607), (12785, 4608), (12785, 8766), (12785, 8948), (12785, 8950), (12785, 8952), (12785, 8953);
 
 -- Officer Areyn <Accessories Quartermaster>
 DELETE FROM `npc_vendor` WHERE `entry`=12805 AND `item` IN (18445, 18447, 18448, 18449, 18454, 18455, 18456, 18457, 18854, 18856, 18858, 18859, 18862, 18863, 18864);
@@ -428,8 +348,201 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
     (12805, 18854, 634), (12805, 18856, 634), (12805, 18858, 634), (12805, 18859, 634), (12805, 18862, 634), (12805, 18863, 634), (12805, 18864, 634);
 
 
+
+
+
+
+
+
+
+
+
+SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
+SET @Clate       := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
+
+
+DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Clate);
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
+`exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
+`BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
+`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
+`RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
+
+(@Biggins, 0, 0, 0, 0, 0, 'Master Sergeant Biggins', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 1078, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
+(@Clate, 0, 0, 0, 0, 0, 'Sergeant Major Clate', 'Food and Drink', NULL, 0, 55, 55, 0, 123, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.15, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340);
+
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Clate);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(@Biggins, 0, 0, 0, 1, 0, 0, NULL),
+(@Clate, 0, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Clate);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
+--
+(@Biggins, 'deDE', 'Hauptfeldwebel Biggins', 'Rüstmeister für Zubehör', 18019),
+(@Biggins, 'esES', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
+(@Biggins, 'esMX', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
+(@Biggins, 'frFR', 'Sergent-chef Socquet', 'Intendant des accessoires', 18019),
+(@Biggins, 'koKR', '정예근위병 비긴스', '보급품 병참장교', 18019),
+(@Biggins, 'ruRU', 'Старший сержант Биггинс', 'Начальник снабжения аксессуарами', 18019),
+(@Biggins, 'zhCN', '军士长贝金斯', '杂货军需官', 18019),
+(@Biggins, 'zhTW', '上士貝金斯', '雜貨軍需官', 18019),
+--
+(@Clate, 'deDE', 'Stabsfeldwebel Clate', 'Speis & Trank', 18019),
+(@Clate, 'esES', 'Alférez Clate', 'Alimentos y bebidas', 18019),
+(@Clate, 'esMX', 'Alférez Clate', 'Alimentos y bebidas', 18019),
+(@Clate, 'frFR', 'Sergent-major Clate', 'Nourriture & boissons', 18019),
+(@Clate, 'koKR', '선임하사 클레이트', '식료품 상인', 18019),
+(@Clate, 'ruRU', 'Старший сержант Клейт', 'Еда и напитки', 18019),
+(@Clate, 'zhCN', '克莱特军士长', '食物和饮料', 18019),
+(@Clate, 'zhTW', '士官長克萊特', '食物和飲料', 18019);
+
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Clate);
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
+(@Biggins, 0, 12669, 1, 1, 12340),
+(@Clate, 0, 12925, 1, 1, 12340);
+
+
+UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster' WHERE `entry` = 12781; 
+UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12784; 
+UPDATE `creature_template` SET `subname` = 'Armor Quartermaster' WHERE `entry` = 12785;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry`IN (26393, 26394); 
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12805, 26393, 26394);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12784, 12785, 24671, 24672);
+
+
+DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 612785, 624671, 624672, 626393, 626394);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+--
+(612781, @Biggins, 0, -8777.4, 417.124, 103.921, 6.23553, 180), -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
+(133926, 12781, 0, -8777.4, 417.124, 103.921, 6.23553, 180),    -- Master Sergeant Biggins <Officer Accessories Quartermaster>, TBC
+(612785, @Clate, 0, -8771.31, 401.973, 109.665, 0.659191, 180), -- Sergeant Major Clate <Food and Drink>, Vanilla
+(133929, 12785, 0, -8771.31, 401.973, 109.665, 0.659191, 180),  -- Sergeant Major Clate <Armor Quartermaster>, TBC 
+(626394, 26394, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, Vanilla
+(624671, 24671, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, TBC
+(626393, 26393, 0, -8768.77, 401.647, 109.665, 2.22999, 180),   -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
+(624672, 24672, 0, -8773.33, 427.279, 105.233, 3.84677, 180),   -- Captain Dirgehammer <Armor Quartermaster>, TBC
+(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180;    -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
+
+
+
+-- Master Sergeant Biggins <Officer Accessories Quartermaster> - Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` = @Biggins;
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+(@Biggins, 0, 15198, 0, 0, 1006, 0), (@Biggins, 0, 18606, 0, 0, 386, 0), (@Biggins, 0, 18839, 0, 0, 2354, 0), (@Biggins, 0, 18841, 0, 0, 2354, 0);
+
+-- Master Sergeant Biggins <Officer Accessories Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 12781;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+(12781, 15196, 0, 0, 1007), (12781, 15198, 0, 0, 1006), (12781, 16342, 0, 0, 774), (12781, 18440, 0, 0, 1050), (12781, 18441, 0, 0, 986), (12781, 18442, 0, 0, 838),
+(12781, 18443, 0, 0, 491), (12781, 18444, 0, 0, 930), (12781, 18445, 0, 0, 492), (12781, 18447, 0, 0, 931), (12781, 18448, 0, 0, 492), (12781, 18449, 0, 0, 931),
+(12781, 18452, 0, 0, 492), (12781, 18453, 0, 0, 931), (12781, 18454, 0, 0, 492), (12781, 18455, 0, 0, 931), (12781, 18456, 0, 0, 492), (12781, 18457, 0, 0, 931), 
+(12781, 18606, 0, 0, 386), (12781, 18839, 0, 0, 460), (12781, 18841, 0, 0, 460), (12781, 18854, 0, 0, 634), (12781, 18856, 0, 0, 634), (12781, 18857, 0, 0, 634),
+(12781, 18858, 0, 0, 634), (12781, 18859, 0, 0, 634), (12781, 18862, 0, 0, 634), (12781, 18863, 0, 0, 634), (12781, 18864, 0, 0, 634), (12781, 25829, 0, 0, 125),
+(12781, 28118, 0, 0, 95), (12781, 28119, 0, 0, 95), (12781, 28120, 0, 0, 95), (12781, 28123, 0, 0, 99), (12781, 28234, 0, 0, 2404), (12781, 28235, 0, 0, 2404),
+(12781, 28236, 0, 0, 2404), (12781, 28237, 0, 0, 2404), (12781, 28238, 0, 0, 2404), (12781, 28244, 0, 0, 125), (12781, 28245, 0, 0, 125), (12781, 28246, 0, 0, 129),
+(12781, 28247, 0, 0, 129), (12781, 28362, 0, 0, 95), (12781, 28363, 0, 0, 99), (12781, 28379, 0, 0, 165), (12781, 28380, 0, 0, 165), (12781, 29593, 0, 0, 634),
+(12781, 30348, 0, 0, 2404), (12781, 30349, 0, 0, 2404), (12781, 30350, 0, 0, 2404), (12781, 30351, 0, 0, 2404), (12781, 31838, 0, 0, 1648), (12781, 31839, 0, 0, 1649),
+(12781, 31840, 0, 0, 1648), (12781, 31841, 0, 0, 1649), (12781, 31852, 0, 0, 1652), (12781, 31853, 0, 0, 1653), (12781, 31854, 0, 0, 1652), (12781, 31855, 0, 0, 1653),
+(12781, 32453, 0, 0, 1564), (12781, 32455, 0, 0, 460);
+
+-- Lieutenant Jackspring <Weapons Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 12784;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
+(12784, 12584, 0, 0, 565), (12784, 18825, 0, 0, 565), (12784, 18827, 0, 0, 565), (12784, 18830, 0, 0, 131), (12784, 18833, 0, 0, 567), (12784, 18836, 0, 0, 567), (12784, 18838, 0, 0, 565),
+(12784, 18843, 0, 0, 565), (12784, 18847, 0, 0, 565), (12784, 18855, 0, 0, 567), (12784, 18865, 0, 0, 565), (12784, 18867, 0, 0, 131), (12784, 18869, 0, 0, 131), (12784, 18873, 0, 0, 131),
+(12784, 18876, 0, 0, 131), (12784, 23451, 0, 0, 565), (12784, 23452, 0, 0, 567), (12784, 23453, 0, 0, 567), (12784, 23454, 0, 0, 565), (12784, 23455, 0, 0, 131), (12784, 23456, 0, 0, 565);
+
+-- Sergeant Major Clate <Food and Drink> - Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` = @Clate;
+INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
+(@Clate, 117), (@Clate, 159), (@Clate, 1179), (@Clate, 1205), (@Clate, 1645), (@Clate, 1708), (@Clate, 2287), (@Clate, 2593), (@Clate, 2594),
+(@Clate, 2595), (@Clate, 2596), (@Clate, 2723), (@Clate, 3770), (@Clate, 3771), (@Clate, 4536), (@Clate, 4537), (@Clate, 4538), (@Clate, 4539), 
+(@Clate, 4540), (@Clate, 4541), (@Clate, 4542), (@Clate, 4544), (@Clate, 4599), (@Clate, 4601), (@Clate, 4602), (@Clate, 4604), (@Clate, 4605), 
+(@Clate, 4606), (@Clate, 4607), (@Clate, 4608), (@Clate, 8766), (@Clate, 8948), (@Clate, 8950), (@Clate, 8952), (@Clate, 8953);
+
+DELETE FROM `npc_vendor` WHERE `entry` = 12785;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(12785, 16437, 465), (12785, 16440, 541), (12785, 16441, 464), (12785, 16442, 542), (12785, 16443, 463), (12785, 16444, 465), (12785, 16446, 465), (12785, 16448, 541), (12785, 16449, 465),
+(12785, 16450, 542), (12785, 16451, 464), (12785, 16452, 463), (12785, 16453, 463), (12785, 16454, 541), (12785, 16455, 464), (12785, 16456, 542), (12785, 16457, 465), (12785, 16459, 465),
+(12785, 16462, 465), (12785, 16463, 541), (12785, 16465, 464), (12785, 16466, 463), (12785, 16467, 542), (12785, 16468, 465), (12785, 16471, 541), (12785, 16472, 465), (12785, 16473, 463),
+(12785, 16474, 464), (12785, 16475, 542), (12785, 16476, 465), (12785, 16477, 463), (12785, 16478, 464), (12785, 16479, 542), (12785, 16480, 465), (12785, 16483, 465), (12785, 16484, 541),
+(12785, 17578, 464), (12785, 17579, 542), (12785, 17580, 465), (12785, 17581, 463), (12785, 17583, 465), (12785, 17584, 541), (12785, 17602, 464), (12785, 17603, 542), (12785, 17604, 465),
+(12785, 17605, 463), (12785, 17607, 465), (12785, 17608, 541), (12785, 23272, 652), (12785, 23273, 653), (12785, 23274, 428), (12785, 23275, 427), (12785, 23276, 444), (12785, 23277, 427),
+(12785, 23278, 427), (12785, 23279, 428), (12785, 23280, 428), (12785, 23281, 427), (12785, 23282, 428), (12785, 23283, 427), (12785, 23284, 428), (12785, 23285, 427), (12785, 23286, 428),
+(12785, 23287, 427), (12785, 23288, 428), (12785, 23289, 427), (12785, 23290, 428), (12785, 23291, 427), (12785, 23292, 652), (12785, 23293, 653), (12785, 23294, 652), (12785, 23295, 653),
+(12785, 23296, 653), (12785, 23297, 652), (12785, 23298, 652), (12785, 23299, 653), (12785, 23300, 652), (12785, 23301, 653), (12785, 23302, 653), (12785, 23303, 652), (12785, 23304, 653),
+(12785, 23305, 652), (12785, 23306, 444), (12785, 23307, 427), (12785, 23308, 444), (12785, 23309, 427), (12785, 23310, 444), (12785, 23311, 427), (12785, 23312, 444), (12785, 23313, 427),
+(12785, 23314, 444), (12785, 23315, 427), (12785, 23316, 444), (12785, 23317, 427), (12785, 23318, 444), (12785, 23319, 427), (12785, 29594, 427), (12785, 29595, 428), (12785, 29596, 652),
+(12785, 29597, 653), (12785, 29598, 444), (12785, 29599, 427), (12785, 29606, 465), (12785, 29607, 541), (12785, 29608, 542), (12785, 29609, 463), (12785, 29610, 464), (12785, 29611, 465);
+
+
+-- Lieutenant Tristia <Armor Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 23446;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
+(23446, 32785, 0, 0, 1911), (23446, 32786, 0, 0, 1911), (23446, 32787, 0, 0, 1911), (23446, 32788, 0, 0, 1911), (23446, 32789, 0, 0, 1911), (23446, 32790, 0, 0, 1911), 
+(23446, 32791, 0, 0, 1911), (23446, 32792, 0, 0, 1911), (23446, 32793, 0, 0, 1911), (23446, 32794, 0, 0, 1911), (23446, 32795, 0, 0, 1911), (23446, 32796, 0, 0, 1911), 
+(23446, 32797, 0, 0, 1923), (23446, 32798, 0, 0, 1923), (23446, 32799, 0, 0, 1923), (23446, 32800, 0, 0, 1923), (23446, 32801, 0, 0, 1923), (23446, 32802, 0, 0, 1923), 
+(23446, 32803, 0, 0, 1923), (23446, 32804, 0, 0, 1923), (23446, 32805, 0, 0, 1923), (23446, 32806, 0, 0, 1923), (23446, 32807, 0, 0, 1923), (23446, 32808, 0, 0, 1923), 
+(23446, 32809, 0, 0, 1935), (23446, 32810, 0, 0, 1935), (23446, 32811, 0, 0, 1935), (23446, 32812, 0, 0, 1935), (23446, 32813, 0, 0, 1935), (23446, 32814, 0, 0, 1935),
+(23446, 32816, 0, 0, 1935), (23446, 32817, 0, 0, 1935), (23446, 32818, 0, 0, 1935), (23446, 32819, 0, 0, 1935), (23446, 32820, 0, 0, 1935), (23446, 32821, 0, 0, 1935), 
+(23446, 32979, 0, 0, 1923), (23446, 32980, 0, 0, 1935), (23446, 32981, 0, 0, 1911), (23446, 32988, 0, 0, 1923), (23446, 32989, 0, 0, 1935), (23446, 32990, 0, 0, 1911),
+(23446, 32997, 0, 0, 1935), (23446, 32998, 0, 0, 1923), (23446, 32999, 0, 0, 1911), (23446, 33056, 0, 0, 129), (23446, 33057, 0, 0, 129), (23446, 33064, 0, 0, 129), 
+(23446, 33065, 0, 0, 127), (23446, 33066, 0, 0, 127), (23446, 33067, 0, 0, 127), (23446, 33068, 0, 0, 127);
+
+-- Captain O'Neal <Weapons Quartermaster> - Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` IN (12782, 26394);
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
+(26394, 12584, 2291), (26394, 18825, 2291), (26394, 18827, 2291), (26394, 18830, 2257), (26394, 18833, 2291), (26394, 18836, 2291), (26394, 18838, 2291),
+(26394, 18843, 2291), (26394, 18847, 2291), (26394, 18855, 2291), (26394, 18865, 2291), (26394, 18867, 2257), (26394, 18869, 2257), (26394, 18873, 2257), 
+(26394, 18876, 2257), (26394, 23451, 2291), (26394, 23452, 2257), (26394, 23453, 2291), (26394, 23454, 2291), (26394, 23455, 2291), (26394, 23456, 2291);
+
+-- Captain O'Neil <Weapons Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 24671;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
+(24671, 28940, 0, 0, 2242), (24671, 28941, 0, 0, 2242), (24671, 28942, 0, 0, 2237), (24671, 28943, 0, 0, 2237), (24671, 28944, 0, 0, 2239),
+(24671, 28945, 0, 0, 2237), (24671, 28946, 0, 0, 2240), (24671, 28947, 0, 0, 2240), (24671, 28948, 0, 0, 2237), (24671, 28949, 0, 0, 2237),
+(24671, 28950, 0, 0, 2240), (24671, 28951, 0, 0, 2239), (24671, 28952, 0, 0, 2240), (24671, 28953, 0, 0, 2239), (24671, 28954, 0, 0, 2240),
+(24671, 28955, 0, 0, 2240), (24671, 28956, 0, 0, 2239), (24671, 28957, 0, 0, 2238), (24671, 28959, 0, 0, 2237), (24671, 28960, 0, 0, 2237);
+
+-- Captain Dirgehammer <Armor Quartermaster> - Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` IN (12777, 26393);
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(26393, 16437, 465), (26393, 16440, 541), (26393, 16441, 464), (26393, 16442, 542), (26393, 16443, 463), (26393, 16444, 465), (26393, 16446, 465), (26393, 16448, 541), (26393, 16449, 465),
+(26393, 16450, 542), (26393, 16451, 464), (26393, 16452, 463), (26393, 16453, 463), (26393, 16454, 541), (26393, 16455, 464), (26393, 16456, 542), (26393, 16457, 465), (26393, 16459, 465),
+(26393, 16462, 465), (26393, 16463, 541), (26393, 16465, 464), (26393, 16466, 463), (26393, 16467, 542), (26393, 16468, 465), (26393, 16471, 541), (26393, 16472, 465), (26393, 16473, 463),
+(26393, 16474, 464), (26393, 16475, 542), (26393, 16476, 465), (26393, 16477, 463), (26393, 16478, 464), (26393, 16479, 542), (26393, 16480, 465), (26393, 16483, 465), (26393, 16484, 541),
+(26393, 17578, 464), (26393, 17579, 542), (26393, 17580, 465), (26393, 17581, 463), (26393, 17583, 465), (26393, 17584, 541), (26393, 17602, 464), (26393, 17603, 542), (26393, 17604, 465),
+(26393, 17605, 463), (26393, 17607, 465), (26393, 17608, 541), (26393, 23272, 652), (26393, 23273, 653), (26393, 23274, 428), (26393, 23275, 427), (26393, 23276, 444), (26393, 23277, 427),
+(26393, 23278, 427), (26393, 23279, 428), (26393, 23280, 428), (26393, 23281, 427), (26393, 23282, 428), (26393, 23283, 427), (26393, 23284, 428), (26393, 23285, 427), (26393, 23286, 428),
+(26393, 23287, 427), (26393, 23288, 428), (26393, 23289, 427), (26393, 23290, 428), (26393, 23291, 427), (26393, 23292, 652), (26393, 23293, 653), (26393, 23294, 652), (26393, 23295, 653),
+(26393, 23296, 653), (26393, 23297, 652), (26393, 23298, 652), (26393, 23299, 653), (26393, 23300, 652), (26393, 23301, 653), (26393, 23302, 653), (26393, 23303, 652), (26393, 23304, 653),
+(26393, 23305, 652), (26393, 23306, 444), (26393, 23307, 427), (26393, 23308, 444), (26393, 23309, 427), (26393, 23310, 444), (26393, 23311, 427), (26393, 23312, 444), (26393, 23313, 427),
+(26393, 23314, 444), (26393, 23315, 427), (26393, 23316, 444), (26393, 23317, 427), (26393, 23318, 444), (26393, 23319, 427), (26393, 29594, 427), (26393, 29595, 428), (26393, 29596, 652),
+(26393, 29597, 653), (26393, 29598, 444), (26393, 29599, 427), (26393, 29606, 465), (26393, 29607, 541), (26393, 29608, 542), (26393, 29609, 463), (26393, 29610, 464), (26393, 29611, 465);
+
+-- Captain Dirgehammer <Armor Quartermaster> - TBC
+DELETE FROM `npc_vendor` WHERE `entry` = 24672;
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
+(24672, 28613, 0, 0, 2259), (24672, 28614, 0, 0, 2261), (24672, 28615, 0, 0, 2263), (24672, 28616, 0, 0, 2265), (24672, 28617, 0, 0, 2267), (24672, 28618, 0, 0, 2261),
+(24672, 28619, 0, 0, 2263), (24672, 28620, 0, 0, 2265), (24672, 28622, 0, 0, 2267), (24672, 28623, 0, 0, 2259), (24672, 28624, 0, 0, 2261), (24672, 28625, 0, 0, 2263),
+(24672, 28626, 0, 0, 2265), (24672, 28627, 0, 0, 2267), (24672, 28628, 0, 0, 2259), (24672, 28679, 0, 0, 2259), (24672, 28680, 0, 0, 2261), (24672, 28681, 0, 0, 2263),
+(24672, 28683, 0, 0, 2267), (24672, 28684, 0, 0, 2261), (24672, 28685, 0, 0, 2263), (24672, 28686, 0, 0, 2265), (24672, 28687, 0, 0, 2267), (24672, 28688, 0, 0, 2259),
+(24672, 28689, 0, 0, 2259), (24672, 28690, 0, 0, 2261), (24672, 28691, 0, 0, 2263), (24672, 28692, 0, 0, 2265), (24672, 28693, 0, 0, 2267), (24672, 28694, 0, 0, 2259),
+(24672, 28695, 0, 0, 2261), (24672, 28696, 0, 0, 2263), (24672, 28697, 0, 0, 2265), (24672, 28698, 0, 0, 2267), (24672, 28699, 0, 0, 2259), (24672, 28700, 0, 0, 2261),
+(24672, 28701, 0, 0, 2263), (24672, 28702, 0, 0, 2265), (24672, 28703, 0, 0, 2267), (24672, 28704, 0, 0, 2261), (24672, 28705, 0, 0, 2263), (24672, 28706, 0, 0, 2265),
+(24672, 28707, 0, 0, 2267), (24672, 28708, 0, 0, 2259), (24672, 28709, 0, 0, 2259), (24672, 28710, 0, 0, 2261), (24672, 28711, 0, 0, 2263), (24672, 28712, 0, 0, 2265),
+(24672, 28713, 0, 0, 2267), (24672, 28714, 0, 0, 2267), (24672, 28715, 0, 0, 2263), (24672, 28716, 0, 0, 2261), (24672, 28717, 0, 0, 2259), (24672, 28718, 0, 0, 2265),
+(24672, 28719, 0, 0, 2261), (24672, 28720, 0, 0, 2263), (24672, 28721, 0, 0, 2265), (24672, 28722, 0, 0, 2267), (24672, 28723, 0, 0, 2259), (24672, 28724, 0, 0, 2265),
+(24672, 31589, 0, 0, 2261), (24672, 31590, 0, 0, 2263), (24672, 31591, 0, 0, 2265), (24672, 31592, 0, 0, 2267), (24672, 31593, 0, 0, 2259), (24672, 31620, 0, 0, 2261),
+(24672, 31622, 0, 0, 2263), (24672, 31623, 0, 0, 2265), (24672, 31624, 0, 0, 2267), (24672, 31625, 0, 0, 2259), (24672, 31630, 0, 0, 2259), (24672, 31631, 0, 0, 2261),
+(24672, 31632, 0, 0, 2263), (24672, 31633, 0, 0, 2265), (24672, 31634, 0, 0, 2267), (24672, 31640, 0, 0, 2259), (24672, 31641, 0, 0, 2261), (24672, 31642, 0, 0, 2263),
+(24672, 31643, 0, 0, 2265), (24672, 31644, 0, 0, 2267);
+
+
+
 /* Hide certain vendor items until the player has reached the progression tier for them */
-DELETE FROM `conditions` WHERE `SourceGroup` IN (12777, 12782);
+DELETE FROM `conditions` WHERE `SourceGroup` IN (12777, 12782, 26394);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
@@ -482,29 +595,39 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 12777, 17607, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Satin Sandals until the player has completed PROGRESSION_ONYXIA'),
 (23, 12777, 17608, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Satin Gloves until the player has completed PROGRESSION_ONYXIA'),
 --
-(23, 12782, 12584, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Longsword until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18825, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Aegis until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18827, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Handaxe until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18830, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Sunderer until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18833, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Bullseye until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18836, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Repeater until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18838, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Dirk until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18843, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Right Hand Blade until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18847, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Left Hand Blade until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18855, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Hand Cannon until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18865, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Punisher until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18867, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Battle Hammer until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18869, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Glaive until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18873, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Stave until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 18876, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Claymore until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 23451, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Mageblade until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 23452, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Power until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 23453, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Restoration until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 23454, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Warhammer until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 23455, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Demolisher until the player has completed PROGRESSION_ONYXIA'),
-(23, 12782, 23456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Swiftblade until the player has completed PROGRESSION_ONYXIA');
+(23, 26394, 12584, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Longsword until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18825, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Aegis until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18827, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Handaxe until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18830, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Sunderer until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18833, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Bullseye until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18836, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Repeater until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18838, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Dirk until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18843, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Right Hand Blade until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18847, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Left Hand Blade until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18855, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Hand Cannon until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18865, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Punisher until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18867, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Battle Hammer until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18869, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Glaive until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18873, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Stave until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18876, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Claymore until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23451, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Mageblade until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23452, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Power until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23453, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Restoration until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23454, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Warhammer until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23455, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Demolisher until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Swiftblade until the player has completed PROGRESSION_ONYXIA');
 
- 
+
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
+
+-- WotLK pvp vendors
+DELETE FROM `creature` WHERE `id1` IN 
+(12777,  -- Captain Dirgehammer <Armor Quartermaster>
+ 12782,  -- Captain O'Neal <Weapons Quartermaster>
+ 34075,  -- Captain Dirgehammer <Armor Quartermaster>
+ 34081); -- Captain O'Neal <Jewelcrafting Quartermaster>
+
+
 -- Summon Felsteed (Warlock)
 DELETE FROM `quest_offer_reward` WHERE `ID`=4488;
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES 
