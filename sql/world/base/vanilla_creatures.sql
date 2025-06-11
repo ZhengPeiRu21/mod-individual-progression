@@ -18381,13 +18381,13 @@ UPDATE `creature_template` SET `minlevel` = 65, `maxlevel` = 65, `speed_walk` = 
 UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `speed_walk` = 1.0, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry`= 26397;
 
 /*  Brave Stonehide  */
-UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster', `DamageModifier` = 2.9 WHERE `entry`=12793;
+UPDATE `creature_template` SET `DamageModifier` = 2.9 WHERE `entry` = 12793;
 
 /*  Stone Guard Zarg  */
-UPDATE `creature_template` SET `subname` = 'Food and Drink', `DamageModifier` = 1.05, `RangeAttackTime` = 1606 WHERE `entry`=12794;
+UPDATE `creature_template` SET `DamageModifier` = 1.05, `RangeAttackTime` = 1606 WHERE `entry` = 12794;
 
 /*  First Sergeant Hola'mahi  */
-UPDATE `creature_template` SET `subname` = 'Reagent Vendor', `DamageModifier` = 1.2, `RangeAttackTime` = 1551 WHERE `entry`=12795;
+UPDATE `creature_template` SET `DamageModifier` = 1.2, `RangeAttackTime` = 1551 WHERE `entry` = 12795;
 
 /*  Raider Bork  */
 UPDATE `creature_template` SET `subname` = 'Mount Quartermaster', `speed_run` = 1.14286, `DamageModifier` = 1.05, `RangeAttackTime` = 1606 WHERE `entry`=12796;
