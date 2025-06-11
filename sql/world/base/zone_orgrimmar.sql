@@ -543,7 +543,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 
 -- Vixton Pinchwhistle <Arena Vendor> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 20278;
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
 (20278, 24544, 0, 0, 22), (20278, 24545, 0, 0, 22), (20278, 24546, 0, 0, 24), (20278, 24547, 0, 0, 22), (20278, 24549, 0, 0, 21), (20278, 24550, 0, 0, 26),
 (20278, 24552, 0, 0, 22), (20278, 24553, 0, 0, 22), (20278, 24554, 0, 0, 24), (20278, 24555, 0, 0, 22), (20278, 24556, 0, 0, 21), (20278, 24557, 0, 0, 26),
 (20278, 25830, 0, 0, 22), (20278, 25831, 0, 0, 22), (20278, 25832, 0, 0, 24), (20278, 25833, 0, 0, 22), (20278, 25834, 0, 0, 21), (20278, 25854, 0, 0, 24),
@@ -567,7 +567,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 
 -- Krixel Pinchwhistle <Arena Vendor> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 23396;
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
 (23396, 30486, 0, 0, 2285), (23396, 30487, 0, 0, 2283), (23396, 30488, 0, 0, 2285), (23396, 30489, 0, 0, 2285), (23396, 30490, 0, 0, 2288), (23396, 31958, 0, 0, 2283),
 (23396, 31959, 0, 0, 1664), (23396, 31960, 0, 0, 2285), (23396, 31961, 0, 0, 2283), (23396, 31962, 0, 0, 2285), (23396, 31963, 0, 0, 2285), (23396, 31964, 0, 0, 2288),
 (23396, 31965, 0, 0, 2287), (23396, 31966, 0, 0, 1664), (23396, 31967, 0, 0, 2283), (23396, 31968, 0, 0, 2285), (23396, 31969, 0, 0, 2285), (23396, 31971, 0, 0, 2288),
