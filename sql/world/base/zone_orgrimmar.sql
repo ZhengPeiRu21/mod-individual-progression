@@ -201,11 +201,6 @@ DELETE FROM `creature` WHERE `id1` = 12788;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 25);
 
--- Sergeant Ba'sha <Accessories Quartermaster>
-DELETE FROM `creature` WHERE `id1` = 12799;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
-(612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430);
-
 -- High Overlord Saurfang
 DELETE FROM `creature` WHERE `id1` = 14720;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
@@ -446,20 +441,21 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@Zarg, 0, 12676, 1, 1, 12340),
 (@Hola, 0, 12677, 1, 1, 12340);
 
-UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12793;
-UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12794;
-UPDATE `creature_template` SET `subname` = 'Armor Quartermaster', `ScriptName` = 'npc_ipp_tbc' WHERE `entry` = 12795;
+UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster' WHERE `entry` = 12793;
+UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12794;
+UPDATE `creature_template` SET `subname` = 'Armor Quartermaster'  WHERE `entry` = 12795;
 UPDATE `creature_template` SET `subname` = 'Mount Quartermaster' WHERE `entry` = 12796;
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (20278, 23396, 23447);
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (@TH_Classic, @LP_Classic);
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (@TH_TBC, @LP_TBC);
+
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12799, @TH_Classic, @LP_Classic);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12793, 12794, 12795, 20278, 23396, 23447, @TH_TBC, @LP_TBC);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
 
-DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125695, 612792, 612793, 612794, 612795, 612796, 614581, 620278, 623396, 623447, 626396, 626397);
+DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 620278, 623396, 623447, 626396, 626397);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 
+(612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),        -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
 (626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
 (612792, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
 (612793, @Stonehide, 1, 1657.6, -4191.97, 56.383, 4.52365, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
