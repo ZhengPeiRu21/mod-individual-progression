@@ -457,7 +457,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (@T
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
 
-DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125695, 612792, 612793, 612794, 612795, 612796, 614581, 620278, 623396, 626396, 626397);
+DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125695, 612792, 612793, 612794, 612795, 612796, 614581, 620278, 623396, 623447, 626396, 626397);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 
 (626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
