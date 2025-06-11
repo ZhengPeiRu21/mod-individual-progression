@@ -327,6 +327,7 @@ UPDATE `creature_template` SET `subname`='Zeppelin Master' WHERE `entry`=12136;
 
 -- Legionnaire Teena
 UPDATE `creature_template` SET `subname`=NULL, `npcflag`=0, `faction`=85 WHERE `entry`=12788;
+UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;
 
 -- Lady Palanseer <Armor Quartermaster>
 UPDATE `creature_template` SET `minlevel`=55, `maxlevel`=55 WHERE `entry`=12792;

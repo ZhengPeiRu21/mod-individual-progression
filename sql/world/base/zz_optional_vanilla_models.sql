@@ -3,6 +3,7 @@
     There are a few exceptions due to some Vanilla models being removed from the game files.
 */
 
+UPDATE `creature_template_model` SET `CreatureDisplayID`= 6630 WHERE `CreatureID`= 14387 AND `Idx`= 0;
 UPDATE `creature_template_model` SET `CreatureDisplayID`=143 WHERE `CreatureID`=29 AND `Idx`=0;
 UPDATE `creature_template_model` SET `CreatureDisplayID`=604 WHERE `CreatureID`=69 AND `Idx`=0;
 UPDATE `creature_template_model` SET `CreatureDisplayID`=732 WHERE `CreatureID`=201 AND `Idx`=0;

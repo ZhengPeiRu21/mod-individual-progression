@@ -288,3 +288,10 @@ INSERT INTO `reference_loot_template`(`Entry`, `Item`, `Reference`, `Chance`, `Q
 (30551, 19382, 0,  0.0, 0, 1, 1, 1,1),
 (30330, 30171, 30171, 100.0, 0, 1, 0, 1, 1),
 (30105, 30044, 30044, 100.0, 0, 1, 0, 1 ,1);
+
+/* Classic nefarian head quest locale fix for non EN langs */
+/* Was set as Garrosh, correct warchief is Thrall */
+UPDATE `quest_template_locale` SET `Objectives` = 'Bringt Thrall in Orgrimmar den Kopf von Nefarian.' WHERE `ID` = 7783 AND `locale` = 'deDE';
+UPDATE `quest_template_locale` SET `Objectives` = 'Lleva la cabeza de Nefarian a Thrall a Orgrimmar.' WHERE `ID` = 7783 AND `locale` = 'esES';
+UPDATE `quest_template_locale` SET `Objectives` = 'Lleva la cabeza de Nefarian a Thrall a Orgrimmar.' WHERE `ID` = 7783 AND `locale` = 'esMX';
+UPDATE `quest_template_locale` SET `Objectives` = 'Apportez la tête de Nefarian à Thrall à Orgrimmar.' WHERE `ID` = 7783 AND `locale` = 'frFR';

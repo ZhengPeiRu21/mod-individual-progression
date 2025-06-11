@@ -18357,6 +18357,7 @@ UPDATE `creature_template` SET `subname` = 'Mount Vendor', `DamageModifier` = 1.
 
 /*  Sergeant Major Clate  */
 UPDATE `creature_template` SET `subname` = 'Food and Drink', `DamageModifier` = 2.15, `ArmorModifier` = 2.6 WHERE `entry`=12785;
+UPDATE `creature_template_locale` SET `Title` = 'Nourriture et boissons' WHERE `entry` = 12785 AND `locale` = 'frFR';
 
 /*  Guard Quine  */
 UPDATE `creature_template` SET `DamageModifier` = 3.05, `ArmorModifier` = 1.15 WHERE `entry`=12786;
@@ -18384,9 +18385,11 @@ UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster', 
 
 /*  Stone Guard Zarg  */
 UPDATE `creature_template` SET `subname` = 'Food and Drink', `DamageModifier` = 1.05, `RangeAttackTime` = 1606 WHERE `entry`=12794;
+UPDATE `creature_template_locale` SET `Title` = 'Nourriture et boissons' WHERE `entry` = 12794 AND `locale` = 'frFR';
 
 /*  First Sergeant Hola'mahi  */
 UPDATE `creature_template` SET `subname` = 'Reagent Vendor', `DamageModifier` = 1.2, `RangeAttackTime` = 1551 WHERE `entry`=12795;
+UPDATE `creature_template_locale` SET `Title` = 'Marchand de composants' WHERE `entry` = 12795 AND `locale` = 'frFR';
 
 /*  Raider Bork  */
 UPDATE `creature_template` SET `subname` = 'Mount Quartermaster', `speed_run` = 1.14286, `DamageModifier` = 1.05, `RangeAttackTime` = 1606 WHERE `entry`=12796;
