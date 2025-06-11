@@ -337,15 +337,15 @@ public:
     static bool isAttuned(Player* player)
     {
         if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || 
-		    (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
-		    (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
-		{
+            (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
+            (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
+        {
             return true;
-		}
+        }
         else
-		{
+        {
             return false;
-	    }
+        }
     }
 
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
@@ -530,7 +530,7 @@ public:
     void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
     {
         switch (newArea) {
-			case AREA_DARKSHORE:
+            case AREA_DARKSHORE:
             case AREA_GROVE_OF_THE_ANCIENTS:
             case AREA_WILDBEND_RIVER:
             case AREA_TWILIGHT_VALE:
@@ -540,8 +540,8 @@ public:
                     player->RemoveAura(IPP_PHASE_II);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
-                break;            
-			case AREA_SILITHUS:
+                break;
+            case AREA_SILITHUS:
             case AREA_HIVE_ASHI:
             case AREA_HIVE_ZORA:
             case AREA_HIVE_REGAL:
@@ -557,7 +557,7 @@ public:
                     player->RemoveAura(IPP_PHASE_II);
                     player->CastSpell(player, IPP_PHASE_II, false);
                 }
-                break;	
+                break;
             case AREA_BOUGH_SHADOW:
             case AREA_SERADANE:
             case AREA_DREAM_BOUGH:
@@ -645,44 +645,44 @@ public:
                 break;
             default:
                 
-				uint32 mapid = player->GetMapId();
-			
-		        if (mapid == MAP_SHADOWFANG_KEEP && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+                uint32 mapid = player->GetMapId();
+
+                if (mapid == MAP_SHADOWFANG_KEEP && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
                     player->CastSpell(player, IPP_PHASE, false);
                     break;
-                }	
-		        if (mapid == MAP_RAZORFEN_DOWNS && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+                }
+                if (mapid == MAP_RAZORFEN_DOWNS && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
                 {
                     player->RemoveAura(IPP_PHASE);
-					player->RemoveAura(IPP_PHASE_II);
-					player->CastSpell(player, IPP_PHASE, false);
-					break;
-				}	
-				if (mapid == MAP_SCARLET_MONASTERY && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
-				{
-					player->RemoveAura(IPP_PHASE);
-					player->RemoveAura(IPP_PHASE_II);
-					player->CastSpell(player, IPP_PHASE, false);
-					break;
-				}					
-				if (mapid == MAP_STRATHOLME && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
-				{
-					player->RemoveAura(IPP_PHASE);
-					player->RemoveAura(IPP_PHASE_II);
-					player->CastSpell(player, IPP_PHASE, false);
-					break;
-				}					
-				if (mapid == MAP_DIRE_MAUL && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
-				{
-					player->RemoveAura(IPP_PHASE);
-					player->RemoveAura(IPP_PHASE_II);
-					player->CastSpell(player, IPP_PHASE, false);
-					break;
-				}
-                
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->CastSpell(player, IPP_PHASE, false);
+                    break;
+                }    
+                if (mapid == MAP_SCARLET_MONASTERY && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->CastSpell(player, IPP_PHASE, false);
+                    break;
+                }
+                if (mapid == MAP_STRATHOLME && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->CastSpell(player, IPP_PHASE, false);
+                    break;
+                }
+                if (mapid == MAP_DIRE_MAUL && ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->CastSpell(player, IPP_PHASE, false);
+                    break;
+                }
+
                 player->RemoveAura(IPP_PHASE);
                 player->RemoveAura(IPP_PHASE_II);
         }
@@ -930,7 +930,7 @@ private:
         {
             return;
         }
-		
+
         if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC) || ((!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC)) && (pet->GetLevel() <= IP_LEVEL_VANILLA)))
         {
             AdjustVanillaStats(pet);
@@ -1130,7 +1130,7 @@ public:
             damage *= 1.0f - gearAdjustment;
         }
     }
-		
+
 };
 
 void AddSC_mod_individual_progression_player()
