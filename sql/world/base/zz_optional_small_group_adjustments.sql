@@ -26,3 +26,26 @@ UPDATE `item_template` SET `spellcooldown_1` = 0, `spellcategorycooldown_1` = 0 
 DELETE FROM `creature` WHERE `guid` IN (56628, 56619, 56622, 56610);
 DELETE FROM `creature_formations` WHERE `memberGUID` IN (56628, 56619, 56622, 56610);
 DELETE FROM `linked_respawn` WHERE `guid` IN (56628, 56619, 56622, 56610);
+
+/* -- Restore Firesworn in Garr fight (if needed) -- */
+/* DELETE FROM `creature` WHERE `guid` IN (56628, 56619, 56622, 56610);
+INSERT INTO `creature` (`guid`,`id1`,`id2`,`id3`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`wander_distance`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`,`ScriptName`,`VerifiedBuild`,`CreateObject`,`Comment`) VALUES
+(56619,12099,0,0,409,0,0,1,1,0,693.192,-494.994,-214.185,0,7200,0,0,61040,0,0,0,0,0,'',0,0,NULL),
+(56610,12099,0,0,409,0,0,1,1,0,688.943,-508.177,-214.46,4.83456,7200,0,0,61040,0,0,0,0,0,'',0,0,NULL),
+(56622,12099,0,0,409,0,0,1,1,0,683.891,-496.467,-213.892,6.02003,7200,0,0,61040,0,0,0,0,0,'',0,0,NULL),
+(56628,12099,0,0,409,0,0,1,1,0,698.831,-507.815,-214.691,6.02004,7200,0,0,61040,0,0,0,0,0,'',0,0,NULL);
+
+DELETE FROM `creature_formations` WHERE `memberGUID` IN (56628, 56619, 56622, 56610);
+INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES
+(56609,56610,10,45,514,0,0),
+(56609,56619,10,135,514,0,0),
+(56609,56622,10,225,514,0,0),
+(56609,56628,10,315,514,0,0);
+
+DELETE FROM `linked_respawn` WHERE `guid` IN (56628, 56619, 56622, 56610);
+INSERT INTO `linked_respawn` (`guid`, `linkedGuid`, `linkType`) VALUES
+(56610,56609,0),
+(56619,56609,0),
+(56622,56609,0),
+(56628,56609,0);
+*/

@@ -325,3 +325,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (6400190, 1, -11891.9, -3211.69, -14.6478, NULL, 0, 0, 0, 100, 0),
 (6400190, 2, -11847.1, -3205.97, -28.9958, NULL, 0, 1, 0, 100, 0),
 (6400190, 3, -11842.5, -3223.27, -28.9624, NULL, 30000, 1, 0, 100, 0);
+
+/* Outland map outside Dark Portal */
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 42457;

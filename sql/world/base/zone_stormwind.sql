@@ -219,6 +219,7 @@ UPDATE `creature_template` SET `subname`='Weapon Crafter' WHERE `entry`=7232;
 
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 UPDATE `creature_template` SET `subname`=NULL, `minlevel`=55, `maxlevel`=55, `npcflag`=0 WHERE `entry`=12778;
+UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12778;
 
 -- Officer Jaxon
 UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14423;

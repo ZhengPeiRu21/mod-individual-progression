@@ -21,6 +21,13 @@
 
 typedef std::unordered_map<uint32, uint32> questXpMapType;
 
+enum ProgressionLevelThreshold
+{
+    IP_LEVEL_VANILLA = 60,
+    IP_LEVEL_TBC     = 70,
+    IP_LEVEL_WOTLK   = 80
+};
+
 enum ProgressionBossIDs
 {
     RAGNAROS             = 11502,

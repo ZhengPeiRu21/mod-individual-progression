@@ -255,6 +255,8 @@ INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`,
 -- Lieutenants, Investigate the Scourge
 UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9260, 9261, 9262); -- Stormwind, Ironforge, Darnassus, Exodar(12817)
 UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 9265);  -- Orgrimmar, Thunder Bluff, Undercity, Silvermoon(12816)
+UPDATE `quest_template` SET `Flags` = 8, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
+UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16478, 16484, 16490, 16493, 16494, 16495);
 UPDATE `creature_template` SET `npcflag` = 0 WHERE `entry` IN (29441, 29442); -- there are no scourge outside Exodar and Silvermoon.
@@ -329,12 +331,12 @@ UPDATE `quest_request_items` SET `CompletionText` = 'Have you investigated the i
 UPDATE `quest_request_items` SET `CompletionText` = 'You\'ve come to join our order, have you not?' WHERE `ID` = 9154;
 
 -- Alliance Quartermaster and Horde Outfitter Quests
-UPDATE `quest_template` SET `QuestDescription` = 'If you bring me thirty necrotic runes, I will give you your choice of hand protection in return. These should prove valuable in our fight against the undead Scourge.' WHERE `ID` IN (9094, 9333);
-UPDATE `quest_template` SET `QuestDescription` = 'If you bring me eight necrotic runes from the Scourge invaders, I can give you a consecrated sharpening stone. It should be of great help in your battle against the minions of the Lich King.' WHERE `ID` IN (9317, 9335);
-UPDATE `quest_template` SET `QuestDescription` = 'In exchange for the necrotic runes of the Scourge invaders, the Argent Dawn will give you one vial of blessed wizard oil.' WHERE `ID` IN (9318, 9334);
-UPDATE `quest_template` SET `QuestDescription` = 'In addition to our other supplies, we also have a number of major healing potions you may find useful. I will give you one in exchange for fifteen necrotic runes.' WHERE `ID` IN (9321, 9336);
-UPDATE `quest_template` SET `QuestDescription` = 'In addition to our other supplies, we also have a number of major mana potions you may find useful. I will give you one in exchange for fifteen necrotic runes.' WHERE `ID` IN (9320, 9337);
-UPDATE `quest_template` SET `QuestDescription` = 'You have aided our cause greatly, $N. If you wish, I can make available the tabard of the Argent Dawn. We are proud to have you among our allies.' WHERE `ID` IN (9341, 9343);
+UPDATE `quest_template` SET `LogDescription` = 'Collect 30 Necrotic Runes.', `QuestDescription` = 'If you bring me thirty necrotic runes, I will give you your choice of hand protection in return. These should prove valuable in our fight against the undead Scourge.' WHERE `ID` IN (9094, 9333);
+UPDATE `quest_template` SET `LogDescription` = 'Collect 8 Necrotic Runes.', `QuestDescription` = 'If you bring me eight necrotic runes from the Scourge invaders, I can give you a consecrated sharpening stone. It should be of great help in your battle against the minions of the Lich King.' WHERE `ID` IN (9317, 9335);
+UPDATE `quest_template` SET `LogDescription` = 'Collect 8 Necrotic Runes.', `QuestDescription` = 'In exchange for the necrotic runes of the Scourge invaders, the Argent Dawn will give you one vial of blessed wizard oil.' WHERE `ID` IN (9318, 9334);
+UPDATE `quest_template` SET `LogDescription` = 'Collect 15 Necrotic Runes.', `QuestDescription` = 'In addition to our other supplies, we also have a number of major healing potions you may find useful. I will give you one in exchange for fifteen necrotic runes.' WHERE `ID` IN (9321, 9336);
+UPDATE `quest_template` SET `LogDescription` = 'Collect 15 Necrotic Runes.', `QuestDescription` = 'In addition to our other supplies, we also have a number of major mana potions you may find useful. I will give you one in exchange for fifteen necrotic runes.' WHERE `ID` IN (9320, 9337);
+UPDATE `quest_template` SET `LogDescription` = 'Collect 10 Necrotic Runes.', `QuestDescription` = 'You have aided our cause greatly, $N. If you wish, I can make available the tabard of the Argent Dawn. We are proud to have you among our allies.' WHERE `ID` IN (9341, 9343);
 
 DELETE FROM `quest_offer_reward` WHERE `ID` IN
 (9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance

@@ -287,6 +287,7 @@ UPDATE `creature_template` SET `subname`='Zeppelin Master' WHERE `entry`=12136;
 
 -- Legionnaire Teena
 UPDATE `creature_template` SET `subname`=NULL, `npcflag`=0, `faction`=85 WHERE `entry`=12788;
+UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;
 
 -- Kor'kron Elite
 UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=14304;
