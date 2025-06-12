@@ -377,7 +377,7 @@ UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry`IN 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12805, 26393, 26394);
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12784, 12785, 20278, 23396, 23446, 24671, 24672);
 
-UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry`= 12783;
+UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12783;
 
 
 DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 612783, 612785, 623446, 624671, 624672, 626393, 626394, 720278, 723396);
@@ -391,7 +391,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (624671, 24671, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, TBC
 (626393, 26393, 0, -8768.77, 401.647, 109.665, 2.22999, 180),   -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
 (624672, 24672, 0, -8773.33, 427.279, 105.233, 3.84677, 180),   -- Captain Dirgehammer <Armor Quartermaster>, TBC
-(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180,    -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
+(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180),    -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
 (720278, 20278, 0, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC
 (723396, 23396, 0, -8786.12, 428.386, 105.233, 5.5871, 180),    -- Krixel Pinchwhistle <Arena Vendor>, TBC
 (623446, 23446, 0, -8785.74, 420.484, 105.233, 0.701937, 180),  -- Lieutenant Tristia <Armor Quartermaster>, TBC
