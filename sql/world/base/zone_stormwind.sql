@@ -369,11 +369,9 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@Biggins, 0, 12669, 1, 1, 12340),
 (@Clate, 0, 12925, 1, 1, 12340);
 
-UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster' WHERE `entry` = 12781; 
 UPDATE `creature_template` SET `subname` = 'Mount Vendor' WHERE `entry` = 12783;
 UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12784; 
 UPDATE `creature_template` SET `subname` = 'Armor Quartermaster' WHERE `entry` = 12785;
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry`IN (26393, 26394); 
 UPDATE `creature_template` SET `npcflag` = 4224 WHERE `entry` IN (24671, 24672);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12805, 26393, 26394);
@@ -393,7 +391,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (624671, 24671, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, TBC
 (626393, 26393, 0, -8768.77, 401.647, 109.665, 2.22999, 180),   -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
 (624672, 24672, 0, -8773.33, 427.279, 105.233, 3.84677, 180),   -- Captain Dirgehammer <Armor Quartermaster>, TBC
-(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180),    -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
+(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180),   -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
 (720278, 20278, 0, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC
 (723396, 23396, 0, -8786.12, 428.386, 105.233, 5.5871, 180),    -- Krixel Pinchwhistle <Arena Vendor>, TBC
 (623446, 23446, 0, -8785.74, 420.484, 105.233, 0.701937, 180),  -- Lieutenant Tristia <Armor Quartermaster>, TBC
