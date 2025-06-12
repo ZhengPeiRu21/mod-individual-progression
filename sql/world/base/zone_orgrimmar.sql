@@ -535,7 +535,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 -- Raider Bork <Mount Quartermaster>
 DELETE FROM `npc_vendor` WHERE `entry`= 12796;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423);
+(12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423), (12796, 34129, 423);
 
 -- Vixton Pinchwhistle <Arena Vendor> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 20278;
@@ -653,7 +653,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 
 
 /* Hide certain vendor items until the player has reached the progression tier for them */
-DELETE FROM `conditions` WHERE `SourceGroup` IN (@LP_Classic, @LP_TBC, @TH_Classic, @TH_TBC);
+DELETE FROM `conditions` WHERE `SourceGroup` IN (12796, @LP_Classic, @LP_TBC, @TH_Classic, @TH_TBC);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 -- 
@@ -726,7 +726,10 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @TH_Classic, 23466, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Spellblade until the player has completed PROGRESSION_ONYXIA'),
 (23, @TH_Classic, 23467, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Quickblade until the player has completed PROGRESSION_ONYXIA'),
 (23, @TH_Classic, 23468, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Tome of Destruction until the player has completed PROGRESSION_ONYXIA'),
-(23, @TH_Classic, 23469, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Tome of Mending until the player has completed PROGRESSION_ONYXIA');
+(23, @TH_Classic, 23469, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Tome of Mending until the player has completed PROGRESSION_ONYXIA'),
+--
+(23, 12796, 34129, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Raider Bork will not sell Swift Warstrider until the player has completed PROGRESSION_PRE_TBC');
+
 
 -- WotLK pvp vendors
 DELETE FROM `creature` WHERE `id1` IN 
