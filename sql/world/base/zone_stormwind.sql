@@ -133,11 +133,6 @@ DELETE FROM `creature` WHERE `id1`= 7798;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (607798, 7798, 0, -8422.17, 630.877, 95.8402, 5.044, 430);
 
--- Lieutenant Karter <War Mount Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 12783;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612783, 12783, 0, -8779.7, 432.158, 105.233, 5.36374, 300);
-
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 DELETE FROM `creature` WHERE `id1`= 12778;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
@@ -225,9 +220,6 @@ UPDATE `creature_template` SET `subname`='Weapon Crafter' WHERE `entry`=7232;
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 UPDATE `creature_template` SET `subname`=NULL, `minlevel`=55, `maxlevel`=55, `npcflag`=0 WHERE `entry`=12778;
 
--- Lieutenant Karter <War Mount Quartermaster>
-UPDATE `creature_template` SET `subname`='Mount Vendor' WHERE `entry`=12783;
-
 -- Officer Jaxon
 UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14423;
 
@@ -242,9 +234,6 @@ UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `ent
 
 -- King Varian Wrynn
 UPDATE `creature_template` SET `minlevel`=63, `maxlevel`=63 WHERE `entry`=29611;
-
--- Lieutenant Karter <Mount Vendor>
-UPDATE `creature_template_addon` SET `mount`=0 WHERE `entry`=12783;
 
 -- Tomas <Cook>
 DELETE FROM `npc_trainer` WHERE `ID`=1430;
@@ -335,28 +324,6 @@ DELETE FROM `npc_vendor` WHERE `entry`=6740 AND `item` IN (4536, 4537, 4538, 453
 DELETE FROM `npc_vendor` WHERE `entry`=12778;
 
 
-
--- Lieutenant Karter <War Mount Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12783 AND `item` IN (29465, 29467, 29468, 29471, 35906);
-DELETE FROM `npc_vendor` WHERE `entry`=12783 AND `item` IN (18241, 18242, 18243, 18244);
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES (12783, 18241, 423), (12783, 18242, 423), (12783, 18243, 423), (12783, 18244, 423);
-
--- Officer Areyn <Accessories Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12805 AND `item` IN (18445, 18447, 18448, 18449, 18454, 18455, 18456, 18457, 18854, 18856, 18858, 18859, 18862, 18863, 18864);
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
-    (12805, 18445, 492), (12805, 18447, 931), (12805, 18448, 492), (12805, 18449, 931), (12805, 18454, 492), (12805, 18455, 931), (12805, 18456, 492), (12805, 18457, 931), 
-    (12805, 18854, 634), (12805, 18856, 634), (12805, 18858, 634), (12805, 18859, 634), (12805, 18862, 634), (12805, 18863, 634), (12805, 18864, 634);
-
-
-
-
-
-
-
-
-
-
-
 SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
 SET @Clate       := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
 
@@ -402,16 +369,18 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@Biggins, 0, 12669, 1, 1, 12340),
 (@Clate, 0, 12925, 1, 1, 12340);
 
-
 UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster' WHERE `entry` = 12781; 
+UPDATE `creature_template` SET `subname` = 'Mount Vendor' WHERE `entry` = 12783;
 UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12784; 
 UPDATE `creature_template` SET `subname` = 'Armor Quartermaster' WHERE `entry` = 12785;
 UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry`IN (26393, 26394); 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12805, 26393, 26394);
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12784, 12785, 24671, 24672);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12784, 12785, 20278, 23396, 23446, 24671, 24672);
+
+UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry`= 12783;
 
 
-DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 612785, 624671, 624672, 626393, 626394);
+DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 612783, 612785, 623446, 624671, 624672, 626393, 626394, 720278, 723396);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (612781, @Biggins, 0, -8777.4, 417.124, 103.921, 6.23553, 180), -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
@@ -422,8 +391,11 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (624671, 24671, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, TBC
 (626393, 26393, 0, -8768.77, 401.647, 109.665, 2.22999, 180),   -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
 (624672, 24672, 0, -8773.33, 427.279, 105.233, 3.84677, 180),   -- Captain Dirgehammer <Armor Quartermaster>, TBC
-(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180;    -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
-
+(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180,    -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
+(720278, 20278, 0, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC
+(723396, 23396, 0, -8786.12, 428.386, 105.233, 5.5871, 180),    -- Krixel Pinchwhistle <Arena Vendor>, TBC
+(623446, 23446, 0, -8785.74, 420.484, 105.233, 0.701937, 180),  -- Lieutenant Tristia <Armor Quartermaster>, TBC
+(612783, 12783, 0, -8779.7, 432.158, 105.233, 5.36374, 180);    -- Lieutenant Karter <Mount Vendor>
 
 
 -- Master Sergeant Biggins <Officer Accessories Quartermaster> - Vanilla
@@ -446,6 +418,18 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 (12781, 31840, 0, 0, 1648), (12781, 31841, 0, 0, 1649), (12781, 31852, 0, 0, 1652), (12781, 31853, 0, 0, 1653), (12781, 31854, 0, 0, 1652), (12781, 31855, 0, 0, 1653),
 (12781, 32453, 0, 0, 1564), (12781, 32455, 0, 0, 460);
 
+-- Officer Areyn <Accessories Quartermaster>
+DELETE FROM `npc_vendor` WHERE `entry` = 12805;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
+(12805, 18445, 492), (12805, 18447, 931), (12805, 18448, 492), (12805, 18449, 931), (12805, 18454, 492), 
+(12805, 18455, 931), (12805, 18456, 492), (12805, 18457, 931), (12805, 18854, 634), (12805, 18856, 634), 
+(12805, 18858, 634), (12805, 18859, 634), (12805, 18862, 634), (12805, 18863, 634), (12805, 18864, 634);
+
+-- Lieutenant Karter <War Mount Quartermaster>
+DELETE FROM `npc_vendor` WHERE `entry` = 12783;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(12783, 18241, 423), (12783, 18242, 423), (12783, 18243, 423), (12783, 18244, 423), (12783, 35906, 423);
+
 -- Lieutenant Jackspring <Weapons Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 12784;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES 
@@ -461,6 +445,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`) VALUES
 (@Clate, 4540), (@Clate, 4541), (@Clate, 4542), (@Clate, 4544), (@Clate, 4599), (@Clate, 4601), (@Clate, 4602), (@Clate, 4604), (@Clate, 4605), 
 (@Clate, 4606), (@Clate, 4607), (@Clate, 4608), (@Clate, 8766), (@Clate, 8948), (@Clate, 8950), (@Clate, 8952), (@Clate, 8953);
 
+-- Sergeant Major Clate <Armor Quartermaster> - TBC 
 DELETE FROM `npc_vendor` WHERE `entry` = 12785;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (12785, 16437, 465), (12785, 16440, 541), (12785, 16441, 464), (12785, 16442, 542), (12785, 16443, 463), (12785, 16444, 465), (12785, 16446, 465), (12785, 16448, 541), (12785, 16449, 465),
@@ -475,7 +460,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (12785, 23305, 652), (12785, 23306, 444), (12785, 23307, 427), (12785, 23308, 444), (12785, 23309, 427), (12785, 23310, 444), (12785, 23311, 427), (12785, 23312, 444), (12785, 23313, 427),
 (12785, 23314, 444), (12785, 23315, 427), (12785, 23316, 444), (12785, 23317, 427), (12785, 23318, 444), (12785, 23319, 427), (12785, 29594, 427), (12785, 29595, 428), (12785, 29596, 652),
 (12785, 29597, 653), (12785, 29598, 444), (12785, 29599, 427), (12785, 29606, 465), (12785, 29607, 541), (12785, 29608, 542), (12785, 29609, 463), (12785, 29610, 464), (12785, 29611, 465);
-
 
 -- Lieutenant Tristia <Armor Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 23446;
@@ -538,7 +522,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 (24672, 31622, 0, 0, 2263), (24672, 31623, 0, 0, 2265), (24672, 31624, 0, 0, 2267), (24672, 31625, 0, 0, 2259), (24672, 31630, 0, 0, 2259), (24672, 31631, 0, 0, 2261),
 (24672, 31632, 0, 0, 2263), (24672, 31633, 0, 0, 2265), (24672, 31634, 0, 0, 2267), (24672, 31640, 0, 0, 2259), (24672, 31641, 0, 0, 2261), (24672, 31642, 0, 0, 2263),
 (24672, 31643, 0, 0, 2265), (24672, 31644, 0, 0, 2267);
-
 
 
 /* Hide certain vendor items until the player has reached the progression tier for them */
@@ -615,7 +598,9 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 26394, 23453, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Restoration until the player has completed PROGRESSION_ONYXIA'),
 (23, 26394, 23454, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Warhammer until the player has completed PROGRESSION_ONYXIA'),
 (23, 26394, 23455, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Demolisher until the player has completed PROGRESSION_ONYXIA'),
-(23, 26394, 23456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Swiftblade until the player has completed PROGRESSION_ONYXIA');
+(23, 26394, 23456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Swiftblade until the player has completed PROGRESSION_ONYXIA'),
+--
+(23, 12783, 35906, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lieutenant Karter will not sell Reins of the Black War Elekk until the player has completed PROGRESSION_PRE_TBC');
 
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
