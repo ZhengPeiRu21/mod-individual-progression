@@ -18335,7 +18335,7 @@ UPDATE `creature_template` SET `speed_run` = 1.14286, `DamageModifier` = 1.15 WH
 UPDATE `creature_template` SET `subname` = 'Demon Trainer', `DamageModifier` = 0.8, `RangeAttackTime` = 2112 WHERE `entry`=12776;
 
 /*  Captain Dirgehammer  */
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry`=12777;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry` = 26393;
 
 /*  Lieutenant Rachel Vaccar  */
 UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WHERE `entry`=12778;
@@ -18350,13 +18350,13 @@ UPDATE `creature_template` SET `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WH
 UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster', `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WHERE `entry`=12781;
 
 /*  Captain O'Neal  */
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 3.45, `ArmorModifier` = 1.4 WHERE `entry`=12782;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 3.45, `ArmorModifier` = 1.4 WHERE `entry` = 26394;
 
 /*  Lieutenant Karter  */
 UPDATE `creature_template` SET `subname` = 'Mount Vendor', `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WHERE `entry`=12783;
 
 /*  Sergeant Major Clate  */
-UPDATE `creature_template` SET `subname` = 'Food and Drink', `DamageModifier` = 2.15, `ArmorModifier` = 2.6 WHERE `entry`=12785;
+UPDATE `creature_template` SET `DamageModifier` = 2.15, `ArmorModifier` = 2.6 WHERE `entry` = 12785;
 
 /*  Guard Quine  */
 UPDATE `creature_template` SET `DamageModifier` = 3.05, `ArmorModifier` = 1.15 WHERE `entry`=12786;
