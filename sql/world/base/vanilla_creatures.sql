@@ -18335,7 +18335,7 @@ UPDATE `creature_template` SET `speed_run` = 1.14286, `DamageModifier` = 1.15 WH
 UPDATE `creature_template` SET `subname` = 'Demon Trainer', `DamageModifier` = 0.8, `RangeAttackTime` = 2112 WHERE `entry`=12776;
 
 /*  Captain Dirgehammer  */
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry`=12777;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry` = 26393;
 
 /*  Lieutenant Rachel Vaccar  */
 UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WHERE `entry`=12778;
@@ -18350,14 +18350,13 @@ UPDATE `creature_template` SET `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WH
 UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster', `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WHERE `entry`=12781;
 
 /*  Captain O'Neal  */
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 3.45, `ArmorModifier` = 1.4 WHERE `entry`=12782;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 3.45, `ArmorModifier` = 1.4 WHERE `entry` = 26394;
 
 /*  Lieutenant Karter  */
 UPDATE `creature_template` SET `subname` = 'Mount Vendor', `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WHERE `entry`=12783;
 
 /*  Sergeant Major Clate  */
-UPDATE `creature_template` SET `subname` = 'Food and Drink', `DamageModifier` = 2.15, `ArmorModifier` = 2.6 WHERE `entry`=12785;
-UPDATE `creature_template_locale` SET `Title` = 'Nourriture et boissons' WHERE `entry` = 12785 AND `locale` = 'frFR';
+UPDATE `creature_template` SET `DamageModifier` = 2.15, `ArmorModifier` = 2.6 WHERE `entry` = 12785;
 
 /*  Guard Quine  */
 UPDATE `creature_template` SET `DamageModifier` = 3.05, `ArmorModifier` = 1.15 WHERE `entry`=12786;
@@ -18378,18 +18377,17 @@ UPDATE `creature_template` SET `DamageModifier` = 1.6, `ArmorModifier` = 1.15, `
 UPDATE `creature_template` SET `DamageModifier` = 1.6, `ArmorModifier` = 1.15, `ManaModifier` = 1.0, `RangeAttackTime` = 1529, `unit_class` = 1 WHERE `entry`=12791;
 
 /*  Lady Palanseer  */
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `speed_walk` = 1.0, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry`=12792;
+UPDATE `creature_template` SET `minlevel` = 65, `maxlevel` = 65, `speed_walk` = 1.0, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry`= 12792;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `speed_walk` = 1.0, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry`= 26397;
 
 /*  Brave Stonehide  */
-UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster', `DamageModifier` = 2.9 WHERE `entry`=12793;
+UPDATE `creature_template` SET `DamageModifier` = 2.9 WHERE `entry` = 12793;
 
 /*  Stone Guard Zarg  */
-UPDATE `creature_template` SET `subname` = 'Food and Drink', `DamageModifier` = 1.05, `RangeAttackTime` = 1606 WHERE `entry`=12794;
-UPDATE `creature_template_locale` SET `Title` = 'Nourriture et boissons' WHERE `entry` = 12794 AND `locale` = 'frFR';
+UPDATE `creature_template` SET `DamageModifier` = 1.05, `RangeAttackTime` = 1606 WHERE `entry` = 12794;
 
 /*  First Sergeant Hola'mahi  */
-UPDATE `creature_template` SET `subname` = 'Reagent Vendor', `DamageModifier` = 1.2, `RangeAttackTime` = 1551 WHERE `entry`=12795;
-UPDATE `creature_template_locale` SET `Title` = 'Marchand de composants' WHERE `entry` = 12795 AND `locale` = 'frFR';
+UPDATE `creature_template` SET `DamageModifier` = 1.2, `RangeAttackTime` = 1551 WHERE `entry` = 12795;
 
 /*  Raider Bork  */
 UPDATE `creature_template` SET `subname` = 'Mount Quartermaster', `speed_run` = 1.14286, `DamageModifier` = 1.05, `RangeAttackTime` = 1606 WHERE `entry`=12796;
@@ -20138,7 +20136,8 @@ UPDATE `creature_template` SET `ArmorModifier` = 0.85 WHERE `entry`=14567;
 UPDATE `creature_template` SET `DamageModifier` = 2.2, `ArmorModifier` = 1.1, `RangeAttackTime` = 1551 WHERE `entry`=14568;
 
 /*  Sergeant Thunderhorn  */
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `speed_walk` = 1.0, `DamageModifier` = 3.45 WHERE `entry`=14581;
+UPDATE `creature_template` SET `minlevel` = 65, `maxlevel` = 65, `speed_walk` = 1.0, `DamageModifier` = 3.45 WHERE `entry`= 14581;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `speed_walk` = 1.0, `DamageModifier` = 3.45 WHERE `entry`= 26396;
 
 /*  Ebonroc  */
 UPDATE `creature_template` SET `mingold` = 1202590, `maxgold` = 1212590 WHERE `entry`=14601;

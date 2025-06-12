@@ -158,6 +158,32 @@ public:
     }
 };
 
+class gobject_ipp_pre_tbc : public GameObjectScript
+{
+public:
+    gobject_ipp_pre_tbc() : GameObjectScript("gobject_ipp_pre_tbc") { }
+
+    struct gobject_ipp_pre_tbcAI: GameObjectAI
+    {
+        explicit gobject_ipp_pre_tbcAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_TBC);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_pre_tbcAI(object);
+    }
+};
+
 class gobject_ipp_tbc : public GameObjectScript
 {
 public:
@@ -381,6 +407,33 @@ public:
     CreatureAI* GetAI(Creature* creature) const override
     {
         return new npc_ipp_naxx40AI(creature);
+    }
+};
+
+class npc_ipp_pre_tbc : public CreatureScript
+{
+public:
+    npc_ipp_pre_tbc() : CreatureScript("npc_ipp_pre_tbc") { }
+
+    struct npc_ipp_pre_tbcAI: ScriptedAI
+    {
+        explicit npc_ipp_pre_tbcAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());            
+            return sIndividualProgression->isBeforeProgression(target,PROGRESSION_PRE_TBC);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_pre_tbcAI(creature);
     }
 };
 
@@ -630,6 +683,7 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_aqwar();   // AQ war crystals
     new gobject_ipp_si();      // Scourge Invasion
     new gobject_ipp_naxx40();
+    new gobject_ipp_pre_tbc(); // stormwind pvp room
     new gobject_ipp_tbc();
     new gobject_ipp_wotlk();
     new npc_ipp_preaq();       // Cenarion Hold NPCs
@@ -638,6 +692,7 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_si();          // Scourge Invasion
     new npc_ipp_pre_naxx40();  // Scourge Invasion
     new npc_ipp_naxx40();
+    new npc_ipp_pre_tbc();     // vanilla pvp vendors
     new npc_ipp_tbc();
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();
