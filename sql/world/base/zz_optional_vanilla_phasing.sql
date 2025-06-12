@@ -89,9 +89,6 @@ WHERE `map` = 0 AND `id` = 184463; -- Karazhan meeting stone
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' 
 WHERE `map` = 1 AND `id` = 182560; -- Time cavern meeting stone
 
-/* Outland map outside Dark Portal */
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 42457;
-
 /* Remove interactions between Cersei, Lorrin and the orcs in Stonard */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
 
