@@ -35,10 +35,21 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 
 -- https://www.azerothcore.org/wiki/conditions
 DELETE FROM `conditions` WHERE `SourceGroup` = 19768 AND `SourceEntry` = 34689; -- Design: Chaotic Skyfire Diamond
-DELETE FROM `conditions` WHERE `SourceEntry` IN (20406, 20407, 20408); -- Cultist set items
-DELETE FROM `conditions` WHERE `SourceEntry` IN (22525, 22526, 22527, 22528, 22529); -- Lights Hope Chapel quest items
+DELETE FROM `conditions` WHERE `SourceEntry` IN (20404, 20406, 20407, 20408, 22525, 22526, 22527, 22528, 22529);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(1, 11804, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'), -- drops in patch 1.8
+(1, 11880, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 11881, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 11882, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 11883, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15201, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 14479, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15308, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15213, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15541, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15542, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
 --
 (1, 11880, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'), -- drops in patch 1.8
 (1, 11881, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
