@@ -2,15 +2,15 @@
 
 ## Azerothcore Module
 
-This module is meant to simulate "progress through expansions and expansion tiers" for individual players. Players must complete each tier in order to access content in the next tier.
+This module simulates progress through expansions and expansion tiers for individual players.
 
 Each tier is designed to simulate the experience of being within that tier and expansion, within the limitations of the WotLK client. This means Vanilla content is like Vanilla WoW, and so on.
 
-The goal of the module is to focus on the journey of the player. All catch-up mechanisms have been removed. There is no goal to rush to end-game or find a "fresh" server, because each new character is a fresh experience.
+The goal of the module is to focus on the journey of the player. All catch-up mechanics have been removed. There is no goal to rush to end-game or find a "fresh" server, because each new character is a fresh experience.
 
 Note that this module either requires many players working together on a server for each tier, or adjustments for smaller raid size to allow individual groups to progress. Please see the [auto-balance module](https://github.com/azerothcore/mod-autobalance) and some of the built-in config options for some adjustments that improve this process on a lower populated server. This module also works well together with Playerbots and NPCbots.
 
-Lower-level content added in later expansions that is not "catch-up" content is not removed. This includes Draenei and Blood Elf starting zones, Inscription and Jewelcrafting skills, new quests and hubs added to the Vanilla world in TBC, and so on. I feel this content does not negatively impact the player journey like "catch-up" content. Some of this content can optionally be phased until the appropriate patch in which it was introduced for those who prefer an even more authentic Vanilla world - see the optional SQL files for more details.
+Lower-level content added in later expansions that is not "catch-up" content has not been removed. This includes Draenei and Blood Elf starting zones, Inscription and Jewelcrafting skills, new quests and hubs added to the Vanilla world in TBC, and so on. I feel this content does not negatively impact the player journey like "catch-up" content. Some of this content can optionally be phased until the appropriate patch in which it was introduced for those who prefer an even more authentic Vanilla world - see the optional SQL files for more details.
 
 ## Some Included Features
 * Power level and health adjustment in Vanilla and TBC content to simulate Vanilla world difficulty
