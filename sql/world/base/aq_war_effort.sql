@@ -96,7 +96,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+58,21156,0,0,530,0,0,1,1,0,-3907.79, -11606.595, -138.176, 4.69083,300,0,0,15260,0,0,0,0,0,'',0);
 
 -- War Effort Commanders
-DELETE FROM `creature` WHERE `id1` IN (@CGUID+59, @CGUID+60);
+DELETE FROM `creature` WHERE `guid` IN (@CGUID+59, @CGUID+60);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+59,15701,0,0,0,0,0,1,1,1,-4961.68,-1243.19,501.672,2.46488,300,0,1,30520,0,2,0,134254592,0,'',0),
 (@CGUID+60,15700,0,0,1,0,0,1,1,1,1581.39,-4202.27,41.8233,4.96133,300,0,1,30520,0,2,0,134217728,0,'',0);
