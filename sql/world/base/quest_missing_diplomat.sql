@@ -37,7 +37,7 @@ UPDATE `quest_template` SET
     `RewardChoiceItemID3` = 0,
     `RewardChoiceItemQuantity1` = 0,
     `RewardChoiceItemQuantity2` = 0,
-    `RewardChoiceItemQuantity3` = 0,
+    `RewardChoiceItemQuantity3` = 0
 WHERE `ID` = 11142;
 
 UPDATE `gossip_menu_option` SET `OptionText` = 'Can you send me to Theramore? I have an urgent message for Lady Jaina from Highlord Bolvar.' WHERE `MenuID` = 8846;
