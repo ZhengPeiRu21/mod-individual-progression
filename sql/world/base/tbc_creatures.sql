@@ -12969,7 +12969,15 @@ UPDATE `creature_template` SET `ArmorModifier` = 0.978999 WHERE `entry`=23393;
 UPDATE `creature_template` SET `speed_walk` = 2.0, `speed_run` = 1.71429, `DamageModifier` = 32.0, `HealthModifier` = 90.0 WHERE `entry`=23394;
 
 /*  Krixel Pinchwhistle  */
-UPDATE `creature_template` SET `subname` = 'Arena Vendor', `speed_walk` = 1.1 WHERE `entry`=23396;
+UPDATE `creature_template` SET `subname` = 'Arena Vendor', `speed_walk` = 1.1 WHERE `entry` = 23396;
+UPDATE `creature_template_locale` SET Title = 'Arenaverkäufer' WHERE `entry` = 23396 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET Title = 'Vendedor de arena' WHERE `entry` = 23396 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET Title = 'Vendedor de arena' WHERE `entry` = 23396 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET Title = 'Vendeur de l''arène' WHERE `entry` = 23396 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET Title = '2시즌 투기장 상인' WHERE `entry` = 23396 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET Title = 'Продавец экипировки арены' WHERE `entry` = 23396 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET Title = '竞技场商人' WHERE `entry` = 23396 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET Title = '競技場商人' WHERE `entry` = 23396 AND `locale` = 'zhTW';
 
 /*  Illidari Blood Lord  */
 UPDATE `creature_template` SET `speed_walk` = 1.6, `speed_run` = 1.42857, `DamageModifier` = 29.0, `HealthModifier` = 40.0 WHERE `entry`=23397;
