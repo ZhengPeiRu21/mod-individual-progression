@@ -1,3 +1,4 @@
+#include "IndividualProgression.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
@@ -5,25 +6,9 @@
 #include "GameObjectAI.h"
 #include "Player.h"
 #include "naxxramas.h"
-#include "IndividualProgression.h"
 
 class gobject_naxx40_tele : public GameObjectScript
 {
-private:
-    static bool isAttuned(Player* player)
-    {
-        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || 
-		    (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
-		    (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
-		{
-            return true;
-		}
-        else
-		{
-            return false;
-	    }
-    }
-
 public:
     gobject_naxx40_tele() : GameObjectScript("gobject_naxx40_tele") { }
 
@@ -38,23 +23,16 @@ public:
         return new gobject_naxx40_teleAI(object);
     }
 
-    bool isExcludedFromProgression(Player* player)
-    {
-        if(!sIndividualProgression->excludeAccounts) {
-            return false;
-        }
-        std::string accountName;
-        bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
-        std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
-        return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
-    }
-
     bool OnGossipHello(Player* player, GameObject* /*go*/) override
     {
-        if (((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED) && isAttuned(player)) || (isExcludedFromProgression(player) && (player->GetLevel() <= IP_LEVEL_TBC)))
+        if (((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED) && sIndividualProgression->isAttunedNaxx(player))
+            || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() <= IP_LEVEL_TBC)
+            || sIndividualProgression->isExcludedFromProgression(player)
+            || player->IsGameMaster())
         {
+            player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+            player->TeleportTo(533, 3006.05f, -3466.81f, 298.219f, 4.6824f);
         }
         return true;
     }

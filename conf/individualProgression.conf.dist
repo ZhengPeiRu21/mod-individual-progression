@@ -111,6 +111,34 @@ IndividualProgression.PreviousGearTuning = 0.01
 #
 IndividualProgression.HunterPetLevelFix = 1
 
+# IndividualProgression.MoltenCoreOnySamePhase
+#        Description: Molten Core and Onyxia are 2 separate phase in the module.
+#                     Enable this option to allow the player to proceed to the BWL phase by killing Onyxia or Ragnaros, as desired.
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.MoltenCoreOnySamePhase = 0
+
+# IndividualProgression.RequirePreAQQuests
+#        Description: AQ is the only vanilla tier that does not require attunement, because of the "server-wide attunement" quest line.
+#                     Enable this option to require players to complete the 'Bang a Gong' quest line to enter AQ + Optional War Effort
+#                     Please note that this is a very grindly quest chain requiring quests to be completed 200+ times - to make this
+#                     more reasonable, some optional quest nerfs can be found in the module's SQL files.
+#                     If disabled, players can proceed to AQ immediately after Blackwing Lair
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+IndividualProgression.RequirePreAQQuests = 1
+
+# IndividualProgression.DynamicPhasingEventMobs
+#        Description: The hostile mobs from Scourge Invasion event and AQ War event become dynamically phased.
+#                     If enabled, they become visible and attackable by every players if they are pulled by a player on the appropriate phase.
+#                     If disabled, they are visible and attackable only by players on the appropriate phase.
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.DynamicPhasingEventMobs = 0;
+
 # IndividualProgression.RequireNaxxStrathEntrance
 #        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme
 #                     before being able to use the teleportation crystal in EPL. This is consistent behavior with other Vanilla raids (MC, BL).
@@ -120,6 +148,22 @@ IndividualProgression.HunterPetLevelFix = 1
 #                     1 - Enabled
 #
 IndividualProgression.RequireNaxxStrathEntrance = 0
+
+# IndividualProgression.NaxxExitViaPortals
+#        Description: If disabled, Naxx 40 cannot be exited via portals as in Classic Vanilla.
+#                     If enabled, Naxx 40 can be exited via portals as in WotLK.
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.NaxxExitViaPortals = 0
+
+# IndividualProgression.NaxxSkipToSaphiron
+#        Description: If disabled, players can't directly skip the 4 wings of the raid as in Classic Vanilla.
+#                     If enabled, players can go directly to Sapphiron and Kel'Thuzad as in WotLK.
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.NaxxSkipToSaphiron = 0
 
 # IndividualProgression.MoltenCore.ManualRuneHandling
 #        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) 

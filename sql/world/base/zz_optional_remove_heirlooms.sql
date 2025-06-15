@@ -1,6 +1,7 @@
 /* Heirloom items are antithetical to Individual Progression, as they are designed to skip progression and speed through content.
    This optional file removes Heirloom vendors with no other purpose, and removes heirlooms from all other vendors so they are not available.
    If you would like heirlooms to still be available, comment out, remove, or just do not run this file. */
+/*
 DELETE FROM `creature` WHERE `id1` IN (32509, 35507, 35508);
 DELETE FROM `creature_addon` WHERE `guid` IN (85227, 88108);
 DELETE FROM `npc_vendor` WHERE `item` IN ( 38691, 42943, 42944, 42945, 42946,
@@ -10,3 +11,4 @@ DELETE FROM `npc_vendor` WHERE `item` IN ( 38691, 42943, 42944, 42945, 42946,
 48718, 50255);
 UPDATE `quest_template` SET `RewardChoiceItemID1` = 0, `RewardChoiceItemQuantity1` = 0, `RewardChoiceItemID2` = 0, `RewardChoiceItemQuantity2` = 0,
 `RewardItem1` = 50287, `RewardAmount1` = 1 WHERE `id` = 24803;
+*/

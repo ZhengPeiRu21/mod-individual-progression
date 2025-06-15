@@ -88,15 +88,7 @@ public:
             }
 
             /* The Scarab Gong can still be seen during the outdoor AQ war.  */        
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
-            {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
-            }
-            else
-            {
-                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
-            }
-
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
         }
 
         void NextStage(uint32 timeUntil = 100)

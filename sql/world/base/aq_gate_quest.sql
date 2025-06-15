@@ -48,6 +48,14 @@ UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 21148;
 -- Fix drop rate for Narain's Scrying Goggles
 UPDATE `creature_loot_template` SET `Chance` = 2 WHERE `Item` = 20951;
 
+-- Fix missing quest details for The Charge of the Dragonflights
+UPDATE `quest_template` SET `QuestDescription` = 'Eranikus, Vaelastrasz, and Azuregos... No doubt you know of these dragons, mortal. It is no coincidence, then, that they have played such influential roles as watchers of our world. Unfortunately whether by agents of the Old Gods or betrayal by those that would call them friend, each guardian has fallen to tragedy. The extent of which has fueled my own distrust towards your kind. Seek them out... And prepare yourself for the worst.', `LogDescription` = 'Speak with Anachronos.',  `QuestCompletionLog` = 'Speak with Anachronos.' WHERE `ID` = 8555;
+UPDATE `quest_template_locale` SET `Details` = 'Eranikus, Vaelastrasz, et Azuregos... Vous avez certainement entendu parler de ces dragons, mortel. Ce n’est pas une simple coïncidence si chacun d’eux a joué un grand rôle comme gardien de ce monde. Malheureusement, et ma propre naïveté en est en partie responsable, ces gardiens ont tous succombé à de terribles tragédies, si terribles qu’elles ont alimenté ma méfiance à l’égard de votre espèce. Cherchez-les… Et préparez-vous au pire.', `Objectives` = 'Parlez à Anachronos.',  `CompletedText` = 'Parlez à Anachronos.' WHERE `ID` = 8555 AND locale = 'frFR';
+
+-- Fix missing quest details for Translating the Ledger
+UPDATE `quest_template` SET `QuestDescription` = 'First things first! We need to figure out what Azuregos wrote in this ledger. You say that he''s told you to make an arcanite buoy and that this is the schematic? Strange that he would write this in Draconic. That old goat knows I can''t read this nonsense. If this is going to work, I''m going to need my scrying goggles, a five hundred pound chicken and volume II of Draconic for Dummies. Not necessarily in that order.', `LogDescription` = 'We need to figure out what Azuregos wrote in this ledger.',  `QuestCompletionLog` = 'We need to figure out what Azuregos wrote in this ledger.' WHERE `ID` = 8576;
+UPDATE `quest_template_locale` SET `Details` = 'Commençons par le commencement ! Il faut comprendre ce que Azuregos a écrit dans ce registre. Vous dites qu''il vous a demandé de fabriquer une bouée en arcanite avec le schéma ? Étrange qu''il ait écrit ça en draconique. Ce vieux bouc sait que je ne peux pas déchiffrer ces absurdités. Pour que ça marche, il me faut mes lunettes de divination, un poulet de deux cents kilos et le tome II de Draconique pour les Nuls.', `Objectives` = 'Nous devons découvrir ce que Azuregos a écrit dans ce registre.',  `CompletedText` = 'Nous devons découvrir ce que Azuregos a écrit dans ce registre.' WHERE `ID` = 8576 AND locale = 'frFR';
+
 -- New 'Bang a Gong!' quest. No rewards for completing this version. No mount, no title. Currently the Mallet of Zul'Farrak is required to bang the gong.
 -- New 'Chaos and Destruction' quest. Kill Colossus of Zora(15740), Regal(15741) and Ashi(15742)
 DELETE FROM `quest_template` WHERE `ID` IN (108743, 108744);
@@ -61,12 +69,12 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 (108743, 0, 60, 60, 1377, 82, 0, 0, 0, 0, 0, 108744, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Bang a Gong!', '', '', NULL, 'Return to The Scarab Gong in Silithus.', 0, 0, 0, 0, 0, 0, 0, 0, 9240, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, '', '', '', '', 12340),
 (108744, 2, 60, 60, 1377, 82, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 910, 7, 0, 609, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172800, 0, 'Chaos and Destruction', 'Kill the Colossus of Ashi, Regal and Zora.', '', '', 'Return to Jonathan the Revelator at the Scarab Gong.', 15740, 15741, 15742, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', NULL);
 
-UPDATE `quest_template` SET `RewardNextQuest` = 108744 WHERE `ID` = 8743;
+/* UPDATE `quest_template` SET `RewardNextQuest` = 108744 WHERE `ID` = 8743; */
 
 -- update quest texts for the new 'Bang a Gong!' quest
 DELETE FROM `quest_request_items` WHERE `ID` IN (108743, 108744);
 INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`, `CompletionText`, `VerifiedBuild`) VALUES 
-(108743, 1, 0, 'The Scarab Gong looms ominously before you. Steel yourself, $N; for once the Scarab Gong is rung, the gates of Ahn\'Qiraj will be opened.$B$BHowever, the Brood of Nozdomu and the Cenarion Circle will not reward you, unless you aid them.', 12340),
+(108743, 1, 0, 'The Scarab Gong looms ominously before you. Steel yourself, $N; for once the Scarab Gong is rung, the gates of Ahn''Qiraj will be opened.$B$BHowever, the Brood of Nozdomu and the Cenarion Circle will not reward you, unless you aid them.', 12340),
 (108744, 1, 0, '', NULL);
 
 DELETE FROM `quest_offer_reward` WHERE `ID` IN (108743, 108744);
@@ -74,18 +82,21 @@ INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, 
 (108743, 0, 0, 0, 0, 0, 0, 0, 0, 'From the ground near the gong springs a special crystal. Perhaps favor from the Brood.', 12340),
 (108744, 0, 0, 0, 0, 0, 0, 0, 0, '', NULL);
     
-DELETE FROM `quest_template_addon` WHERE `ID` IN (8743, 108743, 108744);
+/* DELETE FROM `quest_template_addon` WHERE `ID` IN (8743, 108743, 108744); */
+DELETE FROM `quest_template_addon` WHERE `ID` IN (108743, 108744);
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
 `RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES 
-(8743, 0, 0, 0, 8742, 108744, 0, 0, 0, 0, 0, 910, 0, 0, 0, 0, 0),
+/* (8743, 0, 0, 0, 8742, 108744, 0, 0, 0, 0, 0, 910, 0, 0, 0, 0, 0), */
 (108743, 0, 0, 0, 0, 108744, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (108744, 0, 0, 0, 108743, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-UPDATE `quest_template` SET `QuestDescription` = '' WHERE `ID` = 108743;    
+/* UPDATE `quest_template` SET `QuestDescription` = '' WHERE `ID` = 108743;  */   
     
 -- Connect new 'Bang a Gong!' quest to the Scarab Gong in Silithus
+DELETE FROM `gameobject_queststarter` WHERE `quest` = 108743; /* addition */
 DELETE FROM `gameobject_queststarter` WHERE `id` = 180717;
-INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743), (180717, 108744);
+/* INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743), (180717, 108744); */
+INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743);
 
 DELETE FROM `gameobject_questender` WHERE `id` = 180717;
 INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743);

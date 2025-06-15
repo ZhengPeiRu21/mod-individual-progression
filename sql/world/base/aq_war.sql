@@ -143,6 +143,9 @@ DELETE FROM `creature_template_addon` WHERE `entry` IN (@NPC);
 INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES
 (@NPC,@PATH,0,0,1,0,3, '');
 
+/* Reduce Colossus scale for gameplay purpose (not Blizzlike) */
+UPDATE `creature_template` SET `scale` = 0.3 WHERE `entry` IN (15740, 15741, 15742);
+
 -- add loot to Colossus of Zora, Regal and Ashi
 DELETE FROM `creature_loot_template` WHERE `entry` = 15740;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES

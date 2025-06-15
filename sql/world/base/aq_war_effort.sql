@@ -2,6 +2,8 @@ SET @CGUID    := 650000;
 SET @OGUID    := 650000;
 
 -- Collector Npcs
+DELETE FROM `creature` WHERE `id1` IN (15383, 15431, 15432, 15434, 15437, 15445, 15446, 15448, 15450, 15451, 15452, 15453, 15455, 15456, 15457);
+DELETE FROM `creature` WHERE `id1` IN (15459, 15460, 15469, 15477, 15508, 15512, 15515, 15522, 15525, 15528, 15529, 15532, 15533, 15534, 15535);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+30;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 -- Alliance Collector Npcs
@@ -38,6 +40,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+30,15535,0,0,1,0,0,1,1,1,1634.37,-4087.58,36.2655,5.29543,300,0,0,15260,0,0,0,0,0,'',0);
 
 -- Commendation Npcs
+DELETE FROM `creature` WHERE `id1` IN (15731, 15733, 15734, 15735, 21969, 15736, 15737, 15738, 15739, 21968);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+31 AND @CGUID+50;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 -- Alliance Commendation Npcs
@@ -84,18 +87,20 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15702, 8792), (15703
 DELETE FROM `creature_questender` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796, 8797, 10500, 10501);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15700, 8792), (15701, 8795);
 
+DELETE FROM `creature` WHERE `id1` IN (15702, 15703, 15704, 15707, 15708, 15709, 21155, 21156);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+51 AND @CGUID+58;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
-(@CGUID+51,15702,0,0,1,0,0,1,1,0,-1209.58, 100.22, 134.661, 3.15905,300,0,0,15260,0,0,0,0,0,'',0),
-(@CGUID+52,15703,0,0,0,0,0,1,1,0,1572.58, 272.707, -43.0193, 5.02655,300,0,0,15260,0,0,0,0,0,'',0),
-(@CGUID+53,15704,0,0,1,0,0,1,1,0,1653.07, -4403.81, 18.5819, 4.45059,300,0,0,15260,0,0,0,0,0,'',0),
-(@CGUID+54,15707,0,0,0,0,0,1,1,0,-4956.09, -931.133, 503.347, 5.37561,300,0,0,15260,0,0,0,0,0,'',0),
-(@CGUID+55,15708,0,0,0,0,0,1,1,0,-8813.75, 654.068, 96.1603, 4.83456,300,0,0,15260,0,0,0,0,0,'',0),
-(@CGUID+56,15709,0,0,1,0,0,1,1,0,9945.15, 2494.24, 1317.52, 4.20624,300,0,0,15260,0,0,0,0,0,'',0),
-(@CGUID+57,21155,0,0,530,0,0,1,1,0,9526.53, -7190.16, 16.1257, 1.55872,300,0,0,15260,0,0,0,0,0,'',0),
-(@CGUID+58,21156,0,0,530,0,0,1,1,0,-3907.79, -11606.595, -138.176, 4.69083,300,0,0,15260,0,0,0,0,0,'',0);
+(@CGUID+51,15702,0,0,1,0,0,1,1,0,-1209.58, 100.22, 134.661, 3.15905,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),
+(@CGUID+52,15703,0,0,0,0,0,1,1,0,1572.58, 272.707, -43.0193, 5.02655,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),
+(@CGUID+53,15704,0,0,1,0,0,1,1,0,1653.07, -4403.81, 18.5819, 4.45059,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),
+(@CGUID+54,15707,0,0,0,0,0,1,1,0,-4956.09, -931.133, 503.347, 5.37561,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),
+(@CGUID+55,15708,0,0,0,0,0,1,1,0,-8813.75, 654.068, 96.1603, 4.83456,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),
+(@CGUID+56,15709,0,0,1,0,0,1,1,0,9945.15, 2494.24, 1317.52, 4.20624,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),
+(@CGUID+57,21155,0,0,530,0,0,1,1,0,9526.53, -7190.16, 16.1257, 1.55872,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),
+(@CGUID+58,21156,0,0,530,0,0,1,1,0,-3907.79, -11606.595, -138.176, 4.69083,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0);
 
 -- War Effort Commanders
+DELETE FROM `creature` WHERE `id1` IN (15700, 15701);
 DELETE FROM `creature` WHERE `guid` IN (@CGUID+59, @CGUID+60);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+59,15701,0,0,0,0,0,1,1,1,-4961.68,-1243.19,501.672,2.46488,300,0,1,30520,0,2,0,134254592,0,'',0),
@@ -145,9 +150,10 @@ INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes
 -- Phase AQ War Effort Npcs
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_we' WHERE `entry` IN 
 (15383, 15431, 15432, 15434, 15437, 15445, 15446, 15448, 15450, 15451, 15452, 15453, 15455, 15456, 15457, 15459, 15460, 15469, 15477, 15508, 15512, 15515, 15522, 15525, 
-15528, 15529, 15532, 15533, 15534, 15535, 15700, 15701, 15702, 15703, 15704, 15707, 15708, 15709, 21155, 21156);
+15528, 15529, 15532, 15533, 15534, 15535, 15700, 15701);
 
 -- Phase AQ War Effort Objects
+DELETE FROM `gameobject` WHERE `id` IN (180598, 180679, 180680, 180681, 180812, 180818, 180826, 180832, 180838);
 DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+1 AND @OGUID+9;
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES 

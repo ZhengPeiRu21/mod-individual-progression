@@ -1,5 +1,5 @@
 #include "IndividualProgression.h"
-
+#include "WorldState.h"
 
 class gobject_ipp_preaq : public GameObjectScript
 {
@@ -47,7 +47,7 @@ public:
             
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
             {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
             }
             else
             {
@@ -80,13 +80,13 @@ public:
             
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
             {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ_WAR);
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
             }
             else
             {
-                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ);
+                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
             }
         }
     };
@@ -115,13 +115,17 @@ public:
             
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40))
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5))
+            {
+                return target->GetLevel() == IP_LEVEL_TBC;
+            } 
+            else if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
             {
                 return sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
             }
             else
             {
-                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ);
+                return false;
             }
         }
     };
@@ -174,7 +178,7 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_TBC);
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
         }
     };
 
@@ -200,13 +204,65 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC);
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40);
         }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
     {
         return new gobject_ipp_tbcAI(object);
+    }
+};
+
+class gobject_ipp_tbc_t4 : public GameObjectScript
+{
+public:
+    gobject_ipp_tbc_t4() : GameObjectScript("gobject_ipp_tbc_t4") { }
+
+    struct gobject_ipp_tbc_t4AI: GameObjectAI
+    {
+        explicit gobject_ipp_tbc_t4AI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_3);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_tbc_t4AI(object);
+    }
+};
+
+class gobject_ipp_tbc_t5 : public GameObjectScript
+{
+public:
+    gobject_ipp_tbc_t5() : GameObjectScript("gobject_ipp_tbc_t5") { }
+
+    struct gobject_ipp_tbc_t5AI: GameObjectAI
+    {
+        explicit gobject_ipp_tbc_t5AI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_4);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_tbc_t5AI(object);
     }
 };
 
@@ -236,6 +292,32 @@ public:
     }
 };
 
+class gobject_ipp_wotlk_icc : public GameObjectScript
+{
+public:
+    gobject_ipp_wotlk_icc() : GameObjectScript("gobject_ipp_wotlk_icc") { }
+
+    struct gobject_ipp_wotlk_iccAI: GameObjectAI
+    {
+        explicit gobject_ipp_wotlk_iccAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_3);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_wotlk_iccAI(object);
+    }
+};
+
 class npc_ipp_preaq : public CreatureScript
 {
 public:
@@ -262,6 +344,37 @@ public:
     }
 };
 
+class npc_ipp_we_recruiters : public CreatureScript
+{
+public:
+    npc_ipp_we_recruiters() : CreatureScript("npc_ipp_we_recruiters") { }
+
+    struct npc_ipp_we_recruitersAI: ScriptedAI
+    {
+        explicit npc_ipp_we_recruitersAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+			
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+			
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ))
+                return true;
+
+            return false;			
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_we_recruitersAI(creature);
+    }
+};
+
 class npc_ipp_we : public CreatureScript
 {
 public:
@@ -282,7 +395,7 @@ public:
 			
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
             {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
             }
             else
             {
@@ -313,7 +426,7 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR);
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ);
         }
     };
 
@@ -341,13 +454,17 @@ public:
 			
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 			
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40))
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5))
+            {
+                return target->GetLevel() == IP_LEVEL_TBC;
+            } 
+            else if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
             {
                 return sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
-            }
+            }  
             else
             {
-                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ);
+                return false;
             }			
         }
     };
@@ -427,7 +544,7 @@ public:
             }
             
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());            
-            return sIndividualProgression->isBeforeProgression(target,PROGRESSION_PRE_TBC);
+            return sIndividualProgression->isBeforeProgression(target,PROGRESSION_NAXX40);
         }
     };
 
@@ -453,7 +570,7 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC);
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40);
         }
     };
 
@@ -538,6 +655,38 @@ public:
     CreatureAI* GetAI(Creature* creature) const override
     {
         return new npc_ipp_tbc_t5AI(creature);
+    }
+};
+
+class npc_suns_reach_reclamation_ipp_tbc_t5 : public CreatureScript
+{
+public:
+    npc_suns_reach_reclamation_ipp_tbc_t5() : CreatureScript("npc_suns_reach_reclamation_ipp_tbc_t5") { }
+
+    struct npc_suns_reach_reclamation_ipp_tbc_t5AI: ScriptedAI
+    {
+        /*explicit*/ npc_suns_reach_reclamation_ipp_tbc_t5AI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_4);
+        }
+    };
+
+    bool OnQuestReward(Player* /*player*/, Creature* /*creature*/, const Quest* quest, uint32 /*slot*/) override
+    {
+        sWorldState->AddSunsReachProgress(quest->GetQuestId());
+        return true;
+    }
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_suns_reach_reclamation_ipp_tbc_t5AI(creature);
     }
 };
 
@@ -675,22 +824,94 @@ public:
     }
 };
 
+class npc_training_dummy_ipp_wotlk : public CreatureScript
+{
+public:
+    npc_training_dummy_ipp_wotlk() : CreatureScript("npc_training_dummy_ipp_wotlk") { }
+
+    struct npc_training_dummy_ipp_wotlkAI : ScriptedAI
+    {
+        /*explicit*/ npc_training_dummy_ipp_wotlkAI(Creature* creature) : ScriptedAI(creature)
+        {
+            me->SetCombatMovement(false);
+            me->ApplySpellImmune(0, 0, 98, true); // ApplySpellImmune(0, IMMUNITY_EFFECT, SPELL_EFFECT_KNOCK_BACK, true)
+        }
+
+        uint32 resetTimer;
+
+        void Reset() override
+        {
+            me->CastSpell(me, 61204, true); // CastSpell(me, SPELL_STUN_PERMANENT, true)
+            resetTimer = 5000;
+        }
+
+        void EnterEvadeMode(EvadeReason why) override
+        {
+            if (!_EnterEvadeMode(why))
+                return;
+
+            Reset();
+        }
+
+        void DamageTaken(Unit*, uint32& damage, DamageEffectType, SpellSchoolMask) override
+        {
+            resetTimer = 5000;
+            damage = 0;
+        }
+
+        void UpdateAI(uint32 diff) override
+        {
+            if (!UpdateVictim())
+                return;
+
+            if (resetTimer <= diff)
+            {
+                EnterEvadeMode(EVADE_REASON_NO_HOSTILES);
+                resetTimer = 5000;
+            }
+            else
+                resetTimer -= diff;
+        }
+
+        void MoveInLineOfSight(Unit* /*who*/) override { }
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_training_dummy_ipp_wotlkAI(creature);
+    }
+};
+
 // Add all scripts in one
 void AddSC_mod_individual_progression_awareness()
 {
-    new gobject_ipp_preaq();   // wanted poster Cenarion Hold
-    new gobject_ipp_we();      // War Effort supplies in cities
-    new gobject_ipp_aqwar();   // AQ war crystals
-    new gobject_ipp_si();      // Scourge Invasion
+    new gobject_ipp_preaq();     // wanted poster Cenarion Hold
+    new gobject_ipp_we();        // War Effort supplies in cities
+    new gobject_ipp_aqwar();     // AQ war crystals
+    new gobject_ipp_si();        // Scourge Invasion
     new gobject_ipp_naxx40();
     new gobject_ipp_pre_tbc(); // stormwind pvp room
     new gobject_ipp_tbc();
+    new gobject_ipp_tbc_t4();
+    new gobject_ipp_tbc_t5();
     new gobject_ipp_wotlk();
-    new npc_ipp_preaq();       // Cenarion Hold NPCs
-    new npc_ipp_we();          // War Effort NPCs in cities
+    new gobject_ipp_wotlk_icc();
+    new npc_ipp_preaq();         // Cenarion Hold NPCs
+    new npc_ipp_we_recruiters(); // War effort recruiters
+    new npc_ipp_we();            // War Effort NPCs in cities
 	new npc_ipp_aq();
-    new npc_ipp_si();          // Scourge Invasion
-    new npc_ipp_pre_naxx40();  // Scourge Invasion
+    new npc_ipp_si();            // Scourge Invasion
+    new npc_ipp_pre_naxx40();    // Scourge Invasion
     new npc_ipp_naxx40();
     new npc_ipp_pre_tbc();     // vanilla pvp vendors
     new npc_ipp_tbc();
@@ -702,4 +923,6 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_wotlk_totc();
     new npc_ipp_wotlk_icc();
     new npc_ipp_ds2();
+    new npc_suns_reach_reclamation_ipp_tbc_t5();
+    new npc_training_dummy_ipp_wotlk();
 }

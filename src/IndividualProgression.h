@@ -108,6 +108,7 @@ enum ProgressionAreas
 {
     AREA_AZSHARA                         = 16,
     AREA_THE_DARK_PORTAL                 = 72,
+    AREA_TIRISFAL_RUINS                  = 153,
     AREA_DREADMAUL_ROCK                  = 249,
     AREA_RUINS_OF_THAURISSAN             = 250,
     AREA_BLACKROCK_MOUNTAIN              = 254,
@@ -122,6 +123,7 @@ enum ProgressionAreas
     AREA_THE_SHATTERED_STRAND            = 1228,
     AREA_SOUTHRIDGE_BEACH                = 1231,
     AREA_HALDARR_ENCAMPMENT              = 1236,
+    AREA_JAGGEDSWINE_FARM                = 1297,
     AREA_DREADMAUL_HOLD                  = 1437,
     AREA_DREADMAUL_POST                  = 1439,
     AREA_SERPENTS_COIL                   = 1440,
@@ -141,6 +143,18 @@ enum ProgressionAreas
     AREA_HIVE_ASHI                       = 2742,
     AREA_HIVE_ZORA                       = 2743,
     AREA_HIVE_REGAL                      = 2744,
+    AREA_HATCHET_HILLS                   = 3507,
+    AREA_AMANI_PASS                      = 3508,
+    AREA_SILVERMOON_S_PRIDE              = 4083,
+    AREA_SHATTERED_SUN_STAGING           = 4085,
+    AREA_SUN_S_REACH_SANCTUM             = 4086,
+    AREA_SUN_S_REACH_HARBOR              = 4087,
+    AREA_SUN_S_REACH_ARMORY              = 4088,
+    AREA_DAWNSTAR_VILLAGE                = 4089,
+    AREA_DAWNING_SQUARE                  = 4090,
+    AREA_GREENGILL_COAST                 = 4091,
+    AREA_SUNWELL_PLATEAU_EXTERIOR        = 4094,
+    AREA_MAGISTERS_TERRACE_EXTERIOR      = 4095,
     AREA_ARGENT_SUNREAVER_PAVILION       = 4666,
     AREA_ARGENT_SILVER_COVENANT_PAVILION = 4667,
     AREA_ARGENT_PAVILION                 = 4674
@@ -154,24 +168,22 @@ enum ProgressionSettings
 enum ProgressionState : uint8         // Progression stands for what has been completed
 {
     PROGRESSION_START           = 0,
-    PROGRESSION_MOLTEN_CORE     = 1,  // BWL available
-    PROGRESSION_ONYXIA          = 2, 
-    PROGRESSION_BLACKWING_LAIR  = 3,  // ZG, AQ War effort, AQ quest line
-    PROGRESSION_PRE_AQ          = 4,  // AQ gates open, raids available, AQ outdoors war 
-    PROGRESSION_AQ_WAR          = 5,  // AQ gates open, raids, Field Duty quests and all Cenarion Hold npcs available
-    PROGRESSION_AQ              = 6,  // Naxx40 and Scourge Invasion
-    PROGRESSION_NAXX40          = 7,  // Into the Breach
-    PROGRESSION_PRE_TBC         = 8,  // Karazhan, Gruul's Lair, Magtheridon's Lair
-    PROGRESSION_TBC_TIER_1      = 9,  // Serpentshrine Cavern, Tempest Keep
-    PROGRESSION_TBC_TIER_2      = 10, // Hyjal Summit and Black Temple
-    PROGRESSION_TBC_TIER_3      = 11, // Zul'Aman
-    PROGRESSION_TBC_TIER_4      = 12, // Sunwell Plateau
-    PROGRESSION_TBC_TIER_5      = 13, // WotLK Naxx, EoE, OS
-    PROGRESSION_WOTLK_TIER_1    = 14, // Ulduar
-    PROGRESSION_WOTLK_TIER_2    = 15, // TotC
-    PROGRESSION_WOTLK_TIER_3    = 16, // ICC
-    PROGRESSION_WOTLK_TIER_4    = 17, // Ruby Sanctum
-    PROGRESSION_WOTLK_TIER_5    = 18 
+    PROGRESSION_MOLTEN_CORE     = 1, // BWL available
+    PROGRESSION_ONYXIA          = 2,
+    PROGRESSION_BLACKWING_LAIR  = 3, // ZG, AQ War effort, AQ quest line
+    PROGRESSION_PRE_AQ          = 4, // AQ outdoors war + AQ gates open, raid available
+    PROGRESSION_AQ              = 5, // Naxx40 and Scourge Invasion
+    PROGRESSION_NAXX40          = 6, // Karazhan, Gruul's Lair, Magtheridon's Lair
+    PROGRESSION_TBC_TIER_1      = 7, // Serpentshrine Cavern, Tempest Keep
+    PROGRESSION_TBC_TIER_2      = 8, // Hyjal Summit and Black Temple
+    PROGRESSION_TBC_TIER_3      = 9, // Zul'Aman
+    PROGRESSION_TBC_TIER_4      = 10, // Sunwell Plateau
+    PROGRESSION_TBC_TIER_5      = 11, // WotLK Naxx, EoE, OS
+    PROGRESSION_WOTLK_TIER_1    = 12, // Ulduar
+    PROGRESSION_WOTLK_TIER_2    = 13, // TotC
+    PROGRESSION_WOTLK_TIER_3    = 14, // ICC
+    PROGRESSION_WOTLK_TIER_4    = 15, // Ruby Sanctum
+    PROGRESSION_WOTLK_TIER_5    = 16  
 };
 
 enum RandomDungeonIds : uint16
@@ -227,7 +239,7 @@ public:
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-    bool enabled, questXpFix, hunterPetLevelFix, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, pvpGearRequirements, excludeAccounts;
+    bool enabled, questXpFix, hunterPetLevelFix, moltenCoreOnySamePhase, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, naxxExitViaPortals, naxxSkipToSaphiron, dynamicPhasingEventMobs, pvpGearRequirements, excludeAccounts;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression;
     std::string excludedAccountsRegex;
 
@@ -247,6 +259,11 @@ public:
     static void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment);
     static float ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);
+    static bool isAttunedNaxx(Player* player);
+    bool isExcludedFromProgression(Player* player);
+    bool isMonsterFromAqEvent(Unit* unit);
+    bool isMonsterFromDarkPortalEvent(Unit* unit);
+    bool isMonsterFromScourgeEvent(Unit* unit);
 };
 
 #define sIndividualProgression IndividualProgression::instance()

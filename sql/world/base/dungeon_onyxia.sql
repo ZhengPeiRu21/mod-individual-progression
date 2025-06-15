@@ -907,11 +907,11 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 DELETE FROM `dungeon_access_template` WHERE `id`=123;
 INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES
-(123, 249, 2, 50, 0, 0, 'Onyxia\'s Lair - 40man');
+(123, 249, 2, 50, 0, 0, 'Onyxia''s Lair - 40man');
 
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 123;
 INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES
-(123, 2, 16309, 'You must have the Drakefire Amulet in your inventory before entering Onyxia\'s Lair.', 2, NULL, 0, '');
+(123, 2, 16309, 'You must have the Drakefire Amulet in your inventory before entering Onyxia''s Lair.', 2, NULL, 0, '');
 
 DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = 249;
 INSERT INTO `mapdifficulty_dbc` (`ID`, `MapID`, `Difficulty`, `RaidDuration`, `MaxPlayers`, `Difficultystring`) VALUES
@@ -927,7 +927,7 @@ INSERT INTO `instance_encounters` (`entry`, `creditType`, `creditEntry`, `lastEn
 
 DELETE FROM `lfgdungeons_dbc` WHERE `ID` = 1000;
 INSERT INTO `lfgdungeons_dbc` VALUES
-(1000,"Onyxia\\'s Lair (Vanilla)","","","","","","","","","","","","","","","",16712190,60,83,60,60,83,249,2,0,2,-1,"",2,0,9,"","","","","","","","","","","","","","","","",16712188);
+(1000,"Onyxia''s Lair (Vanilla)","","","","","","","","","","","","","","","",16712190,60,83,60,60,83,249,2,0,2,-1,"",2,0,9,"","","","","","","","","","","","","","","","",16712188);
 
 -- Victory for the Alliance - Bolvar or Varian
 DELETE FROM `creature_questender` WHERE `quest` = 7495;
@@ -981,8 +981,8 @@ UPDATE `quest_template` SET `Flags` = 0 WHERE `ID` IN (7507, 7508); -- these wer
 UPDATE `quest_template` SET `Flags` = 64 WHERE `ID` = 7509;
 
 -- Unfired Ancient Blade
-UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 0, `description` = 'Bring this blade with you to Onyxia\'s Lair.' WHERE `entry` = 18489; -- was flagged as depreciated item
-    
+UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 0, `description` = 'Bring this blade with you to Onyxia''s Lair.' WHERE `entry` = 18489; -- was flagged as depreciated item
+UPDATE `item_template` SET `spellid_1` = 22905 WHERE `entry` = 18489; /* addition, want to keep the base spell on item */
 DELETE FROM `creature_queststarter` WHERE `quest` = 7509;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (14368, 7509);
@@ -1010,18 +1010,18 @@ DELETE FROM `npc_text` WHERE `ID` IN (60040, 60041, 60042, 60043, 60044, 60045, 
 INSERT INTO `npc_text` (`ID`, `text0_0`,  `BroadcastTextID0`) VALUES
 (60040, '<Lydros reaches into his robe and presents you with a dull, flat elven blade.>$b$BIn ages past, well before even the War of the Ancients, there existed this blade.', 0),
 (60041, 'The blade itself had to be crafted IN ceremony with the children of the Aspects. A rare occurrence indeed... for not only would a dragon have TO willingly heat and mold the enchanted metal with their breath, they would also need to contain the fury of their own enchantment by using their blood as temper.', 0),
-(60042, 'Over the course of 8,000 years, only a handful of these blades were created - each blade unique in both power and appearance. The blades of Quel\'Serrar would take ON the characteristics of their creator.', 0),
-(60043, 'Rumors exist of a single legendary blade of Quel\'Serrar crafted for an unknown entity by the combined might of the five Aspects. Before the abominations of Nefarian and Deathwing were thrust into our world, such meetings of the Aspect were represented by the term \'Prismatic.\' I could only assume that the Prismatic Blade of Quel\'Serrar was a most glorious creation.', 0),
+(60042, 'Over the course of 8,000 years, only a handful of these blades were created - each blade unique in both power and appearance. The blades of Quel''Serrar would take ON the characteristics of their creator.', 0),
+(60043, 'Rumors exist of a single legendary blade of Quel''Serrar crafted for an unknown entity by the combined might of the five Aspects. Before the abominations of Nefarian and Deathwing were thrust into our world, such meetings of the Aspect were represented by the term ''Prismatic''. I could only assume that the Prismatic Blade of Quel''Serrar was a most glorious creation.', 0),
 (60044, 'What I offer to you now is one such blade, unfired, unheated, untreated - the most raw and basic form.$b$bNow you merely need TO find a dragon that will willingly enchant the blade.$b$bIf you had an eternity to live,this might be a possibility; but since you are mortal and could very likely cease to exist at any moment, might I recommend trying to persuade one of the lesser dragons to do your bidding.', 0),
 (60045, 'Have you heard of the brood mother of the Black Flight? I believe she is called Onyxia...', 0),
 (60046, 'I have sensed your coming for quite some time, $n. It was written in the pattern of stars.', 0);
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` IN (14, 15) AND `SourceGroup` = 5747;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(14,5747,60040,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to have Foror\'s Compendium rewarded'),
-(14,5747,60040,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to not have The Forging of Quel\'Serrar rewarded'),
-(15,5747,0,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel\'Serrar Gossip Option - Requires to have Foror\'s Compendium rewarded'),
-(15,5747,0,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel\'Serrar Gossip Option - Requires to not have The Forging of Quel\'Serrar rewarded');
+(14,5747,60040,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel''Serrar Gossip - Requires to have Foror''s Compendium rewarded'),
+(14,5747,60040,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel''Serrar Gossip - Requires to not have The Forging of Quel''Serrar rewarded'),
+(15,5747,0,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel''Serrar Gossip Option - Requires to have Foror''s Compendium rewarded'),
+(15,5747,0,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel''Serrar Gossip Option - Requires to not have The Forging of Quel''Serrar rewarded');
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (5747, 60040, 60041, 60042, 60043, 60044, 60045, 60046);
 INSERT INTO `gossip_menu_option` (`menuID`, `optionid`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
@@ -1052,3 +1052,10 @@ INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
 (2848, 'onyxia_entrance_trigger');
 
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `map` = 249;
+
+/* Classic onyxia head quest locale fix for non EN langs */
+/* Was set as Garrosh, correct warchief is Thrall */
+UPDATE `quest_template_locale` SET `Objectives` = 'Bringt Onyxias Kopf zu Thrall in Orgrimmar.' WHERE `ID` = 7490 AND `locale` = 'deDE';
+UPDATE `quest_template_locale` SET `Objectives` = 'LLeva la cabeza de Onyxia a Thrall a Orgrimmar.' WHERE `ID` = 7490 AND `locale` = 'esES';
+UPDATE `quest_template_locale` SET `Objectives` = 'LLeva la cabeza de Onyxia a Thrall a Orgrimmar.' WHERE `ID` = 7490 AND `locale` = 'esMX';
+UPDATE `quest_template_locale` SET `Objectives` = 'Apportez la tête de Onyxia à Thrall à Orgrimmar.' WHERE `ID` = 7490 AND `locale` = 'frFR';

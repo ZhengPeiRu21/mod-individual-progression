@@ -1,3 +1,4 @@
+#include "IndividualProgression.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
@@ -7,18 +8,6 @@
 
 class npc_naxx40_area_trigger : public CreatureScript
 {
-private:
-    static bool isAttuned(Player* player)
-    {
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED)
-            return true;
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED)
-            return true;
-        if (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED)
-            return true;
-        return false;
-    }
-
 public:
     npc_naxx40_area_trigger() : CreatureScript("npc_naxx40_area_trigger") {}
 
@@ -34,12 +23,15 @@ public:
             if (who && me->GetDistance2d(who) < 5.0f)
             {
                 if (Player* player = who->ToPlayer())
-                {
-                    if (isAttuned(player))
+                {   
+                    if (sIndividualProgression->isAttunedNaxx(player)
+                        || sIndividualProgression->isExcludedFromProgression(player)
+                        || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
                     {
+                        player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
                         player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                        player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
-                    }
+                        player->TeleportTo(533, 3006.05f, -3466.81f, 298.219f, 4.6824f);
+                    }  
                 }
 
             }
@@ -47,13 +39,13 @@ public:
             {
                 if (Player* player = who->ToPlayer())
                 {
-                    if (isAttuned(player))
+                    if (sIndividualProgression->isAttunedNaxx(player)
+                        || sIndividualProgression->isExcludedFromProgression(player)
+                        || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
                     {
                         GameObject* door = me->FindNearestGameObject(GO_STRATH_GATE_40, 100.0f);
                         if (door)
-                        {
                             door->SetGoState(GO_STATE_ACTIVE);
-                        }
                     }
                 }
             }

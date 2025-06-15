@@ -18,6 +18,7 @@
 #include "CellImpl.h"
 #include "GridNotifiers.h"
 #include "GridNotifiersImpl.h"
+#include "IndividualProgression.h"
 #include "PassiveAI.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
@@ -765,27 +766,6 @@ public:
             return 0;
         }
 
-        bool AreAllWingsCleared() const
-        {
-            return (GetBossState(BOSS_MAEXXNA) == DONE) && (GetBossState(BOSS_LOATHEB) == DONE) && (GetBossState(BOSS_THADDIUS) == DONE) && (GetBossState(BOSS_HORSEMAN) == DONE);
-        }
-
-        bool CheckRequiredBosses(uint32 bossId, Player const* /* player */) const override
-        {
-            switch (bossId)
-            {
-                case BOSS_SAPPHIRON:
-                    if (!AreAllWingsCleared())
-                    {
-                        return false;
-                    }
-                    break;
-                default:
-                    break;
-            }
-            return true;
-        }
-
         void Load(const char* data) override
         {
             _horsemanLoadDoneState = true;
@@ -1363,27 +1343,28 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
-        if (player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
+        if (!player->IsAlive() || player->IsInCombat())
+            return false;
+
+        InstanceScript* instance = player->GetInstanceScript();
+        if (!instance)
+            return false;
+
+        if ((player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC && sIndividualProgression->naxxSkipToSaphiron) 
+        || (player->GetMap()->GetSpawnMode() != RAID_DIFFICULTY_10MAN_HEROIC && sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1)))
         {
-            InstanceScript* instance = player->GetInstanceScript();
-            for (int i = 0; i < BOSS_SAPPHIRON; ++i)
-            {
-                if (instance->GetBossState(i) != DONE)
-                    return false;
-            }
+            player->TeleportTo(533, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
+            return true;
         }
-        if (player->IsAlive() && !player->IsInCombat())
-        {
-            if (InstanceScript *instance = player->GetInstanceScript())
-            {
-                if (instance->CheckRequiredBosses(BOSS_SAPPHIRON))
-                {
-                    player->TeleportTo(533, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
-                    return true;
-                }
-            }
-        }
-        return false;
+
+        if ((instance->GetBossState(BOSS_MAEXXNA)  != DONE) ||
+            (instance->GetBossState(BOSS_LOATHEB)  != DONE) ||
+            (instance->GetBossState(BOSS_THADDIUS) != DONE) ||
+            (instance->GetBossState(BOSS_HORSEMAN) != DONE))
+            return false;
+
+        player->TeleportTo(533, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
+        return true;
     }
 };
 
@@ -1445,8 +1426,24 @@ public:
         if (player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
         {
             // Naxx 40 cannot be exited via portals, as in Classic
-            return false;
+            if (!sIndividualProgression->naxxExitViaPortals)
+                return false;
+            else // Naxx 40 can be exited via portals (option in conf)
+            {
+                switch (areaTrigger->entry)
+                {
+                    case 5196:
+                    case 5197:
+                    case 5198:
+                    case 5199:
+                        player->TeleportTo(0, 3091.26f, -3874.52f, 138.36f, 3.31f);
+                        break;
+                }
+
+                return true;
+            }
         }
+
         switch (areaTrigger->entry)
         {
             // Naxx 10 and 25 exits
@@ -1490,7 +1487,7 @@ public:
             player->CompleteQuest(NAXX40_ENTRANCE_FLAG);
             player->RewardQuest(quest, 0, player, false, false);
             // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
-            player->CastSpell(player, 29296, true); // for visual effect only, possible crash if cast on login
+            //player->CastSpell(player, 29296, true); // for visual effect only, possible crash if cast on login
         }
     }
 };

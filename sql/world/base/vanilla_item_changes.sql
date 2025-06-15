@@ -18902,16 +18902,10 @@ UPDATE `item_template` SET `armor` = 75, `BuyPrice` = 254585, `SellPrice` = 5091
 UPDATE `item_template` SET `armor` = 58, `BuyPrice` = 255547, `SellPrice` = 51109 WHERE entry=22519;
 
 /*  Atiesh, Greatstaff of the Guardian  */
-UPDATE `item_template` SET `BuyPrice` = 2810084, `SellPrice` = 562016, `spellid_5` = 0, `spelltrigger_5` = 0 WHERE entry=22589;
-
-/*  Atiesh, Greatstaff of the Guardian  */
-UPDATE `item_template` SET `BuyPrice` = 2819221, `SellPrice` = 563844, `spellid_5` = 0, `spelltrigger_5` = 0 WHERE entry=22630;
-
-/*  Atiesh, Greatstaff of the Guardian  */
-UPDATE `item_template` SET `BuyPrice` = 2631380, `SellPrice` = 526276, `spellid_4` = 0, `spelltrigger_4` = 0 WHERE entry=22631;
-
-/*  Atiesh, Greatstaff of the Guardian  */
-UPDATE `item_template` SET `BuyPrice` = 2641323, `SellPrice` = 528264, `dmg_min1` = 130.0, `dmg_max1` = 243.0, `spellid_3` = 28154, `spellid_5` = 0, `spelltrigger_5` = 0 WHERE entry=22632;
+UPDATE `item_template` SET `AllowableClass` = 128, `BuyPrice` = 2810084, `SellPrice` = 562016, `spellid_5` = 0, `spelltrigger_5` = 0 WHERE `entry` = 22589;
+UPDATE `item_template` SET `AllowableClass` = 256, `BuyPrice` = 2819221, `SellPrice` = 563844, `spellid_5` = 0, `spelltrigger_5` = 0 WHERE `entry` = 22630;
+UPDATE `item_template` SET `AllowableClass` = 16, `BuyPrice` = 2631380, `SellPrice` = 526276, `spellid_4` = 0, `spelltrigger_4` = 0 WHERE `entry` = 22631;
+UPDATE `item_template` SET `AllowableClass` = 1024, `BuyPrice` = 2641323, `SellPrice` = 528264, `dmg_min1` = 130.0, `dmg_max1` = 243.0, `spellid_3` = 28154, `spellid_5` = 0, `spelltrigger_5` = 0 WHERE `entry` = 22632;
 
 /*  Outrider's Plate Legguards  */
 UPDATE `item_template` SET `armor` = 646, `BuyPrice` = 165737, `SellPrice` = 33147 WHERE entry=22651;

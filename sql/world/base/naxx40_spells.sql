@@ -102,3 +102,7 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (29371, 'spel
 -- Wrath of the Plaguebringer, damage if failed to decurse
 DELETE FROM `spell_script_names` WHERE `spell_id` = 29213;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (29213, 'spell_noth_curse_of_the_plaguebringer_aura_40');
+
+-- Addition, Adjust eye portal teleportation at the end of each wing
+DELETE FROM `spell_target_position` WHERE (`ID` = 28444);
+INSERT INTO `spell_target_position` (`ID`, `EffectIndex`, `MapID`, `PositionX`, `PositionY`, `PositionZ`, `Orientation`, `VerifiedBuild`) VALUES (28444, 0, 533, 3006.05, -3466.81, 298.219, 4.6824, 0);

@@ -23,9 +23,11 @@ UPDATE `item_template` SET `spellcooldown_1` = 0, `spellcategorycooldown_1` = 0 
    This change reduces the number of Firesworn to only 4, making the fight more reasonable for a smaller party without
    having to resort to excessive scaling.
  */
+ /*
 DELETE FROM `creature` WHERE `guid` IN (56628, 56619, 56622, 56610);
 DELETE FROM `creature_formations` WHERE `memberGUID` IN (56628, 56619, 56622, 56610);
 DELETE FROM `linked_respawn` WHERE `guid` IN (56628, 56619, 56622, 56610);
+*/
 
 /* -- Restore Firesworn in Garr fight (if needed) -- */
 /* DELETE FROM `creature` WHERE `guid` IN (56628, 56619, 56622, 56610);
