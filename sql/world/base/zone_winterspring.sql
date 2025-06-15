@@ -20,4 +20,4 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10737, 0, 0, 0, 0, 0, 100, 0, 5000, 5000, 5000, 10000, 0, 0, 11, 14100, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Shy-Rotam - In Combat - Cast Terrifying Roar '),
 (10737, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 22000, 27000, 0, 0, 11, 13443, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Shy-Rotam - In Combat - Cast Rend'),
 (10737, 0, 2, 0, 0, 0, 100, 0, 2000, 3000, 15000, 20000, 0, 0, 11, 3604, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Shy-Rotam - In Combat - Cast Tendon Rip'),
-(10737, 0, 3, 0, 2, 0, 100, 1, 40, 60, 0, 0, 0, 0, 12, 10741, 1, 180000, 0, 0, 0, 8, 0, 0, 0, 0, 8074.84, -3840, 690.061, 4.6, 'Shy-Rotam - Between 40-60% health - Summon Creature Sian-Rotam (No Repeat)');
+(10737, 0, 3, 0, 2, 0, 100, 1, 25, 50, 0, 0, 0, 0, 12, 10741, 1, 180000, 0, 0, 0, 8, 0, 0, 0, 0, 8074.84, -3840, 690.061, 4.6, 'Shy-Rotam - Between 25-50% health - Summon Creature Sian-Rotam (No Repeat)');
