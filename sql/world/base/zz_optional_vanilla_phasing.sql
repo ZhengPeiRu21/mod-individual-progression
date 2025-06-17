@@ -10,6 +10,8 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_preaq' WHERE `map` = 0 AND `
 /* 1.9 - AQ */
 /* AQ meeting stone phased until pre-aq phase (at least) */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_preaq' WHERE `map` = 1 AND `id` IN (185322);
+/* Landro for TCG promotion in Booty Bay */
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` = 17249;
 
 /* 1.11 - Naxxramas */
 /* Naxx Vanilla meeting stone phased until appropriate phase */
@@ -40,6 +42,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 17218, -- Huraan, Southshore
 17223, -- Ambassador Rualeth, Aerie Peak
 17238, -- Anchorite Truuen, Western Plaguelands
+21045, -- Landro Hired Bodyguard, Booty Bay
 22931, -- Gorrim, Emerald Sanctuary, Flight Master
 23131, -- Blood Knight Honor Guard, Orgrimmar
 24366, -- Nizzle, Rebel Camp, Flight Master
@@ -141,3 +144,6 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (347,
 /* Hide barber in Kalimdor/Eastern Kingdom/Outland until WotLK - disabled by default, because most players will expect barbers to be there */
 /* UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` IN (0, 1, 530) AND `id1` IN (29139, 29141, 29142, 29143, 29145);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `map` IN (0, 1, 530) AND `id` IN (190683, 190684, 190697, 190698, 190699, 190704, 190710, 190711, 190712, 191028, 191029, 191030); */
+
+/* Hide training dummy in Kalimdor/Eastern Kingdom/Outland until WotLK - disabled by default, because most players will expect dummies to be there */
+/* UPDATE `creature` SET `ScriptName` = 'npc_training_dummy_ipp_wotlk' WHERE `map` IN (0, 1, 530) AND `id1` IN (31144, 31146, 32666, 32667); */

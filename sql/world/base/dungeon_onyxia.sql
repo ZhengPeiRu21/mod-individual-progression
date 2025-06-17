@@ -1052,3 +1052,10 @@ INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
 (2848, 'onyxia_entrance_trigger');
 
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `map` = 249;
+
+/* Classic onyxia head quest locale fix for non EN langs */
+/* Was set as Garrosh, correct warchief is Thrall */
+UPDATE `quest_template_locale` SET `Objectives` = 'Bringt Onyxias Kopf zu Thrall in Orgrimmar.' WHERE `ID` = 7490 AND `locale` = 'deDE';
+UPDATE `quest_template_locale` SET `Objectives` = 'LLeva la cabeza de Onyxia a Thrall a Orgrimmar.' WHERE `ID` = 7490 AND `locale` = 'esES';
+UPDATE `quest_template_locale` SET `Objectives` = 'LLeva la cabeza de Onyxia a Thrall a Orgrimmar.' WHERE `ID` = 7490 AND `locale` = 'esMX';
+UPDATE `quest_template_locale` SET `Objectives` = 'Apportez la tête de Onyxia à Thrall à Orgrimmar.' WHERE `ID` = 7490 AND `locale` = 'frFR';
