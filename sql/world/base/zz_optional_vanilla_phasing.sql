@@ -10,12 +10,12 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_preaq' WHERE `map` = 0 AND `
 /* 1.9 - AQ */
 /* AQ meeting stone phased until pre-aq phase (at least) */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_preaq' WHERE `map` = 1 AND `id` IN (185322);
+/* Landro for TCG promotion in Booty Bay */
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` = 17249;
 
 /* 1.11 - Naxxramas */
 /* Naxx Vanilla meeting stone phased until appropriate phase */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `map` = 0 AND `id` IN (193166);
-/* Landro for TCG promotion in Booty Bay */
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` = 17249;
 
 /* Flight masters at Ratchet and Marshal's Refuge were originally added in patch 1.11 - disabled by default, because most players will expect these npcs to be there */
 /* UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (
