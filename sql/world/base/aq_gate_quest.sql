@@ -12,7 +12,7 @@ INSERT INTO `gameobject` (`id`, `map`, `position_x`, `position_y`, `position_z`,
 
 -- Ghost Gate - should not be placed, remove it if it is present
 DELETE FROM `gameobject` WHERE `id`=180322;
-# INSERT INTO `gameobject` (`id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES (180322, 1, -8132.76, 1525.19, 6.19048, 6.27739, 0.00289526, -0.999996, 25, 100, 1);
+-- INSERT INTO `gameobject` (`id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`) VALUES (180322, 1, -8132.76, 1525.19, 6.19048, 6.27739, 0.00289526, -0.999996, 25, 100, 1);
 
 -- Gate of Ahn'Qiraj
 UPDATE `gameobject_template_addon` SET `flags`=4 WHERE `entry`=176146;
