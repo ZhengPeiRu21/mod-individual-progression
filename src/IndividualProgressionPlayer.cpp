@@ -1256,10 +1256,25 @@ public:
     }
 };
 
+class IndividualPlayerProgression_GameObjectScript : public GameObjectScript
+{
+public:
+    IndividualPlayerProgression_GameObjectScript() : GameObjectScript("IndividualProgression_GameObjectScript") { }
+
+    bool OnQuestAccept(Player* player, GameObject* go, Quest const* quest) override
+    {
+        if (quest->GetQuestId() == 8519) // A PAWN ON THE ETERNAL BOARD
+            player->CompleteQuest(8519);
+
+        return true;
+    }
+};
+
 void AddSC_mod_individual_progression_player()
 {
     new IndividualPlayerProgression();
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();
+    new IndividualPlayerProgression_GameObjectScript();
 }
