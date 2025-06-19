@@ -4,6 +4,9 @@ UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=10506;
 -- Frail Skeleton
 UPDATE `creature_template` SET `minlevel`=1, `maxlevel`=1, `faction`=233 WHERE `entry`=11258;
 
+-- Darkmaster Gandling - fix his shout message not displaying
+UPDATE `creature_text` SET `TextRange` = 1 WHERE `CreatureID` = 1853;
+
 
 DELETE FROM `smart_scripts` WHERE `entryorguid` IN (10477, 14511);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
