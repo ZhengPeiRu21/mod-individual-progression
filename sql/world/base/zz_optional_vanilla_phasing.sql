@@ -46,27 +46,6 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 22931, -- Gorrim, Emerald Sanctuary, Flight Master
 23131, -- Blood Knight Honor Guard, Orgrimmar
 24366, -- Nizzle, Rebel Camp, Flight Master
-24924, -- Sky-Captain Bomblast, Zep
-24926, -- Chief Officer Brassbolt, Zep
-24927, -- Navigator Sparksizzle, Zep
-24929, -- Crewman Crosswire, Zep
-24930, -- Crewman Gazzlegear, Zep
-24931, -- Crewman Fastwrench, Zep
-24934, -- Snack-O-Matic IV, Zep
-24935, -- Vend-O-Tron D-Luxe, Zep
-25070, -- Chief Officer Coppernut, Zep
-25071, -- Crewman Rusthammer, Zep
-25072, -- Crewman Quickfix, Zep
-25074, -- Crewman Sparkfly, Zep
-25075, -- Zeppelin Controls, Zep
-25076, -- Navigator Fairweather, Zep
-25077, -- Sky-Captain Cloudkicker, Zep
-25100, -- Chief Officer Hammerflange, Zep
-25101, -- Crewman Cutpipe, Zep
-25102, -- Crewman Spinshaft, Zep
-25103, -- Crewman Boltshine, Zep
-25104, -- Navigator Hatch, Zep
-25105, -- Sky-Captain Cableclamp, Zep
 27705, -- Lorrin Foxfire, Stonard
 29093, -- Ian Drake, Stormwind
 29095, -- Edward Cairn, Undercity
@@ -116,17 +95,7 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 49832; -
 
 /* 3.0+ - NPCs/Gobjects added in Eastern/Kalimdor during WotLK pre-patch or more */
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
-26537, -- Greeb Ramrocket, Zep
-26539, -- Meefi Farthrottle, Zep
 29346, -- Apothecary Karlov, Orgrimmar
-31704, -- Crewman Spinwheel, Zep
-31705, -- Crewman Coilspan, Zep
-31706, -- Crewman Stembolt, Zep
-31716, -- Sky-Captain Cryoflight, Zep
-31720, -- Crewman Shubbscoop, Zep
-31723, -- Crewman Barrowswizzle, Zep
-31724, -- Crewman Paltertop, Zep
-31725 -- Sky-Captain LaFontaine, Zep
 );
 
 /* Hide mailboxes, see: https://www.wowhead.com/classic/object=32349/mailbox */

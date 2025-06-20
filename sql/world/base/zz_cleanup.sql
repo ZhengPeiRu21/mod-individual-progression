@@ -37,3 +37,8 @@ DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Nakodu, @Urgronn, 
 DELETE FROM `creature` WHERE `id1` IN (@Nakodu, @Urgronn, @Ulrike);
 DELETE FROM `npc_vendor` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
 DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Ulrike;
+
+-- UNDO transport NPCs phasing
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (
+24924,24926,24927,24929,24930,24931,24934,24935,25070,25071,25072,25074,25075,25076,25077,25100,25101,25102,25103,25104,25105,
+26537,26539,31704,31705,31706,31716,31720,31723,31724,31725);
