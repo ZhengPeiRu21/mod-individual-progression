@@ -28,10 +28,10 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (15006, 0, 23160, 0, 0, 0, 0), -- Deze Snowbane
 (15006, 0, 23161, 0, 0, 0, 0);
 
-UPDATE `creature` SET `npcflag` = 179 WHERE `guid` = 1803;
-UPDATE `creature` SET `npcflag` = 179 WHERE `guid` = 26771;
+UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 1803;
+UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 26771;
 UPDATE `creature` SET `npcflag` = 129 WHERE `guid` = 38112;
-UPDATE `creature` SET `npcflag` = 177 WHERE `guid` = 46320;
+UPDATE `creature` SET `npcflag` = 689 WHERE `guid` = 46320;
 UPDATE `creature` SET `npcflag` = 1048705 WHERE `guid` = 208240;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (2482, 3044, 4165, 5173, 5698, 15006);
@@ -45,7 +45,10 @@ SET @Deze      := 115006;
 
 -- Create copies with script npc_ipp_pre_naxx40
 DELETE FROM `creature_template` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, 
+`detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
+`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+
 (@Zarena, 0, 0, 0, 0, 0, 'Zarena Cromwind', 'Superior Weaponsmith', NULL, 0, 43, 43, 0, 120, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.2, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Miles, 0, 0, 0, 0, 0, 'Miles Welsh', 'Priest Trainer', NULL, 4533, 40, 40, 0, 68, 51, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 0, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.15, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Elissa, 0, 0, 0, 0, 0, 'Elissa Dumas', 'Portal Trainer', NULL, 4821, 35, 35, 0, 80, 49, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.45, 2000, 2000, 1, 1, 8, 512, 2048, 0, 0, 0, 0, 8, 0, 7, 134217728, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.1, 1, 1.6, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
@@ -119,7 +122,8 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@Deze, 0, 15112, 1, 1, 12340);
 
 DELETE FROM `creature` WHERE `id1` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (602482, @Zarena, 0, 0, 0, 0, 0, 1, 1, 0, -14379.1, 412.672, 6.8203, 5.70723, 300, 0, 0, 2059, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (603044, @Miles, 0, 0, 1, 0, 0, 1, 1, 1, -956.24, 252.418, 97.8755, 4.2237, 250, 0, 0, 1753, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (604165, @Elissa, 0, 0, 1, 0, 0, 1, 1, 1, 9658.69, 2508.7, 1331.7, 2.25148, 300, 0, 0, 992, 2680, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -148,6 +152,20 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (@Zarena, 0, 12163, 1, 7200, 0, 0),
 (@Zarena, 0, 12251, 1, 3600, 0, 0),
 (@Zarena, 0, 12252, 1, 43200, 0, 0);
+
+DELETE FROM `npc_trainer` WHERE `ID` = @Elissa;
+INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES 
+(@Elissa, 3565, 8000, 0, 0, 20, 0),
+(@Elissa, 11419, 32000, 0, 0, 50, 0);
+
+DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4533 AND `OptionID` = 3;
+DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4566 AND `OptionID` = 3; 
+DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4821 AND `OptionID` = 1;
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, 
+`ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES 
+(4533, 3, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(4566, 3, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(4821, 1, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0);
 
 DELETE FROM `battlemaster_entry` WHERE `entry` = @Deze;
 INSERT INTO `battlemaster_entry` (`entry`, `bg_template`) VALUES (@Deze, 3);
