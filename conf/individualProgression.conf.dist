@@ -134,10 +134,10 @@ IndividualProgression.RequirePreAQQuests = 1
 #        Description: The hostile mobs from Scourge Invasion event and AQ War event become dynamically phased.
 #                     If enabled, they become visible and attackable by every players if they are pulled by a player on the appropriate phase.
 #                     If disabled, they are visible and attackable only by players on the appropriate phase.
-#        Default:     0 - Disabled
-#                     1 - Enabled
+#        Default:     false - Disabled
+#                     true - Enabled
 #
-IndividualProgression.DynamicPhasingEventMobs = 0;
+IndividualProgression.DynamicPhasingEventMobs = false;
 
 # IndividualProgression.RequireNaxxStrathEntrance
 #        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme

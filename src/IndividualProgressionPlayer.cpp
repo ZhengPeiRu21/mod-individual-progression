@@ -1176,8 +1176,8 @@ public:
         if (!sIndividualProgression->enabled)
             return;
 
-        // if(!sIndividualProgression->dynamicPhasingEventMobs)
-        //     return;
+        if(!sIndividualProgression->dynamicPhasingEventMobs)
+            return;
 
         if (victim->IsPlayer()
             && (sIndividualProgression->isMonsterFromAqEvent(unit) || sIndividualProgression->isMonsterFromDarkPortalEvent(unit) || sIndividualProgression->isMonsterFromScourgeEvent(unit)))
@@ -1200,8 +1200,8 @@ public:
         if (!sIndividualProgression->enabled)
             return;
 
-        // if(!sIndividualProgression->dynamicPhasingEventMobs)
-        //     return;
+        if(!sIndividualProgression->dynamicPhasingEventMobs)
+            return;
 
         if (sIndividualProgression->isMonsterFromAqEvent(unit)
             || sIndividualProgression->isMonsterFromDarkPortalEvent(unit))
@@ -1222,8 +1222,8 @@ public:
         if (!sIndividualProgression->enabled)
             return;
 
-        // if(!sIndividualProgression->dynamicPhasingEventMobs)
-        //     return;
+        if(!sIndividualProgression->dynamicPhasingEventMobs)
+            return;
 
         if (sIndividualProgression->isMonsterFromAqEvent(unit)
             || sIndividualProgression->isMonsterFromDarkPortalEvent(unit))
@@ -1257,19 +1257,19 @@ public:
     }
 };
 
-class IndividualPlayerProgression_GameObjectScript : public GameObjectScript
-{
-public:
-    IndividualPlayerProgression_GameObjectScript() : GameObjectScript("IndividualProgression_GameObjectScript") { }
+// class IndividualPlayerProgression_GameObjectScript : public GameObjectScript
+// {
+// public:
+//     IndividualPlayerProgression_GameObjectScript() : GameObjectScript("IndividualProgression_GameObjectScript") { }
 
-    bool OnQuestAccept(Player* player, GameObject* go, Quest const* quest) override
-    {
-        if (quest->GetQuestId() == 8519) // A PAWN ON THE ETERNAL BOARD
-            player->CompleteQuest(8519);
+//     bool OnQuestAccept(Player* player, GameObject* go, Quest const* quest) override
+//     {
+//         if (quest->GetQuestId() == 8519) // A PAWN ON THE ETERNAL BOARD
+//             player->CompleteQuest(8519);
 
-        return true;
-    }
-};
+//         return true;
+//     }
+// };
 
 class IndividualPlayerProgression_AllMapScript : public AllMapScript
 {
