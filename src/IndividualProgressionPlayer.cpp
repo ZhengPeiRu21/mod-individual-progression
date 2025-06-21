@@ -14,27 +14,12 @@ private:
                 zoneId == ZONE_VEILED_SEA);
     }
 
-    void TeleportOutsideRestoredRaid(Player *player)
-    {
-        switch (player->GetMapId())
-        {
-            case MAP_NAXXRAMAS:
-                player->TeleportTo(0, 3091.26f, -3874.52f, 138.36f, 3.31f);
-                break;
-            case MAP_ONYXIAS_LAIR:
-                player->TeleportTo(1, -4712.945f, -3730.93f, 54.17f, 5.18f);
-                break;
-            default:
-                break;
-        }
-    }
-
 public:
     IndividualPlayerProgression() : PlayerScript("IndividualProgression") { }
 
     void OnPlayerLogin(Player* player) override
     {
-        TeleportOutsideRestoredRaid(player);
+        sIndividualProgression->TeleportOutsideRestoredRaid(player);
 
         if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
         {
@@ -211,12 +196,12 @@ public:
 
     void OnPlayerLogout(Player *player) override
     {
-        TeleportOutsideRestoredRaid(player);
+        sIndividualProgression->TeleportOutsideRestoredRaid(player);
     }
 
     void OnPlayerBeforeLogout(Player *player) override
     {
-        TeleportOutsideRestoredRaid(player);
+        sIndividualProgression->TeleportOutsideRestoredRaid(player);
     }
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
@@ -959,9 +944,8 @@ public:
         do
         {
             ObjectGuid guid = ObjectGuid::Create<HighGuid::Player>((*result)[0].Get<uint32>());
-
-            if (Player* p = ObjectAccessor::FindPlayer(guid))
-                TeleportOutsideRestoredRaid(p);
+            if (Player* player = ObjectAccessor::FindPlayer(guid))
+                sIndividualProgression->TeleportOutsideRestoredRaid(player);
         } while (result->NextRow());
     }
 };

@@ -262,6 +262,7 @@ public:
     static bool isAttunedNaxx(Player* player);
     bool isExcludedFromProgression(Player* player);
     bool groupHaveLevelDisparity(Player* player);
+    void TeleportOutsideRestoredRaid(Player *player);
     bool isMonsterFromAqEvent(Unit* unit);
     bool isMonsterFromDarkPortalEvent(Unit* unit);
     bool isMonsterFromScourgeEvent(Unit* unit);

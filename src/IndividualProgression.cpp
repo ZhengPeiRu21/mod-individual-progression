@@ -405,6 +405,21 @@ bool IndividualProgression::groupHaveLevelDisparity(Player* player)
     return false;
 }
 
+void IndividualProgression::TeleportOutsideRestoredRaid(Player *player)
+{
+    switch (player->GetMapId())
+    {
+        case MAP_NAXXRAMAS:
+            player->TeleportTo(0, 3091.26f, -3874.52f, 138.36f, 3.31f);
+            break;
+        case MAP_ONYXIAS_LAIR:
+            player->TeleportTo(1, -4712.945f, -3730.93f, 54.17f, 5.18f);
+            break;
+        default:
+            break;
+    }
+}
+
 bool IndividualProgression::isMonsterFromAqEvent(Unit* unit)
 {
     switch (unit->GetEntry())
