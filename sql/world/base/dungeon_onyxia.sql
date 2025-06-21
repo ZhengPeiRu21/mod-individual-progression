@@ -906,9 +906,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 DELETE FROM `dungeon_access_template` WHERE `map_id` = 249;
 INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES
-(123, 249, 2, 50, 79, 0, 'Onyxia''s Lair - 40man'),
-(15, 249, 0, 80, 255, 0, 'Onyxia''s Lair - 10man'),
-(16, 249, 1, 80, 255, 0, 'Onyxia''s Lair - 25man');
+(123, 249, 2, 50, 79, 0, 'Onyxia''s Lair - 40man');
 
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 123;
 INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES

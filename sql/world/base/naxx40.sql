@@ -38,9 +38,7 @@ UPDATE `gameobject` SET `spawnMask` = 3 WHERE `id` IN (202278, 202277);
 
 DELETE FROM `dungeon_access_template` WHERE `map_id` = 533;
 INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES
-(122, 533, 2, 60, 79, 0, 'Naxxramas - 40man'),
-(30, 533, 0, 80, 255, 0, 'Naxxramas - 10man'),
-(31, 533, 1, 80, 255, 0, 'Naxxramas - 25man');
+(122, 533, 2, 60, 79, 0, 'Naxxramas - 40man');
 
 -- Naxx40 Dungeon DBC entries (helps Autobalance work correctly)
 DELETE FROM `lfgdungeons_dbc` WHERE `ID` = 1001;

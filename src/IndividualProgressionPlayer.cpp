@@ -14,23 +14,18 @@ private:
                 zoneId == ZONE_VEILED_SEA);
     }
 
-    void TeleportOutsideRestoredVanillaRaid(Player *player)
+    void TeleportOutsideRestoredRaid(Player *player)
     {
-        int mapId = player->GetMapId();
-        if ((mapId == MAP_NAXXRAMAS || mapId == MAP_ONYXIAS_LAIR)
-            && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
+        switch (player->GetMapId())
         {
-            switch (mapId)
-            {
-                case MAP_NAXXRAMAS:
-                    player->TeleportTo(0, 3091.26f, -3874.52f, 138.36f, 3.31f);
-                    break;
-                case MAP_ONYXIAS_LAIR:
-                    player->TeleportTo(1, -4712.945f, -3730.93f, 54.17f, 5.18f);
-                    break;
-                default:
-                    break;
-            }
+            case MAP_NAXXRAMAS:
+                player->TeleportTo(0, 3091.26f, -3874.52f, 138.36f, 3.31f);
+                break;
+            case MAP_ONYXIAS_LAIR:
+                player->TeleportTo(1, -4712.945f, -3730.93f, 54.17f, 5.18f);
+                break;
+            default:
+                break;
         }
     }
 
@@ -39,7 +34,7 @@ public:
 
     void OnPlayerLogin(Player* player) override
     {
-        TeleportOutsideRestoredVanillaRaid(player);
+        TeleportOutsideRestoredRaid(player);
 
         if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
         {
@@ -216,12 +211,12 @@ public:
 
     void OnPlayerLogout(Player *player) override
     {
-        TeleportOutsideRestoredVanillaRaid(player);
+        TeleportOutsideRestoredRaid(player);
     }
 
     void OnPlayerBeforeLogout(Player *player) override
     {
-        TeleportOutsideRestoredVanillaRaid(player);
+        TeleportOutsideRestoredRaid(player);
     }
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
@@ -952,6 +947,49 @@ public:
             }
         }
         return true;
+    }
+
+    void OnAccountLogin(uint32 accountId) override
+    {
+        QueryResult result = CharacterDatabase.Query("SELECT `guid`, `map` FROM `characters` WHERE `map` IN (533, 249) AND `account` = {}", accountId);
+
+        if (!result)
+            return;
+
+        do
+        {
+            uint32 guid = (*result)[0].Get<uint32>();
+            uint32 mapId = (*result)[1].Get<uint32>();
+
+            float safeX, safeY, safeZ;
+            uint32 safeMap, safeZone;
+
+            if (mapId == 533) // Naxxramas
+            {
+                safeX = 3091.26f;
+                safeY = -3874.52f;
+                safeZ = 138.36f;
+                safeMap = 0;
+                safeZone = 139;
+            }
+            else if (mapId == 249) // Onyxia's Lair
+            {
+                safeX = -4712.945f;
+                safeY = -3730.93f;
+                safeZ = 54.17f;
+                safeMap = 1;
+                safeZone = 2159;
+            }
+            else
+            {
+                continue;
+            }
+
+            CharacterDatabase.Execute("UPDATE `characters` SET `position_x` = {}, `position_y` = {}, `position_z` = {}, `map` = {}, `instance_id` = 0, `zone` = {} WHERE `guid` = {}", safeX, safeY, safeZ, safeMap, safeZone, guid);
+
+            TC_LOG_INFO("custom", "Character {} on map {} moved to safe location (map {}).", guid, mapId, safeMap);
+
+        } while (result->NextRow());
     }
 };
 
