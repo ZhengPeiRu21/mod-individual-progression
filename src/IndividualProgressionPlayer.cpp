@@ -1314,34 +1314,33 @@ public:
             //player->CastSpell(player, 29296, true); // for visual effect only, possible crash if cast on login
         }
     }
-};
 
-class IndividualPlayerProgression_MapScript : public MapScript
-{
-public:
-    IndividualPlayerProgression_MapScript() : PetScript("IndividualPlayerProgression_MapScript") { }
-
-    void OnPlayerEnterMap(Map* map, Player* player) override
+    void OnMapUpdate(Map* map, uint32 diff) override
     {
-        // Check if mapId equals to Naxxramas (mapId: 533) or Onyxia's Lair (mapId: 249)
-        if (map->GetId() != 533 
-            && map->GetId() != 249)
-        {
+        if (map->GetId() != 533 && map->GetId() != 249)
             return;
-        }
- 
-        Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
-        if (player->GetLevel() >= IP_LEVEL_WOTLK 
-            && diff == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
-            player->SendRaidDifficulty(true);
-        }
 
-        if (player->GetLevel() < IP_LEVEL_WOTLK)
+        Map::PlayerList const& playerList = map->GetPlayers();
+        if (playerList.IsEmpty())
+            return;
+
+        for (Map::PlayerList::const_iterator itr = playerList.begin(); itr != playerList.end(); ++itr)
         {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            player->SendRaidDifficulty(true);
+            if (Player* player = itr->GetSource())
+            {
+                //if (player->GetLevel() < IP_LEVEL_WOTLK && Difficulty(map->GetSpawnMode()) != RAID_DIFFICULTY_10MAN_HEROIC)
+                if (player->GetLevel() < IP_LEVEL_WOTLK 
+                    && map->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC)
+                {
+                    player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                    player->SendRaidDifficulty(true);
+
+                    if (player->GetMap() == 533)
+                        player->TeleportTo(0, 3091.26f, -3874.52f, 138.36f, 3.31f);
+                    else if(player->GetMap() == 249)
+                        player->TeleportTo(1, -4712.945f, -3730.93f, 54.17f, 5.18f);
+                }
+            }
         }
     }
 };
@@ -1354,5 +1353,4 @@ void AddSC_mod_individual_progression_player()
     new IndividualPlayerProgression_UnitScript();
     new IndividualPlayerProgression_MapScript();
     //new IndividualPlayerProgression_GameObjectScript();
-    new IndividualPlayerProgression_AllMapScript();
 }
