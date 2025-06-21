@@ -1485,6 +1485,34 @@ public:
     }
 };
 
+class NaxxEntryFlag_AllMapScript : public AllMapScript
+{
+public:
+    NaxxEntryFlag_AllMapScript() : AllMapScript("NaxxEntryFlag_AllMapScript") { }
+
+    void OnPlayerEnterAll(Map* map, Player* player) override
+    {
+        if (player->IsGameMaster())
+            return;
+
+        // Check if mapId equals to Naxxramas (mapId: 533)
+        if (map->GetId() != 533)
+            return;
+
+        // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
+        if (player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED)
+        {
+            // Mark player as having entered
+            Quest const* quest = sObjectMgr->GetQuestTemplate(NAXX40_ENTRANCE_FLAG);
+            player->AddQuest(quest, nullptr);
+            player->CompleteQuest(NAXX40_ENTRANCE_FLAG);
+            player->RewardQuest(quest, 0, player, false, false);
+            // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
+            player->CastSpell(player, 29296, true); // for visual effect only, possible crash if cast on login
+        }
+    }
+};
+
 void AddSC_instance_naxxramas_combined()
 {
     new instance_naxxramas_combined();
@@ -1493,4 +1521,5 @@ void AddSC_instance_naxxramas_combined()
     new NaxxPlayerScript();
     new naxx_exit_trigger();
     new naxx_northrend_entrance();
+    new NaxxEntryFlag_AllMapScript();
 }

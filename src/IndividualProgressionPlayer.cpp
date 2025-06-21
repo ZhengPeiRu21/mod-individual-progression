@@ -1271,76 +1271,11 @@ public:
 //     }
 // };
 
-class IndividualPlayerProgression_AllMapScript : public AllMapScript
-{
-public:
-    IndividualPlayerProgression_AllMapScript() : AllMapScript("IndividualPlayerProgression_AllMapScript") { }
-
-    void OnPlayerEnterAll(Map* map, Player* player) override
-    {
-        // Check if mapId equals to Naxxramas (mapId: 533) or Onyxia's Lair (mapId: 249)
-        if (map->GetId() != MAP_NAXXRAMAS && map->GetId() != MAP_ONYXIAS_LAIR)
-        {
-            return;
-        }
-
-        if (player->GetLevel() < IP_LEVEL_WOTLK)
-        {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            player->SendRaidDifficulty(true);
-        }
-
-        // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
-        if (map->GetId() == MAP_NAXXRAMAS 
-            && player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED 
-            && !player->IsGameMaster())
-        {
-            // Mark player as having entered Naxx 40
-            Quest const* quest = sObjectMgr->GetQuestTemplate(NAXX40_ENTRANCE_FLAG);
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(NAXX40_ENTRANCE_FLAG);
-            player->RewardQuest(quest, 0, player, false, false);
-            // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
-            //player->CastSpell(player, 29296, true); // for visual effect only, possible crash if cast on login
-        }
-    }
-
-    void OnMapUpdate(Map* map, uint32 diff) override
-    {
-        if (map->GetId() != MAP_NAXXRAMAS && map->GetId() != MAP_ONYXIAS_LAIR)
-            return;
-
-        Map::PlayerList const& playerList = map->GetPlayers();
-        if (playerList.IsEmpty())
-            return;
-
-        for (Map::PlayerList::const_iterator itr = playerList.begin(); itr != playerList.end(); ++itr)
-        {
-            if (Player* player = itr->GetSource())
-            {
-                //if (player->GetLevel() < IP_LEVEL_WOTLK && Difficulty(map->GetSpawnMode()) != RAID_DIFFICULTY_10MAN_HEROIC)
-                if (player->GetLevel() < IP_LEVEL_WOTLK 
-                    && map->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC)
-                {
-                    player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                    player->SendRaidDifficulty(true);
-
-                    if (player->GetMap()->GetId() == MAP_NAXXRAMAS)
-                        player->TeleportTo(0, 3091.26f, -3874.52f, 138.36f, 3.31f);
-                    else if(player->GetMap()->GetId() == MAP_ONYXIAS_LAIR)
-                        player->TeleportTo(1, -4712.945f, -3730.93f, 54.17f, 5.18f);
-                }
-            }
-        }
-    }
-};
-
 void AddSC_mod_individual_progression_player()
 {
     new IndividualPlayerProgression();
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();
-    new IndividualPlayerProgression_AllMapScript();
     //new IndividualPlayerProgression_GameObjectScript();
 }
