@@ -958,7 +958,8 @@ public:
 
         do
         {
-            uint32 guid = (*result)[0].Get<uint32>();
+            // uint32 guid = (*result)[0].Get<uint32>();
+            ObjectGuid guid = ObjectGuid::Create<HighGuid::Player>((*result)[0].Get<uint32>());
             // uint32 mapId = (*result)[1].Get<uint32>();
 
             // float safeX, safeY, safeZ;
