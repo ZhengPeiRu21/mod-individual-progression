@@ -1445,7 +1445,7 @@ public:
             }
         }
 
-        if (layer->GetLevel() < IP_LEVEL_WOTLK)
+        if (player->GetLevel() < IP_LEVEL_WOTLK)
         {
             switch (areaTrigger->entry)
             {
