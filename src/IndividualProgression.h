@@ -261,6 +261,7 @@ public:
     static uint8 GetAccountProgression(uint32 accountId);
     static bool isAttunedNaxx(Player* player);
     bool isExcludedFromProgression(Player* player);
+    bool groupHaveLevelDisparity(Player* player);
     bool isMonsterFromAqEvent(Unit* unit);
     bool isMonsterFromDarkPortalEvent(Unit* unit);
     bool isMonsterFromScourgeEvent(Unit* unit);

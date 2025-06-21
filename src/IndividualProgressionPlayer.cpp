@@ -1285,14 +1285,6 @@ public:
             return;
         }
 
-        Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
-        if (player->GetLevel() >= IP_LEVEL_WOTLK 
-            && diff == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
-            player->SendRaidDifficulty(true);
-        }
-
         if (player->GetLevel() < IP_LEVEL_WOTLK)
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
@@ -1302,7 +1294,6 @@ public:
         // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
         if (map->GetId() == MAP_NAXX 
             && player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED 
-            && player->GetLevel() < IP_LEVEL_WOTLK
             && !player->IsGameMaster())
         {
             // Mark player as having entered Naxx 40
@@ -1351,5 +1342,6 @@ void AddSC_mod_individual_progression_player()
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();
+    new IndividualPlayerProgression_AllMapScript();
     //new IndividualPlayerProgression_GameObjectScript();
 }

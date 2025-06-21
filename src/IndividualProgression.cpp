@@ -370,6 +370,41 @@ bool IndividualProgression::isExcludedFromProgression(Player* player)
     return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
 }
 
+bool IndividualProgression::groupHaveLevelDisparity(Player* player)
+{
+    if (!player)
+        return false;
+
+    if (Group* EventGroup = player->GetGroup())
+    {
+        Group::MemberSlotList const& members = EventGroup->GetMemberSlots();
+
+        bool hasLevel80 = false;
+        bool hasBelow80 = false;
+
+        for (Group::member_citerator itr = members.begin(); itr != members.end(); ++itr)
+        {
+            Player* groupMember = ObjectAccessor::GetPlayer(*player, itr->guid); // <- corriger ici
+            if (!groupMember)
+                continue;
+
+            uint8 level = groupMember->getLevel();
+            if (level == 80)
+                hasLevel80 = true;
+            else if (level < 80)
+                hasBelow80 = true;
+
+            if (hasLevel80 && hasBelow80)
+            {
+                player->SendSystemMessage("All group members must be either level 80 or all below level 80 to enter.");
+                return true;
+            }   
+        }
+    }
+
+    return false;
+}
+
 bool IndividualProgression::isMonsterFromAqEvent(Unit* unit)
 {
     switch (unit->GetEntry())

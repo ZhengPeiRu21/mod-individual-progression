@@ -1389,6 +1389,9 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* areaTrigger) override
     {
+        if (sIndividualProgression->groupHaveLevelDisparity(player))
+            return false;
+
         // Do not allow entrance to Naxx 40 from Northrend
         // Change 10 man heroic to regular 10 man, as when 10 man heroic is not available
         Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
