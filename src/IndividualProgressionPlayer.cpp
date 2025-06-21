@@ -959,36 +959,40 @@ public:
         do
         {
             uint32 guid = (*result)[0].Get<uint32>();
-            uint32 mapId = (*result)[1].Get<uint32>();
+            // uint32 mapId = (*result)[1].Get<uint32>();
 
-            float safeX, safeY, safeZ;
-            uint32 safeMap, safeZone;
+            // float safeX, safeY, safeZ;
+            // uint32 safeMap, safeZone;
 
-            if (mapId == 533) // Naxxramas
+            // if (mapId == 533) // Naxxramas
+            // {
+            //     safeX = 3091.26f;
+            //     safeY = -3874.52f;
+            //     safeZ = 138.36f;
+            //     safeMap = 0;
+            //     safeZone = 139;
+            // }
+            // else if (mapId == 249) // Onyxia's Lair
+            // {
+            //     safeX = -4712.945f;
+            //     safeY = -3730.93f;
+            //     safeZ = 54.17f;
+            //     safeMap = 1;
+            //     safeZone = 2159;
+            // }
+            // else
+            // {
+            //     continue;
+            // }
+
+            if (Player* p = ObjectAccessor::FindPlayer(guid))
             {
-                safeX = 3091.26f;
-                safeY = -3874.52f;
-                safeZ = 138.36f;
-                safeMap = 0;
-                safeZone = 139;
-            }
-            else if (mapId == 249) // Onyxia's Lair
-            {
-                safeX = -4712.945f;
-                safeY = -3730.93f;
-                safeZ = 54.17f;
-                safeMap = 1;
-                safeZone = 2159;
-            }
-            else
-            {
-                continue;
-            }
+                WorldSession* s = p->GetSession();
+                s->KickPlayer("Force logout");
+                s->LogoutPlayer(false);
 
-            CharacterDatabase.Execute("UPDATE `characters` SET `position_x` = {}, `position_y` = {}, `position_z` = {}, `map` = {}, `instance_id` = 0, `zone` = {} WHERE `guid` = {}", safeX, safeY, safeZ, safeMap, safeZone, guid);
-
-            TC_LOG_INFO("custom", "Character {} on map {} moved to safe location (map {}).", guid, mapId, safeMap);
-
+                // CharacterDatabase.Execute("UPDATE `characters` SET `position_x` = {}, `position_y` = {}, `position_z` = {}, `map` = {}, `instance_id` = 0, `zone` = {} WHERE `guid` = {}", safeX, safeY, safeZ, safeMap, safeZone, guid);
+            }
         } while (result->NextRow());
     }
 };
