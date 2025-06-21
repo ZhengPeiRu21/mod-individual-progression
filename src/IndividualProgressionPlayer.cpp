@@ -1284,13 +1284,21 @@ public:
         {
             return;
         }
-            
+
+        Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
+        if (player->GetLevel() >= IP_LEVEL_WOTLK 
+            && diff == RAID_DIFFICULTY_10MAN_HEROIC)
+        {
+            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+            player->SendRaidDifficulty(true);
+        }
+
         if (player->GetLevel() < IP_LEVEL_WOTLK)
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
             player->SendRaidDifficulty(true);
         }
-        
+
         // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
         if (map->GetId() == 533 
             && player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED 
@@ -1308,12 +1316,43 @@ public:
     }
 };
 
+class IndividualPlayerProgression_MapScript : public MapScript
+{
+public:
+    IndividualPlayerProgression_MapScript() : PetScript("IndividualPlayerProgression_MapScript") { }
+
+    void OnPlayerEnterMap(Map* map, Player* player) override
+    {
+        // Check if mapId equals to Naxxramas (mapId: 533) or Onyxia's Lair (mapId: 249)
+        if (map->GetId() != 533 
+            && map->GetId() != 249)
+        {
+            return;
+        }
+ 
+        Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
+        if (player->GetLevel() >= IP_LEVEL_WOTLK 
+            && diff == RAID_DIFFICULTY_10MAN_HEROIC)
+        {
+            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+            player->SendRaidDifficulty(true);
+        }
+
+        if (player->GetLevel() < IP_LEVEL_WOTLK)
+        {
+            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+            player->SendRaidDifficulty(true);
+        }
+    }
+};
+
 void AddSC_mod_individual_progression_player()
 {
     new IndividualPlayerProgression();
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();
+    new IndividualPlayerProgression_MapScript();
     //new IndividualPlayerProgression_GameObjectScript();
     new IndividualPlayerProgression_AllMapScript();
 }

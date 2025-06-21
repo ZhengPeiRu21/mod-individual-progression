@@ -1395,6 +1395,7 @@ public:
         if (diff == RAID_DIFFICULTY_10MAN_HEROIC)
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+            player->SendRaidDifficulty(true);
         }
         switch (areaTrigger->entry)
         {
