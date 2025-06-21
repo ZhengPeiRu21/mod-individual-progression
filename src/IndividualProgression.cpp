@@ -388,7 +388,7 @@ bool IndividualProgression::groupHaveLevelDisparity(Player* player)
             if (!groupMember)
                 continue;
 
-            uint8 level = groupMember->getLevel();
+            uint8 level = groupMember->GetLevel();
             if (level == 80)
                 hasLevel80 = true;
             else if (level < 80)
