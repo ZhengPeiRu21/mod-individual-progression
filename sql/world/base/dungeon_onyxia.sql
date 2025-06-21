@@ -904,9 +904,11 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 301000, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player has The Only Prescription (8620) in his quest log'),
 (1, 301000, 18492, 0, 0, 9, 0, 7509, 0, 0, 0, 0, 0, '', 'Treated Ancient Blade will only drop when a player has The Forging of Quel Serrar (7509) in his quest log');
 
-DELETE FROM `dungeon_access_template` WHERE `id`=123;
+DELETE FROM `dungeon_access_template` WHERE `map_id` = 249;
 INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES
-(123, 249, 2, 50, 0, 0, 'Onyxia''s Lair - 40man');
+(123, 249, 2, 50, 79, 0, 'Onyxia''s Lair - 40man'),
+(15, 249, 0, 80, 255, 0, 'Onyxia''s Lair - 10man'),
+(16, 249, 1, 80, 255, 0, 'Onyxia''s Lair - 25man');
 
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 123;
 INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES
@@ -927,7 +929,7 @@ INSERT INTO `instance_encounters` (`entry`, `creditType`, `creditEntry`, `lastEn
 
 DELETE FROM `lfgdungeons_dbc` WHERE `ID` = 1000;
 INSERT INTO `lfgdungeons_dbc` (`ID`,`Name_Lang_enUS`,`Name_Lang_frFR`,`Name_Lang_Mask`,`MinLevel`,`MaxLevel`,`Target_Level`,`Target_Level_Min`,`Target_Level_Max`,`MapID`,`Difficulty`,`Flags`,`TypeID`,`Faction`,`TextureFilename`,`ExpansionLevel`,`Order_Index`,`Group_Id`,`Description_Lang_Mask`) VALUES
-(1000,'Onyxia''s Lair','Repaire d''Onyxia',16712190,60,83,60,60,83,249,2,0,2,-1,NULL,2,0,9,16712188);
+(1000,'Onyxia''s Lair','Repaire d''Onyxia',16712190,60,79,60,60,79,249,2,0,2,-1,NULL,2,0,9,16712188);
 
 -- Victory for the Alliance - Bolvar or Varian
 DELETE FROM `creature_questender` WHERE `quest` = 7495;

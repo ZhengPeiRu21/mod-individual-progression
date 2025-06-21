@@ -36,14 +36,16 @@ UPDATE `creature` SET `spawnMask` = `spawnMask`| 4 WHERE `id1` = 16082;
 -- Orb of Naxxramas does not exist in classic
 UPDATE `gameobject` SET `spawnMask` = 3 WHERE `id` IN (202278, 202277);
 
-DELETE FROM `dungeon_access_template` WHERE `id` = 122;
+DELETE FROM `dungeon_access_template` WHERE `map_id` = 533;
 INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES
-(122, 533, 2, 60, 0, 0, 'Naxxramas - 40man');
+(122, 533, 2, 60, 79, 0, 'Naxxramas - 40man'),
+(30, 533, 0, 80, 255, 0, 'Naxxramas - 10man'),
+(31, 533, 1, 80, 255, 0, 'Naxxramas - 25man');
 
 -- Naxx40 Dungeon DBC entries (helps Autobalance work correctly)
 DELETE FROM `lfgdungeons_dbc` WHERE `ID` = 1001;
 INSERT INTO `lfgdungeons_dbc` (`ID`,`Name_Lang_enUS`,`Name_Lang_frFR`,`Name_Lang_Mask`,`MinLevel`,`MaxLevel`,`Target_Level`,`Target_Level_Min`,`Target_Level_Max`,`MapID`,`Difficulty`,`Flags`,`TypeID`,`Faction`,`TextureFilename`,`ExpansionLevel`,`Order_Index`,`Group_Id`,`Description_Lang_Mask`) VALUES
-(1001,'Naxxramas','Naxxramas',16712190,60,83,60,60,83,533,2,0,2,-1,NULL,2,0,9,16712188);
+(1001,'Naxxramas','Naxxramas',16712190,60,79,60,60,79,533,2,0,2,-1,NULL,2,0,9,16712188);
 
 DELETE FROM `dungeonencounter_dbc` WHERE `ID` BETWEEN 1001 AND 1015;
 INSERT INTO `dungeonencounter_dbc` (`ID`, `MapID`, `Difficulty`, `OrderIndex`, `Bit`, `Name_Lang_enUS`, `Name_Lang_frFR`, `Name_Lang_Mask`, `SpellIconID`) VALUES
