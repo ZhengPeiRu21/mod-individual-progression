@@ -1,4 +1,5 @@
 #include "IndividualProgression.h"
+#include "naxxramas.h"
 
 class IndividualPlayerProgression : public PlayerScript
 {
@@ -1270,6 +1271,43 @@ public:
     }
 };
 
+class IndividualPlayerProgression_AllMapScript : public AllMapScript
+{
+public:
+    IndividualPlayerProgression_AllMapScript() : AllMapScript("IndividualPlayerProgression_AllMapScript") { }
+
+    void OnPlayerEnterAll(Map* map, Player* player) override
+    {
+        // Check if mapId equals to Naxxramas (mapId: 533) or Onyxia's Lair (mapId: 249)
+        if (map->GetId() != 533 
+            && map->GetId() != 249)
+        {
+            return;
+        }
+            
+        if (player->GetLevel() < IP_LEVEL_WOTLK)
+        {
+            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+            player->SendRaidDifficulty(true);
+        }
+        
+        // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
+        if (map->GetId() == 533 
+            && player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED 
+            && player->GetLevel() < IP_LEVEL_WOTLK
+            && !player->IsGameMaster())
+        {
+            // Mark player as having entered Naxx 40
+            Quest const* quest = sObjectMgr->GetQuestTemplate(NAXX40_ENTRANCE_FLAG);
+            player->AddQuest(quest, nullptr);
+            player->CompleteQuest(NAXX40_ENTRANCE_FLAG);
+            player->RewardQuest(quest, 0, player, false, false);
+            // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
+            //player->CastSpell(player, 29296, true); // for visual effect only, possible crash if cast on login
+        }
+    }
+};
+
 void AddSC_mod_individual_progression_player()
 {
     new IndividualPlayerProgression();
@@ -1277,4 +1315,5 @@ void AddSC_mod_individual_progression_player()
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();
     new IndividualPlayerProgression_GameObjectScript();
+    new IndividualPlayerProgression_AllMapScript();
 }
