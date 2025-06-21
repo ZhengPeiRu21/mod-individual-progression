@@ -1351,6 +1351,5 @@ void AddSC_mod_individual_progression_player()
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();
-    new IndividualPlayerProgression_MapScript();
     //new IndividualPlayerProgression_GameObjectScript();
 }
