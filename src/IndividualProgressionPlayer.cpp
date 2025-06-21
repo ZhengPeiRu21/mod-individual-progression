@@ -1279,7 +1279,7 @@ public:
     void OnPlayerEnterAll(Map* map, Player* player) override
     {
         // Check if mapId equals to Naxxramas (mapId: 533) or Onyxia's Lair (mapId: 249)
-        if (map->GetId() != 533 
+        if (map->GetId() != MAP_NAXX 
             && map->GetId() != 249)
         {
             return;
@@ -1300,7 +1300,7 @@ public:
         }
 
         // Cast on player Naxxramas Entry Flag Trigger DND - Classic (spellID: 29296)
-        if (map->GetId() == 533 
+        if (map->GetId() == MAP_NAXX 
             && player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) != QUEST_STATUS_REWARDED 
             && player->GetLevel() < IP_LEVEL_WOTLK
             && !player->IsGameMaster())
@@ -1317,7 +1317,7 @@ public:
 
     void OnMapUpdate(Map* map, uint32 diff) override
     {
-        if (map->GetId() != 533 && map->GetId() != 249)
+        if (map->GetId() != MAP_NAXX && map->GetId() != 249)
             return;
 
         Map::PlayerList const& playerList = map->GetPlayers();
@@ -1335,9 +1335,9 @@ public:
                     player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
                     player->SendRaidDifficulty(true);
 
-                    if (player->GetMap() == 533)
+                    if (player->GetMap()->GetId() == MAP_NAXX)
                         player->TeleportTo(0, 3091.26f, -3874.52f, 138.36f, 3.31f);
-                    else if(player->GetMap() == 249)
+                    else if(player->GetMap()->GetId() == 249)
                         player->TeleportTo(1, -4712.945f, -3730.93f, 54.17f, 5.18f);
                 }
             }
