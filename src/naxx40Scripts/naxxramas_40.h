@@ -93,11 +93,6 @@ enum NX40NPCs
     NPC_ARCHMAGE_TARSIS                = 16381,
 };
 
-enum NX40Maps
-{
-    MAP_NAXX = 533,
-};
-
 enum NX40Graveyards
 {
     NAXX40_GRAVEYARD = 909

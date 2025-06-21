@@ -31,7 +31,7 @@ ObjectData const creatureData[] =
 class instance_onyxias_lair_40 : public InstanceMapScript
 {
 public:
-    instance_onyxias_lair_40() : InstanceMapScript("instance_onyxias_lair", 249) {}
+    instance_onyxias_lair_40() : InstanceMapScript("instance_onyxias_lair", MAP_ONYXIAS_LAIR) {}
 
     InstanceScript* GetInstanceScript(InstanceMap* pMap) const override
     {
@@ -136,17 +136,17 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
-        if (sIndividualProgression->groupHaveLevelDisparity(player))
-            return false;
-
-        if (player->GetLevel() < IP_LEVEL_WOTLK)
+        if (!sIndividualProgression->groupHaveLevelDisparity(player))
         {
-            //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            player->SendRaidDifficulty(true);
-        }
+            if (player->GetLevel() < IP_LEVEL_WOTLK)
+            {
+                //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                player->SendRaidDifficulty(true);
+            }
 
-        player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+            player->TeleportTo(MAP_ONYXIAS_LAIR, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+        }
 
         return true;
     }

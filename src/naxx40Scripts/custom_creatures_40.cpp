@@ -34,11 +34,10 @@ public:
                             //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
                             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
                             player->SendRaidDifficulty(true);
-                            player->TeleportTo(533, 3006.05f, -3466.81f, 298.219f, 4.6824f);
+                            player->TeleportTo(MAP_NAXXRAMAS, 3006.05f, -3466.81f, 298.219f, 4.6824f);
                         }
                     }  
                 }
-
             }
             else if (who && me->GetDistance2d(who) < 20.0f)
             {

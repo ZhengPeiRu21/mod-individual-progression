@@ -68,7 +68,7 @@ ObjectData const gameObjectData[] =
 class instance_naxxramas_combined : public InstanceMapScript
 {
 public:
-    instance_naxxramas_combined() : InstanceMapScript("instance_naxxramas", 533) { }
+    instance_naxxramas_combined() : InstanceMapScript("instance_naxxramas", MAP_NAXXRAMAS) { }
 
     InstanceScript* GetInstanceScript(InstanceMap* pMap) const override
     {
@@ -1353,7 +1353,7 @@ public:
         if ((player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC && sIndividualProgression->naxxSkipToSaphiron) 
         || (player->GetMap()->GetSpawnMode() != RAID_DIFFICULTY_10MAN_HEROIC && sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1)))
         {
-            player->TeleportTo(533, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
+            player->TeleportTo(MAP_NAXXRAMAS, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
             return true;
         }
 
@@ -1363,7 +1363,7 @@ public:
             (instance->GetBossState(BOSS_HORSEMAN) != DONE))
             return false;
 
-        player->TeleportTo(533, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
+        player->TeleportTo(MAP_NAXXRAMAS, sapphironEntryTP.m_positionX, sapphironEntryTP.m_positionY, sapphironEntryTP.m_positionZ, sapphironEntryTP.m_orientation);
         return true;
     }
 };
@@ -1375,7 +1375,7 @@ public:
 
     void OnPlayerBeforeChooseGraveyard(Player* player, TeamId /*teamId*/, bool /*nearCorpse*/, uint32& graveyardOverride) override
     {
-        if (player->GetMapId() == MAP_NAXX && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
+        if (player->GetMapId() == MAP_NAXXRAMAS && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
         {
             graveyardOverride = NAXX40_GRAVEYARD;
         }
@@ -1389,33 +1389,34 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* areaTrigger) override
     {
-        if (sIndividualProgression->groupHaveLevelDisparity(player))
-            return false;
+        if (!sIndividualProgression->groupHaveLevelDisparity(player))
+        {
+            // Do not allow entrance to Naxx 40 from Northrend
+            // Change 10 man heroic to regular 10 man, as when 10 man heroic is not available
+            Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
+            if (diff == RAID_DIFFICULTY_10MAN_HEROIC)
+            {
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+                player->SendRaidDifficulty(true);
+            }
+            switch (areaTrigger->entry)
+            {
+                // Naxx 10 and 25 entrances
+                case 5191:
+                    player->TeleportTo(MAP_NAXXRAMAS, 3005.68f, -3447.77f, 293.93f, 4.65f);
+                    break;
+                case 5192:
+                    player->TeleportTo(MAP_NAXXRAMAS, 3019.34f, -3434.36f, 293.99f, 6.27f);
+                    break;
+                case 5193:
+                    player->TeleportTo(MAP_NAXXRAMAS, 3005.9f, -3420.58f, 294.11f, 1.58f);
+                    break;
+                case 5194:
+                    player->TeleportTo(MAP_NAXXRAMAS, 2992.5f, -3434.42f, 293.94f, 3.13f);
+                    break;
+            }
+        }
 
-        // Do not allow entrance to Naxx 40 from Northrend
-        // Change 10 man heroic to regular 10 man, as when 10 man heroic is not available
-        Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
-        if (diff == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
-            player->SendRaidDifficulty(true);
-        }
-        switch (areaTrigger->entry)
-        {
-            // Naxx 10 and 25 entrances
-            case 5191:
-                player->TeleportTo(533, 3005.68f, -3447.77f, 293.93f, 4.65f);
-                break;
-            case 5192:
-                player->TeleportTo(533, 3019.34f, -3434.36f, 293.99f, 6.27f);
-                break;
-            case 5193:
-                player->TeleportTo(533, 3005.9f, -3420.58f, 294.11f, 1.58f);
-                break;
-            case 5194:
-                player->TeleportTo(533, 2992.5f, -3434.42f, 293.94f, 3.13f);
-                break;
-        }
         return true;
     }
 };

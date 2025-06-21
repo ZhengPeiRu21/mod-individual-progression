@@ -61,7 +61,7 @@ class spell_gen_consumption : public SpellScript
         {
             value = urand(4500, 4700);
         }
-        else if (map->GetId() == 533) // NAXX10 N
+        else if (map->GetId() == MAP_NAXXRAMAS) // NAXX10 N
         {
             if (map->GetDifficulty() == RAID_DIFFICULTY_10MAN_NORMAL)
             {
