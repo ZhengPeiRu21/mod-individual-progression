@@ -226,7 +226,7 @@ IndividualProgression.SimpleConfigOverride = 1
 #                     For example, a value of 6 will limit players to Vanilla content.
 #
 #        Default:   0 - Disabled
-#                   1-18 - Maximum progression stage
+#                   1-16 - Maximum progression stage
 #
 IndividualProgression.ProgressionLimit = 0
 
@@ -237,7 +237,7 @@ IndividualProgression.ProgressionLimit = 0
 #
 #
 #        Default:   0 - Disabled
-#                   1-18 - Starting progression stage
+#                   1-16 - Starting progression stage
 #
 IndividualProgression.StartingProgression = 0
 
@@ -270,7 +270,7 @@ IndividualProgression.RepeatableVanillaQuestsXP = 1
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
 #
 #        Default:   0 - TBC Races always available
-#                   1-18 - Required progression level to create TBC Race characters
+#                   1-16 - Required progression level to create TBC Race characters
 #
 IndividualProgression.TbcRacesUnlockProgression = 0
 
@@ -283,19 +283,19 @@ IndividualProgression.TbcRacesUnlockProgression = 0
 #                     This is due to the game not having a proper progression balancing for Death Knights until WotLK,
 #                     but please adjust as desired.
 #
-#        Default:   13 - TBC must be completed to create Death Knights
+#        Default:   11 - TBC must be completed to create Death Knights
 #                   0 - Disabled
-#                   1-18 - Required progression
+#                   1-16 - Required progression
 #
-IndividualProgression.DeathKnightUnlockProgression = 13
+IndividualProgression.DeathKnightUnlockProgression = 11
 
 # IndividualProgression.DeathKnightStartingProgression
 #        Description: The progression level at which Death Knight characters will begin.
 #
-#        Default:   13 - Death Knights start at the beginning of WotLK
-#                   0-18 - Progression level
+#        Default:   11 - Death Knights start at the beginning of WotLK
+#                   0-16 - Progression level
 #
-IndividualProgression.DeathKnightStartingProgression = 13
+IndividualProgression.DeathKnightStartingProgression = 11
 
 # IndividualProgression.DisableDefaultProgression
 #        Description: Disable the regular progression flow, so progression must be advanced through custom creature progression entries
