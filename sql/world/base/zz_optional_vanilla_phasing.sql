@@ -95,7 +95,7 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 49832; -
 
 /* 3.0+ - NPCs/Gobjects added in Eastern/Kalimdor during WotLK pre-patch or more */
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
-29346, -- Apothecary Karlov, Orgrimmar
+29346 -- Apothecary Karlov, Orgrimmar
 );
 
 /* Hide mailboxes, see: https://www.wowhead.com/classic/object=32349/mailbox */

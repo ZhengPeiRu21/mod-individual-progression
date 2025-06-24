@@ -137,7 +137,7 @@ IndividualProgression.RequirePreAQQuests = 1
 #        Default:     false - Disabled
 #                     true - Enabled
 #
-IndividualProgression.DynamicPhasingEventMobs = false;
+IndividualProgression.DynamicPhasingEventMobs = false
 
 # IndividualProgression.RequireNaxxStrathEntrance
 #        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme
