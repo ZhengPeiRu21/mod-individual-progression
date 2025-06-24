@@ -770,5 +770,5 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_wotlk_totc();
     new npc_ipp_wotlk_icc();
     new npc_ipp_ds2();
-    new npc_training_dummy_ipp_wotlk();
+    // new npc_training_dummy_ipp_wotlk();
 }
