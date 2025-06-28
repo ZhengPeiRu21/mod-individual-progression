@@ -301,6 +301,33 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 -- (29441, 12816),
 -- (29442, 12817); 
 
+SET @AGUID    := 6000;
+
+DELETE FROM `areatrigger` WHERE `entry` IN (@AGUID+1, @AGUID+2, @AGUID+3, @AGUID+4, @AGUID+5, @AGUID+6, @AGUID+7, @AGUID+8, @AGUID+9);
+INSERT INTO `areatrigger` (`entry`, `map`, `x`, `y`, `z`, `radius`) VALUES
+(@AGUID+1, 0, -9118.92, 330.1, 93.198, 10),     -- Stormwind
+(@AGUID+2, 0, -9061.46, 349.666, 93.1098, 10),  -- Stormwind
+(@AGUID+3, 0, -5163.2, -645.852, 396.992, 10),  -- Ironforge
+(@AGUID+4, 0, -5175.25, -588.093, 397.984, 10), -- Ironforge
+(@AGUID+5, 1, 9948.02, 1932.39, 1328.69, 10),   -- Darnassus
+(@AGUID+6, 1, 1217.81, -4339.42, 20.8739, 10),  -- Orgrimmar
+(@AGUID+7, 1, 1169.62, -4320.03, 20.8739, 10),  -- Orgrimmar
+(@AGUID+8, 1, -1535.21, 68.198, 1.9512, 10),    -- Thunder Bluff
+(@AGUID+9, 0, 1980.01, 305.231, 41.1893, 10);   -- Undercity
+
+DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (@AGUID+1, @AGUID+2, @AGUID+3, @AGUID+4, @AGUID+5, @AGUID+6, @AGUID+7, @AGUID+8, @AGUID+9);
+INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
+(@AGUID+1, 9260), -- Stormwind
+(@AGUID+2, 9260), -- Stormwind
+(@AGUID+3, 9261), -- Ironforge
+(@AGUID+4, 9261), -- Ironforge
+(@AGUID+5, 9262), -- Darnassus
+(@AGUID+6, 9263), -- Orgrimmar
+(@AGUID+7, 9263), -- Orgrimmar
+(@AGUID+8, 9264), -- Thunder Bluff
+(@AGUID+9, 9265); -- Undercity
+
+    
 -- Necrotic Crystal item quests
 DELETE FROM `creature_questender` WHERE `quest` IN (9292, 9310);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
