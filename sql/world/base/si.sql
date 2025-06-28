@@ -337,8 +337,8 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (16786, 9094), (16786, 9317), (16786, 9318), (16786, 9321), (16786, 9337), (16786, 9341),
 (16787, 9333), (16787, 9334), (16787, 9335), (16787, 9336), (16787, 9320), (16787, 9343);
 
-UPDATE `quest_template` SET `QuestType` = 2, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
-UPDATE `quest_template` SET `QuestType` = 2, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
+UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
+UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
 
 
 /**-- Text Updates --**/
