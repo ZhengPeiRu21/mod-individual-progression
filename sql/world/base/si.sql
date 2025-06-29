@@ -274,7 +274,7 @@ INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`,
 UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9260, 9261, 9262); -- Stormwind, Ironforge, Darnassus, Exodar(12817)
 UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 9265);  -- Orgrimmar, Thunder Bluff, Undercity, Silvermoon(12816)
 UPDATE `quest_template` SET `Flags` = 12, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
-UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
+UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16478, 16484, 16490, 16493, 16494, 16495);
 UPDATE `creature_template` SET `npcflag` = 0 WHERE `entry` IN (29441, 29442); -- there are no scourge outside Exodar and Silvermoon.
