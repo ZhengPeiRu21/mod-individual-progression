@@ -234,7 +234,39 @@ UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14439;
 UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=15351;
 
 -- King Varian Wrynn
-UPDATE `creature_template` SET `minlevel`=63, `maxlevel`=63 WHERE `entry`=29611;
+UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 29611;
+
+-- creating copy with 'npc_king_varian_wrynn' script, to prevent AC worldserver error for not using the script
+SET @Wrynn := 629611;  -- copy of King Varian Wrynn
+
+DELETE FROM `creature_template` WHERE `entry` = @Wrynn;
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
+`exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
+`BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
+`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
+`RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
+
+(@Wrynn, 0, 0, 0, 0, 0, 'King Varian Wrynn', 'King of Stormwind', '', 9834, 63, 63, 2, 1733, 3, 1, 1.42857, 1, 1, 20, 1, 3, 0, 35, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 7, 76, 0, 0, 0, 0, 0, 700000, 750000, '', 0, 1, 400, 20, 1, 1, 1, 144, 1, 617299839, 0, 0, 'npc_king_varian_wrynn', 12340);
+
+DELETE FROM `creature_template_addon` WHERE `entry` = @Wrynn;
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(@Wrynn, 0, 0, 0, 1, 0, 3, NULL);
+
+DELETE FROM `creature_template_locale` WHERE `entry` = @Wrynn;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
+(@Wrynn, 'deDE', 'König Varian Wrynn', 'König von Sturmwind', 18019),
+(@Wrynn, 'esES', 'Rey Varian Wrynn', 'Rey de Ventormenta', 18019),
+(@Wrynn, 'esMX', 'Rey Varian Wrynn', 'Rey de Ventormenta', 18019),
+(@Wrynn, 'frFR', 'Roi Varian Wrynn', 'Roi de Hurlevent', 18019),
+(@Wrynn, 'koKR', '국왕 바리안 린', '스톰윈드 국왕', 18019),
+(@Wrynn, 'ruRU', 'Король Вариан Ринн', 'Король Штормграда', 18019),
+(@Wrynn, 'zhCN', '瓦里安·乌瑞恩国王', '暴风城国王', 18019),
+(@Wrynn, 'zhTW', '瓦里安·烏瑞恩國王', '暴風之王', 18019);
+
+DELETE FROM `creature_template_model` WHERE `CreatureID` = @Wrynn;
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
+(@Wrynn, 0, 28127, 1, 1, 12340);
+
 
 -- Tomas <Cook>
 DELETE FROM `npc_trainer` WHERE `ID`=1430;
