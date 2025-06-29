@@ -9,6 +9,7 @@
 -- (29107, 'spell_razuvious_disrupting_shout_40');
 -- (28135, 'spell_feugen_static_field');
 -- (28457, 'spell_kelthuzad_dark_blast_40');
+-- (28479, 'spell_kelthuzad_frostbolt_40');
 -- (28785, 'spell_anub_locust_swarm_aura_40');
 -- (28450, 'spell_unholy_staff_arcane_explosion_40');
 -- (28153, 'spell_disease_cloud_damage_40');
@@ -60,6 +61,10 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28785, 'spel
 -- Dark Blast: Reduce damage ~3.5k to ~2k
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28457;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28457, 'spell_kelthuzad_dark_blast_40');
+
+-- Frostbolt: Reduce damage ~4.5k to ~2550
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28479;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28479, 'spell_kelthuzad_frostbolt_40');
 
 -- Thaddius
 -- Feugen - Static Field: Change to mana drain
