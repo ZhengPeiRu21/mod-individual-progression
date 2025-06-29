@@ -240,12 +240,33 @@ class spell_sapphiron_icebolt_40 : public SpellScript
         {
             return;
         }
-        SetEffectValue(urand(2625, 2900));
+        SetEffectValue(urand(2625,2900));
     }
 
     void Register() override
     {
-        OnEffectLaunchTarget += SpellEffectFn(spell_sapphiron_icebolt_40::CalculateDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+        OnEffectLaunchTarget += SpellEffectFn(spell_sapphiron_icebolt_40::CalculateDamage, EFFECT_1, SPELL_EFFECT_SCHOOL_DAMAGE);
+    }
+};
+
+// 28531 - Frost Aura 
+class spell_sapphiron_frost_aura_40 : public SpellScript
+{
+    PrepareSpellScript(spell_sapphiron_frost_aura_40);
+
+    void CalculateDamage(SpellEffIndex /*effIndex*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        SetEffectValue(urand(575,625));
+    }
+
+    void Register() override
+    {
+        OnEffectLaunchTarget += SpellEffectFn(spell_sapphiron_frost_aura_40::CalculateDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
     }
 };
 
@@ -373,25 +394,6 @@ class spell_disease_cloud_damage_40 : public SpellScript
     }
 };
 
-class spell_frost_aura_damage_40 : public SpellScript
-{
-    PrepareSpellScript(spell_frost_aura_damage_40);
-
-    void HandleDamageCalc(SpellEffIndex /*effIndex*/)
-    {
-        Unit* caster = GetCaster();
-        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
-        {
-            return;
-        }
-        SetEffectValue(urand(575,625));
-    }
-
-    void Register() override
-    {
-        OnEffectLaunchTarget += SpellEffectFn(spell_frost_aura_damage_40::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
-    }
-};
 
 class spell_feugen_static_field_40 : public SpellScript
 {
@@ -429,10 +431,10 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_kelthuzad_dark_blast_40);
     RegisterSpellScript(spell_kelthuzad_frostbolt_40);
     RegisterSpellScript(spell_sapphiron_icebolt_40);
+    RegisterSpellScript(spell_sapphiron_frost_aura_40);
     RegisterSpellScript(spell_noth_curse_of_the_plaguebringer_aura_40);
     RegisterSpellScript(spell_razuvious_disrupting_shout_40);
     RegisterSpellScript(spell_unholy_staff_arcane_explosion_40);
     RegisterSpellScript(spell_disease_cloud_damage_40);
-    RegisterSpellScript(spell_frost_aura_damage_40);
     RegisterSpellScript(spell_feugen_static_field_40);
 }
