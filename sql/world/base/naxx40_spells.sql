@@ -13,6 +13,7 @@
 -- (28785, 'spell_anub_locust_swarm_aura_40');
 -- (28450, 'spell_unholy_staff_arcane_explosion_40');
 -- (28153, 'spell_disease_cloud_damage_40');
+-- (28522, 'spell_sapphiron_icebolt_40');
 -- (28531, 'spell_frost_aura_damage_40');
 -- `spell_dbc` [90001,90007}
 
@@ -54,6 +55,10 @@ DELETE FROM `spell_script_names` WHERE `spell_id` = 28153;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28153, 'spell_disease_cloud_damage_40');
 
 -- Sapphiron
+-- 28522 Icebolt: Reduce damage ~7125 to ~2625
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28522;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28522, 'spell_sapphiron_icebolt_40');
+
 -- 28531 Frost Aura 1200->600
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28531;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28531, 'spell_frost_aura_damage_40');
