@@ -273,8 +273,8 @@ INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`,
 -- Lieutenants, Investigate the Scourge
 UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9260, 9261, 9262); -- Stormwind, Ironforge, Darnassus, Exodar(12817)
 UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 9265);  -- Orgrimmar, Thunder Bluff, Undercity, Silvermoon(12816)
-UPDATE `quest_template` SET `Flags` = 8, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
-UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
+UPDATE `quest_template` SET `Flags` = 12, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
+UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16478, 16484, 16490, 16493, 16494, 16495);
 UPDATE `creature_template` SET `npcflag` = 0 WHERE `entry` IN (29441, 29442); -- there are no scourge outside Exodar and Silvermoon.
@@ -301,6 +301,33 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 -- (29441, 12816),
 -- (29442, 12817); 
 
+SET @AGUID    := 6000;
+
+DELETE FROM `areatrigger` WHERE `entry` IN (@AGUID+1, @AGUID+2, @AGUID+3, @AGUID+4, @AGUID+5, @AGUID+6, @AGUID+7, @AGUID+8, @AGUID+9);
+INSERT INTO `areatrigger` (`entry`, `map`, `x`, `y`, `z`, `radius`) VALUES
+(@AGUID+1, 0, -9118.92, 330.1, 93.198, 10),     -- Stormwind
+(@AGUID+2, 0, -9061.46, 349.666, 93.1098, 10),  -- Stormwind
+(@AGUID+3, 0, -5163.2, -645.852, 396.992, 10),  -- Ironforge
+(@AGUID+4, 0, -5175.25, -588.093, 397.984, 10), -- Ironforge
+(@AGUID+5, 1, 9948.02, 1932.39, 1328.69, 10),   -- Darnassus
+(@AGUID+6, 1, 1217.81, -4339.42, 20.8739, 10),  -- Orgrimmar
+(@AGUID+7, 1, 1169.62, -4320.03, 20.8739, 10),  -- Orgrimmar
+(@AGUID+8, 1, -1535.21, 68.198, 1.9512, 10),    -- Thunder Bluff
+(@AGUID+9, 0, 1980.01, 305.231, 41.1893, 10);   -- Undercity
+
+DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (@AGUID+1, @AGUID+2, @AGUID+3, @AGUID+4, @AGUID+5, @AGUID+6, @AGUID+7, @AGUID+8, @AGUID+9);
+INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
+(@AGUID+1, 9260), -- Stormwind
+(@AGUID+2, 9260), -- Stormwind
+(@AGUID+3, 9261), -- Ironforge
+(@AGUID+4, 9261), -- Ironforge
+(@AGUID+5, 9262), -- Darnassus
+(@AGUID+6, 9263), -- Orgrimmar
+(@AGUID+7, 9263), -- Orgrimmar
+(@AGUID+8, 9264), -- Thunder Bluff
+(@AGUID+9, 9265); -- Undercity
+
+    
 -- Necrotic Crystal item quests
 DELETE FROM `creature_questender` WHERE `quest` IN (9292, 9310);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
@@ -337,8 +364,8 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (16786, 9094), (16786, 9317), (16786, 9318), (16786, 9321), (16786, 9337), (16786, 9341),
 (16787, 9333), (16787, 9334), (16787, 9335), (16787, 9336), (16787, 9320), (16787, 9343);
 
-UPDATE `quest_template` SET `QuestType` = 2, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
-UPDATE `quest_template` SET `QuestType` = 2, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
+UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
+UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
 
 
 /**-- Text Updates --**/

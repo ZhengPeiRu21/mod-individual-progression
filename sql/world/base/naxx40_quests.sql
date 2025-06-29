@@ -241,7 +241,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES (@NPC, 9068), (@NPC, 90
 UPDATE `quest_template_addon` SET `AllowableClasses` = @CLASS WHERE (`ID` IN (9068, 9069, 9070, 9071, 9072, 9073, 9074, 9075));
 
 -- rogue
-SET @NPC:= 16134;
+SET @NPC:= 16131;
 SET @CLASS:= 8;
 DELETE FROM `creature_queststarter` WHERE (`quest` IN (9077, 9078, 9079, 9080, 9081, 9082, 9083, 9084)) AND (`id` = @NPC);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (@NPC, 9077), (@NPC, 9078), (@NPC, 9079), (@NPC, 9080), (@NPC, 9081), (@NPC, 9082), (@NPC, 9083), (@NPC, 9084);
@@ -353,3 +353,231 @@ UPDATE `quest_template` SET `RequiredFactionId1` = 0, `RequiredFactionValue1` = 
 -- Update Argent Dawn reputation requirements of frost resistance quests from Craftsman Wilhelm.
 -- Rep requirements are part of quest requirement. The only requirement to pickup is Omarion's book hand in
 UPDATE `quest_template_addon` SET `RequiredMinRepFaction` = 0, `RequiredMinRepValue` = 0 WHERE `ID` IN (9237, 9239, 9240, 9238, 9235, 9236, 9234, 9244, 9246, 9245, 9241, 9242, 9243);
+
+
+-- Dreadnaught Breastplate
+UPDATE `quest_request_items` SET `CompletionText` = 'Naxxramas holds ancient evils, $N.' WHERE `ID` = 9034;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Let them know fear once more, $C. Let them feel no mercy.' WHERE `ID` = 9034;
+-- Dreadnaught Legplates
+UPDATE `quest_request_items` SET `CompletionText` = 'Remember those that fell before you, $N.' WHERE `ID` = 9036;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Crush them beneath your feet.' WHERE `ID` = 9036;
+-- Dreadnaught Helmet
+UPDATE `quest_request_items` SET `CompletionText` = 'The head is the most sensitive part of most bodies.' WHERE `ID` = 9037;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Remember, you\'re not really dead if your brain is still in your head. Keep this thing on at all times...' WHERE `ID` = 9037;
+-- Dreadnaught Pauldrons
+UPDATE `quest_request_items` SET `CompletionText` = 'The secret is in the banding.' WHERE `ID` = 9038;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'I\'ve always thought that the pauldrons are the most pronounced pieces of a suit of armor. I\'m sure you agree.' WHERE `ID` = 9038;
+-- Dreadnaught Sabatons
+UPDATE `quest_request_items` SET `CompletionText` = 'Never underestimate a good pair of boots. Especially when they\'re made by Korfax!' WHERE `ID` = 9039;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'In the last war, I watched Mograine crack open the fetid skulls of the living dead with these very boots.' WHERE `ID` = 9039;
+-- Dreadnaught Gauntlets
+UPDATE `quest_request_items` SET `CompletionText` = 'These gauntlets are made to grip a fine weapon.' WHERE `ID` = 9040;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'May your grip tighten around the neck of Kel\'Thuzad.$B$B<Korfax makes a wrenching motion with his hands.>' WHERE `ID` = 9040;
+-- Dreadnaught Waistguard
+UPDATE `quest_request_items` SET `CompletionText` = 'The belt is both a fashion statement and a powerful piece of protective gear.' WHERE `ID` = 9041;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Use it as a noose for your enemies. Also, wear it out to your local goblin disco. You will be the talk of the town!' WHERE `ID` = 9041;
+-- Dreadnaught Bracers
+UPDATE `quest_request_items` SET `CompletionText` = 'The wrist is the second most vulnerable spot on a body... Or is it the fourth?' WHERE `ID` = 9042;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Remember, the wrist is the fifth most vulnerable spot on a body! Protect your wrists and they\'ll definitely protect your elbows - maybe.' WHERE `ID` = 9042;
+
+-- Redemption Tunic
+UPDATE `quest_request_items` SET `CompletionText` = 'My orders come from on high, $N.' WHERE `ID` = 9043;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Wear it in good health, $C.' WHERE `ID` = 9043;
+-- Redemption Legguards
+UPDATE `quest_request_items` SET `CompletionText` = 'You will not find a better suited pair of legguards for a holy warrior.' WHERE `ID` = 9044;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The balance between melee and magic is kept tightly in check with these legguards.' WHERE `ID` = 9044;
+-- Redemption Headpiece
+UPDATE `quest_request_items` SET `CompletionText` = '<Eligor looks up at you and then returns to his conversation.>' WHERE `ID` = 9045;
+UPDATE `quest_offer_reward`  SET `RewardText` = '<Eligor points to his head.>$B$BKeep it covered, $C.' WHERE `ID` = 9045;
+-- Redemption Spaulders
+UPDATE `quest_request_items` SET `CompletionText` = 'Can you not see that we are in the middle of something, $N?' WHERE `ID` = 9046;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Any $C will tell you that the brunt of their power comes from the shoulders. The bigger the better...' WHERE `ID` = 9046;
+-- Redemption Boots
+UPDATE `quest_request_items` SET `CompletionText` = 'You must provide me with what I have asked if I am to begin crafting.' WHERE `ID` = 9047;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'These boots will protect your feet against the attacks of very short Scourge.' WHERE `ID` = 9047;
+-- Redemption Handguards
+UPDATE `quest_request_items` SET `CompletionText` = 'You must provide me with what I have asked if I am to begin crafting.' WHERE `ID` = 9048;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Let the Light channel through these handguards and strike down your foes!' WHERE `ID` = 9048;
+-- Redemption Girdle
+UPDATE `quest_request_items` SET `CompletionText` = 'You must provide me with what I have asked if I am to begin crafting.' WHERE `ID` = 9049;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'This girdle will serve two functions: 1) It will protect and guide you against the Scourge and 2) Make you look 20 pounds lighter.' WHERE `ID` = 9049;
+-- Redemption Wristguards
+UPDATE `quest_request_items` SET `CompletionText` = 'You must provide me with what I have asked if I am to begin crafting.' WHERE `ID` = 9050;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'These are exceptionally cost effective to construct, but be warned, they may take on rust if you splash around in them too much.' WHERE `ID` = 9050;
+
+-- Cryptstalker Tunic
+UPDATE `quest_request_items` SET `CompletionText` = 'Do you have the items I asked for, $C?' WHERE `ID` = 9054;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'They will fear you, $N.' WHERE `ID` = 9054;
+-- Cryptstalker Legguards
+UPDATE `quest_request_items` SET `CompletionText` = 'Do you have the items I asked for, $C?' WHERE `ID` = 9055;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'As you don more of this armor, you will notice that your persona is changing. 
+                                                 You will gain a preternatural ability for killing. Perhaps, even, a lust for blood.$B$B
+                                                 Let it be said that I will not be held responsible for what chaos you may invoke...' WHERE `ID` = 9055;
+-- Cryptstalker Headpiece
+UPDATE `quest_request_items` SET `CompletionText` = 'Do you have the items I asked for, $C?' WHERE `ID` = 9056;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'You are turning into a fearsome creature, $N.' WHERE `ID` = 9056;
+-- Cryptstalker Spaulders
+UPDATE `quest_request_items` SET `CompletionText` = 'Do you have the items I asked for, $C?' WHERE `ID` = 9057;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'I have taken special care in making these shoulders as large and pronounced as possible. Take my word for it; you\'re going to love them...' WHERE `ID` = 9057;
+-- Cryptstalker Boots
+UPDATE `quest_request_items` SET `CompletionText` = 'Do you have the items I asked for, $C?' WHERE `ID` = 9058;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The boots are ready, $N! Wear them well.' WHERE `ID` = 9058;
+-- Cryptstalker Handguards
+UPDATE `quest_request_items` SET `CompletionText` = 'Do you have the items I asked for, $C?' WHERE `ID` = 9059;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Let the rage of the crypt fiend guide your hand, $N.' WHERE `ID` = 9059;
+-- Cryptstalker Girdle
+UPDATE `quest_request_items` SET `CompletionText` = 'Do you have the items I asked for, $C?' WHERE `ID` = 9060;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'A girdle fit for royalty! It\'s ready for you, $N.' WHERE `ID` = 9060;
+-- Cryptstalker Wristguards
+UPDATE `quest_request_items` SET `CompletionText` = 'Do you have the items I asked for, $C?' WHERE `ID` = 9061;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The wristguards are ready. Enjoy!' WHERE `ID` = 9061;
+
+-- Earthshatter Tunic
+UPDATE `quest_request_items` SET `CompletionText` = '<Rimblat snorts at you.>' WHERE `ID` = 9068;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Easily the most powerful and awe-inspiring piece of Earthshatter. My ancestors smile down upon you for this achievement, $N.' WHERE `ID` = 9068;
+-- Earthshatter Legguards
+UPDATE `quest_request_items` SET `CompletionText` = 'If nothing else, the land must be saved.' WHERE `ID` = 9069;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'I hope that you do not share the same fate as those that came before you, $N.' WHERE `ID` = 9069;
+-- Earthshatter Headpiece
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me that which I require?' WHERE `ID` = 9070;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'I present you with the centerpiece of Earthshatter vestments: The Earthshatter helmet...' WHERE `ID` = 9070;
+-- Earthshatter Spaulders
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me that which I require?' WHERE `ID` = 9071;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'From the shoulders comes balance.' WHERE `ID` = 9071;
+-- Earthshatter Boots
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me that which I require?' WHERE `ID` = 9072;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'These boots are infused with the power of my ancestors! Tread wisely...' WHERE `ID` = 9072;
+-- Earthshatter Handguards
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me that which I require?' WHERE `ID` = 9073;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'These handguards channel the power of the elements!' WHERE `ID` = 9073;
+-- Earthshatter Girdle
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me that which I require?' WHERE `ID` = 9074;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The girdle is ready, $N.' WHERE `ID` = 9074;
+-- Earthshatter Wristguards
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me that which I require?' WHERE `ID` = 9075;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The wristguards are ready, $N.' WHERE `ID` = 9075;
+
+-- Bonescythe Breastplate
+UPDATE `quest_request_items` SET `CompletionText` = '<Rohan shows you his moves.>$B$BWhat is it, $N? I\'ve got to hit this mark perfectly for the competition later.' WHERE `ID` = 9077;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'There you go, $R. As promised, the Bonescythe breastplate. I hope the fashion authorities aren\'t around. You\'d be thrown in the slammer for wearing that out!' WHERE `ID` = 9077;
+-- Bonescythe Legplates
+UPDATE `quest_request_items` SET `CompletionText` = '<Rohan laughs.>$B$BI just realized the irony in all of this.' WHERE `ID` = 9078;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Be careful walking around in those things. You might cut yourself.' WHERE `ID` = 9078;
+-- Bonescythe Helmet
+UPDATE `quest_request_items` SET `CompletionText` = 'You\'re giving me money.$B$B<Rohan laughs.>$B$BThat still cracks me up.' WHERE `ID` = 9079;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'What separates my Bonescythe helmet model from Don Julio\'s is style, $N. Style...' WHERE `ID` = 9079;
+-- Bonescythe Pauldrons
+UPDATE `quest_request_items` SET `CompletionText` = '<Rohan eyes you suspiciously.>$B$BBeen to Tyr\'s Hand lately?' WHERE `ID` = 9080;
+UPDATE `quest_offer_reward`  SET `RewardText` = '<Rohan wipes the sweat from his brow.>$B$BThese shoulders took some work! Don\'t go out and get yourself killed like a scrub, $N.' WHERE `ID` = 9080;
+-- Bonescythe Sabatons
+UPDATE `quest_request_items` SET `CompletionText` = 'Just bring me the materials and stop wasting my time, $C.' WHERE `ID` = 9081;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'They go on your feet. Say, you haven\'t been nosing around in Tyr\'s Hand again, have you?' WHERE `ID` = 9081;
+-- Bonescythe Gauntlets
+UPDATE `quest_request_items` SET `CompletionText` = 'How do you expect me to get anything done without the items I requested?' WHERE `ID` = 9082;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'These gauntlets could probably substitute as weapons if absolutely necessary. Wear them with pride!' WHERE `ID` = 9082;
+-- Bonescythe Waistguard
+UPDATE `quest_request_items` SET `CompletionText` = 'How do you expect me to get anything done without the items I requested?' WHERE `ID` = 9083;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The belt is ready, $N. Have you ever seen such a high-quality item sold for so little?' WHERE `ID` = 9083;
+-- Bonescythe Bracers
+UPDATE `quest_request_items` SET `CompletionText` = 'How do you expect me to get anything done without the items I requested?' WHERE `ID` = 9084;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The bracers are ready, $N.' WHERE `ID` = 9084;
+
+-- Dreamwalker Tunic
+UPDATE `quest_request_items` SET `CompletionText` = 'The material cost is high, but soon forgotten.' WHERE `ID` = 9086;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Your Dreamwalker tunic is ready, $N.' WHERE `ID` = 9086;
+-- Dreamwalker Legguards
+UPDATE `quest_request_items` SET `CompletionText` = 'The material cost is high, but soon forgotten.' WHERE `ID` = 9087;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'As promised, Dreamwalker legguards.$B$B<Rayne hands you the armor.>' WHERE `ID` = 9087;
+-- Dreamwalker Headpiece
+UPDATE `quest_request_items` SET `CompletionText` = 'The material cost is high, but soon forgotten.' WHERE `ID` = 9088;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Your Dreamwalker headpiece is ready, $N.' WHERE `ID` = 9088;
+-- Dreamwalker Spaulders
+UPDATE `quest_request_items` SET `CompletionText` = 'The material cost is high, but soon forgotten.' WHERE `ID` = 9089;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Your Dreamwalker spaulders are ready, $N.' WHERE `ID` = 9089;
+-- Dreamwalker Boots
+UPDATE `quest_request_items` SET `CompletionText` = 'The material cost is high, but soon forgotten.' WHERE `ID` = 9090;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Your Dreamwalker boots are ready, $N.' WHERE `ID` = 9090;
+-- Dreamwalker Handguards
+UPDATE `quest_request_items` SET `CompletionText` = 'The material cost is high, but soon forgotten.' WHERE `ID` = 9091;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Your Dreamwalker handguards are ready, $N.' WHERE `ID` = 9091;
+-- Dreamwalker Girdle
+UPDATE `quest_request_items` SET `CompletionText` = 'The material cost is high, but soon forgotten.' WHERE `ID` = 9092;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Your Dreamwalker girdle is ready, $N.' WHERE `ID` = 9092;
+-- Dreamwalker Wristguards
+UPDATE `quest_request_items` SET `CompletionText` = 'The material cost is high, but soon forgotten.' WHERE `ID` = 9093;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Your Dreamwalker wristguards are ready, $N.' WHERE `ID` = 9093;
+
+-- Frostfire Robe
+UPDATE `quest_request_items` SET `CompletionText` = 'With the proper materials and reagents, I am able to reform the mythical Frostfire armor.' WHERE `ID` = 9095;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do not forget that power left unchecked is as destructive as power left unused, $C. Use discretion when donning Frostfire.' WHERE `ID` = 9095;
+-- Frostfire Leggings
+UPDATE `quest_request_items` SET `CompletionText` = 'With the proper materials and reagents, I am able to reform the mythical Frostfire armor.' WHERE `ID` = 9096;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do not forget that power left unchecked is as destructive as power left unused, $C. Use discretion when donning Frostfire.' WHERE `ID` = 9096;
+-- Frostfire Circlet
+UPDATE `quest_request_items` SET `CompletionText` = 'With the proper materials and reagents, I am able to reform the mythical Frostfire armor.' WHERE `ID` = 9097;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do not forget that power left unchecked is as destructive as power left unused, $C. Use discretion when donning Frostfire.' WHERE `ID` = 9097;
+-- Frostfire Shoulderpads
+UPDATE `quest_request_items` SET `CompletionText` = 'With the proper materials and reagents, I am able to reform the mythical Frostfire armor.' WHERE `ID` = 9098;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do not forget that power left unchecked is as destructive as power left unused, $C. Use discretion when donning Frostfire.' WHERE `ID` = 9098;
+-- Frostfire Sandals
+UPDATE `quest_request_items` SET `CompletionText` = 'With the proper materials and reagents, I am able to reform the mythical Frostfire armor.' WHERE `ID` = 9099;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do not forget that power left unchecked is as destructive as power left unused, $C. Use discretion when donning Frostfire.' WHERE `ID` = 9099;
+-- Frostfire Gloves
+UPDATE `quest_request_items` SET `CompletionText` = 'With the proper materials and reagents, I am able to reform the mythical Frostfire armor.' WHERE `ID` = 9100;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do not forget that power left unchecked is as destructive as power left unused, $C. Use discretion when donning Frostfire.' WHERE `ID` = 9100;
+-- Frostfire Belt
+UPDATE `quest_request_items` SET `CompletionText` = 'With the proper materials and reagents, I am able to reform the mythical Frostfire armor.' WHERE `ID` = 9101;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do not forget that power left unchecked is as destructive as power left unused, $C. Use discretion when donning Frostfire.' WHERE `ID` = 9101;
+-- Frostfire Bindings
+UPDATE `quest_request_items` SET `CompletionText` = 'With the proper materials and reagents, I am able to reform the mythical Frostfire armor.' WHERE `ID` = 9102;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do not forget that power left unchecked is as destructive as power left unused, $C. Use discretion when donning Frostfire.' WHERE `ID` = 9102;
+
+-- Plagueheart Robe
+UPDATE `quest_request_items` SET `CompletionText` = 'The prodigal rodent returns! Have you what I require?' WHERE `ID` = 9103;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do you see? Do you now understand the power? Purification... What fools...$B$B<Mataus shakes his head disapprovingly.>$B$BNow take it and get out of my sight.' WHERE `ID` = 9103;
+-- Plagueheart Leggings
+UPDATE `quest_request_items` SET `CompletionText` = 'The prodigal rodent returns! Have you what I require?' WHERE `ID` = 9104;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do you see? Do you now understand the power? Purification... What fools...$B$B<Mataus shakes his head disapprovingly.>$B$BNow take it and get out of my sight.' WHERE `ID` = 9104;
+-- Plagueheart Circlet
+UPDATE `quest_request_items` SET `CompletionText` = 'The prodigal rodent returns! Have you what I require?' WHERE `ID` = 9105;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do you see? Do you now understand the power? Purification... What fools...$B$B<Mataus shakes his head disapprovingly.>$B$BNow take it and get out of my sight.' WHERE `ID` = 9105;
+-- Plagueheart Shoulderpads
+UPDATE `quest_request_items` SET `CompletionText` = 'The prodigal rodent returns! Have you what I require?' WHERE `ID` = 9106;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do you see? Do you now understand the power? Purification... What fools...$B$B<Mataus shakes his head disapprovingly.>$B$BNow take it and get out of my sight.' WHERE `ID` = 9106;
+-- Plagueheart Sandals
+UPDATE `quest_request_items` SET `CompletionText` = 'The prodigal rodent returns! Have you what I require?' WHERE `ID` = 9107;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do you see? Do you now understand the power? Purification... What fools...$B$B<Mataus shakes his head disapprovingly.>$B$BNow take it and get out of my sight.' WHERE `ID` = 9107;
+-- Plagueheart Gloves
+UPDATE `quest_request_items` SET `CompletionText` = 'The prodigal rodent returns! Have you what I require?' WHERE `ID` = 9108;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do you see? Do you now understand the power? Purification... What fools...$B$B<Mataus shakes his head disapprovingly.>$B$BNow take it and get out of my sight.' WHERE `ID` = 9108;
+-- Plagueheart Belt
+UPDATE `quest_request_items` SET `CompletionText` = 'The prodigal rodent returns! Have you what I require?' WHERE `ID` = 9109;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do you see? Do you now understand the power? Purification... What fools...$B$B<Mataus shakes his head disapprovingly.>$B$BNow take it and get out of my sight.' WHERE `ID` = 9109;
+-- Plagueheart Bindings
+UPDATE `quest_request_items` SET `CompletionText` = 'The prodigal rodent returns! Have you what I require?' WHERE `ID` = 9110;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'Do you see? Do you now understand the power? Purification... What fools...$B$B<Mataus shakes his head disapprovingly.>$B$BNow take it and get out of my sight.' WHERE `ID` = 9110;
+
+-- Robe of Faith
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me the reagents, child?' WHERE `ID` = 9111;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The vestments are ready, $N. Smite those that would harm our world in your righteous fire.' WHERE `ID` = 9111;
+-- Leggings of Faith
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me the reagents, child?' WHERE `ID` = 9112;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The vestments are ready, $N. Smite those that would harm our world in your righteous fire.' WHERE `ID` = 9112;
+-- Circlet of Faith
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me the reagents, child?' WHERE `ID` = 9113;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The vestments are ready, $N. Smite those that would harm our world in your righteous fire.' WHERE `ID` = 9113;
+-- Shoulderpads of Faith
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me the reagents, child?' WHERE `ID` = 9114;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The vestments are ready, $N. Smite those that would harm our world in your righteous fire.' WHERE `ID` = 9114;
+-- Sandals of Faith
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me the reagents, child?' WHERE `ID` = 9115;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The vestments are ready, $N. Smite those that would harm our world in your righteous fire.' WHERE `ID` = 9115;
+-- Gloves of Faith
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me the reagents, child?' WHERE `ID` = 9116;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The vestments are ready, $N. Smite those that would harm our world in your righteous fire.' WHERE `ID` = 9116;
+-- Belt of Faith
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me the reagents, child?' WHERE `ID` = 9117;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The vestments are ready, $N. Smite those that would harm our world in your righteous fire.' WHERE `ID` = 9117;
+-- Bindings of Faith
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you brought me the reagents, child?' WHERE `ID` = 9118;
+UPDATE `quest_offer_reward`  SET `RewardText` = 'The vestments are ready, $N. Smite those that would harm our world in your righteous fire.' WHERE `ID` = 9118;
