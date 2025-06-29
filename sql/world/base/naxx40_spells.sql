@@ -13,6 +13,7 @@
 -- (28785, 'spell_anub_locust_swarm_aura_40');
 -- (28450, 'spell_unholy_staff_arcane_explosion_40');
 -- (28153, 'spell_disease_cloud_damage_40');
+-- (28531, 'spell_frost_aura_damage_40');
 -- `spell_dbc` [90001,90007}
 
 -- Custom Spells
@@ -51,6 +52,11 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28450, 'spel
 -- 28153 Disease cloud 600->300
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28153;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28153, 'spell_disease_cloud_damage_40');
+
+-- Sapphiron
+-- 28531 Frost Aura 1200->600
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28531;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28531, 'spell_frost_aura_damage_40');
 
 -- Anub'Arak
 -- Locust Swarm: Reduce damage ~1500 to ~1000, increase radius 25yd to 30yd
