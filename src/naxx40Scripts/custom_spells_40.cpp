@@ -266,7 +266,7 @@ class spell_sapphiron_frost_aura_40 : public SpellScript
 
     void Register() override
     {
-        OnEffectLaunchTarget += SpellEffectFn(spell_sapphiron_frost_aura_40::CalculateDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+        OnEffectPeriodic += AuraEffectPeriodicFn(spell_sapphiron_frost_aura_40::CalculateDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
     }
 };
 
