@@ -352,6 +352,26 @@ class spell_disease_cloud_damage_40 : public SpellScript
     }
 };
 
+class spell_frost_aura_damage_40 : public SpellScript
+{
+    PrepareSpellScript(spell_frost_aura_damage_40);
+
+    void HandleDamageCalc(SpellEffIndex /*effIndex*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        SetEffectValue(urand(575,625));
+    }
+
+    void Register() override
+    {
+        OnEffectLaunchTarget += SpellEffectFn(spell_frost_aura_damage_40::HandleDamageCalc, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+    }
+};
+
 class spell_feugen_static_field_40 : public SpellScript
 {
     PrepareSpellScript(spell_feugen_static_field_40);
@@ -391,5 +411,6 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_razuvious_disrupting_shout_40);
     RegisterSpellScript(spell_unholy_staff_arcane_explosion_40);
     RegisterSpellScript(spell_disease_cloud_damage_40);
+    RegisterSpellScript(spell_frost_aura_damage_40);
     RegisterSpellScript(spell_feugen_static_field_40);
 }
