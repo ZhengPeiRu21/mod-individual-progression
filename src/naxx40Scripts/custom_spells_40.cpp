@@ -207,6 +207,84 @@ class spell_kelthuzad_dark_blast_40 : public SpellScript
     }
 };
 
+// 28479 - Frostbolt
+class spell_kelthuzad_frostbolt_40 : public SpellScript
+{
+    PrepareSpellScript(spell_kelthuzad_frostbolt_40);
+
+    void CalculateDamage(SpellEffIndex /*effIndex*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        SetEffectValue(urand(2500,2600));
+    }
+
+    void Register() override
+    {
+        OnEffectLaunchTarget += SpellEffectFn(spell_kelthuzad_frostbolt_40::CalculateDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+    }
+};
+
+// 28522 - Icebolt  
+class spell_sapphiron_icebolt_40 : public SpellScript
+{
+    PrepareSpellScript(spell_sapphiron_icebolt_40);
+
+    void CalculateDamage(SpellEffIndex /*effIndex*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        SetEffectValue(urand(2625,2900));
+    }
+
+    void Register() override
+    {
+        OnEffectLaunchTarget += SpellEffectFn(spell_sapphiron_icebolt_40::CalculateDamage, EFFECT_1, SPELL_EFFECT_SCHOOL_DAMAGE);
+    }
+};
+
+// 28531 - Frost Aura
+enum FrostAura
+{
+    SPELL_FROST_AURA = 28531,
+};
+
+class spell_sapphiron_frost_aura_40 : public AuraScript
+{
+    PrepareAuraScript(spell_sapphiron_frost_aura_40);
+
+    bool Validate(SpellInfo const* /*spellInfo*/) override
+    {
+        return ValidateSpellInfo({ SPELL_FROST_AURA });
+    }
+
+    void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        PreventDefaultAction();
+        int32 modifiedFrostAuraDamage = 600;
+        CustomSpellValues values;
+        values.AddSpellMod(SPELLVALUE_BASE_POINT0, modifiedFrostAuraDamage);
+        caster->CastCustomSpell(SPELL_FROST_AURA, values, caster, TRIGGERED_NONE, nullptr, nullptr, GetCasterGUID());
+    }
+
+    void Register() override
+    {
+        OnEffectPeriodic += AuraEffectPeriodicFn(spell_sapphiron_frost_aura_40::HandleTriggerSpell, EFFECT_0, 3);
+    }
+};
+
+
 // 29213 - Curse of the Plaguebringer
 enum CurseOfThePlaguebringer
 {
@@ -245,7 +323,7 @@ class spell_noth_curse_of_the_plaguebringer_aura_40 : public AuraScript
     }
 };
 
-//
+
 class spell_razuvious_disrupting_shout_40 : public SpellScript
 {
     PrepareSpellScript(spell_razuvious_disrupting_shout_40);
@@ -331,6 +409,7 @@ class spell_disease_cloud_damage_40 : public SpellScript
     }
 };
 
+
 class spell_feugen_static_field_40 : public SpellScript
 {
     PrepareSpellScript(spell_feugen_static_field_40);
@@ -365,6 +444,9 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_heigan_eruption_40);
     RegisterSpellScript(spell_submerge_visual_aura);
     RegisterSpellScript(spell_kelthuzad_dark_blast_40);
+    RegisterSpellScript(spell_kelthuzad_frostbolt_40);
+    RegisterSpellScript(spell_sapphiron_icebolt_40);
+    RegisterSpellScript(spell_sapphiron_frost_aura_40);
     RegisterSpellScript(spell_noth_curse_of_the_plaguebringer_aura_40);
     RegisterSpellScript(spell_razuvious_disrupting_shout_40);
     RegisterSpellScript(spell_unholy_staff_arcane_explosion_40);
