@@ -4588,6 +4588,10 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (351082, 0, 0, "%s goes into a frenzy!", 16, 0, 100.0, 0, 0, 0, 1191, 3, "Crypt Guard EMOTE_FRENZY (Naxx 40)"),
 (351082, 1, 0, "A Crypt Guard joins the fight!", 41, 0, 100.0, 0, 0, 0, 29887, 3, "Crypt Guard EMOTE_SPAWN (Naxx 40)"),
 (351082, 2, 0, "Corpse Scarabs appear from a Crypt Guard's corpse!", 41, 0, 100.0, 0, 0, 0, 32796, 3, "Crypt Guard EMOTE_SCARAB (Naxx 40)"),
+(351084, 0, 0, 'Sir, student requests that you beat him for his lack of understanding!', 12, 0, 100, 1, 0, 0, 13140, 0, 'Death Knight Understudy SAY_BEAT_ME'),
+(351084, 0, 1, 'I am unworthy, master!', 12, 0, 100, 1, 0, 0, 13138, 0, 'Death Knight Understudy SAY_UNWORTHY'),
+(351084, 0, 2, 'Student is worthless, master! Student apologizes for his deficiency!',   12, 0, 100, 1, 0, 0, 13137, 0, 'Death Knight Understudy SAY_WORTHLESS'),
+(351084, 0, 3, 'Student will work harder, master!',   12, 0, 100, 1, 0, 0, 13139, 0, 'Death Knight Understudy SAY_WORK_HARDER'),   
 (351037, 0, 0, "You seek death?", 14, 0, 100, 0, 0, 8835, 13051, 0, 'mograine SAY_MOG_AGGRO_1 (Naxx 40)'),
 (351037, 0, 1, "None shall pass!", 14, 0, 100, 0, 0, 8836, 13052, 0, 'mograine SAY_MOG_AGGRO_2 (Naxx 40)'),
 (351037, 0, 2, "Be still!", 14, 0, 100, 0, 0, 8837, 13052, 0, 'mograine SAY_MOG_AGGRO_3 (Naxx 40)'),
@@ -4927,6 +4931,10 @@ INSERT INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`
 (10,   351070,  2), (10,   351070,  3), (10,   351070,  4), (10,   351070,  5), (10,   351070,  6),
 (5,    16157,   2), (5,    16157,   3), (5,    16157,   4), (5,    16157,   5), (5,    16157,   6),
 (5,    351015,  2), (5,    351015,  3), (5,    351015,  4), (5,    351015,  5), (5,    351015,  6);
+
+-- Naxxramas Worshipper
+DELETE FROM `creature_template_spell` WHERE `CreatureID` = 351081;
+INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES (351081, 0, 28732, 12340);
 
 -- Doom Touched Warrior
 UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.42857, `DamageModifier` = 17.1, `ArmorModifier` = 1.15, `RangeAttackTime` = 1265 WHERE `entry`=16157;
