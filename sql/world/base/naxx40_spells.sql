@@ -9,9 +9,12 @@
 -- (29107, 'spell_razuvious_disrupting_shout_40');
 -- (28135, 'spell_feugen_static_field');
 -- (28457, 'spell_kelthuzad_dark_blast_40');
+-- (28479, 'spell_kelthuzad_frostbolt_40');
 -- (28785, 'spell_anub_locust_swarm_aura_40');
 -- (28450, 'spell_unholy_staff_arcane_explosion_40');
 -- (28153, 'spell_disease_cloud_damage_40');
+-- (28522, 'spell_sapphiron_icebolt_40');
+-- (28531, 'spell_sapphiron_frost_aura_40');
 -- `spell_dbc` [90001,90007}
 
 -- Custom Spells
@@ -51,6 +54,15 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28450, 'spel
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28153;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28153, 'spell_disease_cloud_damage_40');
 
+-- Sapphiron
+-- 28522 Icebolt: Reduce damage ~7125 to ~2625
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28522;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28522, 'spell_sapphiron_icebolt_40');
+
+-- 28531 Frost Aura 1200->600
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28531;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28531, 'spell_sapphiron_frost_aura_40');
+
 -- Anub'Arak
 -- Locust Swarm: Reduce damage ~1500 to ~1000, increase radius 25yd to 30yd
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28785;
@@ -60,6 +72,10 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28785, 'spel
 -- Dark Blast: Reduce damage ~3.5k to ~2k
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28457;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28457, 'spell_kelthuzad_dark_blast_40');
+
+-- Frostbolt: Reduce damage ~4.5k to ~2550
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28479;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28479, 'spell_kelthuzad_frostbolt_40');
 
 -- Thaddius
 -- Feugen - Static Field: Change to mana drain
