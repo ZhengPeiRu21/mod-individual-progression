@@ -280,7 +280,7 @@ class spell_sapphiron_frost_aura_40 : public AuraScript
 
     void Register() override
     {
-        OnEffectPeriodic += AuraEffectPeriodicFn(spell_sapphiron_frost_aura_40::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_TRIGGER_SPELL);
+        OnEffectPeriodic += AuraEffectPeriodicFn(spell_sapphiron_frost_aura_40::HandleTriggerSpell, EFFECT_0, 3);
     }
 };
 
