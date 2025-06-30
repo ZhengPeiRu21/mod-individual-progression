@@ -51,10 +51,14 @@ public:
 
     bool OnGossipHello(Player* player, GameObject* /*go*/) override
     {
-        if (((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED) && isAttuned(player)) || (isExcludedFromProgression(player) && (player->GetLevel() <= IP_LEVEL_TBC)))
+        if ((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED) && (player->GetLevel() <= IP_LEVEL_TBC))
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+			
+			if ((isAttuned(player)) || (isExcludedFromProgression(player) && (player->GetLevel() <= IP_LEVEL_TBC)))
+			{
+                player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+			}
         }
         return true;
     }
