@@ -244,16 +244,10 @@ public:
             if (spell->Id == SPELL_WIDOWS_EMBRACE)
             {
                 Talk(EMOTE_WIDOWS_EMBRACE);
-                if (me->HasAura(SPELL_FRENZY))
-                {
-                    me->RemoveAurasDueToSpell(SPELL_FRENZY);
-                    events.RescheduleEvent(EVENT_FRENZY, 60000);
-                }
+                me->RemoveAurasDueToSpell(SPELL_FRENZY);
+                events.RescheduleEvent(EVENT_FRENZY, 60000);
                 pInstance->SetData(DATA_FRENZY_REMOVED, 0);
-                if (Is25ManRaid())
-                {
-                    Unit::Kill(caster, caster);
-                }
+                caster->KillSelf();
             }
         }
     };
