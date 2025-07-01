@@ -36,7 +36,8 @@ enum Spells
     SPELL_POISON_BOLT_VOLLEY            = 28796,
     SPELL_RAIN_OF_FIRE                  = 28794,
     SPELL_FRENZY                        = 28798,
-    SPELL_WIDOWS_EMBRACE                = 28732
+    SPELL_WIDOWS_EMBRACE                = 28732,
+    SPELL_MINION_WIDOWS_EMBRACE         = 54097
 };
 
 enum SpellValues : int32
@@ -241,7 +242,7 @@ public:
 
         void SpellHit(Unit* caster, SpellInfo const* spell) override
         {
-            if (spell->Id == SPELL_WIDOWS_EMBRACE)
+            if (spell->Id == SPELL_MINION_WIDOWS_EMBRACE)
             {
                 Talk(EMOTE_WIDOWS_EMBRACE); // %s is affected by Widow's Embrace!
                 if (me->HasAura(SPELL_FRENZY))
