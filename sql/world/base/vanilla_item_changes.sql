@@ -19523,6 +19523,9 @@ UPDATE `item_template` SET `BuyPrice` = 94989, `SellPrice` = 18997, `DisenchantI
 /*  Libram of Fervor  */
 UPDATE `item_template` SET `BuyPrice` = 95693, `SellPrice` = 19138, `DisenchantID` = 49, `spellid_1` = 60804 WHERE entry=23203;
 
+/* Mark of the Champion */
+UPDATE `item_template` SET `spellid_2` = 17670, `spelltrigger_2` = 1 WHERE entry IN (23206, 23207);
+
 /*  Girdle of the Mentor  */
 UPDATE `item_template` SET `armor` = 536, `BuyPrice` = 222368, `SellPrice` = 44473 WHERE entry=23219;
 
