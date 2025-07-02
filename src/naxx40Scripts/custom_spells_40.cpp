@@ -272,13 +272,9 @@ class spell_sapphiron_frost_aura_40 : public AuraScript
             return;
         }
         PreventDefaultAction();
-        // int32 modifiedFrostAuraDamage = 599;
-        int32 bp0 = 599; // instant damage
-        int32 bp1 = 599; // periodic damage
-        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
-        values.AddSpellMod(SPELLVALUE_BASE_POINT1, bp1);
         CustomSpellValues values;
-        values.AddSpellMod(SPELLVALUE_BASE_POINT0, modifiedFrostAuraDamage);
+        int32 bp0 = 599;
+        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
         caster->CastCustomSpell(SPELL_FROST_AURA, values, caster, TRIGGERED_NONE, nullptr, nullptr, GetCasterGUID());
     }
 
