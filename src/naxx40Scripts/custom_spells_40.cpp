@@ -207,6 +207,49 @@ class spell_kelthuzad_dark_blast_40 : public SpellScript
     }
 };
 
+// 28479 - Frostbolt
+class spell_kelthuzad_frostbolt_40 : public SpellScript
+{
+    PrepareSpellScript(spell_kelthuzad_frostbolt_40);
+
+    void CalculateDamage(SpellEffIndex /*effIndex*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        SetEffectValue(urand(2550,3450));
+    }
+
+    void Register() override
+    {
+        OnEffectLaunchTarget += SpellEffectFn(spell_kelthuzad_frostbolt_40::CalculateDamage, EFFECT_0, SPELL_EFFECT_SCHOOL_DAMAGE);
+    }
+};
+
+// 28522 - Icebolt  
+class spell_sapphiron_icebolt_40 : public SpellScript
+{
+    PrepareSpellScript(spell_sapphiron_icebolt_40);
+
+    void CalculateDamage(SpellEffIndex /*effIndex*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        SetEffectValue(urand(2625,3375));
+    }
+
+    void Register() override
+    {
+        OnEffectLaunchTarget += SpellEffectFn(spell_sapphiron_icebolt_40::CalculateDamage, EFFECT_1, SPELL_EFFECT_SCHOOL_DAMAGE);
+    }
+};
+
+
 // 29213 - Curse of the Plaguebringer
 enum CurseOfThePlaguebringer
 {
@@ -245,7 +288,7 @@ class spell_noth_curse_of_the_plaguebringer_aura_40 : public AuraScript
     }
 };
 
-//
+
 class spell_razuvious_disrupting_shout_40 : public SpellScript
 {
     PrepareSpellScript(spell_razuvious_disrupting_shout_40);
@@ -331,6 +374,7 @@ class spell_disease_cloud_damage_40 : public SpellScript
     }
 };
 
+
 class spell_feugen_static_field_40 : public SpellScript
 {
     PrepareSpellScript(spell_feugen_static_field_40);
@@ -365,6 +409,8 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_heigan_eruption_40);
     RegisterSpellScript(spell_submerge_visual_aura);
     RegisterSpellScript(spell_kelthuzad_dark_blast_40);
+    RegisterSpellScript(spell_kelthuzad_frostbolt_40);
+    RegisterSpellScript(spell_sapphiron_icebolt_40);
     RegisterSpellScript(spell_noth_curse_of_the_plaguebringer_aura_40);
     RegisterSpellScript(spell_razuvious_disrupting_shout_40);
     RegisterSpellScript(spell_unholy_staff_arcane_explosion_40);
