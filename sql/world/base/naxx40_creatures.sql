@@ -185,6 +185,7 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (351017, 'ruRU', 'Послушник из Наксрамаса', '', 0),
 (351017, 'zhCN', '纳克萨玛斯侍僧', '', 0),
 (351017, 'zhTW', '納克薩瑪斯侍僧', '', 0),
+(351020, 'frFR', 'Horreb', '', 0),
 (351021, 'deDE', 'Flickwerkgolem', '', 0),
 (351021, 'esES', 'Gólem de retazos', '', 0),
 (351021, 'esMX', 'Gólem de retazos', '', 0),
