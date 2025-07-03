@@ -23161,10 +23161,10 @@ UPDATE `creature_template` SET `speed_walk` = 0.777776, `speed_run` = 1.14286, `
 UPDATE `creature_template` SET `detection_range` = 4.0, `DamageModifier` = 9.0, `unit_class` = 2, `mingold` = 186, `maxgold` = 615 WHERE `entry`=16143;
 
 /*  Doom Touched Warrior  */
-UPDATE `creature_template` SET `DamageModifier` = 22.0, `RangeAttackTime` = 1265 WHERE `entry`=16157;
+UPDATE `creature_template` SET `DamageModifier` = 17.1, `RangeAttackTime` = 1265 WHERE `entry` = 16157;
 
 /*  Death Touched Warrior  */
-UPDATE `creature_template` SET `DamageModifier` = 22.0, `RangeAttackTime` = 1265 WHERE `entry`=16158;
+UPDATE `creature_template` SET `DamageModifier` = 25.0, `RangeAttackTime` = 1265 WHERE `entry` = 16158;
 
 /*  Theldren Kill Credit  */
 UPDATE `creature_template` SET `DamageModifier` = 1.3 WHERE `entry`=16166;
@@ -23395,19 +23395,19 @@ UPDATE `creature_template` SET `minlevel` = 1, `maxlevel` = 1, `speed_walk` = 1.
 UPDATE `creature_template` SET `DamageModifier` = 1.3 WHERE `entry`=16445;
 
 /*  Plagued Deathhound  */
-UPDATE `creature_template` SET `DamageModifier` = 30.4, `RangeAttackTime` = 1265, `mingold` = 1, `maxgold` = 138065 WHERE `entry`=16448;
+UPDATE `creature_template` SET `DamageModifier` = 22.6, `RangeAttackTime` = 1265, `mingold` = 1, `maxgold` = 138065 WHERE `entry` = 16448;
 
 /*  Spirit of Naxxramas  */
-UPDATE `creature_template` SET `DamageModifier` = 25.0, `RangeAttackTime` = 1265, `mingold` = 1, `maxgold` = 10432 WHERE `entry`=16449;
+UPDATE `creature_template` SET `DamageModifier` = 37.35, `RangeAttackTime` = 1265, `mingold` = 1, `maxgold` = 10432 WHERE `entry` = 16449;
 
 /*  She number one  */
 UPDATE `creature_template` SET `speed_walk` = 1.0, `detection_range` = 18.0 WHERE `entry`=16450;
 
 /*  [UNUSED] Death Knight Vindicator  */
-UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.71429, `DamageModifier` = 39.0, `BaseAttackTime` = 2000, `RangeAttackTime` = 1200, `unit_class` = 2, `mingold` = 4220 WHERE `entry`=16451;
+UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.71429, `DamageModifier` = 32.85, `BaseAttackTime` = 2000, `RangeAttackTime` = 1200, `unit_class` = 2, `mingold` = 4220 WHERE `entry` = 16451;
 
 /*  Necro Knight Guardian  */
-UPDATE `creature_template` SET `DamageModifier` = 22.0, `BaseAttackTime` = 2000, `RangeAttackTime` = 1450, `unit_class` = 8 WHERE `entry`=16452;
+UPDATE `creature_template` SET `DamageModifier` = 26.0, `BaseAttackTime` = 2000, `RangeAttackTime` = 1450, `unit_class` = 8 WHERE `entry` = 16452;
 
 /*  Necro Stalker  */
 UPDATE `creature_template` SET `DamageModifier` = 27.35, `RangeAttackTime` = 1265 WHERE `entry`=16453;
@@ -23539,7 +23539,7 @@ UPDATE `creature_template` SET `DamageModifier` = 2.85 WHERE `entry`=16817;
 UPDATE `creature_template` SET `DamageModifier` = 2.85 WHERE `entry`=16818;
 
 /*  [UNUSED] Death Lord  */
-UPDATE `creature_template` SET `speed_run` = 1.42857, `DamageModifier` = 40.5, `unit_class` = 2 WHERE `entry`=16861;
+UPDATE `creature_template` SET `speed_run` = 1.42857, `DamageModifier` = 35.85, `unit_class` = 2 WHERE `entry` = 16861;
 
 /*  Stormwind Celebrant  */
 UPDATE `creature_template` SET `speed_walk` = 1.0, `detection_range` = 18.0 WHERE `entry`=16889;

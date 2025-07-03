@@ -4958,7 +4958,15 @@ UPDATE `creature_template` SET `speed_walk` = 2.0, `speed_run` = 2.14286, `Damag
 UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.42857, `DamageModifier` = 37.35, `ArmorModifier` = 1.15, `RangeAttackTime` = 1265, `mingold` = 1, `maxgold` = 10432 WHERE `entry`=16449;
 
 -- [UNUSED] Death Knight Vindicator
-UPDATE `creature_template` SET `name` = 'Deathknight Vindicator', `speed_walk` = 1.0, `speed_run` = 1.71429, `DamageModifier` = 32.85, `ArmorModifier` = 1.25, `BaseAttackTime` = 2000, `RangeAttackTime` = 1200, `unit_class` = 2, `mingold` = 4220 WHERE `entry`=16451;
+UPDATE `creature_template` SET `name` = 'Deathknight Vindicator', `speed_walk` = 1.0, `speed_run` = 1.71429, `DamageModifier` = 32.85, `ArmorModifier` = 1.25, `BaseAttackTime` = 2000, `RangeAttackTime` = 1200, `unit_class` = 2, `mingold` = 4220 WHERE `entry` = 16451;
+UPDATE `creature_template_locale` SET `Name` = "Vollstrecker der Todesritter" WHERE `entry` = 16451 AND `locale` = "deDE";
+UPDATE `creature_template_locale` SET `Name` = "Vindicador Caballero de la Muerte" WHERE `entry` = 16451 AND `locale` = "esES";
+UPDATE `creature_template_locale` SET `Name` = "Vindicador Caballero de la Muerte" WHERE `entry` = 16451 AND `locale` = "esMX";
+UPDATE `creature_template_locale` SET `Name` = "Chevalier de la mort justicier" WHERE `entry` = 16451 AND `locale` = "frFR";
+UPDATE `creature_template_locale` SET `Name` = "죽음의 기사단 근위병" WHERE `entry` = 16451 AND `locale` = "koKR";
+UPDATE `creature_template_locale` SET `Name` = "Рыцарь смерти - воздаятель" WHERE `entry` = 16451 AND `locale` = "ruRU";
+UPDATE `creature_template_locale` SET `Name` = "死亡骑士辩护者" WHERE `entry` = 16451 AND `locale` = "zhCN";
+UPDATE `creature_template_locale` SET `Name` = "死亡騎士復仇者" WHERE `entry` = 16451 AND `locale` = "zhTW";
 
 -- Necro Knight Guardian
 UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.71429, `DamageModifier` = 26.0, `ArmorModifier` = 1.25, `BaseAttackTime` = 2000, `RangeAttackTime` = 1450, `unit_class` = 8 WHERE `entry`=16452;
@@ -4967,7 +4975,15 @@ UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.71429, `Damag
 UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.42857, `DamageModifier` = 27.35, `ArmorModifier` = 1.15, `RangeAttackTime` = 1265, `lootid` = 351010 WHERE `entry`=16453;
 
 -- [UNUSED] Death Lord
-UPDATE `creature_template` SET `name` = 'Death Lord', `speed_run` = 1.42857, `DamageModifier` = 35.85, `ArmorModifier` = 1.15, `unit_class` = 2 WHERE `entry`=16861;
+UPDATE `creature_template` SET `name` = 'Death Lord', `speed_run` = 1.42857, `DamageModifier` = 35.85, `ArmorModifier` = 1.15, `unit_class` = 2 WHERE `entry` = 16861;
+UPDATE `creature_template_locale` SET `Name` = "Death Lord" WHERE `entry` = 16861 AND `locale` = "deDE";
+UPDATE `creature_template_locale` SET `Name` = "Señor de la Muerte" WHERE `entry` = 16861 AND `locale` = "esES";
+UPDATE `creature_template_locale` SET `Name` = "Señor de la Muerte" WHERE `entry` = 16861 AND `locale` = "esMX";
+UPDATE `creature_template_locale` SET `Name` = "Seigneur de la mort" WHERE `entry` = 16861 AND `locale` = "frFR";
+UPDATE `creature_template_locale` SET `Name` = "죽음의 군주" WHERE `entry` = 16861 AND `locale` = "koKR";
+UPDATE `creature_template_locale` SET `Name` = "Владыка смерти" WHERE `entry` = 16861 AND `locale` = "ruRU";
+UPDATE `creature_template_locale` SET `Name` = "死亡领主" WHERE `entry` = 16861 AND `locale` = "zhCN";
+UPDATE `creature_template_locale` SET `Name` = "死亡領主" WHERE `entry` = 16861 AND `locale` = "zhTW";
 
 -- Mr. Bigglesworth
 UPDATE `creature_template` SET `speed_run` = 0.857143, `DamageModifier` = 400.0, `RangeAttackTime` = 1265 WHERE `entry`=16998;
