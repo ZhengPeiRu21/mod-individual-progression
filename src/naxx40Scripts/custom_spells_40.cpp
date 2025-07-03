@@ -219,7 +219,7 @@ class spell_kelthuzad_frostbolt_40 : public SpellScript
         {
             return;
         }
-        SetEffectValue(urand(2500,2600));
+        SetEffectValue(urand(2550,3450));
     }
 
     void Register() override
@@ -240,7 +240,7 @@ class spell_sapphiron_icebolt_40 : public SpellScript
         {
             return;
         }
-        SetEffectValue(urand(2625,2900));
+        SetEffectValue(urand(2625,3375));
     }
 
     void Register() override
@@ -264,7 +264,7 @@ class spell_sapphiron_frost_aura_40 : public AuraScript
         return ValidateSpellInfo({ SPELL_FROST_AURA });
     }
 
-    void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
+    void OnApply(AuraEffect const* /*aurEff*/, AuraEffectHandleModes /*mode*/)
     {
         Unit* caster = GetCaster();
         if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
@@ -272,18 +272,17 @@ class spell_sapphiron_frost_aura_40 : public AuraScript
             return;
         }
         PreventDefaultAction();
-        int32 modifiedFrostAuraDamage = 600;
         CustomSpellValues values;
-        values.AddSpellMod(SPELLVALUE_BASE_POINT0, modifiedFrostAuraDamage);
+        int32 bp0 = 599;
+        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
         caster->CastCustomSpell(SPELL_FROST_AURA, values, caster, TRIGGERED_NONE, nullptr, nullptr, GetCasterGUID());
     }
 
     void Register() override
     {
-        OnEffectPeriodic += AuraEffectPeriodicFn(spell_sapphiron_frost_aura_40::HandleTriggerSpell, EFFECT_0, 3);
+        OnEffectApply += AuraEffectApplyFn(spell_sapphiron_frost_aura_40::OnApply, EFFECT_0, SPELL_AURA_PERIODIC_DAMAGE, AURA_EFFECT_HANDLE_REAL);
     }
 };
-
 
 // 29213 - Curse of the Plaguebringer
 enum CurseOfThePlaguebringer
@@ -359,6 +358,7 @@ class spell_razuvious_disrupting_shout_40 : public SpellScript
     }
 };
 
+// 28450 Unholy Staff
 class spell_unholy_staff_arcane_explosion_40 : public SpellScript
 {
     PrepareSpellScript(spell_unholy_staff_arcane_explosion_40);
@@ -389,6 +389,7 @@ class spell_unholy_staff_arcane_explosion_40 : public SpellScript
     }
 };
 
+// 28153 Disease cloud, Sewage Slime
 class spell_disease_cloud_damage_40 : public SpellScript
 {
     PrepareSpellScript(spell_disease_cloud_damage_40);
@@ -409,7 +410,7 @@ class spell_disease_cloud_damage_40 : public SpellScript
     }
 };
 
-
+// 28135 Static Field
 class spell_feugen_static_field_40 : public SpellScript
 {
     PrepareSpellScript(spell_feugen_static_field_40);
