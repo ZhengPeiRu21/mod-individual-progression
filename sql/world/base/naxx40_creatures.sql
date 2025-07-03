@@ -4801,7 +4801,7 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (351046, 0, 3942, 1.0, 1.0, NULL),
 (351047, 0, 11686, 1.0, 1.0, NULL),
 (351048, 0, 16513, 1.0, 1.0, NULL),
-(351049, 0, 16508, 1.0, 1.0, NULL),
+(351049, 0, 11072, 1.0, 1.0, NULL), -- displayId 11072 (more similar to the vanilla model) instead of 16508
 (351050, 0, 16611, 1.0, 1.0, NULL),
 (351051, 0, 10719, 1.0, 1.0, NULL),
 (351052, 0, 16614, 1.0, 1.0, NULL),
