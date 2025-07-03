@@ -264,7 +264,7 @@ class spell_sapphiron_frost_aura_40 : public AuraScript
         return ValidateSpellInfo({ SPELL_FROST_AURA });
     }
 
-    void HandleTriggerSpell(AuraEffect const* /*aurEff*/)
+    void OnApply(AuraEffect const* /*aurEff*/, AuraEffectHandleModes /*mode*/)
     {
         Unit* caster = GetCaster();
         if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
@@ -280,7 +280,7 @@ class spell_sapphiron_frost_aura_40 : public AuraScript
 
     void Register() override
     {
-        OnEffectPeriodic += AuraEffectPeriodicFn(spell_sapphiron_frost_aura_40::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_DAMAGE);
+        OnEffectApply += AuraEffectApplyFn(spell_sapphiron_frost_aura_40::OnApply, EFFECT_0, SPELL_AURA_PERIODIC_DAMAGE, AURA_EFFECT_HANDLE_REAL);
     }
 };
 
