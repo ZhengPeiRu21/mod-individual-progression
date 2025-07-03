@@ -379,8 +379,8 @@ bool IndividualProgression::groupHaveLevelDisparity(Player* player)
     {
         Group::MemberSlotList const& members = EventGroup->GetMemberSlots();
 
-        bool hasLevel80 = false;
-        bool hasBelow80 = false;
+        bool hasLevel71 = false;
+        bool hasBelow71 = false;
 
         for (Group::member_citerator itr = members.begin(); itr != members.end(); ++itr)
         {
@@ -389,14 +389,14 @@ bool IndividualProgression::groupHaveLevelDisparity(Player* player)
                 continue;
 
             uint8 level = groupMember->GetLevel();
-            if (level == 80)
-                hasLevel80 = true;
-            else if (level < 80)
-                hasBelow80 = true;
+            if (level > IP_LEVEL_TBC)
+                hasLevel71 = true;
+            else if (level <= IP_LEVEL_TBC)
+                hasBelow71 = true;
 
-            if (hasLevel80 && hasBelow80)
+            if (hasLevel71 && hasBelow71)
             {
-                player->SendSystemMessage("All group members must be either level 80 or all below level 80 to enter.");
+                player->SendSystemMessage("Too much level disparity in your group for this instance.");
                 return true;
             }   
         }

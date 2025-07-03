@@ -28,7 +28,7 @@ public:
         if (!sIndividualProgression->groupHaveLevelDisparity(player)
             && player->GetLevel() <= IP_LEVEL_TBC
             && (sIndividualProgression->isExcludedFromProgression(player)
-                || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+                || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
                 || ((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED))
                 || player->IsGameMaster()))
         {
@@ -36,8 +36,7 @@ public:
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
             player->SendRaidDifficulty(true);
 
-            if (!sIndividualProgression->groupHaveLevelDisparity(player) 
-                && (sIndividualProgression->isAttunedNaxx(player) || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() <= IP_LEVEL_TBC)))
+            if (!sIndividualProgression->groupHaveLevelDisparity(player) && player->GetLevel() <= IP_LEVEL_TBC)
             {
                 player->TeleportTo(MAP_NAXXRAMAS, 3006.05f, -3466.81f, 298.219f, 4.6824f);
             }

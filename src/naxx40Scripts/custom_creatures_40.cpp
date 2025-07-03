@@ -24,16 +24,18 @@ public:
             {
                 if (Player* player = who->ToPlayer())
                 {   
-                    if (sIndividualProgression->isExcludedFromProgression(player)
-                        || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() < IP_LEVEL_WOTLK)
-                        || sIndividualProgression->isAttunedNaxx(player)
-                        || player->IsGameMaster())
+                    if (!sIndividualProgression->groupHaveLevelDisparity(player)
+                        && player->GetLevel() <= IP_LEVEL_TBC
+                        && (sIndividualProgression->isExcludedFromProgression(player)
+                            || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                            || sIndividualProgression->isAttunedNaxx(player)
+                            || player->IsGameMaster()))
                     {
                         //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
                         player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
                         player->SendRaidDifficulty(true);
 
-                        if (!sIndividualProgression->groupHaveLevelDisparity(player))
+                        if (!sIndividualProgression->groupHaveLevelDisparity(player) && player->GetLevel() <= IP_LEVEL_TBC)
                             player->TeleportTo(MAP_NAXXRAMAS, 3006.05f, -3466.81f, 298.219f, 4.6824f);
                     }  
                 }
@@ -42,10 +44,12 @@ public:
             {
                 if (Player* player = who->ToPlayer())
                 {
-                    if (sIndividualProgression->isExcludedFromProgression(player)
-                        || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() < IP_LEVEL_WOTLK)
-                        || sIndividualProgression->isAttunedNaxx(player)
-                        || player->IsGameMaster())
+                    if (!sIndividualProgression->groupHaveLevelDisparity(player)
+                        && player->GetLevel() <= IP_LEVEL_TBC
+                        && (sIndividualProgression->isExcludedFromProgression(player)
+                            || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+                            || sIndividualProgression->isAttunedNaxx(player)
+                            || player->IsGameMaster())
                     {
                         GameObject* door = me->FindNearestGameObject(GO_STRATH_GATE_40, 100.0f);
                         if (door)

@@ -136,7 +136,11 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
-        if (player->GetLevel() < IP_LEVEL_WOTLK)
+        if (!sIndividualProgression->groupHaveLevelDisparity(player)
+            && player->GetLevel() <= IP_LEVEL_TBC
+            && (sIndividualProgression->isExcludedFromProgression(player)
+                || sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_1)
+                || player->IsGameMaster()))
         {
             //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);

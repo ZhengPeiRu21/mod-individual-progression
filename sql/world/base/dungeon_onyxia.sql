@@ -910,7 +910,7 @@ INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`
 
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 123;
 INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES
-(123, 2, 16309, 'You must have the Drakefire Amulet in your inventory before entering Onyxia''s Lair.', 2, NULL, 0, '');
+(123, 2, 16309, 'You must have the Drakefire Amulet in your inventory before entering Onyxia''s Lair.', 2, NULL, 0, 'Onyxia''s Lair (40 player)');
 
 DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = 249;
 DELETE FROM `mapdifficulty_dbc` WHERE `ID` = 754;
