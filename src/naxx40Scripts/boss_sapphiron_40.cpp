@@ -117,11 +117,14 @@ public:
 
         void InitializeAI() override
         {
-            me->SummonGameObject(GO_SAPPHIRON_BIRTH, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), 0, 0, 0, 0, 0, 0);
-            me->SetVisible(false);
-            me->SetUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
-            me->SetReactState(REACT_PASSIVE);
-            ScriptedAI::InitializeAI();
+            if (pInstance->GetBossState(BOSS_SAPPHIRON) != DONE)
+            {
+                me->SummonGameObject(GO_SAPPHIRON_BIRTH, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), 0, 0, 0, 0, 0, 0);
+                me->SetVisible(false);
+                me->SetUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
+                me->SetReactState(REACT_PASSIVE);
+                ScriptedAI::InitializeAI();
+            }
         }
 
         bool IsInRoom()
