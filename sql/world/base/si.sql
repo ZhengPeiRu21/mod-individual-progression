@@ -66,7 +66,7 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Zarena, 'deDE', 'Zarena Stahlwind', 'šberragende Waffenschmiedin', 18019),
 (@Zarena, 'esES', 'Zarena Cromvento', 'Forjadora de armas superior', 18019),
 (@Zarena, 'esMX', 'Zarena Cromvento', 'Forjadora de armas superior', 18019),
-(@Zarena, 'frFR', 'Zarena Cromwind', 'Excellente fabricante d\'armes', 18019),
+(@Zarena, 'frFR', 'Zarena Cromwind', 'Excellente fabricante d''armes', 18019),
 (@Zarena, 'koKR', '자레나 크롬윈드', '고급 무기제작자', 18019),
 (@Zarena, 'ruRU', 'Зарена Кромвинд', 'Опытная оружейница', 18019),
 (@Zarena, 'zhCN', '萨瑞娜·克罗姆温德', '高级铸剑师', 18019),
@@ -188,9 +188,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14684, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,     'Balzaphon - In Combat - Cast Fear'),
 (14684, 0, 1, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Balzaphon - In Combat - Cast Frostbolt'),
 (14684, 0, 2, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Balzaphon - In Combat - Cast Frostbolt Volley'),
-(14686, 0, 0, 0, 0, 0, 100, 0, 1000, 12000, 18000, 24000, 0, 0, 11, 17105, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Lady Falther\'ess - In Combat - Cast Banshee Curse'),
-(14686, 0, 1, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 16838, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther\'ess - In Combat - Cast Banshee Shriek'),
-(14686, 0, 2, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 22743, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther\'ess - In Combat - Cast Ribbon of Souls'),
+(14686, 0, 0, 0, 0, 0, 100, 0, 1000, 12000, 18000, 24000, 0, 0, 11, 17105, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Lady Falther''ess - In Combat - Cast Banshee Curse'),
+(14686, 0, 1, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 16838, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther''ess - In Combat - Cast Banshee Shriek'),
+(14686, 0, 2, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 22743, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther''ess - In Combat - Cast Ribbon of Souls'),
 (14690, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Revanchion - In Combat - Cast Frost Nova'),
 (14690, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 15000, 17000, 0, 0, 11, 15245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Revanchion - In Combat - Cast Shadow Bolt Volley'),
 --
@@ -233,7 +233,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 /*-- Object and NPC Updates --*/
 
-UPDATE `creature_template` SET `name` = 'Mouth of Kel\'Thuzad' WHERE `entry` = 16995;
+UPDATE `creature_template` SET `name` = 'Mouth of Kel''Thuzad' WHERE `entry` = 16995;
 
 -- Necrotic Shards 256+4
 UPDATE `creature_template` SET `unit_flags` = 260 WHERE `entry` = 16136;
@@ -275,6 +275,9 @@ UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9260, 9261, 9
 UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 9265);  -- Orgrimmar, Thunder Bluff, Undercity, Silvermoon(12816)
 UPDATE `quest_template` SET `Flags` = 12, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
+-- seems to fix the quest (for me)
+UPDATE `quest_template` SET `Flags` = 8, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
+UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16478, 16484, 16490, 16493, 16494, 16495);
 UPDATE `creature_template` SET `npcflag` = 0 WHERE `entry` IN (29441, 29442); -- there are no scourge outside Exodar and Silvermoon.
@@ -316,16 +319,17 @@ INSERT INTO `areatrigger` (`entry`, `map`, `x`, `y`, `z`, `radius`) VALUES
 (@AGUID+9, 0, 1980.01, 305.231, 41.1893, 10);   -- Undercity
 
 DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (@AGUID+1, @AGUID+2, @AGUID+3, @AGUID+4, @AGUID+5, @AGUID+6, @AGUID+7, @AGUID+8, @AGUID+9);
-INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
-(@AGUID+1, 9260), -- Stormwind
-(@AGUID+2, 9260), -- Stormwind
-(@AGUID+3, 9261), -- Ironforge
-(@AGUID+4, 9261), -- Ironforge
-(@AGUID+5, 9262), -- Darnassus
-(@AGUID+6, 9263), -- Orgrimmar
-(@AGUID+7, 9263), -- Orgrimmar
-(@AGUID+8, 9264), -- Thunder Bluff
-(@AGUID+9, 9265); -- Undercity
+-- seems to fix the quest (for me)
+-- INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
+-- (@AGUID+1, 9260), -- Stormwind
+-- (@AGUID+2, 9260), -- Stormwind
+-- (@AGUID+3, 9261), -- Ironforge
+-- (@AGUID+4, 9261), -- Ironforge
+-- (@AGUID+5, 9262), -- Darnassus
+-- (@AGUID+6, 9263), -- Orgrimmar
+-- (@AGUID+7, 9263), -- Orgrimmar
+-- (@AGUID+8, 9264), -- Thunder Bluff
+-- (@AGUID+9, 9265); -- Undercity
 
     
 -- Necrotic Crystal item quests
@@ -370,10 +374,10 @@ UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRac
 
 /**-- Text Updates --**/
 
-UPDATE `quest_request_items` SET `CompletionText` = 'Have you investigated the invasion yet? There\'s no time for dawdling!' WHERE `ID` IN 
+UPDATE `quest_request_items` SET `CompletionText` = 'Have you investigated the invasion yet? There''s no time for dawdling!' WHERE `ID` IN 
 (9260, 9261, 9262, 9263, 9264, 9265);
 
-UPDATE `quest_request_items` SET `CompletionText` = 'You\'ve come to join our order, have you not?' WHERE `ID` = 9154;
+UPDATE `quest_request_items` SET `CompletionText` = 'You''ve come to join our order, have you not?' WHERE `ID` = 9154;
 
 -- Alliance Quartermaster and Horde Outfitter Quests
 UPDATE `quest_template` SET `LogDescription` = 'Collect 30 Necrotic Runes.', `QuestDescription` = 'If you bring me thirty necrotic runes, I will give you your choice of hand protection in return. These should prove valuable in our fight against the undead Scourge.' WHERE `ID` IN (9094, 9333);
@@ -387,12 +391,12 @@ DELETE FROM `quest_offer_reward` WHERE `ID` IN
 (9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance
  9320, 9333, 9334, 9335, 9336, 9343); -- Horde
 INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, `EmoteDelay1`, `EmoteDelay2`, `EmoteDelay3`, `EmoteDelay4`, `RewardText`, `VerifiedBuild`) VALUES 
-(9094, 0, 0, 0, 0, 0, 0, 0, 0, 'You\'ve done well, $N. Take your pick of hand protection in thanks for your efforts.', NULL),
+(9094, 0, 0, 0, 0, 0, 0, 0, 0, 'You''ve done well, $N. Take your pick of hand protection in thanks for your efforts.', NULL),
 (9317, 0, 0, 0, 0, 0, 0, 0, 0, 'Thank you, $N. Here are your consecrated sharpening stones. Use them prudently.', NULL),
 (9318, 0, 0, 0, 0, 0, 0, 0, 0, 'I hope that you will find these items useful in future battles.', NULL),
 (9320, 0, 0, 0, 0, 0, 0, 0, 0, 'Here you are, $N. Be careful out there. Our numbers are not so large we can afford many battlefield casualties.', NULL),
 (9321, 0, 0, 0, 0, 0, 0, 0, 0, 'Here you are, $N. Be careful out there. Our numbers are not so large we can afford many battlefield casualties.', NULL),
-(9333, 0, 0, 0, 0, 0, 0, 0, 0, 'You\'ve done well, $N. Take your pick of hand protection in thanks for your efforts.', NULL),
+(9333, 0, 0, 0, 0, 0, 0, 0, 0, 'You''ve done well, $N. Take your pick of hand protection in thanks for your efforts.', NULL),
 (9334, 0, 0, 0, 0, 0, 0, 0, 0, 'I hope that you will find these items useful in future battles.', NULL),
 (9335, 0, 0, 0, 0, 0, 0, 0, 0, 'Thank you, $N. Here are your consecrated sharpening stones. Use them prudently.', NULL),
 (9336, 0, 0, 0, 0, 0, 0, 0, 0, 'Here you are, $N. Be careful out there. Our numbers are not so large we can afford many battlefield casualties.', NULL),
