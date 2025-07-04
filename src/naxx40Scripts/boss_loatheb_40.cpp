@@ -146,7 +146,7 @@ public:
                 }
                 case EVENT_CORRUPTED_MIND:
                 {
-                    me->CastSpell(me, SPELL_CORRUPTED_MIND, true);
+                    me->CastSpell(me->GetVictim(), SPELL_CORRUPTED_MIND, true);
                     events.RepeatEvent(10000);
                     break;
                 }
