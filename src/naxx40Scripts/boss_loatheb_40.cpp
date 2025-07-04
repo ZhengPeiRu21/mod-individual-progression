@@ -146,7 +146,7 @@ public:
                 }
                 case EVENT_CORRUPTED_MIND:
                 {
-                    me->CastCustomSpell(me, SPELL_CORRUPTED_MIND, &bp0, 0, 0, false);
+                    me->CastSpell(me, SPELL_CORRUPTED_MIND, true);
                     events.RepeatEvent(10000);
                     break;
                 }
@@ -167,7 +167,7 @@ public:
                 }
                 case EVENT_REMOVE_CURSE:
                 {
-                    me->CastCustomSpell(me, SPELL_REMOVE_CURSE, &bp0, 0, 0, false);
+                    me->CastSpell(me, SPELL_REMOVE_CURSE, true);
                     events.RepeatEvent(30000);
                     break;
                 }
