@@ -21,29 +21,21 @@
 
 enum Spells
 {
-    SPELL_NECROTIC_AURA                         = 55593,
-    SPELL_DEATHBLOOM                            = 29865,
+    SPELL_CORRUPTED_MIND                        = 29201, // this triggers the following spells on targets (based on class): 29185, 29194, 29196, 29198
+    SPELL_DEATHBLOOM                            = 29865, // poison aura
     SPELL_INEVITABLE_DOOM                       = 29204,
-    SPELL_BERSERK                               = 26662
+    SPELL_REMOVE_CURSE                          = 30281  // He periodically removes all curses on himself
 };
 
 enum Events
 {
-    EVENT_NECROTIC_AURA                         = 1,
-    EVENT_DEATHBLOOM                            = 2,
-    EVENT_INEVITABLE_DOOM                       = 3,
-    EVENT_BERSERK                               = 4,
-    EVENT_SUMMON_SPORE                          = 5,
-    EVENT_NECROTIC_AURA_FADING                  = 6,
-    EVENT_NECROTIC_AURA_REMOVED                 = 7
+    EVENT_DEATHBLOOM                            = 1,
+    EVENT_INEVITABLE_DOOM                       = 2,
+    EVENT_SUMMON_SPORE                          = 3,
+    EVENT_CORRUPTED_MIND                        = 4,
+    EVENT_REMOVE_CURSE                          = 5
 };
 
-enum Texts
-{
-    SAY_NECROTIC_AURA_APPLIED                   = 0,
-    SAY_NECROTIC_AURA_REMOVED                   = 1,
-    SAY_NECROTIC_AURA_FADING                    = 2
-};
 
 class boss_loatheb_40 : public CreatureScript
 {
@@ -110,11 +102,11 @@ public:
         {
             BossAI::JustEngagedWith(who);
             me->SetInCombatWithZone();
-            events.ScheduleEvent(EVENT_NECROTIC_AURA, 10000);
+            events.ScheduleEvent(EVENT_CORRUPTED_MIND, 5000);
             events.ScheduleEvent(EVENT_DEATHBLOOM, 5000);
             events.ScheduleEvent(EVENT_INEVITABLE_DOOM, 120000);
-            events.ScheduleEvent(EVENT_SUMMON_SPORE, 15000);
-            events.ScheduleEvent(EVENT_BERSERK, 720000);
+            events.ScheduleEvent(EVENT_SUMMON_SPORE, 13000);
+            events.ScheduleEvent(EVENT_REMOVE_CURSE, 5000);
             if (pInstance)
             {
                 pInstance->SetData(BOSS_LOATHEB, IN_PROGRESS);
@@ -147,22 +139,22 @@ public:
             switch (events.ExecuteEvent())
             {
                 case EVENT_SUMMON_SPORE:
+                {
                     me->CastSpell(me, SPELL_SUMMON_SPORE, true);
-                    events.RepeatEvent(35000);
+                    events.RepeatEvent(13000);
                     break;
-                case EVENT_NECROTIC_AURA:
-                    me->CastSpell(me, SPELL_NECROTIC_AURA, true);
-                    Talk(SAY_NECROTIC_AURA_APPLIED);
-                    events.ScheduleEvent(EVENT_NECROTIC_AURA_FADING, 14000);
-                    events.ScheduleEvent(EVENT_NECROTIC_AURA_REMOVED, 17000);
-                    events.RepeatEvent(20000);
+                }
+                case EVENT_CORRUPTED_MIND:
+                {
+                    me->CastCustomSpell(me, SPELL_CORRUPTED_MIND, &bp0, 0, 0, false);
+                    events.RepeatEvent(10000);
                     break;
+                }
                 case EVENT_DEATHBLOOM:
                 {
-                    //me->CastSpell(me, SPELL_DEATHBLOOM, false);
                     int32 bp0 = 33; // TODO: Amplitude should be 6k, but is 1k. 200 dmg after 6 seconds
                     me->CastCustomSpell(me, SPELL_DEATHBLOOM, &bp0, 0, 0, false);
-                    events.RepeatEvent(30000);
+                    events.RepeatEvent(12000);
                     break;
                 }
                 case EVENT_INEVITABLE_DOOM:
@@ -173,15 +165,12 @@ public:
                     events.RepeatEvent(doomCounter < 6 ? 30000 : 15000);
                     break;
                 }
-                case EVENT_BERSERK:
-                    me->CastSpell(me, SPELL_BERSERK, true);
+                case EVENT_REMOVE_CURSE:
+                {
+                    me->CastCustomSpell(me, SPELL_REMOVE_CURSE, &bp0, 0, 0, false);
+                    events.RepeatEvent(30000);
                     break;
-                case EVENT_NECROTIC_AURA_FADING:
-                    Talk(SAY_NECROTIC_AURA_FADING);
-                    break;
-                case EVENT_NECROTIC_AURA_REMOVED:
-                    Talk(SAY_NECROTIC_AURA_REMOVED);
-                    break;
+                }
             }
             DoMeleeAttackIfReady();
         }
