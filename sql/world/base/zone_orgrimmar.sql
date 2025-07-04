@@ -404,7 +404,7 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 
 (@Stonehide, 0, 0, 0, 0, 0, 'Brave Stonehide', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 125, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.9, 2000, 2000, 1, 1, 1, 256, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
 (@Zarg, 0, 0, 0, 0, 0, 'Stone Guard Zarg', 'Food and Drink', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 1606, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
-(@Hola, 0, 0, 0, 0, 0, 'First Sergeant Hola\'mahi', 'Reagent Vendor', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.2, 2000, 1551, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340);
+(@Hola, 0, 0, 0, 0, 0, 'First Sergeant Hola''mahi', 'Reagent Vendor', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.2, 2000, 1551, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340);
 
 DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
@@ -427,12 +427,12 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Zarg, 'zhCN', '石头守卫扎尔格', '食物和饮料', 18019),
 (@Zarg, 'zhTW', '石衛士札爾格', '食物和飲料', 18019),
 --
-(@Hola, 'deDE', 'Stabsfeldwebel Hola\'mahi', 'Reagenzien', 18019),
-(@Hola, 'esES', 'Gran capataz Hola\'mahi', 'Componentes', 18019),
-(@Hola, 'esMX', 'Gran capataz Hola\'mahi', 'Componentes', 18019),
-(@Hola, 'frFR', 'Sergent Hola\'mahi', 'Composants', 18019),
+(@Hola, 'deDE', 'Stabsfeldwebel Hola''mahi', 'Reagenzien', 18019),
+(@Hola, 'esES', 'Gran capataz Hola''mahi', 'Componentes', 18019),
+(@Hola, 'esMX', 'Gran capataz Hola''mahi', 'Componentes', 18019),
+(@Hola, 'frFR', 'Sergent Hola''mahi', 'Composants', 18019),
 (@Hola, 'koKR', '선임하사 홀라마히', '마법 재료 상인', 18019),
-(@Hola, 'ruRU', 'Первый сержант Хола\'махи', 'Реагенты', 18019),
+(@Hola, 'ruRU', 'Первый сержант Хола''махи', 'Реагенты', 18019),
 (@Hola, 'zhCN', '一等军士长霍拉麦', '材料商', 18019),
 (@Hola, 'zhTW', '一等士官霍拉麥', '施法材料', 18019);
 

@@ -5601,6 +5601,17 @@ DELETE FROM `creature_template` WHERE (`entry` = 351090);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 (351090, 0, 0, 0, 0, 0, 'Eye Stalk', '', '', 0, 61, 61, 2, 16, 0, 1, 1, 1, 1, 20, 1, 1, 0, 7.5, 1000, 2000, 1, 1, 1, 4, 2048, 8, 0, 0, 0, 0, 0, 10, 72, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 1, 1, 1, 1, 0, 0, 1, 1022042641, 0, 0, '', 12340);
 
+DELETE FROM `creature_template_locale` WHERE `entry` = 351090;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(351090, 'deDE', 'Augenstrunk', '', 0),
+(351090, 'esES', 'Ojo acechador', '', 0),
+(351090, 'esMX', 'Ojo acechador', '', 0),
+(351090, 'frFR', 'Oeil pédonculé', '', 0),
+(351090, 'koKR', '추적자의 눈', '', 0),
+(351090, 'ruRU', 'Глазной стебелек', '', 0),
+(351090, 'zhCN', '眼柄', '', 0),
+(351090, 'zhTW', '眼梗', '', 0);
+
 DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351090);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (351090, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 14000, 17000, 0, 0, 11, 29407, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)');
@@ -5630,13 +5641,23 @@ UPDATE `creature` SET `wander_distance`=1, `MovementType`=1 WHERE `guid` BETWEEN
 DELETE FROM `creature_formations` WHERE `leaderGUID` = 361329;
 
 -- Lightning Totem, summoned by Living Monstrosity
-DELETE FROM `creature_template` WHERE (`entry` = 351091);
+DELETE FROM `creature_template` WHERE `entry` = 351091;
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 (351091, 0, 0, 0, 0, 0, 'Lightning Totem', '', '', 0, 62, 62, 2, 21, 0, 1.0, 1.0, 1.0, 1.0, 18.0, 1.0, 0, 0, 1.0, 2000, 2000, 1.0, 1.0, 1, 4, 2048, 8, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1.0, 0.2, 1.0, 1.0, 1.0, 0, 0, 1, 0, 0, 0, '', 12340);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351091;
 DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351091);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (351091, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 4000, 4000, 0, 0, 218, 28297, 0, 1899, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Cast Spell IC (Naxx 40)');
+DELETE FROM `creature_template_locale` WHERE `entry` = 351091;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(351091, 'deDE', 'Blitzschlagtotem', '', 0),
+(351091, 'esES', 'Tótem de relámpagos', '', 0),
+(351091, 'esMX', 'Tótem de relámpagos', '', 0),
+(351091, 'frFR', 'Totem de foudre', '', 0),
+(351091, 'koKR', '번개 토템', '', 0),
+(351091, 'ruRU', 'Тотем молний', '', 0),
+(351091, 'zhCN', '闪电图腾', '', 0),
+(351091, 'zhTW', '閃電圖騰', '', 0);
 
 -- Lightning Totem
 DELETE FROM `creature_template_resistance` WHERE `CreatureID` = 351091;
@@ -5810,7 +5831,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (351056, 0, 1, 0, 0, 0, 100, 0, 4100, 8700, 60000, 60000, 0, 0, 11, 90004, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shade of Naxxramas - In Combat - Cast \'Portal of Shadows (Naxx40)\''),
 (351056, 0, 2, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 19, 351092, 0, 0, 0, 0, 0, 0, 0, 'Shade of Naxxramas - On Reset - Despawn In 500 ms (Naxx40)');
 -- Ghost of Naxxramas, summoned by custom Portal of Shadows (90004)
-DELETE FROM `creature_template` WHERE (`entry` = 351092);
+DELETE FROM `creature_template` WHERE `entry` = 351092;
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 (351092, 0, 0, 0, 0, 0, 'Ghost of Naxxramas', NULL, NULL, 0, 60, 60, 2, 21, 0, 1.11111, 0.71429, 1, 1, 20, 1, 1, 0, 7.5, 2000, 2000, 1, 1, 1, 33587264, 2048, 0, 0, 0, 0, 0, 0, 7, 8, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 1, 1, 1, 1, 0, 88, 1, 0, 0, 0, '', 12340);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 351092;
@@ -5818,6 +5839,16 @@ DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351092)
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 (351092, 0, 0, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghost of Naxxramas - On spawn - Set in combat with zone (Naxx40)'),
 (351092, 0, 1, 0, 1, 0, 100, 512, 100, 100, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Ghost of Naxxramas - On OOC - Despawn if OOC (Naxx40)');
+DELETE FROM `creature_template_locale` WHERE `entry` = 351092;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(351092, 'deDE', 'Phantom von Naxxramas', '', 0),
+(351092, 'esES', 'Fantasma de Naxxramas', '', 0),
+(351092, 'esMX', 'Fantasma de Naxxramas', '', 0),
+(351092, 'frFR', 'Fantôme de Naxxramas', '', 0),
+(351092, 'koKR', '낙스라마스의 유령', '', 0),
+(351092, 'ruRU', 'Привидение Наксрамаса', '', 0),
+(351092, 'zhCN', '纳克萨玛斯之灵', '', 0),
+(351092, 'zhTW', '納克薩瑪斯的鬼魂', '', 0);
 -- Skeletal Steed
 -- Add trample, intercept
 DELETE FROM `smart_scripts` WHERE (`source_type` = 0 AND `entryorguid` = 351041);
