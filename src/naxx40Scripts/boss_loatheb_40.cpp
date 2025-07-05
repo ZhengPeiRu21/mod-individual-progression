@@ -24,7 +24,7 @@ enum Spells
     SPELL_NECROTIC_AURA                         = 55593,
 	// SPELL_CORRUPTED_MIND                     = 29201, // this triggers the following spells on targets (based on class): 29185, 29194, 29196, 29198
     // SPELL_POISON_AURA                        = 29865, // does 200 dmg every second for 6 seconds with 1200 extra damage at the end. should do 196 dmg every 6 seconds. no extra damage at the end.
-    SPELL_POISON_SHOCK                          = 22595, // does 180 aoe poison damage. if we change the damage to 196 and let loatheb recast this every 6 seconds it's a possible fix for poison aura.
+    SPELL_POISON_SHOCK                          = 22595, // does 180-220 aoe poison damage. if we let loatheb recast this every 6 seconds it's a possible fix for poison aura.
     SPELL_INEVITABLE_DOOM                       = 29204,
     SPELL_REMOVE_CURSE                          = 30281  // He periodically removes all curses on himself
 };
@@ -181,9 +181,7 @@ public:
 				*/
 				case EVENT_POISON_SHOCK:
 				{
-				     int32 bp0 = 195;
-					 
-	                if (me->CastCustomSpell(me, SPELL_POISON_SHOCK, &bp0, 0, 0, true) == SPELL_CAST_OK)
+	                if (me->CastSpell(me, SPELL_POISON_SHOCK, true) == SPELL_CAST_OK)
                     {
                         events.RepeatEvent(6000);
 					}
