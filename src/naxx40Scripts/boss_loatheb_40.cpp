@@ -21,21 +21,33 @@
 
 enum Spells
 {
-    SPELL_CORRUPTED_MIND                        = 29201, // this triggers the following spells on targets (based on class): 29185, 29194, 29196, 29198
-    SPELL_DEATHBLOOM                            = 29865, // poison aura
+    SPELL_NECROTIC_AURA                         = 55593,
+	// SPELL_CORRUPTED_MIND                     = 29201, // this triggers the following spells on targets (based on class): 29185, 29194, 29196, 29198
+    // SPELL_POISON_AURA                        = 29865, // does 200 dmg every second for 6 seconds with 1200 extra damage at the end. should do 196 dmg every 6 seconds. no extra damage at the end.
+    SPELL_POISON_SHOCK                          = 22595, // does 180 aoe poison damage. if we change the damage to 196 and let loatheb recast this every 6 seconds it's a possible fix for poison aura.
     SPELL_INEVITABLE_DOOM                       = 29204,
     SPELL_REMOVE_CURSE                          = 30281  // He periodically removes all curses on himself
 };
 
 enum Events
 {
-    EVENT_DEATHBLOOM                            = 1,
-    EVENT_INEVITABLE_DOOM                       = 2,
-    EVENT_SUMMON_SPORE                          = 3,
-    EVENT_CORRUPTED_MIND                        = 4,
-    EVENT_REMOVE_CURSE                          = 5
+    // EVENT_CORRUPTED_MIND                     = 1,
+	EVENT_NECROTIC_AURA                         = 1,
+    // EVENT_POISON_AURA                        = 2,
+	EVENT_POISON_SHOCK                          = 2, 
+    EVENT_INEVITABLE_DOOM                       = 3,
+    EVENT_SUMMON_SPORE                          = 4,
+    EVENT_REMOVE_CURSE                          = 5,
+	EVENT_NECROTIC_AURA_FADING                  = 6,
+    EVENT_NECROTIC_AURA_REMOVED                 = 7
 };
 
+enum Texts
+{
+    SAY_NECROTIC_AURA_APPLIED                   = 0,
+    SAY_NECROTIC_AURA_REMOVED                   = 1,
+    SAY_NECROTIC_AURA_FADING                    = 2
+};
 
 class boss_loatheb_40 : public CreatureScript
 {
@@ -102,8 +114,10 @@ public:
         {
             BossAI::JustEngagedWith(who);
             me->SetInCombatWithZone();
-            events.ScheduleEvent(EVENT_CORRUPTED_MIND, 5000);
-            events.ScheduleEvent(EVENT_DEATHBLOOM, 5000);
+            // events.ScheduleEvent(EVENT_CORRUPTED_MIND, 5000);
+		    events.ScheduleEvent(EVENT_NECROTIC_AURA, 10000);
+            // events.ScheduleEvent(EVENT_POISON_AURA, 5000);
+			events.ScheduleEvent(EVENT_POISON_SHOCK, 6000);
             events.ScheduleEvent(EVENT_INEVITABLE_DOOM, 120000);
             events.ScheduleEvent(EVENT_SUMMON_SPORE, 13000);
             events.ScheduleEvent(EVENT_REMOVE_CURSE, 5000);
@@ -144,25 +158,72 @@ public:
                     events.RepeatEvent(13000);
                     break;
                 }
+                case EVENT_NECROTIC_AURA:
+				{
+                    me->CastSpell(me, SPELL_NECROTIC_AURA, true);
+                    Talk(SAY_NECROTIC_AURA_APPLIED);
+                    events.ScheduleEvent(EVENT_NECROTIC_AURA_FADING, 14000);
+                    events.ScheduleEvent(EVENT_NECROTIC_AURA_REMOVED, 17000);
+                    events.RepeatEvent(20000);
+                    break;
+				}
+				/*
                 case EVENT_CORRUPTED_MIND:
                 {
-                    me->CastSpell(me->GetVictim(), SPELL_CORRUPTED_MIND, true);
-                    events.RepeatEvent(10000);
+ 			        if (me->CastSpell(me, SPELL_CORRUPTED_MIND, true) == SPELL_CAST_OK)
+				 	{
+                        events.RepeatEvent(10000);
+					}
+					else 
+					{
+	                    events.RepeatEvent(100);						
+                    }
                     break;
                 }
-                case EVENT_DEATHBLOOM:
+				*/
+				/*
+                case EVENT_POISON_AURA:
                 {
-                    int32 bp0 = 33; // TODO: Amplitude should be 6k, but is 1k. 200 dmg after 6 seconds
-                    me->CastCustomSpell(me, SPELL_DEATHBLOOM, &bp0, 0, 0, false);
-                    events.RepeatEvent(12000);
+                    // int32 bp0 = 33; // TODO: (200 dmg every 6 seconds) Amplitude should be 6k. DurationIndex should be 29 (12 seconds). no 1200 dmg afterwards
+                    // if (me->CastCustomSpell(me, SPELL_POISON_AURA, &bp0, 0, 0, false) == SPELL_CAST_OK)
+					if (me->CastSpell(me, SPELL_POISON_AURA, false) == SPELL_CAST_OK)
+					{	
+                        events.RepeatEvent(12000);
+					}
+					else
+					{
+						events.RepeatEvent(100);
+					}
                     break;
                 }
+				*/
+				case EVENT_POISON_SHOCK:
+				{
+				     int32 bp0 = 195;
+					 
+	                if (me->CastCustomSpell(me, SPELL_POISON_SHOCK, &bp0, 0, 0, true) == SPELL_CAST_OK)
+                    {
+                        events.RepeatEvent(6000);
+					}
+					else
+					{
+						events.RepeatEvent(100);	
+					}
+                    break;			
+				}
                 case EVENT_INEVITABLE_DOOM:
                 {
                     int32 bp0 = 2549;
-                    me->CastCustomSpell(me, SPELL_INEVITABLE_DOOM, &bp0, 0, 0, false);
-                    doomCounter++;
-                    events.RepeatEvent(doomCounter < 6 ? 30000 : 15000);
+					
+                    if (me->CastCustomSpell(me, SPELL_INEVITABLE_DOOM, &bp0, 0, 0, false) == SPELL_CAST_OK)
+                    {
+						doomCounter++;
+                        events.RepeatEvent(doomCounter < 6 ? 30000 : 15000);
+					}
+					else
+					{
+						events.RepeatEvent(100);	
+					}
                     break;
                 }
                 case EVENT_REMOVE_CURSE:
@@ -171,6 +232,16 @@ public:
                     events.RepeatEvent(30000);
                     break;
                 }
+                case EVENT_NECROTIC_AURA_FADING:
+				{
+                    Talk(SAY_NECROTIC_AURA_FADING);
+                    break;
+				}
+                case EVENT_NECROTIC_AURA_REMOVED:
+				{
+                    Talk(SAY_NECROTIC_AURA_REMOVED);
+                    break;
+				}
             }
             DoMeleeAttackIfReady();
         }
@@ -186,11 +257,54 @@ public:
                 return false;
             }
             return true;
-        }
+        }		
     };
 };
+
+
+/*
+// 29201 - Corrupted Mind (Loatheb)
+class spell_loatheb_corrupted_mind_aoe_40 : public SpellScript
+{
+    PrepareSpellScript(spell_loatheb_corrupted_mind_aoe_40);
+    
+    void HandleEffect(Spell* spell, SpellEffIndex effIndex)
+    {
+        // Loatheb Corrupted Mind triggered sub spells
+        uint32 spellid;
+        switch (spell->GetTarget()->GetClass())
+        {
+            // priests should be getting 29185, but it triggers on dmg effects as well, don't know why.
+            case CLASS_PRIEST:  spellid = 29194; break;//29185; break;
+            case CLASS_DRUID:   spellid = 29194; break;
+            case CLASS_PALADIN: spellid = 29196; break;
+            case CLASS_SHAMAN:  spellid = 29198; break;
+            default: return false;
+        }
+        spell->me->CastSpell(spell->GetTarget(), spellid, true);
+    }
+    
+    void Register() override
+    {
+        OnEffectHitTarget += SpellEffectFn(spell_loatheb_corrupted_mind_aoe_40::HandleEffect, SPELL_CORRUPTED_MIND, EFFECT_0, SPELL_AURA_PROC_TRIGGER_SPELL);
+    }
+};
+
+class spell_loatheb_corrupted_mind_loader : public SpellScriptLoader
+{
+public:
+    spell_loatheb_corrupted_mind_loader() : SpellScriptLoader("spell_loatheb_corrupted_mind_aoe_40") { }
+    
+    SpellScript* GetSpellScript() const override
+    {
+        return new spell_loatheb_corrupted_mind_aoe_40();
+    }
+};
+*/
 
 void AddSC_boss_loatheb_40()
 {
     new boss_loatheb_40();
+	// new spell_loatheb_corrupted_mind_loader();
+
 }
