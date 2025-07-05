@@ -33,7 +33,6 @@ enum Events
 {
     // EVENT_CORRUPTED_MIND                     = 1,
 	EVENT_NECROTIC_AURA                         = 1,
-    // EVENT_POISON_AURA                        = 2,
 	EVENT_POISON_SHOCK                          = 2, 
     EVENT_INEVITABLE_DOOM                       = 3,
     EVENT_SUMMON_SPORE                          = 4,
@@ -116,7 +115,6 @@ public:
             me->SetInCombatWithZone();
             // events.ScheduleEvent(EVENT_CORRUPTED_MIND, 5000);
 		    events.ScheduleEvent(EVENT_NECROTIC_AURA, 10000);
-            // events.ScheduleEvent(EVENT_POISON_AURA, 5000);
 			events.ScheduleEvent(EVENT_POISON_SHOCK, 6000);
             events.ScheduleEvent(EVENT_INEVITABLE_DOOM, 120000);
             events.ScheduleEvent(EVENT_SUMMON_SPORE, 13000);
@@ -178,22 +176,6 @@ public:
 					{
 	                    events.RepeatEvent(100);						
                     }
-                    break;
-                }
-				*/
-				/*
-                case EVENT_POISON_AURA:
-                {
-                    // int32 bp0 = 33; // TODO: (200 dmg every 6 seconds) Amplitude should be 6k. DurationIndex should be 29 (12 seconds). no 1200 dmg afterwards
-                    // if (me->CastCustomSpell(me, SPELL_POISON_AURA, &bp0, 0, 0, false) == SPELL_CAST_OK)
-					if (me->CastSpell(me, SPELL_POISON_AURA, false) == SPELL_CAST_OK)
-					{	
-                        events.RepeatEvent(12000);
-					}
-					else
-					{
-						events.RepeatEvent(100);
-					}
                     break;
                 }
 				*/
