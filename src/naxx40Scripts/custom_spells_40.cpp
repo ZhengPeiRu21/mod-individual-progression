@@ -284,6 +284,27 @@ class spell_sapphiron_frost_aura_40 : public AuraScript
     }
 };
 
+// 60960 - War Stomp - Patchwork Golem
+class spell_patchwork_golem_war_stomp_40 : public SpellScript
+{
+    PrepareSpellScript(spell_patchwork_golem_war_stomp_40);
+
+    void CalculateDamage(SpellEffIndex /*effIndex*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        SetHitDamage(urand(936,1064)); 
+    }
+
+    void Register() override
+    {
+         OnEffectHitTarget += SpellEffectFn(spell_patchwork_golem_war_stomp_40::CalculateDamage, EFFECT_2, SPELL_EFFECT_WEAPON_DAMAGE);
+    }
+};
+
 // 29213 - Curse of the Plaguebringer
 enum CurseOfThePlaguebringer
 {
@@ -448,6 +469,7 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_kelthuzad_frostbolt_40);
     RegisterSpellScript(spell_sapphiron_icebolt_40);
     RegisterSpellScript(spell_sapphiron_frost_aura_40);
+    RegisterSpellScript(spell_patchwork_golem_war_stomp_40);
     RegisterSpellScript(spell_noth_curse_of_the_plaguebringer_aura_40);
     RegisterSpellScript(spell_razuvious_disrupting_shout_40);
     RegisterSpellScript(spell_unholy_staff_arcane_explosion_40);
