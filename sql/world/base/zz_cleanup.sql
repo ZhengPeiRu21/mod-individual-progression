@@ -37,3 +37,12 @@ DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Nakodu, @Urgronn, 
 DELETE FROM `creature` WHERE `id1` IN (@Nakodu, @Urgronn, @Ulrike);
 DELETE FROM `npc_vendor` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
 DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Ulrike;
+
+-- UNDO previous cloning - Zarena SI friendship NPC
+SET @Zarena    := 102482;
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 2482;
+DELETE FROM `creature_template` WHERE `entry` = @Zarena;
+DELETE FROM `creature_template_locale` WHERE `entry` = @Zarena;
+DELETE FROM `creature_template_model` WHERE `CreatureID` = @Zarena;
+DELETE FROM `creature` WHERE `id1` = @Zarena;
+DELETE FROM `npc_vendor` WHERE `entry` = @Zarena;
