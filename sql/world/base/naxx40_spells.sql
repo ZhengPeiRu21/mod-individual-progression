@@ -126,4 +126,4 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (29213, 'spel
 -- Faerlina
 -- Widow's Embrace
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28732;
-INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28732, 'boss_faerlina_40');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28732, 'boss_faerlina_40::SpellHit');
