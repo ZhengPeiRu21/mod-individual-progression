@@ -20453,6 +20453,9 @@ UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WH
 /*  Fluorescent Green Mechanostrider  */
 UPDATE item_template SET BuyPrice = 100000, RequiredLevel = 40 WHERE entry=13325;
 
+/*  White Mechanostrider Mod A  */
+UPDATE item_template SET Name = 'White Mechanostrider Mod A', BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=13326;
+
 /*  Icy Blue Mechanostrider Mod A  */
 UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=13327;
 
