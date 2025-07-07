@@ -242,7 +242,7 @@ public:
 
         void SpellHit(Unit* caster, SpellInfo const* spell) override
         {
-            if (spell->Id == SPELL_MINION_WIDOWS_EMBRACE)
+            if (spell->Id == SPELL_WIDOWS_EMBRACE)
             {
                 Talk(EMOTE_WIDOWS_EMBRACE); // %s is affected by Widow's Embrace!
                 if (me->HasAura(SPELL_FRENZY))
