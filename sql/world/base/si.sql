@@ -28,13 +28,22 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (15006, 0, 23160, 0, 0, 0, 0), -- Deze Snowbane
 (15006, 0, 23161, 0, 0, 0, 0);
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (2482, 11038);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(23, 2482,  23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
+(23, 2482,  23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),    
+(23, 11038, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
+(23, 11038, 23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ');
+
+
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 1803;
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 26771;
 UPDATE `creature` SET `npcflag` = 129 WHERE `guid` = 38112;
 UPDATE `creature` SET `npcflag` = 689 WHERE `guid` = 46320;
 UPDATE `creature` SET `npcflag` = 1048705 WHERE `guid` = 208240;
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (2482, 3044, 4165, 5173, 5698, 15006);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (3044, 4165, 5173, 5698, 15006);
 
 SET @Zarena    := 102482;
 SET @Miles     := 103044;
@@ -49,7 +58,6 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 
-(@Zarena, 0, 0, 0, 0, 0, 'Zarena Cromwind', 'Superior Weaponsmith', NULL, 0, 43, 43, 0, 120, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.2, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Miles, 0, 0, 0, 0, 0, 'Miles Welsh', 'Priest Trainer', NULL, 4533, 40, 40, 0, 68, 51, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 0, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.15, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Elissa, 0, 0, 0, 0, 0, 'Elissa Dumas', 'Portal Trainer', NULL, 4821, 35, 35, 0, 80, 49, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.45, 2000, 2000, 1, 1, 8, 512, 2048, 0, 0, 0, 0, 8, 0, 7, 134217728, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.1, 1, 1.6, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Alexander, 0, 0, 0, 0, 0, 'Alexander Calder', 'Warlock Trainer', NULL, 4566, 60, 60, 0, 55, 51, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 9, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.35, 1, 2.4, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
@@ -63,14 +71,6 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 
 DELETE FROM `creature_template_locale` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
-(@Zarena, 'deDE', 'Zarena Stahlwind', 'šberragende Waffenschmiedin', 18019),
-(@Zarena, 'esES', 'Zarena Cromvento', 'Forjadora de armas superior', 18019),
-(@Zarena, 'esMX', 'Zarena Cromvento', 'Forjadora de armas superior', 18019),
-(@Zarena, 'frFR', 'Zarena Cromwind', 'Excellente fabricante d\'armes', 18019),
-(@Zarena, 'koKR', '자레나 크롬윈드', '고급 무기제작자', 18019),
-(@Zarena, 'ruRU', 'Зарена Кромвинд', 'Опытная оружейница', 18019),
-(@Zarena, 'zhCN', '萨瑞娜·克罗姆温德', '高级铸剑师', 18019),
-(@Zarena, 'zhTW', '薩瑞娜·克羅姆溫德', '高級武器鍛造師', 18019),
 (@Miles, 'deDE', 'Miles Welsch', 'Priesterlehrer', 18019),
 (@Miles, 'esES', 'Miles Welsh', 'Instructor de sacerdotes', 18019),
 (@Miles, 'esMX', 'Miles Welsh', 'Instructor de sacerdotes', 18019),
@@ -114,7 +114,6 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
-(@Zarena, 0, 4490, 1, 1, 12340),
 (@Miles, 0, 2139, 1, 1, 12340),
 (@Elissa, 0, 7669, 1, 1, 12340),
 (@Alexander, 0, 3122, 1, 1, 12340),
@@ -124,7 +123,6 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 DELETE FROM `creature` WHERE `id1` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(602482, @Zarena, 0, 0, 0, 0, 0, 1, 1, 0, -14379.1, 412.672, 6.8203, 5.70723, 300, 0, 0, 2059, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (603044, @Miles, 0, 0, 1, 0, 0, 1, 1, 1, -956.24, 252.418, 97.8755, 4.2237, 250, 0, 0, 1753, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (604165, @Elissa, 0, 0, 1, 0, 0, 1, 1, 1, 9658.69, 2508.7, 1331.7, 2.25148, 300, 0, 0, 992, 2680, 0, 0, 0, 0, '', 0, 0, NULL),
 (605173, @Alexander, 0, 0, 0, 0, 0, 1, 1, 1, -4608.55, -1109.55, 511.691, 1.69297, 490, 0, 0, 4120, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -140,18 +138,6 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 (@Deze, 1, 10616, 19053, 0, 18019);
 
 DELETE FROM `npc_vendor` WHERE `entry` IN (@Zarena);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
-(@Zarena, 0, 2520, 0, 0, 0, 0),
-(@Zarena, 0, 2521, 0, 0, 0, 0),
-(@Zarena, 0, 2522, 0, 0, 0, 0),
-(@Zarena, 0, 2523, 0, 0, 0, 0),
-(@Zarena, 0, 2524, 0, 0, 0, 0),
-(@Zarena, 0, 2525, 0, 0, 0, 0),
-(@Zarena, 0, 2526, 0, 0, 0, 0),
-(@Zarena, 0, 2527, 0, 0, 0, 0),
-(@Zarena, 0, 12163, 1, 7200, 0, 0),
-(@Zarena, 0, 12251, 1, 3600, 0, 0),
-(@Zarena, 0, 12252, 1, 43200, 0, 0);
 
 DELETE FROM `npc_trainer` WHERE `ID` = @Elissa;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES 
