@@ -4936,9 +4936,6 @@ INSERT INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`
 DELETE FROM `creature_template_spell` WHERE `CreatureID` = 351081;
 INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES (351081, 3, 54097, NULL);
 
-DELETE FROM `spell_linked_spell` WHERE `spell_trigger` = 54097 AND `spell_effect` = -28798;
-INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `type`, `comment`) VALUES (54097, -28798, 1, 'Widow\'s Embrace - Frenzy (40)');
-
 -- Doom Touched Warrior
 UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.42857, `DamageModifier` = 17.1, `ArmorModifier` = 1.15, `RangeAttackTime` = 1265 WHERE `entry`=16157;
 
