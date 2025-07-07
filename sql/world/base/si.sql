@@ -28,14 +28,16 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (15006, 0, 23160, 0, 0, 0, 0), -- Deze Snowbane
 (15006, 0, 23161, 0, 0, 0, 0);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (2482, 11038);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (2482, 11038, 16543);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 (23, 2482,  23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
 (23, 2482,  23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),    
 (23, 11038, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
-(23, 11038, 23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ');
-
+(23, 11038, 23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 16543, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
+(23, 16543, 23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ');
+    
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 1803;
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 26771;
 UPDATE `creature` SET `npcflag` = 129 WHERE `guid` = 38112;
