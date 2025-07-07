@@ -36,7 +36,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 11038, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
 (23, 11038, 23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ');
 
-
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 1803;
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 26771;
 UPDATE `creature` SET `npcflag` = 129 WHERE `guid` = 38112;
@@ -45,7 +44,6 @@ UPDATE `creature` SET `npcflag` = 1048705 WHERE `guid` = 208240;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (3044, 4165, 5173, 5698, 15006);
 
-SET @Zarena    := 102482;
 SET @Miles     := 103044;
 SET @Elissa    := 104165;
 SET @Alexander := 105173;
@@ -53,11 +51,10 @@ SET @Joanna    := 105698;
 SET @Deze      := 115006;
 
 -- Create copies with script npc_ipp_pre_naxx40
-DELETE FROM `creature_template` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template` WHERE `entry` IN (@Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, 
 `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-
 (@Miles, 0, 0, 0, 0, 0, 'Miles Welsh', 'Priest Trainer', NULL, 4533, 40, 40, 0, 68, 51, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 0, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.15, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Elissa, 0, 0, 0, 0, 0, 'Elissa Dumas', 'Portal Trainer', NULL, 4821, 35, 35, 0, 80, 49, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.45, 2000, 2000, 1, 1, 8, 512, 2048, 0, 0, 0, 0, 8, 0, 7, 134217728, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.1, 1, 1.6, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Alexander, 0, 0, 0, 0, 0, 'Alexander Calder', 'Warlock Trainer', NULL, 4566, 60, 60, 0, 55, 51, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 9, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.35, 1, 2.4, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
@@ -69,7 +66,7 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 (@Elissa, 0, 0, 0, 1, 0, 0, NULL),
 (@Alexander, 0, 0, 0, 1, 0, 0, NULL);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 (@Miles, 'deDE', 'Miles Welsch', 'Priesterlehrer', 18019),
 (@Miles, 'esES', 'Miles Welsh', 'Instructor de sacerdotes', 18019),
@@ -112,7 +109,7 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Deze, 'zhCN', '迪兹·斯诺班', '阿拉希盆地军官', 18019),
 (@Deze, 'zhTW', '迪茲·斯諾班', '阿拉希盆地戰場軍官', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN @Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@Miles, 0, 2139, 1, 1, 12340),
 (@Elissa, 0, 7669, 1, 1, 12340),
@@ -120,7 +117,7 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@Joanna, 0, 4052, 1, 1, 12340),
 (@Deze, 0, 15112, 1, 1, 12340);
 
-DELETE FROM `creature` WHERE `id1` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature` WHERE `id1` IN (@Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (603044, @Miles, 0, 0, 1, 0, 0, 1, 1, 1, -956.24, 252.418, 97.8755, 4.2237, 250, 0, 0, 1753, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -136,8 +133,6 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 (@Alexander, 1, 2559, 0, 0, 18019),
 (@Joanna, 1, 2809, 0, 0, 18019),
 (@Deze, 1, 10616, 19053, 0, 18019);
-
-DELETE FROM `npc_vendor` WHERE `entry` IN (@Zarena);
 
 DELETE FROM `npc_trainer` WHERE `ID` = @Elissa;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES 
