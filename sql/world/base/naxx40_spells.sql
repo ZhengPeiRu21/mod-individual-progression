@@ -122,3 +122,8 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (29371, 'spel
 -- Wrath of the Plaguebringer, damage if failed to decurse
 DELETE FROM `spell_script_names` WHERE `spell_id` = 29213;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (29213, 'spell_noth_curse_of_the_plaguebringer_aura_40');
+
+-- Faerlina
+-- Widow's Embrace
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28732;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28732, 'boss_faerlina_40');
