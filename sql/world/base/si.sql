@@ -28,15 +28,54 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (15006, 0, 23160, 0, 0, 0, 0), -- Deze Snowbane
 (15006, 0, 23161, 0, 0, 0, 0);
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (2482, 3044, 4165, 5173, 5698, 11038, 14450, 15006, 16543);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(23, 2482,  23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
+(23, 2482,  23160, 0, 0, 8, 0, 9301,  0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed \'Envelope from the Front\''),
+(23, 2482,  23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 2482,  23161, 0, 1, 8, 0, 9301,  0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed \'Envelope from the Front\''),
+--
+(23, 3044,  23160, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Miles Welsh will not sell Friendship Bread until the player has completed \'Page from the Front\''),
+(23, 3044,  23161, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Miles Welsh will not sell Freshly-Squeezed Lemonade until the player has completed \'Page from the Front\''),
+--
+(23, 4165,  23160, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Friendship Bread until the player has completed \'Page from the Front\''),
+(23, 4165,  23161, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Freshly-Squeezed Lemonade until the player has completed \'Page from the Front\''),
+--
+(23, 5173,  23160, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Friendship Bread until the player has completed \'Note from the Front\''),
+(23, 5173,  23161, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
+--
+(23, 5698,  23160, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Friendship Bread until the player has completed \'Letter from the Front\''),
+(23, 5698,  23161, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Freshly-Squeezed Lemonade until the player has completed \'Letter from the Front\''),
+--
+(23, 11038, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
+(23, 11038, 23160, 0, 0, 8, 0, 9304, 0, 0, 0, 0, 0, '',  'Caretaker Alen will not sell Friendship Bread until the player has completed \'Document from the Front\''),
+(23, 11038, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 11038, 23161, 0, 1, 8, 0, 9304, 0, 0, 0, 0, 0, '',  'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed \'Document from the Front\''),
+--
+(23, 14450, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
+(23, 14450, 23160, 0, 0, 8, 0, 9295, 0, 0, 0, 0, 0, '',  'Orphan Matron Nightingale will not sell Friendship Bread until the player has completed \'Letter from the Front\''),
+(23, 14450, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 14450, 23161, 0, 1, 8, 0, 9295, 0, 0, 0, 0, 0, '',  'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed \'Letter from the Front\''),
+--
+(23, 15006, 23160, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Friendship Bread until the player has completed \'Note from the Front\''),
+(23, 15006, 23161, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
+--
+(23, 16543, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
+(23, 16543, 23160, 0, 0, 8, 0, 9302,  0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed \'Missive from the Front\''),
+(23, 16543, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 16543, 23161, 0, 1, 8, 0, 9302,  0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed \'Missive from the Front\'');
+
+    
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 1803;
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 26771;
 UPDATE `creature` SET `npcflag` = 129 WHERE `guid` = 38112;
 UPDATE `creature` SET `npcflag` = 689 WHERE `guid` = 46320;
 UPDATE `creature` SET `npcflag` = 1048705 WHERE `guid` = 208240;
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (2482, 3044, 4165, 5173, 5698, 15006);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (3044, 4165, 5173, 5698, 15006);
 
-SET @Zarena    := 102482;
 SET @Miles     := 103044;
 SET @Elissa    := 104165;
 SET @Alexander := 105173;
@@ -44,12 +83,10 @@ SET @Joanna    := 105698;
 SET @Deze      := 115006;
 
 -- Create copies with script npc_ipp_pre_naxx40
-DELETE FROM `creature_template` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template` WHERE `entry` IN (@Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, 
 `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-
-(@Zarena, 0, 0, 0, 0, 0, 'Zarena Cromwind', 'Superior Weaponsmith', NULL, 0, 43, 43, 0, 120, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.2, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Miles, 0, 0, 0, 0, 0, 'Miles Welsh', 'Priest Trainer', NULL, 4533, 40, 40, 0, 68, 51, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 0, 0, 5, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.15, 1, 1, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Elissa, 0, 0, 0, 0, 0, 'Elissa Dumas', 'Portal Trainer', NULL, 4821, 35, 35, 0, 80, 49, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.45, 2000, 2000, 1, 1, 8, 512, 2048, 0, 0, 0, 0, 8, 0, 7, 134217728, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.1, 1, 1.6, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
 (@Alexander, 0, 0, 0, 0, 0, 'Alexander Calder', 'Warlock Trainer', NULL, 4566, 60, 60, 0, 55, 51, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 9, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1.35, 1, 2.4, 1, 0, 0, 1, 0, 0, 2, 'npc_ipp_pre_naxx40', 12340),
@@ -61,16 +98,8 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 (@Elissa, 0, 0, 0, 1, 0, 0, NULL),
 (@Alexander, 0, 0, 0, 1, 0, 0, NULL);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
-(@Zarena, 'deDE', 'Zarena Stahlwind', 'šberragende Waffenschmiedin', 18019),
-(@Zarena, 'esES', 'Zarena Cromvento', 'Forjadora de armas superior', 18019),
-(@Zarena, 'esMX', 'Zarena Cromvento', 'Forjadora de armas superior', 18019),
-(@Zarena, 'frFR', 'Zarena Cromwind', 'Excellente fabricante d\'armes', 18019),
-(@Zarena, 'koKR', '자레나 크롬윈드', '고급 무기제작자', 18019),
-(@Zarena, 'ruRU', 'Зарена Кромвинд', 'Опытная оружейница', 18019),
-(@Zarena, 'zhCN', '萨瑞娜·克罗姆温德', '高级铸剑师', 18019),
-(@Zarena, 'zhTW', '薩瑞娜·克羅姆溫德', '高級武器鍛造師', 18019),
 (@Miles, 'deDE', 'Miles Welsch', 'Priesterlehrer', 18019),
 (@Miles, 'esES', 'Miles Welsh', 'Instructor de sacerdotes', 18019),
 (@Miles, 'esMX', 'Miles Welsh', 'Instructor de sacerdotes', 18019),
@@ -112,19 +141,17 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Deze, 'zhCN', '迪兹·斯诺班', '阿拉希盆地军官', 18019),
 (@Deze, 'zhTW', '迪茲·斯諾班', '阿拉希盆地戰場軍官', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN @Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
-(@Zarena, 0, 4490, 1, 1, 12340),
 (@Miles, 0, 2139, 1, 1, 12340),
 (@Elissa, 0, 7669, 1, 1, 12340),
 (@Alexander, 0, 3122, 1, 1, 12340),
 (@Joanna, 0, 4052, 1, 1, 12340),
 (@Deze, 0, 15112, 1, 1, 12340);
 
-DELETE FROM `creature` WHERE `id1` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature` WHERE `id1` IN (@Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(602482, @Zarena, 0, 0, 0, 0, 0, 1, 1, 0, -14379.1, 412.672, 6.8203, 5.70723, 300, 0, 0, 2059, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (603044, @Miles, 0, 0, 1, 0, 0, 1, 1, 1, -956.24, 252.418, 97.8755, 4.2237, 250, 0, 0, 1753, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (604165, @Elissa, 0, 0, 1, 0, 0, 1, 1, 1, 9658.69, 2508.7, 1331.7, 2.25148, 300, 0, 0, 992, 2680, 0, 0, 0, 0, '', 0, 0, NULL),
 (605173, @Alexander, 0, 0, 0, 0, 0, 1, 1, 1, -4608.55, -1109.55, 511.691, 1.69297, 490, 0, 0, 4120, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -138,20 +165,6 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 (@Alexander, 1, 2559, 0, 0, 18019),
 (@Joanna, 1, 2809, 0, 0, 18019),
 (@Deze, 1, 10616, 19053, 0, 18019);
-
-DELETE FROM `npc_vendor` WHERE `entry` IN (@Zarena);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
-(@Zarena, 0, 2520, 0, 0, 0, 0),
-(@Zarena, 0, 2521, 0, 0, 0, 0),
-(@Zarena, 0, 2522, 0, 0, 0, 0),
-(@Zarena, 0, 2523, 0, 0, 0, 0),
-(@Zarena, 0, 2524, 0, 0, 0, 0),
-(@Zarena, 0, 2525, 0, 0, 0, 0),
-(@Zarena, 0, 2526, 0, 0, 0, 0),
-(@Zarena, 0, 2527, 0, 0, 0, 0),
-(@Zarena, 0, 12163, 1, 7200, 0, 0),
-(@Zarena, 0, 12251, 1, 3600, 0, 0),
-(@Zarena, 0, 12252, 1, 43200, 0, 0);
 
 DELETE FROM `npc_trainer` WHERE `ID` = @Elissa;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES 
@@ -250,6 +263,37 @@ UPDATE `creature_template` SET `HealthModifier` = 5 WHERE `entry` IN (16379, 163
 -- Ghoul Berserker, Spectral Soldier, Skeletal Shocktrooper
 UPDATE `creature_template` SET `HealthModifier` = 2.7 WHERE `entry` IN (16141, 16298, 16299);
 
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (16141, 16298, 16299);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+--
+(16141, 12841, 0, 35, 0, 1, 0, 1, 1,    'Ghoul Berserker - Invader\'s Scourgestone'),
+(16141, 22484, 0, 33.64, 0, 1, 0, 1, 1, 'Ghoul Berserker - Necrotic Rune'),
+(16141, 22970, 0, 0.6, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Bloodstained Envelope'),
+(16141, 22972, 0, 0.6, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Careworn Note'),
+(16141, 22973, 0, 0.7, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Crumpled Missive'),
+(16141, 22974, 0, 0.7, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Ragged Page'),
+(16141, 22975, 0, 0.6, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Smudged Document'),
+(16141, 22977, 0, 0.7, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Torn Letter'),
+--
+(16298, 12841, 0, 35, 0, 1, 0, 1, 1,    'Spectral Soldier - Invader\'s Scourgestone'),
+(16298, 22484, 0, 34.26, 0, 1, 0, 1, 1, 'Spectral Soldier - Necrotic Rune'),
+(16298, 22970, 0, 0.7, 0, 1, 0, 1, 1,   'Spectral Soldier - A Bloodstained Envelope'),
+(16298, 22972, 0, 0.7, 0, 1, 0, 1, 1,   'Spectral Soldier - A Careworn Note'),
+(16298, 22973, 0, 0.6, 0, 1, 0, 1, 1,   'Spectral Soldier - A Crumpled Missive'),
+(16298, 22974, 0, 0.8, 0, 1, 0, 1, 1,   'Spectral Soldier - A Ragged Page'),
+(16298, 22975, 0, 0.7, 0, 1, 0, 1, 1,   'Spectral Soldier - A Smudged Document'),
+(16298, 22977, 0, 0.6, 0, 1, 0, 1, 1,   'Spectral Soldier - A Torn Letter'),
+--
+(16299, 12841, 0, 35, 0, 1, 0, 1, 1,    'Skeletal Shocktrooper - Invader\'s Scourgestone'),
+(16299, 22484, 0, 33.54, 0, 1, 0, 1, 1, 'Skeletal Shocktrooper - Necrotic Rune'),
+(16299, 22970, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Bloodstained Envelope'),
+(16299, 22972, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Careworn Note'),
+(16299, 22973, 0, 0.6, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Crumpled Missive'),
+(16299, 22974, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Ragged Page'),
+(16299, 22975, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Smudged Document'),
+(16299, 22977, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Torn Letter');
+
+    
 -- Necropolis Not selectable
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` IN (181154, 181215, 181223, 181373, 181374);
 
@@ -367,6 +411,46 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
 UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
 
+DELETE FROM `quest_request_items` WHERE `ID` IN (9295, 9299, 9300, 9301, 9302, 9304);
+INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`, `CompletionText`, `VerifiedBuild`) VALUES
+(9295, 1, 0, 'Yes? What do you have there?', 12340),
+(9299, 1, 0, 'Yes? What do you have there?', 12340),
+(9300, 1, 0, 'Yes? What do you have there?', 12340),
+(9301, 1, 0, 'Yes? What do you have there?', 12340),
+(9302, 1, 0, 'Yes? What do you have there?', 12340),
+(9304, 1, 0, 'Yes? What do you have there?', 12340);
+
+-- 16281, Keeper of the Rolls <The Argent Dawn>
+DELETE FROM `quest_mail_sender` WHERE `QuestId` IN (9295, 9299, 9300, 9301, 9302, 9304);
+INSERT INTO `quest_mail_sender` (`QuestId`, `RewardMailSenderEntry`) VALUES 
+(9295, 16281), -- Joanna Whitehall / Orphan Matron Nightingale
+(9299, 16281), -- Alexander Calder / Deze Snowbane
+(9300, 16281), -- Miles Welsh / Elissa Dumas
+(9301, 16281), -- Zarena Cromwind
+(9302, 16281), -- Garon Hutchins
+(9304, 16281); -- Caretaker Alen
+
+DELETE FROM `quest_template_addon` WHERE `ID` IN (9295, 9299, 9300, 9301, 9302, 9304);
+INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
+`RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES
+(9295, 0, 0, 0, 0, 0, 0, 172, 604800, 0, 0, 0, 0, 0, 0, 1, 0), -- 7 days delay
+(9299, 0, 0, 0, 0, 0, 0, 173, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
+(9300, 0, 0, 0, 0, 0, 0, 174, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
+(9301, 0, 0, 0, 0, 0, 0, 175, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
+(9302, 0, 0, 0, 0, 0, 0, 176, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
+(9304, 0, 0, 0, 0, 0, 0, 177, 604800, 0, 0, 0, 0, 0, 0, 1, 0);
+
+DELETE FROM `mail_loot_template` WHERE `Entry` IN (172, 173, 174, 175, 176, 177);
+INSERT INTO `mail_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+(172, 23010, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Joanna Whitehall / Orphan Matron Nightingale
+(173, 23008, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Alexander Calder / Deze Snowbane
+(174, 23011, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Miles Welsh / Elissa Dumas
+(175, 23013, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Zarena Cromwind
+(176, 23012, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Garon Hutchins
+(177, 23016, 0, 100, 0, 1, 0, 1, 1, 'Research Report'); -- Caretaker Alen
+
+
+
 
 /**-- Text Updates --**/
 
@@ -377,8 +461,8 @@ UPDATE `quest_request_items` SET `CompletionText` = 'You\'ve come to join our or
 
 -- Alliance Quartermaster and Horde Outfitter Quests
 UPDATE `quest_template` SET `LogDescription` = 'Collect 30 Necrotic Runes.', `QuestDescription` = 'If you bring me thirty necrotic runes, I will give you your choice of hand protection in return. These should prove valuable in our fight against the undead Scourge.' WHERE `ID` IN (9094, 9333);
-UPDATE `quest_template` SET `LogDescription` = 'Collect 8 Necrotic Runes.', `QuestDescription` = 'If you bring me eight necrotic runes from the Scourge invaders, I can give you a consecrated sharpening stone. It should be of great help in your battle against the minions of the Lich King.' WHERE `ID` IN (9317, 9335);
-UPDATE `quest_template` SET `LogDescription` = 'Collect 8 Necrotic Runes.', `QuestDescription` = 'In exchange for the necrotic runes of the Scourge invaders, the Argent Dawn will give you one vial of blessed wizard oil.' WHERE `ID` IN (9318, 9334);
+UPDATE `quest_template` SET `LogDescription` = 'Collect 8 Necrotic Runes.',  `QuestDescription` = 'If you bring me eight necrotic runes from the Scourge invaders, I can give you a consecrated sharpening stone. It should be of great help in your battle against the minions of the Lich King.' WHERE `ID` IN (9317, 9335);
+UPDATE `quest_template` SET `LogDescription` = 'Collect 8 Necrotic Runes.',  `QuestDescription` = 'In exchange for the necrotic runes of the Scourge invaders, the Argent Dawn will give you one vial of blessed wizard oil.' WHERE `ID` IN (9318, 9334);
 UPDATE `quest_template` SET `LogDescription` = 'Collect 15 Necrotic Runes.', `QuestDescription` = 'In addition to our other supplies, we also have a number of major healing potions you may find useful. I will give you one in exchange for fifteen necrotic runes.' WHERE `ID` IN (9321, 9336);
 UPDATE `quest_template` SET `LogDescription` = 'Collect 15 Necrotic Runes.', `QuestDescription` = 'In addition to our other supplies, we also have a number of major mana potions you may find useful. I will give you one in exchange for fifteen necrotic runes.' WHERE `ID` IN (9320, 9337);
 UPDATE `quest_template` SET `LogDescription` = 'Collect 10 Necrotic Runes.', `QuestDescription` = 'You have aided our cause greatly, $N. If you wish, I can make available the tabard of the Argent Dawn. We are proud to have you among our allies.' WHERE `ID` IN (9341, 9343);
