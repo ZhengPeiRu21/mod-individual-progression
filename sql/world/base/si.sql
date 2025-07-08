@@ -420,6 +420,37 @@ INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`,
 (9302, 1, 0, 'Yes? What do you have there?', 12340),
 (9304, 1, 0, 'Yes? What do you have there?', 12340);
 
+-- 16281, Keeper of the Rolls <The Argent Dawn>
+DELETE FROM `quest_mail_sender` WHERE `QuestId` IN (9295, 9299, 9300, 9301, 9302, 9304);
+INSERT INTO `quest_mail_sender` (`QuestId`, `RewardMailSenderEntry`) VALUES 
+(9295, 16281), -- Joanna Whitehall / Orphan Matron Nightingale
+(9299, 16281), -- Alexander Calder / Deze Snowbane
+(9300, 16281), -- Miles Welsh / Elissa Dumas
+(9301, 16281), -- Zarena Cromwind
+(9302, 16281), -- Garon Hutchins
+(9304, 16281); -- Caretaker Alen
+
+DELETE FROM `quest_template_addon` WHERE `ID` IN (9295, 9299, 9300, 9301, 9302, 9304);
+INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
+`RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES
+(9295, 0, 0, 0, 0, 0, 0, 172, 604800, 0, 0, 0, 0, 0, 0, 1, 0), -- 7 days delay
+(9299, 0, 0, 0, 0, 0, 0, 173, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
+(9300, 0, 0, 0, 0, 0, 0, 174, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
+(9301, 0, 0, 0, 0, 0, 0, 175, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
+(9302, 0, 0, 0, 0, 0, 0, 176, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
+(9304, 0, 0, 0, 0, 0, 0, 177, 604800, 0, 0, 0, 0, 0, 0, 1, 0);
+
+DELETE FROM `mail_loot_template` WHERE `Entry` IN (172, 173, 174, 175, 176, 177);
+INSERT INTO `mail_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+(172, 23010, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Joanna Whitehall / Orphan Matron Nightingale
+(173, 23008, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Alexander Calder / Deze Snowbane
+(174, 23011, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Miles Welsh / Elissa Dumas
+(175, 23013, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Zarena Cromwind
+(176, 23012, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Garon Hutchins
+(177, 23016, 0, 100, 0, 1, 0, 1, 1, 'Research Report'); -- Caretaker Alen
+
+
+
 
 /**-- Text Updates --**/
 
