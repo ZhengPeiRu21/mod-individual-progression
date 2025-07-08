@@ -141,7 +141,7 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Deze, 'zhCN', '迪兹·斯诺班', '阿拉希盆地军官', 18019),
 (@Deze, 'zhTW', '迪茲·斯諾班', '阿拉希盆地戰場軍官', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Miles, @Elissa, @Alexander, @Joanna, @Deze);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@Miles, 0, 2139, 1, 1, 12340),
 (@Elissa, 0, 7669, 1, 1, 12340),
