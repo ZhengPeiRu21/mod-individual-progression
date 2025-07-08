@@ -63,6 +63,10 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28522, 'spel
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28531;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28531, 'spell_sapphiron_frost_aura_40');
 
+-- 60960 War Stomp: Reduce damage
+DELETE FROM `spell_script_names` WHERE `spell_id` = 60960;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (60960, 'spell_patchwork_golem_war_stomp_40');
+
 -- Anub'Arak
 -- Locust Swarm: Reduce damage ~1500 to ~1000, increase radius 25yd to 30yd
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28785;

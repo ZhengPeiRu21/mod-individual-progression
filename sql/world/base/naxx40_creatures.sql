@@ -4925,7 +4925,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (351016, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 14000, 17000, 0, 11, 53850, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Cast Spell IC (Naxx 40)"),
 (351017, 0, 0, 0, 0, 0, 100, 0, 9000, 13000, 14000, 17000, 0, 11, 56063, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Cast Spell IC (Naxx 40)"),
 (351017, 0, 2, 0, 0, 0, 100, 0, 4000, 8000, 13000, 16000, 0, 11, 56064, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Cast Spell IC (Naxx 40)"),
-(351021, 0, 0, 0, 0, 0, 100, 0, 4800, 10700, 14000, 19000, 0, 11, 27758, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Patchwork Golem - In combat - Cast War Stomp (Naxx 40)"),
+(351021, 0, 0, 0, 0, 0, 100, 0, 4800, 10700, 14000, 19000, 0, 11, 60960, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Patchwork Golem - In combat - Cast War Stomp (Naxx 40)"),
 (351021, 0, 2, 0, 0, 0, 100, 0, 5000, 9300, 15200, 15200, 0, 11, 27794, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Patchwork Golem - In combat - Cast Cleave (Naxx 40)"),
 (351021, 0, 4, 0, 12, 0, 100, 0, 0, 20, 35000, 43000, 0, 11, 7160, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Patchwork Golem - On target HP 0-20% - Cast Execute (Naxx 40)"),
 (351022, 0, 0, 0, 0, 0, 100, 0, 3600, 6800, 13700, 19700, 0, 11, 27807, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Bile Retcher - In combat - Cast Bile Vomit (Naxx 40)"),
@@ -5542,7 +5542,7 @@ INSERT INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`
 
 -- Naxxramas Worshipper
 DELETE FROM `creature_template_spell` WHERE `CreatureID` = 351081;
-INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES (351081, 1, 28732, 12340);
+INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES (351081, 3, 28732, 12340);
 
 -- Doom Touched Warrior
 UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.42857, `DamageModifier` = 17.1, `ArmorModifier` = 1.15, `RangeAttackTime` = 1265 WHERE `entry`=16157;

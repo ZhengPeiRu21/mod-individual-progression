@@ -243,17 +243,18 @@ public:
         {
             if (spell->Id == SPELL_WIDOWS_EMBRACE)
             {
-                Talk(EMOTE_WIDOWS_EMBRACE);
+                Talk(EMOTE_WIDOWS_EMBRACE); // %s is affected by Widow's Embrace!
                 if (me->HasAura(SPELL_FRENZY))
                 {
+                    events.RescheduleEvent(EVENT_FRENZY, 60000); // You must sacrifice the worshiper AFTER she enrages if you want to stop her for the full 60 seconds. 
                     me->RemoveAurasDueToSpell(SPELL_FRENZY);
-                    events.RescheduleEvent(EVENT_FRENZY, 60000);
+                    pInstance->SetData(DATA_FRENZY_REMOVED, 0); // achievement
                 }
-                pInstance->SetData(DATA_FRENZY_REMOVED, 0);
-                if (Is25ManRaid())
+                else 
                 {
-                    Unit::Kill(caster, caster);
+                    events.RescheduleEvent(EVENT_FRENZY, 30000); //  If you sacrifice the Worshiper before the enrage, it will merely delay the enrage for 30 seconds.
                 }
+                Unit::Kill(caster, caster);
             }
         }
     };
