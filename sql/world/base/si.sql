@@ -28,15 +28,45 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (15006, 0, 23160, 0, 0, 0, 0), -- Deze Snowbane
 (15006, 0, 23161, 0, 0, 0, 0);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (2482, 11038, 16543);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (2482, 3044, 4165, 5173, 5698, 11038, 14450, 15006, 16543);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
 (23, 2482,  23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
-(23, 2482,  23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),    
+(23, 2482,  23160, 0, 0, 8, 0, 9301,  0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed \'Envelope from the Front\''),
+(23, 2482,  23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 2482,  23161, 0, 1, 8, 0, 9301,  0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed \'Envelope from the Front\''),
+--
+(23, 3044,  23160, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Miles Welsh will not sell Friendship Bread until the player has completed \'Page from the Front\''),
+(23, 3044,  23161, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Miles Welsh will not sell Freshly-Squeezed Lemonade until the player has completed \'Page from the Front\''),
+--
+(23, 4165,  23160, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Friendship Bread until the player has completed \'Page from the Front\''),
+(23, 4165,  23161, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Freshly-Squeezed Lemonade until the player has completed \'Page from the Front\''),
+--
+(23, 5173,  23160, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Friendship Bread until the player has completed \'Note from the Front\''),
+(23, 5173,  23161, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
+--
+(23, 5698,  23160, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Friendship Bread until the player has completed \'Letter from the Front\''),
+(23, 5698,  23161, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Freshly-Squeezed Lemonade until the player has completed \'Letter from the Front\''),
+--
 (23, 11038, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
-(23, 11038, 23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 11038, 23160, 0, 0, 8, 0, 9304, 0, 0, 0, 0, 0, '',  'Caretaker Alen will not sell Friendship Bread until the player has completed \'Document from the Front\''),
+(23, 11038, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 11038, 23161, 0, 1, 8, 0, 9304, 0, 0, 0, 0, 0, '',  'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed \'Document from the Front\''),
+--
+(23, 14450, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
+(23, 14450, 23160, 0, 0, 8, 0, 9295, 0, 0, 0, 0, 0, '',  'Orphan Matron Nightingale will not sell Friendship Bread until the player has completed \'Letter from the Front\''),
+(23, 14450, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 14450, 23161, 0, 1, 8, 0, 9295, 0, 0, 0, 0, 0, '',  'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed \'Letter from the Front\''),
+--
+(23, 15006, 23160, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Friendship Bread until the player has completed \'Note from the Front\''),
+(23, 15006, 23161, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
+--
 (23, 16543, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
-(23, 16543, 23161, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ');
+(23, 16543, 23160, 0, 0, 8, 0, 9302,  0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed \'Missive from the Front\''),
+(23, 16543, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
+(23, 16543, 23161, 0, 1, 8, 0, 9302,  0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed \'Missive from the Front\'');
+
     
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 1803;
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 26771;
@@ -233,6 +263,37 @@ UPDATE `creature_template` SET `HealthModifier` = 5 WHERE `entry` IN (16379, 163
 -- Ghoul Berserker, Spectral Soldier, Skeletal Shocktrooper
 UPDATE `creature_template` SET `HealthModifier` = 2.7 WHERE `entry` IN (16141, 16298, 16299);
 
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (16141, 16298, 16299);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+--
+(16141, 12841, 0, 35, 0, 1, 0, 1, 1,    'Ghoul Berserker - Invader\'s Scourgestone'),
+(16141, 22484, 0, 33.64, 0, 1, 0, 1, 1, 'Ghoul Berserker - Necrotic Rune'),
+(16141, 22970, 0, 0.6, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Bloodstained Envelope'),
+(16141, 22972, 0, 0.6, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Careworn Note'),
+(16141, 22973, 0, 0.7, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Crumpled Missive'),
+(16141, 22974, 0, 0.7, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Ragged Page'),
+(16141, 22975, 0, 0.6, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Smudged Document'),
+(16141, 22977, 0, 0.7, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Torn Letter'),
+--
+(16298, 12841, 0, 35, 0, 1, 0, 1, 1,    'Spectral Soldier - Invader\'s Scourgestone'),
+(16298, 22484, 0, 34.26, 0, 1, 0, 1, 1, 'Spectral Soldier - Necrotic Rune'),
+(16298, 22970, 0, 0.7, 0, 1, 0, 1, 1,   'Spectral Soldier - A Bloodstained Envelope'),
+(16298, 22972, 0, 0.7, 0, 1, 0, 1, 1,   'Spectral Soldier - A Careworn Note'),
+(16298, 22973, 0, 0.6, 0, 1, 0, 1, 1,   'Spectral Soldier - A Crumpled Missive'),
+(16298, 22974, 0, 0.8, 0, 1, 0, 1, 1,   'Spectral Soldier - A Ragged Page'),
+(16298, 22975, 0, 0.7, 0, 1, 0, 1, 1,   'Spectral Soldier - A Smudged Document'),
+(16298, 22977, 0, 0.6, 0, 1, 0, 1, 1,   'Spectral Soldier - A Torn Letter'),
+--
+(16299, 12841, 0, 35, 0, 1, 0, 1, 1,    'Skeletal Shocktrooper - Invader\'s Scourgestone'),
+(16299, 22484, 0, 33.54, 0, 1, 0, 1, 1, 'Skeletal Shocktrooper - Necrotic Rune'),
+(16299, 22970, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Bloodstained Envelope'),
+(16299, 22972, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Careworn Note'),
+(16299, 22973, 0, 0.6, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Crumpled Missive'),
+(16299, 22974, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Ragged Page'),
+(16299, 22975, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Smudged Document'),
+(16299, 22977, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Torn Letter');
+
+    
 -- Necropolis Not selectable
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` IN (181154, 181215, 181223, 181373, 181374);
 
