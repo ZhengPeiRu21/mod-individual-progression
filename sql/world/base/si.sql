@@ -43,8 +43,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 4165,  23160, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Friendship Bread until the player has completed \'Page from the Front\''),
 (23, 4165,  23161, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Freshly-Squeezed Lemonade until the player has completed \'Page from the Front\''),
 --
-(23, 5173,  23160, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Friendship Bread until the player has completed \'Note from the Front\''),
-(23, 5173,  23161, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
+(23, 5173,  23160, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Friendship Bread until the player has completed \'Note from the Front\''),
+(23, 5173,  23161, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
 --
 (23, 5698,  23160, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Friendship Bread until the player has completed \'Letter from the Front\''),
 (23, 5698,  23161, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Freshly-Squeezed Lemonade until the player has completed \'Letter from the Front\''),
@@ -59,8 +59,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 14450, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
 (23, 14450, 23161, 0, 1, 8, 0, 9295, 0, 0, 0, 0, 0, '',  'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed \'Letter from the Front\''),
 --
-(23, 15006, 23160, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Friendship Bread until the player has completed \'Note from the Front\''),
-(23, 15006, 23161, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
+(23, 15006, 23160, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Friendship Bread until the player has completed \'Note from the Front\''),
+(23, 15006, 23161, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
 --
 (23, 16543, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
 (23, 16543, 23160, 0, 0, 8, 0, 9302,  0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed \'Missive from the Front\''),
