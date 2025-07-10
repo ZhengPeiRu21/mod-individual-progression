@@ -10,9 +10,6 @@ DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` = 17;
 DELETE FROM `game_event` WHERE `eventEntry` = 17;
 
 /* Friendship Bread and Freshly-Squeezed Lemonade */
--- Making these NPCs vendors, they will appear after the Naxx phase started.
--- Before Naxx they will be replaced with copies that do not sell these items.
-
 DELETE FROM `npc_vendor` WHERE `entry` IN (2482, 3044, 4165, 5173, 5698, 15006) AND `item` IN (23160, 23161);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
 (2482, 0, 23160, 0, 0, 0, 0),  -- Zarena Cromwind
