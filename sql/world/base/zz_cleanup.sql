@@ -38,11 +38,21 @@ DELETE FROM `creature` WHERE `id1` IN (@Nakodu, @Urgronn, @Ulrike);
 DELETE FROM `npc_vendor` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
 DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Ulrike;
 
--- UNDO previous cloning - Zarena SI friendship NPC
+-- UNDO previous cloning - SI friendship NPCs
 SET @Zarena    := 102482;
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 2482;
-DELETE FROM `creature_template` WHERE `entry` = @Zarena;
-DELETE FROM `creature_template_locale` WHERE `entry` = @Zarena;
-DELETE FROM `creature_template_model` WHERE `CreatureID` = @Zarena;
-DELETE FROM `creature` WHERE `id1` = @Zarena;
+SET @Miles     := 103044;
+SET @Elissa    := 104165;
+SET @Alexander := 105173;
+SET @Joanna    := 105698;
+SET @Deze      := 115006;
+
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (2482, 3044, 4165, 5173, 5698, 15006);
+DELETE FROM `creature_template` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Elissa, @Alexander);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature` WHERE `id1` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
+DELETE FROM `creature_equip_template` WHERE `CreatureID` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
 DELETE FROM `npc_vendor` WHERE `entry` = @Zarena;
+DELETE FROM `npc_trainer` WHERE `ID` = @Elissa;
+DELETE FROM `battlemaster_entry` WHERE `entry` = @Deze;
