@@ -122,3 +122,19 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5172, 4487);
 -- Nissa Firestone <First Aid Trainer> 
 DELETE FROM `npc_trainer` WHERE `ID`=5150; 
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5150, -350000); 
+
+
+-- Donal Osgood <Arathi Basin Battlemaster>
+DELETE FROM `creature` WHERE `id1`= 857;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(600857, 857, 0, -5038.18, -1266.1, 510.408, 3.82227, 120);
+
+-- Glordrum Steelbeard <Alterac Valley Battlemaster>
+DELETE FROM `creature` WHERE `id1`= 12197;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(612197, 12197, 0, -5038.18, -1266.1, 510.408, 3.82227, 120);
+
+-- Lylandris <Warsong Gulch Battlemaster>
+DELETE FROM `creature` WHERE `id1`= 14982;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(614982, 14982, 0, -5038.18, -1266.1, 510.408, 3.82227, 120);
