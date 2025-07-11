@@ -331,7 +331,7 @@ UPDATE quest_template SET RequiredItemCount1 = 6 WHERE ID=1322;
 UPDATE quest_template SET RequiredItemCount1 = 10 WHERE ID=1424;
 
 /*  Supplying the Front  */
-UPDATE quest_template SET RewardItem1 = 0, RewardAmount1 = 0 WHERE ID=1578;
+UPDATE quest_template SET RewardItem1 = 3609, RewardItem2 = 0, RewardAmount2 = 0 WHERE ID=1578;
 
 /*  Dragonmaw Shinbones  */
 UPDATE quest_template SET RequiredItemId1 = 7134, RequiredItemId2 = 0, RequiredItemCount1 = 8, RequiredItemCount2 = 0 WHERE ID=1846;
