@@ -56,3 +56,7 @@ DELETE FROM `creature_equip_template` WHERE `CreatureID` IN (@Zarena, @Miles, @E
 DELETE FROM `npc_vendor` WHERE `entry` = @Zarena;
 DELETE FROM `npc_trainer` WHERE `ID` = @Elissa;
 DELETE FROM `battlemaster_entry` WHERE `entry` = @Deze;
+
+-- alliance battlemasters
+DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 208042, 208081, 208107);
+
