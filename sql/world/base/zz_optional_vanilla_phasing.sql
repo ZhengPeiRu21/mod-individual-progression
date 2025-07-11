@@ -3,25 +3,19 @@
     This includes quest givers and flight paths. 
 */
 
-/* 1.7 - Zul Gurub */
-/* Zul Gurub meeting stone phased until appropriate phase */
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_preaq' WHERE `map` = 0 AND `zoneId` = 33 AND `id` IN (185433);
-
-/* 1.9 - AQ */
-/* AQ meeting stone phased until pre-aq phase (at least) */
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_preaq' WHERE `map` = 1 AND `id` IN (185322);
-/* Landro for TCG promotion in Booty Bay */
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` = 17249;
-
-/* 1.11 - Naxxramas */
-/* Naxx Vanilla meeting stone phased until appropriate phase */
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `map` = 0 AND `id` IN (193166);
+/* Meeting Stones */
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_preaq'  WHERE `map` = 0 AND `zoneId` = 33 AND `id` = 185433; -- ZG
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_preaq'  WHERE `map` = 1 AND `id` = 185322; -- AQ
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc'    WHERE `map` = 0 AND `id` = 184463; -- Karazhan 
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc'    WHERE `map` = 1 AND `id` = 182560; -- Time cavern
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `map` = 0 AND `id` = 193166; -- Naxx40
 
 /* Flight masters at Ratchet and Marshal's Refuge were originally added in patch 1.11 - disabled by default, because most players will expect these npcs to be there */
 /* UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN (
 10583, -- Gryfe, Marshal's Refuge, Flight Master
 16227  -- Bragok, Ratchet, Flight Master
 ); */
+
 
 /* 2.0+ - NPCs/Gobjects added in Eastern/Kalimdor during TBC pre-patch or more */
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
@@ -74,45 +68,13 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 37915  -- Timothy Cunningham, The Bulwark, Flight Master
 );
 
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` IN (
-12788, -- Legionnaire Teena
-19850  -- Councilor Arial D'Anastasis
-) AND `map` = 1; -- Orgrimmar only
-
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` IN (
-19848 -- Harbinger Ennarth
-) AND `map` = 0; -- Stormwind only
-
-/* Fix bad phasing for Wrathscale Myrmidon, Azuremyst Isle */
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 17194;
-
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' 
-WHERE `map` = 0 AND `id` = 184463; -- Karazhan meeting stone
-
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' 
-WHERE `map` = 1 AND `id` = 182560; -- Time cavern meeting stone
-
 /* Remove interactions between Cersei, Lorrin and the orcs in Stonard */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
 
-/* Hide mailboxes, see: https://www.wowhead.com/classic/object=32349/mailbox */
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 49832; -- Darnassus
 
 /* Hide guild vaults until TBC (was introduced during 2.3) - disabled by default, because most players will expect these gobject to be there */
-/* UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` IN (
-12496, 12497,
-20621,
-45029, 45030, 45069, 45132,
-44709, 44710, 44711,
-44715, 44716,
-41911, 41912, 41913, 41914,
-49821, 49822,
-44713, 44714,
-14641,
-17352, 17353,
-49095,
-50356, 50357
-); */
+/* UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` IN 
+(12496, 12497, 14641, 17352, 17353, 20621, 41911, 41912, 41913, 41914, 44709, 44710, 44711, 44713, 44714, 44715, 44716, 45029, 45030, 45069, 45132, 49095, 49821, 49822, 50356, 50357); */
 
 /* 3.0+ - NPCs/Gobjects added in Eastern/Kalimdor during WotLK pre-patch or more */
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
@@ -130,16 +92,20 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 );
 
 /* Hide mailboxes, see: https://www.wowhead.com/classic/object=32349/mailbox */
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 49832; -- Darnassus
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (
 150747, 150748, 150749, 150750, 150751, 150752, 150753, 150755, -- Orgrimmar
 100500, 100501, 100502, 100503, 268683, -- Undercity
 932, 933, 100156, 100157, 100158, 100159, 100505, 100506, 150736, 150737, 150738, 150740, 150742, 150743, 150744, 150746, 151239,  -- Stormwind
-121574 -- Darnassus
+121573, 121574, 121575 -- Darnassus
 );
 
 /* Hide Rogg and his anvil + forge at the entrance of Orgrimmar until WotLK */
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` = 37072;
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (347, 387);
+
+/* Landro for TCG promotion in Booty Bay */
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` = 17249;
 
 /* Hide barber in Kalimdor/Eastern Kingdom/Outland until WotLK - disabled by default, because most players will expect barbers to be there */
 /* UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` IN (0, 1, 530) AND `id1` IN (29139, 29141, 29142, 29143, 29145);
