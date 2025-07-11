@@ -348,11 +348,12 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 
 UPDATE `creature_template` SET `flags_extra` = 134217728 WHERE `entry` IN (10991, 11678, 11837, 11839, 13959);-- DONT_OVERRIDE_SAI_ENTRY (134217728)  
 
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-670088, -670089, -670105, -670106, -670114, -670133, -670138, -670139);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-670088, -670089, -670105, -670106, -670114, -670133, -670138, -670139, -670164, -670165, -670181, -670182, -670190, -670209, -670214, -670215);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
 `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+-- TBC
 (-670088, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6700880, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Snowblind Ambusher - On Respawn - Waypoint Start'),
 (-670089, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6700890, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Snowblind Ambusher - On Respawn - Waypoint Start'),
 (-670105, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701050, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Wildpaw Gnoll - On Respawn - Waypoint Start'),
@@ -360,4 +361,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-670114, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701140, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Wildpaw Shaman - On Respawn - Waypoint Start'),
 (-670133, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701330, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Wildpaw Brute - On Respawn - Waypoint Start'),
 (-670138, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701380, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Alterac Yeti - On Respawn - Waypoint Start'),
-(-670139, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701390, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Alterac Yeti - On Respawn - Waypoint Start');
+(-670139, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701390, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Alterac Yeti - On Respawn - Waypoint Start'),
+-- WotLK
+(-670164, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6700880, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Snowblind Ambusher - On Respawn - Waypoint Start'),
+(-670165, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6700890, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Snowblind Ambusher - On Respawn - Waypoint Start'),
+(-670181, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701050, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Wildpaw Gnoll - On Respawn - Waypoint Start'),
+(-670182, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701060, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Wildpaw Gnoll - On Respawn - Waypoint Start'),
+(-670190, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701140, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Wildpaw Shaman - On Respawn - Waypoint Start'),
+(-670209, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701330, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Wildpaw Brute - On Respawn - Waypoint Start'),
+(-670214, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701380, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Alterac Yeti - On Respawn - Waypoint Start'),
+(-670215, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6701390, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Alterac Yeti - On Respawn - Waypoint Start');
