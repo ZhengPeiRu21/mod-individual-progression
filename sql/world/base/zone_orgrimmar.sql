@@ -1,220 +1,89 @@
--- Whuut <Journeyman Alchemist>
-UPDATE `creature_template` SET `subname`='Journeyman Alchemist', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11046;
+UPDATE `creature_template` SET `subname` = 'Expert Blacksmith'        WHERE `entry` = 1383;  -- Snarl <Expert Blacksmith>
+UPDATE `creature_template` SET `subname` = 'Journeyman Tailor'        WHERE `entry` = 2855;  -- Snang <Journeyman Tailor>
+UPDATE `creature_template` SET `subname` = 'Journeyman Engineer'      WHERE `entry` = 2857;  -- Thund <Journeyman Engineer>
+UPDATE `creature_template` SET `subname` = 'Expert Enchanter'         WHERE `entry` = 3345;  -- Godan <Expert Enchanter>
+UPDATE `creature_template` SET `subname` = 'Expert Alchemist'         WHERE `entry` = 3347;  -- Yelmak <Expert Alchemist>
+UPDATE `creature_template` SET `subname` = 'Artisan Blacksmith'       WHERE `entry` = 3355;  -- Saru Steelfury <Artisan Blacksmith>
+UPDATE `creature_template` SET `subname` = 'Expert Tailor'            WHERE `entry` = 3363;  -- Magar <Expert Tailor>
+UPDATE `creature_template` SET `subname` = 'Expert Leatherworker'     WHERE `entry` = 3365;  -- Karolek <Expert Leatherworker>
+UPDATE `creature_template` SET `subname` = 'Expert Engineer'          WHERE `entry` = 3412;  -- Nogg <Expert Engineer>
+UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry` = 5811;  -- Kamari <Journeyman Leatherworker>
+UPDATE `creature_template` SET `subname` = 'Armor Crafter'            WHERE `entry` = 7230;  -- Shayis Steelfury <Armor Crafter>
+UPDATE `creature_template` SET `subname` = 'Weapon Crafter'           WHERE `entry` = 7231;  -- Kelgruk Bloodaxe <Weapon Crafter>
+UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith'    WHERE `entry` = 10266; -- Ug'thok <Journeyman Blacksmith>
+UPDATE `creature_template` SET `subname` = 'Artisan Engineer'         WHERE `entry` = 11017; -- Roxxik <Artisan Engineer>
+UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist'     WHERE `entry` = 11046; -- Whuut <Journeyman Alchemist>
+UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `entry` = 11066; -- Jhag <Journeyman Enchanter>
 
--- Yelmak <Expert Alchemist>
-UPDATE `creature_template` SET `subname`='Expert Alchemist' WHERE `entry`=3347;
+UPDATE `creature_template` SET `npcflag` = 81, `trainer_type` = 2 WHERE `entry` IN (1383, 2855, 2857, 3412, 5811, 10266, 11017, 11046, 11066;
+UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (1383, 3412, 11017);
 
--- Shayis Steelfury <Armor Crafter>
-UPDATE `creature_template` SET `subname`='Armor Crafter' WHERE `entry`=7230;
 
--- Kelgruk Bloodaxe <Weapon Crafter>
-UPDATE `creature_template` SET `subname`='Weapon Crafter' WHERE `entry`=7231;
+DELETE FROM `npc_trainer` WHERE `ID` IN (1383, 2855, 2857, 3332, 3345, 3347, 3355, 3357, 3363, 3365, 3373, 3399, 3412, 4752, 5811, 7088, 10266, 11017, 11046, 11066);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
+(1383, -310000),  -- Snarl <Expert Blacksmith>
+(1383, -310001),  -- Snarl <Expert Blacksmith>
+(2855, -410000),  -- Snang <Journeyman Tailor>
+(2857, -340000),  -- Thund <Journeyman Engineer>
+(3332, -360000),  -- Lumak <Fishing Trainer>
+(3345, -330000),  -- Godan <Expert Enchanter>
+(3345, -330001),  -- Godan <Expert Enchanter>
+(3347, -300000),  -- Yelmak <Expert Alchemist>
+(3347, -300001),  -- Yelmak <Expert Alchemist>
+(3355, -310000),  -- Saru Steelfury <Artisan Blacksmith>
+(3355, -310001),  -- Saru Steelfury <Artisan Blacksmith>
+(3355, -310002),  -- Saru Steelfury <Artisan Blacksmith>
+(3357, -390000),  -- Makaru <Mining Trainer>
+(3363, -410000),  -- Magar <Expert Tailor>
+(3363, -410001),  -- Magar <Expert Tailor>
+(3365, -380000),  -- Karolek <Expert Leatherworker>
+(3365, -380001),  -- Karolek <Expert Leatherworker>
+(3373, -350000),  -- Arnok <First Aid Trainer>
+(3399, -320000),  -- Zamja <Cooking Trainer>
+(3412, -340000),  -- Nogg <Expert Engineer>
+(3412, -340001),  -- Nogg <Expert Engineer>
+(4752, -450000),  -- Kildar <Riding Trainer>
+(5811, -380000),  -- Kamari <Journeyman Leatherworker>
+(7088, -400000),  -- Thuwd <Skinning Trainer>
+(10266, -310000), -- Ug'thok <Journeyman Blacksmith>
+(11017, -340000), -- Roxxik <Artisan Engineer>
+(11017, -340001), -- Roxxik <Artisan Engineer>
+(11017, -340002), -- Roxxik <Artisan Engineer>
+(11046, -300000), -- Whuut <Journeyman Alchemist>
+(11066, -330000); -- Jhag <Journeyman Enchanter>
 
--- Ug'thok <Journeyman Blacksmith>
-UPDATE `creature_template` SET `subname`='Journeyman Blacksmith', `npcflag`=81, `trainer_type`=2 WHERE `entry`=10266;
 
--- Snarl <Expert Blacksmith>
-UPDATE `creature_template` SET `subname`='Expert Blacksmith', `npcflag`=81, `trainer_type`=2, `type_flags`=134217728 WHERE `entry`=1383;
-
--- Saru Steelfury <Artisan Blacksmith>
-UPDATE `creature_template` SET `subname`='Artisan Blacksmith' WHERE `entry`=3355;
-
--- Jhag <Journeyman Enchanter>
-UPDATE `creature_template` SET `subname`='Journeyman Enchanter', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11066;
-
--- Godan <Expert Enchanter>
-UPDATE `creature_template` SET `subname`='Expert Enchanter' WHERE `entry`=3345;
-
--- Thund <Journeyman Engineer>
-UPDATE `creature_template` SET `subname`='Journeyman Engineer', `npcflag`=81, `trainer_type`=2 WHERE `entry`=2857;
-
--- Nogg <Expert Engineer>
-UPDATE `creature_template` SET `subname`='Expert Engineer', `npcflag`=81, `trainer_type`=2, `type_flags`=134217728 WHERE `entry`=3412;
-
--- Roxxik <Artisan Engineer>
-UPDATE `creature_template` SET `subname`='Artisan Engineer', `npcflag`=81, `trainer_type`=2, `type_flags`=134217728 WHERE `entry`=11017;
-
--- Kamari <Journeyman Leatherworker>
-UPDATE `creature_template` SET `subname`='Journeyman Leatherworker', `npcflag`=81, `trainer_type`=2 WHERE `entry`=5811;
-
--- Karolek <Expert Leatherworker>
-UPDATE `creature_template` SET `subname`='Expert Leatherworker' WHERE `entry`=3365;
-
--- Snang <Journeyman Tailor>
-UPDATE `creature_template` SET `subname`='Journeyman Tailor', `npcflag`=81, `trainer_type`=2 WHERE `entry`=2855;
-
--- Magar <Expert Tailor>
-UPDATE `creature_template` SET `subname`='Expert Tailor' WHERE `entry`=3363;
-
--- Snarl <Expert Blacksmith>
-DELETE FROM `npc_trainer` WHERE `ID`=1383;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1383, -310000), (1383, -310001);
-
--- Snang <Journeyman Tailor>
-DELETE FROM `npc_trainer` WHERE `ID`=2855;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2855, -410000);
-
--- Thund <Journeyman Engineer>
-DELETE FROM `npc_trainer` WHERE `ID`=2857;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2857, -340000);
-
--- Lumak <Fishing Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=3332;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3332, -360000);
-
--- Godan <Expert Enchanter>
-DELETE FROM `npc_trainer` WHERE `ID`=3345;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3345, -330000), (3345, -330001);
-
--- Yelmak <Expert Alchemist>
-DELETE FROM `npc_trainer` WHERE `ID`=3347;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3347, -300000), (3347, -300001);
-
--- Saru Steelfury <Artisan Blacksmith>
-DELETE FROM `npc_trainer` WHERE `ID`=3355;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3355, -310000), (3355, -310001), (3355, -310002);
-
--- Makaru <Mining Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=3357;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3357, -390000);
-
--- Magar <Expert Tailor>
-DELETE FROM `npc_trainer` WHERE `ID`=3363;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3363, -410000), (3363, -410001);
-
--- Karolek <Expert Leatherworker>
-DELETE FROM `npc_trainer` WHERE `ID`=3365;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3365, -380000), (3365, -380001);
-
--- Arnok <First Aid Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=3373;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3373, -350000);
-
--- Zamja <Cooking Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=3399;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3399, -320000);
-
--- Nogg <Expert Engineer>
-DELETE FROM `npc_trainer` WHERE `ID`=3412;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3412, -340000), (3412, -340001);
-
--- Kildar <Riding Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=4752;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4752, -450000);
-
--- Kamari <Journeyman Leatherworker>
-DELETE FROM `npc_trainer` WHERE `ID`=5811;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5811, -380000);
-
--- Thuwd <Skinning Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=7088;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (7088, -400000);
-
--- Ug'thok <Journeyman Blacksmith>
-DELETE FROM `npc_trainer` WHERE `ID`=10266;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (10266, -310000);
-
--- Roxxik <Artisan Engineer>
-DELETE FROM `npc_trainer` WHERE `ID`=11017;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11017, -340000), (11017, -340001), (11017, -340002);
-
--- Whuut <Journeyman Alchemist>
-DELETE FROM `npc_trainer` WHERE `ID`=11046;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11046, -300000);
-
--- Jhag <Journeyman Enchanter>
-DELETE FROM `npc_trainer` WHERE `ID`=11066;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11066, -330000);
-
--- Snarl <Expert Blacksmith>
-DELETE FROM `gossip_menu_option` WHERE `MenuID`=2782;
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2782, 4148, 4151);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(2782, 0, 3, 'Train me.', 3266, 5, 16);
+(2782, 0, 3, 'Train me.', 3266, 5, 16), -- Snarl <Expert Blacksmith>
+(4148, 0, 3, 'Train me.', 3266, 5, 16), -- Nogg <Expert Engineer>
+(4151, 0, 3, 'Train me.', 3266, 5, 16); -- Roxxik <Artisan Engineer>
 
--- Nogg <Expert Engineer>
-DELETE FROM `gossip_menu_option` WHERE `MenuID`=4148;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(4148, 0, 3, 'Train me.', 3266, 5, 16);
 
--- Roxxik <Artisan Engineer>
-DELETE FROM `gossip_menu_option` WHERE `MenuID`=4151;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(4151, 0, 3, 'Train me.', 3266, 5, 16);
-
--- Saru Steelfury <Artisan Blacksmith>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=1012 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (1012, 2782, 4126, 4148, 4151, 4168, 4209, 4347);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 1012, 0, 7, 164, 125, 'Show menu if blacksmithing is 125 or higher');
+(15, 1012, 0, 7, 164, 125, 'Show menu if blacksmithing is 125 or higher'), -- Saru Steelfury <Artisan Blacksmith>
+(15, 2782, 0, 7, 164, 50,  'Show menu if blacksmithing is 50 or higher'),  -- Snarl <Expert Blacksmith>
+(15, 4126, 0, 7, 171, 50,  'Show menu if alchemy is 50 or higher'),        -- Yelmak <Expert Alchemist>
+(15, 4148, 0, 7, 202, 50,  'Show menu if engineering is 50 or higher'),    -- Nogg <Expert Engineer>
+(15, 4151, 0, 7, 202, 125, 'Show menu if engineering is 125 or higher'),   -- Roxxik <Artisan Engineer>
+(15, 4168, 0, 7, 333, 50,  'Show menu if enchanting is 50 or higher'),     -- Godan <Expert Enchanter>
+(15, 4209, 0, 7, 165, 50,  'Show menu if leatherworking is 50 or higher'), -- Karolek <Expert Leatherworker>
+(15, 4347, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');      -- Magar <Expert Tailor>
 
--- Snarl <Expert Blacksmith>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=2782 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 2782, 0, 7, 164, 50, 'Show menu if blacksmithing is 50 or higher');
 
--- Yelmak <Expert Alchemist>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4126 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4126, 0, 7, 171, 50, 'Show menu if alchemy is 50 or higher');
-
--- Nogg <Expert Engineer>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4148 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4148, 0, 7, 202, 50, 'Show menu if engineering is 50 or higher');
-
--- Roxxik <Artisan Engineer>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4151 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4151, 0, 7, 202, 125, 'Show menu if engineering is 125 or higher');
-
--- Godan <Expert Enchanter>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4168 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4168, 0, 7, 333, 50, 'Show menu if enchanting is 50 or higher');
-
--- Karolek <Expert Leatherworker>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4209 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4209, 0, 7, 165, 50, 'Show menu if leatherworking is 50 or higher');
-
--- Magar <Expert Tailor>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4347 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4347, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');
-
--- Nazgrel <Advisor to Thrall>
 DELETE FROM `creature` WHERE `id1` = 3230 AND `map`= 1;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(603230, 3230, 1, 1938.55, -4133.22, 41.1424, 4.07636, 300);
-
--- Orgrimmar Grunt
 DELETE FROM `creature` WHERE `guid` IN (10299, 203492, 203493, 203494, 203495);
+DELETE FROM `creature` WHERE `id1` IN (3890, 12788, 14720, 14942, 15006);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(10299, 3296, 1, 1620.45, -4252.84, 47.5273, 3.7001, 300);
+(603230, 3230,  1, 1938.55, -4133.22, 41.1424, 4.07636, 300), -- Nazgrel <Advisor to Thrall>
+(10299,  3296,  1, 1620.45, -4252.84, 47.5273, 3.7001,  300), -- Orgrimmar Grunt
+(603890, 3890,  1, 1990.64, -4794.13, 56.0472, 3.22013, 300), -- Brakgul Deathbringer <Warsong Gulch Battlemaster>
+(612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 300), -- Legionnaire Teena
+(614720, 14720, 1, 1565.79, -4395.27, 6.9866, 3.35103,  600), -- High Overlord Saurfang
+(614942, 14942, 1, 1980.9, -4787.78, 55.8796, 5.13127,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
+(615006, 15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathis Basin Battlemaster>
 
--- Brakgul Deathbringer <Warsong Gulch Battlemaster>
-DELETE FROM `creature` WHERE `id1` = 3890;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(603890, 3890, 1, 1990.64, -4794.13, 56.0472, 3.22013, 300);
-
--- Legionnaire Teena
-DELETE FROM `creature` WHERE `id1` = 12788;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 25);
-
--- High Overlord Saurfang
-DELETE FROM `creature` WHERE `id1` = 14720;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(614720, 14720, 1, 1565.79, -4395.27, 6.9866, 3.35103, 600);
-
--- Kartra Bloodsnarl <Alterac Valley Battlemaster>
-DELETE FROM `creature` WHERE `id1` = 14942;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(614942, 14942, 1, 1980.9, -4787.78, 55.8796, 5.13127, 600);
-
--- Deze Snowbane <Arathis Basin Battlemaster>
-DELETE FROM `creature` WHERE `id1` = 15006;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
-(208240, 15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600);
 
 -- Master Pyreanor <Paladin Trainer>
 UPDATE `creature` SET `position_x`= 1940.23, `position_y`= -4135.53, `position_z`= 41.1522, `orientation`= 3.12425  WHERE `id1` = 23128;
@@ -231,82 +100,41 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 4967);
 DELETE FROM `creature_queststarter` WHERE `id` IN (3324, 3325, 3326, 4564, 5495, 5496) AND `quest`= 8419;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 8419);
 
--- Vol'jin <King of Darkspear Trolls>
-UPDATE `creature_template` SET `subname`='King of Darkspear Trolls', `minlevel`=60, `maxlevel`=60 WHERE `entry`=10540;
+
+UPDATE `creature_template` SET `subname` = 'General Goods Merchant'       WHERE `entry` = 3313;  -- Trak'gen <General Goods Merchant>
+UPDATE `creature_template` SET `subname` = 'Guns and Ammo Merchant'       WHERE `entry` = 3322;  -- Kaja <Guns and Ammo Merchant>
+UPDATE `creature_template` SET `subname` = 'Reagents Vendor'              WHERE `entry` = 3323;  -- Horthus <Reagents Vendor>
+UPDATE `creature_template` SET `subname` = 'Poison Vendor'                WHERE `entry` = 3334;  -- Rekkul <Poison Vendor>
+UPDATE `creature_template` SET `subname` = 'Reagents Vendor'              WHERE `entry` = 3335;  -- Hagrus <Reagents Vendor>
+UPDATE `creature_template` SET `subname` = 'General Goods Vendor'         WHERE `entry` = 3350;  -- Asoran <General Goods Vendor>
+UPDATE `creature_template` SET `subname` = 'Reagents Vendor'              WHERE `entry` = 3351;  -- Magenius <Reagents Vendor>
+UPDATE `creature_template` SET `subname` = 'Blacksmithing Supplier'       WHERE `entry` = 3356;  -- Sumi <Blacksmithing Supplier>
+UPDATE `creature_template` SET `subname` = 'Mining Supplier'              WHERE `entry` = 3358;  -- Gorina <Mining Supplier>
+UPDATE `creature_template` SET `subname` = 'General Trade Goods Merchant' WHERE `entry` = 3367;  -- Felika <General Trade Goods Merchant>
+UPDATE `creature_template` SET `subname` = 'Cooking Supplier'             WHERE `entry` = 3400;  -- Xen'to <Cooking Supplier>
+UPDATE `creature_template` SET `subname` = 'General Trade Goods Merchant' WHERE `entry` = 5817;  -- Shimra <General Trade Goods Merchant>
+UPDATE `creature_template` SET `subname` = 'King of Darkspear Trolls'     WHERE `entry` = 10540; -- Vol'jin <King of Darkspear Trolls>
+UPDATE `creature_template` SET `subname` = 'Zeppelin Master'              WHERE `entry` = 12136; -- Snurk Bucksquick <Zeppelin Master>
+
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 3296;  -- Orgrimmar Grunt
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 3310;  -- Doras <Wind Rider Master>
+UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 4949;  -- Thrall <Warchief>
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 10540; -- Vol'jin <King of Darkspear Trolls>
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14375; -- Scout Stronghand
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14376; -- Scout Manslayer
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14377; -- Scout Tharr
+UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` = 14720; -- High Overlord Saurfang
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `rank` = 0 WHERE `entry` = 14304; -- Kor'kron Elite
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `rank` = 0 WHERE `entry` = 15350; -- Horde Warbringer
+
+-- Legionnaire Teena
+UPDATE `creature_template` SET `subname`= NULL, `npcflag` = 0, `faction` = 85 WHERE `entry` = 12788;
+UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;
 
 -- Nazgrel <Advisor to Thrall>
 UPDATE `creature_template` SET `scale`=0.7, `npcflag`=2, `faction`=29, `gossip_menu_id`=0 WHERE `entry`=3230;
 
--- Orgrimmar Grunt
-UPDATE `creature_template` SET `minlevel`=55, `maxlevel`=55 WHERE `entry`=3296;
-
--- Doras <Wind Rider Master>
-UPDATE `creature_template` SET `minlevel`=55, `maxlevel`=55 WHERE `entry`=3310;
-
--- Trak'gen <General Goods Merchant>
-UPDATE `creature_template` SET `subname`='General Goods Merchant' WHERE `entry`=3313;
-
--- Kaja <Guns and Ammo Merchant>
-UPDATE `creature_template` SET `subname`='Guns and Ammo Merchant' WHERE `entry`=3322;
-
--- Horthus <Reagents Vendor>
-UPDATE `creature_template` SET `subname`='Reagents Vendor' WHERE `entry`=3323;
-
--- Rekkul <Poison Vendor>
-UPDATE `creature_template` SET `subname`='Poison Vendor' WHERE `entry`=3334;
-
--- Hagrus <Reagents Vendor>
-UPDATE `creature_template` SET `subname`='Reagents Vendor' WHERE `entry`=3335;
-
--- Asoran <General Goods Vendor>
-UPDATE `creature_template` SET `subname`='General Goods Vendor' WHERE `entry`=3350;
-
--- Magenius <Reagents Vendor>
-UPDATE `creature_template` SET `subname`='Reagents Vendor' WHERE `entry`=3351;
-
--- Sumi <Blacksmithing Supplier>
-UPDATE `creature_template` SET `subname`='Blacksmithing Supplier' WHERE `entry`=3356;
-
--- Gorina <Mining Supplier>
-UPDATE `creature_template` SET `subname`='Mining Supplier' WHERE `entry`=3358;
-
--- Felika <General Trade Goods Merchant>
-UPDATE `creature_template` SET `subname`='General Trade Goods Merchant' WHERE `entry`=3367;
-
--- Xen'to <Cooking Supplier>
-UPDATE `creature_template` SET `subname`='Cooking Supplier' WHERE `entry`=3400;
-
--- Thrall <Warchief>
-UPDATE `creature_template` SET `minlevel`=63, `maxlevel`=63 WHERE `entry`=4949;
-
--- Shimra <General Trade Goods Merchant>
-UPDATE `creature_template` SET `subname`='General Trade Goods Merchant' WHERE `entry`=5817;
-
--- Snurk Bucksquick <Zeppelin Master>
-UPDATE `creature_template` SET `subname`='Zeppelin Master' WHERE `entry`=12136;
-
--- Legionnaire Teena
-UPDATE `creature_template` SET `subname`=NULL, `npcflag`=0, `faction`=85 WHERE `entry`=12788;
-UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;
-
--- Kor'kron Elite
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=14304;
-
--- Scout Stronghand
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14375;
-
--- Scout Manslayer
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14376;
-
--- Scout Tharr
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14377;
-
--- High Overlord Saurfang
-UPDATE `creature_template` SET `minlevel`=62, `maxlevel`=62 WHERE `entry`=14720;
-
--- Horde Warbringer
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=15350;
-
+-- this should probably be moved to vanilla_vendors
 -- Olvia <Meat Vendor>
 DELETE FROM `npc_vendor` WHERE `entry`=3312 AND `item` IN (27854, 33454, 35953);
 
@@ -451,7 +279,6 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12788, 12793, 12794, 12795, 19850, 20278, 23396, 23447, @TH_TBC, @LP_TBC);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
-
 
 DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 620278, 623396, 623447, 626396, 626397);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
@@ -652,7 +479,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 (@LP_TBC, 31649, 0, 0, 2265), (@LP_TBC, 31650, 0, 0, 2267);
 
 
-
 /* Hide certain vendor items until the player has reached the progression tier for them */
 DELETE FROM `conditions` WHERE `SourceGroup` IN (12796, @LP_Classic, @LP_TBC, @TH_Classic, @TH_TBC);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
@@ -743,8 +569,16 @@ DELETE FROM `creature` WHERE `id1` IN
 -- Nogg Quest Flags fix
 UPDATE `creature_template` SET `npcflag` = `npcflag` | 2 WHERE `entry` = 3412;
 
--- Fix quest A Strange Request to use Vanilla NPCs
-UPDATE `quest_template` SET `LogDescription` = "Take the Shrunken Head to Neeru Fireblade in Orgrimmar.", `QuestDescription` = "Neeru Fireblade in Orgrimmar has what I need to get started here! He has mixed up a concoction that I need for my... well, you'll see.$B$BOff with you now -- to Orgrimmar. Here, take this with you. It's a shrunken head that I promised Neeru in exchange for the herbs. It's the head of some poor dwarf I ventured across in the forest. I'm sure Neeru will be pleased.$B$BYou'll find Neeru in the Cleft of Shadow." WHERE `ID` = 3121;
-UPDATE `creature_questender` SET `id` = 3216 WHERE `quest` = 3121;
+-- Quest: Return to Witch Doctor Uzer'i
+UPDATE `quest_template` SET `LogDescription`   = "Deliver Neeru's Herb Pouch to Witch Doctor Uzer'i in Feralas." WHERE `ID` = 3122;
 UPDATE `creature_queststarter` SET `id` = 3216 WHERE `quest` = 3122;
-UPDATE `quest_template` SET `LogDescription` = "Deliver Neeru's Herb Pouch to Witch Doctor Uzer'i in Feralas." WHERE `ID` = 3122;
+
+-- Quest: A Strange Request to use Vanilla NPCs
+UPDATE `quest_template` SET 
+`LogDescription`   = "Take the Shrunken Head to Neeru Fireblade in Orgrimmar.", 
+`QuestDescription` = "Neeru Fireblade in Orgrimmar has what I need to get started here! He has mixed up a concoction that I need for my... well, you'll see.$B$B
+                      Off with you now -- to Orgrimmar. Here, take this with you. It's a shrunken head that I promised Neeru in exchange for the herbs. 
+                      It's the head of some poor dwarf I ventured across in the forest. I'm sure Neeru will be pleased.$B$B
+                      You'll find Neeru in the Cleft of Shadow." WHERE `ID` = 3121;
+
+UPDATE `creature_questender`   SET `id` = 3216 WHERE `quest` = 3121;
