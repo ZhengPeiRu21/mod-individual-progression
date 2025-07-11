@@ -448,7 +448,7 @@ UPDATE `creature_template` SET `subname` = 'Armor Quartermaster'  WHERE `entry` 
 UPDATE `creature_template` SET `subname` = 'Mount Quartermaster' WHERE `entry` = 12796;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12799, @TH_Classic, @LP_Classic);
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12793, 12794, 12795, 20278, 23396, 23447, @TH_TBC, @LP_TBC);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12788, 12793, 12794, 12795, 19850, 20278, 23396, 23447, @TH_TBC, @LP_TBC);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
