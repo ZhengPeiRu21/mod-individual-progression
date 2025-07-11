@@ -94,3 +94,19 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 -- Dannelor <First Aid Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=4211; 
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4211, -350000); 
+
+
+-- Keras Wolfheart <Arathi Basin Battlemaster>
+DELETE FROM `creature` WHERE `id1`= 907;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(600907, 907, 0, 9976.16, 2314.49, 1330.87, 0.750492, 120);
+
+-- Aethalas <Warsong Gulch Battlemaster>
+DELETE FROM `creature` WHERE `id1`= 2302;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(602302, 2302, 0, 9976.16, 2314.49, 1330.87, 0.750492, 120);
+
+-- Brogun Stoneshield <Alterac Valley Battlemaster>
+DELETE FROM `creature` WHERE `id1`= 5118;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(605118, 5118, 0, 9976.16, 2314.49, 1330.87, 0.750492, 120);
