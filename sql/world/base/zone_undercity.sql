@@ -1,5 +1,5 @@
 UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Leatherworker'     WHERE `entry` = 223;   -- Dan Golthas <Journeyman Leatherworker>
-UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Engineer'          WHERE `entry` = 4586;  -- Graham Van Talen <Journeyman Engineer>
+UPDATE `creature_template` SET `npcflag`=83, `trainer_type`=2, `subname`='Journeyman Engineer'          WHERE `entry` = 4586;  -- Graham Van Talen <Journeyman Engineer>
 UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Blacksmith'        WHERE `entry` = 4605;  -- Basil Frye <Journeyman Blacksmith>
 UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Expert Alchemist'             WHERE `entry` = 4609;  -- Doctor Marsh <Expert Alchemist>
 UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Alchemist Trainer' WHERE `entry` = 11044; -- Doctor Martin Felben <Journeyman Alchemist Trainer>
