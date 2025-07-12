@@ -170,13 +170,13 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (30435, 21483, 0, 0, 0, 1, 1, 1, 1, 'Ayamiss the Hunter - Ring of the Desert Winds'),
 (30435, 21484, 0, 0, 0, 1, 1, 1, 1, 'Ayamiss the Hunter - Helm of Regrowth'),
 --
-(30436, 21485, 0, 0, 0, 1, 2, 1, 1, 'Buru the Gorger - Buru\'s Skull Fragment'),
-(30436, 21486, 0, 0, 0, 1, 2, 1, 1, 'Buru the Gorger - Gloves of the Swarm'),
-(30436, 21487, 0, 0, 0, 1, 2, 1, 1, 'Buru the Gorger - Slimy Scaled Gauntlets'),
-(30436, 21488, 0, 0, 0, 1, 2, 1, 1, 'Buru the Gorger - Fetish of Chitinous Spikes'),
-(30436, 21489, 0, 0, 0, 1, 2, 1, 1, 'Buru the Gorger - Quicksand Waders'),
-(30436, 21490, 0, 0, 0, 1, 2, 1, 1, 'Buru the Gorger - Slime Kickers'),
-(30436, 21491, 0, 0, 0, 1, 2, 1, 1, 'Buru the Gorger - Scaled Bracers of the Gorger');
+(30436, 21485, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Buru\'s Skull Fragment'),
+(30436, 21486, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Gloves of the Swarm'),
+(30436, 21487, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Slimy Scaled Gauntlets'),
+(30436, 21488, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Fetish of Chitinous Spikes'),
+(30436, 21489, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Quicksand Waders'),
+(30436, 21490, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Slime Kickers'),
+(30436, 21491, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Scaled Bracers of the Gorger');
 
 
 DELETE FROM `creature_loot_template` WHERE `entry` IN (15339, 15340, 15341, 15348, 15369, 15370);
