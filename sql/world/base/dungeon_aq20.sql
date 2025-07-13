@@ -38,20 +38,20 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (30424, 21306, 0, 0, 0, 1, 1, 1, 1, 'Guide: Serpent Sting IX'),
 (30424, 21307, 0, 0, 0, 1, 1, 1, 1, 'Guide: Aspect of the Hawk VII'),
 --
-(30422, 21457, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Bracers of Brutality'),
-(30422, 21459, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Crossbow of Imminent Doom'),
-(30422, 21460, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Helm of Domination'),
-(30422, 21461, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Leggings of the Black Blizzard'),
-(30422, 21462, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Gloves of Dark Wisdom'),
-(30422, 21463, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Ossirian\'s Binding'),
-(30422, 21464, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Shackles of the Unscarred'),
+(30422, 21457, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Bracers of Brutality'),
+(30422, 21459, 0, 10, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Crossbow of Imminent Doom'),
+(30422, 21460, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Helm of Domination'),
+(30422, 21461, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Leggings of the Black Blizzard'),
+(30422, 21462, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Gloves of Dark Wisdom'),
+(30422, 21463, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Ossirian\'s Binding'),
+(30422, 21464, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Shackles of the Unscarred'),
 --
-(30423, 21452, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Staff of the Ruins'),
-(30423, 21453, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Mantle of the Horusath'),
-(30423, 21454, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Runic Stone Shoulders'),
-(30423, 21456, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Sandstorm Cloak'),
-(30423, 21458, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Gauntlets of New Life'),
-(30423, 21715, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Sand Polished Hammer'),
+(30423, 21452, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Staff of the Ruins'),
+(30423, 21453, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Mantle of the Horusath'),
+(30423, 21454, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Runic Stone Shoulders'),
+(30423, 21456, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Sandstorm Cloak'),
+(30423, 21458, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Gauntlets of New Life'),
+(30423, 21715, 0, 10, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Sand Polished Hammer'),
 --
 (30425, 20886, 0, 0, 0, 1, 1, 1, 1, 'Qiraji Spiked Hilt'),
 (30425, 20890, 0, 0, 0, 1, 1, 1, 1, 'Qiraji Ornate Hilt'),
@@ -84,33 +84,33 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (30426, 21306, 0, 0, 0, 1, 1, 1, 1, 'Guide: Serpent Sting IX'),
 (30426, 21307, 0, 0, 0, 1, 1, 1, 1, 'Guide: Aspect of the Hawk VII'),
 --
-(30427, 21214, 0, 0, 0, 1, 1, 1, 1, 'Tome of Frostbolt XI'),
-(30427, 21279, 0, 0, 0, 1, 1, 1, 1, 'Tome of Fireball XII'),
-(30427, 21280, 0, 0, 0, 1, 1, 1, 1, 'Tome of Arcane Missiles VIII'),
-(30427, 21281, 0, 0, 0, 1, 1, 1, 1, 'Grimoire of Shadow Bolt X'),
-(30427, 21282, 0, 0, 0, 1, 1, 1, 1, 'Grimoire of Immolate VIII'),
-(30427, 21283, 0, 0, 0, 1, 1, 1, 1, 'Grimoire of Corruption VII'),
-(30427, 21284, 0, 0, 0, 1, 1, 1, 1, 'Codex of Greater Heal V'),
-(30427, 21285, 0, 0, 0, 1, 1, 1, 1, 'Codex of Renew X'),
-(30427, 21287, 0, 0, 0, 1, 1, 1, 1, 'Codex of Prayer of Healing V'),
-(30427, 21288, 0, 0, 0, 1, 1, 1, 1, 'Libram: Blessing of Wisdom VI'),
-(30427, 21289, 0, 0, 0, 1, 1, 1, 1, 'Libram: Blessing of Might VII'),
-(30427, 21290, 0, 0, 0, 1, 1, 1, 1, 'Libram: Holy Light IX'),
-(30427, 21291, 0, 0, 0, 1, 1, 1, 1, 'Tablet of Healing Wave X'),
-(30427, 21292, 0, 0, 0, 1, 1, 1, 1, 'Tablet of Strength of Earth Totem V'),
-(30427, 21293, 0, 0, 0, 1, 1, 1, 1, 'Tablet of Grace of Air Totem III'),
-(30427, 21294, 0, 0, 0, 1, 1, 1, 1, 'Book of Healing Touch XI'),
-(30427, 21295, 0, 0, 0, 1, 1, 1, 1, 'Book of Starfire VII'),
-(30427, 21296, 0, 0, 0, 1, 1, 1, 1, 'Book of Rejuvenation XI'),
-(30427, 21297, 0, 0, 0, 1, 1, 1, 1, 'Manual of Heroic Strike IX'),
-(30427, 21298, 0, 0, 0, 1, 1, 1, 1, 'Manual of Battle Shout VII'),
-(30427, 21299, 0, 0, 0, 1, 1, 1, 1, 'Manual of Revenge VI'),
-(30427, 21300, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Backstab IX'),
-(30427, 21302, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Deadly Poison V'),
-(30427, 21303, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Feint V'),
-(30427, 21304, 0, 0, 0, 1, 1, 1, 1, 'Guide: Multi-Shot V'),
-(30427, 21306, 0, 0, 0, 1, 1, 1, 1, 'Guide: Serpent Sting IX'),
-(30427, 21307, 0, 0, 0, 1, 1, 1, 1, 'Guide: Aspect of the Hawk VII'),
+(30427, 21214, 0, 0, 0, 1, 2, 1, 1, 'Tome of Frostbolt XI'),
+(30427, 21279, 0, 0, 0, 1, 2, 1, 1, 'Tome of Fireball XII'),
+(30427, 21280, 0, 0, 0, 1, 2, 1, 1, 'Tome of Arcane Missiles VIII'),
+(30427, 21281, 0, 0, 0, 1, 2, 1, 1, 'Grimoire of Shadow Bolt X'),
+(30427, 21282, 0, 0, 0, 1, 2, 1, 1, 'Grimoire of Immolate VIII'),
+(30427, 21283, 0, 0, 0, 1, 2, 1, 1, 'Grimoire of Corruption VII'),
+(30427, 21284, 0, 0, 0, 1, 2, 1, 1, 'Codex of Greater Heal V'),
+(30427, 21285, 0, 0, 0, 1, 2, 1, 1, 'Codex of Renew X'),
+(30427, 21287, 0, 0, 0, 1, 2, 1, 1, 'Codex of Prayer of Healing V'),
+(30427, 21288, 0, 0, 0, 1, 2, 1, 1, 'Libram: Blessing of Wisdom VI'),
+(30427, 21289, 0, 0, 0, 1, 2, 1, 1, 'Libram: Blessing of Might VII'),
+(30427, 21290, 0, 0, 0, 1, 2, 1, 1, 'Libram: Holy Light IX'),
+(30427, 21291, 0, 0, 0, 1, 2, 1, 1, 'Tablet of Healing Wave X'),
+(30427, 21292, 0, 0, 0, 1, 2, 1, 1, 'Tablet of Strength of Earth Totem V'),
+(30427, 21293, 0, 0, 0, 1, 2, 1, 1, 'Tablet of Grace of Air Totem III'),
+(30427, 21294, 0, 0, 0, 1, 2, 1, 1, 'Book of Healing Touch XI'),
+(30427, 21295, 0, 0, 0, 1, 2, 1, 1, 'Book of Starfire VII'),
+(30427, 21296, 0, 0, 0, 1, 2, 1, 1, 'Book of Rejuvenation XI'),
+(30427, 21297, 0, 0, 0, 1, 2, 1, 1, 'Manual of Heroic Strike IX'),
+(30427, 21298, 0, 0, 0, 1, 2, 1, 1, 'Manual of Battle Shout VII'),
+(30427, 21299, 0, 0, 0, 1, 2, 1, 1, 'Manual of Revenge VI'),
+(30427, 21300, 0, 0, 0, 1, 2, 1, 1, 'Handbook of Backstab IX'),
+(30427, 21302, 0, 0, 0, 1, 2, 1, 1, 'Handbook of Deadly Poison V'),
+(30427, 21303, 0, 0, 0, 1, 2, 1, 1, 'Handbook of Feint V'),
+(30427, 21304, 0, 0, 0, 1, 2, 1, 1, 'Guide: Multi-Shot V'),
+(30427, 21306, 0, 0, 0, 1, 2, 1, 1, 'Guide: Serpent Sting IX'),
+(30427, 21307, 0, 0, 0, 1, 2, 1, 1, 'Guide: Aspect of the Hawk VII'),
 --
 (30428, 20884, 0, 0, 0, 1, 1, 1, 1, 'Qiraji Magisterial Ring'),
 (30428, 20886, 0, 0, 0, 1, 1, 1, 1, 'Qiraji Spiked Hilt'),
@@ -180,7 +180,7 @@ DELETE FROM `creature_loot_template` WHERE `entry` IN (15339, 15340, 15341, 1534
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 --
 (15339, 20884, 0,     10,  0, 1, 0, 1, 1, 'Ossirian the Unscarred - Qiraji Magisterial Ring'),
-(15339, 21220, 0,     100, 0, 1, 0, 1, 1, 'Ossirian the Unscarred - Head of Ossirian the Unscarred'),
+(15339, 21220, 0,     100, 1, 1, 0, 1, 1, 'Ossirian the Unscarred - Head of Ossirian the Unscarred'),
 (15339, 30411, 30411, 100, 0, 1, 0, 1, 1, 'Ossirian the Unscarred - Formula ReferenceTable'),
 (15339, 30420, 30420, 100, 0, 1, 0, 1, 1, 'Ossirian the Unscarred - Skillbook ReferenceTable'),
 (15339, 30421, 30421, 100, 0, 1, 0, 1, 1, 'Ossirian the Unscarred - Skillbook ReferenceTable'),
@@ -191,27 +191,27 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 --
 (15340, 22220, 0,     15,  0, 1, 0, 1, 1, 'Moam - Plans: Black Grasp of the Destroyer'),
 (15340, 30411, 30411, 7,   0, 1, 0, 1, 1, 'Moam - Formula ReferenceTable'),
-(15340, 30426, 30426, 100, 0, 1, 0, 1, 1, 'Moam - Skillbook ReferenceTable'),
-(15340, 30427, 30427, 100, 0, 1, 0, 1, 1, 'Moam - Skillbook ReferenceTable'),
+(15340, 30426, 30426, 100, 0, 1, 1, 1, 1, 'Moam - Skillbook ReferenceTable'),
+(15340, 30427, 30427, 100, 0, 1, 2, 1, 1, 'Moam - Skillbook ReferenceTable'),
 (15340, 30428, 30428, 100, 0, 1, 0, 1, 1, 'Moam - Qiraji Ring+Hilt ReferenceTable'),
 (15340, 30429, 30429, 100, 0, 1, 0, 1, 1, 'Moam - Epic ReferenceTable'),
 (15340, 30430, 30430, 100, 0, 1, 0, 1, 1, 'Moam - Epic ReferenceTable'),
 --
 (15341, 30411, 30411, 7,   0, 1, 0, 1, 1, 'General Rajaxx - Formula ReferenceTable'),
-(15341, 30426, 30426, 100, 0, 1, 0, 1, 1, 'General Rajaxx - Skillbook ReferenceTable'),
-(15341, 30427, 30427, 100, 0, 1, 0, 1, 1, 'General Rajaxx - Skillbook ReferenceTable'),
+(15341, 30426, 30426, 100, 0, 1, 1, 1, 1, 'General Rajaxx - Skillbook ReferenceTable'),
+(15341, 30427, 30427, 100, 0, 1, 2, 1, 1, 'General Rajaxx - Skillbook ReferenceTable'),
 (15341, 30431, 30431, 100, 0, 1, 0, 1, 1, 'General Rajaxx - Qiraji Ring+Drape ReferenceTable'),
 (15341, 30432, 30432, 100, 0, 1, 0, 1, 1, 'General Rajaxx - Epic ReferenceTable'),
 --
 (15348, 22217, 0,     100, 1, 1, 0, 1, 1, 'Kurinnaxx - Kurinnaxx\'s Venom Sac'),
 (15348, 30411, 30411, 7,   0, 1, 0, 1, 1, 'Kurinnaxx - Formula ReferenceTable'),
-(15348, 30426, 30426, 100, 0, 1, 0, 1, 1, 'Kurinnaxx - Skillbook ReferenceTable'),
+(15348, 30426, 30426, 100, 0, 1, 1, 1, 1, 'Kurinnaxx - Skillbook ReferenceTable'),
 (15348, 30431, 30431, 100, 0, 1, 0, 1, 1, 'Kurinnaxx - Qiraji Ring+Drape ReferenceTable'),
 (15348, 30433, 30433, 100, 0, 1, 0, 1, 1, 'Kurinnaxx - Epic ReferenceTable'),
 --
 (15369, 30411, 30411, 7,   0, 1, 0, 1, 1, 'Ayamiss the Hunter - Formula ReferenceTable'),
-(15369, 30426, 30426, 100, 0, 1, 0, 1, 1, 'Ayamiss the Hunter - Skillbook ReferenceTable'),
-(15369, 30427, 30427, 100, 0, 1, 0, 1, 1, 'Ayamiss the Hunter - Skillbook ReferenceTable'),
+(15369, 30426, 30426, 100, 0, 1, 1, 1, 1, 'Ayamiss the Hunter - Skillbook ReferenceTable'),
+(15369, 30427, 30427, 100, 0, 1, 2, 1, 1, 'Ayamiss the Hunter - Skillbook ReferenceTable'),
 (15369, 30434, 30434, 100, 0, 1, 0, 1, 1, 'Ayamiss the Hunter - Qiraji Ring+Drape+Hilt ReferenceTable'),
 (15369, 30435, 30435, 100, 0, 1, 0, 1, 1, 'Ayamiss the Hunter - Epic ReferenceTable'),
 --
@@ -224,7 +224,6 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 -- remove unused AC reference loot templates
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (34024, 34025);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` IN (30423, 30429, 30435, 30436); 
 /*
 https://www.azerothcore.org/wiki/conditions#sourcetypeorreferenceid
 this should work, but doesn't
@@ -233,6 +232,7 @@ it's a reference_loot_template` entry. no idea how to let the engine know this
 https://www.azerothcore.org/wiki/loot_template#loot_template-Entry
 reference_loot_template 	*_loot_template.reference
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` IN (30423, 30429, 30435, 30436); 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
