@@ -1,6 +1,6 @@
-
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
+#include "SpellAuraDefines.h"
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
@@ -228,7 +228,7 @@ class spell_kelthuzad_frostbolt_40 : public SpellScript
     }
 };
 
-// 28522 - Icebolt  
+// 28522 - Icebolt
 class spell_sapphiron_icebolt_40 : public SpellScript
 {
     PrepareSpellScript(spell_sapphiron_icebolt_40);
@@ -268,19 +268,24 @@ class spell_sapphiron_frost_aura_40 : public AuraScript
     {
         Unit* caster = GetCaster();
         if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
-        {
             return;
-        }
-        PreventDefaultAction();
-        CustomSpellValues values;
-        int32 bp0 = 599;
-        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
-        caster->CastCustomSpell(SPELL_FROST_AURA, values, caster, TRIGGERED_NONE, nullptr, nullptr, GetCasterGUID());
+        int32 bp0 = 600;
+        caster->CastCustomSpell(caster, SPELL_FROST_AURA, &bp0, nullptr, nullptr, false, nullptr, nullptr, GetCasterGUID());
+    }
+
+    void CalculateAmount(AuraEffect const* /*aurEff*/, int32& amount, bool& /*canBeRecalculated*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+            return;
+        if (urand(0, 99) == 0) // 1% chance to receive extra Frost Aura tick
+            amount *= 2;
     }
 
     void Register() override
     {
         OnEffectApply += AuraEffectApplyFn(spell_sapphiron_frost_aura_40::OnApply, EFFECT_0, SPELL_AURA_PERIODIC_DAMAGE, AURA_EFFECT_HANDLE_REAL);
+        DoEffectCalcAmount += AuraEffectCalcAmountFn(spell_sapphiron_frost_aura_40::CalculateAmount, EFFECT_0, SPELL_AURA_PERIODIC_DAMAGE);
     }
 };
 
@@ -296,7 +301,7 @@ class spell_patchwork_golem_war_stomp_40 : public SpellScript
         {
             return;
         }
-        SetHitDamage(urand(936,1064)); 
+        SetHitDamage(urand(936,1064));
     }
 
     void Register() override
@@ -342,7 +347,6 @@ class spell_noth_curse_of_the_plaguebringer_aura_40 : public AuraScript
         OnEffectPeriodic += AuraEffectPeriodicFn(spell_noth_curse_of_the_plaguebringer_aura_40::HandleTriggerSpell, EFFECT_0, SPELL_AURA_PERIODIC_TRIGGER_SPELL);
     }
 };
-
 
 class spell_razuvious_disrupting_shout_40 : public SpellScript
 {
