@@ -41,9 +41,8 @@ enum Spells
 {
     // Gothik
     SPELL_HARVEST_SOUL              = 28679,
-    SPELL_SHADOW_BOLT            = 29317,
-    // SPELL_SHADOW_BOLT_10            = 29317,
-    // SPELL_SHADOW_BOLT_25            = 56405,
+    SPELL_SHADOW_BOLT_10            = 29317,
+    SPELL_SHADOW_BOLT_25            = 56405,
     // Teleport spells
     SPELL_TELEPORT_DEAD             = 28025,
     SPELL_TELEPORT_LIVE             = 28026,
@@ -76,14 +75,14 @@ enum Spells
 
 enum Misc
 {
-    NPC_LIVING_TRAINEE              = 351043,
-    NPC_LIVING_KNIGHT               = 351044,
-    NPC_LIVING_RIDER                = 351045,
-    NPC_DEAD_TRAINEE                = 351046,
-    NPC_DEAD_KNIGHT                 = 351050,
-    NPC_DEAD_HORSE                  = 351051,
-    NPC_DEAD_RIDER                  = 351052,
-    NPC_TRIGGER                     = 351047
+    // NPC_LIVING_TRAINEE              = 16124,
+    // NPC_LIVING_KNIGHT               = 16125,
+    // NPC_LIVING_RIDER                = 16126,
+    // NPC_DEAD_TRAINEE                = 16127,
+    // NPC_DEAD_KNIGHT                 = 16148,
+    // NPC_DEAD_HORSE                  = 16149,
+    // NPC_DEAD_RIDER                  = 16150,
+    // NPC_TRIGGER                     = 16137
 };
 
 enum Events
@@ -202,12 +201,10 @@ public:
     struct boss_gothik_40AI : public BossAI
     {
         explicit boss_gothik_40AI(Creature* c) : BossAI(c, BOSS_GOTHIK), summons(me)
-        {
-            pInstance = me->GetInstanceScript();
-        }
+        {}
+
         EventMap events;
         SummonList summons;
-        InstanceScript* pInstance;
         bool secondPhase{};
         bool gateOpened{};
         uint8 waveCount{};
@@ -234,21 +231,6 @@ public:
             gateOpened = false;
             waveCount = 0;
             me->NearTeleportTo(2642.139f, -3386.959f, 285.492f, 6.265f);
-            if (pInstance)
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_ENTER_GATE)))
-                {
-                    go->SetGoState(GO_STATE_ACTIVE);
-                }
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_INNER_GATE)))
-                {
-                    go->SetGoState(GO_STATE_ACTIVE);
-                }
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_EXIT_GATE)))
-                {
-                    go->SetGoState(GO_STATE_READY);
-                }
-            }
         }
 
         void JustEngagedWith(Unit* who) override
@@ -262,17 +244,6 @@ public:
             me->SetUnitFlag(UNIT_FLAG_DISABLE_MOVE);
             events.ScheduleEvent(EVENT_SUMMON_ADDS, 30s);
             events.ScheduleEvent(EVENT_CHECK_PLAYERS, 2min);
-            if (pInstance)
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_ENTER_GATE)))
-                {
-                    go->SetGoState(GO_STATE_READY);
-                }
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_INNER_GATE)))
-                {
-                    go->SetGoState(GO_STATE_READY);
-                }
-            }
         }
 
         void JustSummoned(Creature* summon) override
@@ -324,14 +295,11 @@ public:
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() != TYPEID_PLAYER)
+            if (!who->IsPlayer())
                 return;
 
             Talk(SAY_KILL);
-            if (pInstance)
-            {
-                pInstance->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustDied(Unit*  killer) override
@@ -339,41 +307,26 @@ public:
             BossAI::JustDied(killer);
             Talk(SAY_DEATH);
             summons.DespawnAll();
-            if (pInstance)
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_ENTER_GATE)))
-                {
-                    go->SetGoState(GO_STATE_ACTIVE);
-                }
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_INNER_GATE)))
-                {
-                    go->SetGoState(GO_STATE_ACTIVE);
-                }
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_EXIT_GATE)))
-                {
-                    go->SetGoState(GO_STATE_ACTIVE);
-                }
-            }
         }
 
         void SummonHelpers(uint32 entry)
         {
-            switch(entry)
+            switch (entry)
             {
                 case NPC_LIVING_TRAINEE:
                     me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[0].GetPositionX(), PosSummonLiving[0].GetPositionY(), PosSummonLiving[0].GetPositionZ(), PosSummonLiving[0].GetOrientation());
                     me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[1].GetPositionX(), PosSummonLiving[1].GetPositionY(), PosSummonLiving[1].GetPositionZ(), PosSummonLiving[1].GetOrientation());
-                    // if (Is25ManRaid())
-                    // {
-                    me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[2].GetPositionX(), PosSummonLiving[2].GetPositionY(), PosSummonLiving[2].GetPositionZ(), PosSummonLiving[2].GetOrientation());
-                    // }
+                    if (Is25ManRaid())
+                    {
+                        me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[2].GetPositionX(), PosSummonLiving[2].GetPositionY(), PosSummonLiving[2].GetPositionZ(), PosSummonLiving[2].GetOrientation());
+                    }
                     break;
                 case NPC_LIVING_KNIGHT:
                     me->SummonCreature(NPC_LIVING_KNIGHT, PosSummonLiving[3].GetPositionX(), PosSummonLiving[3].GetPositionY(), PosSummonLiving[3].GetPositionZ(), PosSummonLiving[3].GetOrientation());
-                    // if (Is25ManRaid())
-                    // {
-                    me->SummonCreature(NPC_LIVING_KNIGHT, PosSummonLiving[5].GetPositionX(), PosSummonLiving[5].GetPositionY(), PosSummonLiving[5].GetPositionZ(), PosSummonLiving[5].GetOrientation());
-                    // }
+                    if (Is25ManRaid())
+                    {
+                        me->SummonCreature(NPC_LIVING_KNIGHT, PosSummonLiving[5].GetPositionX(), PosSummonLiving[5].GetPositionY(), PosSummonLiving[5].GetPositionZ(), PosSummonLiving[5].GetOrientation());
+                    }
                     break;
                 case NPC_LIVING_RIDER:
                     me->SummonCreature(NPC_LIVING_RIDER, PosSummonLiving[4].GetPositionX(), PosSummonLiving[4].GetPositionY(), PosSummonLiving[4].GetPositionZ(), PosSummonLiving[4].GetOrientation());
@@ -388,7 +341,7 @@ public:
             {
                 bool checklife = false;
                 bool checkdead = false;
-                for (const auto& i : PlayerList)
+                for (auto const& i : PlayerList)
                 {
                     Player* player = i.GetSource();
                     if (player->IsAlive() &&
@@ -447,7 +400,7 @@ public:
                     Talk(SAY_INTRO_4);
                     break;
                 case EVENT_SHADOW_BOLT:
-                    me->CastSpell(me->GetVictim(), SPELL_SHADOW_BOLT, false);
+                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_SHADOW_BOLT_10, SPELL_SHADOW_BOLT_25, SPELL_SHADOW_BOLT_10, SPELL_SHADOW_BOLT_25), false);
                     events.Repeat(1s);
                     break;
                 case EVENT_HARVEST_SOUL:
@@ -473,12 +426,11 @@ public:
                     events.Repeat(20s);
                     break;
                 case EVENT_CHECK_HEALTH:
-                    if (me->HealthBelowPct(30) && pInstance)
+                    if (me->HealthBelowPct(30))
                     {
-                        if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_INNER_GATE)))
-                        {
+                        if (GameObject* go = instance->GetGameObject(DATA_GOTHIK_INNER_GATE))
                             go->SetGoState(GO_STATE_ACTIVE);
-                        }
+
                         events.CancelEvent(EVENT_TELEPORT);
                         break;
                     }
@@ -510,16 +462,14 @@ public:
                 case EVENT_CHECK_PLAYERS:
                     if (!CheckGroupSplitted())
                     {
-                        if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_GOTHIK_INNER_GATE)))
-                        {
+                        if (GameObject* go = instance->GetGameObject(DATA_GOTHIK_INNER_GATE))
                             go->SetGoState(GO_STATE_ACTIVE);
-                        }
+
                         gateOpened = true;
                         Talk(EMOTE_GATE_OPENED);
                     }
                     break;
             }
-
             DoMeleeAttackIfReady();
         }
     };
@@ -599,10 +549,8 @@ public:
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() == TYPEID_PLAYER && me->GetInstanceScript())
-            {
-                me->GetInstanceScript()->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            if (who->IsPlayer())
+                me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void UpdateAI(uint32 diff) override
@@ -769,17 +717,14 @@ public:
         // dead side summons are "owned" by gothik
         void JustSummoned(Creature* summon) override
         {
-            if (Creature* gothik = ObjectAccessor::GetCreature(*me, me->GetInstanceScript()->GetGuidData(DATA_GOTHIK_BOSS)))
-            {
+            if (Creature* gothik = me->GetInstanceScript()->GetCreature(DATA_GOTHIK_BOSS))
                 gothik->AI()->JustSummoned(summon);
-            }
         }
+
         void SummonedCreatureDespawn(Creature* summon) override
         {
-            if (Creature* gothik = ObjectAccessor::GetCreature(*me, me->GetInstanceScript()->GetGuidData(DATA_GOTHIK_BOSS)))
-            {
+            if (Creature* gothik = me->GetInstanceScript()->GetCreature(DATA_GOTHIK_BOSS))
                 gothik->AI()->SummonedCreatureDespawn(summon);
-            }
         }
     };
 };
@@ -787,6 +732,11 @@ public:
 class spell_gothik_shadow_bolt_volley : public SpellScript
 {
     PrepareSpellScript(spell_gothik_shadow_bolt_volley);
+
+    bool Validate(SpellInfo const* /*spellInfo*/) override
+    {
+        return ValidateSpellInfo({ SPELL_SHADOW_MARK });
+    }
 
     void FilterTargets(std::list<WorldObject*>& targets)
     {
