@@ -60,3 +60,6 @@ DELETE FROM `battlemaster_entry` WHERE `entry` = @Deze;
 -- alliance battlemasters
 DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 208042, 208081, 208107);
 
+-- Alterac Valley - now using @CGUID 670000 instead
+DELETE FROM `waypoint_data` WHERE `id` IN (6300880, 6300890, 6301050, 6301060, 6301140, 6301330, 6301380, 6301390);
+DELETE FROM `creature_addon` WHERE `guid` IN (630088, 630089, 630105, 630106, 630114, 630133, 630138, 630139, 630164, 630165, 630181, 630182, 630190, 630209, 630214, 630215);
