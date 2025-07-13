@@ -12,7 +12,7 @@ class gobject_naxx40_tele : public GameObjectScript
 private:
     static bool isAttuned(Player* player)
     {
-        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || 
+        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) ||
 		    (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
 		    (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
 		{
@@ -54,11 +54,9 @@ public:
         if ((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED) && (player->GetLevel() <= IP_LEVEL_TBC))
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-			
+
 			if ((isAttuned(player)) || (isExcludedFromProgression(player) && (player->GetLevel() <= IP_LEVEL_TBC)))
-			{
                 player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
-			}
         }
         return true;
     }
