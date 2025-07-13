@@ -21,6 +21,7 @@
 
 enum Spells
 {
+    // SPELL_CORRUPTED_MIND                     = 29201, // this triggers the following spells on targets (based on class): 29185, 29194, 29196, 29198
     SPELL_NECROTIC_AURA                         = 55593,
     // SPELL_SUMMON_SPORE                       = 29234,
     // SPELL_DEATHBLOOM_10                      = 29865, // does 200 dmg every second for 6 seconds with 1200 extra damage at the end. should do 196 dmg every 6 seconds. no extra damage at the end.
@@ -34,6 +35,7 @@ enum Spells
 
 enum Events
 {
+    // EVENT_CORRUPTED_MIND                     = 1, // Loatheb should cast Corrupted Mind instead of Necrotic Aura
     EVENT_NECROTIC_AURA                         = 1,
     // EVENT_DEATHBLOOM                         = 2,
     EVENT_POISON_SHOCK                          = 2,
@@ -102,6 +104,7 @@ public:
         {
             BossAI::JustEngagedWith(who);
             me->SetInCombatWithZone();
+            // events.ScheduleEvent(EVENT_CORRUPTED_MIND, 5s);
             events.ScheduleEvent(EVENT_NECROTIC_AURA, 10s);
             // events.ScheduleEvent(EVENT_DEATHBLOOM, 5s);
             events.ScheduleEvent(EVENT_POISON_SHOCK, 5s);
@@ -132,6 +135,20 @@ public:
                     me->CastSpell(me, SPELL_SUMMON_SPORE, true);
                     events.Repeat(13s);
                     break;
+				/*
+                case EVENT_CORRUPTED_MIND:
+                {
+ 			        if (me->CastSpell(me, SPELL_CORRUPTED_MIND, true) == SPELL_CAST_OK)
+				 	{
+                        events.RepeatEvent(10000);
+					}
+					else 
+					{
+	                    events.RepeatEvent(100);						
+                    }
+                    break;
+                }
+				*/
                 case EVENT_NECROTIC_AURA:
                     me->CastSpell(me, SPELL_NECROTIC_AURA, true);
                     Talk(SAY_NECROTIC_AURA_APPLIED);
