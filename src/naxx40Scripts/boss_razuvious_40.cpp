@@ -18,6 +18,7 @@
 #include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
+#include "SpellInfo.h"
 
 enum Says
 {
@@ -48,7 +49,7 @@ enum Events
 
 enum NPCs
 {
-    NPC_DEATH_KNIGHT_UNDERSTUDY     = 351084,
+    // NPC_DEATH_KNIGHT_UNDERSTUDY     = 351084,
     NPC_TARGET_DUMMY                = 16211,
 };
 
@@ -80,13 +81,10 @@ public:
     struct boss_razuvious_40AI : public BossAI
     {
         explicit boss_razuvious_40AI(Creature* c) : BossAI(c, BOSS_RAZUVIOUS), summons(me)
-        {
-            pInstance = me->GetInstanceScript();
-        }
+        {}
 
         EventMap events;
         SummonList summons;
-        InstanceScript* pInstance;
 
         void SpawnHelpers()
         {
@@ -207,19 +205,16 @@ public:
         void KilledUnit(Unit* who) override
         {
             if (roll_chance_i(30))
-            {
                 Talk(SAY_SLAY);
-            }
-            if (who->GetTypeId() == TYPEID_PLAYER && pInstance)
-            {
-                pInstance->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void DamageTaken(Unit* who, uint32& damage, DamageEffectType, SpellSchoolMask) override
         {
             // Damage done by the controlled Death Knight understudies should also count toward damage done by players
-            if(who && who->GetTypeId() == TYPEID_UNIT && who->GetEntry() == NPC_DEATH_KNIGHT_UNDERSTUDY)
+            if (who && who->IsCreature() && who->GetEntry() == NPC_DEATH_KNIGHT_UNDERSTUDY)
             {
                 me->LowerPlayerDamageReq(damage);
             }
@@ -331,13 +326,8 @@ public:
                     scheduler.CancelGroup(GROUP_OOC_RP);
                     me->SetSheath(SHEATH_STATE_UNARMED);
                     me->SetUInt32Value(UNIT_NPC_EMOTESTATE, EMOTE_STATE_NONE);
-                    if (InstanceScript* instance = me->GetInstanceScript())
-                    {
-                        if (Creature* creature = instance->GetCreature(DATA_RAZUVIOUS_40))
-                        {
-                            me->SetFacingToObject(creature);
-                        }
-                    }
+                    if (Creature* creature = me->GetInstanceScript()->GetCreature(DATA_RAZUVIOUS_BOSS))
+                        me->SetFacingToObject(creature);
                     break;
                 case ACTION_TALK:
                     Talk(SAY_DEATH_KNIGHT_UNDERSTUDY);
@@ -357,22 +347,18 @@ public:
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() == TYPEID_PLAYER && me->GetInstanceScript())
-            {
-                me->GetInstanceScript()->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            if (who->IsPlayer())
+                me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustEngagedWith(Unit* who) override
         {
             scheduler.CancelGroup(GROUP_OOC_RP);
-            if (InstanceScript* instance = me->GetInstanceScript())
+
+            if (Creature* creature = me->GetInstanceScript()->GetCreature(DATA_RAZUVIOUS_BOSS))
             {
-                if (Creature* creature = instance->GetCreature(DATA_RAZUVIOUS_40))
-                {
-                    creature->SetInCombatWithZone();
-                    creature->AI()->AttackStart(who);
-                }
+                creature->SetInCombatWithZone();
+                creature->AI()->AttackStart(who);
             }
         }
 
