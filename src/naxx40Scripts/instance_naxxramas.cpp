@@ -369,6 +369,9 @@ public:
 
     bool CheckAchievementCriteriaMeet(uint32 criteria_id, Player const*  /*source*/, Unit const*  /*target*/, uint32  /*miscvalue1*/) override
     {
+        if (instance->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+            return false; // No achievements in Naxx 40
+
         switch (criteria_id)
         {
             case ACHIEV_CRITERIA_AND_THEY_WOULD_ALL_GO_DOWN_TOGETHER_10_PLAYER:
