@@ -16,8 +16,8 @@
  */
 
 #include "CreatureScript.h"
-#include "Player.h"
 #include "PassiveAI.h"
+#include "Player.h"
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
@@ -26,36 +26,42 @@
 
 enum Spells
 {
-    SPELL_WEB_SPRAY                     = 29484,
-    SPELL_POISON_SHOCK                  = 28741,
-    SPELL_NECROTIC_POISON               = 54121,
-    SPELL_FRENZY                        = 54123,
+    SPELL_WEB_SPRAY_10                  = 29484,
+    SPELL_WEB_SPRAY_25                  = 54125,
+    SPELL_POISON_SHOCK_10               = 28741,
+    SPELL_POISON_SHOCK_25               = 54122,
+    SPELL_NECROTIC_POISON_10            = 54121,
+    SPELL_NECROTIC_POISON_25            = 28776,
+    SPELL_FRENZY_10                     = 54123,
+    SPELL_FRENZY_25                     = 54124,
     SPELL_WEB_WRAP_STUN                 = 28622,
     SPELL_WEB_WRAP_SUMMON               = 28627,
-    SPELL_WEB_WRAP_PACIFY_5             = 28618
+    SPELL_WEB_WRAP_KILL_WEBS            = 52512,
+    SPELL_WEB_WRAP_PACIFY_5             = 28618 // 5 seconds pacify silence
 };
 
 enum Events
 {
-    EVENT_WEB_SPRAY                     =  1,
-    EVENT_POISON_SHOCK                  =  2,
-    EVENT_NECROTIC_POISON               =  3,
-    EVENT_WEB_WRAP                      =  4,
-    EVENT_HEALTH_CHECK                  =  5,
-    EVENT_SUMMON_SPIDERLINGS            =  6,
-    EVENT_WEB_WRAP_APPLY_STUN           =  7
+    EVENT_WEB_SPRAY                     = 1,
+    EVENT_POISON_SHOCK                  = 2,
+    EVENT_NECROTIC_POISON               = 3,
+    EVENT_WEB_WRAP                      = 4,
+    EVENT_HEALTH_CHECK                  = 5,
+    EVENT_SUMMON_SPIDERLINGS            = 6,
+    EVENT_WEB_WRAP_APPLY_STUN           = 7
 };
+
 enum Emotes
 {
-    EMOTE_SPIDERS = 0,
-    EMOTE_WEB_WRAP = 1,
-    EMOTE_WEB_SPRAY = 2
+    EMOTE_SPIDERS                       = 0,
+    EMOTE_WEB_WRAP                      = 1,
+    EMOTE_WEB_SPRAY                     = 2
 };
 
 enum Misc
 {
-    NPC_WEB_WRAP = 351079,
-    NPC_MAEXXNA_SPIDERLING = 351088
+    // NPC_WEB_WRAP                        = 16486,
+    // NPC_MAEXXNA_SPIDERLING              = 17055
 };
 
 const Position PosWrap[7] =
@@ -100,13 +106,11 @@ public:
     struct boss_maexxna_40AI : public BossAI
     {
         explicit boss_maexxna_40AI(Creature* c) : BossAI(c, BOSS_MAEXXNA), summons(me)
-        {
-            pInstance = me->GetInstanceScript();
-        }
+        {}
 
-        InstanceScript* pInstance;
         EventMap events;
         SummonList summons;
+
         GuidList wraps;
 
         bool IsInRoom()
@@ -124,13 +128,6 @@ public:
             BossAI::Reset();
             events.Reset();
             summons.DespawnAll();
-            if (pInstance)
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_MAEXXNA_GATE)))
-                {
-                    go->SetGoState(GO_STATE_ACTIVE);
-                }
-            }
         }
 
         void JustEngagedWith(Unit* who) override
@@ -143,13 +140,6 @@ public:
             events.ScheduleEvent(EVENT_NECROTIC_POISON, 5s);
             events.ScheduleEvent(EVENT_HEALTH_CHECK, 1s);
             events.ScheduleEvent(EVENT_SUMMON_SPIDERLINGS, 30s);
-            if (pInstance)
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_MAEXXNA_GATE)))
-                {
-                    go->SetGoState(GO_STATE_READY);
-                }
-            }
         }
 
         void JustSummoned(Creature* cr) override
@@ -167,13 +157,11 @@ public:
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() == TYPEID_PLAYER && pInstance)
-            {
-                pInstance->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
-        void JustDied(Unit* killer) override
+        void JustDied(Unit*  killer) override
         {
             BossAI::JustDied(killer);
         }
@@ -181,7 +169,7 @@ public:
         void DoCastWebWrap()
         {
             std::list<Unit*> candidates;
-            SelectTargetList(candidates, 2, SelectTargetMethod::Random, 0, WebTargetSelector(me));
+            SelectTargetList(candidates, RAID_MODE(1, 2, 2, 2), SelectTargetMethod::Random, 0, WebTargetSelector(me));
 
             std::vector<uint32> positions {0, 1, 2, 3, 4, 5, 6};
             Acore::Containers::RandomShuffle(positions);
@@ -189,7 +177,7 @@ public:
             if (candidates.empty())
                 return;
 
-            for (int i = 0; i < 2 ; i++)
+            for (int i = 0; i < RAID_MODE(1, 2, 2, 2); i++)
             {
                 if (candidates.empty())
                     break;
@@ -241,55 +229,52 @@ public:
 
             switch (events.ExecuteEvent())
             {
-            case EVENT_WEB_SPRAY:
-                Talk(EMOTE_WEB_SPRAY);
-                me->CastCustomSpell(SPELL_WEB_SPRAY, SPELLVALUE_AURA_DURATION, 10000, nullptr, true);
-                events.RepeatEvent(40000);
-                break;
-            case EVENT_POISON_SHOCK:
-            {
-                int32 bp0 = 1499;
-                me->CastCustomSpell(me->GetVictim(), SPELL_POISON_SHOCK, &bp0, nullptr, nullptr, false, nullptr, nullptr, me->GetGUID());
-                events.RepeatEvent(10000);
-                break;
-            }
-            case EVENT_NECROTIC_POISON:
-                me->CastSpell(me->GetVictim(), SPELL_NECROTIC_POISON, false);
-                events.RepeatEvent(30000);
-                break;
-            case EVENT_SUMMON_SPIDERLINGS:
-                Talk(EMOTE_SPIDERS);
-                for (uint8 i = 0; i < 10; ++i)
+                case EVENT_WEB_SPRAY:
+                    Talk(EMOTE_WEB_SPRAY);
+                    me->CastSpell(me, RAID_MODE(SPELL_WEB_SPRAY_10, SPELL_WEB_SPRAY_25, SPELL_WEB_SPRAY_10, SPELL_WEB_SPRAY_25), true);
+                    events.Repeat(40s);
+                    break;
+                case EVENT_POISON_SHOCK:
+                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_POISON_SHOCK_10, SPELL_POISON_SHOCK_25, SPELL_POISON_SHOCK_10, SPELL_POISON_SHOCK_25), false);
+                    events.Repeat(10s);
+                    break;
+                case EVENT_NECROTIC_POISON:
+                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_NECROTIC_POISON_10, SPELL_NECROTIC_POISON_25, SPELL_NECROTIC_POISON_10, SPELL_NECROTIC_POISON_25), false);
+                    events.Repeat(30s);
+                    break;
+                case EVENT_SUMMON_SPIDERLINGS:
+                    Talk(EMOTE_SPIDERS);
+                    for (uint8 i = 0; i < 8; ++i)
+                    {
+                        me->SummonCreature(NPC_MAEXXNA_SPIDERLING, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), me->GetOrientation());
+                    }
+                    events.Repeat(40s);
+                    break;
+                case EVENT_HEALTH_CHECK:
+                    if (me->GetHealthPct() < 30)
+                    {
+                        me->CastSpell(me, RAID_MODE(SPELL_FRENZY_10, SPELL_FRENZY_25, SPELL_FRENZY_10, SPELL_FRENZY_25), true);
+                        break;
+                    }
+                    events.Repeat(1s);
+                    break;
+                case EVENT_WEB_WRAP:
+                    Talk(EMOTE_WEB_WRAP);
+                    DoCastWebWrap();
+                    events.Repeat(40s);
+                    break;
+                case EVENT_WEB_WRAP_APPLY_STUN:
                 {
-                    me->SummonCreature(NPC_MAEXXNA_SPIDERLING, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), me->GetOrientation());
-                }
-                events.RepeatEvent(40000);
-                break;
-            case EVENT_HEALTH_CHECK:
-                if (me->GetHealthPct() < 30)
-                {
-                    me->CastSpell(me, SPELL_FRENZY, true);
+                    for (auto& p : wraps)
+                    {
+                        if (Player* player = ObjectAccessor::GetPlayer(*me, p))
+                        {
+                            player->CastSpell(player, SPELL_WEB_WRAP_STUN, true);
+                        }
+                    }
+                    wraps.clear();
                     break;
                 }
-                events.RepeatEvent(1000);
-                break;
-            case EVENT_WEB_WRAP:
-                Talk(EMOTE_WEB_WRAP);
-                DoCastWebWrap();
-                events.Repeat(40s);
-                break;
-            case EVENT_WEB_WRAP_APPLY_STUN:
-            {
-                for (auto& p : wraps)
-                {
-                    if (Player* player = ObjectAccessor::GetPlayer(*me, p))
-                    {
-                        player->CastSpell(player, SPELL_WEB_WRAP_STUN, true);
-                    }
-                }
-                wraps.clear();
-                break;
-            }
             }
             DoMeleeAttackIfReady();
         }
@@ -325,8 +310,11 @@ public:
             {
                 if (Unit* victim = ObjectAccessor::GetUnit(*me, victimGUID))
                 {
-                    victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP_SUMMON);
-                    victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP_STUN);
+                    if (victim->IsAlive())
+                    {
+                        victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP_STUN);
+                        victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP_SUMMON_40);
+                    }
                 }
             }
         }
@@ -339,7 +327,7 @@ public:
                 {
                     if (!victim->IsAlive())
                     {
-                        me->KillSelf();
+                        me->CastSpell(me, SPELL_WEB_WRAP_KILL_WEBS, true);
                     }
                 }
             }
@@ -354,14 +342,17 @@ public:
 
     bool Validate(SpellInfo const* /*spellInfo*/) override
     {
-        return ValidateSpellInfo({ SPELL_WEB_WRAP_SUMMON });
+        return ValidateSpellInfo({ SPELL_WEB_WRAP_SUMMON_40 });
     }
 
     void OnPeriodic(AuraEffect const* aurEff)
     {
         if (aurEff->GetTickNumber() == 2)
         {
-            GetTarget()->CastSpell(GetTarget(), SPELL_WEB_WRAP_SUMMON, true);
+            if (GetCaster()->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+                GetTarget()->CastSpell(GetTarget(), SPELL_WEB_WRAP_SUMMON_40, true);
+            else
+                GetTarget()->CastSpell(GetTarget(), SPELL_WEB_WRAP_SUMMON, true);
         }
     }
 
