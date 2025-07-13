@@ -1,7 +1,4 @@
--- remove unused AC reference loot templates
--- DELETE FROM `reference_loot_template` WHERE `Entry` IN (34024, 34025);
-
-DELETE FROM `reference_loot_template` WHERE `Entry` IN (30411, 30420, 30421, 30422, 30423, 30424, 30425, 30426, 30431, 30433);
+DELETE FROM `reference_loot_template` WHERE `Entry` IN (30411, 30420, 30421, 30422, 30423, 30424, 30425, 30426, 30427, 30428, 30429, 30430, 30431, 30432, 30433, 30434, 30435, 30436);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 (30411, 20727, 0, 0, 0, 1, 1, 1, 1, 'Formula: Enchant Gloves - Shadow Power'),
 (30411, 20728, 0, 0, 0, 1, 1, 1, 1, 'Formula: Enchant Gloves - Frost Power'),
@@ -39,7 +36,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (30424, 21303, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Feint V'),
 (30424, 21304, 0, 0, 0, 1, 1, 1, 1, 'Guide: Multi-Shot V'),
 (30424, 21306, 0, 0, 0, 1, 1, 1, 1, 'Guide: Serpent Sting IX'),
-(30424, 21307, 0, 0, 0, 1, 1, 1, 1, 'Guide: Aspect of the Hawk VII');
+(30424, 21307, 0, 0, 0, 1, 1, 1, 1, 'Guide: Aspect of the Hawk VII'),
 --
 (30422, 21457, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Bracers of Brutality'),
 (30422, 21459, 0, 0, 0, 1, 1, 1, 1, 'Ossirian the Unscarred - Crossbow of Imminent Doom'),
@@ -224,8 +221,18 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (15370, 30434, 30434, 100, 0, 1, 0, 1, 1, 'Buru the Gorger - Qiraji Ring+Drape+Hilt ReferenceTable'),
 (15370, 30436, 30436, 100, 0, 1, 0, 1, 1, 'Buru the Gorger - Epic ReferenceTable');
 
+-- remove unused AC reference loot templates
+DELETE FROM `reference_loot_template` WHERE `Entry` IN (34024, 34025);
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` IN (30423, 30429, 30435, 30436); 
+/*
+https://www.azerothcore.org/wiki/conditions#sourcetypeorreferenceid
+this should work, but doesn't
+engine thinks SourceGroup is a creature_loot_template entry. it's not. 
+it's a reference_loot_template` entry. no idea how to let the engine know this
+https://www.azerothcore.org/wiki/loot_template#loot_template-Entry
+reference_loot_template 	*_loot_template.reference
+
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
@@ -237,3 +244,4 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 30435, 21482, 0, 0, 6, 0, 67,  0, 0, 0, 0, 0, '', 'Boots of the Fiery Sands will only drop for Horde'),         -- Ayamiss the Hunter
 (1, 30436, 21486, 0, 0, 6, 0, 469, 0, 0, 0, 0, 0, '', 'Gloves of the Swarm will only drop for Alliance'),           -- Buru the Gorger
 (1, 30436, 21487, 0, 0, 6, 0, 67,  0, 0, 0, 0, 0, '', 'Slimy Scaled Gauntlets will only drop for Horde');           -- Buru the Gorger
+*/
