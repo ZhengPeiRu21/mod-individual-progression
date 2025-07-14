@@ -180,7 +180,7 @@ DELETE FROM `creature_loot_template` WHERE `entry` IN (15339, 15340, 15341, 1534
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 --
 (15339, 20884, 0,     10,  0, 1, 0, 1, 1, 'Ossirian the Unscarred - Qiraji Magisterial Ring'),
-(15339, 21220, 0,     100, 1, 1, 0, 1, 1, 'Ossirian the Unscarred - Head of Ossirian the Unscarred'),
+(15339, 21220, 0,     100, 0, 1, 0, 1, 1, 'Ossirian the Unscarred - Head of Ossirian the Unscarred'),
 (15339, 30411, 30411, 100, 0, 1, 0, 1, 1, 'Ossirian the Unscarred - Formula ReferenceTable'),
 (15339, 30420, 30420, 100, 0, 1, 0, 1, 1, 'Ossirian the Unscarred - Skillbook ReferenceTable'),
 (15339, 30421, 30421, 100, 0, 1, 0, 1, 1, 'Ossirian the Unscarred - Skillbook ReferenceTable'),
