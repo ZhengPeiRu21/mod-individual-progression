@@ -11,10 +11,6 @@ UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (29273);
 /* Delete unused Creature Addon data */
 DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 133928);
 
-/* Remove script from database to avoid worldserver error. The code for this script has been commented out. Need to figure out why. */
-UPDATE `creature_template` SET `Scriptname` = '' WHERE `entry` = 351042;
-
-
 -- undo previous method of Lights Hope Chapel phasing 
 UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN 
 (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);

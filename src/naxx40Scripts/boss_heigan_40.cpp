@@ -38,12 +38,14 @@ enum Says
 
 enum Spells
 {
-    SPELL_SUMMON_PLAYER             = 25104,
-    SPELL_DISRUPTION                = 55010, // 29310->55010: Mana Burn AoE spell similar to vanilla
-    SPELL_DECREPIT_FEVER            = 29998,
+    // SPELL_DISRUPTION                = 29310,
+    SPELL_DECREPIT_FEVER_10         = 29998,
+    SPELL_DECREPIT_FEVER_25         = 55011,
     SPELL_PLAGUE_CLOUD              = 29350,
     SPELL_TELEPORT_SELF             = 30211,
-    SPELL_TELEPORT_PLAYERS          = 29273 // updated target in db
+
+    SPELL_TELEPORT_PLAYERS          = 29273, // updated target in db
+    SPELL_SUMMON_PLAYER             = 25104,
 };
 
 enum Events
@@ -100,15 +102,13 @@ public:
     struct boss_heigan_40AI : public BossAI
     {
         explicit boss_heigan_40AI(Creature* c) : BossAI(c, BOSS_HEIGAN)
-        {
-            pInstance = me->GetInstanceScript();
-        }
+        {}
 
-        InstanceScript* pInstance;
         EventMap events;
         uint8 currentPhase{};
         uint8 currentSection{};
         bool moveRight{};
+
         GuidList portedPlayersThisPhase;
 
         void Reset() override
@@ -120,30 +120,15 @@ public:
             portedPlayersThisPhase.clear();
             KillPlayersInTheTunnel();
             moveRight = true;
-            if (pInstance)
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_ENTER_GATE)))
-                {
-                    go->SetGoState(GO_STATE_ACTIVE);
-                }
-                // Close tunnel door
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_EXIT_GATE_40)))
-                {
-                    go->SetGoState(GO_STATE_READY);
-                }
-            }
         }
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() != TYPEID_PLAYER)
+            if (!who->IsPlayer())
                 return;
 
             Talk(SAY_SLAY);
-            if (pInstance)
-            {
-                pInstance->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustDied(Unit*  killer) override
@@ -157,23 +142,6 @@ public:
             BossAI::JustEngagedWith(who);
             me->SetInCombatWithZone();
             Talk(SAY_AGGRO);
-            if (pInstance)
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_ENTER_GATE)))
-                {
-                    go->SetGoState(GO_STATE_READY);
-                }
-                // Open tunnel door
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_EXIT_GATE_40)))
-                {
-                    go->SetGoState(GO_STATE_ACTIVE);
-                }
-                // Close loatheb door
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HEIGAN_EXIT_GATE_OLD_40)))
-                {
-                    go->SetGoState(GO_STATE_READY);
-                }
-            }
             StartFightPhase(PHASE_SLOW_DANCE);
         }
 
@@ -187,11 +155,11 @@ public:
                 me->CastStop();
                 me->SetReactState(REACT_AGGRESSIVE);
                 DoZoneInCombat();
-                events.ScheduleEvent(EVENT_DISRUPTION, urand(12000, 15000));
-                events.ScheduleEvent(EVENT_DECEPIT_FEVER, 17000);
-                events.ScheduleEvent(EVENT_ERUPT_SECTION, 15000);
-                events.ScheduleEvent(EVENT_SWITCH_PHASE, 90000);
-                events.ScheduleEvent(EVENT_TELEPORT_PLAYER, 40000);
+                events.ScheduleEvent(EVENT_DISRUPTION, 12s, 15s);
+                events.ScheduleEvent(EVENT_DECEPIT_FEVER, 17s);
+                events.ScheduleEvent(EVENT_ERUPT_SECTION, 15s);
+                events.ScheduleEvent(EVENT_SWITCH_PHASE, 90s);
+                events.ScheduleEvent(EVENT_TELEPORT_PLAYER, 40s);
                 portedPlayersThisPhase.clear();
             }
             else // if (phase == PHASE_FAST_DANCE)
@@ -203,11 +171,11 @@ public:
                 me->SetReactState(REACT_PASSIVE);
                 me->CastSpell(me, SPELL_TELEPORT_SELF, false);
                 me->SetFacingTo(2.40f);
-                events.ScheduleEvent(EVENT_PLAGUE_CLOUD, 1000);
-                events.ScheduleEvent(EVENT_ERUPT_SECTION, 7000);
-                events.ScheduleEvent(EVENT_SWITCH_PHASE, 45000);
+                events.ScheduleEvent(EVENT_PLAGUE_CLOUD, 1s);
+                events.ScheduleEvent(EVENT_ERUPT_SECTION, 7s);
+                events.ScheduleEvent(EVENT_SWITCH_PHASE, 45s);
             }
-            events.ScheduleEvent(EVENT_SAFETY_DANCE, 5000);
+            events.ScheduleEvent(EVENT_SAFETY_DANCE, 5s);
         }
 
         bool IsInRoom(Unit* who)
@@ -226,19 +194,11 @@ public:
         {
             // hackfix: kill everyone in the tunnel
             Map::PlayerList const& PlayerList = me->GetMap()->GetPlayers();
-            for (const auto& itr : PlayerList)
-            {
+            for (auto const& itr : PlayerList)
                 if (Player* player = itr.GetSource())
-                {
                     if (player->IsAlive() && !player->IsGameMaster())
-                    {
                         if (player->GetPositionY() <= -3735.0f)
-                        {
                             player->KillSelf();
-                        }
-                    }
-                }
-            }
         }
 
         void DoEventTeleportPlayer()
@@ -289,19 +249,20 @@ public:
                 if (!me->IsWithinDistInMap(victim, VISIBILITY_DISTANCE_NORMAL))
                     me->CastSpell(victim, SPELL_SUMMON_PLAYER, true);
             }
+
             events.Update(diff);
 
             switch (events.ExecuteEvent())
             {
                 case EVENT_DISRUPTION:
                     me->CastCustomSpell(SPELL_DISRUPTION, SPELLVALUE_RADIUS_MOD, 2500, me, false); // 25yd
-                    events.RepeatEvent(10000);
+                    events.Repeat(10s);
                     break;
                 case EVENT_DECEPIT_FEVER:
                 {
                     int32 bp1 = 499;
-                    me->CastCustomSpell(me, SPELL_DECREPIT_FEVER, 0, &bp1, 0, false, nullptr, nullptr, ObjectGuid::Empty);
-                    events.RepeatEvent(urand(22000, 25000));
+                    me->CastCustomSpell(me, SPELL_DECREPIT_FEVER_10, 0, &bp1, 0, false, nullptr, nullptr, ObjectGuid::Empty);
+                    events.Repeat(22s, 25s);
                     break;
                 }
                 case EVENT_PLAGUE_CLOUD:
@@ -319,45 +280,37 @@ public:
                     }
                     break;
                 case EVENT_ERUPT_SECTION:
-                    if (pInstance)
-                    {
-                        if (currentPhase == PHASE_FAST_DANCE)
-                        {
-                            if (currentSection >= 1)
-                                KillPlayersInTheTunnel();
-                        }
-                        pInstance->SetData(DATA_HEIGAN_ERUPTION, currentSection);
-                        if (currentSection == 3)
-                        {
-                            moveRight = false;
-                        }
-                        else if (currentSection == 0)
-                        {
-                            moveRight = true;
-                        }
-                        moveRight ? currentSection++ : currentSection--;
-                    }
+                {
+                    instance->SetData(DATA_HEIGAN_ERUPTION, currentSection);
+                    if (currentSection == 3)
+                        moveRight = false;
+                    else if (currentSection == 0)
+                        moveRight = true;
+
+                    moveRight ? currentSection++ : currentSection--;
+
                     if (currentPhase == PHASE_SLOW_DANCE)
-                    {
                         Talk(SAY_TAUNT);
-                    }
-                    events.RepeatEvent(currentPhase == PHASE_SLOW_DANCE ? 10000 : 4000);
+
+                    events.Repeat(currentPhase == PHASE_SLOW_DANCE ? 10s : 4s);
                     break;
+                }
+                break;
                 case EVENT_SAFETY_DANCE:
+                {
+                    Map::PlayerList const& pList = me->GetMap()->GetPlayers();
+                    for (auto const& itr : pList)
                     {
-                        Map::PlayerList const& pList = me->GetMap()->GetPlayers();
-                        for (const auto& itr : pList)
+                        if (IsInRoom(itr.GetSource()) && !itr.GetSource()->IsAlive())
                         {
-                            if (IsInRoom(itr.GetSource()) && !itr.GetSource()->IsAlive())
-                            {
-                                pInstance->SetData(DATA_DANCE_FAIL, 0);
-                                pInstance->SetData(DATA_IMMORTAL_FAIL, 0);
-                                return;
-                            }
+                            instance->SetData(DATA_DANCE_FAIL, 0);
+                            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+                            return;
                         }
-                        events.RepeatEvent(5000);
-                        return;
                     }
+                    events.Repeat(5s);
+                    return;
+                }
                 case EVENT_TELEPORT_PLAYER:
                     DoEventTeleportPlayer();
                     break;

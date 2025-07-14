@@ -104,12 +104,9 @@ public:
     struct boss_sapphiron_40AI : public BossAI
     {
         explicit boss_sapphiron_40AI(Creature* c) : BossAI(c, BOSS_SAPPHIRON)
-        {
-            pInstance = me->GetInstanceScript();
-        }
+        {}
 
         EventMap events;
-        InstanceScript* pInstance;
         uint8 iceboltCount{};
         uint32 spawnTimer{};
         GuidList blockList;
@@ -117,7 +114,7 @@ public:
 
         void InitializeAI() override
         {
-            if (pInstance->GetBossState(BOSS_SAPPHIRON) != DONE)
+            if (instance->GetBossState(BOSS_SAPPHIRON) != DONE)
             {
                 me->SummonGameObject(GO_SAPPHIRON_BIRTH, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), 0, 0, 0, 0, 0, 0);
                 me->SetVisible(false);
@@ -157,7 +154,7 @@ public:
             if (PlList.IsEmpty())
                 return;
 
-            for (const auto& i : PlList)
+            for (auto const& i : PlList)
             {
                 if (Player* player = i.GetSource())
                 {
@@ -179,20 +176,16 @@ public:
             BossAI::JustEngagedWith(who);
             EnterCombatSelfFunction();
             if (isNaxx40Sapp(me->GetEntry()))
-            {
                 me->CastSpell(me, SPELL_FROST_AURA, true);
-            }
             else
-            {
                 me->CastSpell(me, RAID_MODE(SPELL_FROST_AURA_10, SPELL_FROST_AURA_25), true);
-            }
-            events.ScheduleEvent(EVENT_BERSERK, 900000);
-            events.ScheduleEvent(EVENT_CLEAVE, 5000);
-            events.ScheduleEvent(EVENT_TAIL_SWEEP, 10000);
-            events.ScheduleEvent(EVENT_LIFE_DRAIN, 17000);
-            events.ScheduleEvent(EVENT_BLIZZARD, 17000);
-            events.ScheduleEvent(EVENT_FLIGHT_START, 45000);
-            events.ScheduleEvent(EVENT_HUNDRED_CLUB, 5000);
+            events.ScheduleEvent(EVENT_BERSERK, 15min);
+            events.ScheduleEvent(EVENT_CLEAVE, 5s);
+            events.ScheduleEvent(EVENT_TAIL_SWEEP, 10s);
+            events.ScheduleEvent(EVENT_LIFE_DRAIN, 17s);
+            events.ScheduleEvent(EVENT_BLIZZARD, 17s);
+            events.ScheduleEvent(EVENT_FLIGHT_START, 45s);
+            events.ScheduleEvent(EVENT_HUNDRED_CLUB, 5s);
         }
 
         void JustDied(Unit*  killer) override
@@ -213,7 +206,7 @@ public:
         {
             if (type == POINT_MOTION_TYPE && id == POINT_CENTER)
             {
-                events.ScheduleEvent(EVENT_FLIGHT_LIFTOFF, 500);
+                events.ScheduleEvent(EVENT_FLIGHT_LIFTOFF, 500ms);
             }
         }
 
@@ -243,10 +236,8 @@ public:
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() == TYPEID_PLAYER && pInstance)
-            {
-                pInstance->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void UpdateAI(uint32 diff) override
@@ -282,18 +273,11 @@ public:
                     return;
                 case EVENT_CLEAVE:
                     me->CastSpell(me->GetVictim(), SPELL_CLEAVE, false);
-                    events.RepeatEvent(10000);
+                    events.Repeat(10s);
                     return;
                 case EVENT_TAIL_SWEEP:
-                    if (isNaxx40Sapp(me->GetEntry()))
-                    {
-                        me->CastSpell(me, SPELL_TAIL_SWEEP, false);
-                    }
-                    else
-                    {
-                        me->CastSpell(me, RAID_MODE(SPELL_TAIL_SWEEP_10, SPELL_TAIL_SWEEP_25), false);
-                    }
-                    events.RepeatEvent(10000);
+                    me->CastSpell(me, RAID_MODE(SPELL_TAIL_SWEEP_10, SPELL_TAIL_SWEEP_25, SPELL_TAIL_SWEEP, SPELL_TAIL_SWEEP_25), false);
+                    events.Repeat(10s);
                     return;
                 case EVENT_LIFE_DRAIN:
                     if (isNaxx40Sapp(me->GetEntry()))
@@ -308,7 +292,7 @@ public:
                     {
                         me->CastCustomSpell(RAID_MODE(SPELL_LIFE_DRAIN_10, SPELL_LIFE_DRAIN_25), SPELLVALUE_MAX_TARGETS, RAID_MODE(2, 5), me, false);
                     }
-                    events.RepeatEvent(24000);
+                    events.Repeat(24s);
                     return;
                 case EVENT_BLIZZARD:
                     {
@@ -325,14 +309,7 @@ public:
                         {
                             cr->GetMotionMaster()->MoveRandom(40);
                         }
-                        if (isNaxx40Sapp(me->GetEntry()))
-                        {
-                            events.RepeatEvent(6500);
-                        }
-                        else
-                        {
-                            events.RepeatEvent(RAID_MODE(8000, 6500));
-                        }
+                        events.RepeatEvent(RAID_MODE(8000, 6500, 6500, 6500));
                         return;
                     }
                 case EVENT_FLIGHT_START:
@@ -340,8 +317,8 @@ public:
                     {
                         return;
                     }
-                    events.RepeatEvent(45000);
-                    events.DelayEvents(35000);
+                    events.Repeat(45s);
+                    events.DelayEvents(35s);
                     me->SetReactState(REACT_PASSIVE);
                     me->AttackStop();
                     float x, y, z, o;
@@ -355,15 +332,8 @@ public:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_LIFTOFF);
                     me->SetDisableGravity(true);
                     currentTarget.Clear();
-                    events.ScheduleEvent(EVENT_FLIGHT_ICEBOLT, 3000);
-                    if (isNaxx40Sapp(me->GetEntry()))
-                    {
-                        iceboltCount = 3;
-                    }
-                    else
-                    {
-                        iceboltCount = RAID_MODE(2, 3);
-                    }
+                    events.ScheduleEvent(EVENT_FLIGHT_ICEBOLT, 3s);
+                    iceboltCount = RAID_MODE(2, 3, 3, 3);
                     return;
                 case EVENT_FLIGHT_ICEBOLT:
                     {
@@ -379,7 +349,7 @@ public:
                         auto i = me->GetThreatMgr().GetThreatList().begin();
                         for (; i != me->GetThreatMgr().GetThreatList().end(); ++i)
                         {
-                            if ((*i)->getTarget()->GetTypeId() == TYPEID_PLAYER)
+                            if ((*i)->getTarget()->IsPlayer())
                             {
                                 bool inList = false;
                                 if (!blockList.empty())
@@ -412,7 +382,7 @@ public:
                         }
                         else
                         {
-                            events.ScheduleEvent(EVENT_FLIGHT_BREATH, 1000);
+                            events.ScheduleEvent(EVENT_FLIGHT_BREATH, 1s);
                         }
                         return;
                     }
@@ -420,11 +390,11 @@ public:
                     currentTarget.Clear();
                     Talk(EMOTE_BREATH);
                     me->CastSpell(me, SPELL_FROST_MISSILE, false);
-                    events.ScheduleEvent(EVENT_FLIGHT_SPELL_EXPLOSION, 8500);
+                    events.ScheduleEvent(EVENT_FLIGHT_SPELL_EXPLOSION, 8500ms);
                     return;
                 case EVENT_FLIGHT_SPELL_EXPLOSION:
                     me->CastSpell(me, SPELL_FROST_EXPLOSION, true);
-                    events.ScheduleEvent(EVENT_FLIGHT_START_LAND, 3000);
+                    events.ScheduleEvent(EVENT_FLIGHT_START_LAND, 3s);
                     return;
                 case EVENT_FLIGHT_START_LAND:
                     if (!blockList.empty())
@@ -439,12 +409,12 @@ public:
                     }
                     blockList.clear();
                     me->RemoveAllGameObjects();
-                    events.ScheduleEvent(EVENT_LAND, 1000);
+                    events.ScheduleEvent(EVENT_LAND, 1s);
                     return;
                 case EVENT_LAND:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_LAND);
                     me->SetDisableGravity(false);
-                    events.ScheduleEvent(EVENT_GROUND, 1500);
+                    events.ScheduleEvent(EVENT_GROUND, 1500ms);
                     return;
                 case EVENT_GROUND:
                     Talk(EMOTE_GROUND_PHASE);
@@ -454,15 +424,15 @@ public:
                 case EVENT_HUNDRED_CLUB:
                     {
                         Map::PlayerList const& pList = me->GetMap()->GetPlayers();
-                        for (const auto& itr : pList)
+                        for (auto const& itr : pList)
                         {
-                            if (itr.GetSource()->GetResistance(SPELL_SCHOOL_FROST) > 100 && pInstance)
+                            if (itr.GetSource()->GetResistance(SPELL_SCHOOL_FROST) > 100)
                             {
-                                pInstance->SetData(DATA_HUNDRED_CLUB, 0);
+                                instance->SetData(DATA_HUNDRED_CLUB, 0);
                                 return;
                             }
                         }
-                        events.RepeatEvent(5000);
+                        events.Repeat(5s);
                         return;
                     }
             }
