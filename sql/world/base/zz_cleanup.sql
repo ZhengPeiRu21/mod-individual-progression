@@ -14,6 +14,12 @@ DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 13
 /* Remove script from database to avoid worldserver error. The code for this script has been commented out. Need to figure out why. */
 UPDATE `creature_template` SET `Scriptname` = '' WHERE `entry` = 351042;
 
+-- prevent worldserver error caused by defias thug not having waypoints
+UPDATE `creature`  SET `MovementType` = 0  WHERE `guid` = 80149;
+UPDATE `creature_addon` SET `path_id` = 0  WHERE `guid` = 80149;
+
+-- prevent worldserver error caused by Eye of Dar'Khan not having waypoints
+UPDATE `creature` SET `MovementType` = 0 WHERE `guid` = 82897;
 
 -- undo previous method of Lights Hope Chapel phasing 
 UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN 
