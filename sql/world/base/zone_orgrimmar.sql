@@ -74,7 +74,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 DELETE FROM `creature` WHERE `id1` = 3230 AND `map`= 1;
 DELETE FROM `creature` WHERE `guid` IN (10299, 203492, 203493, 203494, 203495);
-DELETE FROM `creature` WHERE `id1` IN (3890, 12788, 14720, 14942, 15006);
+DELETE FROM `creature` WHERE `id1` IN (3890, 12788, 14720, 14942, 115006);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (603230, 3230,  1, 1938.55, -4133.22, 41.1424, 4.07636, 300), -- Nazgrel <Advisor to Thrall>
 (10299,  3296,  1, 1620.45, -4252.84, 47.5273, 3.7001,  300), -- Orgrimmar Grunt
@@ -82,7 +82,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 300), -- Legionnaire Teena
 (614720, 14720, 1, 1565.79, -4395.27, 6.9866, 3.35103,  600), -- High Overlord Saurfang
 (614942, 14942, 1, 1980.9, -4787.78, 55.8796, 5.13127,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
-(615006, 15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathis Basin Battlemaster>
+(615006, 115006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathi Basin Battlemaster>
 
 
 -- Master Pyreanor <Paladin Trainer>
