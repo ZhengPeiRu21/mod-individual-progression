@@ -133,7 +133,7 @@ static ObjectData const creatureDataNX40[]
     { NPC_SIR_ZELIEK_40,        DATA_SIR_ZELIEK_BOSS      },
     { NPC_LADY_BLAUMEUX_40,     DATA_LADY_BLAUMEUX_BOSS   },
     { NPC_THANE_KORTHAZZ_40,    DATA_THANE_KORTHAZZ_BOSS  },
-    { NPC_SAPPHIRON,            DATA_SAPPHIRON_BOSS       },
+    { NPC_SAPPHIRON_40,         DATA_SAPPHIRON_BOSS       },
     { NPC_KELTHUZAD_40,         DATA_KELTHUZAD_BOSS       },
     // { NPC_LICH_KING,            DATA_LICH_KING_BOSS       },
     { 0,                        0                         }
