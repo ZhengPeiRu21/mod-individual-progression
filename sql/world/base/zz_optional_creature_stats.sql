@@ -36,4 +36,4 @@ UPDATE `creature_classlevelstats` SET `damage_base` = 0.2226, `attackpower` = 10
 UPDATE `creature_classlevelstats` SET `damage_base` = 0.3556, `attackpower` = 11 WHERE `level` = 2  AND `class` = 8;
 UPDATE `creature_classlevelstats` SET `damage_base` = 0.7131, `attackpower` = 13 WHERE `level` = 5  AND `class` = 8;
 UPDATE `creature_classlevelstats` SET `damage_base` = 1.119,  `attackpower` = 14 WHERE `level` = 6  AND `class` = 8;
-/*
+*/
