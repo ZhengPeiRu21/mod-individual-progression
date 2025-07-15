@@ -3,8 +3,9 @@
 SET @CGUID    := 660000;
 SET @IPPPHASE := 65536;
 
-DELETE FROM `creature` WHERE `id1` IN (14697, 16136, 16141, 16230, 16241, 16255, 16281, 16285, 16298, 16299, 16359, 16361, 
-16379, 16380, 16422, 16423, 16437, 16438, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787, 16995, 29441, 29442);
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+1720 AND `id1` IN
+(14697, 16136, 16141, 16230, 16241, 16255, 16281, 16285, 16298, 16299, 16359, 16361, 16379, 16380, 16422, 16423, 
+16437, 16438, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787, 16995, 29441, 29442);
 
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
