@@ -5544,6 +5544,14 @@ INSERT INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`
 DELETE FROM `creature_template_spell` WHERE `CreatureID` = 351081;
 INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES (351081, 3, 28732, 12340);
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 13 AND `SourceEntry` = 28732;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(13, 1, 28732, 0, 0, 31, 0, 3, 15953, 0, 0, 0, 0, '', ''),
+(13, 1, 28732, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, '', ''),
+(13, 1, 28732, 0, 1, 31, 0, 3, 351007, 0, 0, 0, 0, '', ''),
+(13, 1, 28732, 0, 1, 36, 0, 0, 0, 0, 0, 0, 0, '', '');
+    
 -- Doom Touched Warrior
 UPDATE `creature_template` SET `speed_walk` = 1.0, `speed_run` = 1.42857, `DamageModifier` = 17.1, `ArmorModifier` = 1.15, `RangeAttackTime` = 1265 WHERE `entry`=16157;
 

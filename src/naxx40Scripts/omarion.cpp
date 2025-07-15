@@ -127,12 +127,12 @@ public:
             AddGossipItemFor(player, MENU_ID_INTRO, ITEM_ID_TAILORING, GOSSIP_SENDER_MAIN, MENU_ID_TAILORING);
         }
 
-        if(blacksmithSkill >= MASTER_REQ_SKILL)
+        if (blacksmithSkill >= MASTER_REQ_SKILL)
         {
             AddGossipItemFor(player, MENU_ID_INTRO, ITEM_ID_BLACKSMITHING, GOSSIP_SENDER_MAIN, MENU_ID_BLACKSMITHING);
         }
 
-        if(leatherworkSkill >= MASTER_REQ_SKILL)
+        if (leatherworkSkill >= MASTER_REQ_SKILL)
         {
             AddGossipItemFor(player, MENU_ID_INTRO, ITEM_ID_LEATHERWORKING, GOSSIP_SENDER_MAIN, MENU_ID_LEATHERWORKING);
         }

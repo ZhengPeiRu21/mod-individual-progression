@@ -25,8 +25,6 @@
 enum Spells
 {
     SPELL_BERSERK                    = 26662,
-    SPELL_SHIELDWALL                 = 29061, // Shield Wall - All 4 horsemen will shield wall at 50% hp and 20% hp for 20 seconds
-    SPELL_SUMMON_PLAYER              = 25104,
     // Marks
     SPELL_MARK_OF_KORTHAZZ           = 28832,
     SPELL_MARK_OF_BLAUMEUX           = 28833,
@@ -43,6 +41,10 @@ enum Spells
     SPELL_ZELIEK_HOLY_BOLT           = 57376,
     // Mograine
     SPELL_RIVENDARE_UNHOLY_SHADOW    = 28882,
+
+    // NX40
+    SPELL_SHIELDWALL                 = 29061, // Shield Wall - All 4 horsemen will shield wall at 50% hp and 20% hp for 20 seconds
+    SPELL_SUMMON_PLAYER              = 25104,
 };
 
 enum Events
@@ -106,7 +108,6 @@ public:
     {
         explicit boss_four_horsemen_40AI(Creature* c) : BossAI(c, BOSS_HORSEMAN)
         {
-            pInstance = me->GetInstanceScript();
             switch (me->GetEntry())
             {
                 case NPC_SIR_ZELIEK_40:
@@ -125,7 +126,6 @@ public:
         }
 
         EventMap events;
-        InstanceScript* pInstance;
         uint8 horsemanId;
         bool doneFirstShieldWall;
 
@@ -143,59 +143,44 @@ public:
         {
             BossAI::Reset();
             me->SetPosition(me->GetHomePosition());
-
-            me->SetReactState(REACT_AGGRESSIVE);
-            doneFirstShieldWall = false;
             events.Reset();
             events.RescheduleEvent(EVENT_MARK_CAST, 20000);
             events.RescheduleEvent(EVENT_BERSERK, 600000);
             summons.DespawnAll(); // despawn spirits
             if ((me->GetEntry() != NPC_LADY_BLAUMEUX_40 && me->GetEntry() != NPC_SIR_ZELIEK_40))
             {
-                events.RescheduleEvent(EVENT_PRIMARY_SPELL, 10000 + rand() % 5000);
+                events.RescheduleEvent(EVENT_PRIMARY_SPELL, 10s, 15s);
             }
             else
             {
-                events.RescheduleEvent(EVENT_SECONDARY_SPELL, 15000);
+                events.RescheduleEvent(EVENT_SECONDARY_SPELL, 15s);
             }
-            if (pInstance)
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HORSEMEN_GATE)))
-                {
-                    if (pInstance->GetBossState(BOSS_GOTHIK) == DONE)
-                    {
-                        go->SetGoState(GO_STATE_ACTIVE);
-                    }
-                }
-            }
+            doneFirstShieldWall = false;
         }
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() != TYPEID_PLAYER)
+            if (!who->IsPlayer())
                 return;
 
             Talk(SAY_SLAY);
-            if (pInstance)
-            {
-                pInstance->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void SpellHitTarget(Unit* target, SpellInfo const* spellInfo) override
         {
             if (spellInfo->Id == TABLE_SPELL_MARK[horsemanId])
-            {
                 DoModifyThreatByPercent(target, -50);
-            }
         }
 
         void JustDied(Unit*  killer) override
         {
             BossAI::JustDied(killer);
-            if (pInstance)
+            Talk(SAY_DEATH);
+
+            if (instance->GetBossState(BOSS_HORSEMAN) == DONE)
             {
-                if (pInstance->GetBossState(BOSS_HORSEMAN) == DONE)
+                if (!me->GetMap()->GetPlayers().IsEmpty())
                 {
                     if (Creature* spirit = GetClosestCreatureWithEntry(me, NPC_SPIRIT_ZELIEK, 200.0f))
                         spirit->DespawnOrUnsummon();
@@ -205,28 +190,15 @@ public:
                         spirit->DespawnOrUnsummon();
                     if (Creature* spirit = GetClosestCreatureWithEntry(me, NPC_SPIRIT_KORTHAZZ, 200.0f))
                         spirit->DespawnOrUnsummon();
-                    if (!me->GetMap()->GetPlayers().IsEmpty())
-                    {
-                        if (Player* player = me->GetMap()->GetPlayers().getFirst()->GetSource())
-                        {
-                            if (GameObject* chest = player->SummonGameObject(GO_HORSEMEN_CHEST_40, 2514.8f, -2944.9f, 245.55f, 5.51f, 0, 0, 0, 0, 0))
-                            {
-                                chest->SetLootRecipient(me);
-                            }
-                        }
-                    }
-                    if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HORSEMEN_GATE)))
-                    {
-                        go->SetGoState(GO_STATE_ACTIVE);
-                    }
-                }
-                else
-                {
-                    // Prevent spawning if last horseman killed
-                    DoCastSelf(TABLE_SPELL_SUMMON_SPIRIT[horsemanId], true);
+                    if (Player* player = me->GetMap()->GetPlayers().getFirst()->GetSource())
+                        if (GameObject* chest = player->SummonGameObject(GO_HORSEMEN_CHEST_40, 2514.8f, -2944.9f, 245.55f, 5.51f, 0, 0, 0, 0, 0))
+                            chest->SetLootRecipient(me);
                 }
             }
-            Talk(SAY_DEATH);
+            else
+            {
+                DoCastSelf(TABLE_SPELL_SUMMON_SPIRIT[horsemanId], true);
+            }
         }
 
         void JustSummoned(Creature* summon) override
@@ -240,16 +212,7 @@ public:
         {
             BossAI::JustEngagedWith(who);
             Talk(SAY_AGGRO);
-            me->SetReactState(REACT_AGGRESSIVE);
-            me->SetInCombatWithZone();
-            if (pInstance)
             events.ScheduleEvent(EVENT_HEALTH_CHECK, 1s);
-            {
-                if (GameObject* go = me->GetMap()->GetGameObject(pInstance->GetGuidData(DATA_HORSEMEN_GATE)))
-                {
-                    go->SetGoState(GO_STATE_READY);
-                }
-            }
         }
 
         void UpdateAI(uint32 diff) override
@@ -261,10 +224,8 @@ public:
                 return;
 
             if (Unit* victim = me->GetVictim())
-            {
                 if (!me->IsWithinDistInMap(victim, VISIBILITY_DISTANCE_NORMAL))
                     me->CastSpell(victim, SPELL_SUMMON_PLAYER, true);
-            }
 
             events.Update(diff);
             if (me->HasUnitState(UNIT_STATE_CASTING))
@@ -274,7 +235,7 @@ public:
             {
                 case EVENT_MARK_CAST:
                     me->CastSpell(me, TABLE_SPELL_MARK[horsemanId], false);
-                    events.RepeatEvent(12000);
+                    events.Repeat(12s);
                     return;
                 case EVENT_BERSERK:
                     Talk(SAY_SPECIAL);
@@ -302,7 +263,7 @@ public:
                         int32 bp0 = 12824; // 14.5k to 13.5k
                         me->CastCustomSpell(me->GetVictim(), SPELL_KORTHAZZ_METEOR, &bp0, 0, 0, false);
                     }
-                    events.RepeatEvent(15000);
+                    events.Repeat(15s);
                     return;
                 case EVENT_SECONDARY_SPELL:
                     if (horsemanId == HORSEMAN_ZELIEK)
@@ -314,10 +275,8 @@ public:
                         me->CastCustomSpell(SPELL_ZELIEK_HOLY_WRATH, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
                     }
                     else // HORSEMAN_BLAUMEUX
-                    {
                         me->CastSpell(me->GetVictim(), SPELL_BLAUMEUX_VOID_ZONE, false);
-                    }
-                    events.RepeatEvent(15000);
+                    events.Repeat(15s);
                     return;
                 case EVENT_HEALTH_CHECK:
                     if (!doneFirstShieldWall && me->GetHealthPct() <= 50.0f)
@@ -330,9 +289,7 @@ public:
                     if (doneFirstShieldWall && me->GetHealthPct() <= 20.0f)
                     {
                         if (!me->HasAura(SPELL_SHIELDWALL)) // prevent refresh of first shield wall
-                        {
                             DoCastSelf(SPELL_SHIELDWALL, true);
-                        }
                         break;
                     }
                     events.Repeat(1s);
@@ -410,3 +367,4 @@ void AddSC_boss_four_horsemen_40()
     new boss_four_horsemen_40();
     RegisterSpellScript(spell_four_horsemen_mark_aura);
 }
+

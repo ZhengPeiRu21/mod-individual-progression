@@ -60,10 +60,10 @@ public:
             events.ScheduleEvent(EVENT_RAGE, 1000);
 
             // Kill players if the door wasn't opened
-            if (!instance->GetData(DATA_UBRS_DOOR_OPEN))
-            {
-                DoCastSelf(68378 /* Berserk */);
-            }
+            // if (!instance->GetData(DATA_UBRS_DOOR_OPEN))
+            // {
+            //     DoCastSelf(68378 /* Berserk */);
+            // }            
         }
 
         void UpdateAI(uint32 diff) override

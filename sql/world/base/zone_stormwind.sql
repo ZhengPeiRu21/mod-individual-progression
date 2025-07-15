@@ -1,173 +1,70 @@
--- Dane Lindgren <Apprentice Blacksmith>
-UPDATE `creature_template` SET `subname`='Journeyman Blacksmith', `npcflag`=81, `trainer_type`=2 WHERE `entry`=957;
+UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith'    WHERE `entry` = 957;   -- Dane Lindgren <Apprentice Blacksmith>
+UPDATE `creature_template` SET `subname` = 'Journeyman Tailor'        WHERE `entry` = 1300;  -- Lawrence Schneider <Apprentice Tailor>
+UPDATE `creature_template` SET `subname` = 'Expert Enchanter'         WHERE `entry` = 1317;  -- Lucan Cordell <Enchanting Trainer>
+UPDATE `creature_template` SET `subname` = 'Artisan Tailor'           WHERE `entry` = 1346;  -- Georgio Bolero <Artisan Tailor>
+UPDATE `creature_template` SET `subname` = 'Journeyman Engineer'      WHERE `entry` = 11026; -- Sprite Jumpsprocket <Apprentice Engineer>
+UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `entry` = 11068; -- Betty Quin <Apprentice Enchanter>
+UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry` = 11096; -- Randal Worth <Apprentice Leatherworker>
 
--- Betty Quin <Apprentice Enchanter>
-UPDATE `creature_template` SET `subname`='Journeyman Enchanter', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11068;
-
--- Lucan Cordell <Enchanting Trainer>
-UPDATE `creature_template` SET `subname`='Expert Enchanter' WHERE `entry`=1317;
-
--- Sprite Jumpsprocket <Apprentice Engineer>
-UPDATE `creature_template` SET `subname`='Journeyman Engineer', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11026;
-
--- Randal Worth <Apprentice Leatherworker>
-UPDATE `creature_template` SET `subname`='Journeyman Leatherworker', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11096;
-
--- Lawrence Schneider <Apprentice Tailor>
-UPDATE `creature_template` SET `subname`='Journeyman Tailor', `npcflag`=81, `trainer_type`=2 WHERE `entry`=1300;
-
--- Sellandus <Expert Tailor>
-UPDATE `creature_template` SET `type_flags`=134217728 WHERE `entry`=5567;
-    
--- Georgio Bolero <Artisan Tailor>
-UPDATE `creature_template` SET `subname`='Artisan Tailor' WHERE `entry`=1346;
+UPDATE `creature_template` SET `npcflag` = 81, `trainer_type` = 2 WHERE `entry` IN (957, 1300, 11026, 11068, 11096);
+UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` = 5567; -- Sellandus <Expert Tailor>
 
 
--- Tel'Athir <Journeyman Alchemist>
-DELETE FROM `npc_trainer` WHERE `ID`=5500;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5500, -300000);
-
--- Lilyssia Nightbreeze <Expert Alchemist>
-DELETE FROM `npc_trainer` WHERE `ID`=5499;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5499, -300000), (5499, -300001);
-
--- Dane Lindgren <Journeyman Blacksmith>
-DELETE FROM `npc_trainer` WHERE `ID`=957;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (957, -310000);
-
--- Therum Deepforge <Expert Blacksmith>
-DELETE FROM `npc_trainer` WHERE `ID`=5511;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5511, -310000), (5511, -310001);
-
--- Betty Quin <Journeyman Enchanter>
-DELETE FROM `npc_trainer` WHERE `ID`=11068;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11068, -330000);
-
--- Lucan Cordell <Expert Enchanter>
-DELETE FROM `npc_trainer` WHERE `ID`=1317;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1317, -330000), (1317, -330001);
-
--- Sprite Jumpsprocket <Journeyman Engineer>
-DELETE FROM `npc_trainer` WHERE `ID`=11026;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11026, -340000);
-
--- Lilliam Sparkspindle <Expert Engineer>
-DELETE FROM `npc_trainer` WHERE `ID`=5518;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5518, -340000), (5518, -340001);
-
--- Randal Worth <Journeyman Leatherworker>
-DELETE FROM `npc_trainer` WHERE `ID`=11096;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11096, -380000);
-
--- Simon Tanner <Expert Leatherworker>
-DELETE FROM `npc_trainer` WHERE `ID`=5564;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5564, -380000), (5564, -380001);
-
--- Lawrence Schneider <Journeyman Tailor>
-DELETE FROM `npc_trainer` WHERE `ID`=1300;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1300, -410000);
-
--- Sellandus <Expert Tailor>
-DELETE FROM `npc_trainer` WHERE `ID`=5567;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5567, -410000), (5567, -410001);
-
--- Georgio Bolero <Artisan Tailor>
-DELETE FROM `npc_trainer` WHERE `ID`=1346;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1346, -410000), (1346, -410001), (1346, -410002);
+DELETE FROM `npc_trainer` WHERE `ID` IN (957, 1300, 1317, 1346, 5499, 5500, 5511, 5518, 5564, 5567, 11026, 11068, 11096);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
+(957,  -310000),  -- Dane Lindgren <Journeyman Blacksmith>
+(1300, -410000),  -- Lawrence Schneider <Journeyman Tailor>
+(1317, -330000),  -- Lucan Cordell <Expert Enchanter>
+(1317, -330001),  -- Lucan Cordell <Expert Enchanter>
+(1346, -410000),  -- Georgio Bolero <Artisan Tailor>
+(1346, -410001),  -- Georgio Bolero <Artisan Tailor>
+(1346, -410002),  -- Georgio Bolero <Artisan Tailor>
+(5499, -300000),  -- Lilyssia Nightbreeze <Expert Alchemist>
+(5499, -300001),  -- Lilyssia Nightbreeze <Expert Alchemist>
+(5500, -300000),  -- Tel'Athir <Journeyman Alchemist>
+(5511, -310000),  -- Therum Deepforge <Expert Blacksmith>
+(5511, -310001),  -- Therum Deepforge <Expert Blacksmith>
+(5518, -340000),  -- Lilliam Sparkspindle <Expert Engineer>
+(5518, -340001),  -- Lilliam Sparkspindle <Expert Engineer>
+(5564, -380000),  -- Simon Tanner <Expert Leatherworker>
+(5564, -380001),  -- Simon Tanner <Expert Leatherworker>
+(5567, -410000),  -- Sellandus <Expert Tailor>
+(5567, -410001),  -- Sellandus <Expert Tailor>
+(11026, -340000), -- Sprite Jumpsprocket <Journeyman Engineer>
+(11068, -330000), -- Betty Quin <Journeyman Enchanter>
+(11096, -380000); -- Randal Worth <Journeyman Leatherworker>
 
 
--- Lucan Cordell <Expert Enchanter>
-DELETE FROM `gossip_menu_option` WHERE `MenuID`=4161;
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4161, 4344);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
-(4161, 0, 3, 'Train me.', 3266, 5, 16);
-
--- Sellandus <Expert Tailor>
-DELETE FROM `gossip_menu_option` WHERE `MenuID`=4344;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
-(4344, 0, 3, 'Train me.', 3266, 5, 16);
+(4161, 0, 3, 'Train me.', 3266, 5, 16), -- Lucan Cordell <Expert Enchanter>
+(4344, 0, 3, 'Train me.', 3266, 5, 16); -- Sellandus <Expert Tailor>
 
 
--- Therum Deepforge <Expert Blacksmith>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=581 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (581, 4146, 4161, 4201, 4203, 4344, 4353); 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 581, 0, 7, 164, 50, 'Show menu if blacksmithing is 50 or higher');
-
--- Lilliam Sparkspindle <Expert Engineer>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4146 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 4146, 0, 7, 202, 50, 'Show menu if engineering is 50 or higher');
-
--- Lucan Cordell <Expert Enchanter>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4161 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 4161, 0, 7, 333, 50, 'Show menu if enchanting is 50 or higher');
-
--- Lilyssia Nightbreeze <Expert Alchemist>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4201 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4201, 0, 7, 171, 50, 'Show menu if alchemy is 50 or higher');
-
--- Simon Tanner <Expert Leatherworker>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4203 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 4203, 0, 7, 165, 50, 'Show menu if leatherworking is 50 or higher');
-
--- Sellandus <Expert Tailor>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4344 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 4344, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');
-
--- Georgio Bolero <Artisan Tailor>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4353 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4353, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');
+(15, 581,  0, 7, 164, 50,  'Show menu if blacksmithing is 50 or higher'),  -- Therum Deepforge <Expert Blacksmith>
+(15, 4146, 0, 7, 202, 50,  'Show menu if engineering is 50 or higher'),    -- Lilliam Sparkspindle <Expert Engineer>
+(15, 4161, 0, 7, 333, 50,  'Show menu if enchanting is 50 or higher'),     -- Lucan Cordell <Expert Enchanter>
+(15, 4201, 0, 7, 171, 50,  'Show menu if alchemy is 50 or higher'),        -- Lilyssia Nightbreeze <Expert Alchemist>
+(15, 4203, 0, 7, 165, 50,  'Show menu if leatherworking is 50 or higher'), -- Simon Tanner <Expert Leatherworker>
+(15, 4344, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher'),      -- Sellandus <Expert Tailor>
+(15, 4353, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');     -- Georgio Bolero <Artisan Tailor>
 
 
--- Thelman Slatefist <Alterac Valley Battlemaster>
-DELETE FROM `creature` WHERE `id1`= 7410;
+DELETE FROM `creature` WHERE `id1` IN (7410, 7798, 12778, 12779, 12780, 12805, 14981, 15008, 34078, 40607);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
-(607410, 7410, 0, -8424.43, 342.967, 120.886, 3.82018, 300);
+(607410, 7410,  0, -8424.43, 342.967, 120.886, 3.82018, 300),  -- Thelman Slatefist <Alterac Valley Battlemaster>
+(607798, 7798,  0, -8422.17, 630.877, 95.8402, 5.044, 430),    -- Hank the Hammer <The Mitrhil Order>
+(612778, 12778, 0, -8783.7, 423.749, 105.276, 0.651345, 300),  -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
+(612779, 12779, 0, -8783.33, 426.686, 105.276, 5.37159, 300),  -- Archmage Gaiman
+(612780, 12780, 0, -8779.46, 427.206, 105.275, 3.80473, 300),  -- Sergeant Major Skyshadow
+(612805, 12805, 0, -8759.18, 389.112, 101.056, 0.648394, 430), -- Officer Areyn <Accessories Quartermaster>
+(614981, 14981, 0, -8454.62, 318.853, 120.969, 0.698132, 180), -- Elfarran <Warsong Gulch Battlemaster>
+(615008, 15008, 0, -8420.48, 328.711, 120.886, 3.06638, 180);  -- Lady Hoteshem <Arathi Basin Battlemaster>
 
--- Hank the Hammer <The Mitrhil Order>
-DELETE FROM `creature` WHERE `id1`= 7798;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(607798, 7798, 0, -8422.17, 630.877, 95.8402, 5.044, 430);
+UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805;
 
--- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 12778;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612778, 12778, 0, -8783.7, 423.749, 105.276, 0.651345, 300);
-
--- Archmage Gaiman
-DELETE FROM `creature` WHERE `id1`= 12779;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612779, 12779, 0, -8783.33, 426.686, 105.276, 5.37159, 300);
-
--- Sergeant Major Skyshadow
-DELETE FROM `creature` WHERE `id1`= 12780;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612780, 12780, 0, -8779.46, 427.206, 105.275, 3.80473, 300);
-
--- Knight-Lieutenant T'Maire Sydes <Northrend Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 40607;
-
--- Lieutenant Tristia <Veteran Armor Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 34078;
-
--- Officer Areyn <Accessories Quartermaster>
-DELETE FROM `creature` WHERE `id1`= 12805;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(612805, 12805, 0, 1, -8759.18, 389.112, 101.056, 0.648394, 430);
-
--- Elfarran <Warsong Gulch Battlemaster>
-DELETE FROM `creature` WHERE `id1`= 14981;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
-(614981, 14981, 0, -8454.62, 318.853, 120.969, 0.698132, 180);
-
--- Lady Hoteshem <Arathi Basin Battlemaster>
-DELETE FROM `creature` WHERE `id1`= 15008;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(615008, 15008, 0, -8420.48, 328.711, 120.886, 3.06638, 180);
 
 -- Tome of Nobility (Paladin)
 DELETE FROM `creature_questender` WHERE `id`=6171 AND `quest`=1661;
@@ -181,204 +78,135 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6171, 1661);
 DELETE FROM `creature_queststarter` WHERE `id`=461 AND `quest`=4488;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (461, 4488);
 
--- Stormwind City Guard
-UPDATE `creature_template` SET `minlevel`=55, `maxlevel`=55 WHERE `entry`=68;
 
--- Dungar Longdrink <Gryphon Master>
-UPDATE `creature_template` SET `minlevel`=55, `maxlevel`=55 WHERE `entry`=352;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 68;    -- Stormwind City Guard
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 352;   -- Dungar Longdrink <Gryphon Master>
+UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` = 466;   -- General Marcus Jonathan <High Commander of Stormwind Defense>
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 1976;  -- Stormwind City Patroller
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 1756;  -- Stormwind Royal Guard
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14423; -- Officer Jaxon
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14438; -- Officer Pomeroy
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14439; -- Officer Brady
+UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 15351; -- Alliance Brigadier General
+UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 29611; -- King Varian Wrynn
 
--- General Marcus Jonathan <High Commander of Stormwind Defense>
-UPDATE `creature_template` SET `minlevel`=62, `maxlevel`=62 WHERE `entry`=466;
+UPDATE `creature_template` SET `rank` = 0 WHERE `entry` IN (1756, 15351);
 
--- Keldric Boucher <Alchemy Supplies & Reagents>
-UPDATE `creature_template` SET `subname`='Arcane Goods Vendor' WHERE `entry`=1257;
-
--- Kyra Boucher <Reagents>
-UPDATE `creature_template` SET `subname`='Reagent Vendor' WHERE `entry`=1275;
-
--- Edna Mullby <Trade Supplies>
-UPDATE `creature_template` SET `subname`='Trade Supplier' WHERE `entry`=1286;
-
--- Owen Vaughn <Reagents>
-UPDATE `creature_template` SET `subname`='Reagent Vendor' WHERE `entry`=1308;
-
--- Sloan McCoy <Poison Supplier>
-UPDATE `creature_template` SET `subname`='Poison Supplier' WHERE `entry`=1326;
-
--- Brother Cassius <Reagents>
-UPDATE `creature_template` SET `subname`='Reagent Vendor' WHERE `entry`=1351;
-
--- Stormwind Royal Guard
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=1756;
-
--- Stormwind City Patroller
-UPDATE `creature_template` SET `minlevel`=55, `maxlevel`=55 WHERE `entry`=1976;
-
--- Borgus Steelhand <Weapon Crafter>
-UPDATE `creature_template` SET `subname`='Weapon Crafter' WHERE `entry`=7232;
+UPDATE `creature_template` SET `subname` = 'Arcane Goods Vendor' WHERE `entry` = 1257; -- Keldric Boucher <Alchemy Supplies & Reagents>
+UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1275; -- Kyra Boucher <Reagents>
+UPDATE `creature_template` SET `subname` = 'Trade Supplier'  WHERE `entry` = 1286; -- Edna Mullby <Trade Supplies>
+UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1308; -- Owen Vaughn <Reagents>
+UPDATE `creature_template` SET `subname` = 'Poison Supplier' WHERE `entry` = 1326; -- Sloan McCoy <Poison Supplier>
+UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1351; -- Brother Cassius <Reagents>
+UPDATE `creature_template` SET `subname` = 'Weapon Crafter'  WHERE `entry` = 7232; -- Borgus Steelhand <Weapon Crafter>
 
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-UPDATE `creature_template` SET `subname`=NULL, `minlevel`=55, `maxlevel`=55, `npcflag`=0 WHERE `entry`=12778;
+UPDATE `creature_template` SET `subname` = NULL, `minlevel` = 55, `maxlevel` = 55, `npcflag` = 0 WHERE `entry` = 12778;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12778;
 
--- Officer Jaxon
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14423;
 
--- Officer Pomeroy
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14438;
-
--- Officer Brady
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60 WHERE `entry`=14439;
-
--- Alliance Brigadier General
-UPDATE `creature_template` SET `minlevel`=60, `maxlevel`=60, `rank`=0 WHERE `entry`=15351;
-
--- King Varian Wrynn
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 29611;
-
--- creating copy with 'npc_king_varian_wrynn' script, to prevent AC worldserver error for not using the script
-SET @Wrynn := 629611;  -- copy of King Varian Wrynn
-
-DELETE FROM `creature_template` WHERE `entry` = @Wrynn;
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
-`exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
-`BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
-`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
-`RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
-
-(@Wrynn, 0, 0, 0, 0, 0, 'King Varian Wrynn', 'King of Stormwind', '', 9834, 63, 63, 2, 1733, 3, 1, 1.42857, 1, 1, 20, 1, 3, 0, 35, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 7, 76, 0, 0, 0, 0, 0, 700000, 750000, '', 0, 1, 400, 20, 1, 1, 1, 144, 1, 617299839, 0, 0, 'npc_king_varian_wrynn', 12340);
-
-DELETE FROM `creature_template_addon` WHERE `entry` = @Wrynn;
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
-(@Wrynn, 0, 0, 0, 1, 0, 3, NULL);
-
-DELETE FROM `creature_template_locale` WHERE `entry` = @Wrynn;
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
-(@Wrynn, 'deDE', 'König Varian Wrynn', 'König von Sturmwind', 18019),
-(@Wrynn, 'esES', 'Rey Varian Wrynn', 'Rey de Ventormenta', 18019),
-(@Wrynn, 'esMX', 'Rey Varian Wrynn', 'Rey de Ventormenta', 18019),
-(@Wrynn, 'frFR', 'Roi Varian Wrynn', 'Roi de Hurlevent', 18019),
-(@Wrynn, 'koKR', '국왕 바리안 린', '스톰윈드 국왕', 18019),
-(@Wrynn, 'ruRU', 'Король Вариан Ринн', 'Король Штормграда', 18019),
-(@Wrynn, 'zhCN', '瓦里安·乌瑞恩国王', '暴风城国王', 18019),
-(@Wrynn, 'zhTW', '瓦里安·烏瑞恩國王', '暴風之王', 18019);
-
-DELETE FROM `creature_template_model` WHERE `CreatureID` = @Wrynn;
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
-(@Wrynn, 0, 28127, 1, 1, 12340);
+DELETE FROM `npc_trainer` WHERE `ID` IN (1430, 2327, 5482, 5493, 5513);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
+(1430, -320000), -- Tomas <Cook>
+(2327, -350000), -- Shaina Fuller <First Aid Trainer>
+(5482, -320000), -- Stephen Ryback <Cooking Trainer>
+(5493, -360000), -- Arnold Leland <Fishing Trainer>
+(5513, -390000); -- Gelman Stonehand <Mining Trainer>
 
 
--- Tomas <Cook>
-DELETE FROM `npc_trainer` WHERE `ID`=1430;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (1430, -320000);
-
--- Shaina Fuller <First Aid Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=2327;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2327, -350000);
-
--- Arnold Leland <Fishing Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=5493;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5493, -360000);
-
--- Stephen Ryback <Cooking Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=5482;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5482, -320000);
-
--- Gelman Stonehand <Mining Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=5513;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (5513, -390000);
-
+-- the following should perhaps go to vanilla_vendors
 -- Elaine Trias <Mistress of Cheese>
-DELETE FROM `npc_vendor` WHERE `entry`=483 AND `item` IN (27857, 33443, 35952);
+DELETE FROM `npc_vendor` WHERE `entry` = 483 AND `item` IN (27857, 33443, 35952);
 
 -- Keldric Boucher <Alchemy Supplies & Reagents>
-DELETE FROM `npc_vendor` WHERE `entry`=1257 AND `item` IN (22147, 22148, 37201, 40411);
+DELETE FROM `npc_vendor` WHERE `entry` = 1257 AND `item` IN (22147, 22148, 37201, 40411);
 
 -- Kyra Boucher <Reagents>
-DELETE FROM `npc_vendor` WHERE `entry`=1275 AND `item` IN (22147, 22148, 37201);
+DELETE FROM `npc_vendor` WHERE `entry` = 1275 AND `item` IN (22147, 22148, 37201);
 
 -- Edna Mullby <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=1286 AND `item` IN (14341, 18256, 20856);
-DELETE FROM `npc_vendor` WHERE `entry`=1286 AND `item` IN (2324, 2605, 2928, 6260, 6529);
+DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` IN (14341, 18256, 20856);
+DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` IN (2324, 2605, 2928, 6260, 6529);
 INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (1286, 2324), (1286, 2605), (1286, 2928), (1286, 6260), (1286, 6529);
 
 -- Frederick Stover <Bow & Arrow Merchant>
-DELETE FROM `npc_vendor` WHERE `entry`=1298 AND `item` IN (11303, 11306, 11307, 28053);
+DELETE FROM `npc_vendor` WHERE `entry` = 1298 AND `item` IN (11303, 11306, 11307, 28053);
 
 -- Bernard Gump <Florist>
-DELETE FROM `npc_vendor` WHERE `entry`=1302 AND `item` IN (785, 2449, 2453, 3355, 3356, 3357);
+DELETE FROM `npc_vendor` WHERE `entry` = 1302 AND `item` IN (785, 2449, 2453, 3355, 3356, 3357);
 
 -- Charys Yserian <Arcane Trinkets Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=1307 AND `item` IN (22147, 22148, 37201);
+DELETE FROM `npc_vendor` WHERE `entry` = 1307 AND `item` IN (22147, 22148, 37201);
 
 -- Owen Vaughn <Reagent Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=1308 AND `item` IN (22147, 22148, 37201);
+DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` IN (22147, 22148, 37201);
 
 -- Maria Lumere <Alchemy Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=1313 AND `item`=40411;
+DELETE FROM `npc_vendor` WHERE `entry` = 1313 AND `item`=40411;
 
 -- Jasper Fel <Shady Dealer>
-DELETE FROM `npc_vendor` WHERE `entry`=1325 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
+DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
 
 -- Sloan McCoy <Poison Supplier>
-DELETE FROM `npc_vendor` WHERE `entry`=1326 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
+DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
 
 -- Alexandra Bolero <Tailoring Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=1347 AND `item`=38426;
+DELETE FROM `npc_vendor` WHERE `entry` = 1347 AND `item`=38426;
 
 -- Brother Cassius <Reagent Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=1351 AND `item` IN (22147, 22148, 37201);
+DELETE FROM `npc_vendor` WHERE `entry` = 1351 AND `item` IN (22147, 22148, 37201);
 
 -- Thomas Miller <Baker>
-DELETE FROM `npc_vendor` WHERE `entry`=3518 AND `item` IN (27855, 33449, 35950);
+DELETE FROM `npc_vendor` WHERE `entry` = 3518 AND `item` IN (27855, 33449, 35950);
 
 -- Bren Trias <Apprentice of Cheese>
-DELETE FROM `npc_vendor` WHERE `entry`=4981 AND `item` IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
+DELETE FROM `npc_vendor` WHERE `entry` = 4981 AND `item` IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
 
 -- Rebecca Laughlin <Tabard Designer>
-DELETE FROM `npc_vendor` WHERE `entry`=5193 AND `item` IN (15196, 15198, 19032, 19506, 23999, 31774, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
+DELETE FROM `npc_vendor` WHERE `entry` = 5193 AND `item` IN (15196, 15198, 19032, 19506, 23999, 31774, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
 
 -- Eldraeith <Herbalism Supplier>
-DELETE FROM `npc_vendor` WHERE `entry`=5503 AND `item` IN (18256, 40411);
+DELETE FROM `npc_vendor` WHERE `entry` = 5503 AND `item` IN (18256, 40411);
 
 -- Brooke Stonebraid <Mining Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=5514 AND `item` IN (20815, 20824);
+DELETE FROM `npc_vendor` WHERE `entry` = 5514 AND `item` IN (20815, 20824);
 
 -- Billibub Cogspinner <Engineering Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=5519 AND `item` IN (39684, 40533);
+DELETE FROM `npc_vendor` WHERE `entry` = 5519 AND `item` IN (39684, 40533);
 
 -- Jillian Tanner <Leatherworking Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=5565 AND `item`=38426;
+DELETE FROM `npc_vendor` WHERE `entry` = 5565 AND `item`=38426;
 
 -- Innkeeper Allison <Innkeeper>
-DELETE FROM `npc_vendor` WHERE `entry`=6740 AND `item` IN (4536, 4537, 4538, 4539, 4602, 8953, 27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
+DELETE FROM `npc_vendor` WHERE `entry` = 6740 AND `item` IN (4536, 4537, 4538, 4539, 4602, 8953, 27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
 
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry`=12778;
+DELETE FROM `npc_vendor` WHERE `entry` = 12778;
 
 
 SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
 SET @Clate       := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
+SET @Wrynn       := 629611; -- creating copy with 'npc_king_varian_wrynn' script, to prevent AC worldserver error for not using the script
 
-
-DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Clate);
+DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
 `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
 `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
 `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
-
+--
 (@Biggins, 0, 0, 0, 0, 0, 'Master Sergeant Biggins', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 1078, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
-(@Clate, 0, 0, 0, 0, 0, 'Sergeant Major Clate', 'Food and Drink', NULL, 0, 55, 55, 0, 123, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.15, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340);
+(@Clate, 0, 0, 0, 0, 0, 'Sergeant Major Clate', 'Food and Drink', NULL, 0, 55, 55, 0, 123, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.15, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
+(@Wrynn, 0, 0, 0, 0, 0, 'King Varian Wrynn', 'King of Stormwind', '', 9834, 63, 63, 2, 1733, 3, 1, 1.42857, 1, 1, 20, 1, 3, 0, 35, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 7, 76, 0, 0, 0, 0, 0, 700000, 750000, '', 0, 1, 400, 20, 1, 1, 1, 144, 1, 617299839, 0, 0, 'npc_king_varian_wrynn', 12340);
 
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Clate);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (@Biggins, 0, 0, 0, 1, 0, 0, NULL),
-(@Clate, 0, 0, 0, 0, 0, 0, NULL);
+(@Clate, 0, 0, 0, 0, 0, 0, NULL),
+(@Wrynn, 0, 0, 0, 1, 0, 3, NULL);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Clate);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
---
 (@Biggins, 'deDE', 'Hauptfeldwebel Biggins', 'Rüstmeister für Zubehör', 18019),
 (@Biggins, 'esES', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
 (@Biggins, 'esMX', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
@@ -395,12 +223,22 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Clate, 'koKR', '선임하사 클레이트', '식료품 상인', 18019),
 (@Clate, 'ruRU', 'Старший сержант Клейт', 'Еда и напитки', 18019),
 (@Clate, 'zhCN', '克莱特军士长', '食物和饮料', 18019),
-(@Clate, 'zhTW', '士官長克萊特', '食物和飲料', 18019);
+(@Clate, 'zhTW', '士官長克萊特', '食物和飲料', 18019),
+--
+(@Wrynn, 'deDE', 'König Varian Wrynn', 'König von Sturmwind', 18019),
+(@Wrynn, 'esES', 'Rey Varian Wrynn', 'Rey de Ventormenta', 18019),
+(@Wrynn, 'esMX', 'Rey Varian Wrynn', 'Rey de Ventormenta', 18019),
+(@Wrynn, 'frFR', 'Roi Varian Wrynn', 'Roi de Hurlevent', 18019),
+(@Wrynn, 'koKR', '국왕 바리안 린', '스톰윈드 국왕', 18019),
+(@Wrynn, 'ruRU', 'Король Вариан Ринн', 'Король Штормграда', 18019),
+(@Wrynn, 'zhCN', '瓦里安·乌瑞恩国王', '暴风城国王', 18019),
+(@Wrynn, 'zhTW', '瓦里安·烏瑞恩國王', '暴風之王', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Clate);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Clate, @Wrynn);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@Biggins, 0, 12669, 1, 1, 12340),
-(@Clate, 0, 12925, 1, 1, 12340);
+(@Clate, 0, 12925, 1, 1, 12340),
+(@Wrynn, 0, 28127, 1, 1, 12340);
 
 UPDATE `creature_template` SET `subname` = 'Mount Vendor' WHERE `entry` = 12783;
 UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12784; 
@@ -638,6 +476,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
+UPDATE `creature`   SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` = 19848; -- Harbinger Ennarth
+
 
 -- WotLK pvp vendors
 DELETE FROM `creature` WHERE `id1` IN 
@@ -648,25 +488,29 @@ DELETE FROM `creature` WHERE `id1` IN
 
 
 -- Summon Felsteed (Warlock)
-DELETE FROM `quest_offer_reward` WHERE `ID`=4488;
+DELETE FROM `quest_offer_reward` WHERE `ID` = 4488;
 INSERT INTO `quest_offer_reward` (`ID`, `RewardText`) VALUES 
 (4488, 'So, you\'ve decided to grace my presence again. How kind of you.$b$bMy acolytes wondered if you\'d ever show up. I told them there was no doubt. When power is concerned, you are drawn in like a moth to the flame.');
 
 -- A Meal Served Cold
-UPDATE `quest_template` SET `Flags`=9, `LogDescription`='Kill a Cold Eye Basilisk, get a Chilled Basilisk Haunch, and return it to Angus Stern in the Blue Recluse.$B$B<You must not release your spirit to succeed in this quest.>' WHERE `ID`=212;
+UPDATE `quest_template` SET `Flags` = 9, 
+`LogDescription` = 'Kill a Cold Eye Basilisk, get a Chilled Basilisk Haunch, and return it to Angus Stern in the Blue Recluse.$B$B<You must not release your spirit to succeed in this quest.>' 
+WHERE `ID` = 212;
 
 -- Chillwind Camp
-UPDATE `quest_template` SET `LogTitle`='Chillwind Point' WHERE `ID`=8415;
+UPDATE `quest_template` SET `LogTitle` = 'Chillwind Point' WHERE `ID` = 8415;
 
 -- Devourer of Souls (Warlock)
-UPDATE `quest_template_addon` SET `PrevQuestID`=0 WHERE `ID`=1716;
+UPDATE `quest_template_addon` SET `PrevQuestID` = 0 WHERE `ID` = 1716;
 
+
+-- this should probably go to vanilla_vendors
 -- Remove non-Vanilla food items from Stormwind vendors
-DELETE FROM npc_vendor WHERE entry=6740 and item IN (27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
-DELETE FROM npc_vendor WHERE entry=3518 and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry=3003 and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry=4255 and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954);
-DELETE FROM npc_vendor WHERE entry=10367 and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954, 27859, 29453, 33452, 35947);
-DELETE FROM npc_vendor WHERE entry=5109 and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry=4981 and item IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
-DELETE FROM npc_vendor WHERE entry=483 and item IN (27857, 33443, 35952);
+DELETE FROM npc_vendor WHERE entry = 483   and item IN (27857, 33443, 35952);
+DELETE FROM npc_vendor WHERE entry = 3518  and item IN (27855, 33449, 35950);
+DELETE FROM npc_vendor WHERE entry = 3003  and item IN (27855, 33449, 35950);
+DELETE FROM npc_vendor WHERE entry = 4255  and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954);
+DELETE FROM npc_vendor WHERE entry = 4981  and item IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
+DELETE FROM npc_vendor WHERE entry = 5109  and item IN (27855, 33449, 35950);
+DELETE FROM npc_vendor WHERE entry = 6740  and item IN (27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
+DELETE FROM npc_vendor WHERE entry = 10367 and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954, 27859, 29453, 33452, 35947);

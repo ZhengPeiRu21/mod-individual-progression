@@ -1,105 +1,44 @@
--- Doctor Martin Felben <Journeyman Alchemist Trainer>
-UPDATE `creature_template` SET `subname`='Journeyman Alchemist Trainer', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11044;
+UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Leatherworker'     WHERE `entry` = 223;   -- Dan Golthas <Journeyman Leatherworker>
+UPDATE `creature_template` SET `npcflag`=83, `trainer_type`=2, `subname`='Journeyman Engineer'          WHERE `entry` = 4586;  -- Graham Van Talen <Journeyman Engineer>
+UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Blacksmith'        WHERE `entry` = 4605;  -- Basil Frye <Journeyman Blacksmith>
+UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Expert Alchemist'             WHERE `entry` = 4609;  -- Doctor Marsh <Expert Alchemist>
+UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Alchemist Trainer' WHERE `entry` = 11044; -- Doctor Martin Felben <Journeyman Alchemist Trainer>
+UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Tailor'            WHERE `entry` = 11048; -- Victor Ward <Journeyman Tailor>
+UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Expert Tailor'                WHERE `entry` = 11049; -- Rhiannon Davis <Expert Tailor>
+UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Enchanter'         WHERE `entry` = 11067; -- Malcomb Wynn <Journeyman Enchanter>
 
--- Doctor Marsh <Expert Alchemist>
-UPDATE `creature_template` SET `subname`='Expert Alchemist', `npcflag`=81, `trainer_type`=2, `type_flags`=134217728 WHERE `entry`=4609;
-
--- Basil Frye <Journeyman Blacksmith>
-UPDATE `creature_template` SET `subname`='Journeyman Blacksmith', `npcflag`=81, `trainer_type`=2 WHERE `entry`=4605;
-
--- Malcomb Wynn <Journeyman Enchanter>
-UPDATE `creature_template` SET `subname`='Journeyman Enchanter', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11067;
-
--- Graham Van Talen <Journeyman Engineer>
-UPDATE `creature_template` SET `subname`='Journeyman Engineer', `npcflag`=83, `trainer_type`=2 WHERE `entry`=4586;
-
--- Dan Golthas <Journeyman Leatherworker>
-UPDATE `creature_template` SET `subname`='Journeyman Leatherworker', `npcflag`=81, `trainer_type`=2 WHERE `entry`=223;
-
--- Victor Ward <Journeyman Tailor>
-UPDATE `creature_template` SET `subname`='Journeyman Tailor', `npcflag`=81, `trainer_type`=2 WHERE `entry`=11048;
-
--- Rhiannon Davis <Expert Tailor>
-UPDATE `creature_template` SET `subname`='Expert Tailor', `npcflag`=81, `trainer_type`=2, `type_flags`=134217728 WHERE `entry`=11049;
+UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4609, 11049);
 
 
--- Doctor Martin Felben <Journeyman Alchemist Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=11044;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11044, -300000);
+DELETE FROM `npc_trainer` WHERE `ID` IN (223, 4586, 4605, 4609, 11044, 11048, 11049, 11067);
+INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
+(223,  -380000),  -- Dan Golthas <Journeyman Leatherworker>
+(4586, -340000),  -- Graham Van Talen <Journeyman Engineer>
+(4605, -310000),  -- Basil Frye <Journeyman Blacksmith>
+(4609, -300000),  -- Doctor Marsh <Expert Alchemist>
+(4609, -300001),  -- Doctor Marsh <Expert Alchemist>
+(11044, -300000), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
+(11048, -410000), -- Victor Ward <Journeyman Tailor>
+(11049, -410000), -- Rhiannon Davis <Expert Tailor>
+(11049, -410001), -- Rhiannon Davis <Expert Tailor>
+(11067, -330000); -- Malcomb Wynn <Journeyman Enchanter>
 
--- Doctor Marsh <Expert Alchemist>
-DELETE FROM `npc_trainer` WHERE `ID`=4609;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4609, -300000), (4609, -300001);
 
--- Basil Frye <Journeyman Blacksmith>
-DELETE FROM `npc_trainer` WHERE `ID`=4605;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4605, -310000);
-
--- Malcomb Wynn <Journeyman Enchanter>
-DELETE FROM `npc_trainer` WHERE `ID`=11067;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11067, -330000);
-
--- Graham Van Talen <Journeyman Engineer>
-DELETE FROM `npc_trainer` WHERE `ID`=4586;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4586, -340000);
-
--- Dan Golthas <Journeyman Leatherworker>
-DELETE FROM `npc_trainer` WHERE `ID`=223;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (223, -380000);
-
--- Victor Ward <Journeyman Tailor>
-DELETE FROM `npc_trainer` WHERE `ID`=11048;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11048, -410000);
-
--- Rhiannon Davis <Expert Tailor>
-DELETE FROM `npc_trainer` WHERE `ID`=11049;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (11049, -410000), (11049, -410001);
-
--- Doctor Marsh <Expert Alchemist>
-DELETE FROM `gossip_menu_option` WHERE `MenuID`=4130;
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4130, 4352);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(4130, 0, 3, 'Train me.', 3266, 5, 16);
-
--- Rhiannon Davis <Expert Tailor>
-DELETE FROM `gossip_menu_option` WHERE `MenuID`=4352;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
-(4352, 0, 3, 'Train me.', 3266, 5, 16);
+(4130, 0, 3, 'Train me.', 3266, 5, 16), -- Doctor Marsh <Expert Alchemist>
+(4352, 0, 3, 'Train me.', 3266, 5, 16); -- Rhiannon Davis <Expert Tailor>
 
 
--- Doctor Marsh <Expert Alchemist>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4130 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7 AND `SourceGroup` IN (1022, 4130, 4132, 4166, 4210, 4352, 4354);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4130, 0, 7, 171, 50, 'Show menu if alchemy is 50 or higher');
-
--- Doctor Herbert Halsey <Artisan Alchemist>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4132 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 4132, 0, 7, 171, 125, 'Show menu if alchemy is 125 or higher');
-
--- James Van Brunt <Expert Blacksmith>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=1022 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
-(15, 1022, 0, 7, 164, 50, 'Show menu if blacksmithing is 50 or higher');
-
--- Lavinia Crowe <Expert Enchanter>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4166 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 4166, 0, 7, 333, 50, 'Show menu if enchanting is 50 or higher');
-
--- Arthur Moore <Expert Leatherworker>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4210 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 4210, 0, 7, 165, 50, 'Show menu if leatherworking is 50 or higher');
-
--- Rhiannon Davis <Expert Tailor>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4352 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 4352, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');
-
--- Josef Gregorian <Artisan Tailor>
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceGroup`=4354 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
-(15, 4354, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');
+(15, 4130, 0, 7, 171, 50,  'Show menu if alchemy is 50 or higher'),        -- Doctor Marsh <Expert Alchemist>
+(15, 4132, 0, 7, 171, 125, 'Show menu if alchemy is 125 or higher'),       -- Doctor Herbert Halsey <Artisan Alchemist>
+(15, 1022, 0, 7, 164, 50,  'Show menu if blacksmithing is 50 or higher'),  -- James Van Brunt <Expert Blacksmith>
+(15, 4166, 0, 7, 333, 50,  'Show menu if enchanting is 50 or higher'),     -- Lavinia Crowe <Expert Enchanter>
+(15, 4210, 0, 7, 165, 50,  'Show menu if leatherworking is 50 or higher'), -- Arthur Moore <Expert Leatherworker>
+(15, 4352, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher'),      -- Rhiannon Davis <Expert Tailor>
+(15, 4354, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');     -- Josef Gregorian <Artisan Tailor>
 
 
 -- Summon Felsteed (Warlock)
@@ -110,12 +49,13 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
 DELETE FROM `npc_trainer` WHERE `ID`=4591; 
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4591, -350000); 
 
-
 /* Replace orc guards with pre-wrathgate abomination guards */
 UPDATE `creature` SET `id1`=5624, `equipment_id`=0 WHERE `id1`=36213;
 
+
 DELETE FROM `gossip_menu_option` WHERE (`MenuID`) IN (2847, 2848, 2849);
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, 
+            `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
 (2847, 0, 0, 'Alchemy', 3460, 1, 1, 2834, 336, 0, 0, NULL, 0, 0),
 (2847, 1, 0, 'Blacksmithing', 3461, 1, 1, 2835, 337, 0, 0, NULL, 0, 0),
 (2847, 2, 0, 'Cooking', 3462, 1, 1, 2836, 338, 0, 0, NULL, 0, 0),
@@ -154,9 +94,9 @@ DELETE FROM `creature` WHERE `guid` IN (43466, 79263);
 UPDATE `creature_template` SET `AINAME` = '' WHERE `entry` = 2055;
 
 /* Restore quests series The Deathstalkers */
-DELETE FROM `creature_questender` WHERE `id` = 6467 AND `quest` = 14420;
-DELETE FROM `creature_questender` WHERE `id` = 6467 AND `quest` = 14421;
-DELETE FROM `creature_questender` WHERE `id` = 6522 AND `quest` = 14419;
+DELETE FROM `creature_questender` WHERE `id` = 6467  AND `quest` = 14420;
+DELETE FROM `creature_questender` WHERE `id` = 6467  AND `quest` = 14421;
+DELETE FROM `creature_questender` WHERE `id` = 6522  AND `quest` = 14419;
 DELETE FROM `creature_questender` WHERE `id` = 36517 AND `quest` = 14418;
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (6467, 1886);
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (6467, 1899);
@@ -178,7 +118,7 @@ UPDATE `conditions` SET `ConditionValue1`= 1886,  `comment` = 'Astor Hadren - Sh
 
 
 /* Restore Varimathras */
-UPDATE `creature` SET `id1`=2425, `equipment_id`=0 WHERE `id1`=36273;
+UPDATE `creature` SET `id1` = 2425, `equipment_id` = 0 WHERE `id1` = 36273;
 
 /* Restore correct quests for Varimathras */
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (550, 6522, 6521, 1048, 5725);
@@ -196,36 +136,32 @@ REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 14353);
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 14355);
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 14356);
 
-DELETE FROM `creature_queststarter` WHERE `id`=2215 AND `quest`=14351;
+DELETE FROM `creature_queststarter` WHERE `id` = 2215 AND `quest` = 14351;
 REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (2215, 550);
 REPLACE INTO `creature_questender` (`id`, `quest`) VALUES (2425, 550);
 UPDATE `quest_template` SET `RewardNextQuest` = 550 WHERE `ID` = 541;
 
-DELETE FROM `creature_loot_template` WHERE `Entry`=4421 AND `Item`=49205 AND `Reference`=0 AND `GroupId`=0;
-REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES (4421, 17008, 0, 100, 0, 1, 0, 1, 1, 'Charlga Razorflank - Small Scroll');
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 4421 AND `SourceEntry` = 49205 AND `SourceId` = 0 AND `ElseGroup` = 0 AND `ConditionTypeOrReference` = 6 AND `ConditionTarget` = 0 AND `ConditionValue1` = 67 AND `ConditionValue2` = 0 AND `ConditionValue3` = 0;
-REPLACE INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES (1, 4421, 17008, 0, 0, 6, 0, 67, 0, 0, 0, 0, 0, '', NULL);
+-- Quest: An Unholy Alliance
+DELETE FROM `creature_loot_template` WHERE `Entry` = 4421 AND `Item` = 49205 AND `Reference` = 0 AND `GroupId` = 0;
+REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+(4421, 17008, 0, 100, 0, 1, 0, 1, 1, 'Charlga Razorflank - Small Scroll');
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 4421 AND `SourceEntry` = 49205;
+REPLACE INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+                           `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(1, 4421, 17008, 0, 0, 6, 0, 67, 0, 0, 0, 0, 0, '', NULL);
 
 UPDATE `item_template` SET `flags` = 2048 WHERE `entry` = 17008;
 UPDATE `item_template` SET `description` = 'To be opened by Lord Varimathras.' WHERE `entry` = 3701;
 
-UPDATE `quest_template`
-SET `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
-WHERE `ID` = 5725;
-
+-- Quest: An Unholy Alliance
 UPDATE `quest_template`
 SET `LogDescription`  = "Bring Ambassador Malcin's Head to Varimathras in the Undercity.",
     `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
 WHERE `ID` = 6521;
 UPDATE `quest_template_locale` SET `Objectives` = 'Apporter la Tête de l''Ambassadeur Malcin à Varimathras, à Fossoyeuse.', `CompletedText` = 'Retournez voir Varimathras au Quartier royal, à Fossoyeuse.'
 WHERE `ID` = '6521' AND `locale` = 'frFR';
-
-UPDATE `quest_template`
-SET `LogDescription`  = "Take Darthalia's Sealed Commendation to Varimathras in the Undercity.",
-    `QuestDescription` = "Because you fought with such valor and perseverance in the Battle of Hillsbrad, I have written this commendation, extolling your heroics in combat for the high command to recognize.$b$bTake this sealed commendation to Varimathras in the Undercity.  Go with pride, $c.",
-    `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
-WHERE `ID` = 14351;
 
 UPDATE `quest_template`
 SET `LogDescription`  = "Take the Small Scroll to Varimathras in the Undercity.",
@@ -239,14 +175,27 @@ SET `LogDescription`  = "Bring Ambassador Malcin's Head to Varimathras in the Un
     `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
 WHERE `ID` = 14353;
 
+-- Quest: The Power to Destroy...
 UPDATE `quest_template`
-SET `LogDescription`  = "Kill High Inquisitor Whitemane, Scarlet Commander Mograine, Herod, the Scarlet Champion and Houndmaster Loksey and then report back to Varimathras in the Undercity.",
-    `QuestDescription` = "One of my duties while I'm stationed here is to help the Forsaken take care of their borders, and that, $c, is exactly what you're going to do for me.$b$bI might live and breathe, but the Scarlet Crusade will cut down my people as quickly as they will one of the undead. They're a problem here, a big one, and you're going to do something about it.$b$bGo to the Monastery and slay High Inquisitor Whitemane and her lieutenants.",
-    `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
-WHERE `ID` = 14355;
+SET `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
+WHERE `ID` = 5725;
 
 UPDATE `quest_template`
 SET `LogDescription`  = "Bring the books Spells of Shadow and Incantations from the Nether to Varimathras in Undercity.",
     `QuestDescription` = "Listen up, $c.$b$bYou may not know this, but Orgrimmar's got a problem. Deep in Ragefire Chasm, a sect of the Shadow Council called the Searing Blade performs their sinister work. They're mainly orcs, and I can't trust sensitive information in the hands of the grunts there. That's where you come in.$b$bThey should have two books in their possession. I want them kept out of the hands of the Searing Blade and the Forsaken alike. Bring them to me directly.",
     `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
 WHERE `ID` = 14356;
+
+-- Quest: Battle of Hillsbrad
+UPDATE `quest_template`
+SET `LogDescription`  = "Take Darthalia's Sealed Commendation to Varimathras in the Undercity.",
+    `QuestDescription` = "Because you fought with such valor and perseverance in the Battle of Hillsbrad, I have written this commendation, extolling your heroics in combat for the high command to recognize.$b$bTake this sealed commendation to Varimathras in the Undercity.  Go with pride, $c.",
+    `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
+WHERE `ID` = 14351;
+
+-- Quest: Into The Scarlet Monastery
+UPDATE `quest_template`
+SET `LogDescription`  = "Kill High Inquisitor Whitemane, Scarlet Commander Mograine, Herod, the Scarlet Champion and Houndmaster Loksey and then report back to Varimathras in the Undercity.",
+    `QuestDescription` = "One of my duties while I'm stationed here is to help the Forsaken take care of their borders, and that, $c, is exactly what you're going to do for me.$b$bI might live and breathe, but the Scarlet Crusade will cut down my people as quickly as they will one of the undead. They're a problem here, a big one, and you're going to do something about it.$b$bGo to the Monastery and slay High Inquisitor Whitemane and her lieutenants.",
+    `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
+WHERE `ID` = 14355;

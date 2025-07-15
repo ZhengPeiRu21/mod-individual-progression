@@ -15,23 +15,26 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "CreatureScript.h"
 #include "PassiveAI.h"
-#include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
 #include "SpellAuras.h"
 #include "SpellScript.h"
+#include "SpellScriptLoader.h"
 #include "naxxramas.h"
 
 enum Spells
 {
     SPELL_POISON_CLOUD                      = 28240,
-    SPELL_POISON_CLOUD_POISON_DAMAGE        = 28241,
     SPELL_MUTATING_INJECTION                = 28169,
     SPELL_MUTATING_EXPLOSION                = 28206,
-    SPELL_SLIME_SPRAY                       = 28157,
-    SPELL_POISON_CLOUD_DAMAGE_AURA          = 28158,
+    SPELL_SLIME_SPRAY_10                    = 28157,
+    SPELL_SLIME_SPRAY_25                    = 54364,
+    SPELL_POISON_CLOUD_DAMAGE_AURA_10       = 28158,
+    SPELL_POISON_CLOUD_DAMAGE_AURA_25       = 54362,
     SPELL_BERSERK                           = 26662,
+    // SPELL_BOMBARD_SLIME                     = 28280
 };
 
 enum Emotes
@@ -49,9 +52,9 @@ enum Events
 
 enum Misc
 {
-    NPC_FALLOUT_SLIME                       = 351067,
-    NPC_SEWAGE_SLIME                        = 351071,
-    NPC_STICHED_GIANT                       = 351027
+    // NPC_FALLOUT_SLIME                       = 16290,
+    // NPC_SEWAGE_SLIME                        = 16375,
+    // NPC_STICHED_GIANT                       = 16025
 };
 
 class boss_grobbulus_40 : public CreatureScript
@@ -67,13 +70,10 @@ public:
     struct boss_grobbulus_40AI : public BossAI
     {
         explicit boss_grobbulus_40AI(Creature* c) : BossAI(c, BOSS_GROBBULUS), summons(me)
-        {
-            pInstance = me->GetInstanceScript();
-        }
+        {}
 
         EventMap events;
         SummonList summons;
-        InstanceScript* pInstance;
         uint32 dropSludgeTimer{};
 
         void Reset() override
@@ -99,15 +99,15 @@ public:
             BossAI::JustEngagedWith(who);
             PullChamberAdds();
             me->SetInCombatWithZone();
-            events.ScheduleEvent(EVENT_POISON_CLOUD, 15000);
-            events.ScheduleEvent(EVENT_MUTATING_INJECTION, 12000);
-            events.ScheduleEvent(EVENT_SLIME_SPRAY, 10000);
-            events.ScheduleEvent(EVENT_BERSERK, 12 * 60 * 1000);  // 12 minute enrage
+            events.ScheduleEvent(EVENT_POISON_CLOUD, 15s);
+            events.ScheduleEvent(EVENT_MUTATING_INJECTION, 20s);
+            events.ScheduleEvent(EVENT_SLIME_SPRAY, 10s);
+            events.ScheduleEvent(EVENT_BERSERK, RAID_MODE(720000, 540000, 540000, 540000));
         }
 
         void SpellHitTarget(Unit* target, SpellInfo const* spellInfo) override
         {
-            if (spellInfo->Id == SPELL_SLIME_SPRAY && target->GetTypeId() == TYPEID_PLAYER)
+            if (spellInfo->Id == RAID_MODE(SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25, SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25) && target->IsPlayer())
             {
                 me->SummonCreature(NPC_FALLOUT_SLIME, target->GetPositionX(), target->GetPositionY(), target->GetPositionZ());
             }
@@ -135,10 +135,8 @@ public:
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() == TYPEID_PLAYER && pInstance)
-            {
-                pInstance->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void UpdateAI(uint32 diff) override
@@ -164,19 +162,16 @@ public:
             {
                 case EVENT_POISON_CLOUD:
                     me->CastSpell(me, SPELL_POISON_CLOUD, true);
-                    events.RepeatEvent(15000);
+                    events.Repeat(15s);
                     break;
                 case EVENT_BERSERK:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
                 case EVENT_SLIME_SPRAY:
-                {
                     Talk(EMOTE_SLIME);
-                    int32 modifiedSlimeSprayDamage = urand(3200, 3400);
-                    me->CastCustomSpell(me->GetVictim(), SPELL_SLIME_SPRAY, &modifiedSlimeSprayDamage, 0, 0, false);
-                    events.RepeatEvent(20000);
+                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25, SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25), false);
+                    events.Repeat(20s);
                     break;
-                }
                 case EVENT_MUTATING_INJECTION:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, 100.0f, true, true, -SPELL_MUTATING_INJECTION))
                     {
@@ -197,12 +192,12 @@ public:
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return GetNaxxramasAI<boss_grobbulus_40_poison_cloudAI>(pCreature);
+        return GetNaxxramasAI<boss_grobbulus_poison_cloud_40AI>(pCreature);
     }
 
-    struct boss_grobbulus_40_poison_cloudAI : public NullCreatureAI
+    struct boss_grobbulus_poison_cloud_40AI : public NullCreatureAI
     {
-        explicit boss_grobbulus_40_poison_cloudAI(Creature* pCreature) : NullCreatureAI(pCreature) { }
+        explicit boss_grobbulus_poison_cloud_40AI(Creature* pCreature) : NullCreatureAI(pCreature) { }
 
         uint32 sizeTimer{};
         uint32 auraVisualTimer{};
@@ -217,10 +212,8 @@ public:
 
         void KilledUnit(Unit* who) override
         {
-            if (who->GetTypeId() == TYPEID_PLAYER && me->GetInstanceScript())
-            {
-                me->GetInstanceScript()->SetData(DATA_IMMORTAL_FAIL, 0);
-            }
+            if (who->IsPlayer())
+                me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void UpdateAI(uint32 diff) override
@@ -230,7 +223,7 @@ public:
                 auraVisualTimer += diff;
                 if (auraVisualTimer >= 1000)
                 {
-                    me->CastSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA, true);
+                    me->CastSpell(me, (me->GetMap()->Is25ManRaid() ? SPELL_POISON_CLOUD_DAMAGE_AURA_25 : SPELL_POISON_CLOUD_DAMAGE_AURA_10), true);
                     auraVisualTimer = 0;
                 }
             }
@@ -291,9 +284,7 @@ class spell_grobbulus_mutating_injection_aura : public AuraScript
                         caster->CastCustomSpell(GetTarget(), SPELL_MUTATING_EXPLOSION, &modifiedMutatingExplosionDamage, 0, 0, true);
                     }
                     else
-                    {
                         caster->CastSpell(GetTarget(), SPELL_MUTATING_EXPLOSION, true);
-                    }
                 }
                 break;
             default:

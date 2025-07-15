@@ -10,9 +10,6 @@ DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` = 17;
 DELETE FROM `game_event` WHERE `eventEntry` = 17;
 
 /* Friendship Bread and Freshly-Squeezed Lemonade */
--- Making these NPCs vendors, they will appear after the Naxx phase started.
--- Before Naxx they will be replaced with copies that do not sell these items.
-
 DELETE FROM `npc_vendor` WHERE `entry` IN (2482, 3044, 4165, 5173, 5698, 15006) AND `item` IN (23160, 23161);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES
 (2482, 0, 23160, 0, 0, 0, 0),  -- Zarena Cromwind
@@ -29,43 +26,41 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (15006, 0, 23161, 0, 0, 0, 0);
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (2482, 3044, 4165, 5173, 5698, 11038, 14450, 15006, 16543);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` IN (4533, 4566, 4821, 6470, 8730);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
-(23, 2482,  23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
-(23, 2482,  23160, 0, 0, 8, 0, 9301,  0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed \'Envelope from the Front\''),
-(23, 2482,  23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
-(23, 2482,  23161, 0, 1, 8, 0, 9301,  0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed \'Envelope from the Front\''),
+(23, 2482,  23160, 0, 0, 8, 0, 9301, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Friendship Bread until the player has completed ''Envelope from the Front'''),
+(23, 2482,  23161, 0, 1, 8, 0, 9301, 0, 0, 0, 0, 0, '', 'Zarena Cromwind will not sell Freshly-Squeezed Lemonade until the player has completed ''Envelope from the Front'''),
 --
-(23, 3044,  23160, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Miles Welsh will not sell Friendship Bread until the player has completed \'Page from the Front\''),
-(23, 3044,  23161, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Miles Welsh will not sell Freshly-Squeezed Lemonade until the player has completed \'Page from the Front\''),
+(23, 3044,  23160, 0, 0, 8, 0, 9300, 0, 0, 0, 0, 0, '', 'Miles Welsh will not sell Friendship Bread until the player has completed ''Page from the Front'''),
+(23, 3044,  23161, 0, 0, 8, 0, 9300, 0, 0, 0, 0, 0, '', 'Miles Welsh will not sell Freshly-Squeezed Lemonade until the player has completed ''Page from the Front'''),
+(15, 4533,  3,     0, 0, 8, 0, 9300, 0, 0, 0, 0, 0, '', 'Miles Welsh will not show vendor gossip option until the player has completed ''Page from the Front'''),
 --
-(23, 4165,  23160, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Friendship Bread until the player has completed \'Page from the Front\''),
-(23, 4165,  23161, 0, 0, 8, 0, 9300,  0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Freshly-Squeezed Lemonade until the player has completed \'Page from the Front\''),
+(23, 4165,  23160, 0, 0, 8, 0, 9300, 0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Friendship Bread until the player has completed ''Page from the Front'''),
+(23, 4165,  23161, 0, 0, 8, 0, 9300, 0, 0, 0, 0, 0, '', 'Elissa Dumas will not sell Freshly-Squeezed Lemonade until the player has completed ''Page from the Front'''),
+(15, 4821,  1,     0, 0, 8, 0, 9300, 0, 0, 0, 0, 0, '', 'Elissa Dumas will not show vendor gossip option until the player has completed ''Page from the Front'''),
 --
-(23, 5173,  23160, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Friendship Bread until the player has completed \'Note from the Front\''),
-(23, 5173,  23161, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
+(23, 5173,  23160, 0, 0, 8, 0, 9299, 0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Friendship Bread until the player has completed ''Note from the Front'''),
+(23, 5173,  23161, 0, 0, 8, 0, 9299, 0, 0, 0, 0, 0, '', 'Alexander Calder will not sell Freshly-Squeezed Lemonade until the player has completed ''Note from the Front'''),
+(15, 4566,  3,     0, 0, 8, 0, 9299, 0, 0, 0, 0, 0, '', 'Alexander Calder will not show vendor gossip option until the player has completed ''Note from the Front'''),
 --
-(23, 5698,  23160, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Friendship Bread until the player has completed \'Letter from the Front\''),
-(23, 5698,  23161, 0, 0, 8, 0, 9295,  0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Freshly-Squeezed Lemonade until the player has completed \'Letter from the Front\''),
+(23, 5698,  23160, 0, 0, 8, 0, 9295, 0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Friendship Bread until the player has completed ''Letter from the Front'''),
+(23, 5698,  23161, 0, 0, 8, 0, 9295, 0, 0, 0, 0, 0, '', 'Joanna Whitehall will not sell Freshly-Squeezed Lemonade until the player has completed ''Letter from the Front'''),
+(15, 8730,  0,     0, 0, 8, 0, 9295, 0, 0, 0, 0, 0, '', 'Joanna Whitehall will not show vendor gossip option until the player has completed ''Letter from the Front'''),
 --
-(23, 11038, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
-(23, 11038, 23160, 0, 0, 8, 0, 9304, 0, 0, 0, 0, 0, '',  'Caretaker Alen will not sell Friendship Bread until the player has completed \'Document from the Front\''),
-(23, 11038, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
-(23, 11038, 23161, 0, 1, 8, 0, 9304, 0, 0, 0, 0, 0, '',  'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed \'Document from the Front\''),
+(23, 11038, 23160, 0, 0, 8, 0, 9304, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Friendship Bread until the player has completed ''Document from the Front'''),
+(23, 11038, 23161, 0, 1, 8, 0, 9304, 0, 0, 0, 0, 0, '', 'Caretaker Alen will not sell Freshly-Squeezed Lemonade until the player has completed ''Document from the Front'''),
 --
-(23, 14450, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
-(23, 14450, 23160, 0, 0, 8, 0, 9295, 0, 0, 0, 0, 0, '',  'Orphan Matron Nightingale will not sell Friendship Bread until the player has completed \'Letter from the Front\''),
-(23, 14450, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
-(23, 14450, 23161, 0, 1, 8, 0, 9295, 0, 0, 0, 0, 0, '',  'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed \'Letter from the Front\''),
+(23, 14450, 23160, 0, 0, 8, 0, 9295, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Friendship Bread until the player has completed ''Letter from the Front'''),
+(23, 14450, 23161, 0, 1, 8, 0, 9295, 0, 0, 0, 0, 0, '', 'Orphan Matron Nightingale will not sell Freshly-Squeezed Lemonade until the player has completed ''Letter from the Front'''),
 --
-(23, 15006, 23160, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Friendship Bread until the player has completed \'Note from the Front\''),
-(23, 15006, 23161, 0, 0, 8, 0, 9299,  0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Freshly-Squeezed Lemonade until the player has completed \'Note from the Front\''),
+(23, 15006, 23160, 0, 0, 8, 0, 9299, 0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Friendship Bread until the player has completed ''Note from the Front'''),
+(23, 15006, 23161, 0, 0, 8, 0, 9299, 0, 0, 0, 0, 0, '', 'Deze Snowbane will not sell Freshly-Squeezed Lemonade until the player has completed ''Note from the Front'''),
+(15, 6470,  1,     0, 0, 8, 0, 9299, 0, 0, 0, 0, 0, '', 'Deze Snowbane will not show vendor gossip option until the player has completed ''Note from the Front'''),
 --
-(23, 16543, 23160, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed PROGRESSION_AQ'),
-(23, 16543, 23160, 0, 0, 8, 0, 9302,  0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed \'Missive from the Front\''),
-(23, 16543, 23161, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed PROGRESSION_AQ'),
-(23, 16543, 23161, 0, 1, 8, 0, 9302,  0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed \'Missive from the Front\'');
+(23, 16543, 23160, 0, 0, 8, 0, 9302, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Friendship Bread until the player has completed ''Missive from the Front'''),
+(23, 16543, 23161, 0, 1, 8, 0, 9302, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed ''Missive from the Front''');
 
     
 UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 1803;
@@ -150,7 +145,7 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@Deze, 0, 15112, 1, 1, 12340);
 
 DELETE FROM `creature` WHERE `id1` IN (@Miles, @Elissa, @Alexander, @Joanna, @Deze);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT IGNORE INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (603044, @Miles, 0, 0, 1, 0, 0, 1, 1, 1, -956.24, 252.418, 97.8755, 4.2237, 250, 0, 0, 1753, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (604165, @Elissa, 0, 0, 1, 0, 0, 1, 1, 1, 9658.69, 2508.7, 1331.7, 2.25148, 300, 0, 0, 992, 2680, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -174,14 +169,15 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4533 AND `OptionID` = 3;
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4566 AND `OptionID` = 3; 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4821 AND `OptionID` = 1;
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (6470, 8730);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, 
 `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES 
 (4533, 3, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
 (4566, 3, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
-(4821, 1, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0);
-
-DELETE FROM `battlemaster_entry` WHERE `entry` = @Deze;
-INSERT INTO `battlemaster_entry` (`entry`, `bg_template`) VALUES (@Deze, 3);
+(4821, 1, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(6470, 0, 9, 'I would like to go to the battleground.', 10355, 12, 1048576, 0, 0, 0, 0, '', 0, 0),
+(6470, 1, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(8730, 0, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0);
 
 
 /*-- Smart AI --*/
