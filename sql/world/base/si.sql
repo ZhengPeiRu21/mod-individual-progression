@@ -317,6 +317,13 @@ UPDATE `creature_template` SET `HealthModifier` = 5 WHERE `entry` IN (@SPIRIT_OF
 -- Ghoul Berserker, Spectral Soldier, Skeletal Shocktrooper
 UPDATE `creature_template` SET `HealthModifier` = 2.7 WHERE `entry` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
 
+-- Adds the reference loot (40110) for the Haunted Memento (40110)
+DELETE FROM `creature_loot_template` WHERE `Item` = 40110 AND `Entry` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(@GHOUL_BERSERKER,       40110, 40110, 2, 0, 1, 1, 1, 1, 'Reference Loot: Scourge Invasion Event - Item: Haunted Memento'),
+(@SPECTRAL_SOLDIER,      40110, 40110, 2, 0, 1, 1, 1, 1, 'Reference Loot: Scourge Invasion Event - Item: Haunted Memento'),
+(@SKELETAL_SHOCKTROOPER, 40110, 40110, 2, 0, 1, 1, 1, 1, 'Reference Loot: Scourge Invasion Event - Item: Haunted Memento');
+    
 DELETE FROM `creature_loot_template` WHERE `Entry` IN (16141, 16298, 16299);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 --
@@ -369,28 +376,33 @@ INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`,
 /*-- Smart AI --*/
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(@SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @LUMBERING_HORROR, 16136, @GHOUL_BERSERKER, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, 16422, 16423, 16437, 16438);
+(@CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16422, 16423, 16437, 16438,
+ @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 
 DELETE FROM `smart_scripts` WHERE `entryorguid` IN 
-(@SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, 16136, @GHOUL_BERSERKER, @LUMBERING_HORROR, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, 16422, 16423, 16437, 16438);
+(@CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16422, 16423, 16437, 16438,
+ @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
 `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 
-(@SEVER, 0, 0, 0, 0, 0, 100, 0, 3000, 10000, 8000, 20000, 0, 0, 11, 17745, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Sever - In Combat - Cast Diseased Spit'),
-(@SEVER, 0, 1, 0, 0, 0, 100, 0, 15000, 18000, 135000, 138000, 0, 0, 11, 8269, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Sever - In Combat - Cast Enrage'),
-(@BALZAPHON, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,     'Balzaphon - In Combat - Cast Fear'),
-(@BALZAPHON, 0, 1, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Balzaphon - In Combat - Cast Frostbolt'),
-(@BALZAPHON, 0, 2, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Balzaphon - In Combat - Cast Frostbolt Volley'),
-(@LADY_FALTHERESS, 0, 0, 0, 0, 0, 100, 0, 1000, 12000, 18000, 24000, 0, 0, 11, 17105, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Lady Falther\'ess - In Combat - Cast Banshee Curse'),
-(@LADY_FALTHERESS, 0, 1, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 16838, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther\'ess - In Combat - Cast Banshee Shriek'),
-(@LADY_FALTHERESS, 0, 2, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 22743, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther\'ess - In Combat - Cast Ribbon of Souls'),
-(@REVANCHION, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Revanchion - In Combat - Cast Frost Nova'),
-(@REVANCHION, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 15000, 17000, 0, 0, 11, 15245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Revanchion - In Combat - Cast Shadow Bolt Volley'),
+(@SEVER, 0, 0, 0, 0, 0, 100, 0, 3000, 10000, 8000, 20000, 0, 0, 11, 17745, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Sever - In Combat - Cast Diseased Spit'),
+(@SEVER, 0, 1, 0, 0, 0, 100, 0, 15000, 18000, 135000, 138000, 0, 0, 11, 8269, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Sever - In Combat - Cast Enrage'),
+(@BALZAPHON, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,         'Balzaphon - In Combat - Cast Fear'),
+(@BALZAPHON, 0, 1, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Balzaphon - In Combat - Cast Frostbolt'),
+(@BALZAPHON, 0, 2, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Balzaphon - In Combat - Cast Frostbolt Volley'),
+(@LADY_FALTHERESS, 0, 0, 0, 0, 0, 100, 0, 1000, 12000, 18000, 24000, 0, 0, 11, 17105, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Lady Falther\'ess - In Combat - Cast Banshee Curse'),
+(@LADY_FALTHERESS, 0, 1, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 16838, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lady Falther\'ess - In Combat - Cast Banshee Shriek'),
+(@LADY_FALTHERESS, 0, 2, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 22743, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lady Falther\'ess - In Combat - Cast Ribbon of Souls'),
+(@REVANCHION, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Revanchion - In Combat - Cast Frost Nova'),
+(@REVANCHION, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 15000, 17000, 0, 0, 11, 15245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Revanchion - In Combat - Cast Shadow Bolt Volley'),
+(@SCORN, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Scorn - In Combat - Cast Frost Nova'),
+(@SCORN, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Scorn - In Combat - Cast Frostbolt Volley'),
+(@SCORN, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 28873, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,             'Scorn - In Combat - Cast Lich Slap'),
 --
 (@CULTIST_ENGINEER, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Respawn - Set Faction 190'),
-(@CULTIST_ENGINEER, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, @CULTIST_ENGINEER, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Respawn - Set guid to Cultist Engineer'),
+(@CULTIST_ENGINEER, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, @CULTIST_ENGINEER, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Cultist Engineer - On Respawn - Set guid to Cultist Engineer'),
 (@CULTIST_ENGINEER, 0, 2, 0, 1, 0, 100, 0, 1000, 2000, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, 16136, 0, 15, 1, 0, 0, 0, 0,     'Cultist Engineer - Out of Combat - Cast Scourge Beam'), -- wrong spell, visual incorrect
 (@CULTIST_ENGINEER, 0, 3, 4, 62, 0, 100, 0, 66000, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Gossip Option 0 Selected - Say Line 1'),
 (@CULTIST_ENGINEER, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 57, 22484, 8, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Gossip Option 0 Selected - Remove 8 Necrotic Runes'),
@@ -401,37 +413,37 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CULTIST_ENGINEER, 0, 9, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 16568, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Shadow of Doom - In Combat - Cast Mind Flay'),
 (@CULTIST_ENGINEER, 0, 10, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadow of Doom - In Combat - Cast Fear'),
 --
-(@LUMBERING_HORROR, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 12000, 15000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Knockdown'),
-(@LUMBERING_HORROR, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Scourge Strike'),
-(@LUMBERING_HORROR, 0, 2, 0, 0, 0, 100, 0, 3200, 11900, 11500, 16100, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Trample'),
-(@LUMBERING_HORROR, 0, 3, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lumbering Horror - On Just Died - Cast \'Zap Crystal\''),
-(@LUMBERING_HORROR, 0, 4, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Lumbering Horror - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
-(@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 16243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Ribbon of Souls'),
-(@SPIRIT_OF_THE_DAMNED, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Scourge Strike'),
-(@SPIRIT_OF_THE_DAMNED, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Spirit of the Damned - On Just Died - Cast \'Zap Crystal\''),
-(@SPIRIT_OF_THE_DAMNED, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Spirit of the Damned - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
-(@BONE_WITCH, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bone Witch - On Respawn - Cast Bone Shards'),
-(@BONE_WITCH, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Bone Witch - In Combat - Cast Scourge Strike'),
-(@BONE_WITCH, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Bone Witch - On Just Died - Cast \'Zap Crystal\''),
-(@BONE_WITCH, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Bone Witch - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@LUMBERING_HORROR, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 12000, 15000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Lumbering Horror - In Combat - Cast Knockdown'),
+(@LUMBERING_HORROR, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Lumbering Horror - In Combat - Cast Scourge Strike'),
+(@LUMBERING_HORROR, 0, 2, 0, 0, 0, 100, 0, 3200, 11900, 11500, 16100, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Lumbering Horror - In Combat - Cast Trample'),
+(@LUMBERING_HORROR, 0, 3, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Lumbering Horror - On Just Died - Cast \'Zap Crystal\''),
+(@LUMBERING_HORROR, 0, 4, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lumbering Horror - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 16243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spirit of the Damned - In Combat - Cast Ribbon of Souls'),
+(@SPIRIT_OF_THE_DAMNED, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spirit of the Damned - In Combat - Cast Scourge Strike'),
+(@SPIRIT_OF_THE_DAMNED, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Spirit of the Damned - On Just Died - Cast \'Zap Crystal\''),
+(@SPIRIT_OF_THE_DAMNED, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Spirit of the Damned - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@BONE_WITCH, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Bone Witch - On Respawn - Cast Bone Shards'),
+(@BONE_WITCH, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Bone Witch - In Combat - Cast Scourge Strike'),
+(@BONE_WITCH, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bone Witch - On Just Died - Cast \'Zap Crystal\''),
+(@BONE_WITCH, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bone Witch - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
 --
-(16422, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Soldier - In Combat - Cast Scourge Strike'),
-(16423, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Apparition - In Combat - Cast Scourge Strike'),
-(16437, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Spirit - In Combat - Cast Scourge Strike'), 
-(16438, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Trooper - In Combat - Cast Scourge Strike'),
+(16422, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Skeletal Soldier - In Combat - Cast Scourge Strike'),
+(16423, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Spectral Apparition - In Combat - Cast Scourge Strike'),
+(16437, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Spectral Spirit - In Combat - Cast Scourge Strike'), 
+(16438, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Skeletal Trooper - In Combat - Cast Scourge Strike'),
 --
-(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 7367, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Ghoul Berserker - In Combat - Cast Infected Bite'),
-(@GHOUL_BERSERKER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Ghoul Berserker - In Combat - Cast Scourge Strike'),
-(@GHOUL_BERSERKER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Ghoul Berserker - On Just Died - Cast \'Zap Crystal\''),
-(@GHOUL_BERSERKER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ghoul Berserker - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
-(@SPECTRAL_SOLDIER, 0, 0, 0, 0, 0, 100, 0, 2000, 10000, 10000, 20000, 0, 0, 11, 13444, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Soldier - In Combat - Cast Sunder Armor'),
-(@SPECTRAL_SOLDIER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Soldier - In Combat - Cast Scourge Strike'),
-(@SPECTRAL_SOLDIER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Skeletal Soldier - On Just Died - Cast \'Zap Crystal\''),
-(@SPECTRAL_SOLDIER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Spectral Soldier - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
-(@SKELETAL_SHOCKTROOPER, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Skeletal Shocktrooper - On Respawn - Cast Bone Shards'),
-(@SKELETAL_SHOCKTROOPER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Shocktrooper - In Combat - Cast Scourge Strike'),
-(@SKELETAL_SHOCKTROOPER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Skeletal Shocktrooper - On Just Died - Cast \'Zap Crystal\''),
-(@SKELETAL_SHOCKTROOPER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Skeletal Shocktrooper - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms');
+(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 7367, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Ghoul Berserker - In Combat - Cast Infected Bite'),
+(@GHOUL_BERSERKER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Ghoul Berserker - In Combat - Cast Scourge Strike'),
+(@GHOUL_BERSERKER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ghoul Berserker - On Just Died - Cast \'Zap Crystal\''),
+(@GHOUL_BERSERKER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Ghoul Berserker - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@SPECTRAL_SOLDIER, 0, 0, 0, 0, 0, 100, 0, 2000, 10000, 10000, 20000, 0, 0, 11, 13444, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Spectral Soldier - In Combat - Cast Sunder Armor'),
+(@SPECTRAL_SOLDIER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Spectral Soldier - In Combat - Cast Scourge Strike'),
+(@SPECTRAL_SOLDIER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Skeletal Soldier - On Just Died - Cast \'Zap Crystal\''),
+(@SPECTRAL_SOLDIER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Spectral Soldier - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@SKELETAL_SHOCKTROOPER, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Skeletal Shocktrooper - On Respawn - Cast Bone Shards'),
+(@SKELETAL_SHOCKTROOPER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper - In Combat - Cast Scourge Strike'),
+(@SKELETAL_SHOCKTROOPER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Skeletal Shocktrooper - On Just Died - Cast \'Zap Crystal\''),
+(@SKELETAL_SHOCKTROOPER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Skeletal Shocktrooper - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms');
 
 
 /*-- Quests --*/
