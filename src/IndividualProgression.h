@@ -106,7 +106,6 @@ enum ProgressionZones
 
 enum ProgressionAreas
 {
-    AREA_AZSHARA                         = 16,
     AREA_THE_DARK_PORTAL                 = 72,
     AREA_TIRISFAL_RUINS                  = 153,
     AREA_DREADMAUL_ROCK                  = 249,
