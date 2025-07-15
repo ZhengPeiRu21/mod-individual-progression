@@ -399,7 +399,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@REVANCHION, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 15000, 17000, 0, 0, 11, 15245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Revanchion - In Combat - Cast Shadow Bolt Volley'),
 (@SCORN, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Scorn - In Combat - Cast Frost Nova'),
 (@SCORN, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Scorn - In Combat - Cast Frostbolt Volley'),
-(@SCORN, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 28873, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,             'Scorn - In Combat - Cast Lich Slap'),
+(@SCORN, 0, 2, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 28873, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,             'Scorn - In Combat - Cast Lich Slap'),
 --
 (@CULTIST_ENGINEER, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Respawn - Set Faction 190'),
 (@CULTIST_ENGINEER, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, @CULTIST_ENGINEER, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Cultist Engineer - On Respawn - Set guid to Cultist Engineer'),
