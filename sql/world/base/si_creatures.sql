@@ -20,10 +20,7 @@ SET @REVANCHION            := 614690;
 SET @SCORN                 := 614693;
 
 
-DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+1720 AND `id1` IN
-(@LUMBERING_HORROR, 16136, @GHOUL_BERSERKER, @CULTIST_ENGINEER, 16241, 16255, 16281, 16285, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16359, 16361, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, 16422, 16423, 
-16437, 16438, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787, 16995, 29441, 29442);
-
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+1720);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 
