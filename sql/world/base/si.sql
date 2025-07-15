@@ -83,6 +83,7 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 
 /*-- Objects and NPCs --*/
 
+SET @NECROTIC_SHARD        := 616136;
 SET @SHADOW_OF_DOOM        := 616143;
 SET @CULTIST_ENGINEER      := 616230;
 SET @ARGENT_QUARTERMASTER  := 616786;
@@ -107,7 +108,7 @@ SET @SCORN                 := 614693;
 -- so we have to create copies to avoid phasing the wotlk versions
 DELETE FROM `creature_template` WHERE `entry` IN 
 (@SHADOW_OF_DOOM, @CULTIST_ENGINEER,  @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 
- @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN);
+ @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @NECROTIC_SHARD);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, 
@@ -128,12 +129,24 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 'Spirit of the Damned', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 0.992063, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16379, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
 (@BONE_WITCH, 0, 0, 0, 0, 0, 'Bone Witch', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16380, 0, 0, 0, 0, 482, 558, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8602129, 0, 0, '', 12340),
 (@ARGENT_QUARTERMASTER, 0, 0, 0, 0, 0, 'Argent Quartermaster', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 794, 3, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@ARGENT_OUTFITTER, 0, 0, 0, 0, 0, 'Argent Outfitter', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 814, 131, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 1, 0, 2, '', 12340);
+(@ARGENT_OUTFITTER, 0, 0, 0, 0, 0, 'Argent Outfitter', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 814, 131, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 1, 0, 2, '', 12340),
+(@NECROTIC_SHARD, 0, 0, 0, 0, 0, 'Necrotic Shard', NULL, NULL, 0, 70, 70, 0, 1630, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 260, 2048, 0, 0, 0, 0, 0, 0, 10, 1024, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 0.75, 1, 0, 1, 0, 0, 1, 0, 0, 2, 'npc_necrotic_shard', 12340);
 
-
+DELETE FROM `creature_template_addon` WHERE `entry` IN 
+(@NECROTIC_SHARD, @CULTIST_ENGINEER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(@NECROTIC_SHARD, 0, 0, 0, 0, 0, 3, ''),
+(@LUMBERING_HORROR, 0, 0, 0, 0, 0, 0, ''),
+(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 0, ''),
+(@CULTIST_ENGINEER, 0, 0, 0, 0, 0, 0, ''),
+(@SPECTRAL_SOLDIER, 0, 0, 0, 0, 0, 0, ''),
+(@SKELETAL_SHOCKTROOPER, 0, 0, 0, 0, 0, 0, ''),
+(@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 0, ''),
+(@BONE_WITCH, 0, 0, 0, 0, 0, 0, '');
+    
 DELETE FROM `creature_template_locale` WHERE `entry` IN 
 (@SHADOW_OF_DOOM, @CULTIST_ENGINEER,  @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 
- @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN);
+ @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @NECROTIC_SHARD);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
 (@SEVER, 'deDE', 'Häcksler', '', 18019),
 (@SEVER, 'esES', 'Cercenador', '', 18019),
@@ -254,11 +267,20 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@ARGENT_OUTFITTER, 'koKR', '은빛 여명회 보급장교', '은빛 여명회', 18019),
 (@ARGENT_OUTFITTER, 'ruRU', 'Экипировщик из ордена Серебряного Рассвета', 'Серебряный Рассвет', 18019),
 (@ARGENT_OUTFITTER, 'zhCN', '银色物资官', '银色黎明', 18019),
-(@ARGENT_OUTFITTER, 'zhTW', '銀色黎明物資官', '銀色黎明', 18019);
+(@ARGENT_OUTFITTER, 'zhTW', '銀色黎明物資官', '銀色黎明', 18019),
+(@NECROTIC_SHARD, 'deDE', 'Nekrotischer Splitter', '', 18019),
+(@NECROTIC_SHARD, 'esES', 'Fragmento necrótico', '', 18019),
+(@NECROTIC_SHARD, 'esMX', 'Fragmento necrótico', '', 18019),
+(@NECROTIC_SHARD, 'frFR', 'Eclat nécrotique', '', 18019),
+(@NECROTIC_SHARD, 'koKR', '죽음의 결정', '', 18019),
+(@NECROTIC_SHARD, 'ruRU', 'Некротический осколок', '', 18019),
+(@NECROTIC_SHARD, 'zhCN', '死灵碎片', '', 18019),
+(@NECROTIC_SHARD, 'zhTW', '亡域水晶裂片', '', 18019);
+
 
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN 
 (@SHADOW_OF_DOOM, @CULTIST_ENGINEER,  @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 
- @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN);
+ @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @NECROTIC_SHARD);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@SEVER, 0, 1061, 1, 1, 12340),
 (@BALZAPHON, 0, 7919, 1, 1, 12340),
@@ -274,7 +296,9 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@SPIRIT_OF_THE_DAMNED, 0, 16170, 1, 1, 12340),
 (@BONE_WITCH, 0, 16167, 1, 1, 12340),
 (@ARGENT_QUARTERMASTER, 0, 16336, 1, 1, 12340),
-(@ARGENT_OUTFITTER, 0, 16337, 1, 1, 12340);
+(@ARGENT_OUTFITTER, 0, 16337, 1, 1, 12340),
+(@NECROTIC_SHARD, 0, 16135, 1, 1, 12340);
+
 
 DELETE FROM `creature_template_spell` WHERE `CreatureID` IN 
 (@SEVER, @BALZAPHON, @REVANCHION, @SHADOW_OF_DOOM, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
@@ -303,7 +327,7 @@ INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `Verified
 UPDATE `creature_template` SET `name` = 'Mouth of Kel\'Thuzad' WHERE `entry` = 16995;
 
 -- Necrotic Shards 256+4
-UPDATE `creature_template` SET `unit_flags` = 260 WHERE `entry` = 16136;
+UPDATE `creature_template` SET `unit_flags` = 260 WHERE `entry` = @NECROTIC_SHARD;
 
 -- Cultist Engineer
 UPDATE `creature_template` SET `gossip_menu_id` = 66000, `npcflag` = 1, `unit_flags` = 514, `flags_extra` = 4194304 WHERE `entry` = @CULTIST_ENGINEER;
