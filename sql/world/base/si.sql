@@ -93,11 +93,15 @@ SET @SKELETAL_SHOCKTROOPER := 616299;
 SET @LUMBERING_HORROR      := 614697;
 SET @SPIRIT_OF_THE_DAMNED  := 616379;
 SET @BONE_WITCH            := 616380;
+--
+SET @ARGENT_QUARTERMASTER  := 616786;
+SET @ARGENT_OUTFITTER      := 616787;
+
 
 -- Azerothcore uses these creatures for the WotLK version of the Scourge Invasion, 
 -- so we have to create copies to avoid phasing the wotlk versions
 DELETE FROM `creature_template` WHERE `entry` IN 
-(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
+(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, 
@@ -111,10 +115,13 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (@SKELETAL_SHOCKTROOPER, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper', '', NULL, 0, 59, 60, 0, 1630, 0, 1, 1.19048, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16299, 0, 0, 0, 0, 144, 658, 'SmartAI', 1, 1, 2.7, 1, 1, 1, 0, 0, 1, 8602129, 0, 2048, '', 12340);
 (@LUMBERING_HORROR, 0, 0, 0, 0, 0, 'Lumbering Horror', NULL, NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14697, 0, 0, 0, 0, 271, 503, 'SmartAI', 0, 1, 5.4, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340);
 (@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 'Spirit of the Damned', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 0.992063, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16379, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
-(@BONE_WITCH, 0, 0, 0, 0, 0, 'Bone Witch', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16380, 0, 0, 0, 0, 482, 558, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8602129, 0, 0, '', 12340);
+(@BONE_WITCH, 0, 0, 0, 0, 0, 'Bone Witch', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16380, 0, 0, 0, 0, 482, 558, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8602129, 0, 0, '', 12340),
+(@ARGENT_QUARTERMASTER, 0, 0, 0, 0, 0, 'Argent Quartermaster', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 794, 3, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
+(@ARGENT_OUTFITTER, 0, 0, 0, 0, 0, 'Argent Outfitter', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 814, 131, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 1, 0, 2, '', 12340);
+
 
 DELETE FROM `creature_template_locale` WHERE `entry` IN 
-(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
+(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
 (@SHADOW_OF_DOOM, 'deDE', 'Schatten der Verdammnis', '', 18019),
 (@SHADOW_OF_DOOM, 'esES', 'Sombra de fatalidad', '', 18019),
@@ -179,10 +186,26 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@BONE_WITCH, 'koKR', '해골 마녀', '', 18019),
 (@BONE_WITCH, 'ruRU', 'Костяной ведьмак', '', 18019),
 (@BONE_WITCH, 'zhCN', '骨巫', '', 18019),
-(@BONE_WITCH, 'zhTW', '骸骨女巫', '', 18019);
+(@BONE_WITCH, 'zhTW', '骸骨女巫', '', 18019),
+(@ARGENT_QUARTERMASTER, 'deDE', 'Argentumrüstmeister', 'Die Argentumdämmerung', 18019),
+(@ARGENT_QUARTERMASTER, 'esES', 'Intendente Argenta', 'El Alba Argenta', 18019),
+(@ARGENT_QUARTERMASTER, 'esMX', 'Intendente Argenta', 'El Alba Argenta', 18019),
+(@ARGENT_QUARTERMASTER, 'frFR', 'Intendant de l\'Aube d\'argent', 'L\'Aube d\'argent', 18019),
+(@ARGENT_QUARTERMASTER, 'koKR', '은빛 여명회 병참장교', '은빛 여명회', 18019),
+(@ARGENT_QUARTERMASTER, 'ruRU', 'Интендант из ордена Серебряного Рассвета', 'Серебряный Рассвет', 18019),
+(@ARGENT_QUARTERMASTER, 'zhCN', '银色军需官', '银色黎明', 18019),
+(@ARGENT_QUARTERMASTER, 'zhTW', '銀色黎明軍需官', '銀色黎明', 18019),
+(@ARGENT_OUTFITTER, 'deDE', 'Argentumausstatter', 'Die Argentumdämmerung', 18019),
+(@ARGENT_OUTFITTER, 'esES', 'Proveedor Argenta', 'El Alba Argenta', 18019),
+(@ARGENT_OUTFITTER, 'esMX', 'Proveedor Argenta', 'El Alba Argenta', 18019),
+(@ARGENT_OUTFITTER, 'frFR', 'Tailleur de l\'Aube d\'argent', 'L\'Aube d\'argent', 18019),
+(@ARGENT_OUTFITTER, 'koKR', '은빛 여명회 보급장교', '은빛 여명회', 18019),
+(@ARGENT_OUTFITTER, 'ruRU', 'Экипировщик из ордена Серебряного Рассвета', 'Серебряный Рассвет', 18019),
+(@ARGENT_OUTFITTER, 'zhCN', '银色物资官', '银色黎明', 18019),
+(@ARGENT_OUTFITTER, 'zhTW', '銀色黎明物資官', '銀色黎明', 18019);
 
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN 
-(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
+(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@SHADOW_OF_DOOM, 0, 16168, 1, 1, 12340),
 (@CULTIST_ENGINEER, 0, 16151, 1, 1, 12340),
@@ -191,7 +214,10 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@SKELETAL_SHOCKTROOPER, 0, 12074, 1, 1, 12340),
 (@LUMBERING_HORROR, 0, 12819, 1, 1, 12340),
 (@SPIRIT_OF_THE_DAMNED, 0, 16170, 1, 1, 12340),
-(@BONE_WITCH, 0, 16167, 1, 1, 12340);
+(@BONE_WITCH, 0, 16167, 1, 1, 12340),
+(@ARGENT_QUARTERMASTER, 0, 16336, 1, 1, 12340),
+(@ARGENT_OUTFITTER, 0, 16337, 1, 1, 12340);
+
 
 DELETE FROM `creature_template_spell` WHERE `CreatureID` IN 
 (@SHADOW_OF_DOOM, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
@@ -207,7 +233,6 @@ INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `Verified
 (@BONE_WITCH, 0, 13748, 12340),
 (@BONE_WITCH, 1, 17014, 12340),
 (@BONE_WITCH, 2, 28265, 12340);
-
 
 
 UPDATE `creature_template` SET `name` = 'Mouth of Kel\'Thuzad' WHERE `entry` = 16995;
@@ -274,7 +299,6 @@ INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`,
 (@SPIRIT_OF_THE_DAMNED, 529, 0, 5, 0, 10, 0, 0, 0, 0),
 (@BONE_WITCH, 529, 0, 5, 0, 10, 0, 0, 0, 0),
 (@SHADOW_OF_DOOM, 529, 0, 5, 0, 50, 0, 0, 0, 0);
-
 
 
 /*-- Smart AI --*/
@@ -424,22 +448,23 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (16281, 9154);
 
 -- Argent Quartermaster and Outfitter
--- UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16786, 16787);
-DELETE FROM `npc_vendor` WHERE `entry` IN (16786, 16787); -- they aren't vendors in vanilla
+UPDATE `creature_template` SET `npcflag` = 3   WHERE `entry` = @ARGENT_QUARTERMASTER;
+UPDATE `creature_template` SET `npcflag` = 131 WHERE `entry` = @ARGENT_OUTFITTER;
+-- DELETE FROM `npc_vendor` WHERE `entry` IN (@ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER); -- they aren't vendors in vanilla
 
 DELETE FROM `creature_queststarter` WHERE `quest` IN
 (9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance
  9333, 9334, 9335, 9336, 9320, 9343); -- Horde
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(16786, 9094), (16786, 9317), (16786, 9318), (16786, 9321), (16786, 9337), (16786, 9341),
-(16787, 9333), (16787, 9334), (16787, 9335), (16787, 9336), (16787, 9320), (16787, 9343);
+(@ARGENT_QUARTERMASTER, 9094), (@ARGENT_QUARTERMASTER, 9317), (@ARGENT_QUARTERMASTER, 9318), (@ARGENT_QUARTERMASTER, 9321), (@ARGENT_QUARTERMASTER, 9337), (@ARGENT_QUARTERMASTER, 9341),
+(@ARGENT_OUTFITTER, 9333), (@ARGENT_OUTFITTER, 9334), (@ARGENT_OUTFITTER, 9335), (@ARGENT_OUTFITTER, 9336), (@ARGENT_OUTFITTER, 9320), (@ARGENT_OUTFITTER, 9343);
 
 DELETE FROM `creature_questender` WHERE `quest` IN 
 (9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance
  9320, 9333, 9334, 9335, 9336, 9343); -- Horde
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(16786, 9094), (16786, 9317), (16786, 9318), (16786, 9321), (16786, 9337), (16786, 9341),
-(16787, 9333), (16787, 9334), (16787, 9335), (16787, 9336), (16787, 9320), (16787, 9343);
+(@ARGENT_QUARTERMASTER, 9094), (@ARGENT_QUARTERMASTER, 9317), (@ARGENT_QUARTERMASTER, 9318), (@ARGENT_QUARTERMASTER, 9321), (@ARGENT_QUARTERMASTER, 9337), (@ARGENT_QUARTERMASTER, 9341),
+(@ARGENT_OUTFITTER, 9333), (@ARGENT_OUTFITTER, 9334), (@ARGENT_OUTFITTER, 9335), (@ARGENT_OUTFITTER, 9336), (@ARGENT_OUTFITTER, 9320), (@ARGENT_OUTFITTER, 9343);
 
 UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
 UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
