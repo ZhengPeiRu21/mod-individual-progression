@@ -1,13 +1,11 @@
-
 SET @IPPPHASE := 65536;
 
-
 /*-- REMOVE EVENT 17 --*/
-DELETE FROM `game_event_creature` WHERE `eventEntry` = 17;
-DELETE FROM `game_event_gameobject` WHERE `eventEntry` = 17;
-DELETE FROM `game_event_npcflag` WHERE `eventEntry` = 17;
-DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` = 17;
-DELETE FROM `game_event` WHERE `eventEntry` = 17;
+-- DELETE FROM `game_event_creature` WHERE `eventEntry` = 17;
+-- DELETE FROM `game_event_gameobject` WHERE `eventEntry` = 17;
+-- DELETE FROM `game_event_npcflag` WHERE `eventEntry` = 17;
+-- DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` = 17;
+-- DELETE FROM `game_event` WHERE `eventEntry` = 17;
 
 /* Friendship Bread and Freshly-Squeezed Lemonade */
 DELETE FROM `npc_vendor` WHERE `entry` IN (2482, 3044, 4165, 5173, 5698, 15006) AND `item` IN (23160, 23161);
@@ -83,67 +81,87 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 (8730, 0, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0);
 
 
-/*-- Smart AI --*/
+/*-- Objects and NPCs --*/
 
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(14682, 14684, 14686, 14690, 14697, 16136, 16141, 16230, 16298, 16299, 16379, 16380, 16422, 16423, 16437, 16438);
+SET @GHOUL_BERSERKER       := 616141;
+SET @SHADOW_OF_DOOM        := 616143;
+SET @CULTIST_ENGINEER      := 616230;
+SET @SPECTRAL_SOLDIER      := 616298;
+SET @SKELETAL_SHOCKTROOPER := 616299;
 
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN 
-(14682, 14684, 14686, 14690, 16136, 16141, 14697, 16230, 16298, 16299, 16379, 16380, 16422, 16423, 16437, 16438);
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
-`event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+-- Azerothcore increases the level of these creatures for the WotLK version of the Scourge Invasion, so we have to create copies
+DELETE FROM `creature_template` WHERE `entry` IN (@GHOUL_BERSERKER, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
+`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, 
+`type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, 
+`ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 
-(14682, 0, 0, 0, 0, 0, 100, 0, 3000, 10000, 8000, 20000, 0, 0, 11, 17745, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Sever - In Combat - Cast Diseased Spit'),
-(14682, 0, 1, 0, 0, 0, 100, 0, 15000, 18000, 135000, 138000, 0, 0, 11, 8269, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Sever - In Combat - Cast Enrage'),
-(14684, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,     'Balzaphon - In Combat - Cast Fear'),
-(14684, 0, 1, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Balzaphon - In Combat - Cast Frostbolt'),
-(14684, 0, 2, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Balzaphon - In Combat - Cast Frostbolt Volley'),
-(14686, 0, 0, 0, 0, 0, 100, 0, 1000, 12000, 18000, 24000, 0, 0, 11, 17105, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Lady Falther\'ess - In Combat - Cast Banshee Curse'),
-(14686, 0, 1, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 16838, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther\'ess - In Combat - Cast Banshee Shriek'),
-(14686, 0, 2, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 22743, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther\'ess - In Combat - Cast Ribbon of Souls'),
-(14690, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Revanchion - In Combat - Cast Frost Nova'),
-(14690, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 15000, 17000, 0, 0, 11, 15245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Revanchion - In Combat - Cast Shadow Bolt Volley'),
---
-(16230, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Respawn - Set Faction 190'),
-(16230, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, 16230, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Respawn - Set guid to Cultist Engineer'),
-(16230, 0, 2, 0, 1, 0, 100, 0, 1000, 2000, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, 16136, 0, 15, 1, 0, 0, 0, 0,     'Cultist Engineer - Out of Combat - Cast Scourge Beam'), -- wrong spell, visual incorrect
-(16230, 0, 3, 4, 62, 0, 100, 0, 66000, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Gossip Option 0 Selected - Say Line 1'),
-(16230, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 57, 22484, 8, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Gossip Option 0 Selected - Remove 8 Necrotic Runes'),
-(16230, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, 16143, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Gossip Option 0 Selected - Set guid to Shadow of Doom'),
-(16230, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 142, 100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Gossip Option 0 Selected - Set Health 100%'),
-(16230, 0, 7, 8, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cultist Engineer - On Gossip Option 0 Selected - Set Faction 14'),
-(16230, 0, 8, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cultist Engineer - On Gossip Option 0 Selected - Start Attacking'),
-(16230, 0, 9, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 16568, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Shadow of Doom - In Combat - Cast Mind Flay'),
-(16230, 0, 10, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadow of Doom - In Combat - Cast Fear'),
---
-(14697, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 12000, 15000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Knockdown'),
-(14697, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Scourge Strike'),
-(14697, 0, 2, 0, 0, 0, 100, 0, 3200, 11900, 11500, 16100, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Trample'),
-(16379, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 16243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Ribbon of Souls'),
-(16379, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Scourge Strike'),
-(16380, 0, 0, 0, 11, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bone Witch - On Respawn - Cast Bone Shards'),
-(16380, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Bone Witch - In Combat - Cast Scourge Strike'),
---
-(16422, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Soldier - In Combat - Cast Scourge Strike'),
-(16423, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Apparition - In Combat - Cast Scourge Strike'),
-(16437, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Spirit - In Combat - Cast Scourge Strike'), 
-(16438, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Trooper - In Combat - Cast Scourge Strike'),
---
-(16141, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 7367, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Ghoul Berserker - In Combat - Cast Infected Bite'),
-(16141, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Ghoul Berserker - In Combat - Cast Scourge Strike'),
-(16298, 0, 0, 0, 0, 0, 100, 0, 2000, 10000, 10000, 20000, 0, 0, 11, 13444, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Soldier - In Combat - Cast Sunder Armor'),
-(16298, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Soldier - In Combat - Cast Scourge Strike'),
-(16299, 0, 0, 0, 11, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Skeletal Shocktrooper - On Respawn - Cast Bone Shards'),
-(16299, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Shocktrooper - In Combat - Cast Scourge Strike'),
---
-(16136, 0, 0, 0, 12, 0, 100, 0, 0, 0, 0, 0, 0, 40, 11, 28032, 0, 39, 0, 0, 0, 9, 16141, 0, 40, 2, 0, 0, 0, 0, 'Necrotic Shard - Ghoul Berserker - Cast Zap Crystal'), -- doesn't work yet
-(16136, 0, 1, 0, 12, 0, 100, 0, 0, 0, 0, 0, 0, 40, 11, 28032, 0, 39, 0, 0, 0, 9, 16298, 0, 40, 2, 0, 0, 0, 0, 'Necrotic Shard - Spectral Soldier - Cast Zap Crystal'),
-(16136, 0, 2, 0, 12, 0, 100, 0, 0, 0, 0, 0, 0, 40, 11, 28032, 0, 39, 0, 0, 0, 9, 16299, 0, 40, 2, 0, 0, 0, 0, 'Necrotic Shard - Skeletal Shocktrooper - Cast Zap Crystal'); 
+(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 'Ghoul Berserker', NULL, NULL, 0, 59, 60, 0, 1630, 0, 0.777776, 1.14286, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16141, 0, 0, 0, 0, 144, 659, 'SmartAI', 0, 1, 2.7, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340),
+(@SHADOW_OF_DOOM, 0, 0, 0, 0, 0, 'Shadow of Doom', '', NULL, 0, 60, 60, 0, 2145, 0, 1, 1.14286, 1, 1, 4, 1, 1, 0, 9, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16143, 0, 0, 0, 0, 186, 615, '', 0, 1, 20, 1, 1, 1, 0, 0, 1, 8405524, 0, 0, '', 12340),
+(@CULTIST_ENGINEER, 0, 0, 0, 0, 0, 'Cultist Engineer', '', NULL, 66000, 60, 60, 0, 190, 1, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.05, 2000, 2000, 1, 1, 1, 514, 2048, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1, 1, 1, 1, 0.25, 0, 0, 1, 0, 0, 4194304, '', 12340),
+(@SPECTRAL_SOLDIER, 0, 0, 0, 0, 0, 'Spectral Soldier', '', NULL, 0, 59, 60, 0, 1630, 0, 1.11111, 1.14286, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16298, 0, 0, 0, 0, 148, 660, 'SmartAI', 1, 1, 2.7, 1, 1.05, 1, 0, 0, 1, 8405008, 0, 0, '', 12340),
+(@SKELETAL_SHOCKTROOPER, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper', '', NULL, 0, 59, 60, 0, 1630, 0, 1, 1.19048, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16299, 0, 0, 0, 0, 144, 658, 'SmartAI', 1, 1, 2.7, 1, 1, 1, 0, 0, 1, 8602129, 0, 2048, '', 12340);
 
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@GHOUL_BERSERKER, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
+(@GHOUL_BERSERKER, 'deDE', 'Ghulberserker', '', 18019),
+(@GHOUL_BERSERKER, 'esES', 'Rabioso necrófago', '', 18019),
+(@GHOUL_BERSERKER, 'esMX', 'Rabioso necrófago', '', 18019),
+(@GHOUL_BERSERKER, 'frFR', 'Goule berserker', '', 18019),
+(@GHOUL_BERSERKER, 'koKR', '구울 광전사', '', 18019),
+(@GHOUL_BERSERKER, 'ruRU', 'Вурдалак-берсерк', '', 18019),
+(@GHOUL_BERSERKER, 'zhCN', '食尸鬼狂暴者', '', 18019),
+(@GHOUL_BERSERKER, 'zhTW', '狂暴食屍鬼', '', 18019),
+(@SHADOW_OF_DOOM, 'deDE', 'Schatten der Verdammnis', '', 18019),
+(@SHADOW_OF_DOOM, 'esES', 'Sombra de fatalidad', '', 18019),
+(@SHADOW_OF_DOOM, 'esMX', 'Sombra de fatalidad', '', 18019),
+(@SHADOW_OF_DOOM, 'frFR', 'Ombre funeste', '', 18019),
+(@SHADOW_OF_DOOM, 'koKR', '파멸의 망령', '', 18019),
+(@SHADOW_OF_DOOM, 'ruRU', 'Тень Рока', '', 18019),
+(@SHADOW_OF_DOOM, 'zhCN', '末日之影', '', 18019),
+(@SHADOW_OF_DOOM, 'zhTW', '末日陰影', '', 18019),
+(@CULTIST_ENGINEER, 'deDE', 'Kultisteningenieur', '', 18019),
+(@CULTIST_ENGINEER, 'esES', 'Cultor ingeniero', '', 18019),
+(@CULTIST_ENGINEER, 'esMX', 'Cultor ingeniero', '', 18019),
+(@CULTIST_ENGINEER, 'frFR', 'Sectateur ingénieur', '', 18019),
+(@CULTIST_ENGINEER, 'koKR', '신도 기술자', '', 18019),
+(@CULTIST_ENGINEER, 'ruRU', 'Сектант-инженер', '', 18019),
+(@CULTIST_ENGINEER, 'zhCN', '信徒技师', '', 18019),
+(@CULTIST_ENGINEER, 'zhTW', '教徒工程師', '', 18019),
+(@SPECTRAL_SOLDIER, 'deDE', 'Spektraler Soldat', '', 18019),
+(@SPECTRAL_SOLDIER, 'esES', 'Soldado espectral', '', 18019),
+(@SPECTRAL_SOLDIER, 'esMX', 'Soldado espectral', '', 18019),
+(@SPECTRAL_SOLDIER, 'frFR', 'Soldat spectral', '', 18019),
+(@SPECTRAL_SOLDIER, 'koKR', '기괴한 병사 유령', '', 18019),
+(@SPECTRAL_SOLDIER, 'ruRU', 'Призрачный солдат', '', 18019),
+(@SPECTRAL_SOLDIER, 'zhCN', '鬼灵士兵', '', 18019),
+(@SPECTRAL_SOLDIER, 'zhTW', '鬼靈士兵', '', 18019),
+(@SKELETAL_SHOCKTROOPER, 'deDE', 'Skelettstoßtruppsoldat', '', 18019),
+(@SKELETAL_SHOCKTROOPER, 'esES', 'Soldado de choque esquelético', '', 18019),
+(@SKELETAL_SHOCKTROOPER, 'esMX', 'Soldado de choque esquelético', '', 18019),
+(@SKELETAL_SHOCKTROOPER, 'frFR', 'Troupier squelettique de choc', '', 18019),
+(@SKELETAL_SHOCKTROOPER, 'koKR', '해골 기습돌격병', '', 18019),
+(@SKELETAL_SHOCKTROOPER, 'ruRU', 'Скелет-штурмовик', '', 18019),
+(@SKELETAL_SHOCKTROOPER, 'zhCN', '骷髅突击队员', '', 18019),
+(@SKELETAL_SHOCKTROOPER, 'zhTW', '骷髏突擊兵', '', 18019);
 
-/*-- Object and NPC Updates --*/
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@GHOUL_BERSERKER, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
+(@GHOUL_BERSERKER, 0, 24993, 1, 1, 12340),
+(@SHADOW_OF_DOOM, 0, 16168, 1, 1, 12340),
+(@CULTIST_ENGINEER, 0, 16151, 1, 1, 12340),
+(@SPECTRAL_SOLDIER, 0, 16169, 1, 1, 12340),
+(@SKELETAL_SHOCKTROOPER, 0, 12074, 1, 1, 12340);
+
+DELETE FROM `creature_template_spell` WHERE `CreatureID` IN (@SHADOW_OF_DOOM, @SKELETAL_SHOCKTROOPER);
+INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES 
+(@SHADOW_OF_DOOM, 0, 12542, 12340),
+(@SHADOW_OF_DOOM, 1, 16568, 12340),
+(@SHADOW_OF_DOOM, 2, 28265, 12340),
+(@SKELETAL_SHOCKTROOPER, 0, 17014, 12340),
+(@SKELETAL_SHOCKTROOPER, 1, 28265, 12340);
+
 
 UPDATE `creature_template` SET `name` = 'Mouth of Kel\'Thuzad' WHERE `entry` = 16995;
 
@@ -151,7 +169,7 @@ UPDATE `creature_template` SET `name` = 'Mouth of Kel\'Thuzad' WHERE `entry` = 1
 UPDATE `creature_template` SET `unit_flags` = 260 WHERE `entry` = 16136;
 
 -- Cultist Engineer
-UPDATE `creature_template` SET `gossip_menu_id` = 66000, `npcflag` = 1, `unit_flags` = 514, `flags_extra` = 4194304 WHERE `entry` = 16230;
+UPDATE `creature_template` SET `gossip_menu_id` = 66000, `npcflag` = 1, `unit_flags` = 514, `flags_extra` = 4194304 WHERE `entry` = @CULTIST_ENGINEER;
 
 -- Lumbering Horror, fix movement
 UPDATE `creature_template` SET `unit_flags` = 0, `HealthModifier` = 5.4 WHERE `entry` = 14697;
@@ -160,7 +178,7 @@ UPDATE `creature_template` SET `unit_flags` = 0, `HealthModifier` = 5.4 WHERE `e
 UPDATE `creature_template` SET `HealthModifier` = 5 WHERE `entry` IN (16379, 16380);
 
 -- Ghoul Berserker, Spectral Soldier, Skeletal Shocktrooper
-UPDATE `creature_template` SET `HealthModifier` = 2.7 WHERE `entry` IN (16141, 16298, 16299);
+UPDATE `creature_template` SET `HealthModifier` = 2.7 WHERE `entry` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
 
 DELETE FROM `creature_loot_template` WHERE `Entry` IN (16141, 16298, 16299);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
@@ -197,7 +215,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` IN (181154, 181215, 181223, 181373, 181374);
 
 -- Shadow of Doom, fix Necrotic runes drop
-UPDATE `creature_loot_template` SET `MinCount` = 30, `MaxCount` = 30 WHERE `Item` = 22484 AND `entry` = 16143;
+-- UPDATE `creature_loot_template` SET `MinCount` = 30, `MaxCount` = 30 WHERE `Item` = 22484 AND `entry` = 16143;
 
 DELETE FROM `creature_onkill_reputation` WHERE `creature_id` IN (16141, 16298, 16299, 14697, 16379, 16380, 16143);
 INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`, `RewOnKillRepFaction2`, 
@@ -209,6 +227,74 @@ INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`,
 (16379, 529, 0, 5, 0, 10, 0, 0, 0, 0),
 (16380, 529, 0, 5, 0, 10, 0, 0, 0, 0),
 (16143, 529, 0, 5, 0, 50, 0, 0, 0, 0);
+
+
+/*-- Smart AI --*/
+
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(14682, 14684, 14686, 14690, 14697, 16136, @GHOUL_BERSERKER, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16379, 16380, 16422, 16423, 16437, 16438);
+
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN 
+(14682, 14684, 14686, 14690, 16136, @GHOUL_BERSERKER, 14697, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16379, 16380, 16422, 16423, 16437, 16438);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
+`event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+
+(14682, 0, 0, 0, 0, 0, 100, 0, 3000, 10000, 8000, 20000, 0, 0, 11, 17745, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Sever - In Combat - Cast Diseased Spit'),
+(14682, 0, 1, 0, 0, 0, 100, 0, 15000, 18000, 135000, 138000, 0, 0, 11, 8269, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Sever - In Combat - Cast Enrage'),
+(14684, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0,     'Balzaphon - In Combat - Cast Fear'),
+(14684, 0, 1, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Balzaphon - In Combat - Cast Frostbolt'),
+(14684, 0, 2, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Balzaphon - In Combat - Cast Frostbolt Volley'),
+(14686, 0, 0, 0, 0, 0, 100, 0, 1000, 12000, 18000, 24000, 0, 0, 11, 17105, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Lady Falther\'ess - In Combat - Cast Banshee Curse'),
+(14686, 0, 1, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 16838, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther\'ess - In Combat - Cast Banshee Shriek'),
+(14686, 0, 2, 0, 0, 0, 100, 0, 4000, 15000, 15000, 25000, 0, 0, 11, 22743, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lady Falther\'ess - In Combat - Cast Ribbon of Souls'),
+(14690, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Revanchion - In Combat - Cast Frost Nova'),
+(14690, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 15000, 17000, 0, 0, 11, 15245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Revanchion - In Combat - Cast Shadow Bolt Volley'),
+--
+(@CULTIST_ENGINEER, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Respawn - Set Faction 190'),
+(@CULTIST_ENGINEER, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, @CULTIST_ENGINEER, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Respawn - Set guid to Cultist Engineer'),
+(@CULTIST_ENGINEER, 0, 2, 0, 1, 0, 100, 0, 1000, 2000, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, 16136, 0, 15, 1, 0, 0, 0, 0,     'Cultist Engineer - Out of Combat - Cast Scourge Beam'), -- wrong spell, visual incorrect
+(@CULTIST_ENGINEER, 0, 3, 4, 62, 0, 100, 0, 66000, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Gossip Option 0 Selected - Say Line 1'),
+(@CULTIST_ENGINEER, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 57, 22484, 8, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Cultist Engineer - On Gossip Option 0 Selected - Remove 8 Necrotic Runes'),
+(@CULTIST_ENGINEER, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, @SHADOW_OF_DOOM, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Cultist Engineer - On Gossip Option 0 Selected - Set guid to Shadow of Doom'),
+(@CULTIST_ENGINEER, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 142, 100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cultist Engineer - On Gossip Option 0 Selected - Set Health 100%'),
+(@CULTIST_ENGINEER, 0, 7, 8, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cultist Engineer - On Gossip Option 0 Selected - Set Faction 14'),
+(@CULTIST_ENGINEER, 0, 8, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cultist Engineer - On Gossip Option 0 Selected - Start Attacking'),
+(@CULTIST_ENGINEER, 0, 9, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 16568, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Shadow of Doom - In Combat - Cast Mind Flay'),
+(@CULTIST_ENGINEER, 0, 10, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadow of Doom - In Combat - Cast Fear'),
+--
+(14697, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 12000, 15000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Knockdown'),
+(14697, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Scourge Strike'),
+(14697, 0, 2, 0, 0, 0, 100, 0, 3200, 11900, 11500, 16100, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Trample'),
+(14697, 0, 3, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lumbering Horror - On Just Died - Cast \'Zap Crystal\''),
+(14697, 0, 4, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Lumbering Horror - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(16379, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 16243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Ribbon of Souls'),
+(16379, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Scourge Strike'),
+(16379, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Spirit of the Damned - On Just Died - Cast \'Zap Crystal\''),
+(16379, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Spirit of the Damned - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(16380, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bone Witch - On Respawn - Cast Bone Shards'),
+(16380, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Bone Witch - In Combat - Cast Scourge Strike'),
+(16380, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Bone Witch - On Just Died - Cast \'Zap Crystal\''),
+(16380, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Bone Witch - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+--
+(16422, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Soldier - In Combat - Cast Scourge Strike'),
+(16423, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Apparition - In Combat - Cast Scourge Strike'),
+(16437, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Spirit - In Combat - Cast Scourge Strike'), 
+(16438, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Trooper - In Combat - Cast Scourge Strike'),
+--
+(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 7367, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Ghoul Berserker - In Combat - Cast Infected Bite'),
+(@GHOUL_BERSERKER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Ghoul Berserker - In Combat - Cast Scourge Strike'),
+(@GHOUL_BERSERKER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Ghoul Berserker - On Just Died - Cast \'Zap Crystal\''),
+(@GHOUL_BERSERKER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ghoul Berserker - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@SPECTRAL_SOLDIER, 0, 0, 0, 0, 0, 100, 0, 2000, 10000, 10000, 20000, 0, 0, 11, 13444, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Spectral Soldier - In Combat - Cast Sunder Armor'),
+(@SPECTRAL_SOLDIER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Soldier - In Combat - Cast Scourge Strike'),
+(@SPECTRAL_SOLDIER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Skeletal Soldier - On Just Died - Cast \'Zap Crystal\''),
+(@SPECTRAL_SOLDIER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Spectral Soldier - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@SKELETAL_SHOCKTROOPER, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Skeletal Shocktrooper - On Respawn - Cast Bone Shards'),
+(@SKELETAL_SHOCKTROOPER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Shocktrooper - In Combat - Cast Scourge Strike'),
+(@SKELETAL_SHOCKTROOPER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Skeletal Shocktrooper - On Just Died - Cast \'Zap Crystal\''),
+(@SKELETAL_SHOCKTROOPER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Skeletal Shocktrooper - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms');
 
 
 /*-- Quests --*/
@@ -290,7 +376,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (16281, 9154);
 
 -- Argent Quartermaster and Outfitter
-UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16786, 16787);
+-- UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (16786, 16787);
 DELETE FROM `npc_vendor` WHERE `entry` IN (16786, 16787); -- they aren't vendors in vanilla
 
 DELETE FROM `creature_queststarter` WHERE `quest` IN
@@ -339,6 +425,7 @@ INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `Sourc
 (9302, 0, 0, 0, 0, 0, 0, 176, 604800, 0, 0, 0, 0, 0, 0, 1, 0),
 (9304, 0, 0, 0, 0, 0, 0, 177, 604800, 0, 0, 0, 0, 0, 0, 1, 0);
 
+/*
 DELETE FROM `mail_loot_template` WHERE `Entry` IN (172, 173, 174, 175, 176, 177);
 INSERT INTO `mail_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 (172, 23010, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Joanna Whitehall / Orphan Matron Nightingale
@@ -347,7 +434,7 @@ INSERT INTO `mail_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Quest
 (175, 23013, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Zarena Cromwind
 (176, 23012, 0, 100, 0, 1, 0, 1, 1, 'Research Report'), -- Garon Hutchins
 (177, 23016, 0, 100, 0, 1, 0, 1, 1, 'Research Report'); -- Caretaker Alen
-
+*/
 
 
 
@@ -401,6 +488,13 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 (15, 66000, 0, 0, 0, 2, 0, 22484, 8, 0, 0, 0, 0, '', 'Cultist Engineer - Show gossip only if the player has 8 Necrotic Runes');
 
-DELETE FROM `creature_text` WHERE `CreatureID` = 16230 AND `GroupID` = 1;
+DELETE FROM `creature_text` WHERE `CreatureID` = @CULTIST_ENGINEER AND `GroupID` = 1;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
-(16230, 1, 0, 'These heroics mean nothing, $c.  Your future is sealed and your soul is doomed to servitude!', 12, 0, 100, 0, 0, 0, 12421, 0, 'Cultist Engineer');
+(@CULTIST_ENGINEER, 1, 0, 'These heroics mean nothing, $c.  Your future is sealed and your soul is doomed to servitude!', 12, 0, 100, 0, 0, 0, 12421, 0, 'Cultist Engineer');
+
+DELETE FROM `creature_text` WHERE `CreatureID` = @SHADOW_OF_DOOM AND `GroupID` = 0;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+(@SHADOW_OF_DOOM, 0, 0, '', 12, 0, 0, 0, 0, 0, 12420, 0, 'Shadow of Doom Aggro 1'),
+(@SHADOW_OF_DOOM, 0, 1, '', 12, 0, 0, 0, 0, 0, 12421, 0, 'Shadow of Doom Aggro 2'),
+(@SHADOW_OF_DOOM, 0, 2, '', 12, 0, 0, 0, 0, 0, 12422, 0, 'Shadow of Doom Aggro 3'),
+(@SHADOW_OF_DOOM, 0, 3, '', 12, 0, 0, 0, 0, 0, 12243, 0, 'Shadow of Doom Aggro 4');
