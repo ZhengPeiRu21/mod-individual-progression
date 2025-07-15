@@ -83,36 +83,39 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 
 /*-- Objects and NPCs --*/
 
-SET @GHOUL_BERSERKER       := 616141;
 SET @SHADOW_OF_DOOM        := 616143;
 SET @CULTIST_ENGINEER      := 616230;
+-- common
+SET @GHOUL_BERSERKER       := 616141;
 SET @SPECTRAL_SOLDIER      := 616298;
 SET @SKELETAL_SHOCKTROOPER := 616299;
+-- rares
+SET @LUMBERING_HORROR      := 614697;
+SET @SPIRIT_OF_THE_DAMNED  := 616379;
+SET @BONE_WITCH            := 616380;
 
--- Azerothcore increases the level of these creatures for the WotLK version of the Scourge Invasion, so we have to create copies
-DELETE FROM `creature_template` WHERE `entry` IN (@GHOUL_BERSERKER, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+-- Azerothcore uses these creatures for the WotLK version of the Scourge Invasion, 
+-- so we have to create copies to avoid phasing the wotlk versions
+DELETE FROM `creature_template` WHERE `entry` IN 
+(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, 
 `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, 
 `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 
-(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 'Ghoul Berserker', NULL, NULL, 0, 59, 60, 0, 1630, 0, 0.777776, 1.14286, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16141, 0, 0, 0, 0, 144, 659, 'SmartAI', 0, 1, 2.7, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340),
 (@SHADOW_OF_DOOM, 0, 0, 0, 0, 0, 'Shadow of Doom', '', NULL, 0, 60, 60, 0, 2145, 0, 1, 1.14286, 1, 1, 4, 1, 1, 0, 9, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16143, 0, 0, 0, 0, 186, 615, '', 0, 1, 20, 1, 1, 1, 0, 0, 1, 8405524, 0, 0, '', 12340),
 (@CULTIST_ENGINEER, 0, 0, 0, 0, 0, 'Cultist Engineer', '', NULL, 66000, 60, 60, 0, 190, 1, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.05, 2000, 2000, 1, 1, 1, 514, 2048, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1, 1, 1, 1, 0.25, 0, 0, 1, 0, 0, 4194304, '', 12340),
+(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 'Ghoul Berserker', NULL, NULL, 0, 59, 60, 0, 1630, 0, 0.777776, 1.14286, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16141, 0, 0, 0, 0, 144, 659, 'SmartAI', 0, 1, 2.7, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340),
 (@SPECTRAL_SOLDIER, 0, 0, 0, 0, 0, 'Spectral Soldier', '', NULL, 0, 59, 60, 0, 1630, 0, 1.11111, 1.14286, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16298, 0, 0, 0, 0, 148, 660, 'SmartAI', 1, 1, 2.7, 1, 1.05, 1, 0, 0, 1, 8405008, 0, 0, '', 12340),
 (@SKELETAL_SHOCKTROOPER, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper', '', NULL, 0, 59, 60, 0, 1630, 0, 1, 1.19048, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16299, 0, 0, 0, 0, 144, 658, 'SmartAI', 1, 1, 2.7, 1, 1, 1, 0, 0, 1, 8602129, 0, 2048, '', 12340);
+(@LUMBERING_HORROR, 0, 0, 0, 0, 0, 'Lumbering Horror', NULL, NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14697, 0, 0, 0, 0, 271, 503, 'SmartAI', 0, 1, 5.4, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340);
+(@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 'Spirit of the Damned', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 0.992063, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16379, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
+(@BONE_WITCH, 0, 0, 0, 0, 0, 'Bone Witch', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16380, 0, 0, 0, 0, 482, 558, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8602129, 0, 0, '', 12340);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@GHOUL_BERSERKER, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+DELETE FROM `creature_template_locale` WHERE `entry` IN 
+(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
-(@GHOUL_BERSERKER, 'deDE', 'Ghulberserker', '', 18019),
-(@GHOUL_BERSERKER, 'esES', 'Rabioso necrófago', '', 18019),
-(@GHOUL_BERSERKER, 'esMX', 'Rabioso necrófago', '', 18019),
-(@GHOUL_BERSERKER, 'frFR', 'Goule berserker', '', 18019),
-(@GHOUL_BERSERKER, 'koKR', '구울 광전사', '', 18019),
-(@GHOUL_BERSERKER, 'ruRU', 'Вурдалак-берсерк', '', 18019),
-(@GHOUL_BERSERKER, 'zhCN', '食尸鬼狂暴者', '', 18019),
-(@GHOUL_BERSERKER, 'zhTW', '狂暴食屍鬼', '', 18019),
 (@SHADOW_OF_DOOM, 'deDE', 'Schatten der Verdammnis', '', 18019),
 (@SHADOW_OF_DOOM, 'esES', 'Sombra de fatalidad', '', 18019),
 (@SHADOW_OF_DOOM, 'esMX', 'Sombra de fatalidad', '', 18019),
@@ -129,6 +132,14 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@CULTIST_ENGINEER, 'ruRU', 'Сектант-инженер', '', 18019),
 (@CULTIST_ENGINEER, 'zhCN', '信徒技师', '', 18019),
 (@CULTIST_ENGINEER, 'zhTW', '教徒工程師', '', 18019),
+(@GHOUL_BERSERKER, 'deDE', 'Ghulberserker', '', 18019),
+(@GHOUL_BERSERKER, 'esES', 'Rabioso necrófago', '', 18019),
+(@GHOUL_BERSERKER, 'esMX', 'Rabioso necrófago', '', 18019),
+(@GHOUL_BERSERKER, 'frFR', 'Goule berserker', '', 18019),
+(@GHOUL_BERSERKER, 'koKR', '구울 광전사', '', 18019),
+(@GHOUL_BERSERKER, 'ruRU', 'Вурдалак-берсерк', '', 18019),
+(@GHOUL_BERSERKER, 'zhCN', '食尸鬼狂暴者', '', 18019),
+(@GHOUL_BERSERKER, 'zhTW', '狂暴食屍鬼', '', 18019),
 (@SPECTRAL_SOLDIER, 'deDE', 'Spektraler Soldat', '', 18019),
 (@SPECTRAL_SOLDIER, 'esES', 'Soldado espectral', '', 18019),
 (@SPECTRAL_SOLDIER, 'esMX', 'Soldado espectral', '', 18019),
@@ -144,23 +155,59 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@SKELETAL_SHOCKTROOPER, 'koKR', '해골 기습돌격병', '', 18019),
 (@SKELETAL_SHOCKTROOPER, 'ruRU', 'Скелет-штурмовик', '', 18019),
 (@SKELETAL_SHOCKTROOPER, 'zhCN', '骷髅突击队员', '', 18019),
-(@SKELETAL_SHOCKTROOPER, 'zhTW', '骷髏突擊兵', '', 18019);
+(@SKELETAL_SHOCKTROOPER, 'zhTW', '骷髏突擊兵', '', 18019),
+(@LUMBERING_HORROR, 'deDE', 'Schwerfälliger Schrecken', '', 18019),
+(@LUMBERING_HORROR, 'esES', 'Horror torpe', '', 18019),
+(@LUMBERING_HORROR, 'esMX', 'Horror torpe', '', 18019),
+(@LUMBERING_HORROR, 'frFR', 'Horreur chancelante', '', 18019),
+(@LUMBERING_HORROR, 'koKR', '성큼걸이 누더기골렘', '', 18019),
+(@LUMBERING_HORROR, 'ruRU', 'Неуклюжий ужас', '', 18019),
+(@LUMBERING_HORROR, 'zhCN', '笨拙的憎恶', '', 18019),
+(@LUMBERING_HORROR, 'zhTW', '笨拙的憎惡', '', 18019),
+(@SPIRIT_OF_THE_DAMNED, 'deDE', 'Geist der Verdammten', '', 18019),
+(@SPIRIT_OF_THE_DAMNED, 'esES', 'Espíritu de los Malditos', '', 18019),
+(@SPIRIT_OF_THE_DAMNED, 'esMX', 'Espíritu de los Malditos', '', 18019),
+(@SPIRIT_OF_THE_DAMNED, 'frFR', 'Esprit de damné', '', 18019),
+(@SPIRIT_OF_THE_DAMNED, 'koKR', '저주받은 자의 영혼', '', 18019),
+(@SPIRIT_OF_THE_DAMNED, 'ruRU', 'Дух проклятого', '', 18019),
+(@SPIRIT_OF_THE_DAMNED, 'zhCN', '诅咒者之魂', '', 18019),
+(@SPIRIT_OF_THE_DAMNED, 'zhTW', '詛咒神教之靈', '', 18019),
+(@BONE_WITCH, 'deDE', 'Knochenhexe', '', 18019),
+(@BONE_WITCH, 'esES', 'Bruja Osaria', '', 18019),
+(@BONE_WITCH, 'esMX', 'Bruja Osaria', '', 18019),
+(@BONE_WITCH, 'frFR', 'Sorcière des ossements', '', 18019),
+(@BONE_WITCH, 'koKR', '해골 마녀', '', 18019),
+(@BONE_WITCH, 'ruRU', 'Костяной ведьмак', '', 18019),
+(@BONE_WITCH, 'zhCN', '骨巫', '', 18019),
+(@BONE_WITCH, 'zhTW', '骸骨女巫', '', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@GHOUL_BERSERKER, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN 
+(@SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
-(@GHOUL_BERSERKER, 0, 24993, 1, 1, 12340),
 (@SHADOW_OF_DOOM, 0, 16168, 1, 1, 12340),
 (@CULTIST_ENGINEER, 0, 16151, 1, 1, 12340),
+(@GHOUL_BERSERKER, 0, 24993, 1, 1, 12340),
 (@SPECTRAL_SOLDIER, 0, 16169, 1, 1, 12340),
-(@SKELETAL_SHOCKTROOPER, 0, 12074, 1, 1, 12340);
+(@SKELETAL_SHOCKTROOPER, 0, 12074, 1, 1, 12340),
+(@LUMBERING_HORROR, 0, 12819, 1, 1, 12340),
+(@SPIRIT_OF_THE_DAMNED, 0, 16170, 1, 1, 12340),
+(@BONE_WITCH, 0, 16167, 1, 1, 12340);
 
-DELETE FROM `creature_template_spell` WHERE `CreatureID` IN (@SHADOW_OF_DOOM, @SKELETAL_SHOCKTROOPER);
+DELETE FROM `creature_template_spell` WHERE `CreatureID` IN 
+(@SHADOW_OF_DOOM, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES 
 (@SHADOW_OF_DOOM, 0, 12542, 12340),
 (@SHADOW_OF_DOOM, 1, 16568, 12340),
 (@SHADOW_OF_DOOM, 2, 28265, 12340),
 (@SKELETAL_SHOCKTROOPER, 0, 17014, 12340),
-(@SKELETAL_SHOCKTROOPER, 1, 28265, 12340);
+(@SKELETAL_SHOCKTROOPER, 1, 28265, 12340),
+(@SPIRIT_OF_THE_DAMNED, 0, 34322, 12340),
+(@SPIRIT_OF_THE_DAMNED, 1, 16243, 12340),
+(@SPIRIT_OF_THE_DAMNED, 2, 28265, 12340),
+(@BONE_WITCH, 0, 13748, 12340),
+(@BONE_WITCH, 1, 17014, 12340),
+(@BONE_WITCH, 2, 28265, 12340);
+
 
 
 UPDATE `creature_template` SET `name` = 'Mouth of Kel\'Thuzad' WHERE `entry` = 16995;
@@ -172,10 +219,10 @@ UPDATE `creature_template` SET `unit_flags` = 260 WHERE `entry` = 16136;
 UPDATE `creature_template` SET `gossip_menu_id` = 66000, `npcflag` = 1, `unit_flags` = 514, `flags_extra` = 4194304 WHERE `entry` = @CULTIST_ENGINEER;
 
 -- Lumbering Horror, fix movement
-UPDATE `creature_template` SET `unit_flags` = 0, `HealthModifier` = 5.4 WHERE `entry` = 14697;
+UPDATE `creature_template` SET `unit_flags` = 0, `HealthModifier` = 5.4 WHERE `entry` = @LUMBERING_HORROR;
 
 -- Spirit of the Damned, Bone Witch
-UPDATE `creature_template` SET `HealthModifier` = 5 WHERE `entry` IN (16379, 16380);
+UPDATE `creature_template` SET `HealthModifier` = 5 WHERE `entry` IN (@SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 
 -- Ghoul Berserker, Spectral Soldier, Skeletal Shocktrooper
 UPDATE `creature_template` SET `HealthModifier` = 2.7 WHERE `entry` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
@@ -217,25 +264,26 @@ UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` IN (181154, 18
 -- Shadow of Doom, fix Necrotic runes drop
 -- UPDATE `creature_loot_template` SET `MinCount` = 30, `MaxCount` = 30 WHERE `Item` = 22484 AND `entry` = 16143;
 
-DELETE FROM `creature_onkill_reputation` WHERE `creature_id` IN (16141, 16298, 16299, 14697, 16379, 16380, 16143);
+DELETE FROM `creature_onkill_reputation` WHERE `creature_id` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SHADOW_OF_DOOM);
 INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`, `RewOnKillRepFaction2`, 
 `MaxStanding1`, `IsTeamAward1`, `RewOnKillRepValue1`, `MaxStanding2`, `IsTeamAward2`, `RewOnKillRepValue2`, `TeamDependent`) VALUES 
-(16141, 529, 0, 4, 0, 5, 0, 0, 0, 0),
-(16298, 529, 0, 4, 0, 5, 0, 0, 0, 0),
-(16299, 529, 0, 4, 0, 5, 0, 0, 0, 0),
-(14697, 529, 0, 5, 0, 10, 0, 0, 0, 0),
-(16379, 529, 0, 5, 0, 10, 0, 0, 0, 0),
-(16380, 529, 0, 5, 0, 10, 0, 0, 0, 0),
-(16143, 529, 0, 5, 0, 50, 0, 0, 0, 0);
+(@GHOUL_BERSERKER, 529, 0, 4, 0, 5, 0, 0, 0, 0),
+(@SPECTRAL_SOLDIER, 529, 0, 4, 0, 5, 0, 0, 0, 0),
+(@SKELETAL_SHOCKTROOPER, 529, 0, 4, 0, 5, 0, 0, 0, 0),
+(@LUMBERING_HORROR, 529, 0, 5, 0, 10, 0, 0, 0, 0),
+(@SPIRIT_OF_THE_DAMNED, 529, 0, 5, 0, 10, 0, 0, 0, 0),
+(@BONE_WITCH, 529, 0, 5, 0, 10, 0, 0, 0, 0),
+(@SHADOW_OF_DOOM, 529, 0, 5, 0, 50, 0, 0, 0, 0);
+
 
 
 /*-- Smart AI --*/
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(14682, 14684, 14686, 14690, 14697, 16136, @GHOUL_BERSERKER, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16379, 16380, 16422, 16423, 16437, 16438);
+(14682, 14684, 14686, 14690, @LUMBERING_HORROR, 16136, @GHOUL_BERSERKER, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, 16422, 16423, 16437, 16438);
 
 DELETE FROM `smart_scripts` WHERE `entryorguid` IN 
-(14682, 14684, 14686, 14690, 16136, @GHOUL_BERSERKER, 14697, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16379, 16380, 16422, 16423, 16437, 16438);
+(14682, 14684, 14686, 14690, 16136, @GHOUL_BERSERKER, @LUMBERING_HORROR, @CULTIST_ENGINEER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, 16422, 16423, 16437, 16438);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
 `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -264,19 +312,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CULTIST_ENGINEER, 0, 9, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 16568, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Shadow of Doom - In Combat - Cast Mind Flay'),
 (@CULTIST_ENGINEER, 0, 10, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 12542, 1, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 'Shadow of Doom - In Combat - Cast Fear'),
 --
-(14697, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 12000, 15000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Knockdown'),
-(14697, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Scourge Strike'),
-(14697, 0, 2, 0, 0, 0, 100, 0, 3200, 11900, 11500, 16100, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Trample'),
-(14697, 0, 3, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lumbering Horror - On Just Died - Cast \'Zap Crystal\''),
-(14697, 0, 4, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Lumbering Horror - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
-(16379, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 16243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Ribbon of Souls'),
-(16379, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Scourge Strike'),
-(16379, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Spirit of the Damned - On Just Died - Cast \'Zap Crystal\''),
-(16379, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Spirit of the Damned - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
-(16380, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bone Witch - On Respawn - Cast Bone Shards'),
-(16380, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Bone Witch - In Combat - Cast Scourge Strike'),
-(16380, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Bone Witch - On Just Died - Cast \'Zap Crystal\''),
-(16380, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Bone Witch - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@LUMBERING_HORROR, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 12000, 15000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Knockdown'),
+(@LUMBERING_HORROR, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Scourge Strike'),
+(@LUMBERING_HORROR, 0, 2, 0, 0, 0, 100, 0, 3200, 11900, 11500, 16100, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lumbering Horror - In Combat - Cast Trample'),
+(@LUMBERING_HORROR, 0, 3, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lumbering Horror - On Just Died - Cast \'Zap Crystal\''),
+(@LUMBERING_HORROR, 0, 4, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Lumbering Horror - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 16243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Ribbon of Souls'),
+(@SPIRIT_OF_THE_DAMNED, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of the Damned - In Combat - Cast Scourge Strike'),
+(@SPIRIT_OF_THE_DAMNED, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Spirit of the Damned - On Just Died - Cast \'Zap Crystal\''),
+(@SPIRIT_OF_THE_DAMNED, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Spirit of the Damned - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
+(@BONE_WITCH, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 32900, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bone Witch - On Respawn - Cast Bone Shards'),
+(@BONE_WITCH, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Bone Witch - In Combat - Cast Scourge Strike'),
+(@BONE_WITCH, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Bone Witch - On Just Died - Cast \'Zap Crystal\''),
+(@BONE_WITCH, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Bone Witch - On Spellhit \'Spirit Spawn-out\' - Despawn In 3000 ms'),
 --
 (16422, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Skeletal Soldier - In Combat - Cast Scourge Strike'),
 (16423, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Apparition - In Combat - Cast Scourge Strike'),
