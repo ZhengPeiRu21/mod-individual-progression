@@ -59,3 +59,53 @@ DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 20804
 -- Alterac Valley - now using @CGUID 670000 instead
 DELETE FROM `waypoint_data` WHERE `id` IN (6300880, 6300890, 6301050, 6301060, 6301140, 6301330, 6301380, 6301390);
 DELETE FROM `creature_addon` WHERE `guid` IN (630088, 630089, 630105, 630106, 630114, 630133, 630138, 630139, 630164, 630165, 630181, 630182, 630190, 630209, 630214, 630215);
+
+-- Scourge Invasion Update
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (16136);
+
+-- Restore Scourge Invasion Event
+DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN 248650 AND 248654;
+INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
+(17, 248650),
+(17, 248651),
+(17, 248652),
+(17, 248653),
+(17, 248654);
+
+DELETE FROM `game_event_gameobject` WHERE `eventEntry` = 17 AND `guid` BETWEEN 105006 AND 105013;
+INSERT INTO `game_event_gameobject` (`eventEntry`, `guid`) VALUES
+(17, 105006),
+(17, 105007),
+(17, 105008),
+(17, 105009),
+(17, 105010),
+(17, 105011),
+(17, 105012),
+(17, 105013);
+
+DELETE FROM `game_event_npcflag` WHERE `eventEntry` = 17;
+INSERT INTO `game_event_npcflag` (`eventEntry`, `guid`, `npcflag`) VALUES
+(17, 1803,   179),
+(17, 26771,  179),
+(17, 38112,  129),
+(17, 46320,  177),
+(17, 208240, 1048705);
+
+DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` = 17;
+INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
+(17, 7,      0, 23160, 0, 0, 0),
+(17, 7,      0, 23161, 0, 0, 0),
+(17, 1803,   0, 23160, 0, 0, 0),
+(17, 1803,   0, 23161, 0, 0, 0),
+(17, 26771,  0, 23160, 0, 0, 0),
+(17, 26771,  0, 23161, 0, 0, 0),
+(17, 38112,  0, 23160, 0, 0, 0),
+(17, 38112,  0, 23161, 0, 0, 0),
+(17, 46320,  0, 23160, 0, 0, 0),
+(17, 46320,  0, 23161, 0, 0, 0),
+(17, 208240, 0, 23160, 0, 0, 0),
+(17, 208240, 0, 23161, 0, 0, 0);
+
+DELETE FROM `game_event` WHERE `eventEntry` = 17;
+INSERT INTO `game_event` (`eventEntry`, `start_time`, `end_time`, `occurence`, `length`, `holiday`, `holidayStage`, `description`, `world_event`, `announce`) VALUES 
+(17, '2000-01-01 14:00:00', '2000-01-01 14:00:00', 525600, 1, 0, 0, 'Scourge Invasion', 0, 2);
