@@ -317,16 +317,10 @@ UPDATE `creature_template` SET `HealthModifier` = 5 WHERE `entry` IN (@SPIRIT_OF
 -- Ghoul Berserker, Spectral Soldier, Skeletal Shocktrooper
 UPDATE `creature_template` SET `HealthModifier` = 2.7 WHERE `entry` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
 
--- Adds the reference loot (40110) for the Haunted Memento (40110)
-DELETE FROM `creature_loot_template` WHERE `Item` = 40110 AND `Entry` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(@GHOUL_BERSERKER,       40110, 40110, 2, 0, 1, 1, 1, 1, 'Reference Loot: Scourge Invasion Event - Item: Haunted Memento'),
-(@SPECTRAL_SOLDIER,      40110, 40110, 2, 0, 1, 1, 1, 1, 'Reference Loot: Scourge Invasion Event - Item: Haunted Memento'),
-(@SKELETAL_SHOCKTROOPER, 40110, 40110, 2, 0, 1, 1, 1, 1, 'Reference Loot: Scourge Invasion Event - Item: Haunted Memento');
-    
 DELETE FROM `creature_loot_template` WHERE `Entry` IN (16141, 16298, 16299);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 --
+(16141, 40110, 40110, 2, 0, 1, 1, 1, 1, 'Ghoul Berserker - Reference Loot - Haunted Memento'),
 (16141, 12841, 0, 35, 0, 1, 0, 1, 1,    'Ghoul Berserker - Invader\'s Scourgestone'),
 (16141, 22484, 0, 33.64, 0, 1, 0, 1, 1, 'Ghoul Berserker - Necrotic Rune'),
 (16141, 22970, 0, 0.6, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Bloodstained Envelope'),
@@ -336,6 +330,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (16141, 22975, 0, 0.6, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Smudged Document'),
 (16141, 22977, 0, 0.7, 0, 1, 0, 1, 1,   'Ghoul Berserker - A Torn Letter'),
 --
+(16298, 40110, 40110, 2, 0, 1, 1, 1, 1, 'Spectral Soldier - Reference Loot - Haunted Memento'),
 (16298, 12841, 0, 35, 0, 1, 0, 1, 1,    'Spectral Soldier - Invader\'s Scourgestone'),
 (16298, 22484, 0, 34.26, 0, 1, 0, 1, 1, 'Spectral Soldier - Necrotic Rune'),
 (16298, 22970, 0, 0.7, 0, 1, 0, 1, 1,   'Spectral Soldier - A Bloodstained Envelope'),
@@ -345,6 +340,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (16298, 22975, 0, 0.7, 0, 1, 0, 1, 1,   'Spectral Soldier - A Smudged Document'),
 (16298, 22977, 0, 0.6, 0, 1, 0, 1, 1,   'Spectral Soldier - A Torn Letter'),
 --
+(16299, 40110, 40110, 2, 0, 1, 1, 1, 1, 'Skeletal Shocktrooper - Reference Loot - Haunted Memento'),
 (16299, 12841, 0, 35, 0, 1, 0, 1, 1,    'Skeletal Shocktrooper - Invader\'s Scourgestone'),
 (16299, 22484, 0, 33.54, 0, 1, 0, 1, 1, 'Skeletal Shocktrooper - Necrotic Rune'),
 (16299, 22970, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Bloodstained Envelope'),
