@@ -19,6 +19,7 @@
 #include "CellImpl.h"
 #include "CreatureAIImpl.h"
 #include "CreatureScript.h"
+#include "IndividualProgression.h"
 #include "InstanceMapScript.h"
 #include "InstanceScript.h"
 #include "PassiveAI.h"
@@ -821,6 +822,13 @@ public:
         InstanceScript* instance = player->GetInstanceScript();
         if (!instance)
             return false;
+
+        if ((player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC && sIndividualProgression->naxxSkipToSaphiron) 
+            || (player->GetMap()->GetSpawnMode() != RAID_DIFFICULTY_10MAN_HEROIC && sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1)))
+        {
+            player->TeleportTo(SapphironTeleportPos);
+            return true;
+        }
 
         if ((instance->GetBossState(BOSS_MAEXXNA)  != DONE) ||
             (instance->GetBossState(BOSS_LOATHEB)  != DONE) ||

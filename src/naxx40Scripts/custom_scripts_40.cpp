@@ -3,6 +3,7 @@
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
+#include "IndividualProgression.h"
 #include "naxxramas.h"
 
 class NaxxPlayerScript : public PlayerScript
