@@ -12,7 +12,7 @@ public:
 
     void OnPlayerBeforeChooseGraveyard(Player* player, TeamId /*teamId*/, bool /*nearCorpse*/, uint32& graveyardOverride) override
     {
-        if (player->GetMapId() == MAP_NAXX && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
+        if (player->GetMapId() == MAP_NAXXRAMAS && player->GetMap()->GetSpawnMode() == RAID_DIFFICULTY_10MAN_HEROIC)
         {
             graveyardOverride = NAXX40_GRAVEYARD;
         }
