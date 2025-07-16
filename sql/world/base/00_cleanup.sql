@@ -62,6 +62,8 @@ DELETE FROM `creature_addon` WHERE `guid` IN (630088, 630089, 630105, 630106, 63
 
 -- Scourge Invasion Update
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (16136);
+UPDATE `creature` SET `phaseMask` = 1   WHERE `id1` IN (14682, 14684, 14686, 14690, 14693, 14695);
+UPDATE `creature` SET `ScriptName` = '' WHERE `id1` IN (16241, 16255, 16281, 16285, 16359, 16361, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787);
 
 -- Restore Scourge Invasion Event
 DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN 248650 AND 248654;
