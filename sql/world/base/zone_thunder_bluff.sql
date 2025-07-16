@@ -116,3 +116,19 @@ DELETE FROM `npc_vendor` WHERE `entry`=6746 AND `item` IN (27857, 28399, 33443, 
 
 -- Chepi <Reagent Vendor>
 DELETE FROM `npc_vendor` WHERE `entry`=8361 AND `item` IN (22147, 22148, 37201, 44605, 44614, 44615);
+
+-- Evergreen Herb Casing should drop random herbs - was changed to WotLK to drop only Morrowgrain and Mutated Morrowgrain
+DELETE FROM `item_loot_template` WHERE `Entry`=11024;
+INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+(11024, 785,   0, 6, 0, 1, 1, 1, 1,  'Evergreen Herb Casing - Mageroyal'),
+(11024, 2449,  0, 9, 0, 1, 1, 1, 1,  'Evergreen Herb Casing - Earthroot'),
+(11024, 2450,  0, 6, 0, 1, 1, 1, 1,  'Evergreen Herb Casing - Briarthorn'),
+(11024, 3356,  0, 10, 0, 1, 1, 1, 3, 'Evergreen Herb Casing - Kingsblood'),
+(11024, 3357,  0, 7, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Liferoot'),
+(11024, 3820,  0, 4, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Stranglekelp'),
+(11024, 3821,  0, 4, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Goldthorn'),
+(11024, 4625,  0, 2, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Firebloom'),
+(11024, 8838,  0, 5, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Sungrass'),
+(11024, 8839,  0, 5, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Blindweed'),
+(11024, 8846,  0, 5, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Gromsblood'),
+(11024, 11040, 0, 37, 0, 1, 1, 1, 5, 'Evergreen Herb Casing - Morrowgrain');
