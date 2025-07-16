@@ -72,7 +72,7 @@ INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
 (17, 248653),
 (17, 248654);
 
-DELETE FROM `game_event_npcflag` WHERE `eventEntry` = 17;
+DELETE FROM `game_event_npcflag` WHERE `eventEntry` = 17 AND `guid` IN (1803, 26771, 38112, 46320, 208240);
 INSERT INTO `game_event_npcflag` (`eventEntry`, `guid`, `npcflag`) VALUES
 (17, 1803,   179),
 (17, 26771,  179),
@@ -80,7 +80,7 @@ INSERT INTO `game_event_npcflag` (`eventEntry`, `guid`, `npcflag`) VALUES
 (17, 46320,  177),
 (17, 208240, 1048705);
 
-DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` = 17;
+DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` = 17 AND `guid` IN (7, 1803, 26771, 38112, 46320, 208240);
 INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
 (17, 7,      0, 23160, 0, 0, 0),
 (17, 7,      0, 23161, 0, 0, 0),
