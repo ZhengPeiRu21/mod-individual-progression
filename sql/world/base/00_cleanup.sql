@@ -61,7 +61,9 @@ DELETE FROM `waypoint_data` WHERE `id` IN (6300880, 6300890, 6301050, 6301060, 6
 DELETE FROM `creature_addon` WHERE `guid` IN (630088, 630089, 630105, 630106, 630114, 630133, 630138, 630139, 630164, 630165, 630181, 630182, 630190, 630209, 630214, 630215);
 
 -- Scourge Invasion Update
-UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (16136);
+UPDATE `creature_template` SET `AIName` = ''   WHERE `entry` = 16136;
+UPDATE `creature_template` SET `npcflag` = 1   WHERE `entry` = 16786;
+UPDATE `creature_template` SET `npcflag` = 129 WHERE `entry` = 16787;
 UPDATE `creature` SET `phaseMask` = 1   WHERE `id1` IN (14682, 14684, 14686, 14690, 14693, 14695);
 UPDATE `creature` SET `ScriptName` = '' WHERE `id1` IN (16241, 16255, 16281, 16285, 16359, 16361, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787);
 
