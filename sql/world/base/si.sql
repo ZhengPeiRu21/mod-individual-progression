@@ -102,7 +102,7 @@ SET @BALZAPHON             := 614684;
 SET @LADY_FALTHERESS       := 614686;
 SET @REVANCHION            := 614690;
 SET @SCORN                 := 614693;
-
+SET @LORD_BLACKWOOD        := 614695;
 
 -- Azerothcore uses these creatures for the WotLK version of the Scourge Invasion, 
 -- so we have to create copies to avoid phasing the wotlk versions
@@ -114,12 +114,14 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, 
 `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, 
 `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-
+--
 (@SEVER, 0, 0, 0, 0, 0, 'Sever', NULL, NULL, 0, 25, 25, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14682, 0, 0, 0, 0, 64, 151, 'SmartAI', 0, 1, 9, 1, 1, 1, 0, 0, 1, 12585040, 0, 0, '', 12340),
 (@BALZAPHON, 0, 0, 0, 0, 0, 'Balzaphon', NULL, NULL, 0, 60, 60, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 4, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14684, 0, 0, 0, 0, 2275, 2984, 'SmartAI', 0, 1, 6, 6, 1.1, 1, 0, 0, 1, 8415248, 0, 0, '', 12340),
 (@LADY_FALTHERESS, 0, 0, 0, 0, 0, 'Lady Falther\'ess', NULL, NULL, 0, 40, 40, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 5, 5, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14686, 0, 0, 0, 0, 208, 378, 'SmartAI', 0, 1, 8, 4, 1, 1, 0, 0, 1, 12601360, 0, 0, '', 12340),
 (@REVANCHION, 0, 0, 0, 0, 0, 'Revanchion', NULL, NULL, 0, 60, 60, 0, 21, 0, 1.11111, 1.14286, 1, 1, 20, 1, 1, 0, 8, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14690, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 10, 2, 1.35, 1, 0, 0, 1, 46156048, 0, 0, '', 12340),
 (@SCORN, 0, 0, 0, 0, 0, 'Scorn', NULL, NULL, 0, 34, 34, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 5.05, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14693, 0, 0, 0, 0, 238, 657, 'SmartAI', 0, 1, 8, 6, 0.9, 1, 0, 0, 1, 12585296, 0, 0, '', 12340),
+(@LORD_BLACKWOOD, 0, 0, 0, 0, 0, 'Lord Blackwood', NULL, NULL, 0, 60, 60, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 6, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14695, 0, 0, 0, 0, 1041, 1871, 'SmartAI', 0, 1, 10, 1, 1.1, 1, 0, 0, 1, 41962576, 0, 0, '', 12340),
+--
 (@SHADOW_OF_DOOM, 0, 0, 0, 0, 0, 'Shadow of Doom', '', NULL, 0, 60, 60, 0, 2145, 0, 1, 1.14286, 1, 1, 4, 1, 1, 0, 9, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16143, 0, 0, 0, 0, 186, 615, '', 0, 1, 20, 1, 1, 1, 0, 0, 1, 8405524, 0, 0, '', 12340),
 (@CULTIST_ENGINEER, 0, 0, 0, 0, 0, 'Cultist Engineer', '', NULL, 66000, 60, 60, 0, 190, 1, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.05, 2000, 2000, 1, 1, 1, 514, 2048, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1, 1, 1, 1, 0.25, 0, 0, 1, 0, 0, 4194304, '', 12340),
 (@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 'Ghoul Berserker', NULL, NULL, 0, 59, 60, 0, 1630, 0, 0.777776, 1.14286, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16141, 0, 0, 0, 0, 144, 659, 'SmartAI', 0, 1, 2.7, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340),
@@ -128,13 +130,15 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (@LUMBERING_HORROR, 0, 0, 0, 0, 0, 'Lumbering Horror', NULL, NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 14697, 0, 0, 0, 0, 271, 503, 'SmartAI', 0, 1, 5.4, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340),
 (@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 'Spirit of the Damned', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 0.992063, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16379, 0, 0, 0, 0, 0, 0, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
 (@BONE_WITCH, 0, 0, 0, 0, 0, 'Bone Witch', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 16380, 0, 0, 0, 0, 482, 558, 'SmartAI', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8602129, 0, 0, '', 12340),
+--
 (@ARGENT_QUARTERMASTER, 0, 0, 0, 0, 0, 'Argent Quartermaster', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 794, 3, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
 (@ARGENT_OUTFITTER, 0, 0, 0, 0, 0, 'Argent Outfitter', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 814, 131, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 1, 0, 2, '', 12340),
 (@NECROTIC_SHARD, 0, 0, 0, 0, 0, 'Necrotic Shard', NULL, NULL, 0, 70, 70, 0, 1630, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 260, 2048, 0, 0, 0, 0, 0, 0, 10, 1024, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 0.75, 1, 0, 1, 0, 0, 1, 0, 0, 2, 'npc_necrotic_shard', 12340);
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN 
-(@NECROTIC_SHARD, @CULTIST_ENGINEER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(@LORD_BLACKWOOD, @NECROTIC_SHARD, @CULTIST_ENGINEER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(@LORD_BLACKWOOD, 146950, 0, 0, 0, 0, 0, ''),
 (@NECROTIC_SHARD, 0, 0, 0, 0, 0, 3, ''),
 (@LUMBERING_HORROR, 0, 0, 0, 0, 0, 0, ''),
 (@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 0, ''),
@@ -188,6 +192,14 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@SCORN, 'ruRU', 'Насмешник', '', 18019),
 (@SCORN, 'zhCN', '瑟克恩', '', 18019),
 (@SCORN, 'zhTW', '瑟克恩', '', 18019),
+(@LORD_BLACKWOOD, 'deDE', 'Fürst Schwarzstahl', '', 18019),
+(@LORD_BLACKWOOD, 'esES', 'Lord Bosque Negro', '', 18019),
+(@LORD_BLACKWOOD, 'esMX', 'Lord Bosque Negro', '', 18019),
+(@LORD_BLACKWOOD, 'frFR', 'Seigneur Noirbois', '', 18019),
+(@LORD_BLACKWOOD, 'koKR', '군주 블랙우드', '', 18019),
+(@LORD_BLACKWOOD, 'ruRU', 'Лорд Блэквуд', '', 18019),
+(@LORD_BLACKWOOD, 'zhCN', '布莱克伍德公爵', '', 18019),
+(@LORD_BLACKWOOD, 'zhTW', '黑木領主', '', 18019),
 (@SHADOW_OF_DOOM, 'deDE', 'Schatten der Verdammnis', '', 18019),
 (@SHADOW_OF_DOOM, 'esES', 'Sombra de fatalidad', '', 18019),
 (@SHADOW_OF_DOOM, 'esMX', 'Sombra de fatalidad', '', 18019),
@@ -287,6 +299,7 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@LADY_FALTHERESS, 0, 10698, 1, 1, 12340),
 (@REVANCHION, 0, 14695, 1, 1, 12340),
 (@SCORN, 0, 16197, 1, 1, 12340),
+(@LORD_BLACKWOOD, 0, 14699, 1, 1, 12340),
 (@SHADOW_OF_DOOM, 0, 16168, 1, 1, 12340),
 (@CULTIST_ENGINEER, 0, 16151, 1, 1, 12340),
 (@GHOUL_BERSERKER, 0, 24993, 1, 1, 12340),
@@ -397,11 +410,11 @@ INSERT INTO `creature_onkill_reputation` (`creature_id`, `RewOnKillRepFaction1`,
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (@CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16422, 16423, 16437, 16438,
- @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
+ @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LORD_BLACKWOOD, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 
 DELETE FROM `smart_scripts` WHERE `entryorguid` IN 
 (@CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, 16422, 16423, 16437, 16438,
- @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
+ @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LORD_BLACKWOOD, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
 `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -420,6 +433,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@SCORN, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Scorn - In Combat - Cast Frost Nova'),
 (@SCORN, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Scorn - In Combat - Cast Frostbolt Volley'),
 (@SCORN, 0, 2, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 28873, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,             'Scorn - In Combat - Cast Lich Slap'),
+(@LORD_BLACKWOOD, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 5, 30, 11, 21390, 64, 0, 0, 0, 0, 25, 30, 0, 0, 0, 0, 0, 0, 0,                 'Lord Blackwood - On Victim In Range - Cast Multi-Shot'), 
+(@LORD_BLACKWOOD, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 11972, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,              'Lord Blackwood - In Combat - Cast Shield Bash'),
+(@LORD_BLACKWOOD, 0, 2, 0, 106, 0, 100, 0, 13000, 13000, 15000, 15000, 0, 5, 11, 7964, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Lord Blackwood - In Combat - Cast Smoke Bomb'),
 --
 (@CULTIST_ENGINEER, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Cultist Engineer - On Respawn - Set Faction 190'),
 (@CULTIST_ENGINEER, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, @CULTIST_ENGINEER, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Cultist Engineer - On Respawn - Set guid to Cultist Engineer'),
