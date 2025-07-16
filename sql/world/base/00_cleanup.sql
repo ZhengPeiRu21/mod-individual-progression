@@ -72,17 +72,6 @@ INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
 (17, 248653),
 (17, 248654);
 
-DELETE FROM `game_event_gameobject` WHERE `eventEntry` = 17 AND `guid` BETWEEN 105006 AND 105013;
-INSERT INTO `game_event_gameobject` (`eventEntry`, `guid`) VALUES
-(17, 105006),
-(17, 105007),
-(17, 105008),
-(17, 105009),
-(17, 105010),
-(17, 105011),
-(17, 105012),
-(17, 105013);
-
 DELETE FROM `game_event_npcflag` WHERE `eventEntry` = 17;
 INSERT INTO `game_event_npcflag` (`eventEntry`, `guid`, `npcflag`) VALUES
 (17, 1803,   179),
