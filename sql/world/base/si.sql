@@ -116,7 +116,7 @@ DELETE FROM `creature_template` WHERE `entry` IN
 (@ARGENT_RECRUITER, @ARGENT_SCOUT, @ARGENT_EMISSARY, @ARGENT_MESSENGER, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER, @KEEPER_OF_THE_ROLLS,
  @COMMANDER_THOMAS, @LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA,
  @NECROTIC_SHARD, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER,
- @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN);
+ @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LORD_BLACKWOOD);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, 
@@ -174,7 +174,7 @@ DELETE FROM `creature_template_locale` WHERE `entry` IN
 (@ARGENT_RECRUITER, @ARGENT_SCOUT, @ARGENT_EMISSARY, @ARGENT_MESSENGER, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER, @KEEPER_OF_THE_ROLLS,
  @COMMANDER_THOMAS, @LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA,
  @NECROTIC_SHARD, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER,
- @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN);
+ @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LORD_BLACKWOOD);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
 (@ARGENT_RECRUITER, 'deDE', 'Argentumrekrutierungsoffizier', 'Die Argentumdämmerung', 18019),
 (@ARGENT_RECRUITER, 'esES', 'Reclutador Argenta', 'El Alba Argenta', 18019),
@@ -216,7 +216,7 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@ARGENT_MESSENGER, 'ruRU', 'Вестник из ордена Серебряного Рассвета', 'Серебряный Рассвет', 18019),
 (@ARGENT_MESSENGER, 'zhCN', '银色信使', '银色黎明', 18019),
 (@ARGENT_MESSENGER, 'zhTW', '銀色黎明信差', '銀色黎明', 18019),
-(@COMMANDER_THOMAS, 'deDE', 'Kommandant Thomas Helleran', 'Die Argentumdämmerung', 18019),,
+(@COMMANDER_THOMAS, 'deDE', 'Kommandant Thomas Helleran', 'Die Argentumdämmerung', 18019),
 (@COMMANDER_THOMAS, 'esES', 'Comandante Thomas Helleran', 'El Alba Argenta', 18019),
 (@COMMANDER_THOMAS, 'esMX', 'Comandante Thomas Helleran', 'El Alba Argenta', 18019),
 (@COMMANDER_THOMAS, 'frFR', 'Commandant Thomas Helleran', 'L\'Aube d\'argent', 18019),
@@ -414,7 +414,7 @@ DELETE FROM `creature_template_model` WHERE `CreatureID` IN
 (@ARGENT_RECRUITER, @ARGENT_SCOUT, @ARGENT_EMISSARY, @ARGENT_MESSENGER, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER, @KEEPER_OF_THE_ROLLS,
  @COMMANDER_THOMAS, @LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA,
  @NECROTIC_SHARD, @SHADOW_OF_DOOM, @CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER,
- @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN);
+ @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LORD_BLACKWOOD);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@ARGENT_RECRUITER, 0, 16131, 1, 1, 12340),
 (@ARGENT_SCOUT, 0, 10727, 1, 1, 12340),
