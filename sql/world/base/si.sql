@@ -720,7 +720,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 
 DELETE FROM `creature_questender` WHERE `quest` = 9154;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(16281, 9154);
+(16281, 9154),
 (@KEEPER_OF_THE_ROLLS, 9154);
 
 -- Argent Quartermaster and Outfitter
