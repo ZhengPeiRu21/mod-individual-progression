@@ -134,4 +134,4 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 (@OGUID+115, 181227, 0, 0, 0, 1, 1, -8401.13, -1204.99, 187.317, 5.89863, 0, 0, 0, 0, 120, 100, 1, 0);
 
 
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `guid` BETWEEN @OGUID AND @OGUID+115);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `guid` BETWEEN @OGUID AND @OGUID+115;
