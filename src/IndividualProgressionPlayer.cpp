@@ -19,6 +19,11 @@ public:
 
     void OnPlayerLogin(Player* player) override
     {
+        if (!sIndividualProgression->enabled || isExcludedFromProgression(player))
+        {
+            return;
+        }
+        
         if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
         {
             sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression));
