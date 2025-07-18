@@ -2,8 +2,7 @@
 
 SET @OGUID    := 660000;
 
-DELETE FROM `gameobject` WHERE `id` IN (181154, 181172, 181215, 181223, 181227, 181254, 181255, 181256, 181373, 181374, 190604, 190609, 190610);
-
+DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID AND @OGUID+115;
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 
@@ -134,5 +133,5 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 (@OGUID+114, 181227, 0, 0, 0, 1, 1, -8362.69, -976.306, 187.089, 0.0984673, 0, 0, 0, 0, 120, 100, 1, 0),
 (@OGUID+115, 181227, 0, 0, 0, 1, 1, -8401.13, -1204.99, 187.317, 5.89863, 0, 0, 0, 0, 120, 100, 1, 0);
 
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `id` IN 
-(181154, 181172, 181215, 181223, 181227, 181254, 181255, 181256, 181373, 181374);
+
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `guid` BETWEEN @OGUID AND @OGUID+115;
