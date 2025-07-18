@@ -476,7 +476,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
-UPDATE `creature`   SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` = 19848; -- Harbinger Ennarth
+UPDATE `creature`   SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` IN (12778, 19848); -- Lieutenant Rachel Vaccar + Harbinger Ennarth
 
 
 -- WotLK pvp vendors
