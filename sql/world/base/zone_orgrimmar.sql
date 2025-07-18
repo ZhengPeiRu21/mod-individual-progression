@@ -81,7 +81,7 @@ INSERT IGNORE INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`,
 (603890, 3890,  1, 1990.64, -4794.13, 56.0472, 3.22013, 300), -- Brakgul Deathbringer <Warsong Gulch Battlemaster>
 (612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 300), -- Legionnaire Teena
 (614720, 14720, 1, 1565.79, -4395.27, 6.9866, 3.35103,  600), -- High Overlord Saurfang
-(614942, 14942, 1, 1980.9, -4787.78, 55.8796, 5.13127,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
+(614942, 14942, 1, 1986.01, -4786.86, 56.0468, 4.491213,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
 (615006, 15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathis Basin Battlemaster>
 
 
