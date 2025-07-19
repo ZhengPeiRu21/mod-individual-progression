@@ -5357,7 +5357,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 DELETE FROM `creature_template_addon` WHERE (`entry` = 351073);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (351073, 0, 0, 0, 1, 0, 0, '28458');
--- Soul Weaver
+--512 + 256  Disables combat/assistance 
+UPDATE `creature_template` SET `unit_flags` = 768 WHERE `entry` IN (351073, 351074, 351075);
 -- Wail of Souls
 DELETE FROM `creature_template_spell` WHERE (`CreatureID` = 351075);
 INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES
