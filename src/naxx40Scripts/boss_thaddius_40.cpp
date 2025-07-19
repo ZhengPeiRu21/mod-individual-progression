@@ -707,7 +707,7 @@ public:
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
         InstanceScript* instance = player->GetInstanceScript();
-        if (!instance || instance->GetData(DATA_THADDIUS_INTRO) || instance->GetBossState(BOSS_THADDIUS) == DONE)
+        if (!instance || instance->GetData(DATA_THADDIUS_INTRO) == 1 || instance->GetBossState(BOSS_THADDIUS) == DONE)
             return true;
 
         if (Creature* thaddius = instance->GetCreature(DATA_THADDIUS_BOSS))
