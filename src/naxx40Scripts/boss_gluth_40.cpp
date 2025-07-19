@@ -43,7 +43,8 @@ enum Events
     EVENT_DECIMATE                      = 3,
     EVENT_BERSERK                       = 4,
     EVENT_SUMMON_ZOMBIE                 = 5,
-    EVENT_CAN_EAT_ZOMBIE                = 6
+    EVENT_CAN_EAT_ZOMBIE                = 6,
+	EVENT_TERRIFYING_ROAR               = 7
 };
 
 enum Misc
@@ -192,7 +193,7 @@ public:
                     if (me->CastCustomSpell(me, SPELL_ENRAGE_10, &bp1, &bp2, 0, true) == SPELL_CAST_OK)
                         events.Repeat(10s);
                     else
-                        events.RepeatEvent(100);                   
+                        events.Repeat(100ms);                   
                     break;
                 }
                 case EVENT_MORTAL_WOUND:
@@ -259,7 +260,7 @@ public:
                     if (me->CastSpell(me, SPELL_TERRIFYING_ROAR, true) == SPELL_CAST_OK)
                         events.Repeat(20s);
                     else
-                        events.RepeatEvent(100);
+                        events.Repeat(100ms);
                     break;        
             }
             DoMeleeAttackIfReady();
