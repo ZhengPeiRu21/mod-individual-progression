@@ -32,6 +32,7 @@ enum Spells
     SPELL_DECIMATE_DAMAGE               = 28375,
     SPELL_BERSERK                       = 26662,
     SPELL_INFECTED_WOUND                = 29306,
+    SPELL_TERRIFYING_ROAR               = 29685,
     SPELL_CHOW_SEARCHER                 = 28404
 };
 
@@ -114,11 +115,12 @@ public:
             BossAI::JustEngagedWith(who);
             me->SetInCombatWithZone();
             events.ScheduleEvent(EVENT_MORTAL_WOUND, 10s);
-            events.ScheduleEvent(EVENT_ENRAGE, 22s);
+            events.ScheduleEvent(EVENT_ENRAGE, 10s); // VMangos value
             events.ScheduleEvent(EVENT_DECIMATE, RAID_MODE(110000, 90000, 110000, 90000));
             events.ScheduleEvent(EVENT_BERSERK, 6min);
-            events.ScheduleEvent(EVENT_SUMMON_ZOMBIE, 10s);
-            events.ScheduleEvent(EVENT_CAN_EAT_ZOMBIE, 1s);
+            events.ScheduleEvent(EVENT_SUMMON_ZOMBIE, 6s); // VMangos value
+            events.ScheduleEvent(EVENT_CAN_EAT_ZOMBIE, 3s);  // VMangos value
+            events.ScheduleEvent(EVENT_TERRIFYING_ROAR, 20s); // VMangos value
         }
 
         void JustSummoned(Creature* summon) override
@@ -187,8 +189,10 @@ public:
                     Talk(EMOTE_ENRAGE);
                     int32 bp1 = 99; // Enrage melee haste
                     int32 bp2 = 49; // Enrage damage percent
-                    me->CastCustomSpell(me, SPELL_ENRAGE_10, &bp1, &bp2, 0, true);
-                    events.Repeat(22s);
+                    if (me->CastCustomSpell(me, SPELL_ENRAGE_10, &bp1, &bp2, 0, true) == SPELL_CAST_OK)
+                        events.Repeat(10s);
+                    else
+                        events.RepeatEvent(100);                   
                     break;
                 }
                 case EVENT_MORTAL_WOUND:
@@ -239,7 +243,7 @@ public:
                             }
                             (rand == 2 ? rand = 0 : rand++);
                         }
-                        events.Repeat(10s);
+                        events.Repeat(6s);
                         break;
                     }
                 case EVENT_CAN_EAT_ZOMBIE:
@@ -251,6 +255,12 @@ public:
                         return; // leave it to skip DoMeleeAttackIfReady
                     }
                     break;
+                case EVENT_TERRIFYING_ROAR:
+                    if (me->CastSpell(me, SPELL_TERRIFYING_ROAR, true) == SPELL_CAST_OK)
+                        events.Repeat(20s);
+                    else
+                        events.RepeatEvent(100);
+                    break;        
             }
             DoMeleeAttackIfReady();
         }
