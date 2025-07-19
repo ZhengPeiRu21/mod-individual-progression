@@ -40,6 +40,16 @@ enum Spells
     SPELL_MINION_WIDOWS_EMBRACE         = 54097
 };
 
+enum SpellValues : int32
+{
+    POISON_BOLT_VOLLEY_BP0              = 1224,
+    POISON_BOLT_VOLLEY_BP1              = 416,
+    RAIN_OF_FIRE_BP0                    = 1849,
+    FRENZY_BP0                          = 149,
+    FRENZY_BP1                          = 74,
+    FRENZY_BP2                          = 49
+};
+
 enum Groups
 {
     GROUP_FRENZY                        = 1
@@ -94,11 +104,23 @@ public:
 
             ScheduleTimedEvent(7s, 15s, [&]{
                 if (!me->HasAura(SPELL_WIDOWS_EMBRACE))
-                    DoCastVictim(SPELL_POISON_BOLT_VOLLEY);
+                {
+                    CustomSpellValues values;
+                    int32 bp0 = POISON_BOLT_VOLLEY_BP0;
+                    int32 bp1 = POISON_BOLT_VOLLEY_BP1;
+                    values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 10);
+                    values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                    values.AddSpellMod(SPELLVALUE_BASE_POINT1, bp1);
+                    me->CastCustomSpell(SPELL_POISON_BOLT_VOLLEY, values, me, TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
+                }
             }, 7s, 15s);
 
-            ScheduleTimedEvent(8s, 18s, [&] {
-                DoCastRandomTarget(SPELL_RAIN_OF_FIRE);
+            ScheduleTimedEvent(8s, 18s, [&] {              
+                if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0))
+                {
+                    int32 bp0 = RAIN_OF_FIRE_BP0;
+                    me->CastCustomSpell(target, SPELL_RAIN_OF_FIRE, &bp0, 0, 0, false, nullptr, nullptr, ObjectGuid::Empty);
+                }
             }, 8s, 18s);
 
             scheduler.Schedule(60s, 80s, GROUP_FRENZY, [this](TaskContext context) {
@@ -106,7 +128,10 @@ public:
                 {
                     Talk(SAY_FRENZY);
                     Talk(EMOTE_FRENZY);
-                    DoCastSelf(SPELL_FRENZY, true);
+                    int32 bp0 = FRENZY_BP0;
+                    int32 bp1 = FRENZY_BP1;
+                    int32 bp2 = FRENZY_BP2;
+                    me->CastCustomSpell(me, SPELL_FRENZY, &bp0, &bp1, &bp2, true, nullptr, nullptr, ObjectGuid::Empty);
                     context.Repeat(1min);
                 }
                 else
