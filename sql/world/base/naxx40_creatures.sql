@@ -4393,7 +4393,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (351065, 0, 5, 0, 2, 0, 100, 0, 0, 30, 60000, 60000, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Infectious Ghoul - On 30% HP - Say EMOTE_FRENZY (Naxx 40)"),
 (351066, 0, 0, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 11, 29232, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Cast Spell on Death (Naxx 40)"),
 (351068, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 6000, 8000, 0, 11, 30109, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Cast Spell IC (Naxx 40)"),
-(351069, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 29306, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Zombie Chow - On Spawn - Cast Infected Wound'),
+(351069, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 11, 29306, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Zombie Chow - On Spawn - Cast Infected Wound'),
 (351071, 0, 0, 0, 1, 0, 100, 7, 1000, 1000, 0, 0, 0, 11, 28153, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Sewage Slime - Out of Combat - Cast 'Disease Cloud' (Naxx 40)"),
 (351078, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 11, 55876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, "Plagued Ghoul - On death - Cast Plague contamination (Naxx 40)"),
 (351080, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 16000, 21000, 0, 11, 56107, 0, 0, 0, 0, 0, 17, 7, 40, 0, 0, 0.0, 0.0, 0.0, 0.0, "Cast Spell IC (Naxx 40)"),
@@ -5357,7 +5357,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 DELETE FROM `creature_template_addon` WHERE (`entry` = 351073);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (351073, 0, 0, 0, 1, 0, 0, '28458');
---512 + 256  Disables combat/assistance 
+-- 512 + 256  Disables combat/assistance 
 UPDATE `creature_template` SET `unit_flags` = 768 WHERE `entry` IN (351073, 351074, 351075);
 -- Wail of Souls
 DELETE FROM `creature_template_spell` WHERE (`CreatureID` = 351075);
