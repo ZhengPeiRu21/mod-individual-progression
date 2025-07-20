@@ -20,13 +20,13 @@ public:
 
     void OnPlayerLogin(Player* player) override
     {
-        if (!sIndividualProgression->enabled || isExcludedFromProgression(player))
+        sIndividualProgression->TeleportOutsideRestoredRaid(player);
+        
+        if (!sIndividualProgression->enabled || !sIndividualProgression->isExcludedFromProgression(player))
         {
             return;
         }
         
-        sIndividualProgression->TeleportOutsideRestoredRaid(player);
-
         if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
         {
             sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression));
