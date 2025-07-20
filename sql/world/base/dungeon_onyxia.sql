@@ -1066,9 +1066,15 @@ INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `TYPE`, `COMM
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `id` = 7509;
 
-DELETE FROM `areatrigger_scripts` WHERE `entry` = 2848;
+DELETE FROM `areatrigger` WHERE `entry` IN (2848, 302848);
+INSERT INTO `areatrigger` VALUES
+(2848,1,-4768.61,-3752.11,53.4317,16,0,0,0,0),
+(302848,1,-4768.61,-3752.11,53.4317,16,0,0,0,0);
+
+DELETE FROM `areatrigger_scripts` WHERE `entry` IN (2848, 302848);
 INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
-(2848, 'onyxia_entrance_trigger');
+(2848, 'onyxia_entrance_trigger'),
+(302848, 'onyxia_entrance40_trigger');
 
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `map` = 249;
 

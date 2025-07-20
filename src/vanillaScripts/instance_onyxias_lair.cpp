@@ -137,6 +137,35 @@ public:
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
         if (!sIndividualProgression->groupHaveLevelDisparity(player)
+            && player->GetLevel() >= IP_LEVEL_WOTLK
+            && (sIndividualProgression->isExcludedFromProgression(player)
+                || sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)))
+        {
+            // Do not allow entrance to Onyxia 40 with level 80 players
+            // Change 10 man heroic to regular 10 man, as when 10 man heroic is not available
+            Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
+            if (diff == RAID_DIFFICULTY_10MAN_HEROIC)
+            {
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+                player->SendRaidDifficulty(true);
+            }
+
+            if (!sIndividualProgression->groupHaveLevelDisparity(player) && player->GetLevel() >= IP_LEVEL_WOTLK)
+                player->TeleportTo(MAP_ONYXIAS_LAIR, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+        }
+
+        return true;
+    }
+};
+
+class onyxia_entrance40_trigger : public AreaTriggerScript
+{
+public:
+    onyxia_entrance40_trigger() : AreaTriggerScript("onyxia_entrance40_trigger") { }
+
+    bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
+    {
+        if (!sIndividualProgression->groupHaveLevelDisparity(player)
             && player->GetLevel() <= IP_LEVEL_TBC
             && (sIndividualProgression->isExcludedFromProgression(player)
                 || sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_1)
@@ -145,14 +174,40 @@ public:
             //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
             player->SendRaidDifficulty(true);
-        }
 
-        if (!sIndividualProgression->groupHaveLevelDisparity(player))
-            player->TeleportTo(MAP_ONYXIAS_LAIR, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+            if (!sIndividualProgression->groupHaveLevelDisparity(player) && player->GetLevel() <= IP_LEVEL_TBC)
+                player->TeleportTo(MAP_ONYXIAS_LAIR, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+        }
 
         return true;
     }
 };
+
+// -- ez backup
+// class onyxia_entrance_trigger : public AreaTriggerScript
+// {
+// public:
+//     onyxia_entrance_trigger() : AreaTriggerScript("onyxia_entrance_trigger") { }
+
+//     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
+//     {
+//         if (!sIndividualProgression->groupHaveLevelDisparity(player)
+//             && player->GetLevel() <= IP_LEVEL_TBC
+//             && (sIndividualProgression->isExcludedFromProgression(player)
+//                 || sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_1)
+//                 || player->IsGameMaster()))
+//         {
+//             //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
+//             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+//             player->SendRaidDifficulty(true);
+//         }
+
+//         if (!sIndividualProgression->groupHaveLevelDisparity(player))
+//             player->TeleportTo(MAP_ONYXIAS_LAIR, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+
+//         return true;
+//     }
+// };
 
 class global_onyxia_tuning_script : public GlobalScript
 {
@@ -301,4 +356,5 @@ void AddSC_instance_onyxias_lair_40()
     new instance_onyxias_lair_40();
     new global_onyxia_tuning_script();
     new onyxia_entrance_trigger();
+    new onyxia_entrance40_trigger();
 }
