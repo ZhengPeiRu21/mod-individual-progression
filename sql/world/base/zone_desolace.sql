@@ -1,5 +1,28 @@
+-- smart scripts
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5602, 10182);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5602, 10182);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(5602, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Khan Shaka - On Reset - Cast Battle Stance'),
+(5602, 0, 2, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
+(5602, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Khan Shaka   - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(10182, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rexxar - On Reset - Waypoint Start'),
+(10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - On Reset - Cast Thrash'),
+(10182, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Reset - Cast Puncture'),
+(10182, 0, 3, 0, 0, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 0, 11, 18813, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - In Combat - Cast Knock Away'),
+(10182, 0, 4, 0, 0, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - In Combat - Cast Cleave'),
+(10182, 0, 5, 0, 0, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 0, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - In Combat - Cast Sundering Cleave'),
+(10182, 0, 6, 0, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
+(10182, 0, 7, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Friendly Between 0-20% Health - Cast Vengeance (No Repeat)');
+
+
 /* Restore Rexxar in Desolace. Rokaro replaced him in TBC */
-UPDATE `creature_template` SET `name` = 'Rexxar', `AIName` = 'SmartAI' WHERE `entry` = 10182;
+UPDATE `creature_template` SET `name` = 'Rexxar' WHERE `entry` = 10182;
 
 UPDATE `quest_template` SET 
 `LogDescription` = 'Seek out Rexxar. The Warchief has instructed you as to his whereabouts. Search the paths of Desolace, between the Stonetalon Mountains and Feralas.',
@@ -30,13 +53,6 @@ UPDATE `broadcast_text_locale` SET `MaleText` = 'Bien hecho, $c. Soy Rexxar.' WH
 UPDATE `broadcast_text_locale` SET `MaleText` = 'Salutations, $c. Je suis Rexxar.' WHERE `ID` = 9013 AND `locale` = 'frFR';
 
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 11660 WHERE `CreatureID` = 10182;
-
-DELETE FROM `smart_scripts` WHERE `entryorguid` = 10182;
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
-`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, 
-`action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-(10182, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - On Respawn - Waypoint Start');
 
 DELETE FROM `creature` WHERE `guid` IN (29113, 610204);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, 
