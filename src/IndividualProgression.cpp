@@ -352,6 +352,11 @@ public:
             sWorld->setBoolConfig(CONFIG_LOW_LEVEL_REGEN_BOOST, false);
             sWorld->setBoolConfig(CONFIG_DBC_ENFORCE_ITEM_ATTRIBUTES, false);
         }
+
+        if (IndividualProgression->DisableRDF)
+        {
+            sWorld->setIntConfig(CONFIG_LFG_OPTIONSMASK, 4);
+        }        
     }
 };
 
