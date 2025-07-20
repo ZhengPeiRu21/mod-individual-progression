@@ -293,10 +293,10 @@ IndividualProgression.PvPGearRequirements = 1
 # IndividualProgression.DisableRDF
 #        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
 #        Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
-#        Default:     0 - RDF Enabled
-#                     1 - RDF Disabled
+#        Default:     1 - RDF Disabled
+#                     0 - RDF Enabled
 #
-IndividualProgression.DisableRDF = 0
+IndividualProgression.DisableRDF = 1
 
 # IndividualProgression.ExcludeAccounts
 #        Description: Enable or disable the exclusion of accounts from Individual Progression.
