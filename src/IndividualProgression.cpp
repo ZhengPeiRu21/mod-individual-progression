@@ -354,7 +354,7 @@ public:
             sWorld->setBoolConfig(CONFIG_DBC_ENFORCE_ITEM_ATTRIBUTES, false);
         }
 
-        if (IndividualProgression->DisableRDF)
+        if (sIndividualProgression->DisableRDF)
         {
             sWorld->setIntConfig(CONFIG_LFG_OPTIONSMASK, 4);
         }        
