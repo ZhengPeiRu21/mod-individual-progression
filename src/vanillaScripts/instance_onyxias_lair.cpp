@@ -139,7 +139,8 @@ public:
         if (!sIndividualProgression->groupHaveLevelDisparity(player)
             && player->GetLevel() >= IP_LEVEL_WOTLK
             && (sIndividualProgression->isExcludedFromProgression(player)
-                || sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)))
+                || sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)
+                || player->IsGameMaster()))
         {
             // Do not allow entrance to Onyxia 40 with level 80 players
             // Change 10 man heroic to regular 10 man, as when 10 man heroic is not available
@@ -158,17 +159,28 @@ public:
     }
 };
 
-class onyxia_entrance40_trigger : public AreaTriggerScript
+class gobject_onyxia40_tele : public GameObjectScript
 {
 public:
-    onyxia_entrance40_trigger() : AreaTriggerScript("onyxia_entrance40_trigger") { }
+    gobject_onyxia40_tele() : GameObjectScript("gobject_onyxia40_tele") { }
 
-    bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
+    struct gobject_onyxia40_teleAI: GameObjectAI
+    {
+        explicit gobject_onyxia40_teleAI(GameObject* object) : GameObjectAI(object) { };
+
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_onyxia40_teleAI(object);
+    }
+
+    bool OnGossipHello(Player* player, GameObject* /*go*/) override
     {
         if (!sIndividualProgression->groupHaveLevelDisparity(player)
             && player->GetLevel() <= IP_LEVEL_TBC
             && (sIndividualProgression->isExcludedFromProgression(player)
-                || sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_1)
+                || sIndividualProgression->isBeforeProgression(player, PROGRESSION_TBC_TIER_5)
                 || player->IsGameMaster()))
         {
             //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
@@ -181,33 +193,17 @@ public:
 
         return true;
     }
+    
+    bool CanBeSeen(Player const* player) override
+    {
+        if (player->IsGameMaster() || !sIndividualProgression->enabled)
+        {
+            return true;
+        }
+        Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+        return sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5);
+    }
 };
-
-// -- ez backup
-// class onyxia_entrance_trigger : public AreaTriggerScript
-// {
-// public:
-//     onyxia_entrance_trigger() : AreaTriggerScript("onyxia_entrance_trigger") { }
-
-//     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
-//     {
-//         if (!sIndividualProgression->groupHaveLevelDisparity(player)
-//             && player->GetLevel() <= IP_LEVEL_TBC
-//             && (sIndividualProgression->isExcludedFromProgression(player)
-//                 || sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_1)
-//                 || player->IsGameMaster()))
-//         {
-//             //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
-//             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-//             player->SendRaidDifficulty(true);
-//         }
-
-//         if (!sIndividualProgression->groupHaveLevelDisparity(player))
-//             player->TeleportTo(MAP_ONYXIAS_LAIR, 29.1607f, -71.3372f, -8.18032f, 4.58f);
-
-//         return true;
-//     }
-// };
 
 class global_onyxia_tuning_script : public GlobalScript
 {
@@ -356,5 +352,5 @@ void AddSC_instance_onyxias_lair_40()
     new instance_onyxias_lair_40();
     new global_onyxia_tuning_script();
     new onyxia_entrance_trigger();
-    new onyxia_entrance40_trigger();
+    new gobject_onyxia40_tele();
 }

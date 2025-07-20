@@ -1066,15 +1066,21 @@ INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `TYPE`, `COMM
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `id` = 7509;
 
-DELETE FROM `areatrigger` WHERE `entry` IN (2848, 302848);
-INSERT INTO `areatrigger` VALUES
-(2848,1,-4768.61,-3752.11,53.4317,16,0,0,0,0),
-(302848,1,-4768.61,-3752.11,53.4317,16,0,0,0,0);
-
-DELETE FROM `areatrigger_scripts` WHERE `entry` IN (2848, 302848);
+DELETE FROM `areatrigger_scripts` WHERE `entry` = 2848;
 INSERT INTO `areatrigger_scripts` (`entry`, `ScriptName`) VALUES
-(2848, 'onyxia_entrance_trigger'),
-(302848, 'onyxia_entrance40_trigger');
+(2848, 'onyxia_entrance_trigger');
+
+-- Add Entrance transporter object. Necromantic Runestone (id: 189314, displayID: 7786)
+SET @TRANSPORTER_ENTRY_ONYXIA:= 361002;
+DELETE FROM `gameobject_template` WHERE (`entry` = @TRANSPORTER_ENTRY_ONYXIA);
+INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, `unk1`, `size`, `Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, `Data10`, `Data11`, `Data12`, `Data13`, `Data14`, `Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, `Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES
+(@TRANSPORTER_ENTRY_ONYXIA, 10, 7786, 'Onyxia''s Lair Teleporter (40)', '', '', '', 1, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 'gobject_onyxia40_tele', 0);
+DELETE FROM `gameobject` WHERE `id`=@TRANSPORTER_ENTRY_ONYXIA AND `map`=0 AND `zoneId`=0 AND `areaID`=0;
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES
+(@TRANSPORTER_ENTRY_ONYXIA, 1, 0, 0, 1, 1, -4748.02, -3753.63, 49.61, 0.4109, 0, 0, -0.063658, -1, 1, 0, 1, '', 0);
+DELETE FROM `gameobject_template_locale` WHERE `entry` = @TRANSPORTER_ENTRY_ONYXIA;
+INSERT INTO `gameobject_template_locale` (`entry`, `locale`, `name`, `castBarCaption`, `VerifiedBuild`) VALUES
+(@TRANSPORTER_ENTRY_ONYXIA, 'frFR', 'Téléporteur vers Repaire d''Onyxia (40)', '', 0);
 
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `map` = 249;
 

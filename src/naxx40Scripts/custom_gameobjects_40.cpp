@@ -42,6 +42,16 @@ public:
         }
         return true;
     }
+
+    bool CanBeSeen(Player const* player) override
+    {
+        if (player->IsGameMaster() || !sIndividualProgression->enabled)
+        {
+            return true;
+        }
+        Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+        return (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5));
+    }
 };
 
 void AddSC_custom_gameobjects_40()
