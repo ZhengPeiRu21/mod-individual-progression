@@ -1,4 +1,3 @@
-#include "IndividualProgression.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
@@ -6,6 +5,7 @@
 #include "GameObjectAI.h"
 #include "Player.h"
 #include "naxxramas.h"
+#include "IndividualProgression.h"
 
 class gobject_naxx40_tele : public GameObjectScript
 {
@@ -36,10 +36,9 @@ public:
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
             player->SendRaidDifficulty(true);
 
-            if (!sIndividualProgression->groupHaveLevelDisparity(player) && player->GetLevel() <= IP_LEVEL_TBC)
-            {
+            if (!sIndividualProgression->groupHaveLevelDisparity(player) && player->GetLevel() <= IP_LEVEL_TBC
+                    && (sIndividualProgression->isAttunedNaxx(player) || isExcludedFromProgression(player)))
                 player->TeleportTo(MAP_NAXXRAMAS, 3006.05f, -3466.81f, 298.219f, 4.6824f);
-            }
         }
         return true;
     }

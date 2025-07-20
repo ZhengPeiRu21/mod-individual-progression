@@ -625,6 +625,7 @@ private:
         sIndividualProgression->LoadCustomProgressionEntries(sConfigMgr->GetOption<std::string>("IndividualProgression.CustomProgression", ""));
         sIndividualProgression->earlyDungeonSet2 = sConfigMgr->GetOption<bool>("IndividualProgression.AllowEarlyDungeonSet2", true);
         sIndividualProgression->pvpGearRequirements = sConfigMgr->GetOption<bool>("IndividualProgression.PvPGearRequirements", true);
+        sIndividualProgression->disableRdf = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
         sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", false);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "");
     }
@@ -664,13 +665,17 @@ public:
         if (sIndividualProgression->simpleConfigOverride)
         {
             sWorld->setIntConfig(CONFIG_WATER_BREATH_TIMER, 60000);
-            sWorld->setIntConfig(CONFIG_LFG_OPTIONSMASK, 4);
             sWorld->setBoolConfig(CONFIG_OBJECT_QUEST_MARKERS, false);
             sWorld->setBoolConfig(CONFIG_OBJECT_SPARKLES, false);
             sWorld->setBoolConfig(CONFIG_PLAYER_SETTINGS_ENABLED, true);
             sWorld->setBoolConfig(CONFIG_LOW_LEVEL_REGEN_BOOST, false);
             sWorld->setBoolConfig(CONFIG_DBC_ENFORCE_ITEM_ATTRIBUTES, false);
         }
+
+        if (sIndividualProgression->disableRdf)
+        {
+            sWorld->setIntConfig(CONFIG_LFG_OPTIONSMASK, 4);
+        }        
     }
 };
 

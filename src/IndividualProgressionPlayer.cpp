@@ -1,5 +1,6 @@
 #include "IndividualProgression.h"
 #include "naxxramas.h"
+#include "naxxramas_40.h"
 
 class IndividualPlayerProgression : public PlayerScript
 {
@@ -19,6 +20,11 @@ public:
 
     void OnPlayerLogin(Player* player) override
     {
+        if (!sIndividualProgression->enabled || isExcludedFromProgression(player))
+        {
+            return;
+        }
+        
         sIndividualProgression->TeleportOutsideRestoredRaid(player);
 
         if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
@@ -704,37 +710,6 @@ public:
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
                 }
-        }
-    }
-
-    void OnPlayerQueueRandomDungeon(Player* player, uint32& rDungeonId) override
-    {
-        // List of exceptions for seasonal event dungeons
-        std::set<uint32> seasonalEventDungeons = { 285, 286, 287, 288 };
-        if (seasonalEventDungeons.find(rDungeonId) != seasonalEventDungeons.end())
-        {
-            return;
-        }
-
-        // Check if RDF is disabled in the context of Individual Progression
-        if (sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false))
-        {
-            ChatHandler(player->GetSession()).SendNotification("The Random Dungeon feature is currently disabled by the Individual Progression module.");
-            rDungeonId = 1000; // Set dungeon ID to an invalid value to cancel the queuing
-            return;
-        }
-
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
-        {
-            rDungeonId = RDF_CLASSIC;
-        }
-        else if ((rDungeonId == RDF_WRATH_OF_THE_LICH_KING && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
-        {
-            rDungeonId = RDF_THE_BURNING_CRUSADE;
-        }
-        else if ((rDungeonId == RDF_WRATH_OF_THE_LICH_KING_HEROIC && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
-        {
-            rDungeonId = RDF_THE_BURNING_CRUSADE_HEROIC;
         }
     }
 

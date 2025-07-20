@@ -15,6 +15,9 @@ DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 13
 UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN 
 (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
 
+-- Naxx40 - Razuvious
+DELETE FROM `spell_script_names` WHERE `spell_id` IN (29107, 55543);
+
 -- Drop source for 2.3 Jewelcrafting Recipe
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 19768; -- disabled for now to prevent the creature from attacking while phased
 

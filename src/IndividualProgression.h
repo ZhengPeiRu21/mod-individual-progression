@@ -238,7 +238,7 @@ public:
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-    bool enabled, questXpFix, hunterPetLevelFix, moltenCoreOnySamePhase, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, naxxExitViaPortals, naxxSkipToSaphiron, dynamicPhasingEventMobs, pvpGearRequirements, excludeAccounts;
+    bool enabled, questXpFix, hunterPetLevelFix, moltenCoreOnySamePhase, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, naxxExitViaPortals, naxxSkipToSaphiron, dynamicPhasingEventMobs, pvpGearRequirements, disableRdf, excludeAccounts;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression;
     std::string excludedAccountsRegex;
 
