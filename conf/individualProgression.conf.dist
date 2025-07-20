@@ -312,4 +312,4 @@ IndividualProgression.ExcludeAccounts = 0
 #        Only used if ExcludeAccounts is enabled.
 #        Default:     ""
 #
-IndividualProgression.ExcludedAccountsRegex = ""
+IndividualProgression.ExcludedAccountsRegex = "^RNDBOT.*"
