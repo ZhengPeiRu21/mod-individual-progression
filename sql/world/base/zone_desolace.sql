@@ -1,6 +1,6 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5402, 5602, 10182, 11787, 14225);
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5402, 5602, 10182, 11787, 14225);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (5402, 5602, 10182, 11787, 14225);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
