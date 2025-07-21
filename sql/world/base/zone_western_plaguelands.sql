@@ -6,9 +6,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(1845, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'High Protector Tarsen - On Reset - Cast Devotion Aura (No Repeat)'),
+(1845, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'High Protector Tarsen - On Reset - Cast Devotion Aura'),
 (1845, 0, 1, 0, 0, 0, 100, 0, 4000, 12000, 11000, 15000, 0, 0, 11, 10833, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'High Protector Tarsen - In Combat - Cast Arcane Blast'),
-(1845, 0, 2, 0, 0, 0, 100, 0, 1000, 11000, 10000, 20000, 0, 0, 11, 15655, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'High Protector Tarsen - In Combat - Cast Shield Slam'),
+(1845, 0, 2, 0, 0, 0, 100, 0, 1000, 11000, 10000, 20000, 0, 0, 11, 8242, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'High Protector Tarsen - In Combat - Cast Shield Slam'),
 (1845, 0, 3, 0, 0, 0, 100, 0, 2300, 3100, 8900, 9600, 0, 0, 11, 13953, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'High Protector Tarsen - In Combat - Cast Holy Strike'),
 --
 (1846, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'High Protector Lorik - On Reset - Cast Retribution Aura'),
