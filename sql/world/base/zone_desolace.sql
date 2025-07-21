@@ -1,11 +1,14 @@
 -- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5602, 10182, 14225);
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5602, 10182, 14225);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5402, 5602, 10182, 14225);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5402, 5602, 10182, 14225);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(5402, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 30000, 30000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Hratha - In Combat - Cast Battle Shout'),
+(5402, 0, 1, 0, 9, 0, 100, 0, 7700, 11000, 8100, 26200, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Khan Hratha - Within 0-5 Range - Cast Cleave'),
 --
 (5602, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Khan Shaka - On Reset - Cast Battle Stance'),
 (5602, 0, 2, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
