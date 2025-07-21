@@ -70,10 +70,6 @@ UPDATE `creature_template` SET `npcflag` = 129 WHERE `entry` = 16787;
 UPDATE `creature` SET `phaseMask` = 1   WHERE `id1` IN (14682, 14684, 14686, 14690, 14693, 14695);
 UPDATE `creature` SET `ScriptName` = '' WHERE `id1` IN (16241, 16255, 16281, 16285, 16359, 16361, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787);
 
--- if AzerothCore decides to add the Investigate the Scourge quests for Ironforge, Darnassus, Thunder Bluff and Undercity then this needs to be removed
-DELETE FROM `creature_queststarter` WHERE `id` IN (16484, 16490, 16493, 16495) AND `quest` IN (9261, 9262, 9263, 9264);
-DELETE FROM `creature_questender`   WHERE `id` IN (16484, 16490, 16493, 16495) AND `quest` IN (9261, 9262, 9263, 9264);
-
 -- Restore Scourge Invasion Event
 DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN 248650 AND 248654;
 INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
