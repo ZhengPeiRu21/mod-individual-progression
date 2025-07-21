@@ -1,6 +1,6 @@
 -- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5602, 10182);
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5602, 10182);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5602, 10182, 14225);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5602, 10182, 14225);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -18,7 +18,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10182, 0, 4, 0, 0, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - In Combat - Cast Cleave'),
 (10182, 0, 5, 0, 0, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 0, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - In Combat - Cast Sundering Cleave'),
 (10182, 0, 6, 0, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
-(10182, 0, 7, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Friendly Between 0-20% Health - Cast Vengeance (No Repeat)');
+(10182, 0, 7, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Friendly Between 0-20% Health - Cast Vengeance (No Repeat)'),
+--
+(14225, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Prince Kellen - Between 0-30% Health - Cast Enrage');
 
 
 /* Restore Rexxar in Desolace. Rokaro replaced him in TBC */
