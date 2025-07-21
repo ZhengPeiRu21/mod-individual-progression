@@ -689,23 +689,18 @@ INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
 
     
 -- Necrotic Crystal item quests
-DELETE FROM `creature_questender` WHERE `quest` IN (9292, 9310);
+DELETE FROM `creature_questender` WHERE `quest` IN (9292, 9310) AND `id` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_RUKAG);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(16478, 9292),
-(16494, 9310),
 (@LIEUTENANT_ORRIN, 9292),
 (@LIEUTENANT_RUKAG, 9310);
 
-DELETE FROM `creature_queststarter` WHERE `quest` = 9154;
+DELETE FROM `creature_queststarter` WHERE `quest` = 9154 AND `id` IN (@ARGENT_RECRUITER, @ARGENT_SCOUT);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(16241, 9154),
-(16255, 9154),
 (@ARGENT_RECRUITER, 9154),
 (@ARGENT_SCOUT, 9154);
 
-DELETE FROM `creature_questender` WHERE `quest` = 9154;
+DELETE FROM `creature_questender` WHERE `quest` = 9154 AND `id` IN (@KEEPER_OF_THE_ROLLS);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(16281, 9154),
 (@KEEPER_OF_THE_ROLLS, 9154);
 
 -- Argent Quartermaster and Outfitter
