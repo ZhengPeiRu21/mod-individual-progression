@@ -7,20 +7,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(5602, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Khan Shaka - On Reset - Cast Battle Stance'),
-(5602, 0, 2, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
-(5602, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Khan Shaka   - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5602, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Khan Shaka - On Reset - Cast Battle Stance'),
+(5602, 0, 2, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
+(5602, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Khan Shaka - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(10182, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rexxar - On Reset - Waypoint Start'),
-(10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - On Reset - Cast Thrash'),
-(10182, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Reset - Cast Puncture'),
-(10182, 0, 3, 0, 0, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 0, 11, 18813, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - In Combat - Cast Knock Away'),
-(10182, 0, 4, 0, 0, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - In Combat - Cast Cleave'),
-(10182, 0, 5, 0, 0, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 0, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - In Combat - Cast Sundering Cleave'),
-(10182, 0, 6, 0, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
-(10182, 0, 7, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Friendly Between 0-20% Health - Cast Vengeance (No Repeat)'),
+(10182, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Rexxar - On Reset - Waypoint Start'),
+(10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - On Reset - Cast Thrash'),
+(10182, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - On Reset - Cast Puncture'),
+(10182, 0, 3, 0, 9, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 10, 11, 18813, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - Within 0-10 Range - Cast Knock Away'),
+(10182, 0, 4, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - Within 0-5 Range - Cast Cleave'),
+(10182, 0, 5, 0, 9, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 5, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rexxar - Within 0-5 Range - Cast Sundering Cleave'),
+(10182, 0, 6, 0, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
+(10182, 0, 7, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - On Friendly Between 0-20% Health - Cast Vengeance (No Repeat)'),
 --
-(14225, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Prince Kellen - Between 0-30% Health - Cast Enrage');
+(14225, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Prince Kellen - Between 0-30% Health - Cast Enrage');
 
 
 /* Restore Rexxar in Desolace. Rokaro replaced him in TBC */
