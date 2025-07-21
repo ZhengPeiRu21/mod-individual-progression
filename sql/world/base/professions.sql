@@ -23,9 +23,11 @@ DELETE FROM npc_trainer WHERE SpellID IN (18450, 18453, 18444, 18406, 18409, 184
 DELETE FROM npc_trainer WHERE SpellID IN (7929, 10840, 27032, 27033);
 
 -- First Aid Skills should be from books or quests
-DELETE FROM npc_trainer WHERE SpellID IN (54254, 10847, 54255);
-UPDATE quest_template SET RewardItem3 = 16085, RewardAmount3 = 1 WHERE ID IN (6624, 6622);
+DELETE FROM `npc_trainer` WHERE `SpellID` IN (54254, 10847, 54255);
+UPDATE `quest_template` SET `RewardItem3` = 16085, `RewardAmount3` = 1 WHERE `ID` IN (6624, 6622);
 UPDATE `item_template` SET `description` = 'Teaches you advanced first aid, allowing a maximum of 300 first aid skill.' WHERE `entry` = 16085;
+INSERT IGNORE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES 
+(16085, 'frFR', 'Artisan en premiers soins - Se soigner seul', '', 0);
 
 -- TBC First Aid vendors
 UPDATE `creature_template` SET `npcflag` = 128 WHERE `entry` IN (18990, 18991); -- set to vendors, no longer trainers
@@ -47,6 +49,9 @@ UPDATE `npc_trainer` SET `ReqLevel` = 71 WHERE `SpellID` = 47280;
 DELETE FROM `npc_trainer` WHERE `SpellID` IN (18261, 19886, 54257, 54256);
 UPDATE `quest_template` SET `RewardItem1` = 16073, `RewardAmount1` = 1 WHERE id = 6610;
 UPDATE `item_template` SET `spellid_1` = 19887, `spellcharges_1` = -1, `spellppmRate_1` = -1 WHERE `entry` = 16073;
+INSERT IGNORE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES 
+(16073, 'frFR', 'Livre de cuisine pour artisan', '', 0);
+
 
 -- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
 UPDATE npc_trainer SET ReqSkillRank = 200 WHERE SpellID = 37836;
