@@ -16,6 +16,15 @@ public:
     {
         explicit gobject_naxx40_teleAI(GameObject* object) : GameObjectAI(object) { };
 
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5));
+        }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -41,16 +50,6 @@ public:
                 player->TeleportTo(MAP_NAXXRAMAS, 3006.05f, -3466.81f, 298.219f, 4.6824f);
         }
         return true;
-    }
-
-    bool CanBeSeen(Player const* player) override
-    {
-        if (player->IsGameMaster() || !sIndividualProgression->enabled)
-        {
-            return true;
-        }
-        Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-        return (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5));
     }
 };
 

@@ -168,6 +168,15 @@ public:
     {
         explicit gobject_onyxia40_teleAI(GameObject* object) : GameObjectAI(object) { };
 
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5);
+        }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -192,16 +201,6 @@ public:
         }
 
         return true;
-    }
-    
-    bool CanBeSeen(Player const* player) override
-    {
-        if (player->IsGameMaster() || !sIndividualProgression->enabled)
-        {
-            return true;
-        }
-        Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-        return sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5);
     }
 };
 
