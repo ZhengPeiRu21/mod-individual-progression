@@ -1,6 +1,17 @@
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5287);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (5287);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(5287, 0, 0, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Longtooth Howler - Between 0-20% Health - Call For Help (No Repeat)');
+
+
 /* fix Gordunni Orb drop rate. Was set to 100 */
 UPDATE `creature_loot_template` SET `Chance` = 15 WHERE `Item` = 9371;
-
 
 /* Quest - Testing the Vessel - now asks for Wildkin Muisek instead of Beast Muisek */
 UPDATE `item_template` SET `name` = 'Wildkin Muisek', `displayid` = 18094 WHERE `entry` = 9594;
