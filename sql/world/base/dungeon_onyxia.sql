@@ -1082,6 +1082,9 @@ UPDATE `gameobject` SET `position_x` = '-4751.97', `position_y` = '-3754.08', `p
 DELETE FROM `gameobject_template_locale` WHERE `entry` = @TRANSPORTER_ENTRY_ONYXIA;
 INSERT INTO `gameobject_template_locale` (`entry`, `locale`, `name`, `castBarCaption`, `VerifiedBuild`) VALUES
 (@TRANSPORTER_ENTRY_ONYXIA, 'frFR', 'Portail vers Repaire d''Onyxia', '', 0);
+-- 10 & 25 Onyxia portal
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `id` IN (200294, 200295);
+
 
 UPDATE `gameobject` SET `spawnMask` = 7 WHERE `map` = 249;
 
