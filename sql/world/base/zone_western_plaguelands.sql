@@ -1,5 +1,5 @@
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (1845, 1846, 1885, 10836);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (1845, 1846, 1885, 10836);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (1845, 1846, 1885, 10836, 10943);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (1845, 1846, 1885, 10836, 10943);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -21,4 +21,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1885, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Smith - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (10836, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 8599, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Farmer Dalson - On Aggro - Cast Enrage (No Repeat)'),
-(10836, 0, 1, 0, 9, 0, 100, 0, 7000, 12000, 7000, 12000, 0, 5, 11, 16128, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Farmer Dalson - Within 0-5 Range - Cast Infected Bite');
+(10836, 0, 1, 0, 9, 0, 100, 0, 7000, 12000, 7000, 12000, 0, 5, 11, 16128, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Farmer Dalson - Within 0-5 Range - Cast Infected Bite'),
+(10943, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                    'Decrepit Guardian - On Aggro - Say Line 0');
+
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (10943);
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(10943, 0, 0, 'You cannot save him!', 12, 0, 100, 0, 0, 0, 6282,  0, 'Decrepit Guardian');
