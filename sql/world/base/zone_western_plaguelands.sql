@@ -17,7 +17,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1846, 0, 4, 0, 14, 0, 100, 0, 3000, 30, 10000, 12000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'High Protector Lorik - Friendly Missing Health - Cast Holy Light'),
 --
 (1885, 0, 0, 0, 9, 0, 100, 0, 4000, 7000, 8000, 13000, 0, 5, 11, 11428, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Smith - Within 0-5 Range - Cast Knockdown'),
-(1885, 0, 1, 0, 9, 0, 100, 0, 3000, 6000, 5000, 8000, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Smith - Within 0-5 Range - Cast Strike')
+(1885, 0, 1, 0, 9, 0, 100, 0, 3000, 6000, 5000, 8000, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Smith - Within 0-5 Range - Cast Strike'),
 (1885, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Smith - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (10836, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 8599, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Farmer Dalson - On Aggro - Cast Enrage (No Repeat)'),
