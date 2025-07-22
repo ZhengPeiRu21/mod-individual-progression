@@ -22,7 +22,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (10836, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 8599, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Farmer Dalson - On Aggro - Cast Enrage (No Repeat)'),
 (10836, 0, 1, 0, 9, 0, 100, 0, 7000, 12000, 7000, 12000, 0, 5, 11, 16128, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Farmer Dalson - Within 0-5 Range - Cast Infected Bite'),
-(10943, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                    'Decrepit Guardian - On Aggro - Say Line 0');
+(10943, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Decrepit Guardian - On Aggro - Say Line 0');
 
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (10943);
