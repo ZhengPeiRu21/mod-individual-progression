@@ -67,6 +67,8 @@ DELETE FROM `creature_addon` WHERE `guid` IN (630088, 630089, 630105, 630106, 63
 UPDATE `creature_template` SET `AIName` = ''   WHERE `entry` = 16136;
 UPDATE `creature_template` SET `npcflag` = 1   WHERE `entry` = 16786;
 UPDATE `creature_template` SET `npcflag` = 129 WHERE `entry` = 16787;
+UPDATE `creature_template` SET `npcflag` = 2   WHERE `entry` IN (29441, 29442);
+
 UPDATE `creature` SET `phaseMask` = 1   WHERE `id1` IN (14682, 14684, 14686, 14690, 14693, 14695);
 UPDATE `creature` SET `ScriptName` = '' WHERE `id1` IN (16241, 16255, 16281, 16285, 16359, 16361, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787);
 
