@@ -31,8 +31,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10477, 0, 2, 0, 0, 0, 100, 0, 5000, 10000, 11000, 15000, 0, 0, 11, 17616, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Scholomance Necromancer - In Combat - Cast Corpse Explosion'),
 (10477, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scholomance Necromancer - Between 0-15% Health - Flee For Assist'),
 --
-(11636, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                     'Servant of Weldon Barov - On Aggro - Say Line 0'),
-(11637, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                     'Servant of Alexi Barov - On Aggro - Say Line 0'),
+(11636, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Servant of Weldon Barov - On Aggro - Say Line 0'),
+(11637, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Servant of Alexi Barov  - On Aggro - Say Line 0'),
 -- fix Shadowed Spirit, missing Shadow Bolt Volley
 (14511, 0, 0, 0, 0, 0, 100, 0, 0, 1000, 3000, 4500, 0, 0, 11, 12739, 64, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,     'Shadowed Spirit - In Combat - Cast Shadow Bolt'),
 (14511, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 15000, 17000, 0, 0, 11, 15245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Shadowed Spirit - In Combat - Cast Shadow Bolt Volley'),
