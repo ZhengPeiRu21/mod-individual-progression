@@ -640,16 +640,9 @@ UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (9260, 9261, 
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA);
 UPDATE `creature_template` SET `npcflag` = 0 WHERE `entry` IN (29441, 29442); -- there are no scourge outside Exodar and Silvermoon.
 
-DELETE FROM `creature_queststarter` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265, 12816, 12817);
+DELETE FROM `creature_queststarter` WHERE `id` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA) AND 
+                                       `quest` IN (9260, 9261, 9262, 9263, 9264, 9265);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(16478, 9260),  -- Orrin
-(16484, 9261),  -- Nevell
-(16490, 9264),  -- Lisande
-(16493, 9263),  -- Dagel
-(16494, 9265),  -- Rukag
-(16495, 9262),  -- Beitha
--- (29441, 12816), -- Julek
--- (29442, 12817), -- Kregor
 (@LIEUTENANT_ORRIN, 9260),
 (@LIEUTENANT_NEVELL, 9261),
 (@LIEUTENANT_LISANDE, 9264),
@@ -657,17 +650,9 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (@LIEUTENANT_RUKAG, 9265),
 (@LIEUTENANT_BEITHA, 9262);
 
-DELETE FROM `creature_questender` WHERE `quest` IN 
-(9260, 9261, 9262, 9263, 9264, 9265, 12816, 12817);
+DELETE FROM `creature_questender` WHERE `id` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA) AND 
+                                     `quest` IN (9260, 9261, 9262, 9263, 9264, 9265);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(16478, 9260),
-(16484, 9261),
-(16490, 9264),
-(16493, 9263),
-(16494, 9265),
-(16495, 9262),
--- (29441, 12816),
--- (29442, 12817),
 (@LIEUTENANT_ORRIN, 9260),
 (@LIEUTENANT_NEVELL, 9261),
 (@LIEUTENANT_LISANDE, 9264),
@@ -704,23 +689,18 @@ INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
 
     
 -- Necrotic Crystal item quests
-DELETE FROM `creature_questender` WHERE `quest` IN (9292, 9310);
+DELETE FROM `creature_questender` WHERE `quest` IN (9292, 9310) AND `id` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_RUKAG);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(16478, 9292),
-(16494, 9310),
 (@LIEUTENANT_ORRIN, 9292),
 (@LIEUTENANT_RUKAG, 9310);
 
-DELETE FROM `creature_queststarter` WHERE `quest` = 9154;
+DELETE FROM `creature_queststarter` WHERE `quest` = 9154 AND `id` IN (@ARGENT_RECRUITER, @ARGENT_SCOUT);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(16241, 9154),
-(16255, 9154),
 (@ARGENT_RECRUITER, 9154),
 (@ARGENT_SCOUT, 9154);
 
-DELETE FROM `creature_questender` WHERE `quest` = 9154;
+DELETE FROM `creature_questender` WHERE `quest` = 9154 AND `id` IN (@KEEPER_OF_THE_ROLLS);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(16281, 9154),
 (@KEEPER_OF_THE_ROLLS, 9154);
 
 -- Argent Quartermaster and Outfitter
