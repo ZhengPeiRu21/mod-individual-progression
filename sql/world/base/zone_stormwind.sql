@@ -507,15 +507,21 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (12739, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0, 'Onyxias Elite Guard enrage at 30%');
 
 -- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (12739);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (12739);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (1284, 12739);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (1284, 12739);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(12739, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Onyxias Elite Guard - Between 0-30% Health - Cast Enrage'),
-(12739, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Onyxias Elite Guard - On Enrage - Say Line 0');
+(1284, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 4, 5883, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Archbishop Benedictus - On Aggro - Play Sound (No Repeat)'),
+(1284, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 20697, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Archbishop Benedictus - On Aggro - Cast Power word Shield'),
+(1284, 0, 2, 0, 9, 0, 100, 0, 2000, 3500, 2000, 3500, 0, 40, 11, 20695, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Archbishop Benedictus - Within 0-40 Range - Cast Holy Smite'),
+(1284, 0, 3, 0, 9, 0, 100, 0, 3400, 4800, 3400, 4800, 0, 10, 11, 23858, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Archbishop Benedictus - Within 0-10 Range - Cast Holy Nova'),
+(1284, 0, 4, 0, 0, 0, 100, 0, 12000, 18000, 12000, 18000, 0, 0, 11, 20697, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Archbishop Benedictus - In Combat - Cast Power Word: Shield'),
+--
+(12739, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Onyxias Elite Guard - Between 0-30% Health - Cast Enrage'),
+(12739, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Onyxias Elite Guard - On Enrage - Say Line 0');
 
 -- this should probably go to vanilla_vendors
 -- Remove non-Vanilla food items from Stormwind vendors
