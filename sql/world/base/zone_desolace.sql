@@ -13,7 +13,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5602, 0, 2, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
 (5602, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Khan Shaka - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(10182, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Rexxar - On Reset - Waypoint Start'),
+(10182, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Rexxar - On Reset - Waypoint Start'),
 (10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - On Reset - Cast Thrash'),
 (10182, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - On Reset - Cast Puncture'),
 (10182, 0, 3, 0, 9, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 10, 11, 18813, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - Within 0-10 Range - Cast Knock Away'),
@@ -22,13 +22,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10182, 0, 6, 7, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
 (10182, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Rexxar - On Enrage - Say Line 0'),
 (10182, 0, 8, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 9, 10204, 0, 0, 0, 0, 0, 0, 0,           'Rexxar - On Misha Between 0-20% Health - Cast Vengeance (No Repeat)'),
+(10182, 0, 9, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Rexxar - On Agrro - Waypoint Pause'),
+(10182, 0, 10, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Rexxar - OOC - Waypoint Resume'),
 --
 (11787, 0, 0, 0, 9, 0, 100, 0, 8000, 8000, 8000, 12000, 0, 5, 11, 14120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rock Borer - Within 0-5 Range - Cast Tunneler Acid'),
 (14225, 0, 0, 0, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Prince Kellen - Between 0-30% Health - Cast Enrage');
 
 
-/* Restore Rexxar in Desolace. Rokaro replaced him in TBC */
-UPDATE `creature_template` SET `name` = 'Rexxar' WHERE `entry` = 10182;
+/* Restore Rexxar in Desolace. */
+UPDATE `creature_template` SET `name` = 'Rexxar', `flags_extra` = 2050 WHERE `entry` = 10182;
+UPDATE `creature_template` SET `unit_flags` = 37440 WHERE `entry` IN (10182, 10204);
 
 UPDATE `quest_template` SET 
 `LogDescription` = 'Seek out Rexxar. The Warchief has instructed you as to his whereabouts. Search the paths of Desolace, between the Stonetalon Mountains and Feralas.',
@@ -72,8 +75,8 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` = 29113;
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
-(29113, 29113, 0, 0, 2, 0, 0),
-(29113, 610204, 4, 90, 516, 0, 0);
+(29113, 29113, 0, 0, 519, 0, 0),
+(29113, 610204, 4, 90, 519, 0, 0);
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (10182);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
