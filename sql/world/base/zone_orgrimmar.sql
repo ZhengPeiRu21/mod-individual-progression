@@ -591,7 +591,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(10540, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 4, 5881, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Vol\'jin - On Aggro - Play Sound (No Repeat)'),
+(10540, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 4, 5881, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Vol jin - On Aggro - Play Sound (No Repeat)'),
 --
 (14720, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9347, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Saurfang - On Aggro - Cast Mortal Strike trigger'),
 (14720, 0, 1, 2, 32, 0, 100, 0, 2000, 9999, 0, 0, 0, 0, 11, 26339, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Saurfang - On receiving high damage - Cast Saurfang Rage'), -- should be critical damage
@@ -599,3 +599,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14720, 0, 3, 0, 9, 0, 100, 0, 0, 0, 25000, 25000, 8, 25, 11, 15749, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Saurfang - Within 8-25 Range - Cast Shield Charge'),
 (14720, 0, 4, 0, 12, 0, 100, 0, 0, 20, 2500, 3500, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Saurfang - Target Between 0-20% Health - Cast Execute'),
 (14720, 0, 5, 0, 5, 0, 100, 0, 5000, 5000, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Saurfang - On Kill - Say Line 1');
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (14720);
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(14720, 0, 0, '%s's eyes glow red for a brief moment.', 16, 0, 100, 0, 0, 0, 11563, 0, 'Saurfang Rage'),
+(14720, 1, 0, 'Is that the best you can do?',           16, 0, 100, 0, 0, 0, 11564, 0, 'Saurfang on Kill'); 
