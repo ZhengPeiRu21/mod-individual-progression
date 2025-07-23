@@ -197,3 +197,17 @@ SET `LogDescription`  = "Kill High Inquisitor Whitemane, Scarlet Commander Mogra
     `QuestDescription` = "One of my duties while I'm stationed here is to help the Forsaken take care of their borders, and that, $c, is exactly what you're going to do for me.$b$bI might live and breathe, but the Scarlet Crusade will cut down my people as quickly as they will one of the undead. They're a problem here, a big one, and you're going to do something about it.$b$bGo to the Monastery and slay High Inquisitor Whitemane and her lieutenants.",
     `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
 WHERE `ID` = 14355;
+
+-- smart scripts
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (2425);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (2425);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(2425, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 4, 5887, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Varimathras - On Aggro - Play Sound (No Repeat)'),
+(2425, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7741, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Varimathras - On Reset - Cast Summoned Demon'),
+(2425, 0, 2, 0, 9, 0, 100, 0, 25000, 25000, 20000, 20000, 0, 30, 11, 20741, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Varimathras - Within 0-30 Range - Cast Shadow Bolt Volley'),
+(2425, 0, 3, 0, 2, 0, 100, 0, 0, 30, 20000, 20000, 0, 0, 11, 20743, 1, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,        'Varimathras - Between 0-30% Health - Cast Drain Life'),
+(2425, 0, 0, 0, 9, 0, 100, 0, 20000, 20000, 15000, 25000, 0, 20, 11, 20740, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 'Varimathras - Within 0-20 Range - Cast Dominate Mind');
