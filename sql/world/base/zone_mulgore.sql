@@ -69,11 +69,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(3058, 0, 0, 0, 0, 0, 100, 0, 11000, 15000, 0, 0, 0, 0, 11, 6730, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Arra chea   - In Combat - Cast Head Butt'),
-(3068, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 269080, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Mazzranache - On Reset  - Start Waypoint'),
-(3068, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3583, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Mazzranache - On Reset  - Cast Deadly Poison'),
-(3068, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Mazzranache - On Aggro  - Cast Rushing Charge'),
-(5807, 0, 0, 0, 0, 0, 100, 0, 8000, 12000, 0, 0, 0, 0, 11, 12166, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'The Rake    - In Combat - Cast Muscle Tear');
+(3058, 0, 0, 0, 9, 0, 100, 0, 11000, 15000, 11000, 15000, 0, 5, 11, 6730, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Arra chea   - Within 0-5 Range - Cast Head Butt'),
+(3068, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 269080, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Mazzranache - On Resspawn - Start Waypoint'),
+(3068, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 10022, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Mazzranache - On Reset  - Cast Deadly Poison'),
+(3068, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Mazzranache - On Aggro  - Cast Rushing Charge'),
+(5807, 0, 0, 0, 9, 0, 100, 0, 8000, 12000, 8000, 12000, 0, 5, 11, 12166, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'The Rake    - Within 0-5 Range - Cast Muscle Tear');
 
     
 DELETE FROM `creature_addon` WHERE `guid` = 26908;
