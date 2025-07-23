@@ -602,5 +602,5 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (14720);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
-(14720, 0, 0, '%s's eyes glow red for a brief moment.', 16, 0, 100, 0, 0, 0, 11563, 0, 'Saurfang Rage'),
+(14720, 0, 0, '%s\'s eyes glow red for a brief moment.', 16, 0, 100, 0, 0, 0, 11563, 0, 'Saurfang Rage'),
 (14720, 1, 0, 'Is that the best you can do?',           16, 0, 100, 0, 0, 0, 11564, 0, 'Saurfang on Kill'); 
