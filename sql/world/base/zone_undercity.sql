@@ -210,4 +210,4 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2425, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7741, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Varimathras - On Reset - Cast Summoned Demon'),
 (2425, 0, 2, 0, 9, 0, 100, 0, 25000, 25000, 20000, 20000, 0, 30, 11, 20741, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Varimathras - Within 0-30 Range - Cast Shadow Bolt Volley'),
 (2425, 0, 3, 0, 2, 0, 100, 0, 0, 30, 20000, 20000, 0, 0, 11, 20743, 1, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,        'Varimathras - Between 0-30% Health - Cast Drain Life'),
-(2425, 0, 0, 0, 9, 0, 100, 0, 20000, 20000, 15000, 25000, 0, 20, 11, 20740, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 'Varimathras - Within 0-20 Range - Cast Dominate Mind');
+(2425, 0, 4, 0, 9, 0, 100, 0, 20000, 20000, 15000, 25000, 0, 20, 11, 20740, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 'Varimathras - Within 0-20 Range - Cast Dominate Mind');
