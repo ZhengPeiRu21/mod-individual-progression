@@ -8,7 +8,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2926, 0, 0, 0, 9, 0, 100, 0, 4000, 5000, 17000, 19000, 0, 5, 11, 7367, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Silvermane Stalker - Within 0-5 Range - Cast Infected Bite'), 
 (2926, 0, 1, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Silvermane Stalker - Out of Combat - Cast Sneak'),
 (8215, 0, 0, 0, 0, 0, 100, 0, 3000, 12000, 9000, 14000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Grimungous - In Combat - Cast Trample'),
-(8215, 0, 1, 0, 0, 0, 100, 0, 12000, 12000, 17000, 17000, 0, 0, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Grimungous - In Combat - Cast War Stomp');
+(8215, 0, 1, 0, 0, 0, 100, 0, 14000, 20000, 14000, 20000, 0, 0, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Grimungous - In Combat - Cast War Stomp');
 
 
 -- Troll Necklace Bounty quest should be for Alliance only
