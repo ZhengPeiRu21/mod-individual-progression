@@ -7,7 +7,11 @@ UPDATE `creature_loot_template` SET `Chance` = 4 WHERE `Item` = 3862;
 -- Drop chance for Jungle Stalker Feather was incorrectly set to 80 - updated to 25
 UPDATE `creature_loot_template` SET `Chance` = 25 WHERE `Item` = 3863;
 
-
+DELETE FROM `creature` WHERE `id1` IN (723);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(600723, 723, 0, 0, 0, 0, 0, 1, 1, 1, -12357.4, -1075.36, 1.94221, 1.94815, 54000, 5, 0, 5346, 0, 1, 0, 0, 0, '', NULL, 0, NULL); 
+    
 DELETE FROM `creature_text` WHERE `CreatureID` IN (675, 723);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 (675, 0, 0, 'Work you dogs! Put your back into it!',             12, 0, 100, 0, 0, 0, 306,  0, 'Venture Co. Foreman'),
