@@ -5,5 +5,5 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(5937, 0, 0, 0, 0, 0, 100, 0, 1000, 11000, 16000, 24000, 0, 0, 11, 8257, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 'Vile Sting - In Combat - Cast Venom Sting'),
+(5937, 0, 0, 0, 9, 0, 100, 0, 1000, 11000, 16000, 24000, 0, 5, 11, 8257, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Vile Sting - In Combat - Cast Venom Sting'),
 (10882, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17213, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,            'Arikara - On Spawn - Cast Curse of Vengeance');
