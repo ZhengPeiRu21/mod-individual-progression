@@ -10,6 +10,11 @@ UPDATE `creature` SET `position_x` = -8175.67, `position_y` = -4718.28, `positio
 -- update Laden Dew Gland drop rate, was 100%
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 8428;
 
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (5465);
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(5465, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0, 'Land Rager enrage at 30%');
+
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5452, 5465, 9397);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (5452, 5465, 9397);
@@ -21,5 +26,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5452, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,      'Hazzali Worker - Between 0-30% Health - Flee For Assist (No Repeat)'),
 (5452, 0, 1, 0, 6, 0, 100, 513, 0, 0, 0, 0, 0, 0, 11, 11023, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Hazzali Worker - On Just Died - Cast Summon Hazzali Parasites'),
 --
-(5465, 0, 0, 0, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Land Rager - Between 0-30% Health - Cast Enrage'),
+(5465, 0, 0, 1, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Land Rager - Between 0-50% Health - Cast Enrage (No Repeat)'),
+(5465, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Land Rager - On Enrage - Say Line 0'),
 (9397, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 12550, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Living Storm - On Aggro - Cast Lightning Shield (No Repeat)');
