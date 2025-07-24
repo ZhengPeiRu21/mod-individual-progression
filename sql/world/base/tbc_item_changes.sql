@@ -2731,12 +2731,12 @@ UPDATE `item_template` SET `stat_value3` = 7, `stat_type4` = 21, `stat_value4` =
 /*  Netherwing Sorceror's Charm  */
 UPDATE `item_template` SET `stat_type2` = 21 WHERE entry=31494;
 
-/* Warrior skill manual 70 */
-UPDATE `item_template` SET `name` = 'Manual of Heroic Strike XI', `BuyPrice` = '400000', `SellPrice` = '100000', `ItemLevel` = '70', `RequiredLevel` = '70' WHERE `entry` = '31505';
-UPDATE `item_template` SET `name` = 'Manual of Revenge VIII', `BuyPrice` = '400000', `SellPrice` = '100000', `ItemLevel` = '70', `RequiredLevel` = '70' WHERE `entry` = '31506';
+/*  Warrior skill manual 70  */
+UPDATE `item_template` SET `name` = 'Manual of Heroic Strike XI', `Quality` = 3, `Flags` = 64, `BuyPrice` = 400000, `SellPrice` = 100000, `ItemLevel` = 70, `RequiredLevel` = 70 WHERE `entry` = 31505;
+UPDATE `item_template` SET `name` = 'Manual of Revenge VIII', `Quality` = 3, `Flags` = 64, `BuyPrice` = 400000, `SellPrice` = 100000, `ItemLevel` = 70, `RequiredLevel` = 70 WHERE `entry` = 31506;
 INSERT IGNORE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES 
-('31505', 'frFR', 'Manuel de Frappe héroïque XI', '', '0'),
-('31506', 'frFR', 'Manuel de Vengeance VIII', '', '0');
+(31505, 'frFR', 'Manuel de Frappe héroïque XI', '', 0),
+(31506, 'frFR', 'Manuel de Vengeance VIII', '', 0);
 
 /*  Coven Britches  */
 UPDATE `item_template` SET `stat_type2` = 21 WHERE entry=31508;
