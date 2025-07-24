@@ -46,6 +46,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4211, -350000);
 -- Batllemasters
 DELETE FROM `creature` WHERE `id1` IN (907, 2302, 5118);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
-(600907, 907,  0, 9976.16, 2314.49, 1330.87, 0.750492, 120), -- Keras Wolfheart <Arathi Basin Battlemaster>
-(602302, 2302, 0, 9976.16, 2314.49, 1330.87, 0.750492, 120), -- Aethalas <Warsong Gulch Battlemaster>
-(605118, 5118, 0, 9976.16, 2314.49, 1330.87, 0.750492, 120); -- Brogun Stoneshield <Alterac Valley Battlemaster>
+(600907, 907,  1, 9975.14, 2324.34, 1330.87, 0.0698132, 600), -- Keras Wolfheart <Arathi Basin Battlemaster>
+(602302, 2302, 1, 9977.6, 2313.53, 1330.87, 0.698132, 600),   -- Aethalas <Warsong Gulch Battlemaster>
+(605118, 5118, 1, 9923.77, 2323.84, 1330.87, 1.6057, 600);    -- Brogun Stoneshield <Alterac Valley Battlemaster>
