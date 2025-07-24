@@ -638,7 +638,6 @@ UPDATE `quest_template` SET `Flags` = 12, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (
 UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 
 UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA);
-UPDATE `creature_template` SET `npcflag` = 0 WHERE `entry` IN (29441, 29442); -- there are no scourge outside Exodar and Silvermoon.
 
 DELETE FROM `creature_queststarter` WHERE `id` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA) AND 
                                        `quest` IN (9260, 9261, 9262, 9263, 9264, 9265);
