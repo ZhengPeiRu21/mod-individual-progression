@@ -10,18 +10,18 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1839, 0, 2, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 17139, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Scarlet High Clerist - Between 0-30% Health - Cast Power Word: Shield (No Repeat)'),
 (1839, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet High Clerist - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(1845, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'High Protector Tarsen - On Reset - Cast Devotion Aura'),
+(1845, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'High Protector Tarsen - On Aggro - Cast Devotion Aura'),
 (1845, 0, 1, 0, 9, 0, 100, 0, 4000, 12000, 11000, 15000, 0, 5, 11, 10833, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'High Protector Tarsen - Within 0-5 Range - Cast Arcane Blast'),
 (1845, 0, 2, 0, 9, 0, 100, 0, 1000, 11000, 10000, 20000, 0, 5, 11, 8242, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'High Protector Tarsen - Within 0-5 Range - Cast Shield Slam'),
 (1845, 0, 3, 0, 9, 0, 100, 0, 2300, 3100, 8900, 9600, 0, 5, 11, 13953, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'High Protector Tarsen - Within 0-5 Range - Cast Holy Strike'),
 --
-(1846, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'High Protector Lorik - On Reset - Cast Retribution Aura'),
+(1846, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'High Protector Lorik - On Aggro - Cast Retribution Aura'),
 (1846, 0, 1, 0, 9, 0, 100, 0, 4000, 12000, 11000, 15000, 0, 5, 11, 10833, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'High Protector Lorik - Within 0-5 Range - Cast Arcane Blast'),
 (1846, 0, 2, 0, 9, 0, 100, 0, 1000, 11000, 10000, 20000, 0, 5, 11, 15655, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'High Protector Lorik - Within 0-5 Range - Cast Shield Slam'),
 (1846, 0, 3, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 13874, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'High Protector Lorik - Between 0-30% Health - Cast Divine Shield (No Repeat)'),
 (1846, 0, 4, 0, 14, 0, 100, 0, 3000, 30, 10000, 12000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'High Protector Lorik - Friendly Missing Health - Cast Holy Light'),
 --
-(1885, 0, 0, 0, 9, 0, 100, 0, 4000, 7000, 8000, 13000, 0, 5, 11, 11428, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Smith - Within 0-5 Range - Cast Knockdown'),
+(1885, 0, 0, 0, 9, 0, 100, 0, 4000, 7000, 11000, 14000, 0, 5, 11, 11428, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Smith - Within 0-5 Range - Cast Knockdown'),
 (1885, 0, 1, 0, 9, 0, 100, 0, 3000, 6000, 5000, 8000, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Scarlet Smith - Within 0-5 Range - Cast Strike'),
 (1885, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Smith - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
