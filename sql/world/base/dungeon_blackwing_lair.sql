@@ -7,7 +7,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (12458, 0, 0, 0, 1, 0, 100, 0, 15000, 35000, 15000, 35000, 0, 0, 11, 22458, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Blackwing Taskmaster - OOC - Cast Healing Circle'),
-(12458, 0, 1, 0, 0, 0, 100, 0, 1000, 6000, 8000, 12000, 0, 0, 11, 17289, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,   'Blackwing Taskmaster - In Combat - Cast Shadow Shock');
+(12458, 0, 1, 0, 9, 0, 100, 0, 1000, 6000, 8000, 12000, 0, 20, 11, 17289, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Blackwing Taskmaster - Within 0-20 Range - Cast Shadow Shock');
 
 
 DELETE FROM `spell_script_names` WHERE `spell_id` = 23310 AND `ScriptName` = 'spell_bwl_chromaggus_time_lapse';
