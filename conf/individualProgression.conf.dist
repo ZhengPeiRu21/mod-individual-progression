@@ -26,7 +26,7 @@ IndividualProgression.Enable = 1
 IndividualProgression.EnforceGroupRules = 1
 
 # IndividualProgression.VanillaPowerAdjustment
-#        Description: Adjustment to player's attack power before completing Vanilla content
+#        Description: Adjustment to player's attack power before completing Vanilla content and opening the Dark Portal
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
 #                     Set to 1 (100% of regular damage) to disable
@@ -36,7 +36,7 @@ IndividualProgression.EnforceGroupRules = 1
 IndividualProgression.VanillaPowerAdjustment = 0.6
 
 # IndividualProgression.VanillaHealingAdjustment
-#        Description: Adjustment to player's healing power before completing Vanilla content
+#        Description: Adjustment to player's healing power before completing Vanilla content and opening the Dark Portal
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
 #                     Set to 1 (100% of regular damage) to disable
@@ -46,7 +46,7 @@ IndividualProgression.VanillaPowerAdjustment = 0.6
 IndividualProgression.VanillaHealingAdjustment = 0.5
 
 # IndividualProgression.VanillaHealthAdjustmnet
-#        Description: Adjustment to player's max HP before completing Vanilla content
+#        Description: Adjustment to player's max HP before completing Vanilla content and opening the Dark Portal
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
 #                     Set to 1 (100% of regular health) to disable
@@ -56,7 +56,7 @@ IndividualProgression.VanillaHealingAdjustment = 0.5
 IndividualProgression.VanillaHealthAdjustment = 0.75
 
 # IndividualProgression.TBCPowerAdjustment
-#        Description: Adjustment to player's attack power before completing TBC content
+#        Description: Adjustment to player's attack power after opening the Dark Portal but before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
 #                     Set to 1 (100% of regular damage) to disable
@@ -66,7 +66,7 @@ IndividualProgression.VanillaHealthAdjustment = 0.75
 IndividualProgression.TBCPowerAdjustment = 0.6
 
 # IndividualProgression.TBCHealingAdjustment
-#        Description: Adjustment to player's healing power before completing TBC content
+#        Description: Adjustment to player's healing power after opening the Dark Portal but before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
 #                     Set to 1 (100% of regular damage) to disable
@@ -76,7 +76,7 @@ IndividualProgression.TBCPowerAdjustment = 0.6
 IndividualProgression.TBCHealingAdjustment = 0.5
 
 # IndividualProgression.TBCHealthAdjustment
-#        Description: Adjustment to player's max HP before completing TBC content
+#        Description: Adjustment to player's max HP after opening the Dark Portal but before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
 #                     Set to 1 (100% of regular health) to disable
@@ -131,7 +131,7 @@ IndividualProgression.MoltenCore.ManualRuneHandling = 1
 
 # IndividualProgression.MoltenCore.AqualEssenceCooldownReduction
 #        Description: Reduces the cooldown of Eternal Quintessences by the amount specified.
-#        Default:   0 - Disabled (1 hour cooldown)
+#        Default:   0 - Disabled (1-hour cooldown)
 #                   60 - (No cooldown)
 #
 IndividualProgression.MoltenCore.AqualEssenceCooldownReduction = 0
@@ -180,8 +180,8 @@ IndividualProgression.SimpleConfigOverride = 1
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
 #                     For example, a value of 6 will limit players to Vanilla content.
 #
-#        Default:   0 - Disabled
-#                   0-18 - Maximum progression stage
+#        Default:   0 - Disabled (players may progress up to the maximum progression stage of 18, which is the completion of WotLK content)
+#                   1-17 - Set a lower maximum progression stage attainable
 #
 IndividualProgression.ProgressionLimit = 0
 
@@ -190,9 +190,8 @@ IndividualProgression.ProgressionLimit = 0
 #                     Existing players who are at an earlier stage will be set to this stage upon log in.
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
 #
-#
-#        Default:   0 - Disabled
-#                   0-18 - Starting progression stage
+#        Default:   0 - Disabled (start at stage 0)
+#                   1-18 - Set higher starting progression stage
 #
 IndividualProgression.StartingProgression = 0
 
@@ -219,18 +218,18 @@ IndividualProgression.QuestMoneyAtLevelCap = 1
 IndividualProgression.RepeatableVanillaQuestsXP = 1
 
 # IndividualProgression.TbcRacesUnlockProgression
-#        Description: The progression level at which TBC races will be unlocked.
+#        Description: The progression stage at which TBC races (Draenei and Blood Elves) will be unlocked.
 #                     Races will be unlocked when the player reaches this level with any character on the account.
 #                     Disable to have TBC races available by default.
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
 #
-#        Default:   0 - TBC Races always available
-#                   0-18 - Required progression level to create TBC Race characters
+#        Default:   0 - TBC races always available to be created
+#                   1-18 - Set higher required progression stage to create TBC race characters
 #
 IndividualProgression.TbcRacesUnlockProgression = 0
 
 # IndividualProgression.DeathKnightUnlockProgression
-#        Description: The progression level at which Death Knight characters can be created.
+#        Description: The progression stage at which Death Knight characters can be created.
 #                     Death Knights will be available when the player reaches this levl with any character on the account.
 #                     Disable to Individual Progression not influence DK creation.
 #                     Please note that all other Death Knight creation restrictions from worldserver.conf still apply.
@@ -239,16 +238,16 @@ IndividualProgression.TbcRacesUnlockProgression = 0
 #                     but please adjust as desired.
 #
 #        Default:   13 - TBC must be completed to create Death Knights
-#                   0 - Disabled
-#                   0-18 - Required progression
+#                   0 - Death Knights always available to be created
+#                   1-12, 14-18 - Set other required progression stage to create Death Knights
 #
 IndividualProgression.DeathKnightUnlockProgression = 13
 
 # IndividualProgression.DeathKnightStartingProgression
-#        Description: The progression level at which Death Knight characters will begin.
+#        Description: The progression stage at which Death Knight characters will begin.
 #
 #        Default:   13 - Death Knights start at the beginning of WotLK
-#                   0-18 - Progression level
+#                   0-12, 14-18 - Set other starting progression stage for Death Knights
 #
 IndividualProgression.DeathKnightStartingProgression = 13
 
@@ -308,8 +307,9 @@ IndividualProgression.ExcludeAccounts = 0
 
 # IndividualProgression.ExcludedAccountsRegex
 #        Description: A regular expression to match account names that should be excluded from Individual Progression.
-#        This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
 #        Only used if ExcludeAccounts is enabled.
+#        This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
+#        If the Playerbots module is enabled, to exclude randombots from Individual Progression, "^RNDBOT.*" must be added below and ExcludeAccounts must be enabled.
 #        Default:     ""
 #
-IndividualProgression.ExcludedAccountsRegex = "^RNDBOT.*"
+IndividualProgression.ExcludedAccountsRegex = ""
