@@ -131,7 +131,7 @@ IndividualProgression.MoltenCore.ManualRuneHandling = 1
 
 # IndividualProgression.MoltenCore.AqualEssenceCooldownReduction
 #        Description: Reduces the cooldown of Eternal Quintessences by the amount specified.
-#        Default:   0 - Disabled (1-hour cooldown)
+#        Default:   0 - Disabled (1 hour cooldown)
 #                   60 - (No cooldown)
 #
 IndividualProgression.MoltenCore.AqualEssenceCooldownReduction = 0
@@ -181,7 +181,7 @@ IndividualProgression.SimpleConfigOverride = 1
 #                     For example, a value of 6 will limit players to Vanilla content.
 #
 #        Default:   0 - Disabled (players may progress up to the maximum progression stage of 18, which is the completion of WotLK content)
-#                   1-17 - Set a lower maximum progression stage attainable
+#                   1-17 - Set a lower maximum attainable progression stage 
 #
 IndividualProgression.ProgressionLimit = 0
 
@@ -224,7 +224,7 @@ IndividualProgression.RepeatableVanillaQuestsXP = 1
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
 #
 #        Default:   0 - TBC races always available to be created
-#                   1-18 - Set higher required progression stage to create TBC race characters
+#                   1-18 - Set a higher required progression stage to create TBC race characters
 #
 IndividualProgression.TbcRacesUnlockProgression = 0
 
@@ -239,7 +239,7 @@ IndividualProgression.TbcRacesUnlockProgression = 0
 #
 #        Default:   13 - TBC must be completed to create Death Knights
 #                   0 - Death Knights always available to be created
-#                   1-12, 14-18 - Set other required progression stage to create Death Knights
+#                   1-12, 14-18 - Set a different required progression stage to create Death Knights
 #
 IndividualProgression.DeathKnightUnlockProgression = 13
 
@@ -247,7 +247,7 @@ IndividualProgression.DeathKnightUnlockProgression = 13
 #        Description: The progression stage at which Death Knight characters will begin.
 #
 #        Default:   13 - Death Knights start at the beginning of WotLK
-#                   0-12, 14-18 - Set other starting progression stage for Death Knights
+#                   0-12, 14-18 - Set a different starting progression stage for Death Knights
 #
 IndividualProgression.DeathKnightStartingProgression = 13
 
