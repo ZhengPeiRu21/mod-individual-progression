@@ -328,9 +328,9 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (200016, 27283, 80000, 40, 300, 64);
 
 
-DELETE FROM `reference_loot_template` WHERE `Entry`= 34024 AND `Item`= 21302;
+DELETE FROM `reference_loot_template` WHERE `Entry`= 30424 AND `Item`= 21302;
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
-(34024, 21302, 0, 0, 0, 1, 3, 1, 1, 'Handbook of Deadly Poison V');
+(30424, 21302, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Deadly Poison V');
 
 DELETE FROM `spell_ranks` WHERE `first_spell_id` IN (2835, 3420, 5763, 8681, 13220);
 INSERT INTO `spell_ranks` (`first_spell_id`, `spell_id`, `rank`) VALUES
