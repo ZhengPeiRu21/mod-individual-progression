@@ -1,6 +1,11 @@
 /* Drop chance for Humbert's Sword was incorrectly set to 100 - updated to 25 - value copied from VMangos */
 UPDATE `creature_loot_template` SET `Chance` = 25 WHERE `Item` = 3693;
 
+DELETE FROM `creature` WHERE `id1` IN (7073);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(607073, 7073, 0, 0, 0, 0, 0, 1, 1, 1, -1329.91, 554.068, 101.125, 5.417, 300, 0, 0, 1110, 1067, 0, 0, 0, 0, '', NULL, 0, NULL);
+
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (7073);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (7073);
