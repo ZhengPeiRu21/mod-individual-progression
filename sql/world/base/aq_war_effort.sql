@@ -264,3 +264,5 @@ UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Chief Sharpclaw in
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` = 8609;
 UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` = 8610;
 
+-- make Field Duty Quests repeatable
+UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN (8548, 8572, 8573, 8574, 9338); 
