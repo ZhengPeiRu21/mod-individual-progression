@@ -115,7 +115,7 @@ enum ProgressionAreas
     AREA_GROVE_OF_THE_ANCIENTS           = 448,
     AREA_WILDBEND_RIVER                  = 454,
     AREA_TWILIGHT_GROVE                  = 856,
-    AREA_PURGATION_ISLE                  = 896;
+    AREA_PURGATION_ISLE                  = 896,
     AREA_GADGETZAN                       = 976,
     AREA_DREAM_BOUGH                     = 1111,
     AREA_JADEMIR_LAKE                    = 1112,
