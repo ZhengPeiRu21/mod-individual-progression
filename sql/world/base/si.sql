@@ -751,6 +751,10 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
 UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
 
+UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN -- make quests repeatable
+(9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance
+ 9333, 9334, 9335, 9336, 9320, 9343); -- Horde
+
 DELETE FROM `quest_request_items` WHERE `ID` IN (9295, 9299, 9300, 9301, 9302, 9304);
 INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`, `CompletionText`, `VerifiedBuild`) VALUES
 (9295, 1, 0, 'Yes? What do you have there?', 12340),
