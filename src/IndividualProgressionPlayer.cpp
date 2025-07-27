@@ -957,6 +957,20 @@ public:
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
+            case AREA_PURGATION_ISLE:
+                if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) 
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->CastSpell(player, IPP_PHASE_II, false);
+                }					
+                break;
             case AREA_LIGHTS_HOPE:
             case AREA_ARGENT_TOURNAMENT_GROUNDS:
             case AREA_ARGENT_SUNREAVER_PAVILION:
