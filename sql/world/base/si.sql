@@ -54,21 +54,23 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 16543, 23161, 0, 1, 8, 0, 9302, 0, 0, 0, 0, 0, '', 'Garon Hutchins will not sell Freshly-Squeezed Lemonade until the player has completed ''Missive from the Front''');
 
     
-UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 1803;
-UPDATE `creature` SET `npcflag` = 691 WHERE `guid` = 26771;
-UPDATE `creature` SET `npcflag` = 129 WHERE `guid` = 38112;
-UPDATE `creature` SET `npcflag` = 689 WHERE `guid` = 46320;
-UPDATE `creature` SET `npcflag` = 1048705 WHERE `guid` = 208240;
+UPDATE `creature` SET `npcflag` = 691     WHERE `guid` = 1803;    -- Alexander Calder
+UPDATE `creature` SET `npcflag` = 691     WHERE `guid` = 26771;   -- Miles Welsh
+UPDATE `creature` SET `npcflag` = 129     WHERE `guid` = 38112;   -- Joanna Whitehall
+UPDATE `creature` SET `npcflag` = 689     WHERE `guid` = 46320;   -- Elissa Dumas
+UPDATE `creature` SET `npcflag` = 1048705 WHERE `guid` = 615006;  -- Deze Snowbane
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4533 AND `OptionID` = 3;
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4566 AND `OptionID` = 3; 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4821 AND `OptionID` = 1;
+DELETE FROM `gossip_menu_option` WHERE `MenuID` = 5849 AND `OptionID` = 2;
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (6470, 8730);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, 
 `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES 
 (4533, 3, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
 (4566, 3, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
 (4821, 1, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(5849, 2, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
 (6470, 0, 9, 'I would like to go to the battleground.', 10355, 12, 1048576, 0, 0, 0, 0, '', 0, 0),
 (6470, 1, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0),
 (8730, 0, 1, 'Show me what you have for sale.', 29959, 3, 128, 0, 0, 0, 0, '', 0, 0);
@@ -525,7 +527,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (16299, 22975, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Smudged Document'),
 (16299, 22977, 0, 0.7, 0, 1, 0, 1, 1,   'Skeletal Shocktrooper - A Torn Letter');
 
--- no epic rewards from Shadow of Doom
+-- no epic drops from Shadow of Doom
 UPDATE `creature_template` SET `lootid` = @SHADOW_OF_DOOM WHERE `entry` = @SHADOW_OF_DOOM;
 DELETE FROM `creature_loot_template` WHERE `Entry` IN (@SHADOW_OF_DOOM);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
@@ -536,6 +538,31 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (@SHADOW_OF_DOOM, 23087, 0, 6.33, 0, 1, 0, 1, 1,  'Shadow of Doom - Breastplate of Undead Slaying'),
 (@SHADOW_OF_DOOM, 23088, 0, 7.19, 0, 1, 0, 1, 1,  'Shadow of Doom - Chestguard of Undead Slaying'),
 (@SHADOW_OF_DOOM, 23089, 0, 6.33, 0, 1, 0, 1, 1,  'Shadow of Doom - Tunic of Undead Slaying');
+
+-- no epic drops from rares at summoning circles
+UPDATE `creature_template` SET `lootid` = @LUMBERING_HORROR     WHERE `entry` = @LUMBERING_HORROR;
+UPDATE `creature_template` SET `lootid` = @SPIRIT_OF_THE_DAMNED WHERE `entry` = @SPIRIT_OF_THE_DAMNED;
+UPDATE `creature_template` SET `lootid` = @BONE_WITCH           WHERE `entry` = @BONE_WITCH;
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (@LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED,  @BONE_WITCH);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+(@LUMBERING_HORROR, 12841, 0, 35, 0, 1, 0, 1, 1,        'Lumbering Horror - Invaders Scourgestone'),
+(@LUMBERING_HORROR, 22484, 0, 50.68, 0, 1, 0, 1, 1,     'Lumbering Horror - Necrotic Rune'),
+(@LUMBERING_HORROR, 23090, 0, 18.81, 0, 1, 0, 1, 1,     'Lumbering Horror - Bracers of Undead Slaying'),
+(@LUMBERING_HORROR, 23091, 0, 22.01, 0, 1, 0, 1, 1,     'Lumbering Horror - Bracers of Undead Cleansing'),
+(@LUMBERING_HORROR, 23092, 0, 20.04, 0, 1, 0, 1, 1,     'Lumbering Horror - Wristguards of Undead Slaying'),
+(@LUMBERING_HORROR, 23093, 0, 19.5, 0, 1, 0, 1, 1,      'Lumbering Horror - Wristwraps of Undead Slaying'),
+(@SPIRIT_OF_THE_DAMNED, 12841, 0, 35, 0, 1, 0, 1, 1,    'Spirit of the Damned - Invaders Scourgestone'),
+(@SPIRIT_OF_THE_DAMNED, 22484, 0, 57.06, 0, 1, 0, 1, 1, 'Spirit of the Damned - Necrotic Rune'),
+(@SPIRIT_OF_THE_DAMNED, 23090, 0, 19.72, 0, 1, 0, 1, 1, 'Spirit of the Damned - Bracers of Undead Slaying'),
+(@SPIRIT_OF_THE_DAMNED, 23091, 0, 20.42, 0, 1, 0, 1, 1, 'Spirit of the Damned - Bracers of Undead Cleansing'),
+(@SPIRIT_OF_THE_DAMNED, 23092, 0, 18.74, 0, 1, 0, 1, 1, 'Spirit of the Damned - Wristguards of Undead Slaying'),
+(@SPIRIT_OF_THE_DAMNED, 23093, 0, 21.54, 0, 1, 0, 1, 1, 'Spirit of the Damned - Wristwraps of Undead Slaying'),
+(@BONE_WITCH, 12841, 0, 35, 0, 1, 0, 1, 1,              'Bone Witch - Invaders Scourgestone'),
+(@BONE_WITCH, 22484, 0, 50.12, 0, 1, 0, 1, 1,           'Bone Witch - Necrotic Rune'),
+(@BONE_WITCH, 23090, 0, 20.68, 0, 1, 0, 1, 1,           'Bone Witch - Bracers of Undead Slaying'),
+(@BONE_WITCH, 23091, 0, 20.68, 0, 1, 0, 1, 1,           'Bone Witch - Bracers of Undead Cleansing'),
+(@BONE_WITCH, 23092, 0, 20.63, 0, 1, 0, 1, 1,           'Bone Witch - Wristguards of Undead Slaying'),
+(@BONE_WITCH, 23093, 0, 20.82, 0, 1, 0, 1, 1,           'Bone Witch - Wristwraps of Undead Slaying');
 
 -- Necropolis Not selectable
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` IN (181154, 181215, 181223, 181373, 181374);
@@ -727,6 +754,10 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 
 UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 1101 WHERE `ID` IN (9094, 9317, 9318, 9321, 9337, 9341);
 UPDATE `quest_template` SET `QuestType` = 2, `QuestSortID` = -368, `AllowableRaces` = 690  WHERE `ID` IN (9333, 9334, 9335, 9336, 9320, 9343);
+
+UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN -- make quests repeatable
+(9094, 9317, 9318, 9321, 9337, 9341,  -- Alliance
+ 9333, 9334, 9335, 9336, 9320, 9343); -- Horde
 
 DELETE FROM `quest_request_items` WHERE `ID` IN (9295, 9299, 9300, 9301, 9302, 9304);
 INSERT INTO `quest_request_items` (`ID`, `EmoteOnComplete`, `EmoteOnIncomplete`, `CompletionText`, `VerifiedBuild`) VALUES

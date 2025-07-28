@@ -63,6 +63,18 @@ DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 20804
 DELETE FROM `waypoint_data` WHERE `id` IN (6300880, 6300890, 6301050, 6301060, 6301140, 6301330, 6301380, 6301390);
 DELETE FROM `creature_addon` WHERE `guid` IN (630088, 630089, 630105, 630106, 630114, 630133, 630138, 630139, 630164, 630165, 630181, 630182, 630190, 630209, 630214, 630215);
 
+-- Naxx40
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 15975;
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+(15975,0,0,0,0,0,100,2,5000,8000,14000,18000,0,0,11,30043,0,0,0,0,0,2,0,0,0,0,0,0,0,0,'Cast Spell IC'),
+(15975,0,1,0,0,0,100,4,5000,8000,14000,18000,0,0,11,56032,0,0,0,0,0,2,0,0,0,0,0,0,0,0,'Cast Spell IC'),
+(15975,0,2,0,0,0,100,0,9000,16000,18000,21000,0,0,11,28434,0,0,0,0,0,5,0,0,0,0,0,0,0,0,'Cast Spell IC');
+
+DELETE FROM `waypoint_data` WHERE `id` IN (3620600, 3620630);
+
 -- Scourge Invasion Update
 UPDATE `creature_template` SET `AIName` = ''   WHERE `entry` = 16136;
 UPDATE `creature_template` SET `npcflag` = 1   WHERE `entry` = 16786;

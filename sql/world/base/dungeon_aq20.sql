@@ -32,7 +32,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (30424, 21293, 0, 0, 0, 1, 1, 1, 1, 'Tablet of Grace of Air Totem III'),
 (30424, 21299, 0, 0, 0, 1, 1, 1, 1, 'Manual of Revenge VI'),
 (30424, 21300, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Backstab IX'),
-(30424, 21302, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Deadly Poison V'),
+-- (30424, 21302, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Deadly Poison V'), -- gets added to reference loot in zz_optional_restore_rogue_poisons
 (30424, 21303, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Feint V'),
 (30424, 21304, 0, 0, 0, 1, 1, 1, 1, 'Guide: Multi-Shot V'),
 (30424, 21306, 0, 0, 0, 1, 1, 1, 1, 'Guide: Serpent Sting IX'),

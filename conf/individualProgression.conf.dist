@@ -225,7 +225,7 @@ IndividualProgression.SimpleConfigOverride = 1
 #                     For example, a value of 6 will limit players to Vanilla content.
 #
 #        Default:   0 - Disabled
-#                   1-16 - Maximum progression stage
+#                   0-18 - Maximum progression stage
 #
 IndividualProgression.ProgressionLimit = 0
 
@@ -236,7 +236,7 @@ IndividualProgression.ProgressionLimit = 0
 #
 #
 #        Default:   0 - Disabled
-#                   1-16 - Starting progression stage
+#                   0-18 - Starting progression stage
 #
 IndividualProgression.StartingProgression = 0
 
@@ -269,7 +269,7 @@ IndividualProgression.RepeatableVanillaQuestsXP = 1
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
 #
 #        Default:   0 - TBC Races always available
-#                   1-16 - Required progression level to create TBC Race characters
+#                   0-18 - Required progression level to create TBC Race characters
 #
 IndividualProgression.TbcRacesUnlockProgression = 0
 
@@ -284,7 +284,7 @@ IndividualProgression.TbcRacesUnlockProgression = 0
 #
 #        Default:   11 - TBC must be completed to create Death Knights
 #                   0 - Disabled
-#                   1-16 - Required progression
+#                   0-18 - Required progression
 #
 IndividualProgression.DeathKnightUnlockProgression = 11
 
