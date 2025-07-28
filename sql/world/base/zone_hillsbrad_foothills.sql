@@ -104,8 +104,6 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (607071, 3, 5819, 1, 1, 12340),
 (607072, 0, 5820, 1, 1, 12340),
 (607072, 1, 5821, 1, 1, 12340),
-(607073, 0, 5831, 1, 1, 12340),
-(607074, 0, 5830, 1, 1, 12340),
 (607075, 0, 5814, 1, 1, 12340),
 (607075, 1, 5815, 1, 1, 12340);
 
@@ -119,6 +117,16 @@ INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `Verified
 (607070, 1, 15586, 12340),
 (607075, 0, 8401, 12340),
 (607075, 1, 7322, 12340);
+
+DELETE FROM `creature_equip_template`  WHERE `CreatureID` BETWEEN 607068 AND 607075;
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES 
+(607068, 1, 5281, 0, 0, 18019),
+(607069, 1, 5303, 0, 0, 18019),
+(607070, 1, 2182, 0, 0, 18019),
+(607071, 1, 3361, 2052, 0, 18019),
+(607072, 1, 1983, 0, 0, 18019),
+(607075, 1, 2177, 0, 0, 18019);
+
 
 
 SET @CGUID    := 655000;
