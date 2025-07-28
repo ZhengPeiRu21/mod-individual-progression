@@ -208,7 +208,7 @@ bool IndividualProgression::hasCustomProgressionValue(uint32 creatureEntry)
 }
 
 
-void IndividualProgression::checkKillProgression(Player* killer, Creature* killed)
+void IndividualProgression::checkKillProgression(Player* killer, Creature* /*killed*/)
 {
         if (!enabled)
         {
@@ -225,53 +225,81 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
         {
             return;
         }
-        switch (killed->GetEntry())
+
+        if (killed->GetEntry(HALION) || killer->CompletedAchievement(HALION_KILLS)) // 4820
         {
-            case RAGNAROS:
-                UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
-                break;
-            case ONYXIA:
-                UpdateProgressionState(killer, PROGRESSION_ONYXIA);
-                break;
-            case NEFARIAN:
-                UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
-                break;
-            case CTHUN:
-                UpdateProgressionState(killer, PROGRESSION_AQ);
-                break;
-            case KELTHUZAD_40:
-                UpdateProgressionState(killer, PROGRESSION_NAXX40);
-                break;
-            case MALCHEZAAR:
-                UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
-                break;
-            case KAELTHAS:
-                UpdateProgressionState(killer, PROGRESSION_TBC_TIER_2);
-                break;
-            case ILLIDAN:
-                UpdateProgressionState(killer, PROGRESSION_TBC_TIER_3);
-                break;
-            case ZULJIN:
-                UpdateProgressionState(killer, PROGRESSION_TBC_TIER_4);
-                break;
-            case KILJAEDEN:
-                UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
-                break;
-            case KELTHUZAD:
-                UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
-                break;
-            case YOGGSARON:
-                UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_2);
-                break;
-            case ANUBARAK:
-                UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_3);
-                break;
-            case LICH_KING:
-                UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_4);
-                break;
-            case HALION:
-                UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_5);
-                break;
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_5);
+            return;
+        }
+        else if (killed->GetEntry(LICH_KING) || killer->CompletedAchievement(LICH_KING_KILLS)) // 4687
+        {
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_4);
+            return;
+        }
+        else if (killed->GetEntry(ANUBARAK) || killer->CompletedAchievement(ANUB_ARAK_KILLS)) // 1232
+        {
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_3);
+            return;
+        }
+        else if (killed->GetEntry(YOGGSARON) || killer->CompletedAchievement(YOGG_SARON_KILLS)) // 2883
+        {
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_2);
+            return;
+        }
+        else if (killed->GetEntry(KELTHUZAD) || killer->CompletedAchievement(KEL_THUZAD_KILLS)) // 1390
+        {
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
+            return;
+        }
+        else if (killed->GetEntry(KILJAEDEN) || killer->CompletedAchievement(KIL_JAEDEN_KILLS)) // 1090
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
+            return;
+        }
+        else if (killed->GetEntry(ZULJIN) || killer->CompletedAchievement(ZUL_JIN_KILLS)) // 1084
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_4);
+            return;
+        }
+        else if (killed->GetEntry(ILLIDAN) || killer->CompletedAchievement(ILLIDAN_KILLS)) // 1089
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_3);
+            return;
+        }
+        else if (killed->GetEntry(KAELTHAS) || killer->CompletedAchievement(KAEL_THAS_KILLS)) // 1088
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_2);
+            return;
+        }
+        else if (killed->GetEntry(MALCHEZAAR) || killer->CompletedAchievement(MALCHEZAAR_KILLS)) //  1083
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
+            return;
+        }
+        else if (killed->GetEntry(KELTHUZAD_40) || killed->GetEntry(KELTHUZAD_40))
+        {
+            UpdateProgressionState(killer, PROGRESSION_NAXX40);
+            return;
+        }
+        else if (killed->GetEntry(CTHUN) || killer->CompletedAchievement(C_THUN_KILLS)) // 1101
+        {
+            UpdateProgressionState(killer, PROGRESSION_AQ);
+            return;
+        }
+        else if (killed->GetEntry(NEFARIAN) || killer->CompletedAchievement(NEFARIAN_KILLS)) // 1100
+        {
+            UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
+            return;
+        }
+        else if (killed->GetEntry(ONYXIA) || killer->CompletedAchievement(ONYXIAS_LAIR)) // 684
+        {
+            UpdateProgressionState(killer, PROGRESSION_ONYXIA);
+            return;
+        }
+        else if (killed->GetEntry(RAGNAROS) || killer->CompletedAchievement(RAGNAROS_KILLS)) // 1099
+        {
+            UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
+            return;
         }
 }
 
