@@ -291,7 +291,7 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* /*kil
             UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
             return;
         }
-        else if (killed->GetEntry(ONYXIA) || killer->CompletedAchievement(ONYXIAS_LAIR)) // 684
+        else if (killed->GetEntry(ONYXIA) || killer->CompletedAchievement(ONYXIAS_KILLS)) // 684
         {
             UpdateProgressionState(killer, PROGRESSION_ONYXIA);
             return;
