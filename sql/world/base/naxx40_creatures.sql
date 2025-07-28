@@ -85,7 +85,7 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (@CENTRY+74, 0, 0, 0, 0, 0, 'Unstoppable Abomination', '', NULL, 0, 60, 60, 0, 21, 0, 0.4, 0.685714, 1, 1, 20, 1, 1, 0, 74.45, 2000, 1550, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 6, 72, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 29.4889, 1, 1.1, 1, 0, 64, 1, 1019950706, 0, 0, 'boss_kelthuzad_minion_40', NULL),
 (@CENTRY+75, 0, 0, 0, 0, 0, 'Soul Weaver', '', NULL, 0, 60, 60, 0, 21, 0, 0.4, 0.1, 1, 1, 20, 1, 1, 0, 1.7, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 6, 72, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 22.9358, 1, 1.1, 1, 0, 64, 1, 1053523570, 0, 0, 'boss_kelthuzad_minion_40', NULL),
 (@CENTRY+76, 0, 0, 0, 0, 0, 'Guardian of Icecrown', '', NULL, 0, 60, 60, 0, 21, 0, 4.8, 1.71429, 1, 1, 20, 1, 1, 0, 20.75, 2000, 1650, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 72, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 500, 1, 1.1, 1, 0, 174, 1, 1015218800, 0, 0, 'boss_kelthuzad_minion_40', NULL),
-(@CENTRY+77, 0, 0, 0, 0, 0, 'Plagued Gargoyle', '', NULL, 0, 61, 61, 0, 21, 0, 1, 1.42857, 1, 1, 20, 1, 1, 0, 25.875, 3000, 1265, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 8, @CENTRY+77, 0, 0, 0, 0, 1, 138065, '', 0, 1, 100, 3, 1.45, 1, 0, 144, 1, 1073725431, 0, 0, '', NULL),
+(@CENTRY+77, 0, 0, 0, 0, 0, 'Plagued Gargoyle', '', NULL, 0, 61, 61, 0, 21, 0, 1, 1.42857, 1, 1, 20, 1, 1, 0, 25.875, 3000, 1265, 1, 1, 2, 0, 2048, 0, 0, 0, 0, 0, 0, 6, 8, @CENTRY+77, 0, 0, 0, 0, 1, 138065, 'SmartAI', 0, 1, 100, 3, 1.45, 1, 0, 144, 1, 1073725431, 0, 0, '', NULL),
 (@CENTRY+78, 0, 0, 0, 0, 0, 'Plagued Ghoul', '', NULL, 0, 61, 61, 0, 21, 0, 0.777776, 1.42857, 1, 1, 20, 1, 1, 0, 18.1125, 1500, 1265, 1, 1, 1, 32832, 2048, 0, 0, 0, 0, 0, 0, 6, 72, @CENTRY+78, 0, 0, 0, 0, 3878, 8925, 'SmartAI', 0, 1, 30, 1, 1.15, 1, 0, 144, 1, 1022043730, 0, 0, '', NULL),
 (@CENTRY+79, 0, 0, 0, 0, 0, 'Web Wrap', '', NULL, 0, 60, 60, 0, 16, 0, 1, 1, 1, 1, 18, 1, 0, 0, 0.6, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 0.7, 1, 0, 0, 1, 0, 0, 0, 'boss_maexxna_webwrap_40', NULL),
 (@CENTRY+80, 0, 0, 0, 0, 0, 'Naxxramas Follower', '', NULL, 0, 61, 61, 0, 21, 0, 1, 1.42857, 1, 1, 20, 1, 1, 0, 59.2, 2000, 1265, 1, 1, 8, 32832, 2048, 0, 0, 0, 0, 0, 0, 7, 72, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 45, 10, 1.15, 1, 0, 144, 1, 1023391483, 0, 0, '', NULL),
@@ -114,7 +114,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (16158, 0, 0, 0, 0, 0, 100, 0, 2000, 3000, 3000, 4000, 0, 0, 14, 0, 100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Death Touched Warrior - In Combat - Periodically Wipe Aggro'),
 (16448, 0, 0, 0, 9, 0, 100, 0, 6000, 12000, 9000, 16000, 0, 5, 11, 30121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Plagued Deathhound - Within 0-5 Range - Cast Forceful Howl'),
 (16451, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,           'Deathknight Vindicator - Within 0-30 Range - Cast Aura of Agony'),
-(16451, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Deathknight Vindicator - Within 0-5 Range - Cast Cleave'),
+(16451, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Deathknight Vindicator - Within 0-5 Range - Cast Cleave'),
 (16451, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Deathknight Vindicator - Within 0-30 Range - Cast Death Coil'),
 (16452, 0, 0, 0, 9, 0, 90, 0, 2000, 2000, 15000, 15000, 0, 20, 11, 30092, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Necro Knight Guardian - Within 0-20 Range - Cast Blast Wave'),
 (16452, 0, 1, 0, 0, 0, 90, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 30091, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Necro Knight Guardian - Within 0-30 Range - Cast Flamestrike'),
@@ -130,7 +130,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (16777, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28835, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of Zeliek   - In Combat - Cast Mark of Zeliek'),
 (16778, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28832, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of Korthazz - In Combat - Cast Mark of Korthazz'),
 (16861, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,           'Death Lord - Within 0-30 Range - Cast Aura of Agony (Naxx40)'),
-(16861, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Death Lord - Within 0-5 Range - Cast Cleave (Naxx40)'),
+(16861, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Death Lord - Within 0-5 Range - Cast Cleave (Naxx40)'),
 (16861, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Death Lord - Within 0-30 Range - Cast Death Coil (Naxx40)');
 
 
@@ -144,7 +144,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+11, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 14000, 18000, 0, 15, 11, 30043, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Carrion Spinner - Within 0-15 Range - Cast Poison Spray (Naxx 40)'),
 (@CENTRY+11, 0, 2, 0, 0, 0, 100, 0, 9000, 16000, 18000, 21000, 0, 0, 11, 28434, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,      'Carrion Spinner - Within 0-40 Range - Cast Spider Web (Naxx 40)'),
 (@CENTRY+12, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 20000, 40000, 0, 0, 11, 28431, 0, 0, 0, 0, 0, 5, 40, 1, 0, 0, 0, 0, 0, 0,      'Venom Stalker - In Combat - Cast Poison Charge (Naxx 40)'),
-(@CENTRY+14, 0, 0, 0, 9, 0, 100, 0, 2000, 5000, 6000, 9000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,          'Crypt Reaver - Within 0-5 Range - Cast Cleave (Naxx 40)'),
+(@CENTRY+14, 0, 0, 0, 9, 0, 100, 0, 2000, 5000, 6000, 9000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,          'Crypt Reaver - Within 0-5 Range - Cast Cleave (Naxx 40)'),
 (@CENTRY+14, 0, 1, 0, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Reaver - Between 0-50% Health - Cast Frenzy (Naxx 40)'),
 (@CENTRY+14, 0, 2, 0, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Crypt Reaver - Between 0-50% Health - Say Line 0 (Naxx 40)'),
 (@CENTRY+15, 0, 0, 0, 0, 0, 75, 0, 2000, 2000, 4000, 4000, 0, 0, 11, 28614, 0, 0, 0, 0, 0, 5, 45, 0, 0, 0, 0, 0, 0, 0,          'Tomb Horror - Within 0-45 Range - Cast Pointy Spike (Naxx 40)'),
@@ -178,7 +178,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+49, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 7000, 0, 20, 11, 28350, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Death Knight - Within 0-20 Range - Cast Veil of Darkness'),
 (@CENTRY+54, 0, 0, 0, 0, 0, 100, 0, 5000, 5000, 5000, 5000, 0, 0, 14, 0, 100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Dark Touched Warrior - In Combat - Periodically Wipe Aggro'),
 (@CENTRY+55, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,                'Deathknight Cavalier - Within 0-30 Range - Cast Aura of Agony'),
-(@CENTRY+55, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Deathknight Cavalier - Within 0-5 Range - Cast Cleave'),
+(@CENTRY+55, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Deathknight Cavalier - Within 0-5 Range - Cast Cleave'),
 (@CENTRY+55, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,          'Deathknight Cavalier - Within 0-30 Range - Cast Death Coil'),
 (@CENTRY+56, 0, 0, 0, 0, 0, 100, 0, 2800, 5100, 4500, 12000, 0, 0, 218, 28407, 0, 1849, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Shade of Naxxramas - In Combat - Custom Cast Shadow Bolt Volley (Naxx40)'), -- reduced from 2219 to 1849
 (@CENTRY+56, 0, 1, 0, 0, 0, 100, 0, 4100, 8700, 60000, 60000, 0, 0, 11, 90004, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Shade of Naxxramas - In Combat - Cast \'Portal of Shadows (Naxx40)\''),
@@ -205,7 +205,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+62, 0, 0, 0, 106, 0, 100, 0, 2400, 8400, 8400, 16100, 0, 20, 11, 28450, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Unholy Staff - Within 0-20 - Cast Arcane Explosion (Naxx 40)'),
 (@CENTRY+62, 0, 1, 0, 106, 0, 100, 0, 6100, 10800, 11000, 15000, 0, 10, 11, 29849, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Unholy Staff - Within 0-10 Range - Cast Frost Nova (Naxx 40)'),
 (@CENTRY+62, 0, 3, 0, 0, 0, 100, 0, 4800, 6200, 14800, 14900, 0, 0, 11, 29848, 0, 0, 0, 0, 0, 6, 45, 0, 0, 0, 0, 0, 0, 0,       'Unholy Staff - In Combat - Cast Polymorph (Naxx 40)'),
-(@CENTRY+63, 0, 0, 0, 9, 0, 100, 0, 4000, 4700, 9200, 15500, 0, 5, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Unholy Swords - Within 0-5 Range - Cast Cleave (Naxx 40)'),
+(@CENTRY+63, 0, 0, 0, 9, 0, 100, 0, 4000, 4700, 9200, 15500, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Unholy Swords - Within 0-5 Range - Cast Cleave (Naxx 40)'),
 (@CENTRY+63, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12787, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Unholy Swords - On Reset - Cast Thrash (Naxx 40)'),
 (@CENTRY+64, 0, 0, 0, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Plague Slime - Set Random Phase (Naxx 40)'),
 (@CENTRY+64, 0, 1, 0, 0, 1, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 28987, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Plague Slime - Cast Plague Slime (Black) (Naxx 40)'),
@@ -226,7 +226,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+70, 0, 0, 0, 106, 0, 100, 0, 2000, 2000, 5000, 5000, 0, 10, 11, 22271, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Necropolis Acolyte - Within 0-10 Range - Cast Arcane Explosion'),
 (@CENTRY+70, 0, 1, 0, 9, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 30, 11, 28448, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Necropolis Acolyte - Within 0-30 Range - Cast Shadow Bolt Volley'),
 (@CENTRY+71, 0, 0, 0, 1, 0, 100, 7, 1000, 1000, 0, 0, 0, 0, 11, 28153, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Sewage Slime - Out of Combat - Cast Disease Cloud (Naxx 40)'),
-(@CENTRY+77, 0, 0, 0, 0, 0, 100, 0, 0, 0, 10000, 10000, 0, 0, 218, 29325, 0, 0, 121, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,           'Plagued Gargoyle - In Combat - Custom Cast Acid Volley'),                   -- reduced from 231 to 121
+(@CENTRY+77, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 10000, 10000, 0, 0, 218, 29325, 32, 0, 121, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,    'Plagued Gargoyle - In Combat - Custom Cast Acid Volley'),                   -- reduced from 231 to 121  -- does NOT work!
 (@CENTRY+77, 0, 1, 0, 2, 0, 75, 0, 0, 50, 30000, 30000, 0, 0, 11, 28995, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Plagued Gargoyle - Between 0-50% Health - Cast Stoneskin'),
 (@CENTRY+78, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 24318, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Plagued Ghoul - Between 0-30% Health - Cast Frenzy (No Repeat)'),
 (@CENTRY+78, 0, 1, 0, 9, 0, 100, 0, 5000, 15000, 9000, 18000, 0, 5, 11, 29915, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Plagued Ghoul - Within 0-5 Range - Cast Flesh Rot'),
@@ -234,7 +234,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+80, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 11000, 15000, 0, 0, 11, 30225, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Naxxramas Follower - Cast Silence (Naxx 40)'),
 (@CENTRY+81, 0, 0, 0, 0, 0, 100, 0, 4000, 5000, 7000, 9000, 0, 0, 11, 54095, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Naxxramas Worshipper - Cast Fireball (Naxx 40)'),                           -- wotlk fireball !!
 (@CENTRY+81, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28732, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Naxxramas Worshipper - Cast Widow\'s Embrace on Death (Naxx 40)'),
-(@CENTRY+82, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 7000, 9000, 0, 0, 11, 15579, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Guard - Cast Cleave (Naxx 40)'),
+(@CENTRY+82, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 7000, 9000, 0, 0, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Guard - Cast Cleave (Naxx 40)'),
 (@CENTRY+82, 0, 1, 0, 0, 0, 100, 0, 500, 500, 4000, 7000, 0, 0, 11, 28969, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Guard - Cast Acid Spit (Naxx 40)'),
 (@CENTRY+82, 0, 3, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Guard - On 30% HP - Cast Frenzy (Naxx 40)'),
 (@CENTRY+82, 0, 5, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Crypt Guard - On 30% HP - Say EMOTE_FRENZY (Naxx 40)'),
