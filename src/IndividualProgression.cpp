@@ -208,7 +208,7 @@ bool IndividualProgression::hasCustomProgressionValue(uint32 creatureEntry)
 }
 
 
-void IndividualProgression::checkKillProgression(Player* killer, Creature* /*killed*/)
+void IndividualProgression::checkKillProgression(Player* killer, Creature* killed)
 {
         if (!enabled)
         {
