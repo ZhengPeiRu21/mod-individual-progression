@@ -92,6 +92,24 @@ enum ProgressionQuests
     PROGRESSION_FLAG_WOTLK_T5 = 66018
 };
 
+enum ProgressionAchievements
+{
+    ONYXIAS_KILLS             = 684
+    MALCHEZAAR_KILLS          = 1083,
+    ZUL_JIN_KILLS             = 1084,
+    KAEL_THAS_KILLS           = 1088,
+    ILLIDAN_KILLS             = 1089,
+    KIL_JAEDEN_KILLS          = 1090,
+    RAGNAROS_KILLS            = 1099,
+    NEFARIAN_KILLS            = 1100,
+    C_THUN_KILLS              = 1101,
+    ANUB_ARAK_KILLS           = 1232,
+    KEL_THUZAD_KILLS          = 1390, // WotLK, naxx40 does not have an achievement
+    YOGG_SARON_KILLS          = 2883,
+    LICH_KING_KILLS           = 4687,
+    HALION_KILLS              = 4820
+};
+
 enum ProgressionZones
 {
     ZONE_AZUREMYST       = 3524,
