@@ -226,52 +226,52 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
             return;
         }
 
-        if (killed->GetEntry() == HALION || killer->HasAchieved(HALION_KILLS)) // 4820
+        if (killed->GetEntry() == HALION || killer->HasAchieved(HALION_KILL)) // 4815
         {
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_5);
             return;
         }
-        else if (killed->GetEntry() == LICH_KING || killer->HasAchieved(LICH_KING_KILLS)) // 4687
+        else if (killed->GetEntry() == LICH_KING || killer->HasAchieved(LICH_KING_KILL)) // 4597
         {
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_4);
             return;
         }
-        else if (killed->GetEntry() == ANUBARAK || killer->HasAchieved(ANUB_ARAK_KILLS)) // 1232
+        else if (killed->GetEntry() == ANUBARAK || killer->HasAchieved(ANUB_ARAK_KILL)) // 3916
         {
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_3);
             return;
         }
-        else if (killed->GetEntry() == YOGGSARON || killer->HasAchieved(YOGG_SARON_KILLS)) // 2883
+        else if (killed->GetEntry() == YOGGSARON)
         {
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_2);
             return;
         }
-        else if (killed->GetEntry() == KELTHUZAD || killer->HasAchieved(KEL_THUZAD_KILLS)) // 1390
+        else if (killed->GetEntry() == KELTHUZAD || killer->HasAchieved(KEL_THUZAD_KILL)) // 575
         {
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
             return;
         }
-        else if (killed->GetEntry() == KILJAEDEN || killer->HasAchieved(KIL_JAEDEN_KILLS)) // 1090
+        else if (killed->GetEntry() == KILJAEDEN || killer->HasAchieved(KIL_JAEDEN_KILL)) // 698
         {
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
             return;
         }
-        else if (killed->GetEntry() == ZULJIN|| killer->HasAchieved(ZUL_JIN_KILLS)) // 1084
+        else if (killed->GetEntry() == ZULJIN|| killer->HasAchieved(ZUL_JIN_KILL)) // 691
         {
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_4);
             return;
         }
-        else if (killed->GetEntry() == ILLIDAN || killer->HasAchieved(ILLIDAN_KILLS)) // 1089
+        else if (killed->GetEntry() == ILLIDAN || killer->HasAchieved(ILLIDAN_KILL)) // 697
         {
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_3);
             return;
         }
-        else if (killed->GetEntry() == KAELTHAS|| killer->HasAchieved(KAEL_THAS_KILLS)) // 1088
+        else if (killed->GetEntry() == KAELTHAS|| killer->HasAchieved(KAEL_THAS_KILL)) // 696
         {
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_2);
             return;
         }
-        else if (killed->GetEntry() == MALCHEZAAR || killer->HasAchieved(MALCHEZAAR_KILLS)) //  1083
+        else if (killed->GetEntry() == MALCHEZAAR || killer->HasAchieved(MALCHEZAAR_KILL)) //  690
         {
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
             return;
@@ -281,22 +281,22 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
             UpdateProgressionState(killer, PROGRESSION_NAXX40);
             return;
         }
-        else if (killed->GetEntry() == CTHUN || killer->HasAchieved(C_THUN_KILLS)) // 1101
+        else if (killed->GetEntry() == CTHUN || killer->HasAchieved(C_THUN_KILL)) // 687
         {
             UpdateProgressionState(killer, PROGRESSION_AQ);
             return;
         }
-        else if (killed->GetEntry() == NEFARIAN || killer->HasAchieved(NEFARIAN_KILLS)) // 1100
+        else if (killed->GetEntry() == NEFARIAN || killer->HasAchieved(NEFARIAN_KILL)) // 685
         {
             UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
             return;
         }
-        else if (killed->GetEntry() == ONYXIA || killer->HasAchieved(ONYXIAS_KILLS)) // 684
+        else if (killed->GetEntry() == ONYXIA || killer->HasAchieved(ONYXIAS_KILL)) // 684
         {
             UpdateProgressionState(killer, PROGRESSION_ONYXIA);
             return;
         }
-        else if (killed->GetEntry() == RAGNAROS || killer->HasAchieved(RAGNAROS_KILLS)) // 1099
+        else if (killed->GetEntry() == RAGNAROS || killer->HasAchieved(RAGNAROS_KILL)) // 686
         {
             UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
             return;
