@@ -140,21 +140,21 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(@CENTRY+10, 0, 1, 0, 9, 0, 100, 0, 2000, 2000, 8000, 8000, 0, 10, 11, 28440, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Dread Creeper - Within 0-10 Range - Cast Veil of Shadow (Naxx 40)'),
+(@CENTRY+10, 0, 0, 0, 9, 0, 100, 0, 2000, 2000, 8000, 8000, 0, 10, 11, 28440, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Dread Creeper - Within 0-10 Range - Cast Veil of Shadow (Naxx 40)'),
 (@CENTRY+11, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 14000, 18000, 0, 15, 11, 30043, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Carrion Spinner - Within 0-15 Range - Cast Poison Spray (Naxx 40)'),
-(@CENTRY+11, 0, 2, 0, 0, 0, 100, 0, 9000, 16000, 18000, 21000, 0, 0, 11, 28434, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,      'Carrion Spinner - Within 0-40 Range - Cast Spider Web (Naxx 40)'),
+(@CENTRY+11, 0, 1, 0, 0, 0, 100, 0, 9000, 16000, 18000, 21000, 0, 0, 11, 28434, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,      'Carrion Spinner - Within 0-40 Range - Cast Spider Web (Naxx 40)'),
 (@CENTRY+12, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 20000, 40000, 0, 0, 11, 28431, 0, 0, 0, 0, 0, 5, 40, 1, 0, 0, 0, 0, 0, 0,      'Venom Stalker - In Combat - Cast Poison Charge (Naxx 40)'),
 (@CENTRY+14, 0, 0, 0, 9, 0, 100, 0, 2000, 5000, 6000, 9000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,          'Crypt Reaver - Within 0-5 Range - Cast Cleave (Naxx 40)'),
 (@CENTRY+14, 0, 1, 0, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Reaver - Between 0-50% Health - Cast Frenzy (Naxx 40)'),
 (@CENTRY+14, 0, 2, 0, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Crypt Reaver - Between 0-50% Health - Say Line 0 (Naxx 40)'),
 (@CENTRY+15, 0, 0, 0, 0, 0, 75, 0, 2000, 2000, 4000, 4000, 0, 0, 11, 28614, 0, 0, 0, 0, 0, 5, 45, 0, 0, 0, 0, 0, 0, 0,          'Tomb Horror - Within 0-45 Range - Cast Pointy Spike (Naxx 40)'),
-(@CENTRY+15, 0, 2, 0, 9, 0, 75, 0, 5000, 5000, 8000, 8000, 0, 30, 11, 28615, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Tomb Horror - Within 0-30 Range - Cast Spike Volley (Naxx 40)'),
+(@CENTRY+15, 0, 1, 0, 9, 0, 75, 0, 5000, 5000, 8000, 8000, 0, 30, 11, 28615, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Tomb Horror - Within 0-30 Range - Cast Spike Volley (Naxx 40)'),
 (@CENTRY+16, 0, 0, 0, 9, 0, 75, 0, 3000, 3000, 5000, 5000, 0, 5, 11, 28447, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Naxxramas Cultist - Within 0-5 Range - Cast Shadow Burst (Naxx 40)'),
 (@CENTRY+17, 0, 0, 0, 106, 0, 100, 0, 2000, 2000, 5000, 5000, 0, 20, 11, 28450, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Naxxramas Acolyte - Within 0-20 Range - Cast Arcane Explosion (Naxx 40)'),
 (@CENTRY+17, 0, 1, 0, 9, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 30, 11, 28448, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Naxxramas Acolyte - Within 0-30 Range - Cast Shadow Bolt Volley (Naxx 40)'),
 (@CENTRY+21, 0, 0, 0, 9, 0, 100, 0, 4800, 10700, 14000, 19000, 0, 15, 11, 60960, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Patchwork Golem - Within 0-15 Range - Cast War Stomp (Naxx 40)'),           -- using 60960 for 5 second duration
-(@CENTRY+21, 0, 2, 0, 9, 0, 100, 0, 5000, 9300, 15200, 15200, 0, 5, 11, 27794, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Patchwork Golem - Within 0-5 Range - Cast Cleave (Naxx 40)'),
-(@CENTRY+21, 0, 4, 0, 12, 0, 100, 0, 0, 20, 35000, 43000, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Patchwork Golem - On target HP 0-20% - Cast Execute (Naxx 40)'),
+(@CENTRY+21, 0, 1, 0, 9, 0, 100, 0, 5000, 9300, 15200, 15200, 0, 5, 11, 27794, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Patchwork Golem - Within 0-5 Range - Cast Cleave (Naxx 40)'),
+(@CENTRY+21, 0, 2, 0, 12, 0, 100, 0, 0, 20, 35000, 43000, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Patchwork Golem - On target HP 0-20% - Cast Execute (Naxx 40)'),
 (@CENTRY+22, 0, 0, 0, 0, 0, 100, 0, 3600, 6800, 13700, 19700, 0, 0, 218, 27807, 0, 1374, 249, 26, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Bile Retcher  - In Combat - Custom Cast Bile Vomit (Naxx 40)'),             -- reduced from ~5k instant, ~1200 dot to ~1500 instant, 250 dot
 (@CENTRY+23, 0, 0, 0, 0, 0, 100, 0, 7600, 17300, 6000, 13300, 0, 0, 218, 28301, 0, 1062, 0, 0, 0, 5, 0, 0, 1, 0, 0, 0, 0, 0,    'Mad Scientist - In Combat - Custom Cast Mana Burn (Naxx 40)'),              -- reduced from ~3.5k to ~1.5k
 (@CENTRY+23, 0, 2, 0, 2, 0, 100, 0, 0, 30, 18000, 21000, 0, 0, 218, 28306, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Mad Scientist - At 30% HP - Custom Cast Great Heal (Naxx 40)'),             -- reduced from ~20% hp to ~10% hp.
@@ -197,14 +197,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+59, 0, 2, 0, 1, 0, 100, 512, 1000, 1000, 0, 0, 0, 0, 90, 9, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stoneskin Gargoyle - On Update OOC - Set Unit Field Bytes 1 \'UNIT_STAND_STATE_SUBMERGED\' (Controlled via conditions - only when not roaming) (Naxx 40)'),
 (@CENTRY+59, 0, 3, 0, 1, 0, 100, 512, 1000, 1000, 0, 0, 0, 0, 91, 9, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stoneskin Gargoyle - On Update OOC - Remove Unit Field Bytes 1 \'UNIT_STAND_STATE_SUBMERGED\' (Controlled via conditions - only when roaming) (Naxx 40)'),
 (@CENTRY+59, 0, 4, 0, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 91, 9, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Stoneskin Gargoyle - On Aggro - Remove Unit Field Bytes 1 \'UNIT_STAND_STATE_SUBMERGED\' (Naxx 40)'),
-(@CENTRY+60, 0, 1, 0, 9, 0, 85, 0, 0, 0, 6000, 6000, 0, 5, 11, 6713, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                  'Skeletal Smith - Within 0-5 Range - Cast Disarm'),
-(@CENTRY+60, 0, 2, 0, 9, 0, 100, 0, 1000, 1000, 2000, 2000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Skeletal Smith - Within 0-5 Range - Cast Sunder Armor'),
-(@CENTRY+60, 0, 3, 0, 106, 0, 90, 0, 2000, 2000, 10000, 10000, 0, 10, 11, 23931, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Skeletal Smith - Within 0-10 Range - Cast Thunderclap'),
+(@CENTRY+60, 0, 0, 0, 9, 0, 85, 0, 0, 0, 6000, 6000, 0, 5, 11, 6713, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                  'Skeletal Smith - Within 0-5 Range - Cast Disarm'),
+(@CENTRY+60, 0, 1, 0, 9, 0, 100, 0, 1000, 1000, 2000, 2000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Skeletal Smith - Within 0-5 Range - Cast Sunder Armor'),
+(@CENTRY+60, 0, 2, 0, 106, 0, 90, 0, 2000, 2000, 10000, 10000, 0, 10, 11, 23931, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Skeletal Smith - Within 0-10 Range - Cast Thunderclap'),
 (@CENTRY+61, 0, 0, 0, 106, 0, 100, 0, 2200, 8600, 8800, 13300, 0, 8, 11, 24236, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Unholy Axe - Within 0-8 - Cast Whirlwind (Naxx 40)'),
 (@CENTRY+61, 0, 1, 0, 9, 0, 100, 0, 6100, 13100, 20100, 20100, 0, 5, 11, 16856, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Unholy Axe - Within 0-5 Range - Cast Mortal Strike (Naxx 40)'),
 (@CENTRY+62, 0, 0, 0, 106, 0, 100, 0, 2400, 8400, 8400, 16100, 0, 20, 11, 28450, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Unholy Staff - Within 0-20 - Cast Arcane Explosion (Naxx 40)'),
 (@CENTRY+62, 0, 1, 0, 106, 0, 100, 0, 6100, 10800, 11000, 15000, 0, 10, 11, 29849, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Unholy Staff - Within 0-10 Range - Cast Frost Nova (Naxx 40)'),
-(@CENTRY+62, 0, 3, 0, 0, 0, 100, 0, 4800, 6200, 14800, 14900, 0, 0, 11, 29848, 0, 0, 0, 0, 0, 6, 45, 0, 0, 0, 0, 0, 0, 0,       'Unholy Staff - In Combat - Cast Polymorph (Naxx 40)'),
+(@CENTRY+62, 0, 2, 0, 0, 0, 100, 0, 4800, 6200, 14800, 14900, 0, 0, 11, 29848, 0, 0, 0, 0, 0, 6, 45, 0, 0, 0, 0, 0, 0, 0,       'Unholy Staff - In Combat - Cast Polymorph (Naxx 40)'),
 (@CENTRY+63, 0, 0, 0, 9, 0, 100, 0, 4000, 4700, 9200, 15500, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Unholy Swords - Within 0-5 Range - Cast Cleave (Naxx 40)'),
 (@CENTRY+63, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12787, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Unholy Swords - On Reset - Cast Thrash (Naxx 40)'),
 (@CENTRY+64, 0, 0, 0, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 4, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Plague Slime - Set Random Phase (Naxx 40)'),
@@ -232,19 +232,18 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+78, 0, 1, 0, 9, 0, 100, 0, 5000, 15000, 9000, 18000, 0, 5, 11, 29915, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Plagued Ghoul - Within 0-5 Range - Cast Flesh Rot'),
 (@CENTRY+78, 0, 2, 0, 9, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 5, 11, 13738, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Plagued Ghoul - Within 0-5 Range - Cast Rend'),
 (@CENTRY+80, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 11000, 15000, 0, 0, 11, 30225, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Naxxramas Follower - Cast Silence (Naxx 40)'),
-(@CENTRY+81, 0, 0, 0, 0, 0, 100, 0, 4000, 5000, 7000, 9000, 0, 0, 11, 54095, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Naxxramas Worshipper - Cast Fireball (Naxx 40)'),                           -- wotlk fireball !!
-(@CENTRY+81, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28732, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Naxxramas Worshipper - Cast Widow\'s Embrace on Death (Naxx 40)'),
+(@CENTRY+81, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28732, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Naxxramas Worshipper - Cast Widow\'s Embrace on Death (Naxx 40)'),
 (@CENTRY+82, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 7000, 9000, 0, 0, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Guard - Cast Cleave (Naxx 40)'),
 (@CENTRY+82, 0, 1, 0, 0, 0, 100, 0, 500, 500, 4000, 7000, 0, 0, 11, 28969, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Guard - Cast Acid Spit (Naxx 40)'),
-(@CENTRY+82, 0, 3, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Guard - On 30% HP - Cast Frenzy (Naxx 40)'),
-(@CENTRY+82, 0, 5, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Crypt Guard - On 30% HP - Say EMOTE_FRENZY (Naxx 40)'),
+(@CENTRY+82, 0, 2, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Guard - On 30% HP - Cast Frenzy (Naxx 40)'),
+(@CENTRY+82, 0, 3, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Crypt Guard - On 30% HP - Say EMOTE_FRENZY (Naxx 40)'),
 (@CENTRY+85, 0, 0, 0, 106, 0, 100, 0, 2000, 5000, 8000, 11000, 0, 30, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Plagued Guardian - Within 0-30 - Cast Arcane Explosion (Naxx 40)'),
 (@CENTRY+86, 0, 0, 0, 9, 0, 100, 0, 2000, 5000, 9000, 11000, 0, 5, 11, 13737, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Plagued Champion - Within 0-5 Range - Cast Mortal Strike (Naxx 40)'),
 (@CENTRY+86, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 13000, 15000, 0, 0, 218, 30138, 0, 554, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Plagued Champion - In Combat - Custom Cast Shadow Shock (Naxx 40)'),        -- reduced from ~2.5k to ~500
 (@CENTRY+87, 0, 0, 0, 9, 0, 100, 0, 2000, 5000, 7000, 9000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Plagued Warrior  - Within 0-5 Range - Cast Cleave (Naxx 40)'),
-(@CENTRY+88, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 6000, 9000, 0, 0, 11, 28776, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Maexxna Spiderling - Cast Necrotic Poison (Naxx 40)'),
-(@CENTRY+92, 0, 0, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ghost of Naxxramas - On spawn - Set In Combat with zone (Naxx40)'),
+(@CENTRY+88, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 6000, 9000, 0, 0, 11, 28776, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Maexxna Spiderling - Cast Necrotic Poison (Naxx 40)'),
 (@CENTRY+91, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 4000, 4000, 0, 0, 218, 28297, 0, 1899, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Lightning Totem - Cast Shock (Naxx 40)'),                                   -- Shock reduced from ~2850 to ~1900
+(@CENTRY+92, 0, 0, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ghost of Naxxramas - On spawn - Set In Combat with zone (Naxx40)'),
 (@CENTRY+92, 0, 1, 0, 1, 0, 100, 512, 100, 100, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Ghost of Naxxramas - On OOC - Despawn if OOC (Naxx40)');
 
 
