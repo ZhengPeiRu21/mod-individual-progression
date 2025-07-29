@@ -34,7 +34,9 @@ public:
         }
 
         sIndividualProgression->CheckAdjustments(player);
+        sIndividualProgression->CheckHPAdjustments(player);
         sIndividualProgression->checkIPProgression(player);
+
 
         if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_FLAG_MC) != QUEST_STATUS_REWARDED))
         {
@@ -225,7 +227,7 @@ public:
     void OnPlayerMapChanged(Player* player) override
     {
         sIndividualProgression->CheckAdjustments(player);
-        sIndividualProgression->checkIPProgression(player);
+		sIndividualProgression->checkIPProgression(player);
     }
 
     void OnPlayerLevelChanged(Player* player, uint8 /*oldLevel*/) override
@@ -262,12 +264,14 @@ public:
         {
             return;
         }
+		
         float gearAdjustment = 0.0;
         for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
         {
             if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
                 sIndividualProgression->ComputeGearTuning(player, gearAdjustment, item->GetTemplate());
         }
+		
         // Player is still in Vanilla content - give Vanilla health adjustment
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
@@ -505,6 +509,9 @@ public:
         return (currentState == otherPlayerState);
     }
 
+
+
+
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
@@ -537,7 +544,7 @@ public:
     }
 
     void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
-    {       
+    {
         switch (newArea) {
             case AREA_DARKSHORE:
                 if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ_WAR)))
