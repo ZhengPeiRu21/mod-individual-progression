@@ -225,6 +225,7 @@ public:
     void OnPlayerMapChanged(Player* player) override
     {
         sIndividualProgression->CheckAdjustments(player);
+        sIndividualProgression->checkIPProgression(player);
     }
 
     void OnPlayerLevelChanged(Player* player, uint8 /*oldLevel*/) override
@@ -504,9 +505,6 @@ public:
         return (currentState == otherPlayerState);
     }
 
-
-
-
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
@@ -539,9 +537,7 @@ public:
     }
 
     void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
-    {
-        sIndividualProgression->checkIPProgression(player);
-        
+    {       
         switch (newArea) {
             case AREA_DARKSHORE:
                 if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ_WAR)))
