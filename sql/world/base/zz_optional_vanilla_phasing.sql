@@ -28,6 +28,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 17097, -- Advisor Sarophas, Kargath
 17098, -- Ambassador Dawnsinger, Orgrimmar
 17099, -- Mehlar Dawnblade, The Bulwark
+17100, -- Advisor Sunsworn
 17103, -- Emissary Taluun, Stormwind
 17104, -- Anchorite Delan, Darkshire
 17106, -- Vindicator Palanaar, Astranaar
