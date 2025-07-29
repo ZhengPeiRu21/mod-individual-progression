@@ -32,7 +32,9 @@ public:
         {
             sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
         }
+
         sIndividualProgression->CheckAdjustments(player);
+        sIndividualProgression->checkIPProgression(player);
 
         if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_FLAG_MC) != QUEST_STATUS_REWARDED))
         {
@@ -501,6 +503,9 @@ public:
         uint8 otherPlayerState = groupLeader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         return (currentState == otherPlayerState);
     }
+
+
+
 
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
