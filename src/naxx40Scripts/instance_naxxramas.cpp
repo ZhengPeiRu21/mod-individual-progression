@@ -695,8 +695,13 @@ public:
                 SetGoState(DATA_SAPPHIRON_GATE, GO_STATE_ACTIVE);
                 return _events.ScheduleEvent(EVENT_KELTHUZAD_LICH_KING_TALK1, 5s);
             case EVENT_KELTHUZAD_LICH_KING_TALK1:
+            {
+                if (GetBossState(BOSS_KELTHUZAD) == DONE)
+                    break;
+
                 CreatureTalk(DATA_KELTHUZAD_BOSS, SAY_SAPP_DIALOG1);
                 return _events.ScheduleEvent(EVENT_KELTHUZAD_LICH_KING_TALK2, 10s);
+            }
             case EVENT_KELTHUZAD_LICH_KING_TALK2:
                 CreatureTalk(DATA_LICH_KING_BOSS, SAY_SAPP_DIALOG2_LICH);
                 return _events.ScheduleEvent(EVENT_KELTHUZAD_LICH_KING_TALK3, 14s);
