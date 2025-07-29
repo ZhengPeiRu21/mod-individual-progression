@@ -1,5 +1,8 @@
-/* Drop chance for Humbert's Sword was incorrectly set to 100 - updated to 25 - value copied from VMangos */
+-- Drop chance for Humbert's Sword was incorrectly set to 100 - updated to 25 - value copied from VMangos
 UPDATE `creature_loot_template` SET `Chance` = 25 WHERE `Item` = 3693;
+
+-- Souvenirs of Death - this quests was missing a pre quest
+UPDATE `quest_template_addon` SET `PrevQuestID` = 527 WHERE `ID` = 546;
 
 -- Purgation Isle (896)
 DELETE FROM `creature_template` WHERE `entry` IN (607068, 607069, 607070, 607071, 607072, 607075);
