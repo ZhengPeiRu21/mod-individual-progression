@@ -32,7 +32,9 @@ public:
         {
             sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
         }
+
         sIndividualProgression->CheckAdjustments(player);
+        sIndividualProgression->checkIPProgression(player);
 
         if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_FLAG_MC) != QUEST_STATUS_REWARDED))
         {
@@ -504,22 +506,26 @@ public:
 
 
 
+
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
-        sIndividualProgression->checkKillProgression(killer, killed);
-        Group* group = killer->GetGroup();
-        if (!group)
+        if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
-            return;
-        }
-        for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
-        {
-            Player* member = itr->GetSource();
-            if (!member)
-                continue;
+            sIndividualProgression->checkKillProgression(killer, killed);
+            Group* group = killer->GetGroup();
+            if (!group)
+            {
+                return;
+            }
+            for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+            {
+                Player* member = itr->GetSource();
+                if (!member)
+                    continue;
 
-            if (killer->IsAtLootRewardDistance(member))
-                sIndividualProgression->checkKillProgression(member, killed);
+                if (killer->IsAtLootRewardDistance(member))
+                    sIndividualProgression->checkKillProgression(member, killed);
+            }
         }
     }
 
