@@ -540,6 +540,8 @@ public:
 
     void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
     {
+        sIndividualProgression->checkIPProgression(player);
+        
         switch (newArea) {
             case AREA_DARKSHORE:
                 if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ_WAR)))
