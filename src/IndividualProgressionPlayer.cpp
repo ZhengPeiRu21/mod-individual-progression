@@ -502,24 +502,25 @@ public:
         return (currentState == otherPlayerState);
     }
 
-
-
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
-        sIndividualProgression->checkKillProgression(killer, killed);
-        Group* group = killer->GetGroup();
-        if (!group)
+        if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
-            return;
-        }
-        for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
-        {
-            Player* member = itr->GetSource();
-            if (!member)
-                continue;
+            sIndividualProgression->checkKillProgression(killer, killed);
+            Group* group = killer->GetGroup();
+            if (!group)
+            {
+                return;
+            }
+            for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+            {
+                Player* member = itr->GetSource();
+                if (!member)
+                    continue;
 
-            if (killer->IsAtLootRewardDistance(member))
-                sIndividualProgression->checkKillProgression(member, killed);
+                if (killer->IsAtLootRewardDistance(member))
+                    sIndividualProgression->checkKillProgression(member, killed);
+            }
         }
     }
 
