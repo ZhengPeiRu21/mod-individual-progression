@@ -63,6 +63,25 @@ void IndividualProgression::CheckAdjustments(Player* player) const
         // This lets us add haste spells back to quivers
         player->RemoveAura(RANGED_HASTE_SPELL);
         player->CastSpell(player, RANGED_HASTE_SPELL, false);
+    }	
+}
+
+void IndividualProgression::CheckHPAdjustments(Player* player) const
+{
+    if (!enabled)
+    {
+        return;
+    }
+
+    // Player is still in Vanilla content - give Vanilla health adjustment
+    if (!hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
+    {
+        player->SetMaxHealth(player->GetMaxHealth() * vanillaHealthAdjustment);
+    }
+    // Player is in TBC content - give TBC health adjustment
+    else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
+    {
+        player->SetMaxHealth(player->GetMaxHealth() * tbcHealthAdjustment);
     }
 }
 
