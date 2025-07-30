@@ -157,13 +157,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+21, 0, 2, 0, 12, 0, 100, 0, 0, 20, 35000, 43000, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Patchwork Golem - On target HP 0-20% - Cast Execute (Naxx 40)'),
 (@CENTRY+22, 0, 0, 0, 0, 0, 100, 0, 3600, 6800, 13700, 19700, 0, 0, 218, 27807, 0, 1374, 249, 26, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Bile Retcher  - In Combat - Custom Cast Bile Vomit (Naxx 40)'),             -- reduced from ~5k instant, ~1200 dot to ~1500 instant, 250 dot
 (@CENTRY+23, 0, 0, 0, 0, 0, 100, 0, 7600, 17300, 6000, 13300, 0, 0, 218, 28301, 0, 1062, 0, 0, 0, 5, 0, 0, 1, 0, 0, 0, 0, 0,    'Mad Scientist - In Combat - Custom Cast Mana Burn (Naxx 40)'),              -- reduced from ~3.5k to ~1.5k
-(@CENTRY+23, 0, 2, 0, 2, 0, 100, 0, 0, 30, 18000, 21000, 0, 0, 218, 28306, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Mad Scientist - At 30% HP - Custom Cast Great Heal (Naxx 40)'),             -- reduced from ~20% hp to ~10% hp.
+(@CENTRY+23, 0, 2, 0, 2, 0, 100, 0, 0, 30, 18000, 21000, 0, 0, 218, 28306, 0, 10, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Mad Scientist - Between 0-30% Health - Custom Cast Great Heal (Naxx 40)'),  -- reduced from ~20% hp to ~10% hp.
 (@CENTRY+24, 0, 0, 0, 0, 0, 100, 0, 7100, 12500, 18100, 20900, 0, 0, 218, 28293, 0, 599, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,    'Living Monstrosity - In Combat - Custom Cast Chain Lightning (Naxx 40)'),   -- reduced from ~4k to ~1k. (todo: 3 to 10 targets. Range 45 to 30)
 (@CENTRY+24, 0, 1, 0, 0, 0, 100, 0, 6400, 10000, 16900, 18500, 0, 0, 11, 90005, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Living Monstrosity - In Combat - Cast Lightning Totem (Naxx 40)'),
 (@CENTRY+25, 0, 0, 0, 0, 0, 100, 0, 1600, 2800, 7700, 11900, 0, 0, 218, 28310, 0, 554, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,      'Surgical Assistant - In Combat - Custom Cast Mind Flay (Naxx 40)'),         -- reduced from 1.5k to 600 per tick
 (@CENTRY+26, 0, 0, 0, 60, 0, 100, 0, 2000, 2000, 2000, 2000, 0, 0, 11, 28322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Embalming Slime - Cast Embalming Cloud (Naxx 40)'),
 (@CENTRY+27, 0, 0, 0, 9, 0, 100, 0, 5100, 10400, 18800, 21300, 0, 15, 11, 28405, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Stitched Spewer - Within 0-15 Range - Cast target Knockback (Naxx 40)'),
-(@CENTRY+27, 0, 1, 0, 2, 0, 100, 1, 0, 29, 0, 0, 0, 0, 11, 54356, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stitched Giant - At 30% HP - Cast Unstoppable Enrage (Naxx 40)'),
+(@CENTRY+27, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 54356, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stitched Giant - Between 0-30% Health - Cast Unstoppable Enrage (Naxx 40)'),
 (@CENTRY+29, 0, 0, 0, 0, 0, 100, 0, 1900, 3000, 6000, 7300, 0, 0, 11, 27891, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,         'Sludge Belcher - Within 0-20 Range - Cast Acidic Sludge (Naxx 40)'),
 (@CENTRY+29, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28362, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Sludge Belcher - On Reset - Cast Disease Cloud (Naxx 40)'),
 (@CENTRY+30, 0, 0, 0, 9, 0, 100, 0, 0, 0, 3000, 3000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Plague Beast - Within 0-10 Range - Cast Trample (Naxx40)'),
@@ -181,7 +181,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+55, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Deathknight Cavalier - Within 0-5 Range - Cast Cleave'),
 (@CENTRY+55, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,          'Deathknight Cavalier - Within 0-30 Range - Cast Death Coil'),
 (@CENTRY+56, 0, 0, 0, 0, 0, 100, 0, 2800, 5100, 4500, 12000, 0, 0, 218, 28407, 0, 1849, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Shade of Naxxramas - In Combat - Custom Cast Shadow Bolt Volley (Naxx40)'), -- reduced from 2219 to 1849
-(@CENTRY+56, 0, 1, 0, 0, 0, 100, 0, 4100, 8700, 60000, 60000, 0, 0, 11, 90004, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Shade of Naxxramas - In Combat - Cast \'Portal of Shadows (Naxx40)\''),
+(@CENTRY+56, 0, 1, 0, 0, 0, 100, 0, 4100, 8700, 60000, 60000, 0, 0, 11, 90004, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Shade of Naxxramas - In Combat - Cast Portal of Shadows (Naxx40)'),
 (@CENTRY+56, 0, 2, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 19, @CENTRY+92, 0, 0, 0, 0, 0, 0, 0,           'Shade of Naxxramas - On Reset - Despawn In 500 ms (Naxx40)'),
 (@CENTRY+57, 0, 0, 0, 4, 0, 100, 512, 0, 0, 0, 0, 0, 0, 30, 1, 2, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Necro Knight - On Agro - Pick random Event Phase (1-2-3) (Naxx 40)'),
 (@CENTRY+57, 0, 1, 0, 106, 1, 100, 0, 1000, 3200, 2800, 5200, 0, 30, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Necro Knight - Within 0-30 Range - Cast Arcane Explosion (Naxx 40)'),
@@ -218,7 +218,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+64, 0, 8, 0, 23, 0, 100, 512, 28990, 1, 0, 0, 0, 0, 75, 7942, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Plague Slime - On has aura - Add aura Immunity: Fire (Naxx 40)'),
 (@CENTRY+65, 0, 0, 0, 9, 0, 100, 0, 3000, 6000, 9000, 12000, 0, 5, 11, 29915, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Infectious Ghoul - Within 0-5 Range - Cast Flesh Rot (Naxx 40)'),
 (@CENTRY+65, 0, 1, 0, 9, 0, 100, 0, 3000, 3000, 15000, 15000, 0, 5, 11, 13738, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Infectious Ghoul - Within 0-5 Range - Cast Rend (Naxx40)'),
-(@CENTRY+65, 0, 2, 0, 2, 0, 100, 0, 0, 30, 60000, 60000, 0, 0, 11, 24318, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Infectious Ghoul - On 30% HP - Cast Enrage (Naxx 40)'),
+(@CENTRY+65, 0, 2, 0, 2, 0, 100, 0, 0, 30, 60000, 60000, 0, 0, 11, 24318, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Infectious Ghoul - Between 0-30% Health - Cast Enrage (Naxx 40)'),
 (@CENTRY+65, 0, 3, 0, 2, 0, 100, 1, 0, 30, 60000, 60000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Infectious Ghoul - Between 0-30% Health - Say Line 0 (Naxx40)'),
 (@CENTRY+66, 0, 0, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 218, 29232, 2, 4294967196, 49, 59, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Spore - On Just Died - Custom Cast Fungal Creep (Naxx 40)'),                -- Threat -100% (as unsigned int), Melee +50% crit, Casters +60% (up from 50%) crit
 (@CENTRY+68, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 6000, 8000, 0, 0, 218, 30109, 0, 462, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Mutated Grub - In Combat - Custom Cast Slime Burst (Naxx40)'),              -- reduced from ~450 to ~200
@@ -226,17 +226,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+70, 0, 0, 0, 106, 0, 100, 0, 2000, 2000, 5000, 5000, 0, 10, 11, 22271, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Necropolis Acolyte - Within 0-10 Range - Cast Arcane Explosion'),
 (@CENTRY+70, 0, 1, 0, 9, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 30, 11, 28448, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Necropolis Acolyte - Within 0-30 Range - Cast Shadow Bolt Volley'),
 (@CENTRY+71, 0, 0, 0, 1, 0, 100, 7, 1000, 1000, 0, 0, 0, 0, 11, 28153, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Sewage Slime - Out of Combat - Cast Disease Cloud (Naxx 40)'),
-(@CENTRY+77, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 10000, 10000, 0, 0, 218, 29325, 32, 0, 121, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,    'Plagued Gargoyle - In Combat - Custom Cast Acid Volley'),                   -- reduced from 231 to 121  -- does NOT work!
+(@CENTRY+77, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 10000, 10000, 0, 0, 218, 29325, 32, 0, 121, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,    'Plagued Gargoyle - In Combat - Custom Cast Acid Volley'),                   -- reduced from 231 to 121
 (@CENTRY+77, 0, 1, 0, 2, 0, 75, 0, 0, 50, 30000, 30000, 0, 0, 11, 28995, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Plagued Gargoyle - Between 0-50% Health - Cast Stoneskin'),
 (@CENTRY+78, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 24318, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Plagued Ghoul - Between 0-30% Health - Cast Frenzy (No Repeat)'),
 (@CENTRY+78, 0, 1, 0, 9, 0, 100, 0, 5000, 15000, 9000, 18000, 0, 5, 11, 29915, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Plagued Ghoul - Within 0-5 Range - Cast Flesh Rot'),
 (@CENTRY+78, 0, 2, 0, 9, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 5, 11, 13738, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Plagued Ghoul - Within 0-5 Range - Cast Rend'),
 (@CENTRY+80, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 11000, 15000, 0, 0, 11, 30225, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Naxxramas Follower - Cast Silence (Naxx 40)'),
-(@CENTRY+81, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28732, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Naxxramas Worshipper - Cast Widow\'s Embrace on Death (Naxx 40)'),
+(@CENTRY+81, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28732, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Naxxramas Worshipper - Cast Widows Embrace on Death (Naxx 40)'),
 (@CENTRY+82, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 7000, 9000, 0, 0, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Guard - Cast Cleave (Naxx 40)'),
 (@CENTRY+82, 0, 1, 0, 0, 0, 100, 0, 500, 500, 4000, 7000, 0, 0, 11, 28969, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Guard - Cast Acid Spit (Naxx 40)'),
-(@CENTRY+82, 0, 2, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Guard - On 30% HP - Cast Frenzy (Naxx 40)'),
-(@CENTRY+82, 0, 3, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Crypt Guard - On 30% HP - Say EMOTE_FRENZY (Naxx 40)'),
+(@CENTRY+82, 0, 2, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Guard - Between 0-30% Health - Cast Frenzy (Naxx 40)'),
+(@CENTRY+82, 0, 3, 0, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Crypt Guard - Between 0-30% Health - Say EMOTE_FRENZY (Naxx 40)'),
 (@CENTRY+85, 0, 0, 0, 106, 0, 100, 0, 2000, 5000, 8000, 11000, 0, 30, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Plagued Guardian - Within 0-30 - Cast Arcane Explosion (Naxx 40)'),
 (@CENTRY+86, 0, 0, 0, 9, 0, 100, 0, 2000, 5000, 9000, 11000, 0, 5, 11, 13737, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Plagued Champion - Within 0-5 Range - Cast Mortal Strike (Naxx 40)'),
 (@CENTRY+86, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 13000, 15000, 0, 0, 218, 30138, 0, 554, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Plagued Champion - In Combat - Custom Cast Shadow Shock (Naxx 40)'),        -- reduced from ~2.5k to ~500
