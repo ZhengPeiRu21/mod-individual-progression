@@ -92,6 +92,23 @@ enum ProgressionQuests
     PROGRESSION_FLAG_WOTLK_T5 = 66018
 };
 
+enum ProgressionAchievements
+{
+    KEL_THUZAD_KILL      = 575, // WotLK, naxx40 does not have an achievement
+    ONYXIAS_KILL         = 684,
+    NEFARIAN_KILL        = 685,
+    RAGNAROS_KILL        = 686,
+    C_THUN_KILL          = 687,
+    MALCHEZAAR_KILL      = 690,
+    ZUL_JIN_KILL         = 691,
+    KAEL_THAS_KILL       = 696,
+    ILLIDAN_KILL         = 697,
+    KIL_JAEDEN_KILL      = 698,
+    ANUB_ARAK_KILL       = 3916,
+    LICH_KING_KILL       = 4597,
+    HALION_KILL          = 4815
+};
+
 enum ProgressionZones
 {
     ZONE_AZUREMYST       = 3524,
@@ -248,12 +265,14 @@ public:
     void UpdateProgressionState(Player* player, ProgressionState newState) const;
     static void ForceUpdateProgressionState(Player* player, ProgressionState newState);
     void CheckAdjustments(Player* player) const;
+    void CheckHPAdjustments(Player* player) const;
     void ApplyGearStatsTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
     void ComputeGearTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
     void AdjustVanillaStats(Player* player) const;
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;
     bool hasCustomProgressionValue(uint32 creatureEntry);
+    void checkIPProgression(Player* player);	
     void checkKillProgression(Player* player, Creature* killed);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
     static void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment);
