@@ -356,7 +356,7 @@ IndividualProgression.DisableRDF = 1
 IndividualProgression.ExcludeAccounts = 1
 
 # IndividualProgression.ExcludedAccountsRegex
-$
+#
 #        Description: A regular expression to match account names that should be excluded from Individual Progression.
 #                     Only used if ExcludeAccounts is enabled.
 #                     This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
