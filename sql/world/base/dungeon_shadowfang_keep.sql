@@ -41,7 +41,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3875, 0, 0, 0, 0, 0, 100, 0, 9000, 13000, 4000, 6000, 0, 0, 11, 7057, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Haunted Servitor - In Combat - Cast Haunting Spirits'),
 (3877, 0, 0, 0, 9, 0, 100, 0, 0, 7000, 1000, 12000, 0, 5, 11, 7074, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Wailing Guardsman - Within 0-5 Range - Cast Screams of the Past'),
 (3886, 0, 0, 0, 0, 0, 100, 0, 2800, 9700, 2800, 9700, 0, 0, 11, 7485, 256, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Razorclaw the Butcher - Within 0-5 Range - Cast Butcher Drain'),
-(3887, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Baron Silverlaine - On Aggro - Say Line 0'),
+(3887, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Baron Silverlaine - In Combat - Say Line 0 (No Repeat)'),
 (3887, 0, 1, 0, 9, 0, 100, 0, 1000, 8000, 22000, 55000, 0, 20, 11, 7068, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Baron Silverlaine - Within 0-20 Range - Cast Veil of Shadow'),
 (3914, 0, 0, 0, 0, 0, 100, 0, 1000, 14000, 14000, 36000, 0, 0, 11, 7295, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,  'Rethilgore - Within 0-10 Range - Cast Soul Drain'),
 (3914, 0, 1, 2, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 3850, 100, 0, 0, 0, 0, 0, 0,             'Rethilgore - On Just Died - Set Data'),
@@ -55,7 +55,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3927, 0, 5, 6, 77, 0, 100, 0, 1, 4, 600000, 600000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Wolf Master Nandos - On Counter Set - Say Line 0'),
 (3927, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 60, 0, 0, 0, 0, 0, 0, 0,                  'Wolf Master Nandos - On Counter Set - Attack Start'),
 --
-(4278, 0, 0, 0, 0, 0, 100, 1, 0, 3000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Commander Springvale - In Combat - Say Line 0 (No Repeat)'),
+(4278, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Commander Springvale - In Combat - Say Line 0 (No Repeat)'),
 (4278, 0, 2, 0, 2, 0, 100, 0, 0, 80, 0, 0, 7500, 15300, 11, 1026, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Commander Springvale - Between Health 0-80% - Cast Holy Light'),
 (4278, 0, 3, 0, 14, 0, 100, 0, 800, 40, 12500, 22300, 0, 0, 11, 1026, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Commander Springvale - On Friendly HP Deficit - Cast Holy Light'),
 (4278, 0, 4, 0, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 498, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Commander Springvale - Between Health 0-25% - Cast Divine Protection'),
