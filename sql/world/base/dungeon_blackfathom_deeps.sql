@@ -79,7 +79,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4887, 0, 0, 0, 9, 0, 100, 0, 3000, 6000, 7000, 12000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ghamoo-ra - Within 0-10 Range - Cast Trample'),
 --
 (6243, 0, 0, 1, 9, 0, 100, 0, 3000, 6000, 15500, 25300, 0, 20, 11, 6533, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Gelihast - Within 0-20 Range - Cast Net'),
-(6243, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gelihast - On Cast Net - Reduce Aggro'),
+(6243, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gelihast - On Cast Net - Reduce Aggro'),
 (6243, 0, 2, 3, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gelihast - On Just Died - Set Instance Data 0 to 3'),
 (6243, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 106, 16, 0, 0, 0, 0, 0, 14, 32610, 103015, 0, 0, 0, 0, 0, 0,        'Gelihast - On Just Died - Remove Gameobject Flags');
 
