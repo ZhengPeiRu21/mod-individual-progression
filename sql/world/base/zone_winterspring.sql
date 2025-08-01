@@ -5,15 +5,15 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 
 DELETE FROM `pool_gameobject` WHERE `pool_entry` IN (66002, 66003);
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
-(49091, 66002, 0, 'Solid Chest, Tanaris, node 1'),
-(49099, 66002, 0, 'Solid Chest, Tanaris, node 2'),
-(85798, 66002, 0, 'Solid Chest, Tanaris, node 3'),
-(85803, 66002, 0, 'Solid Chest, Tanaris, node 4'),
+(49091, 66002, 0, 'Solid Chest, Winterfall Village, node 1'),
+(49099, 66002, 0, 'Solid Chest, Winterfall Village, node 2'),
+(85798, 66002, 0, 'Solid Chest, Winterfall Village, node 3'),
+(85803, 66002, 0, 'Solid Chest, Winterfall Village, node 4'),
 --
-(49089, 66003, 0, 'Solid Chest, Tanaris, node 1'),
-(49090, 66003, 0, 'Solid Chest, Tanaris, node 2'),
-(85796, 66003, 0, 'Solid Chest, Tanaris, node 3'),
-(85801, 66003, 0, 'Solid Chest, Tanaris, node 4');
+(49089, 66003, 0, 'Solid Chest, Timbermaw Post, node 1'),
+(49090, 66003, 0, 'Solid Chest, Timbermaw Post, node 2'),
+(85796, 66003, 0, 'Solid Chest, Timbermaw Post, node 3'),
+(85801, 66003, 0, 'Solid Chest, Timbermaw Post, node 4');
 
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (7451, 7523, 7524, 10200, 10684, 10737, 14372);
