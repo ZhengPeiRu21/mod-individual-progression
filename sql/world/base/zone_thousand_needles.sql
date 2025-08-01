@@ -1,9 +1,3 @@
-DELETE FROM `pool_gameobject` WHERE `pool_entry` = 66001;
-INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
-(16718, 66001, 0, 'Solid Chest, Tanaris, node 1'),
-(85670, 66001, 0, 'Solid Chest, Tanaris, node 2'),
-(87381, 66001, 0, 'Solid Chest, Tanaris, node 3');
-
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5937, 10882);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (5937, 10882);
@@ -14,3 +8,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (5937, 0, 0, 0, 9, 0, 100, 0, 1000, 11000, 16000, 24000, 0, 5, 11, 8257, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Vile Sting - Within 0-5 Range - Cast Venom Sting'),
 (10882, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17213, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,            'Arikara - On Spawn - Cast Curse of Vengeance');
+
+DELETE FROM `pool_gameobject` WHERE `pool_entry` = 66001;
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(16718, 66001, 0, 'Solid Chest, Camp E\'thok, node 1'),
+(85670, 66001, 0, 'Solid Chest, Camp E\'thok, node 2'),
+(87381, 66001, 0, 'Solid Chest, Camp E\'thok, node 3');
