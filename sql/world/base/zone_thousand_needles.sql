@@ -1,3 +1,10 @@
+DELETE FROM `pool_gameobject` WHERE `pool_entry` = 66001;
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(16718, 66001, 0, 'Solid Chest, Tanaris, node 1'),
+(85670, 66001, 0, 'Solid Chest, Tanaris, node 2'),
+(87381, 66001, 0, 'Solid Chest, Tanaris, node 3');
+
+-- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5937, 10882);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (5937, 10882);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
