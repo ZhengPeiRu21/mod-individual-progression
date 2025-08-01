@@ -12,6 +12,13 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 -- Souvenirs of Death - this quests was missing a pre quest
 UPDATE `quest_template_addon` SET `PrevQuestID` = 527 WHERE `ID` = 546;
 
+-- Pooled Treasure Chests
+DELETE FROM `pool_gameobject` WHERE `pool_entry` = 66004;
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(20885, 66004, 0, 'Tattered Chest, Hillsbrad Fields, node 1'),
+(30036, 66004, 0, 'Tattered Chest, Hillsbrad Fields, node 2'),
+(85804, 66004, 0, 'Tattered Chest, Hillsbrad Fields, node 3');
+
 -- Purgation Isle (896)
 DELETE FROM `creature_template` WHERE `entry` IN (607068, 607069, 607070, 607071, 607072, 607075);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
