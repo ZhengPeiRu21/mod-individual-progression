@@ -13,6 +13,12 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 UPDATE `quest_template_addon` SET `PrevQuestID` = 527 WHERE `ID` = 546;
 
 -- Pooled Treasure Chests
+DELETE FROM `pool_template` WHERE `entry` IN (66004);
+INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
+(66004, 1, 'Treasures - Hillsbrad Foothills');
+
+UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE`guid` IN (20885, 30036, 85804);
+
 DELETE FROM `pool_gameobject` WHERE `pool_entry` = 66004;
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
 (20885, 66004, 0, 'Tattered Chest, Hillsbrad Fields, node 1'),
