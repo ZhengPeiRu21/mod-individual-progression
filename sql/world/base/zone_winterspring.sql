@@ -3,6 +3,18 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (7451, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0,  'Raging Owlbeast enrage at 30%'),
 (10200, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0, 'Rak shiri enrage at 30%');
 
+DELETE FROM `pool_gameobject` WHERE `pool_entry` IN (66002, 66003);
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(49091, 66002, 0, 'Solid Chest, Tanaris, node 1'),
+(49099, 66002, 0, 'Solid Chest, Tanaris, node 2'),
+(85798, 66002, 0, 'Solid Chest, Tanaris, node 3'),
+(85803, 66002, 0, 'Solid Chest, Tanaris, node 4'),
+--
+(49089, 66003, 0, 'Solid Chest, Tanaris, node 1'),
+(49090, 66003, 0, 'Solid Chest, Tanaris, node 2'),
+(85796, 66003, 0, 'Solid Chest, Tanaris, node 3'),
+(85801, 66003, 0, 'Solid Chest, Tanaris, node 4');
+
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (7451, 7523, 7524, 10200, 10684, 10737, 14372);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (7451, 7523, 7524, 10200, 10684, 10737, 14372);
