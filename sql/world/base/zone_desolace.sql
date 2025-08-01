@@ -100,8 +100,7 @@ UPDATE `broadcast_text_locale` SET `MaleText` = 'Bien hecho, $c. Soy Rexxar.' WH
 UPDATE `broadcast_text_locale` SET `MaleText` = 'Bien hecho, $c. Soy Rexxar.' WHERE `ID` = 9013 AND `locale` = 'esMX';
 UPDATE `broadcast_text_locale` SET `MaleText` = 'Salutations, $c. Je suis Rexxar.' WHERE `ID` = 9013 AND `locale` = 'frFR';
 
-/* Can't use displayId 11660 because since TBC it's now the displayId for Rokaro, instead we use the Rexxar TBC displayId 20918 */
-UPDATE `creature_template_model` SET `CreatureDisplayID` = 20918, `VerifiedBuild` = 0 WHERE `CreatureID` = 10182;
+UPDATE `creature_template_model` SET `CreatureDisplayID` = 11660 WHERE `CreatureID` = 10182;
 
 DELETE FROM `creature` WHERE `guid` IN (29113, 610204);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, 
