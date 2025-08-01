@@ -1,8 +1,29 @@
 -- Drop chance for Humbert's Sword was incorrectly set to 100 - updated to 25 - value copied from VMangos
 UPDATE `creature_loot_template` SET `Chance` = 25 WHERE `Item` = 3693;
 
+-- Drop chance for Mountain Lion Blood was incorrectly set to 100 
+DELETE FROM `creature_loot_template` WHERE `Item` = 3496;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+(2384, 3496, 0, 40, 1, 1, 0, 1, 1, 'Starving Mountain Lion - Mountain Lion Blood'),
+(2385, 3496, 0, 80, 1, 1, 0, 1, 1, 'Feral Mountain Lion - Mountain Lion Blood'),
+(2406, 3496, 0, 80, 1, 1, 0, 1, 1, 'Mountain Lion - Mountain Lion Blood'),
+(2407, 3496, 0, 80, 1, 1, 0, 1, 1, 'Hulking Mountain Lion - Mountain Lion Blood');
+
 -- Souvenirs of Death - this quests was missing a pre quest
 UPDATE `quest_template_addon` SET `PrevQuestID` = 527 WHERE `ID` = 546;
+
+-- Pooled Treasure Chests
+DELETE FROM `pool_template` WHERE `entry` IN (66004);
+INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
+(66004, 1, 'Treasures - Hillsbrad Foothills');
+
+UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE`guid` IN (20885, 30036, 85804);
+
+DELETE FROM `pool_gameobject` WHERE `pool_entry` = 66004;
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(20885, 66004, 0, 'Tattered Chest, Hillsbrad Fields, node 1'),
+(30036, 66004, 0, 'Tattered Chest, Hillsbrad Fields, node 2'),
+(85804, 66004, 0, 'Tattered Chest, Hillsbrad Fields, node 3');
 
 -- Purgation Isle (896)
 DELETE FROM `creature_template` WHERE `entry` IN (607068, 607069, 607070, 607071, 607072, 607075);
