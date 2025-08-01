@@ -37,6 +37,12 @@ INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconNa
 DELETE FROM `gameobject` WHERE `id`=@TRANSPORTER_ENTRY AND `map`=0 AND `zoneId`=0 AND `areaID`=0;
 INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES
 (@TRANSPORTER_ENTRY, 0, 0, 0, 1, 1, @TRANSPORTER_X, @TRANSPORTER_Y, @TRANSPORTER_Z, @TRANSPORTER_O, 0, 0, -0.063658, -1, 1, 0, 1, '', 0);
+DELETE FROM `gameobject_template_locale` WHERE `entry` = @TRANSPORTER_ENTRY;
+INSERT INTO `gameobject_template_locale` (`entry`, `locale`, `name`, `castBarCaption`, `VerifiedBuild`) VALUES
+(@TRANSPORTER_ENTRY, 'deDE', 'Teleporter nach Naxxramas', '', 0),
+(@TRANSPORTER_ENTRY, 'esES', 'Teletransportador a Naxxramas', '', 0),
+(@TRANSPORTER_ENTRY, 'esMX', 'Teletransportador a Naxxramas', '', 0),
+(@TRANSPORTER_ENTRY, 'frFR', 'Téléporteur vers Naxxramas', '', 0);
 
 -- Add Floating Naxx Object (id: 181056)
 -- Node 0 of PathID 436 in taxiPathNode

@@ -4,6 +4,25 @@ REPLACE INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxle
 (301001, "Onyxian Whelp", "", 56, 57, 16, 1.11111, 1.14286, 18.0, 1.0, 0, 0, 3.7, 2000, 2000, 1.0, 1.0, 1, 0, 2048, 0, 2, 8, 0, 0, 0, 0, 0, '', 1, 1.0, 1.0, 1.0, 1.0, 1.0, 0, 1, 0, 0, 0, ''),
 (301002, "Onyxian Warder", "", 60, 63, 103, 0.888888, 1.14286, 20.0, 1.0, 1, 0, 9.8, 2000, 2000, 1.0, 1.0, 1, 64, 2048, 0, 2, 8, 301002, 12129, 0, 1185, 4741, 'SmartAI', 1, 1.0, 25.0, 1.0, 1.0, 1.0, 0, 1, 617299803, 0, 0, '');
 
+DELETE FROM `creature_template_locale` WHERE `entry` BETWEEN 301000 AND 301002;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(301001, 'deDE', 'Welpe von Onyxia', '', 0),
+(301001, 'esES', 'Cría de Onyxia', '', 0),
+(301001, 'esMX', 'Cría de Onyxia', '', 0),
+(301001, 'frFR', 'Dragonnet onyxien', '', 0),
+(301001, 'koKR', '오닉시아의 새끼용', '', 0),
+(301001, 'ruRU', 'Дракончик Ониксии', '', 0),
+(301001, 'zhCN', '奥妮克希亚雏龙', '', 0),
+(301001, 'zhTW', '奧妮克希亞幼龍', '', 0),
+(301002, 'deDE', 'Wärter von Onyxia', '', 0),
+(301002, 'esES', 'Depositario de Onyxia', '', 0),
+(301002, 'esMX', 'Depositario de Onyxia', '', 0),
+(301002, 'frFR', 'Gardien onyxien', '', 0),
+(301002, 'koKR', '오닉시아의 수호병', '', 0),
+(301002, 'ruRU', 'Хранитель Ониксии', '', 0),
+(301002, 'zhCN', '奥妮克希亚守卫', '', 0),
+(301002, 'zhTW', '奧妮克希亞護衛', '', 0);
+
 DELETE FROM `creature_template_model` WHERE (`CreatureID` BETWEEN 301000 AND 301002);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
 (301000, 0, 8570, 1.0, 1.0, NULL),
