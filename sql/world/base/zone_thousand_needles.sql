@@ -7,7 +7,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (5937, 0, 0, 0, 9, 0, 100, 0, 1000, 11000, 16000, 24000, 0, 5, 11, 8257, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Vile Sting - Within 0-5 Range - Cast Venom Sting'),
-(10882, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17213, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,            'Arikara - On Spawn - Cast Curse of Vengeance');
+(10882, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 17213, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,             'Arikara - In Combat - Cast Curse of Vengeance (No Repeat)');
 
 -- Pooled Treasure Chests
 DELETE FROM `pool_template` WHERE `entry` IN (66001);
