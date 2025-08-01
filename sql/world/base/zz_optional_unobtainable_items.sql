@@ -16,5 +16,5 @@
 
 /* Optional Restore */
 /* Restore Blizzlike behaviour if needed (items not available with ig loots) */
-DELETE FROM `creature_loot_template` WHERE `Entry` = 11502 AND `Item` = 23705 AND `Reference` = 0 AND `GroupId` = 0;
-DELETE FROM `gameobject_loot_template` WHERE `Entry` = 26974 AND `Item` = 54811;
+-- DELETE FROM `creature_loot_template` WHERE `Entry` = 11502 AND `Item` = 23705 AND `Reference` = 0 AND `GroupId` = 0;
+-- DELETE FROM `gameobject_loot_template` WHERE `Entry` = 26974 AND `Item` = 54811;
