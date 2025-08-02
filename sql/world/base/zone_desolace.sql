@@ -33,22 +33,61 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature_template` SET `name` = 'Rexxar', `flags_extra` = 2050 WHERE `entry` = 10182;
 UPDATE `creature_template` SET `unit_flags` = 37440 WHERE `entry` IN (10182, 10204);
 
+UPDATE `creature_template_locale` SET `name` = 'Rexxar', `VerifiedBuild` = 11200 WHERE `entry` = 10182 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `name` = 'Rexxar', `VerifiedBuild` = 11200 WHERE `entry` = 10182 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `name` = 'Rexxar', `VerifiedBuild` = 11200 WHERE `entry` = 10182 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `name` = 'Rexxar', `VerifiedBuild` = 11200 WHERE `entry` = 10182 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `name` = 'Рексар', `VerifiedBuild` = 11200 WHERE `entry` = 10182 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `name` = '렉사르', `VerifiedBuild` = 11200 WHERE `entry` = 10182 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `name` = '雷克萨', `VerifiedBuild` = 11200 WHERE `entry` = 10182 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `name` = '雷克薩', `VerifiedBuild` = 11200 WHERE `entry` = 10182 AND `locale` = 'zhTW';
+
 UPDATE `quest_template` SET 
 `LogDescription` = 'Seek out Rexxar. The Warchief has instructed you as to his whereabouts. Search the paths of Desolace, between the Stonetalon Mountains and Feralas.',
 `QuestDescription` = 'I have received word from one of my champions that a way into the lair of the dragon may exist. You are to seek him out.$B$B
-Rexxar wanders the desert wasteland of Desolace, traveling between Stonetalon and Feralas. He awaits your arrival.'
+Rexxar wanders the desert wasteland of Desolace, traveling between Stonetalon and Feralas. He awaits your arrival.', `VerifiedBuild` = 11200
 WHERE `ID` = 6567;
+UPDATE `quest_template_locale` SET
+`Details` = 'L''un de mes champions m''a envoyé un mot pour dire qu''il existait peut-être un chemin dans la tanière du dragon. Vous devez le rejoindre. Rexxar se trouve sur la terre déserte de Désolace, entre les Serres-Rocheuses et Feralas. Il attend votre venue.',
+`Objectives` = 'Chercher Rexxar. Le Chef de guerre vous a dit où il était. Chercher sur les chemins de Désolace, entre les Serres-Rocheuses et Feralas.', `CompletedText` = 'Trouvez Rexxar en Désolace.', `VerifiedBuild` = 11200
+WHERE `ID` = 6567 AND `locale` = 'frFR';
+
+UPDATE `quest_template` SET
+`LogTitle` = 'The Testament of Rexxar', `LogDescription` = 'Deliver Rexxar''s Testament to Myranda the Hag in the Western Plaguelands.',
+`QuestDescription` = 'What do you know of illusions? For you see, it is an illusion that you must create in order to circumvent the Black Flight''s defenses. I know of one that may be willing to assist you in your quest of deception. She has assisted our kind in the past when she has deemed the cause worthy. In the Western Plaguelands you will find Myranda the Hag, master illusionist - an exile of the Lordaeron alliance. Travel there and take with you this message.', `VerifiedBuild` = 11200
+WHERE `ID` = 6568;
+UPDATE `quest_template_locale` SET
+`Details` = 'Que connaissez-vous des illusions? Parce que c''est une illusion que vous devez créer pour circonvenir les défenses du Vol noir. Je connais une personne qui acceptera de vous aider dans votre recherche de l''art de la tromperie. Elle a aidé les nôtres dans le passé, quand elle jugeait que la cause en était digne. Dans les Maleterres de l''ouest, vous trouverez Myranda la Sorcière, un Maître Illusionniste, exilée de l''Alliance de Lordaeron. Allez là-bas et prenez avec vous ce message.',
+`Title` = 'Le testament de Rexxar', `Objectives` = 'Apporter le Testament de Rexxar à Myranda la Mégère, dans les Maleterres de l''ouest.', `VerifiedBuild` = 11200
+WHERE `ID` = 6568 AND `locale` = 'frFR';
+UPDATE `item_template` SET `name` = 'Rexxar''s Testament', `VerifiedBuild` = '11200' WHERE `entry` = '16785';
+UPDATE `item_template_locale` SET `Name` = 'Rexxars Testament', `VerifiedBuild` = '11200' WHERE `ID` = '16785' AND `locale` = 'deDE';
+UPDATE `item_template_locale` SET `Name` = 'Testamento de Rexxar', `VerifiedBuild` = '11200' WHERE `ID` = '16785' AND `locale` = 'esES';
+UPDATE `item_template_locale` SET `Name` = 'Testamento de Rexxar', `VerifiedBuild` = '11200' WHERE `ID` = '16785' AND `locale` = 'esMX';
+UPDATE `item_template_locale` SET `Name` = 'Testament de Rexxar', `VerifiedBuild` = '11200' WHERE `ID` = '16785' AND `locale` = 'frFR';
+UPDATE `item_template_locale` SET `Name` = '렉사르의 유서', `VerifiedBuild` = '11200' WHERE `ID` = '16785' AND `locale` = 'koKR';
+UPDATE `item_template_locale` SET `Name` = 'Письмо Рексара', `VerifiedBuild` = '11200' WHERE `ID` = '16785' AND `locale` = 'ruRU';
+UPDATE `item_template_locale` SET `Name` = '雷克萨的证明', `VerifiedBuild` = '11200' WHERE `ID` = '16785' AND `locale` = 'zhCN';
+UPDATE `item_template_locale` SET `Name` = '雷克薩的證明', `VerifiedBuild` = '11200' WHERE `ID` = '16785' AND `locale` = 'zhTW';
 
 UPDATE `quest_template` SET 
 `LogDescription` = 'It would appear as if the charade is over. 
 You know that the Amulet of Draconic Subversion that Myranda the Hag created for you will not function inside Blackrock Spire. 
-Perhaps you should find Rexxar and explain your predicament. Show him the Dull Drakefire Amulet. Hopefully he will know what to do next.'
+Perhaps you should find Rexxar and explain your predicament. Show him the Dull Drakefire Amulet. Hopefully he will know what to do next.', `VerifiedBuild` = 11200
 WHERE `ID` = 6601;
+UPDATE `quest_template_locale` SET
+`Details` = 'Un médaillon a été façonné à partir des crânes de nos ennemis. Vous connaissez ce médaillon, n''est-ce pas ? Vous l''avez sûrement vu porté par vos aînés. Prenez cela. Retournez au Pic et présentez-le au général Drakkisath. Il y placera l''enchantement final pour mettre ce bibelot en phase avec votre esprit. Vous porterez ce médaillon avec honneur, en signe de votre accession à l''un de nos rangs les plus fermés : Gardien de la mère des couvées. Allez !',
+`Objectives` = 'Il semble que la comédie soit finie. Vous savez que l''Amulette de subversion draconique, créée par Myranda la Mégère, ne fonctionnera pas à l''intérieur du pic Blackrock. Peut-être devriez-vous trouver Rexxar et lui exposer votre fâcheuse situation. Montrez-lui l''Amulette drakefeu terne. Avec un peu de chance, il saura quoi faire.', `VerifiedBuild` = 11200
+WHERE `ID` = 6601 AND `locale` = 'frFR';
 
 UPDATE `quest_template` SET 
 `LogDescription` = 'Travel to Blackrock Spire and slay General Drakkisath. Gather his blood and return it to Rexxar.',
-`QuestCompletionLog` = 'Return to Rexxar in Desolace.' 
+`QuestCompletionLog` = 'Return to Rexxar in Desolace.', `VerifiedBuild` = 11200
 WHERE `ID` = 6602;
+UPDATE `quest_template_locale` SET
+`Details` = 'Vous irez rendre visite au général, mais pas en tant que dragon noir. Vous voyez, une cérémonie n''est qu''un autre terme pour permettre de verser du sang au Vol noir. L''amulette inachevée a simplement besoin du sang du général pour s''activer. Un de leurs mécanismes à sûreté intégrée. Retournez au pic Blackrock et détruisez Drakkisath. Rapportez son sang ici et j''activerai la clé du repaire d''Onyxia.',
+`Objectives` = 'Aller au Pic Rochenoire, et tuer le général Drakkisath. Récupérer son sang et l''apporter à Rexxar.', `VerifiedBuild` = 11200
+WHERE `ID` = 6602 AND `locale` = 'frFR';
 
 UPDATE `npc_text` SET `text0_0` = 'Well met, $c. I am Rexxar.' WHERE `ID` = 6533;
 UPDATE `broadcast_text` SET `MaleText` = 'Well met, $c. I am Rexxar.' WHERE `ID` = 9013;

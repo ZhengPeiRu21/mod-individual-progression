@@ -160,6 +160,8 @@ UPDATE `quest_template`
 SET `LogDescription`  = "Bring Ambassador Malcin's Head to Varimathras in the Undercity.",
     `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
 WHERE `ID` = 6521;
+UPDATE `quest_template_locale` SET `Objectives` = 'Apporter la Tête de l''Ambassadeur Malcin à Varimathras, à Fossoyeuse.', `CompletedText` = 'Retournez voir Varimathras au Quartier royal, à Fossoyeuse.'
+WHERE `ID` = 6521 AND `locale` = 'frFR';
 
 UPDATE `quest_template`
 SET `LogDescription`  = "Take the Small Scroll to Varimathras in the Undercity.",

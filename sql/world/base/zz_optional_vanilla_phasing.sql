@@ -37,6 +37,8 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 17218, -- Huraan, Southshore
 17223, -- Ambassador Rualeth, Aerie Peak
 17238, -- Anchorite Truuen, Western Plaguelands
+19923, -- Bipp Glizzitor (Arena Master), Silvermoon
+19925, -- Miglik Blotstrom (Arena Master), Exodar
 21045, -- Landro Hired Bodyguard, Booty Bay
 22931, -- Gorrim, Emerald Sanctuary, Flight Master
 23131, -- Blood Knight Honor Guard, Orgrimmar
