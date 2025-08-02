@@ -52,7 +52,6 @@ UPDATE `item_template` SET `spellid_1` = 19887, `spellcharges_1` = -1, `spellppm
 INSERT IGNORE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES 
 (16073, 'frFR', 'Livre de cuisine pour artisan', '', 0);
 
-
 -- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
 UPDATE npc_trainer SET ReqSkillRank = 200 WHERE SpellID = 37836;
 

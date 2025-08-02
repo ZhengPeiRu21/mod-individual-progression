@@ -661,9 +661,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- Lieutenants, Investigate the Scourge
 UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (9260, 9261, 9262); -- Stormwind, Ironforge, Darnassus, Exodar(12817)
 UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 9265);  -- Orgrimmar, Thunder Bluff, Undercity, Silvermoon(12816)
-UPDATE `quest_template` SET `Flags` = 12, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
-UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
--- seems to fix the quest (for me)
 UPDATE `quest_template` SET `Flags` = 8, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 
@@ -693,6 +690,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 SET @AGUID    := 6000;
 
 DELETE FROM `areatrigger` WHERE `entry` IN (@AGUID+1, @AGUID+2, @AGUID+3, @AGUID+4, @AGUID+5, @AGUID+6, @AGUID+7, @AGUID+8, @AGUID+9);
+/*
 INSERT INTO `areatrigger` (`entry`, `map`, `x`, `y`, `z`, `radius`) VALUES
 (@AGUID+1, 0, -9118.92, 330.1, 93.198, 10),     -- Stormwind
 (@AGUID+2, 0, -9061.46, 349.666, 93.1098, 10),  -- Stormwind
@@ -703,20 +701,21 @@ INSERT INTO `areatrigger` (`entry`, `map`, `x`, `y`, `z`, `radius`) VALUES
 (@AGUID+7, 1, 1169.62, -4320.03, 20.8739, 10),  -- Orgrimmar
 (@AGUID+8, 1, -1535.21, 68.198, 1.9512, 10),    -- Thunder Bluff
 (@AGUID+9, 0, 1980.01, 305.231, 41.1893, 10);   -- Undercity
+*/
 
 DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (@AGUID+1, @AGUID+2, @AGUID+3, @AGUID+4, @AGUID+5, @AGUID+6, @AGUID+7, @AGUID+8, @AGUID+9);
--- seems to fix the quest (for me)
--- INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
--- (@AGUID+1, 9260), -- Stormwind
--- (@AGUID+2, 9260), -- Stormwind
--- (@AGUID+3, 9261), -- Ironforge
--- (@AGUID+4, 9261), -- Ironforge
--- (@AGUID+5, 9262), -- Darnassus
--- (@AGUID+6, 9263), -- Orgrimmar
--- (@AGUID+7, 9263), -- Orgrimmar
--- (@AGUID+8, 9264), -- Thunder Bluff
--- (@AGUID+9, 9265); -- Undercity
-
+/*
+INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
+(@AGUID+1, 9260), -- Stormwind
+(@AGUID+2, 9260), -- Stormwind
+(@AGUID+3, 9261), -- Ironforge
+(@AGUID+4, 9261), -- Ironforge
+(@AGUID+5, 9262), -- Darnassus
+(@AGUID+6, 9263), -- Orgrimmar
+(@AGUID+7, 9263), -- Orgrimmar
+(@AGUID+8, 9264), -- Thunder Bluff
+(@AGUID+9, 9265); -- Undercity
+*/
     
 -- Necrotic Crystal item quests
 DELETE FROM `creature_questender` WHERE `quest` IN (9292, 9310) AND `id` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_RUKAG);
