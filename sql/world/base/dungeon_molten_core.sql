@@ -76,10 +76,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11673, 0, 1, 0, 9, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 5, 11, 19319, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Ancient Core Hound - Within 0-5 Range - Cast Vicious Bite'),
 (11673, 0, 2, 0, 0, 0, 100, 0, 15000, 15000, 24000, 24000, 0, 0, 88, 1167300, 1167305, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Ancient Core Hound - In Combat - Run Random Script'),
 --
-(13278, 0, 0, 1, 62, 0, 100, 0, 5065, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                            'Duke Hydraxis - On Gossip Option 0 Selected - Close Gossip'),
-(13278, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 56, 17333, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Duke Hydraxis - On Link - Add item Aqual Quintessence'),
-(13278, 0, 2, 3, 62, 0, 100, 0, 5065, 1, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                            'Duke Hydraxis - On Gossip Option 1 Selected - Close Gossip'),
-(13278, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Duke Hydraxis - On Link - Add item Eternal Quintessence');
+(13278, 0, 0, 1, 62, 0, 100, 0, 5065, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                            'Duke Hydraxis - On Gossip Option 0 Selected - Close Gossip'),
+(13278, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 56, 17333, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Duke Hydraxis - On Link - Add item Aqual Quintessence'),
+(13278, 0, 2, 3, 62, 0, 100, 0, 5065, 1, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                            'Duke Hydraxis - On Gossip Option 1 Selected - Close Gossip'),
+(13278, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Duke Hydraxis - On Link - Add item Eternal Quintessence');
 
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 5065 AND `OptionID` IN (0, 1);
