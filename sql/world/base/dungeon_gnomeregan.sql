@@ -49,7 +49,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6391, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Holdout Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (6391, 0, 3, 0, 8, 0, 100, 0, 9798, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Holdout Warrior - On Spellhit Radiation - Say Line 0'),
 (6392, 0, 0, 0, 14, 0, 100, 0, 1500, 40, 14000, 21000, 0, 0, 11, 22167, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Holdout Medic - Friendly Missing Health - Cast Heal'),
-(6392, 0, 1, 0, 14, 0, 100, 0, 1000, 40, 12000, 16000, 0, 0, 11, 22168, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Holdout Medic - Out of Combat - Cast Renew'),
+(6392, 0, 1, 0, 14, 0, 100, 0, 1000, 40, 12000, 16000, 0, 0, 11, 22168, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Holdout Medic - Friendly Missing Health - Cast Renew'),
 (6392, 0, 2, 0, 1, 0, 100, 0, 5000, 5000, 8000, 10000, 0, 0, 11, 22167, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Holdout Medic - Out of Combat - Cast Heal'),
 (6392, 0, 3, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 13864, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Holdout Medic - On Reset - Cast Power Word: Fortitude'),
 (6392, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Holdout Medic - Between 0-15% Health - Flee For Assist (No Repeat)'),
