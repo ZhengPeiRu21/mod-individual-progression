@@ -64,9 +64,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (11658, 0, 0, 0, 9, 0, 100, 0, 6000, 10000, 7000, 10000, 0, 10, 11, 18944, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Molten Giant - Within 0-10 Range - Cast Smash'),
-(11658, 0, 1, 0, 9, 0, 100, 0, 15000, 15000, 15000, 15000, 0, 10, 11, 18945, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Molten Giant - Within 0-10 Range - Cast Knock Away'),
-(11659, 0, 0, 0, 9, 0, 100, 0, 7000, 10000, 7000, 10000, 0, 10, 11, 20276, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Molten Destroyer - Within 0-10 Range - Cast Knockdown'),
-(11659, 0, 1, 0, 9, 0, 100, 0, 18000, 18000, 12000, 12000, 0, 10, 11, 19129, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Molten Destroyer - Within 0-10 Range - Cast Massive Tremor'),
+(11658, 0, 1, 2, 9, 0, 100, 0, 15000, 15000, 15000, 15000, 0, 10, 11, 18945, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Molten Giant - Within 0-10 Range - Cast Knock Away'),
+(11658, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                           'Molten Giant - On Knock Away - Reduce Aggro'),  
+(11659, 0, 0, 0, 9, 0, 100, 0, 18000, 18000, 12000, 12000, 0, 10, 11, 19129, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Molten Destroyer - Within 0-10 Range - Cast Massive Tremor'),
+(11659, 0, 1, 2, 9, 0, 100, 0, 7000, 10000, 7000, 10000, 0, 10, 11, 20276, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Molten Destroyer - Within 0-10 Range - Cast Knockdown'),
+(11659, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                           'Molten Giant - On Knockdown - Reduce Aggro'),
 (11667, 0, 0, 0, 9, 0, 100, 2, 12000, 12000, 10000, 10000, 0, 20, 11, 19630, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Flameguard - Within 0-20 Range - Cast Cone of Fire'),
 (11667, 0, 1, 0, 9, 0, 100, 2, 8000, 8000, 15000, 15000, 0, 20, 11, 19631, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Flameguard - Within 0-20 Range - Cast Melt Armor'),
 (11668, 0, 0, 0, 0, 0, 100, 0, 6000, 6000, 15000, 22000, 0, 0, 11, 19393, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,           'Firelord - In Combat - Cast Soul Burn'),
