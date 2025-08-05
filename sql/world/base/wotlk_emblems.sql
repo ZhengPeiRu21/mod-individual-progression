@@ -782,7 +782,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (4, 27417, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3');
 
 
--- tier 7 raid bosses, Naxxramas
+-- tier 7 raid bosses, mostly Naxxramas
 DELETE FROM `creature_loot_template` WHERE `Item` IN (40753, 45624, 47241) AND `entry` IN (15928, 15931, 15932, 15936, 15952, 15953, 15954, 15956, 15989,
 15990, 16011, 16028, 16060, 16061, 29249, 29268, 29278, 29324, 29373, 29417, 29448, 29615, 29701, 29718, 29932, 29940, 29955, 29991, 30061, 31311);
 
