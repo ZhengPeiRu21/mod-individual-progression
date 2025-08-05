@@ -8,8 +8,8 @@
 */
 
 -- heroic dungeons
-DELETE FROM `creature_loot_template` WHERE `Item` IN (40752, 40753, 45624, 47241) AND `entry` IN (28860, 30397, 30398, 30510, 30529, 30530, 30532, 30540, 30748,
-30774, 30788, 30807, 30810, 31125, 31211, 31212, 31215, 31349, 31350, 31360, 31362, 31367, 31368, 31370, 31381, 31384, 31386, 31456, 31463,
+DELETE FROM `creature_loot_template` WHERE `Item` IN (40752, 40753, 45624, 47241) AND `entry` IN (28860, 29932, 30397, 30398, 30510, 30529, 30530, 30532, 
+30540, 30748, 30774, 30788, 30807, 30810, 31125, 31211, 31212, 31215, 31349, 31350, 31360, 31362, 31367, 31368, 31370, 31381, 31384, 31386, 31456, 31463,
 31464, 31465, 31469, 31506, 31507, 31508, 31509, 31510, 31511, 31512, 31533, 31536, 31537, 31538, 31558, 31559, 31560, 31610, 31611, 31612, 31656,
 31673, 31679, 31722, 32313, 35490, 36476, 36494, 36497, 36498, 36502, 36538, 36658, 36938, 37613, 37627, 37677, 38112, 38113, 38599, 38603);
 
@@ -19,6 +19,10 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (28860, 40753, 0, 100, 0, 1, 0, 3, 3, 'Sartharion - Emblem of Valor'),
 (28860, 45624, 0, 100, 0, 1, 0, 3, 3, 'Sartharion - Emblem of Conquest'),
 (28860, 47241, 0, 100, 0, 1, 0, 3, 3, 'Sartharion - Emblem of Triump'),
+(29932, 40752, 0, 100, 0, 1, 0, 1, 1, 'Eck the Ferocious - Emblem of Heroism'), 
+(29932, 40753, 0, 100, 0, 1, 0, 1, 1, 'Eck the Ferocious - Emblem of Valor'),
+(29932, 45624, 0, 100, 0, 1, 0, 1, 1, 'Eck the Ferocious - Emblem of Conquest'),
+(29932, 47241, 0, 100, 0, 1, 0, 1, 1, 'Eck the Ferocious - Emblem of Triumph'),
 (30397, 40752, 0, 100, 0, 1, 0, 1, 1, 'Commander Kolurg (1) - Emblem of Heroism'),
 (30397, 40753, 0, 100, 0, 1, 0, 1, 1, 'Commander Kolurg (1) - Emblem of Valor'),
 (30397, 45624, 0, 100, 0, 1, 0, 1, 1, 'Commander Kolurg (1) - Emblem of Conquest'),
@@ -320,8 +324,8 @@ INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, 
 (27417, 47241, 0, 100, 0, 1, 0, 1, 1, 'Confessor\'s Cache');
 
 
-DELETE FROM `conditions` WHERE `SourceEntry` IN (40752, 40753, 45624, 47241) AND `SourceGroup` IN (28860, 30397, 30398, 30510, 30529, 30530, 30532, 30540, 30748,
-30774, 30788, 30807, 30810, 31125, 31211, 31212, 31215, 31349, 31350, 31360, 31362, 31367, 31368, 31370, 31381, 31384, 31386, 31456, 31463,
+DELETE FROM `conditions` WHERE `SourceEntry` IN (40752, 40753, 45624, 47241) AND `SourceGroup` IN (28860, 29932, 30397, 30398, 30510, 30529, 30530, 30532, 
+30540, 30748, 30774, 30788, 30807, 30810, 31125, 31211, 31212, 31215, 31349, 31350, 31360, 31362, 31367, 31368, 31370, 31381, 31384, 31386, 31456, 31463,
 31464, 31465, 31469, 31506, 31507, 31508, 31509, 31510, 31511, 31512, 31533, 31536, 31537, 31538, 31558, 31559, 31560, 31610, 31611, 31612, 31656,
 31673, 31679, 31722, 32313, 35490, 36476, 36494, 36497, 36498, 36502, 36538, 36658, 36938, 37613, 37627, 37677, 38112, 38113, 38599, 38603);
 DELETE FROM `conditions` WHERE `SourceEntry` IN (40752, 40753, 45624, 47241) AND `SourceGroup` IN (24524, 24589, 26260, 27416, 27417);
@@ -335,6 +339,12 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 28860, 45624, 0, 2, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Emblem of Conquest will only drop if the player has completed PROGRESSION_WOTLK_TIER_2'),
 (1, 28860, 45624, 0, 2, 8, 0, 66016, 0, 0, 1, 0, 0, '', 'Emblem of Conquest will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_3'),
 (1, 28860, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3'),
+(1, 29932, 40752, 0, 0, 8, 0, 66014, 0, 0, 1, 0, 0, '', 'Emblem of Heroism will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_1'),
+(1, 29932, 40753, 0, 1, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Emblem of Valor will only drop if the player has completed PROGRESSION_WOTLK_TIER_1'),
+(1, 29932, 40753, 0, 1, 8, 0, 66015, 0, 0, 1, 0, 0, '', 'Emblem of Valor will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_2'),
+(1, 29932, 45624, 0, 2, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Emblem of Conquest will only drop if the player has completed PROGRESSION_WOTLK_TIER_2'),
+(1, 29932, 45624, 0, 2, 8, 0, 66016, 0, 0, 1, 0, 0, '', 'Emblem of Conquest will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_3'),
+(1, 29932, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3'),
 (1, 30397, 40752, 0, 0, 8, 0, 66014, 0, 0, 1, 0, 0, '', 'Emblem of Heroism will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_1'),
 (1, 30397, 40753, 0, 1, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Emblem of Valor will only drop if the player has completed PROGRESSION_WOTLK_TIER_1'),
 (1, 30397, 40753, 0, 1, 8, 0, 66015, 0, 0, 1, 0, 0, '', 'Emblem of Valor will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_2'),
@@ -782,9 +792,9 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (4, 27417, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3');
 
 
--- tier 7 raid bosses, mostly Naxxramas
-DELETE FROM `creature_loot_template` WHERE `Item` IN (40753, 45624, 47241) AND `entry` IN (15928, 15931, 15932, 15936, 15952, 15953, 15954, 15956, 15989,
-15990, 16011, 16028, 16060, 16061, 29249, 29268, 29278, 29324, 29373, 29417, 29448, 29615, 29701, 29718, 29932, 29940, 29955, 29991, 30061, 31311);
+-- tier 7 raid bosses, Naxxramas
+DELETE FROM `creature_loot_template` WHERE `Item` IN (40753, 45624, 47241) AND `entry` IN (15928, 15931, 15932, 15936, 15952, 15953, 15954, 15956, 
+15989, 15990, 16011, 16028, 16060, 16061, 29249, 29268, 29278, 29324, 29373, 29417, 29448, 29615, 29701, 29718, 29940, 29955, 29991, 30061, 31311);
 
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 --
@@ -860,9 +870,6 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (29718, 40753, 0, 100, 0, 1, 0, 1, 1, 'Loatheb (1) - Emblem of Valor'),
 (29718, 45624, 0, 100, 0, 1, 0, 1, 1, 'Loatheb (1) - Emblem of Conquest'),
 (29718, 47241, 0, 100, 0, 1, 0, 1, 1, 'Loatheb (1) - Emblem of Triumph'),
-(29932, 40753, 0, 100, 0, 1, 0, 1, 1, 'Eck the Ferocious - Emblem of Valor'),
-(29932, 45624, 0, 100, 0, 1, 0, 1, 1, 'Eck the Ferocious - Emblem of Conquest'),
-(29932, 47241, 0, 100, 0, 1, 0, 1, 1, 'Eck the Ferocious - Emblem of Triumph'),
 (29940, 40753, 0, 100, 0, 1, 0, 1, 1, 'Instructor Razuvious (1) - Emblem of Valor'),
 (29940, 45624, 0, 100, 0, 1, 0, 1, 1, 'Instructor Razuvious (1) - Emblem of Conquest'),
 (29940, 47241, 0, 100, 0, 1, 0, 1, 1, 'Instructor Razuvious (1) - Emblem of Triumph'),
@@ -902,8 +909,8 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (60001, 45624, 0, 100, 0, 1, 0, 1, 1, 'Emblem of Conquest'),
 (60001, 47241, 0, 100, 0, 1, 0, 1, 1, 'Emblem of Triumph');
 
-DELETE FROM `conditions` WHERE `SourceEntry` IN (40753, 45624, 47241) AND `SourceGroup` IN (15928, 15931, 15932, 15936, 15952, 15953, 15954, 15956, 15989,
-15990, 16011, 16028, 16060, 16061, 29249, 29268, 29278, 29324, 29373, 29417, 29448, 29615, 29701, 29718, 29932, 29940, 29955, 29991, 30061, 31311);
+DELETE FROM `conditions` WHERE `SourceEntry` IN (40753, 45624, 47241) AND `SourceGroup` IN (15928, 15931, 15932, 15936, 15952, 15953, 15954, 15956, 
+15989, 15990, 16011, 16028, 16060, 16061, 29249, 29268, 29278, 29324, 29373, 29417, 29448, 29615, 29701, 29718, 29940, 29955, 29991, 30061, 31311);
 DELETE FROM `conditions` WHERE `SourceEntry` IN (40753, 45624, 47241) AND `SourceGroup` IN (25192, 25193, 26094, 26097);
 DELETE FROM `conditions` WHERE `SourceEntry` IN (40753, 45624, 47241) AND `SourceGroup` IN (60001);
 
@@ -1006,10 +1013,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 29718, 45624, 0, 1, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Emblem of Conquest will only drop if the player has completed PROGRESSION_WOTLK_TIER_2'),
 (1, 29718, 45624, 0, 1, 8, 0, 66016, 0, 0, 1, 0, 0, '', 'Emblem of Conquest will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_3'),
 (1, 29718, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3'),
-(1, 29932, 40753, 0, 0, 8, 0, 66015, 0, 0, 1, 0, 0, '', 'Emblem of Valor will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_2'),
-(1, 29932, 45624, 0, 1, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Emblem of Conquest will only drop if the player has completed PROGRESSION_WOTLK_TIER_2'),
-(1, 29932, 45624, 0, 1, 8, 0, 66016, 0, 0, 1, 0, 0, '', 'Emblem of Conquest will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_3'),
-(1, 29932, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3'),
 (1, 29940, 40753, 0, 0, 8, 0, 66015, 0, 0, 1, 0, 0, '', 'Emblem of Valor will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_2'),
 (1, 29940, 45624, 0, 1, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Emblem of Conquest will only drop if the player has completed PROGRESSION_WOTLK_TIER_2'),
 (1, 29940, 45624, 0, 1, 8, 0, 66016, 0, 0, 1, 0, 0, '', 'Emblem of Conquest will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_3'),
