@@ -62,7 +62,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (5402, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 30000, 30000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Khan Hratha - In Combat - Cast Battle Shout'),
 (5402, 0, 1, 0, 9, 0, 100, 0, 7700, 11000, 7000, 11000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Hratha - Within 0-5 Range - Cast Cleave'),
---
 (5600, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Khan Dez hepah - On Reset - Cast Battle Stance'),
 (5600, 0, 1, 0, 9, 0, 100, 0, 2100, 3200, 6000, 10000, 0, 5, 11, 25710, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Khan Dez hepah - Within 0-5 Range - Cast Heroic Strike'),
 (5600, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Khan Dez hepah - Between 0-15% Health - Flee For Assist (No Repeat)'),
