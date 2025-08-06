@@ -1,32 +1,53 @@
 -- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5402, 5602, 10182, 11787, 14225);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (5402, 5602, 10182, 11787, 14225);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(4663, 4664, 4665, 4692, 4696, 4705, 4726, 4728, 5402, 5602, 10182, 11787, 13019, 14225);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(4663, 4664, 4665, 4692, 4696, 4705, 4726, 4728, 5402, 5602, 10182, 11787, 13019, 14225);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(5402, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 30000, 30000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Hratha - In Combat - Cast Battle Shout'),
-(5402, 0, 1, 0, 9, 0, 100, 0, 7700, 11000, 7000, 11000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Khan Hratha - Within 0-5 Range - Cast Cleave'),
+(4663, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 20807, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Burning Blade Augur - In Combat - Cast Shadow Bolt'),
+(4663, 0, 1, 0, 9, 0, 100, 0, 3000, 6000, 15000, 25000, 0, 5, 11, 6909, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Burning Blade Augur - Within 0-5 Range - Cast Curse of Thorns'),
+(4663, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Burning Blade Augur - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4664, 0, 0, 0, 9, 0, 100, 0, 2000, 2000, 8000, 11000, 0, 5, 11, 8374, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Burning Blade Reaver - Within 0-5 Range - Cast Arcing Smash'),
+(4665, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 19816, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Burning Blade Adept - In Combat - Cast Fireball'),
+(4665, 0, 1, 0, 2, 0, 100, 1, 0, 80, 0, 0, 0, 0, 11, 6742, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Burning Blade Adept - Between 0-80% Health - Cast Bloodlust (No Repeat)'),
+(4665, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Burning Blade Adept - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4692, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 5708, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Dread Swoop - Within 0-5 Range - Cast Swoop'),
+(4696, 0, 0, 0, 9, 0, 100, 0, 3000, 7000, 14000, 17000, 0, 5, 11, 5416, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Scorpashi Snapper - Within 0-5 Range - Cast Venom Sting'),
+(4705, 0, 0, 0, 0, 0, 100, 0, 9000, 15000, 16000, 21000, 0, 0, 11, 11829, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Burning Blade Invoker - In Combat - Cast Flamestrike'),
+(4705, 0, 1, 0, 0, 0, 85, 0, 4000, 14000, 11000, 17000, 0, 0, 11, 9574, 64, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,   'Burning Blade Invoker - Within 0-20 Range - Cast Flame Buffet'),
+(4726, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 7000, 0, 30, 11, 15611, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Raging Thunder Lizard - Within 0-30 Range - Cast Lizard Bolt'),
+(4726, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Raging Thunder Lizard - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(4726, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Raging Thunder Lizard - On Enrage - Say Line 0'),
+(4728, 0, 0, 0, 9, 0, 100, 0, 8000, 14000, 25000, 35000, 0, 5, 11, 3636, 64, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Gritjaw Basilisk - Within 0-5 Range - Cast Crystalline Slumber'),
 --
-(5602, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Khan Shaka - On Reset - Cast Battle Stance'),
-(5602, 0, 1, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
-(5602, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Khan Shaka - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5402, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 30000, 30000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Khan Hratha - In Combat - Cast Battle Shout'),
+(5402, 0, 1, 0, 9, 0, 100, 0, 7700, 11000, 7000, 11000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Hratha - Within 0-5 Range - Cast Cleave'),
 --
-(10182, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Rexxar - On Respawn - Waypoint Start'),
-(10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - On Reset - Cast Thrash'),
-(10182, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - On Reset - Cast Puncture'),
-(10182, 0, 3, 0, 9, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 10, 11, 18813, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Rexxar - Within 0-10 Range - Cast Knock Away'),
-(10182, 0, 4, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - Within 0-5 Range - Cast Cleave'),
-(10182, 0, 5, 0, 9, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 5, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rexxar - Within 0-5 Range - Cast Sundering Cleave'),
-(10182, 0, 6, 7, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
-(10182, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Rexxar - On Enrage - Say Line 0'),
-(10182, 0, 8, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 9, 10204, 0, 0, 0, 0, 0, 0, 0,           'Rexxar - On Misha Between 0-20% Health - Cast Vengeance (No Repeat)'),
-(10182, 0, 9, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Rexxar - On Agrro - Waypoint Pause'),
-(10182, 0, 10, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Rexxar - OOC - Waypoint Resume'),
+(5602, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Khan Shaka - On Reset - Cast Battle Stance'),
+(5602, 0, 1, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
+(5602, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Khan Shaka - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(11787, 0, 0, 0, 9, 0, 100, 0, 7000, 12000, 7000, 12000, 0, 5, 11, 14120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Rock Borer - Within 0-5 Range - Cast Tunneler Acid'),
-(14225, 0, 0, 0, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Prince Kellen - Between 0-30% Health - Cast Enrage');
+(10182, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Respawn - Waypoint Start'),
+(10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Rexxar - On Reset - Cast Thrash'),
+(10182, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - On Reset - Cast Puncture'),
+(10182, 0, 3, 0, 9, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 10, 11, 18813, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - Within 0-10 Range - Cast Knock Away'),
+(10182, 0, 4, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rexxar - Within 0-5 Range - Cast Cleave'),
+(10182, 0, 5, 0, 9, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 5, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rexxar - Within 0-5 Range - Cast Sundering Cleave'),
+(10182, 0, 6, 7, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
+(10182, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rexxar - On Enrage - Say Line 0'),
+(10182, 0, 8, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 9, 10204, 0, 0, 0, 0, 0, 0, 0,            'Rexxar - On Misha Between 0-20% Health - Cast Vengeance (No Repeat)'),
+(10182, 0, 9, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rexxar - On Agrro - Waypoint Pause'),
+(10182, 0, 10, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Rexxar - OOC - Waypoint Resume'),
+--
+(11787, 0, 0, 0, 9, 0, 100, 0, 7000, 12000, 7000, 12000, 0, 5, 11, 14120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rock Borer - Within 0-5 Range - Cast Tunneler Acid'),
+(13019, 0, 0, 0, 0, 0, 100, 0, 9000, 15000, 16000, 21000, 0, 0, 11, 11829, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Burning Blade Seer - In Combat - Cast Flamestrike'),
+(13019, 0, 1, 0, 0, 0, 85, 0, 4000, 14000, 11000, 17000, 0, 0, 11, 9658, 64, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Burning Blade Seer - Within 0-20 Range - Cast Flame Buffet'),
+(13019, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Burning Blade Seer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(14225, 0, 0, 0, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Prince Kellen - Between 0-30% Health - Cast Enrage');
 
 
 /* Restore Rexxar in Desolace. */
