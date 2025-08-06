@@ -24,38 +24,65 @@ INSERT INTO `quest_template_addon` (`ID`, `PrevQuestID`, `NextQuestID`) VALUES
 (7486, 6824, 0);
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` = 6821;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (19, 0, 6821, 0, 0, 47, 0, 6804, 64, 0, 0, 0, 0, '', 'Quest Eyes of the Emberseer available if quest Poisoned Water has been rewarded.'),
 (19, 0, 6821, 0, 0, 47, 0, 6805, 64, 0, 0, 0, 0, '', 'Quest Eyes of the Emberseer available if quest Stormers and Rumblers has been rewarded.');
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 15) AND (`SourceGroup` = 5065) AND (`SourceId` IN (0, 1));
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (15, 5065, 0, 0, 0, 5, 0, 749, 224, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Aqual Quintessence Gossip - Requires Honored Rep'),
 (15, 5065, 0, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Duke Hydraxis - Aqual Quintessence Gossip available if quest Hand of the Enemy rewarded.'),
 (15, 5065, 1, 0, 0, 5, 0, 749, 192, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Eternal Quintessence Gossip - Requires Revered Rep'),
 (15, 5065, 1, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Duke Hydraxis - Create Eternal Quintessence Gossip - Requires Hand of the Enemy rewarded');
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (6822, 6823, 6824, 7486);
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (19, 0, 6822, 0, 0, 47, 0, 6821, 64, 0, 0, 0, 0, '', 'Quest Molten Core available if quest Eye of the Emberseer has been rewarded.'),
 (19, 0, 6823, 0, 0, 47, 0, 6822, 64, 0, 0, 0, 0, '', 'Quest Agent of Hydraxis available if quest Molten Core has been rewarded.'),
 (19, 0, 6824, 0, 0, 47, 0, 6823, 64, 0, 0, 0, 0, '', 'Quest Hands of the Enemy available if quest Agents of Hydraxis has been rewarded.'),
-(19, 0, 7486, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Quest A Hero\'s Reward available if quest Hands of the Enemy has been rewarded.');
+(19, 0, 7486, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Quest A Heros Reward available if quest Hands of the Enemy has been rewarded.');
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (6822, 6823, 6824, 7486);
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (19, 0, 6822, 0, 0, 47, 0, 6821, 64, 0, 0, 0, 0, '', 'Quest Molten Core available if quest Eye of the Emberseer has been rewarded.'),
 (19, 0, 6823, 0, 0, 47, 0, 6822, 64, 0, 0, 0, 0, '', 'Quest Agent of Hydraxis available if quest Molten Core has been rewarded.'),
 (19, 0, 6824, 0, 0, 47, 0, 6823, 64, 0, 0, 0, 0, '', 'Quest Hands of the Enemy available if quest Agents of Hydraxis has been rewarded.'),
-(19, 0, 7486, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Quest A Hero\'s Reward available if quest Hands of the Enemy has been rewarded.');
+(19, 0, 7486, 0, 0, 47, 0, 6824, 64, 0, 0, 0, 0, '', 'Quest A Heros Reward available if quest Hands of the Enemy has been rewarded.');
 
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 13278;
-DELETE FROM `smart_scripts` WHERE (`entryorguid` = 13278) AND (`source_type` = 0) AND (`id` IN (0, 1, 2, 3));
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
-(13278, 0, 0, 1, 62, 0, 100, 0, 5065, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Gossip Option 0 Selected - Close Gossip'),
-(13278, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 56, 17333, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Link - Add item \'Aqual Quintessence\''),
-(13278, 0, 2, 3, 62, 0, 100, 0, 5065, 1, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Gossip Option 1 Selected - Close Gossip'),
-(13278, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Duke Hydraxis - On Link - Add item \' Eternal Quintessence\'');
+-- smart scripts
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(11658, 11659, 11667, 11668, 11669, 11673, 13278);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(11658, 11659, 11667, 11668, 11669, 11673, 13278);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(11658, 0, 0, 0, 9, 0, 100, 0, 6000, 10000, 7000, 10000, 0, 10, 11, 18944, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Molten Giant - Within 0-10 Range - Cast Smash'),
+(11658, 0, 1, 2, 9, 0, 100, 0, 15000, 15000, 15000, 15000, 0, 10, 11, 18945, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Molten Giant - Within 0-10 Range - Cast Knock Away'),
+(11658, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                           'Molten Giant - On Knock Away - Reduce Aggro'),  
+(11659, 0, 0, 0, 9, 0, 100, 0, 18000, 18000, 12000, 12000, 0, 10, 11, 19129, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Molten Destroyer - Within 0-10 Range - Cast Massive Tremor'),
+(11659, 0, 1, 2, 9, 0, 100, 0, 7000, 10000, 7000, 10000, 0, 10, 11, 20276, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Molten Destroyer - Within 0-10 Range - Cast Knockdown'),
+(11659, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                           'Molten Giant - On Knockdown - Reduce Aggro'),
+(11667, 0, 0, 0, 9, 0, 100, 2, 12000, 12000, 10000, 10000, 0, 20, 11, 19630, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Flameguard - Within 0-20 Range - Cast Cone of Fire'),
+(11667, 0, 1, 0, 9, 0, 100, 2, 8000, 8000, 15000, 15000, 0, 20, 11, 19631, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Flameguard - Within 0-20 Range - Cast Melt Armor'),
+(11668, 0, 0, 0, 0, 0, 100, 0, 6000, 6000, 15000, 22000, 0, 0, 11, 19393, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,           'Firelord - In Combat - Cast Soul Burn'),
+(11668, 0, 1, 0, 0, 0, 100, 0, 10000, 10000, 18000, 20000, 0, 0, 11, 19392, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Firelord - In Combat - Cast Summon Lava Spawn'),
+(11669, 0, 0, 0, 9, 0, 100, 0, 5000, 15000, 4000, 7000, 0, 10, 11, 20602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Flame Imp - Within 0-10 Range - Cast Fire Nova'),
+(11673, 0, 0, 0, 9, 0, 100, 0, 10000, 10000, 7000, 7000, 0, 20, 11, 19272, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Ancient Core Hound - Within 0-20 Range - Cast Lava Breath'),
+(11673, 0, 1, 0, 9, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 5, 11, 19319, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Ancient Core Hound - Within 0-5 Range - Cast Vicious Bite'),
+(11673, 0, 2, 0, 0, 0, 100, 0, 15000, 15000, 24000, 24000, 0, 0, 88, 1167300, 1167305, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Ancient Core Hound - In Combat - Run Random Script'),
+--
+(13278, 0, 0, 1, 62, 0, 100, 0, 5065, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Duke Hydraxis - On Gossip Option 0 Selected - Close Gossip'),
+(13278, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 56, 17333, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Duke Hydraxis - On Link - Add item Aqual Quintessence'),
+(13278, 0, 2, 3, 62, 0, 100, 0, 5065, 1, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Duke Hydraxis - On Gossip Option 1 Selected - Close Gossip'),
+(13278, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Duke Hydraxis - On Link - Add item Eternal Quintessence');
+
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 5065 AND `OptionID` IN (0, 1);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES

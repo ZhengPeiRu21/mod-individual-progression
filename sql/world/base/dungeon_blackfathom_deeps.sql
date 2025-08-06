@@ -48,7 +48,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (4815, 0, 0, 0, 9, 0, 100, 0, 5000, 9000, 16000, 20000, 0, 5, 11, 8379, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Murkshallow Snapclaw - Within 0-5 Range - Cast Disarm'),
 (4815, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Murkshallow Snapclaw - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(4818, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Blindlight Murloc - On Aggro - Cast Defensive Stance (No Repeat)'),
+(4818, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Blindlight Murloc - In Combat - Cast Defensive Stance (No Repeat)'),
 (4818, 0, 1, 0, 9, 0, 100, 0, 3000, 5000, 8000, 11000, 0, 5, 11, 7405, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Blindlight Murloc - Within 0-5 Range - Cast Sunder Armor'),
 (4818, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blindlight Murloc - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4819, 0, 0, 0, 2, 0, 100, 0, 0, 50, 50000, 60000, 0, 0, 11, 8382, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,           'Blindlight Muckdweller - Between 0-50% Health - Cast Leech Poison'),
