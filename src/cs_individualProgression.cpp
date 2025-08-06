@@ -15,12 +15,14 @@ public:
     {
         static ChatCommandTable individualProgressionTable =
         {
-            { "set",    HandleSetIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
+            { "set",    HandleSetIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },            
+            { "tele",   HandleTeleIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },        
         };
 
         static ChatCommandTable commandTable =
         {
-            { "individualProgression", individualProgressionTable },
+            { "individualprogression", individualProgressionTable },
+            { "ip", individualProgressionTable },
         };
 
         return commandTable;
@@ -42,6 +44,38 @@ public:
         return true;
     }
 
+
+    static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, string location)
+    {
+        player = PlayerIdentifier::FromTargetOrSelf(handler);
+        
+        if (location != 'naxx40' && location != 'onyxia40')
+        {
+            handler->SendSysMessage("Invalid teleport location.");
+            return false;
+        }
+
+        if (player && player->GetConnectedPlayer())
+        {
+            if ((location == 'naxx40') && (player->GetLevel() <= IP_LEVEL_TBC) && (player->getClass() != CLASS_DEATH_KNIGHT))
+            {
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+                return true;
+            }
+            else if (location == 'onyxia40' && player->GetLevel() < IP_LEVEL_WOTLK)
+            {
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+                return true;
+            }
+            else
+            {
+                handler->SendSysMessage("You are not allowed to teleport to this location.");
+                return false;
+            }
+        }
+    }
 
 };
 
