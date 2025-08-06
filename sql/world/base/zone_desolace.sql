@@ -1,12 +1,27 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(4663, 4664, 4665, 4692, 4696, 4705, 4726, 4728, 5402, 5602, 10182, 11787, 13019, 14225);
+(4632, 4634, 4635, 4636, 4637, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 10182, 11787, 13019, 14225);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(4663, 4664, 4665, 4692, 4696, 4705, 4726, 4728, 5402, 5602, 10182, 11787, 13019, 14225);
+(4632, 4634, 4635, 4636, 4637, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 10182, 11787, 13019, 14225);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(4632, 0, 0, 0, 9, 0, 100, 0, 2100, 2400, 10100, 10400, 0, 5, 11, 25710, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Kolkar Centaur - Within 0-5 Range - Cast Heroic Strike'),
+(4632, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Kolkar Centaur - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4634, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12787, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Kolkar Mauler - On Reset - Cast Thrash'),
+(4634, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Kolkar Mauler - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4635, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2100, 2300, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Kolkar Windchaser - In Combat - Cast Lightning Bolt'),
+(4635, 0, 1, 0, 9, 0, 100, 0, 7000, 11000, 15000, 18000, 0, 30, 11, 6728, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Kolkar Windchaser - Within 0-30 Range - Cast Enveloping Winds'),
+(4635, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Kolkar Windchaser - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4636, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Kolkar Battle Lord - On Reset - Cast Battle Stance'),
+(4636, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 30000, 45000, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Kolkar Battle Lord - In Combat - Cast Devotion Aura'),
+(4636, 0, 2, 0, 9, 0, 100, 0, 2100, 3000, 9800, 10400, 0, 5, 11, 25710, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Kolkar Battle Lord - Within 0-5 Range - Cast Heroic Strike'),
+(4636, 0, 3, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Kolkar Battle Lord - Between 0-20% Health - Call for Help (No Repeat)'),
+(4637, 0, 0, 0, 9, 0, 100, 0, 1500, 3000, 9000, 14000, 0, 20, 11, 11824, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Kolkar Destroyer - Within 0-20 Range - Cast Shock'),
+(4637, 0, 1, 0, 12, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Kolkar Destroyer - Target Between 0-20% Health - Cast Execute (No Repeat)'),
+(4637, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Kolkar Destroyer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (4663, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 20807, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Burning Blade Augur - In Combat - Cast Shadow Bolt'),
 (4663, 0, 1, 0, 9, 0, 100, 0, 3000, 6000, 15000, 25000, 0, 5, 11, 6909, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Burning Blade Augur - Within 0-5 Range - Cast Curse of Thorns'),
@@ -15,7 +30,28 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4665, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 19816, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Burning Blade Adept - In Combat - Cast Fireball'),
 (4665, 0, 1, 0, 2, 0, 100, 1, 0, 80, 0, 0, 0, 0, 11, 6742, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Burning Blade Adept - Between 0-80% Health - Cast Bloodlust (No Repeat)'),
 (4665, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Burning Blade Adept - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(4670, 0, 0, 0, 1, 0, 100, 1, 0, 0, 1000, 1000, 0, 0, 11, 6920, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Hatefury Rogue - Out of Combat - Cast Hide (No Repeat)'),
+(4670, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Rogue - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(4670, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Rogue - On Enrage - Say Line 0'),
+(4671, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Trickster - On Respawn - Cast Poison Proc'),
+(4671, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Trickster - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(4671, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Trickster - On Enrage - Say Line 0'),
+(4672, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Felsworn - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(4672, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Felsworn - On Enrage - Say Line 0'),
+(4673, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Betrayer - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(4673, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Betrayer - On Enrage - Say Line 0'),
+(4674, 0, 0, 0, 9, 0, 100, 0, 3000, 5000, 10000, 15000, 0, 5, 11, 8629, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Hatefury Shadowstalker - Within 0-5 Range - Cast Gouge'),
+(4674, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 14000, 0, 5, 11, 6595, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Hatefury Shadowstalker - Within 0-5 Range - Cast Exploit Weakness'),
+(4674, 0, 2, 3, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Shadowstalker - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(4674, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Shadowstalker - On Enrage - Say Line 0'),
+(4675, 0, 0, 0, 9, 0, 100, 0, 10000, 10000, 10000, 10000, 0, 30, 11, 1094, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Hatefury Hellcaller - Within 0-30 Range - Cast Immolate'),
+(4675, 0, 2, 0, 9, 0, 100, 0, 2000, 2000, 20000, 20000, 0, 30, 11, 5740, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Hatefury Hellcaller - Within 0-30 Range - Cast Rain of Fire'),
+(4675, 0, 3, 4, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Hellcaller - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(4675, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Hellcaller - On Enrage - Say Line 0'),
+--
 (4692, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 5708, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Dread Swoop - Within 0-5 Range - Cast Swoop'),
+(4695, 0, 0, 0, 9, 0, 100, 0, 5000, 9000, 12000, 18000, 0, 5, 11, 3427, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Carrion Horror - Within 0-5 Range - Cast Infected Wound'),
 (4696, 0, 0, 0, 9, 0, 100, 0, 3000, 7000, 14000, 17000, 0, 5, 11, 5416, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Scorpashi Snapper - Within 0-5 Range - Cast Venom Sting'),
 (4705, 0, 0, 0, 0, 0, 100, 0, 9000, 15000, 16000, 21000, 0, 0, 11, 11829, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Burning Blade Invoker - In Combat - Cast Flamestrike'),
 (4705, 0, 1, 0, 0, 0, 85, 0, 4000, 14000, 11000, 17000, 0, 0, 11, 9574, 64, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,   'Burning Blade Invoker - Within 0-20 Range - Cast Flame Buffet'),
@@ -27,6 +63,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5402, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 30000, 30000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Khan Hratha - In Combat - Cast Battle Shout'),
 (5402, 0, 1, 0, 9, 0, 100, 0, 7700, 11000, 7000, 11000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Khan Hratha - Within 0-5 Range - Cast Cleave'),
 --
+(5600, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Khan Dez hepah - On Reset - Cast Battle Stance'),
+(5600, 0, 1, 0, 9, 0, 100, 0, 2100, 3200, 6000, 10000, 0, 5, 11, 25710, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Khan Dez hepah - Within 0-5 Range - Cast Heroic Strike'),
+(5600, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Khan Dez hepah - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5602, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Khan Shaka - On Reset - Cast Battle Stance'),
 (5602, 0, 1, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
 (5602, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Khan Shaka - Between 0-15% Health - Flee For Assist (No Repeat)'),
