@@ -45,7 +45,7 @@ public:
     }
 
 
-    static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, string location)
+    static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, std::string location)
     {
         player = PlayerIdentifier::FromTargetOrSelf(handler);
         
