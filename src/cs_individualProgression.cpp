@@ -48,8 +48,8 @@ public:
     static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, std::string location)
     {
         player = PlayerIdentifier::FromTargetOrSelf(handler);
-        
-        if (location != 'naxx40' && location != 'onyxia40')
+		 
+        if (location != "naxx40" && location != "onyxia40")
         {
             handler->SendSysMessage("Invalid teleport location.");
             return false;
@@ -57,16 +57,18 @@ public:
 
         if (player && player->GetConnectedPlayer())
         {
-            if ((location == 'naxx40') && (player->GetLevel() <= IP_LEVEL_TBC) && (player->getClass() != CLASS_DEATH_KNIGHT))
+            Player* target = player->GetConnectedPlayer();
+
+            if ((location == "naxx40") && (target->GetLevel() <= IP_LEVEL_TBC) && (target->getClass() != CLASS_DEATH_KNIGHT))
             {
-                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+                target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                target->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
                 return true;
             }
-            else if (location == 'onyxia40' && player->GetLevel() < IP_LEVEL_WOTLK)
+            else if (location == "onyxia40" && target->GetLevel() < IP_LEVEL_WOTLK)
             {
-                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+                target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                target->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
                 return true;
             }
             else
