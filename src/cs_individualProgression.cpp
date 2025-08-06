@@ -3,6 +3,7 @@
 #include "ScriptMgr.h"
 #include "Tokenize.h"
 #include "IndividualProgression.h"
+#include "naxxramas_40.h"
 
 using namespace Acore::ChatCommands;
 
@@ -44,6 +45,19 @@ public:
         return true;
     }
 
+    static bool isAttuned(Player* player)
+    {
+        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || 
+            (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
+            (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, std::string location)
     {
@@ -59,7 +73,7 @@ public:
         {
             Player* target = player->GetConnectedPlayer();
 
-            if ((location == "naxx40") && (target->GetLevel() <= IP_LEVEL_TBC) && (target->getClass() != CLASS_DEATH_KNIGHT))
+            if ((location == "naxx40") && (target->GetLevel() <= IP_LEVEL_TBC) && (target->getClass() != CLASS_DEATH_KNIGHT) && isAttuned(target))
             {
                 target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
                 target->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
