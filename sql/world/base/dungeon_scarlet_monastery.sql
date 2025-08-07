@@ -30,9 +30,9 @@ UPDATE `gameobject_template_addon` SET `flags` = 34 WHERE `entry` = 104591; -- C
 
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(4280, 4281, 4282, 4283, 4284, 4285, 4543, 6426, 6490);
+(4280, 4281, 4282, 4283, 4284, 4285, 4287, 4288, 4291, 4296, 4540, 4543, 6426, 6490);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(4280, 4281, 4282, 4283, 4284, 4285, 4543, 6426, 6490);
+(4280, 4281, 4282, 4283, 4284, 4285, 4287, 4288, 4291, 4296, 4540, 4543, 6426, 6490);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -60,6 +60,29 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4285, 0, 2, 0, 14, 0, 100, 0, 600, 40, 11000, 15000, 0, 0, 11, 6063, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Scarlet Disciple - Friendly Missing Health - Cast Heal'),
 (4285, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Disciple - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4285, 0, 4, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Disciple - On Aggro - Say Line 0'),
+--
+(4287, 0, 0, 0, 1, 0, 100, 0, 1000, 20000, 20000, 40000, 0, 0, 5, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Gallant - Out of Combat - Play Emote'),
+(4287, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Gallant - On Aggro - Say Line 0'),
+(4287, 0, 2, 0, 9, 0, 100, 0, 2000, 10000, 4800, 10900, 0, 5, 11, 14517, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Scarlet Gallant - Within 0-5 Range - Cast Crusader Strike'),
+(4287, 0, 3, 0, 0, 0, 100, 0, 4000, 9000, 13000, 22000, 0, 0, 11, 5589, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,  'Scarlet Gallant - Within 0-10 - Cast Hammer of Justice'),
+(4287, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Gallant - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4288, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Beastmaster - On Aggro - Say Line 0'),
+(4288, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2000, 2000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Beastmaster - Within 5-30 Range - Cast Shoot'),
+(4288, 0, 2, 0, 9, 0, 100, 0, 9000, 12000, 10000, 13000, 5, 30, 11, 7896, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Beastmaster - Within 5-30 Range - Cast Exploding Shot'),
+(4288, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Beastmaster - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4291, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Diviner - On Aggro - Say Line 0'),
+(4291, 0, 1, 0, 0, 0, 100, 0, 0, 0, 3000, 3500, 0, 0, 11, 9053, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Diviner - In Combat - Cast Fireball'),
+(4291, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Diviner - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4296, 0, 0, 0, 1, 0, 100, 0, 1000, 20000, 20000, 40000, 0, 0, 5, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Adept - Out of Combat - Play Emote'),
+(4296, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Adept - On Aggro - Say Line 0'),
+(4296, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2500, 3500, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Adept - In Combat - Cast Holy Smite'),
+(4296, 0, 3, 0, 14, 0, 100, 0, 600, 40, 14000, 22000, 0, 0, 11, 6063, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Scarlet Adept - Friendly Missing Health - Cast Heal'),
+(4296, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Adept - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4540, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Scarlet Monk - On Reset - Cast Thrash'),
+(4540, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Monk - On Aggro - Say Line 1'),
+(4540, 0, 2, 0, 13, 0, 100, 0, 7000, 7000, 0, 0, 0, 0, 11, 11978, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Monk - Victim Casting - Cast Kick'),
+(4540, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Monk - Between 0-15% Health - Flee For Assist'),
+(4540, 0, 4, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Monk - spellhit_target - AshbringerEvent'),
 --
 (4543, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Bloodmage Thalnos - On Aggro - Say Line 0'),
 (4543, 0, 1, 0, 5, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bloodmage Thalnos - On Kill - Say Line 2'),
