@@ -1,8 +1,8 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(4632, 4634, 4635, 4636, 4637, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 10182, 11787, 13019, 14225);
+(4632, 4634, 4635, 4636, 4637, 4654, 4655, 4656, 4657, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4676, 4677, 4681, 4682, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 5760, 5771, 10182, 11787, 13019, 14225);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(4632, 4634, 4635, 4636, 4637, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 10182, 11787, 13019, 14225);
+(4632, 4634, 4635, 4636, 4637, 4654, 4655, 4656, 4657, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4676, 4677, 4681, 4682, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 5760, 5771, 10182, 11787, 13019, 14225);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -13,7 +13,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4634, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12787, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Kolkar Mauler - On Reset - Cast Thrash'),
 (4634, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Kolkar Mauler - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4635, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2100, 2300, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Kolkar Windchaser - In Combat - Cast Lightning Bolt'),
-(4635, 0, 1, 0, 9, 0, 100, 0, 7000, 11000, 15000, 18000, 0, 30, 11, 6728, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Kolkar Windchaser - Within 0-30 Range - Cast Enveloping Winds'),
+(4635, 0, 1, 0, 0, 0, 100, 0, 7000, 11000, 15000, 18000, 0, 0, 11, 6728, 64, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0, 'Kolkar Windchaser - Within 0-30 Range - Cast Enveloping Winds'),
 (4635, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Kolkar Windchaser - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4636, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Kolkar Battle Lord - On Reset - Cast Battle Stance'),
 (4636, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 30000, 45000, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Kolkar Battle Lord - In Combat - Cast Devotion Aura'),
@@ -22,6 +22,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4637, 0, 0, 0, 9, 0, 100, 0, 1500, 3000, 9000, 14000, 0, 20, 11, 11824, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Kolkar Destroyer - Within 0-20 Range - Cast Shock'),
 (4637, 0, 1, 0, 12, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Kolkar Destroyer - Target Between 0-20% Health - Cast Execute (No Repeat)'),
 (4637, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Kolkar Destroyer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4654, 0, 0, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Maraudine Scout - In Combat - Cast Shoot'),
+(4654, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Maraudine Scout - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4655, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 16000, 0, 5, 11, 8379, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Maraudine Wrangler - Within 0-5 Range - Cast Disarm'),
+(4655, 0, 1, 0, 0, 0, 100, 0, 4000, 9000, 18000, 34000, 0, 0, 11, 6533, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,   'Maraudine Wrangler - In Combat - Cast Net'),
+(4655, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Maraudine Wrangler - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4656, 0, 0, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Maraudine Mauler - In Combat - Cast Thrash'),
+(4656, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Maraudine Mauler - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4657, 0, 0, 0, 0, 0, 100, 0, 1500, 1500, 4000, 4500, 0, 0, 11, 9532, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Maraudine Windchaser - In Combat - Cast Lightning Bolt'),
+(4657, 0, 1, 0, 14, 0, 100, 0, 600, 40, 17000, 21000, 0, 0, 11, 959, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Maraudine Windchaser - Friendly missing 600 Health - Cast Healing Wave'),
+(4657, 0, 2, 0, 0, 0, 100, 0, 7000, 11000, 15000, 18000, 0, 0, 11, 9532, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Maraudine Windchaser - In Combat - Cast Enveloping Winds'),
+(4657, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Maraudine Windchaser - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (4663, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 20807, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Burning Blade Augur - In Combat - Cast Shadow Bolt'),
 (4663, 0, 1, 0, 9, 0, 100, 0, 3000, 6000, 15000, 25000, 0, 5, 11, 6909, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Burning Blade Augur - Within 0-5 Range - Cast Curse of Thorns'),
@@ -41,14 +52,18 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4672, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Felsworn - On Enrage - Say Line 0'),
 (4673, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Betrayer - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (4673, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Betrayer - On Enrage - Say Line 0'),
-(4674, 0, 0, 0, 9, 0, 100, 0, 3000, 5000, 10000, 15000, 0, 5, 11, 8629, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Hatefury Shadowstalker - Within 0-5 Range - Cast Gouge'),
+(4674, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 10000, 15000, 0, 0, 11, 8629, 2, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Hatefury Shadowstalker - Within 0-5 Range - Cast Gouge'),
 (4674, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 14000, 0, 5, 11, 6595, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Hatefury Shadowstalker - Within 0-5 Range - Cast Exploit Weakness'),
 (4674, 0, 2, 3, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Shadowstalker - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (4674, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Shadowstalker - On Enrage - Say Line 0'),
-(4675, 0, 0, 0, 9, 0, 100, 0, 10000, 10000, 10000, 10000, 0, 30, 11, 1094, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Hatefury Hellcaller - Within 0-30 Range - Cast Immolate'),
+(4675, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 0, 30, 11, 1094, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Hatefury Hellcaller - Within 0-30 Range - Cast Immolate'),
 (4675, 0, 2, 0, 9, 0, 100, 0, 2000, 2000, 20000, 20000, 0, 30, 11, 5740, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Hatefury Hellcaller - Within 0-30 Range - Cast Rain of Fire'),
 (4675, 0, 3, 4, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hatefury Hellcaller - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (4675, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatefury Hellcaller - On Enrage - Say Line 0'),
+(4676, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 30000, 35000, 0, 0, 11, 2601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Lesser Infernal - In Combat - Cast Fire Shield III'),
+(4677, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Doomwarder - On Aggro - Cast Battle Stance'),
+(4681, 0, 0, 0, 0, 0, 100, 0, 5000, 16000, 15000, 25000, 0, 0, 11, 3429, 288, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Mage Hunter - Within 0-30 Range - Cast Plague Mind'),
+(4682, 0, 0, 0, 9, 0, 100, 0, 2200, 2400, 12000, 15000, 0, 5, 11, 7816, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Nether Sister - Within 0-5 Range - Cast Lash of Pain'),
 --
 (4692, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 5708, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Dread Swoop - Within 0-5 Range - Cast Swoop'),
 (4695, 0, 0, 0, 9, 0, 100, 0, 5000, 9000, 12000, 18000, 0, 5, 11, 3427, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Carrion Horror - Within 0-5 Range - Cast Infected Wound'),
@@ -68,11 +83,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5602, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Khan Shaka - On Reset - Cast Battle Stance'),
 (5602, 0, 1, 0, 9, 0, 100, 0, 3000, 4000, 17000, 23000, 0, 5, 11, 9080, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Khan Shaka - Within 0-5 Range - Cast Hamstring'),
 (5602, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Khan Shaka - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5760, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 14000, 0, 5, 11, 13737, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Lord Azrethoc - Within 0-5 Range - Cast Mortal Strike'),
+(5760, 0, 1, 0, 2, 0, 100, 1, 20, 40, 0, 0, 0, 0, 11, 7961, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Lord Azrethoc - Between 20-40% Health - Cast Azrethocs Stomp (No Repeat)'),
+(5771, 0, 0, 0, 0, 0, 100, 1, 4300, 6800, 0, 0, 0, 0, 11, 12741, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Jugkar Grim\'rod - In Combat - Cast Curse of Weakness (No Repeat)'),
+(5771, 0, 1, 0, 9, 0, 100, 1, 0, 0, 21000, 25000, 0, 30, 11, 20787, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Jugkar Grim\'rod - In Combat - Cast Immolate'),
+(5771, 0, 2, 0, 0, 0, 100, 0, 2100, 3100, 2100, 3100, 0, 0, 11, 12471, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Jugkar Grim\'rod - In Combat - Cast Shadow Bolt'),
+(5771, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Jugkar Grim\'rod - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (10182, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Respawn - Waypoint Start'),
 (10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Rexxar - On Reset - Cast Thrash'),
 (10182, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - On Reset - Cast Puncture'),
-(10182, 0, 3, 0, 9, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 10, 11, 18813, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - Within 0-10 Range - Cast Knock Away'),
+(10182, 0, 3, 0, 0, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 0, 11, 18813, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - Within 0-10 Range - Cast Knock Away'),
 (10182, 0, 4, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rexxar - Within 0-5 Range - Cast Cleave'),
 (10182, 0, 5, 0, 9, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 5, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rexxar - Within 0-5 Range - Cast Sundering Cleave'),
 (10182, 0, 6, 7, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
@@ -87,6 +108,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13019, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Burning Blade Seer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (14225, 0, 0, 0, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Prince Kellen - Between 0-30% Health - Cast Enrage');
 
+-- fix worldserver error at serpent shrine to summon Lord Kragaru
+UPDATE `smart_scripts` SET `link` = 0 WHERE `entryorguid` = 177705;
+
+-- Khan Dez'Hepah, 5600, should have multiple spawn locations
 
 /* Restore Rexxar in Desolace. */
 UPDATE `creature_template` SET `name` = 'Rexxar', `flags_extra` = 2050 WHERE `entry` = 10182;
