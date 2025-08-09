@@ -110,28 +110,28 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 
 -- these are not used in the WotLK versions of Naxx
-(16157, 0, 0, 0, 0, 0, 100, 0, 2000, 3000, 3000, 4000, 0, 0, 14, 0, 100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Doom Touched Warrior - In Combat - Periodically Wipe Aggro'),
-(16158, 0, 0, 0, 0, 0, 100, 0, 2000, 3000, 3000, 4000, 0, 0, 14, 0, 100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Death Touched Warrior - In Combat - Periodically Wipe Aggro'),
-(16448, 0, 0, 0, 9, 0, 100, 0, 6000, 12000, 9000, 16000, 0, 5, 11, 30121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Plagued Deathhound - Within 0-5 Range - Cast Forceful Howl'),
-(16451, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,           'Deathknight Vindicator - Within 0-30 Range - Cast Aura of Agony'),
-(16451, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Deathknight Vindicator - Within 0-5 Range - Cast Cleave'),
-(16451, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Deathknight Vindicator - Within 0-30 Range - Cast Death Coil'),
-(16452, 0, 0, 0, 9, 0, 90, 0, 2000, 2000, 15000, 15000, 0, 20, 11, 30092, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Necro Knight Guardian - Within 0-20 Range - Cast Blast Wave'),
-(16452, 0, 1, 0, 0, 0, 90, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 30091, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Necro Knight Guardian - Within 0-30 Range - Cast Flamestrike'),
-(16452, 0, 2, 0, 106, 0, 90, 0, 8000, 8000, 15000, 15000, 0, 10, 11, 30094, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Necro Knight Guardian - Within 0-10 Range - Cast Frost Nova'),
-(16452, 0, 3, 0, 9, 0, 90, 0, 11000, 11000, 15000, 15000, 0, 15, 11, 30096, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Necro Knight Guardian - Within 0-15 Range - Cast Arcane Explosion'),
-(16452, 0, 4, 0, 0, 0, 90, 0, 12000, 12000, 15000, 15000, 0, 0, 11, 28391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Necro Knight Guardian - In Combat - Cast Blink'),
-(16452, 0, 5, 0, 9, 0, 90, 0, 14000, 14000, 15000, 15000, 0, 10, 11, 30095, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Necro Knight Guardian - Within 0-10 Range - Cast Cone of Cold'),
-(16453, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 20000, 40000, 0, 0, 11, 28431, 0, 0, 0, 0, 0, 5, 40, 1, 0, 0, 0, 0, 0, 0,  'Necro Stalker - In Combat - Cast Poison Charge (Naxx 40)'),
-(16697, 0, 0, 0, 60, 0, 100, 0, 0, 0, 2500, 2500, 0, 0, 11, 28865, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Void Zone - On Update - Cast Consumption'),
-(16697, 0, 1, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Void Zone - On Initialize - Set Reactstate Passive'),
-(16775, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28834, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of Mograine - In Combat - Cast Mark of Mograine'),
-(16776, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28833, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of Blaumeux - In Combat - Cast Mark of Blaumeux'),
-(16777, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28835, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of Zeliek   - In Combat - Cast Mark of Zeliek'),
-(16778, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28832, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Spirit of Korthazz - In Combat - Cast Mark of Korthazz'),
-(16861, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,           'Death Lord - Within 0-30 Range - Cast Aura of Agony (Naxx40)'),
-(16861, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Death Lord - Within 0-5 Range - Cast Cleave (Naxx40)'),
-(16861, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Death Lord - Within 0-30 Range - Cast Death Coil (Naxx40)');
+(16157, 0, 0, 0, 0, 0, 100, 0, 2000, 3000, 3000, 4000, 0, 0, 14, 0, 100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Doom Touched Warrior - In Combat - Periodically Wipe Aggro'),
+(16158, 0, 0, 0, 0, 0, 100, 0, 2000, 3000, 3000, 4000, 0, 0, 14, 0, 100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Death Touched Warrior - In Combat - Periodically Wipe Aggro'),
+(16448, 0, 0, 0, 0, 0, 100, 0, 6000, 12000, 9000, 16000, 0, 0, 11, 30121, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Plagued Deathhound - Within 0-5 Range - Cast Forceful Howl'),
+(16451, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,            'Deathknight Vindicator - Within 0-30 Range - Cast Aura of Agony'),
+(16451, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Deathknight Vindicator - Within 0-5 Range - Cast Cleave'),
+(16451, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,       'Deathknight Vindicator - Within 0-30 Range - Cast Death Coil'),
+(16452, 0, 0, 0, 9, 0, 90, 0, 2000, 2000, 15000, 15000, 0, 20, 11, 30092, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight Guardian - Within 0-20 Range - Cast Blast Wave'),
+(16452, 0, 1, 0, 0, 0, 90, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 30091, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight Guardian - Within 0-30 Range - Cast Flamestrike'),
+(16452, 0, 2, 0, 106, 0, 90, 0, 8000, 8000, 15000, 15000, 0, 10, 11, 30094, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Necro Knight Guardian - Within 0-10 Range - Cast Frost Nova'),
+(16452, 0, 3, 0, 106, 0, 90, 0, 11000, 11000, 15000, 15000, 0, 15, 11, 30096, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Necro Knight Guardian - Within 0-15 Range - Cast Arcane Explosion'),
+(16452, 0, 4, 0, 0, 0, 90, 0, 12000, 12000, 15000, 15000, 0, 0, 11, 28391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Necro Knight Guardian - In Combat - Cast Blink'),
+(16452, 0, 5, 0, 9, 0, 90, 0, 14000, 14000, 15000, 15000, 0, 10, 11, 30095, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Necro Knight Guardian - Within 0-10 Range - Cast Cone of Cold'),
+(16453, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 20000, 40000, 0, 0, 11, 28431, 0, 0, 0, 0, 0, 5, 40, 1, 0, 0, 0, 0, 0, 0,   'Necro Stalker - In Combat - Cast Poison Charge (Naxx 40)'),
+(16697, 0, 0, 0, 60, 0, 100, 0, 0, 0, 2500, 2500, 0, 0, 11, 28865, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Void Zone - On Update - Cast Consumption'),
+(16697, 0, 1, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Void Zone - On Initialize - Set Reactstate Passive'),
+(16775, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28834, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Spirit of Mograine - In Combat - Cast Mark of Mograine'),
+(16776, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28833, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Spirit of Blaumeux - In Combat - Cast Mark of Blaumeux'),
+(16777, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28835, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Spirit of Zeliek   - In Combat - Cast Mark of Zeliek'),
+(16778, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 12000, 12000, 0, 0, 11, 28832, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Spirit of Korthazz - In Combat - Cast Mark of Korthazz'),
+(16861, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,            'Death Lord - Within 0-30 Range - Cast Aura of Agony (Naxx40)'),
+(16861, 0, 1, 0, 9, 0, 95, 0, 1000, 1000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Death Lord - Within 0-5 Range - Cast Cleave (Naxx40)'),
+(16861, 0, 2, 0, 0, 0, 80, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 28412, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,       'Death Lord - Within 0-30 Range - Cast Death Coil (Naxx40)');
 
 
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` BETWEEN @CENTRY+10 AND @CENTRY+92;
@@ -144,16 +144,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+11, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 14000, 18000, 0, 15, 11, 30043, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Carrion Spinner - Within 0-15 Range - Cast Poison Spray (Naxx 40)'),
 (@CENTRY+11, 0, 1, 0, 0, 0, 100, 0, 9000, 16000, 18000, 21000, 0, 0, 11, 28434, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,      'Carrion Spinner - Within 0-40 Range - Cast Spider Web (Naxx 40)'),
 (@CENTRY+12, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 20000, 40000, 0, 0, 11, 28431, 0, 0, 0, 0, 0, 5, 40, 1, 0, 0, 0, 0, 0, 0,      'Venom Stalker - In Combat - Cast Poison Charge (Naxx 40)'),
-(@CENTRY+14, 0, 0, 0, 9, 0, 100, 0, 2000, 5000, 6000, 9000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,          'Crypt Reaver - Within 0-5 Range - Cast Cleave (Naxx 40)'),
+(@CENTRY+14, 0, 0, 0, 9, 0, 100, 0, 2000, 5000, 6000, 9000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Reaver - Within 0-5 Range - Cast Cleave (Naxx 40)'),
 (@CENTRY+14, 0, 1, 0, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crypt Reaver - Between 0-50% Health - Cast Frenzy (Naxx 40)'),
 (@CENTRY+14, 0, 2, 0, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Crypt Reaver - Between 0-50% Health - Say Line 0 (Naxx 40)'),
 (@CENTRY+15, 0, 0, 0, 0, 0, 75, 0, 2000, 2000, 4000, 4000, 0, 0, 11, 28614, 0, 0, 0, 0, 0, 5, 45, 0, 0, 0, 0, 0, 0, 0,          'Tomb Horror - Within 0-45 Range - Cast Pointy Spike (Naxx 40)'),
-(@CENTRY+15, 0, 1, 0, 9, 0, 75, 0, 5000, 5000, 8000, 8000, 0, 30, 11, 28615, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Tomb Horror - Within 0-30 Range - Cast Spike Volley (Naxx 40)'),
+(@CENTRY+15, 0, 1, 0, 0, 0, 75, 0, 5000, 5000, 8000, 8000, 0, 0, 11, 28615, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Tomb Horror - In Combat - Cast Spike Volley (Naxx 40)'),
 (@CENTRY+16, 0, 0, 0, 9, 0, 75, 0, 3000, 3000, 5000, 5000, 0, 5, 11, 28447, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Naxxramas Cultist - Within 0-5 Range - Cast Shadow Burst (Naxx 40)'),
 (@CENTRY+17, 0, 0, 0, 106, 0, 100, 0, 2000, 2000, 5000, 5000, 0, 20, 11, 28450, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Naxxramas Acolyte - Within 0-20 Range - Cast Arcane Explosion (Naxx 40)'),
-(@CENTRY+17, 0, 1, 0, 9, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 30, 11, 28448, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Naxxramas Acolyte - Within 0-30 Range - Cast Shadow Bolt Volley (Naxx 40)'),
+(@CENTRY+17, 0, 1, 0, 0, 0, 100, 0, 4000, 4000, 6000, 6000, 0, 0, 11, 28448, 0, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,        'Naxxramas Acolyte - Within 0-30 Range - Cast Shadow Bolt Volley (Naxx 40)'),
 (@CENTRY+21, 0, 0, 0, 9, 0, 100, 0, 4800, 10700, 14000, 19000, 0, 15, 11, 60960, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Patchwork Golem - Within 0-15 Range - Cast War Stomp (Naxx 40)'),           -- using 60960 for 5 second duration
-(@CENTRY+21, 0, 1, 0, 9, 0, 100, 0, 5000, 9300, 15200, 15200, 0, 5, 11, 27794, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Patchwork Golem - Within 0-5 Range - Cast Cleave (Naxx 40)'),
+(@CENTRY+21, 0, 1, 0, 0, 0, 100, 0, 5000, 9300, 15200, 15200, 0, 0, 11, 27794, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Patchwork Golem - In Combat - Cast Cleave (Naxx 40)'),
 (@CENTRY+21, 0, 2, 0, 12, 0, 100, 0, 0, 20, 35000, 43000, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Patchwork Golem - On target HP 0-20% - Cast Execute (Naxx 40)'),
 (@CENTRY+22, 0, 0, 0, 0, 0, 100, 0, 3600, 6800, 13700, 19700, 0, 0, 218, 27807, 0, 1374, 249, 26, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Bile Retcher  - In Combat - Custom Cast Bile Vomit (Naxx 40)'),             -- reduced from ~5k instant, ~1200 dot to ~1500 instant, 250 dot
 (@CENTRY+23, 0, 0, 0, 0, 0, 100, 0, 7600, 17300, 6000, 13300, 0, 0, 218, 28301, 0, 1062, 0, 0, 0, 5, 0, 0, 1, 0, 0, 0, 0, 0,    'Mad Scientist - In Combat - Custom Cast Mana Burn (Naxx 40)'),              -- reduced from ~3.5k to ~1.5k
@@ -162,19 +162,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+24, 0, 1, 0, 0, 0, 100, 0, 6400, 10000, 16900, 18500, 0, 0, 11, 90005, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Living Monstrosity - In Combat - Cast Lightning Totem (Naxx 40)'),
 (@CENTRY+25, 0, 0, 0, 0, 0, 100, 0, 1600, 2800, 7700, 11900, 0, 0, 218, 28310, 0, 554, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,      'Surgical Assistant - In Combat - Custom Cast Mind Flay (Naxx 40)'),         -- reduced from 1.5k to 600 per tick
 (@CENTRY+26, 0, 0, 0, 60, 0, 100, 0, 2000, 2000, 2000, 2000, 0, 0, 11, 28322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Embalming Slime - Cast Embalming Cloud (Naxx 40)'),
-(@CENTRY+27, 0, 0, 0, 9, 0, 100, 0, 5100, 10400, 18800, 21300, 0, 15, 11, 28405, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Stitched Spewer - Within 0-15 Range - Cast target Knockback (Naxx 40)'),
+(@CENTRY+27, 0, 0, 0, 106, 0, 100, 0, 5100, 10400, 18800, 21300, 0, 15, 11, 28405, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Stitched Spewer - Within 0-15 Range - Cast target Knockback (Naxx 40)'),
 (@CENTRY+27, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 54356, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stitched Giant - Between 0-30% Health - Cast Unstoppable Enrage (Naxx 40)'),
 (@CENTRY+29, 0, 0, 0, 0, 0, 100, 0, 1900, 3000, 6000, 7300, 0, 0, 11, 27891, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,         'Sludge Belcher - Within 0-20 Range - Cast Acidic Sludge (Naxx 40)'),
 (@CENTRY+29, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28362, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Sludge Belcher - On Reset - Cast Disease Cloud (Naxx 40)'),
-(@CENTRY+30, 0, 0, 0, 9, 0, 100, 0, 0, 0, 3000, 3000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Plague Beast - Within 0-10 Range - Cast Trample (Naxx40)'),
+(@CENTRY+30, 0, 0, 0, 106, 0, 100, 0, 0, 0, 3000, 3000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Plague Beast - Within 0-10 Range - Cast Trample (Naxx40)'),
 (@CENTRY+31, 0, 0, 0, 9, 0, 100, 0, 1000, 1000, 11000, 17000, 8, 25, 11, 30112, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Frenzied Bat - Within 8-25 Range - Cast Frenzied Dive (Naxx 40)'),
 (@CENTRY+32, 0, 0, 0, 0, 0, 85, 0, 9000, 9000, 40000, 40000, 0, 0, 11, 30113, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,        'Plagued Bat - Within 0-5 Range - Cast Putrid Bite (Naxx40)'),
 (@CENTRY+33, 0, 0, 0, 76, 0, 100, 0, 0, 181202, 54, 1500, 0, 0, 41, 200, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Diseased Maggot - On Distance 54y To GameObject - Despawn In 200 ms'),
 (@CENTRY+34, 0, 0, 0, 76, 0, 100, 0, 0, 181202, 54, 1500, 0, 0, 41, 200, 10, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Rotten Maggot   - On Distance 54y To GameObject - Despawn In 200 ms'),
 (@CENTRY+41, 0, 0, 0, 9, 0, 100, 0, 2000, 2000, 20000, 25000, 8, 25, 11, 27577, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Skeletal Steed - Within 8-25 Range - Cast Intercept (Naxx 40)'),
-(@CENTRY+41, 0, 1, 0, 9, 0, 90, 0, 2000, 2000, 5000, 5000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Skeletal Steed - Within 0-10 Range - Cast Trample (Naxx 40)'),
+(@CENTRY+41, 0, 1, 0, 106, 0, 90, 0, 2000, 2000, 5000, 5000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Skeletal Steed - Within 0-10 Range - Cast Trample (Naxx 40)'),
 (@CENTRY+48, 0, 0, 0, 106, 0, 100, 0, 1000, 1000, 5000, 5000, 0, 8, 11, 28335, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Death Knight Captain - Within 0-8 Range - Cast Whirlwind'),
-(@CENTRY+49, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 8000, 0, 10, 11, 19134, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,               'Death Knight - Within 0-10 Range - Cast Frightening Shout'),
+(@CENTRY+49, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 8000, 0, 10, 11, 19134, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,              'Death Knight - Within 0-10 Range - Cast Frightening Shout'),
 (@CENTRY+49, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 7000, 0, 20, 11, 28350, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Death Knight - Within 0-20 Range - Cast Veil of Darkness'),
 (@CENTRY+54, 0, 0, 0, 0, 0, 100, 0, 5000, 5000, 5000, 5000, 0, 0, 14, 0, 100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Dark Touched Warrior - In Combat - Periodically Wipe Aggro'),
 (@CENTRY+55, 0, 0, 0, 0, 0, 90, 0, 0, 0, 8000, 8000, 0, 0, 11, 28413, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,                'Deathknight Cavalier - Within 0-30 Range - Cast Aura of Agony'),
@@ -188,10 +188,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+57, 0, 2, 0, 0, 1, 100, 0, 250, 500, 13200, 18500, 0, 0, 11, 29883, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Necro Knight - In Combat - Cast Blink (Naxx 40)'),
 (@CENTRY+57, 0, 3, 0, 106, 2, 100, 0, 7600, 8100, 15000, 20000, 0, 20, 11, 30092, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight - Within 0-20 Range - Cast Blast Wave (Naxx 40)'),
 (@CENTRY+57, 0, 4, 0, 0, 2, 100, 0, 1800, 8900, 9600, 15700, 0, 0, 11, 30091, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,        'Necro Knight - Within 0-30 Range - Cast Flamestrike (Naxx 40)'),
-(@CENTRY+57, 0, 5, 0, 106, 4, 100, 0, 3000, 6000, 25000, 35000, 0, 10, 11, 30094, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight - Within 0-10 Range - Cast Frost Nova (Naxx 40)'),
-(@CENTRY+57, 0, 6, 0, 9, 4, 100, 0, 17000, 21000, 17000, 23000, 0, 10, 11, 30095, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight - Within 0-10 Range - Cast Cone of Cold (Naxx 40)'),
-(@CENTRY+58, 0, 0, 0, 9, 0, 100, 0, 3000, 3000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Bony Construct - Within 0-5 Range - Cast Cleave'),
-(@CENTRY+58, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 7000, 0, 15, 11, 25322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bony Construct - Within 0-15 - Cast Sweeping Slam'),
+(@CENTRY+57, 0, 5, 0, 106, 3, 100, 0, 3000, 6000, 25000, 35000, 0, 10, 11, 30094, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight - Within 0-10 Range - Cast Frost Nova (Naxx 40)'),
+(@CENTRY+57, 0, 6, 0, 9, 3, 100, 0, 17000, 21000, 17000, 23000, 0, 10, 11, 30095, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight - Within 0-10 Range - Cast Cone of Cold (Naxx 40)'),
+(@CENTRY+58, 0, 1, 0, 9, 0, 100, 0, 3000, 3000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Bony Construct - Within 0-5 Range - Cast Cleave'),
+(@CENTRY+58, 0, 2, 0, 9, 0, 100, 0, 0, 0, 7000, 7000, 0, 15, 11, 25322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bony Construct - Within 0-15 - Cast Sweeping Slam'),
 (@CENTRY+59, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 5000, 7000, 0, 0, 218, 29325, 32, 0, 121, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,      'Stoneskin Gargoyle - In Combat - Cast Acid Volley (Naxx 40)'),              -- Acid Volley reduced from 231 to 121
 (@CENTRY+59, 0, 1, 0, 2, 0, 100, 0, 0, 30, 60000, 60000, 0, 0, 11, 28995, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Stoneskin Gargoyle - At 30% HP - Cast Stoneskin (Naxx 40)'),
 (@CENTRY+59, 0, 2, 0, 1, 0, 100, 512, 1000, 1000, 0, 0, 0, 0, 90, 9, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stoneskin Gargoyle - On Update OOC - Set Unit Field Bytes 1 \'UNIT_STAND_STATE_SUBMERGED\' (Controlled via conditions - only when not roaming) (Naxx 40)'),
@@ -201,7 +201,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+60, 0, 1, 0, 9, 0, 100, 0, 1000, 1000, 2000, 2000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Skeletal Smith - Within 0-5 Range - Cast Sunder Armor'),
 (@CENTRY+60, 0, 2, 0, 106, 0, 90, 0, 2000, 2000, 10000, 10000, 0, 10, 11, 23931, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Skeletal Smith - Within 0-10 Range - Cast Thunderclap'),
 (@CENTRY+61, 0, 0, 0, 106, 0, 100, 0, 2200, 8600, 8800, 13300, 0, 8, 11, 24236, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Unholy Axe - Within 0-8 - Cast Whirlwind (Naxx 40)'),
-(@CENTRY+61, 0, 1, 0, 9, 0, 100, 0, 6100, 13100, 20100, 20100, 0, 5, 11, 16856, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Unholy Axe - Within 0-5 Range - Cast Mortal Strike (Naxx 40)'),
+(@CENTRY+61, 0, 1, 0, 0, 0, 100, 0, 6100, 13100, 20100, 20100, 0, 0, 11, 16856, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Unholy Axe - In Combat - Cast Mortal Strike (Naxx 40)'),
 (@CENTRY+62, 0, 0, 0, 106, 0, 100, 0, 2400, 8400, 8400, 16100, 0, 20, 11, 28450, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Unholy Staff - Within 0-20 - Cast Arcane Explosion (Naxx 40)'),
 (@CENTRY+62, 0, 1, 0, 106, 0, 100, 0, 6100, 10800, 11000, 15000, 0, 10, 11, 29849, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Unholy Staff - Within 0-10 Range - Cast Frost Nova (Naxx 40)'),
 (@CENTRY+62, 0, 2, 0, 0, 0, 100, 0, 4800, 6200, 14800, 14900, 0, 0, 11, 29848, 0, 0, 0, 0, 0, 6, 45, 0, 0, 0, 0, 0, 0, 0,       'Unholy Staff - In Combat - Cast Polymorph (Naxx 40)'),
@@ -2460,7 +2460,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (304800, 23018, 0, 0.0, 0, 1, 1, 1),
 (304800, 23219, 0, 0.0, 0, 1, 1, 1);
 
-DELETE FROM `creature` WHERE `guid` BETWEEN @GUID AND @GUID+1059;
+DELETE FROM `creature` WHERE `guid` BETWEEN @GUID AND @GUID+1065;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
@@ -2524,12 +2524,12 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@GUID+57, @CENTRY+31, 0, 0, 533, 0, 0, 4, 1, 0, 2796.73, -3566.92, 252.077, 4.92366, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 (@GUID+58, @CENTRY+31, 0, 0, 533, 0, 0, 4, 1, 0, 2799.17, -3611.1, 255.91, 4.3298, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 (@GUID+59, @CENTRY+31, 0, 0, 533, 0, 0, 4, 1, 0, 2659.54, -3605.86, 262.47, 5.67471, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
-(@GUID+60, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2845.06, -3296.36, 298.124, 5.63452, 3600, 5, 0, 65165, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
-(@GUID+61, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2839.23, -3337.89, 300.911, 0.349066, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@GUID+62, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2832.53, -3295.22, 298.121, 3.05074, 3600, 5, 0, 65165, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
-(@GUID+63, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2835.76, -3331.32, 299.364, 4.84961, 3600, 5, 0, 65165, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
-(@GUID+64, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2831.77, -3307.42, 298.659, 0.087266, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@GUID+65, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2827.68, -3314.67, 300.318, 0.383972, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@GUID+60, @CENTRY+31, 0, 0, 533, 4, 0, 4, 1, 0, 2814.13, -3573.0, 253.391, 0.676703, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@GUID+61, @CENTRY+31, 0, 0, 533, 4, 0, 4, 1, 0, 2696.57, -3624.93, 262.695, 5.74449, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@GUID+62, @CENTRY+31, 0, 0, 533, 4, 0, 4, 1, 0, 2698.5, -3585.11, 260.779, 4.6984, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@GUID+63, @CENTRY+31, 0, 0, 533, 4, 0, 4, 1, 0, 2799.9, -3621.68, 256.059, 1.50074, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@GUID+64, @CENTRY+31, 0, 0, 533, 4, 0, 4, 1, 0, 2827.71, -3545.17, 253.835, 1.06708, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@GUID+65, @CENTRY+31, 0, 0, 533, 4, 0, 4, 1, 0, 2819.89, -3611.05, 258.76, 3.07478, 30, 3,0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 (@GUID+66, @CENTRY+31, 0, 0, 533, 0, 0, 4, 1, 0, 2690.14, -3610.98, 262.288, 3.522, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 (@GUID+67, @CENTRY+31, 0, 0, 533, 0, 0, 4, 1, 0, 2672.38, -3626.03, 266.216, 2.23042, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 (@GUID+68, @CENTRY+31, 0, 0, 533, 0, 0, 4, 1, 0, 2798.31, -3550.75, 250.488, 5.30268, 30, 3, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
@@ -3518,14 +3518,19 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@GUID+1056, @CENTRY+90, 0, 0, 533, 0, 0, 4, 1, 0, 2791.84, -3762.35, 274.983, 3.35103, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@GUID+1057, @CENTRY+90, 0, 0, 533, 0, 0, 4, 1, 0, 2877.97, -3761.82, 274.983, 3.64774, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@GUID+1058, @CENTRY+90, 0, 0, 533, 0, 0, 4, 1, 0, 2770.1, -3782.59, 274.983, 1.02974, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(@GUID+1059, @CENTRY+90, 0, 0, 533, 0, 0, 4, 1, 0, 2846.52, -3789.07, 274.983, 2.23402, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+(@GUID+1059, @CENTRY+90, 0, 0, 533, 0, 0, 4, 1, 0, 2846.52, -3789.07, 274.983, 2.23402, 3600, 0, 0, 13033, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@GUID+1060, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2845.06, -3296.36, 298.124, 5.63452, 3600, 0.0, 0, 65165, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(@GUID+1061, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2839.23, -3337.89, 300.911, 0.349066, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@GUID+1062, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2832.53, -3295.22, 298.121, 3.05074, 3600, 5.0, 0, 65165, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(@GUID+1063, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2835.76, -3331.32, 299.364, 4.84961, 3600, 0.0, 0, 65165, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(@GUID+1064, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2831.77, -3307.42, 298.659, 0.087266, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@GUID+1065, @CENTRY+58, 0, 0, 533, 0, 0, 4, 1, 0, 2827.68, -3314.67, 300.318, 0.383972, 3600, 0.0, 0, 65165, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
-
-DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+600,@WPID+630,@WPID+1020,@WPID+1030,@WPID+1080,@WPID+1090,@WPID+1100,@WPID+1110,@WPID+1120,@WPID+1520,@WPID+1530,@WPID+1780,@WPID+1830,@WPID+2200,@WPID+2300,
+DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+1020,@WPID+1030,@WPID+1080,@WPID+1090,@WPID+1100,@WPID+1110,@WPID+1120,@WPID+1520,@WPID+1530,@WPID+1780,@WPID+1830,@WPID+2200,@WPID+2300,
 @WPID+2330,@WPID+2340,@WPID+2410,@WPID+2450,@WPID+2480,@WPID+2530,@WPID+2570,@WPID+2590,@WPID+2620,@WPID+2630,@WPID+2670,@WPID+2810,@WPID+2900,@WPID+3040,@WPID+3200,@WPID+3210,@WPID+3220,@WPID+3230,@WPID+3240,
 @WPID+3250,@WPID+3390,@WPID+3420,@WPID+3450,@WPID+3740,@WPID+3870,@WPID+3940,@WPID+3980,@WPID+4060,@WPID+4120,@WPID+4150,@WPID+4200,@WPID+4240,@WPID+4280,@WPID+4340,@WPID+4380,@WPID+4460,@WPID+4510,@WPID+4550,
 @WPID+4600,@WPID+4640,@WPID+4680,@WPID+4730,@WPID+4780,@WPID+4820,@WPID+4870,@WPID+4910,@WPID+4950,@WPID+5000,@WPID+5050,@WPID+5090,@WPID+5130,@WPID+5180,@WPID+5220,@WPID+5810,@WPID+5830,@WPID+5840,@WPID+5870,
-@WPID+5880,@WPID+7580,@WPID+7590,@WPID+7730,@WPID+7910,@WPID+8450,@WPID+8470,@WPID+8490,@WPID+8580,@WPID+8750,@WPID+8760,@WPID+8960,@WPID+9060,@WPID+9070,@WPID+9490,@WPID+9500,@WPID+9810);
+@WPID+5880,@WPID+7580,@WPID+7590,@WPID+7730,@WPID+7910,@WPID+8450,@WPID+8470,@WPID+8490,@WPID+8580,@WPID+8750,@WPID+8760,@WPID+8960,@WPID+9060,@WPID+9070,@WPID+9490,@WPID+9500,@WPID+9810, @WPID+10600, @WPID+10630);
 
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`) VALUES
 (@WPID+1020, 1, 2872.72, -3489.73, 297.62, 0.0, 0),
@@ -4385,7 +4390,22 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (@WPID+9810, 6, 2750.41, -3879.93, 294.66, 5.90008, 0),
 (@WPID+9810, 7, 2772.35, -3888.77, 290.34, 5.90008, 0),
 (@WPID+9810, 8, 2805.41, -3899.3, 274.14, 0.204368, 0),
-(@WPID+9810, 9, 2837.89, -3859.9, 267.593, 1.12564, 0);
+(@WPID+9810, 9, 2837.89, -3859.9, 267.593, 1.12564, 0),
+(@WPID+10600, 1, 2847.82, -3308.78, 298.147, NULL, 0),
+(@WPID+10600, 2, 2838.80, -3321.94, 298.152, NULL, 0),
+(@WPID+10600, 3, 2847.82, -3308.78, 298.147, NULL, 0),
+(@WPID+10600, 4, 2845.06, -3296.36, 298.124, NULL, 0),
+(@WPID+10600, 5, 2832.53, -3295.22, 298.150, NULL, 0),
+(@WPID+10600, 6, 2845.06, -3296.36, 298.124, NULL, 0),
+(@WPID+10630, 1, 2830.41, -3329.09, 304.837, NULL, 0),
+(@WPID+10630, 2, 2835.76, -3331.32, 299.364, NULL, 0),
+(@WPID+10630, 3, 2842.91, -3323.56, 298.155, NULL, 0),
+(@WPID+10630, 4, 2852.52, -3333.61, 298.146, NULL, 0),
+(@WPID+10630, 5, 2854.87, -3350.62, 298.146, NULL, 0),
+(@WPID+10630, 6, 2852.52, -3333.61, 298.146, NULL, 0),
+(@WPID+10630, 7, 2842.91, -3323.56, 298.155, NULL, 0),
+(@WPID+10630, 8, 2835.76, -3331.32, 299.364, NULL, 0);
+
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN 
 (@GUID+0, @GUID+2, @GUID+4, @GUID+6, @GUID+8, @GUID+10, @GUID+12, @GUID+17, @GUID+20, @GUID+21, @GUID+31, @GUID+34, @GUID+35, @GUID+52, @GUID+57, @GUID+59, @GUID+77, @GUID+79, @GUID+84, @GUID+91, @GUID+96, @GUID+99,
@@ -4415,8 +4435,11 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (@GUID+20, @GUID+25, 0.0, 0.0, 515, 0, 0),
 (@GUID+20, @GUID+29, 0.0, 0.0, 515, 0, 0),
 (@GUID+20, @GUID+56, 0.0, 0.0, 515, 0, 0),
+(@GUID+20, @GUID+62, 0.0, 0.0, 515, 0, 0),
 (@GUID+21, @GUID+26, 0.0, 0.0, 515, 0, 0),
 (@GUID+21, @GUID+58, 0.0, 0.0, 515, 0, 0),
+(@GUID+21, @GUID+63, 0.0, 0.0, 515, 0, 0),
+(@GUID+21, @GUID+65, 0.0, 0.0, 515, 0, 0),
 (@GUID+21, @GUID+70, 0.0, 0.0, 515, 0, 0),
 (@GUID+31, @GUID+38, 0.0, 0.0, 515, 0, 0),
 (@GUID+31, @GUID+44, 0.0, 0.0, 515, 0, 0),
@@ -4440,9 +4463,12 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (@GUID+52, @GUID+54, 0.0, 0.0, 515, 0, 0),
 (@GUID+57, @GUID+24, 0.0, 0.0, 515, 0, 0),
 (@GUID+57, @GUID+28, 0.0, 0.0, 515, 0, 0),
+(@GUID+57, @GUID+60, 0.0, 0.0, 515, 0, 0),
+(@GUID+57, @GUID+64, 0.0, 0.0, 515, 0, 0),
 (@GUID+57, @GUID+68, 0.0, 0.0, 515, 0, 0),
 (@GUID+59, @GUID+22, 0.0, 0.0, 515, 0, 0),
 (@GUID+59, @GUID+27, 0.0, 0.0, 515, 0, 0),
+(@GUID+59, @GUID+61, 0.0, 0.0, 515, 0, 0),
 (@GUID+59, @GUID+66, 0.0, 0.0, 515, 0, 0),
 (@GUID+59, @GUID+67, 0.0, 0.0, 515, 0, 0),
 (@GUID+77, @GUID+32, 0.0, 0.0, 515, 0, 0),
@@ -5338,7 +5364,7 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` IN (@CENTRY+5,@CENTRY+7,@CENTRY+36,@CENTRY+37,@CENTRY+38,@CENTRY+39,@CENTRY+40,@CENTRY+44,@CENTRY+45,@CENTRY+48,@CENTRY+49,@CENTRY+50,
 @CENTRY+52,@CENTRY+53,@CENTRY+54,16157,16158,@CENTRY+55,@CENTRY+57,@CENTRY+60,@CENTRY+61,@CENTRY+62,@CENTRY+63,@CENTRY+70,16451,16452,@CENTRY+80,@CENTRY+84,16861,@CENTRY+85,@CENTRY+86,@CENTRY+87);
 
-DELETE FROM `creature_addon` WHERE `guid` BETWEEN @GUID AND @GUID+1043;
+DELETE FROM `creature_addon` WHERE `guid` BETWEEN @GUID AND @GUID+1063;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES
 (@GUID+102, @WPID+1020, 0, 0, 0, 0, NULL),
 (@GUID+103, @WPID+1030, 0, 0, 0, 0, NULL),
@@ -5447,7 +5473,9 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (@GUID+907, @WPID+9070, 0, 0, 0, 0, NULL),
 (@GUID+949, @WPID+9490, 0, 0, 0, 0, NULL),
 (@GUID+950, @WPID+9500, 0, 0, 0, 0, NULL),
-(@GUID+981, @WPID+9810, 0, 0, 0, 0, NULL);
+(@GUID+981, @WPID+9810, 0, 0, 0, 0, NULL),
+(@GUID+1060, @WPID+10600, 0, 0, 1, 0, NULL),
+(@GUID+1063, @WPID+10630, 0, 0, 1, 0, NULL);
 
 DELETE FROM `creature_template_model` WHERE (`CreatureID` BETWEEN @CENTRY AND @CENTRY+89) OR (`CreatureID` IN (@CENTRY+90, @CENTRY+91, @CENTRY+92)) OR (`CreatureID` = @CENTRY+97);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
