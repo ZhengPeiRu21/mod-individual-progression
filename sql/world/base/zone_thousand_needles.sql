@@ -11,8 +11,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (4131, 0, 0, 0, 9, 0, 100, 1, 4000, 7000, 22000, 25000, 0, 5, 11, 6016, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Silithid Invader - Within 0-5 Range - Cast Pierce Armor'),
 (4131, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 16000, 0, 5, 11, 8137, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Silithid Invader - Within 0-5 Range - Cast Silithid Pox'),
-(4133, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 30, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Silithid Hive Drone - On Aggro - Call For Help (No Repeat)'),
-(4133, 0, 1, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 39, 30, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Silithid Hive Drone - Between 0-20% Health - Call For Help (No Repeat)'),
+(4133, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 40, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Silithid Hive Drone - On Aggro - Call For Help (No Repeat)'),
+(4133, 0, 1, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 39, 40, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Silithid Hive Drone - Between 0-20% Health - Call For Help (No Repeat)'),
 (4139, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 11000, 17000, 0, 0, 11, 7399, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Scorpid Terror - Within 0-5 Range - Cast Terrify'),
 (4140, 0, 0, 0, 9, 0, 100, 0, 3500, 5500, 6500, 9500, 0, 5, 11, 40505, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scorpid Reaver - Within 0-5 Range - Cast Cleave'),
 (4142, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7273, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Sparkleshell Tortoise - Out of Combat - Cast Lightning Hide (No Repeat)'),
