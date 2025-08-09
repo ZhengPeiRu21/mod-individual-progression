@@ -190,8 +190,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@CENTRY+57, 0, 4, 0, 0, 2, 100, 0, 1800, 8900, 9600, 15700, 0, 0, 11, 30091, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,        'Necro Knight - Within 0-30 Range - Cast Flamestrike (Naxx 40)'),
 (@CENTRY+57, 0, 5, 0, 106, 3, 100, 0, 3000, 6000, 25000, 35000, 0, 10, 11, 30094, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight - Within 0-10 Range - Cast Frost Nova (Naxx 40)'),
 (@CENTRY+57, 0, 6, 0, 9, 3, 100, 0, 17000, 21000, 17000, 23000, 0, 10, 11, 30095, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Necro Knight - Within 0-10 Range - Cast Cone of Cold (Naxx 40)'),
-(@CENTRY+58, 0, 1, 0, 9, 0, 100, 0, 3000, 3000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Bony Construct - Within 0-5 Range - Cast Cleave'),
-(@CENTRY+58, 0, 2, 0, 9, 0, 100, 0, 0, 0, 7000, 7000, 0, 15, 11, 25322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bony Construct - Within 0-15 - Cast Sweeping Slam'),
+(@CENTRY+58, 0, 0, 0, 9, 0, 100, 0, 3000, 3000, 4000, 4000, 0, 5, 11, 19632, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Bony Construct - Within 0-5 Range - Cast Cleave'),
+(@CENTRY+58, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 7000, 0, 15, 11, 25322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Bony Construct - Within 0-15 - Cast Sweeping Slam'),
 (@CENTRY+59, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 5000, 7000, 0, 0, 218, 29325, 32, 0, 121, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,      'Stoneskin Gargoyle - In Combat - Cast Acid Volley (Naxx 40)'),              -- Acid Volley reduced from 231 to 121
 (@CENTRY+59, 0, 1, 0, 2, 0, 100, 0, 0, 30, 60000, 60000, 0, 0, 11, 28995, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Stoneskin Gargoyle - At 30% HP - Cast Stoneskin (Naxx 40)'),
 (@CENTRY+59, 0, 2, 0, 1, 0, 100, 512, 1000, 1000, 0, 0, 0, 0, 90, 9, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stoneskin Gargoyle - On Update OOC - Set Unit Field Bytes 1 \'UNIT_STAND_STATE_SUBMERGED\' (Controlled via conditions - only when not roaming) (Naxx 40)'),
