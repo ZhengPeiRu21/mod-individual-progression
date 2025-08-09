@@ -1,9 +1,9 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2581);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2580, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2604, 2607, 2793, 4479, 4480, 4481);
+(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2604, 2607, 2793, 4479, 4480, 4481);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2604, 2607, 2793, 4479, 4480, 4481);
+(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2604, 2607, 2793, 4479, 4480, 4481);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -52,10 +52,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2570, 0, 4, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,                 'Boulderfist Shaman - Just Summoned - Attack Start'),
 (2571, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Boulderfist Lord - On Aggro - Cast Devotion Aura'),
 (2571, 0, 1, 0, 0, 0, 100, 0, 11000, 17000, 21000, 37000, 0, 0, 11, 4955, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Boulderfist Lord - In Combat - Cast Fist of Stone'),
-(2573, 0, 0, 0, 25, 0, 100, 0, 1000, 1000, 0, 0, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Drywhisker Surveyor - On Reset - Cast Frost Armor'),
+(2573, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Drywhisker Surveyor - Out of Combat - Cast Frost Armor (No Repeat)'),
 (2573, 0, 1, 0, 0, 0, 100, 0, 0, 0, 3500, 6400, 0, 0, 11, 20822, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Drywhisker Surveyor - In Combat - Cast Frostbolt'),
 (2573, 0, 2, 0, 106, 0, 100, 0, 5100, 15000, 21000, 25000, 0, 10, 11, 865, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Drywhisker Surveyor - Within 0-10 Range - Cast Frost Nova'),
 (2573, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Drywhisker Surveyor - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2574, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Drywhisker Digger - On Reset - Cast Defensive Stance'),
+(2574, 0, 1, 0, 9, 0, 100, 0, 1700, 10300, 6000, 15400, 0, 5, 11, 8380, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Drywhisker Digger - Within 0-5 Range - Cast Sunder Armor'),
+(2574, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Drywhisker Digger - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2580, 0, 0, 0, 0, 0, 100, 0, 9000, 15000, 39000, 65000, 0, 0, 11, 8139, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Elder Mesa Buzzard - In Combat - Cast Fevered Fatigue'),
 (2582, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Dabyrie Laborer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2583, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 19000, 23000, 0, 0, 11, 2767, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Stromgarde Troll Hunter - In Combat - Cast Shadow Word: Pain'),
@@ -115,7 +118,14 @@ DELETE FROM `creature_addon` WHERE `guid` IN
 -- set drop rate of sigil of strom to 5%, was 100%
 UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 4440;
 
+-- Mote of Myzrael drop rate too high. should be 50%
+UPDATE `creature_loot_template` SET `Chance` = 50 WHERE `Item` = 4435;
+
+-- Raptor Heart drop rate too high. should be below 40% but real drop rate unknown
+UPDATE `creature_loot_template` SET `Chance` = 40 WHERE `Item` = 4513;
+
 -- Pendant of Myzrael should not be consumed on use
+UPDATE `item_template` SET `Material` = 4 WHERE `entry` = 4614;
 
 -- summoning the princess, quest 656, remove suggested player 2
 UPDATE `quest_template` SET `SuggestedGroupNum` = 0 WHERE `ID` = 656;
