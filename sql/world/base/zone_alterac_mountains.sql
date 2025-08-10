@@ -57,11 +57,38 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2422, 0, 3, 0, 9, 0, 100, 0, 6000, 8000, 9000, 32000, 0, 5, 11, 11428, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Glommus - Within 0-5 Range - Cast Knockdown');
 
 
+-- Jailor Borhuin, 2431, should have multiple spawn locations 
+-- https://www.youtube.com/watch?v=3fLlozCjyD0
+
+-- Baron Vardus, 2306, should have multiple spawn locations 
+-- https://www.youtube.com/watch?v=MgH-PCmxnUo - https://www.youtube.com/watch?v=ZLXbrYUfLtI - https://www.youtube.com/watch?v=Dk6V9prh2gk
+
+DELETE FROM `creature` WHERE `id1` IN (2306, 2431);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(16905, 2306, 0, 0, 0, 0, 0, 1, 1, 1, 1180.59, -555.904, 71.1468, 1.8822, 300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', 0, 0, NULL),
+(695010, 2306, 0, 0, 0, 0, 0, 1, 1, 1, 693.333, -905.125, 157.78, 2.69564, 300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL),
+(695011, 2306, 0, 0, 0, 0, 0, 1, 1, 1, 1107.99, -718.43, 71.5728, 1.84347, 300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL),
+(695012, 2306, 0, 0, 0, 0, 0, 1, 1, 1, 1001.61, -790.672, 108.606, 2.31075, 300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL),
+(17020, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 689.462, -984.645, 165.695, 5.43263, 300, 0, 0, 1536, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695014, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 750.559, -971.896, 167.587, 1.60003, 300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(695015, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 679.818, -897.818, 171.806, 4.8398, 300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 
+DELETE FROM `pool_creature` WHERE `pool_entry` BETWEEN 601001 AND 601007;
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(16905,  601008, 0, 'Baron Vardus'),
+(695010, 601008, 0, 'Baron Vardus'),
+(695011, 601008, 0, 'Baron Vardus'),
+(695012, 601008, 0, 'Baron Vardus'),
+(17020,  601009, 0, 'Jailor Borhuin'),
+(695014, 601009, 0, 'Jailor Borhuin'),
+(695015, 601009, 0, 'Jailor Borhuin');
 
+DELETE FROM `pool_template` WHERE `entry` IN (601008, 601009);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601008, 1, ''),
+(601009, 1, '');
 
 -- pooled solid chests, Strahnbrad, Alterac Mountains: 33193, 33206, 33207
 -- solid chest missing upstairs in Dandred's Fold main building
--- Jailor Borhuin, 2431, should have multiple spawn locations
--- Baron Vardus, 2306, should have multiple spawn locations
