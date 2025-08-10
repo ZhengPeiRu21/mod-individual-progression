@@ -30,9 +30,9 @@ UPDATE `gameobject_template_addon` SET `flags` = 34 WHERE `entry` = 104591; -- C
 
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4540, 4543, 6426, 6490);
+(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4293, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4306, 4540, 4543, 6426, 6490);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4540, 4543, 6426, 6490);
+(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4293, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4306, 4540, 4543, 6426, 6490);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -118,6 +118,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4292, 0, 1, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarlet Protector - In Combat - Cast Devotion Aura (No Repeat)'),
 (4292, 0, 2, 0, 14, 0, 100, 0, 1600, 20, 13000, 22000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Protector - Friendly Missing Health - Cast Holy Light'),
 (4292, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Protector - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4293, 0, 0, 0, 1, 0, 100, 0, 60000, 180000, 180000, 360000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Scryer - Out of Combat - Say Line 0'),
+(4293, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Scryer - On Aggro - Say Line 1'),
+(4293, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2100, 3200, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Scarlet Scryer - In Combat - Cast Shadow Bolt'),
+(4293, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Scryer - Between 0-15% Health - Flee For Assist'),
 (4294, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Sorcerer - On Aggro - Say Line 1'),
 (4294, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 18000, 21000, 0, 0, 11, 6146, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Sorcerer - In Combat - Cast Slow'),
 (4294, 0, 2, 0, 0, 0, 100, 0, 0, 1000, 3000, 3500, 0, 0, 11, 9672, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Scarlet Sorcerer - In Combat - Cast Frostbolt'),
@@ -168,6 +172,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4303, 0, 3, 4, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Abbot - Between 0-30% Health - Cast Frenzy (No Repeat)'),
 (4303, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Scarlet Abbot - On Frenzy - Say Line 2'),
 (4303, 0, 5, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Abbot - spellhit_target - AshbringerEvent'),
+(4306, 0, 0, 0, 1, 0, 100, 0, 60000, 180000, 180000, 360000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Torturer - Out of Combat - Say Line 0'),
+(4306, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Torturer - On Aggro - Say Line 1'),
+(4306, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Torturer - On Reset - Cast Immolate'),
+(4306, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Torturer - Between 0-15% Health - Flee For Assist'),
 (4540, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Monk - On Reset - Cast Thrash'),
 (4540, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Monk - On Aggro - Say Line 1'),
 (4540, 0, 2, 0, 105, 0, 100, 0, 3600, 12800, 3600, 12800, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Monk - Victim Casting - Cast Kick'),
@@ -188,9 +196,65 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6490, 0, 3, 0, 2, 0, 100, 0, 0, 50, 20000, 20000, 0, 0, 11, 9373, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Azshir the Sleepless - Between 0-50% Health - Cast Soul Siphon'),
 (6490, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Azshir the Sleepless - Between 0-15% Health - Flee For Assist (No Repeat)');
 
--- Scarlet Scryer missing?
 
-DELETE FROM `creature_text` WHERE `CreatureID` IN (4280, 4281, 4282, 4284, 4285);
+-- Scarlet Scryer (4293) missing in SM graveyard. they share spawns with Scarlet Torturer (4306)
+
+DELETE FROM `creature` WHERE `guid` BETWEEN 695001 AND 695007;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(695001, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1759.54, 1121.24, 7.49103, 4.75209, 86400, 0, 1, 2865, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(695002, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1784.03, 1118.32, 7.57362, 2.87979, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695003, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1755.47, 1146.65, 7.57362, 0,       86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695004, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1759.29, 1144.24, 7.57362, 3.14159, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695005, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1793.07, 1146.38, 7.57362, 5.37561, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695006, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1807.48, 1170.39, 6.90373, 4.95674, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695007, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1807.84, 1165.98, 6.90374, 1.51844, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `pool_template` WHERE `entry` BETWEEN 601001 AND 601007;
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601001, 1, ''),
+(601002, 1, ''),
+(601003, 1, ''),
+(601004, 1, ''),
+(601005, 1, ''),
+(601006, 1, ''),
+(601007, 1, '');
+
+DELETE FROM `pool_creature` WHERE `pool_entry` BETWEEN 601001 AND 601007;
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(27440,  601001, 0, 'Scarlet Torturer'),
+(695001, 601001, 0, 'Scarlet Scryer'),
+(27446,  601002, 0, 'Scarlet Torturer'),
+(695002, 601002, 0, 'Scarlet Scryer'),
+(27447,  601003, 0, 'Scarlet Torturer'),
+(695003, 601003, 0, 'Scarlet Scryer'),
+(27448,  601004, 0, 'Scarlet Torturer'),
+(695004, 601004, 0, 'Scarlet Scryer'),
+(39854,  601005, 0, 'Scarlet Torturer'),
+(695005, 601005, 0, 'Scarlet Scryer'),
+(39855,  601006, 0, 'Scarlet Torturer'),
+(695006, 601006, 0, 'Scarlet Scryer'),
+(39857,  601007, 0, 'Scarlet Torturer'),
+(695007, 601007, 0, 'Scarlet Scryer');
+
+DELETE FROM `creature_addon` WHERE `guid` = 695001;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(695001, 6950010, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `waypoint_data` WHERE `id` = 6950010;
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+(6950010, 1, 1759.54, 1121.24, 7.49103, NULL, 0, 0, 0, 100, 0),
+(6950010, 2, 1781.73, 1122.83, 7.49103, NULL, 0, 0, 0, 100, 0),
+(6950010, 3, 1782.84, 1160.14, 7.49103, NULL, 0, 0, 0, 100, 0),
+(6950010, 4, 1782.85, 1168.46, 6.82053, NULL, 0, 0, 0, 100, 0),
+(6950010, 5, 1800.01, 1168.24, 6.82053, NULL, 0, 0, 0, 100, 0),
+(6950010, 6, 1782.85, 1168.46, 6.82053, NULL, 0, 0, 0, 100, 0),
+(6950010, 7, 1782.84, 1160.14, 7.49102, NULL, 0, 0, 0, 100, 0),
+(6950010, 8, 1784.13, 1145.13, 7.49073, NULL, 0, 0, 0, 100, 0),
+(6950010, 9, 1760.54, 1141.73, 7.49073, NULL, 0, 0, 0, 100, 0);
+
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (4280, 4281, 4282, 4284, 4285, 4293, 4306);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 --
 (4280, 0, 0, 'You carry the taint of the Scourge. Prepare to enter the Twisting Nether.', 12, 7, 100, 0, 0, 0, 2625, 0,                 'Scarlet Preserver'),
@@ -212,4 +276,19 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (4285, 0, 0, 'You carry the taint of the Scourge. Prepare to enter the Twisting Nether.', 12, 7, 100, 0, 0, 0, 2625, 0,                 'Scarlet Disciple'),
 (4285, 0, 1, 'There is no escape for you. The Crusade shall destroy all who carry the Scourge\'s taint.', 12, 7, 100, 0, 0, 0, 2626, 0, 'Scarlet Disciple'),
 (4285, 0, 2, 'The Light condemns all who harbor evil. Now you will die!', 12, 7, 100, 0, 0, 0, 2627, 0,                                 'Scarlet Disciple'),
-(4285, 0, 3, 'The Scarlet Crusade shall smite the wicked and drive evil from these lands!', 12, 7, 100, 0, 0, 0, 2628, 0,               'Scarlet Disciple');
+(4285, 0, 3, 'The Scarlet Crusade shall smite the wicked and drive evil from these lands!', 12, 7, 100, 0, 0, 0, 2628, 0,               'Scarlet Disciple'),
+(4293, 0, 0, 'Confess and we shall set you free.', 12, 7, 100, 0, 0, 0, 2570, 0,                                                        'Scarlet Scryer'),
+(4293, 0, 1, 'You will talk eventually.  You might as well spill it now.', 12, 7, 100, 0, 0, 0, 2569, 0,                                'Scarlet Scryer'),
+(4293, 0, 2, 'What?  Oh no, I don\'t care what you have to say.  I just enjoy inflicting pain.', 14, 7, 100, 0, 0, 0, 2571, 0,          'Scarlet Scryer'),
+(4293, 0, 3, 'The Scarlet Crusade shall smite the wicked and drive evil from these lands!', 12, 7, 100, 0, 0, 0, 2628, 0,               'Scarlet Scryer'),
+(4293, 1, 1, 'The light condemns all who harbor evil. Now you will die!', 12, 7, 100, 0, 0, 0, 2570, 0,                                 'Scarlet Scryer'),
+(4293, 1, 2, 'There is no escape for you. The Crusade shall destroy all who carry the scourge\'s taint.', 12, 7, 100, 0, 0, 0, 0, 0,    'Scarlet Scryer'),
+(4293, 1, 3, 'You carry the taint of the scourge. Prepare to enter the twisting nether.', 12, 7, 100, 0, 0, 0, 0, 0,                    'Scarlet Scryer'),
+(4306, 0, 0, 'Confess and we shall set you free.', 12, 7, 100, 0, 0, 0, 2570, 0,                                                        'Scarlet Torturer'),
+(4306, 0, 1, 'You will talk eventually.  You might as well spill it now.', 12, 7, 100, 0, 0, 0, 2569, 0,                                'Scarlet Torturer'),
+(4306, 0, 2, 'What?  Oh no, I don\'t care what you have to say.  I just enjoy inflicting pain.', 14, 7, 100, 0, 0, 0, 2571, 0,          'Scarlet Torturer'),
+(4306, 0, 3, 'The Scarlet Crusade shall smite the wicked and drive evil from these lands!', 12, 7, 100, 0, 0, 0, 2628, 0,               'Scarlet Torturer'),
+(4306, 1, 1, 'The light condemns all who harbor evil. Now you will die!', 12, 7, 100, 0, 0, 0, 2570, 0,                                 'Scarlet Torturer'),
+(4306, 1, 2, 'There is no escape for you. The Crusade shall destroy all who carry the scourge\'s taint.', 12, 7, 100, 0, 0, 0, 0, 0,    'Scarlet Torturer'),
+(4306, 1, 3, 'You carry the taint of the scourge. Prepare to enter the twisting nether.', 12, 7, 100, 0, 0, 0, 0, 0,                    'Scarlet Torturer');
+
