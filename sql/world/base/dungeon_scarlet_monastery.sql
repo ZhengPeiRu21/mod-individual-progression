@@ -30,9 +30,9 @@ UPDATE `gameobject_template_addon` SET `flags` = 34 WHERE `entry` = 104591; -- C
 
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4293, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4306, 4540, 4543, 6426, 6490);
+(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4293, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4306, 4540, 4543, 6426, 6488, 6489, 6490);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4293, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4306, 4540, 4543, 6426, 6490);
+(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4293, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4306, 4540, 4543, 6426, 6488, 6489, 6490);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -190,6 +190,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4543, 0, 5, 0, 0, 0, 100, 0, 0, 16000, 16000, 60000, 0, 0, 11, 8053, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,     'Bloodmage Thalnos - Within 0-20 Range - Cast Flame Shock'),
 (4543, 0, 6, 0, 106, 0, 100, 0, 0, 9000, 9000, 12000, 0, 10, 11, 12470, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Bloodmage Thalnos - In Combat - Cast Fire Nova'),
 (6426, 0, 0, 0, 9, 0, 100, 0, 3000, 9000, 10000, 20000, 0, 20, 11, 7068, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Anguished Dead - Within 0-20 Range - Cast Veil of Shadows'),
+(6488, 0, 0, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Fallen Champion - On AI Init - Despawn'),
+(6488, 0, 1, 0, 9, 0, 100, 0, 5000, 8000, 6000, 14000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Fallen Champion - Within 0-5 Range - Cast Cleave'),
+(6488, 0, 2, 0, 12, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,                'Fallen Champion - Target Between 0-20% Health - Cast Execute (No Repeat)'),
+(6489, 0, 0, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Ironspine - On AI Init - Despawn'),
+(6489, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21007, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Ironspine - On Aggro - Cast Curse of Weakness'),
+(6489, 0, 2, 0, 9, 0, 100, 0, 2000, 3000, 25000, 25000, 0, 8, 11, 3815, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Ironspine - Within 0-8 Range - Cast Poison Cloud'),
 (6490, 0, 0, 0, 37, 0, 90, 0, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Azshir the Sleepless - On AI Init - Despawn'),
 (6490, 0, 1, 0, 0, 0, 100, 0, 7000, 11000, 70000, 70000, 0, 0, 11, 5137, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,  'Azshir the Sleepless - Within 0-5 Range - Cast Call of the Grave'),
 (6490, 0, 2, 0, 0, 0, 100, 0, 6000, 8000, 20000, 20000, 0, 0, 11, 7399, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Azshir the Sleepless - Within 0-5 Range - Cast Terrify'),
