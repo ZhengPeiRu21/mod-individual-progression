@@ -30,13 +30,43 @@ UPDATE `gameobject_template_addon` SET `flags` = 34 WHERE `entry` = 104591; -- C
 
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4295, 4296, 4297, 4298, 4540, 4543, 6426, 6490);
+(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4540, 4543, 6426, 6490);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4295, 4296, 4297, 4298, 4540, 4543, 6426, 6490);
+(3976, 4280, 4281, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 4291, 4292, 4294, 4295, 4296, 4297, 4298, 4299, 4300, 4301, 4302, 4303, 4540, 4543, 6426, 6490);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(3976, 0, 0, 0, 38, 0, 100, 0, 0, 1, 0, 0, 0, 0, 1, 6, 0, 1, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Commander Mograine - On Data Set 0 1 - Say Line 6'),
+(3976, 0, 1, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 8990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarlet Commander Mograine - In Combat - Cast Retribution Aura (No Repeat)'),
+(3976, 0, 2, 0, 0, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 34, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,               'Scarlet Commander Mograine - In Combat - Set Instance Data 1 to 1 (No Repeat)'),
+(3976, 0, 3, 0, 9, 0, 100, 0, 6000, 12000, 6000, 18000, 0, 5, 11, 14518, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Commander Mograine - In Combat - Cast Crusader Strike'),
+(3976, 0, 4, 0, 0, 0, 100, 0, 7000, 16000, 60000, 80000, 0, 0, 11, 5589, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,  'Scarlet Commander Mograine - In Combat - Cast Hammer of Justice'),
+(3976, 0, 5, 6, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Commander Mograine - On Respawn - Set Active Off'),
+(3976, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 33554432, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Scarlet Commander Mograine - On Respawn - Remove Flags Not Selectable'),
+(3976, 0, 7, 8, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Scarlet Commander Mograine - On Respawn - Set Reactstate Aggressive'),
+(3976, 0, 8, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 91, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Commander Mograine - On Respawn - Remove FlagStandstate Dead'),
+(3976, 0, 9, 10, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 42, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Commander Mograine - On Aggro - Set Invincibility Hp 1'),
+(3976, 0, 10, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Commander Mograine - On Aggro - Say Line 0'),
+(3976, 0, 11, 12, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 212, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarlet Commander Mograine - On Evade - Stop motion (StopMoving: 0, MovementExpired: 0)'),
+(3976, 0, 12, 13, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 96, 32, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Commander Mograine - On Evade - Remove Dynamic Flags Dead'),
+(3976, 0, 13, 14, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 34, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarlet Commander Mograine - On Evade - Set Instance Data 1 to 2'),
+(3976, 0, 14, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 33554432, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Scarlet Commander Mograine - On Evade - Remove Flags Not Selectable'),
+(3976, 0, 15, 0, 5, 0, 100, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                     'Scarlet Commander Mograine - On Killed Unit - Say Line 1'),
+(3976, 0, 16, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 34, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Commander Mograine - On Just Died - Set Instance Data 1 to 3'),
+(3976, 0, 17, 0, 2, 0, 100, 1, 0, 1, 0, 0, 0, 0, 80, 397600, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Scarlet Commander Mograine - Between 0-1% Health - Run Script (No Repeat)'),
+(3976, 0, 18, 0, 8, 1, 100, 512, 9232, 0, 0, 0, 0, 0, 80, 397601, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Commander Mograine - On Spellhit \'Scarlet Resurrection\' - Run Script (Phase 1)'),
+(3976, 0, 19, 20, 34, 0, 100, 0, 8, 1, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarlet Commander Mograine - On Reached Point 1 - Reset Invincibility Hp'),
+(3976, 0, 20, 21, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 33554432, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Scarlet Commander Mograine - On Reached Point 1 - Remove Flags Not Selectable'),
+(3976, 0, 21, 22, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Commander Mograine - On Reached Point 1 - Set Reactstate Aggressive'),
+(3976, 0, 22, 23, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Scarlet Commander Mograine - On Reached Point 1 - Cast \'Retribution Aura\''),
+(3976, 0, 23, 24, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 20, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarlet Commander Mograine - On Reached Point 1 - Start Attacking'),
+(3976, 0, 24, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scarlet Commander Mograine - On Reached Point 1 - Start Attacking'),
+(3976, 0, 25, 0, 8, 0, 100, 1, 28441, 0, 0, 0, 0, 0, 80, 397602, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Scarlet Commander Mograine - On Spellhit \'AB Effect 000\' - Run Script (No Repeat)'),
+(3976, 0, 26, 0, 8, 0, 100, 1, 28441, 0, 0, 0, 0, 0, 67, 1, 20, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,              'Scarlet Commander Mograine - On Spellhit \'AB Effect 000\' - Create Timed Event (No Repeat)'),
+(3976, 0, 27, 0, 59, 0, 100, 0, 1, 0, 0, 0, 0, 0, 12, 16062, 8, 0, 0, 0, 0, 8, 0, 0, 0, 0, 1033.46, 1399.1, 27.3374, 6.25796, 'Scarlet Commander Mograine - On Timed Event 1 Triggered - Summon Creature \'Highlord Mograine\''),
+(3976, 0, 28, 0, 8, 0, 100, 0, 28697, 0, 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Scarlet Commander Mograine - On Spellhit \'Forgiveness\' - Kill Self'),
 --
 (4280, 0, 0, 0, 9, 0, 100, 0, 3000, 5000, 7000, 12000, 0, 5, 11, 13953, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Preserver - Within 0-5 Range - Cast Holy Strike'),
 (4280, 0, 1, 0, 14, 0, 100, 0, 500, 40, 12000, 18000, 0, 0, 11, 13952, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Scarlet Preserver - Friendly Missing Health - Cast Holy Light'),
@@ -60,7 +90,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4285, 0, 2, 0, 14, 0, 100, 0, 600, 40, 11000, 15000, 0, 0, 11, 6063, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Disciple - Friendly Missing Health - Cast Heal'),
 (4285, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Disciple - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4285, 0, 4, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Disciple - On Aggro - Say Line 0'),
---
 (4286, 0, 0, 0, 0, 0, 100, 0, 3000, 7000, 10000, 21000, 0, 0, 11, 3639, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Soldier - In Combat - Cast Improved Blocking'),
 (4286, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Soldier - On Aggro - Say Line 0'),
 (4286, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Soldier - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -89,6 +118,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4292, 0, 1, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarlet Protector - In Combat - Cast Devotion Aura (No Repeat)'),
 (4292, 0, 2, 0, 14, 0, 100, 0, 1600, 20, 13000, 22000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Protector - Friendly Missing Health - Cast Holy Light'),
 (4292, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Protector - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4294, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Sorcerer - On Aggro - Say Line 1'),
+(4294, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 18000, 21000, 0, 0, 11, 6146, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Sorcerer - In Combat - Cast Slow'),
+(4294, 0, 2, 0, 0, 0, 100, 0, 0, 1000, 3000, 3500, 0, 0, 11, 9672, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Scarlet Sorcerer - In Combat - Cast Frostbolt'),
+(4294, 0, 3, 0, 0, 0, 100, 0, 6000, 12000, 20000, 30000, 0, 0, 11, 8364, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Sorcerer - In Combat - Cast Blizzard'),
+(4294, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Sorcerer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4294, 0, 5, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Sorcerer - spellhit_target - AshbringerEvent'),
 (4295, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Myrmidon - On Aggro - Say Line 1'),
 (4295, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Myrmidon - Between 0-30% Health - Cast Frenzy'),
 (4295, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Scarlet Myrmidon - On Frenzy - Say Line 2'),
@@ -108,9 +143,34 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4298, 0, 3, 0, 105, 0, 100, 0, 4000, 14000, 9000, 18000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Defender - Victim Casting - Cast Shield Bash'),
 (4298, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Defender - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4298, 0, 5, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Defender - spellhit_target - AshbringerEvent'),
+(4299, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 1006, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Chaplain - On Reset - Cast Inner Fire'),
+(4299, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Chaplain - On Aggro - Say Line 1'),
+(4299, 0, 2, 0, 16, 0, 100, 0, 6066, 40, 9000, 16000, 0, 0, 11, 6066, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Chaplain - Friendly Missing Buff - Cast Power Word: Shield'),
+(4299, 0, 3, 0, 14, 0, 100, 0, 1200, 40, 22000, 28000, 0, 0, 11, 8362, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Scarlet Chaplain - Friendly Missing Health - Cast Renew'),
+(4299, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Chaplain - Between 0-15% Health - Flee For Assist'),
+(4299, 0, 5, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Chaplain - spellhit_target - AshbringerEvent'),
+(4300, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Wizard - On Aggro - Say Line 1'),
+(4300, 0, 1, 0, 106, 0, 100, 0, 2000, 6000, 3600, 12000, 0, 10, 11, 8439, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Scarlet Wizard - In Combat - Cast Arcane Explosion'),
+(4300, 0, 2, 0, 0, 0, 100, 0, 1000, 5000, 16000, 27000, 0, 0, 11, 2601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Wizard - In Combat - Cast Fire Shield III'),
+(4300, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Wizard - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4300, 0, 4, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Wizard - spellhit_target - AshbringerEvent'),
+(4301, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Centurion - On Aggro - Say Line 1'),
+(4301, 0, 1, 0, 0, 0, 100, 0, 4000, 13000, 12000, 24000, 0, 0, 11, 6192, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Centurion - In Combat - Cast Battle Shout'),
+(4301, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Centurion - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4301, 0, 3, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Centurion - spellhit_target - AshbringerEvent'),
+(4302, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Champion - On Aggro - Say Line 1'),
+(4302, 0, 1, 0, 9, 0, 100, 0, 1000, 5000, 18000, 27000, 0, 5, 11, 17143, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Champion - In Combat - Cast Holy Strike'),
+(4302, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Champion - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4302, 0, 3, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Champion - spellhit_target - AshbringerEvent'),
+(4303, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Abbot - On Aggro - Say Line 1'),
+(4303, 0, 1, 0, 74, 0, 100, 0, 0, 0, 24000, 30000, 50, 40, 11, 8362, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Abbot - Friendly Between 0-50% Health - Cast Renew'),
+(4303, 0, 2, 0, 14, 0, 100, 0, 1800, 40, 13000, 19000, 0, 0, 11, 6064, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Abbot - Friendly Missing Health - Cast Heal'),
+(4303, 0, 3, 4, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Abbot - Between 0-30% Health - Cast Frenzy (No Repeat)'),
+(4303, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Scarlet Abbot - On Frenzy - Say Line 2'),
+(4303, 0, 5, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Abbot - spellhit_target - AshbringerEvent'),
 (4540, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Monk - On Reset - Cast Thrash'),
 (4540, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Monk - On Aggro - Say Line 1'),
-(4540, 0, 2, 0, 13, 0, 100, 0, 7000, 7000, 0, 0, 0, 0, 11, 11978, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Monk - Victim Casting - Cast Kick'),
+(4540, 0, 2, 0, 105, 0, 100, 0, 3600, 12800, 3600, 12800, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Monk - Victim Casting - Cast Kick'),
 (4540, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Monk - Between 0-15% Health - Flee For Assist'),
 (4540, 0, 4, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Monk - spellhit_target - AshbringerEvent'),
 --
@@ -128,6 +188,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6490, 0, 3, 0, 2, 0, 100, 0, 0, 50, 20000, 20000, 0, 0, 11, 9373, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Azshir the Sleepless - Between 0-50% Health - Cast Soul Siphon'),
 (6490, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Azshir the Sleepless - Between 0-15% Health - Flee For Assist (No Repeat)');
 
+-- Scarlet Scryer missing?
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (4280, 4281, 4282, 4284, 4285);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
