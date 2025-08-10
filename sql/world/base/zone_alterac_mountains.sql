@@ -21,7 +21,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2246, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Syndicate Assassin - Out of Combat - Cast Sneak (No Repeat)'),
 (2246, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Syndicate Assassin - On Reset - Cast Poison Proc'),
 (2246, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Assassin - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2247, 0, 0, 0, 9, 0, 100, 0, 2000, 13000, 12000, 1800, 0, 5, 11, 17207, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Syndicate Enforcer - Within 0-5 Range - Cast Whirlwind'),
+(2247, 0, 0, 0, 9, 0, 100, 0, 2000, 13000, 12000, 18000, 0, 5, 11, 17207, 66, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Syndicate Enforcer - Within 0-5 Range - Cast Whirlwind'),
 (2247, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Enforcer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (2254, 0, 0, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Crushridge Mauler - On Aggro - Say Line 0'),
@@ -78,6 +78,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2453, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 30000, 35000, 0, 0, 11, 6742, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lo Grosh - In Combat - Cast Bloodlust'),
 (2453, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 35000, 38000, 0, 0, 11, 2601, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lo Grosh - In Combat - Cast Fire Shield III'),
 (2453, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 18000, 22000, 0, 0, 11, 8814, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Lo Grosh - In Combat - Cast Flame Spike');
+
 
 
 -- Jailor Borhuin, 2431, should have multiple spawn locations 
