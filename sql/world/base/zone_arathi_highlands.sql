@@ -1,9 +1,9 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2581);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2598, 2604, 2607, 2793, 4479, 4480, 4481);
+(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2598, 2604, 2606, 2607, 2793, 4479, 4480, 4481);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2598, 2604, 2607, 2793, 4479, 4480, 4481);
+(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2598, 2604, 2606, 2607, 2793, 4479, 4480, 4481);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -95,6 +95,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2598, 0, 3, 0, 0, 0, 100, 0, 10000, 15000, 25000, 35000, 0, 0, 11, 8994, 1, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Darbel Montrose - In Combat - Cast Banish'),
 (2598, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Darbel Montrose - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2604, 0, 0, 0, 0, 0, 80, 0, 9000, 13000, 6000, 16000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Molok the Crusher - Within 0-5 Range - Cast Backhand'),
+(2606, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 2458, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Nimar the Slayer - On Aggro - Cast spell Berserker Stance'),
+(2606, 0, 1, 0, 9, 0, 100, 0, 2000, 13000, 12000, 18000, 0, 5, 11, 17207, 66, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Nimar the Slayer - Within 0-5 Range - Cast Whirlwind'),
+(2606, 0, 2, 0, 12, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,                 'Nimar the Slayer - Within 0-5 Range - Cast Execute (No Repeat)'),
+(2606, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Nimar the Slayer - Between 0-15% Health - Flee For Assist (No Repeat)'),   
 (2607, 0, 0, 0, 9, 0, 100, 0, 3000, 5000, 12000, 15000, 0, 10, 11, 13730, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Prince Galen Trollbane - Within 0-10 Range - Cast Demoralizing Shout'),
 (2607, 0, 1, 0, 9, 0, 100, 0, 2000, 4000, 6000, 12000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Prince Galen Trollbane - Within 0-5 Range - Cast Sunder Armor'),
 (2607, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Prince Galen Trollbane - Between 0-15% Health - Flee For Assist (No Repeat)'),
