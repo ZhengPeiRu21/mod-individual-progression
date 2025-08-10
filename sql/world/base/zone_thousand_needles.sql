@@ -28,7 +28,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4507, 0, 1, 2, 38, 1, 100, 513, 1, 1, 0, 0, 0, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Daisy - On Data Set 1 1 (Phase 1) - Set Phase 2 (No Repeat)'),
 (4507, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450701, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Daisy - Linked - Call Action List'),
 (4507, 0, 3, 4, 38, 1, 100, 513, 1, 2, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Daisy - On Data Set 1 2 (Phase 1) - Set Phase 2 (No Repeat)'),
-(4507, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450701, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Daisy - Linked - Call Action List');
+(4507, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450701, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Daisy - Linked - Call Action List'),
 (5937, 0, 0, 0, 9, 0, 100, 0, 1000, 11000, 16000, 24000, 0, 5, 11, 8257, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Vile Sting - Within 0-5 Range - Cast Venom Sting'),
 (10882, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 17213, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,              'Arikara - In Combat - Cast Curse of Vengeance (No Repeat)');
 
