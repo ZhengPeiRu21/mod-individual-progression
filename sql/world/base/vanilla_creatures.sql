@@ -18423,11 +18423,15 @@ UPDATE `creature_template` SET `DamageModifier` = 1.45 WHERE `entry`=12805;
 UPDATE `creature_template` SET `detection_range` = 18.0, `DamageModifier` = 1.0 WHERE `entry`=12806;
 
 /*  Greshka  */
-UPDATE `creature_template` SET `subname` = 'Demon Master' WHERE `entry`=12807;
-UPDATE `creature_template_locale` SET `Title` = 'Dämonenmeisterin' WHERE `entry` = '12807' AND `locale` = 'deDE';
-UPDATE `creature_template_locale` SET `Title` = 'Maestro de demonios' WHERE `entry` = '12807' AND `locale` = 'esES';
-UPDATE `creature_template_locale` SET `Title` = 'Maestro de demonios' WHERE `entry` = '12807' AND `locale` = 'esMX';
-UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = '12807' AND `locale` = 'frFR';
+UPDATE `creature_template` SET `subname` = 'Demon Master' WHERE `entry` = 12807;
+UPDATE `creature_template_locale` SET `Title` = 'Dämonenmeisterin' WHERE `entry` = 12807 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Maestro de demonios' WHERE `entry` = 12807 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Maestro de demonios' WHERE `entry` = 12807 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = 12807 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '악마 훈련사' WHERE `entry` = 12807 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Наставник демонов' WHERE `entry` = 12807 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '恶魔大师' WHERE `entry` = 12807 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '惡魔訓練師' WHERE `entry` = 12807 AND `locale` = 'zhTW';
 
 /*  Xen'Zilla  */
 UPDATE `creature_template` SET `DamageModifier` = 0.9 WHERE `entry`=12816;

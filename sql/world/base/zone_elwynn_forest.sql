@@ -16,6 +16,14 @@ UPDATE `creature_template` SET `faction`=17 WHERE `entry`=38;
 -- Diseased Timber Wolf
 UPDATE `creature_template` SET `name`='Timber Wolf' WHERE `entry`=69;
 UPDATE `creature_template_model` SET `CreatureDisplayID`=604 WHERE `CreatureID`=69;
+UPDATE `creature_template_locale` SET `Name` = 'Wilder Waldwolf' WHERE `entry` = 69 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Name` = 'Lobo maderero' WHERE `entry` = 69 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Name` = 'Lobo maderero' WHERE `entry` = 69 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Name` = 'Loup des bois' WHERE `entry` = 69 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Name` = '회색 늑대' WHERE `entry` = 69 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Name` = 'Лесной волк' WHERE `entry` = 69 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Name` = '森林狼' WHERE `entry` = 69 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Name` = '森林狼' WHERE `entry` = 69 AND `locale` = 'zhTW';
 
 -- Kobold Laborer
 UPDATE `creature_template` SET `maxlevel`=4 WHERE `entry`=80;
@@ -29,6 +37,14 @@ UPDATE `creature_template_model` SET `CreatureDisplayID`=10912 WHERE `CreatureID
 -- Diseased Young Wolf
 UPDATE `creature_template` SET `name`='Young Wolf' WHERE `entry`=299;
 UPDATE `creature_template_model` SET `CreatureDisplayID`=447 WHERE `CreatureID`=299;
+UPDATE `creature_template_locale` SET `Name` = 'Junger Wolf' WHERE `entry` = 299 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Name` = 'Lobo joven' WHERE `entry` = 299 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Name` = 'Lobo joven' WHERE `entry` = 299 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Name` = 'Jeune loup' WHERE `entry` = 299 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Name` = '새끼 늑대' WHERE `entry` = 299 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Name` = 'Молодой волк' WHERE `entry` = 299 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Name` = '幼狼' WHERE `entry` = 299 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Name` = '幼狼' WHERE `entry` = 299 AND `locale` = 'zhTW';
 
 -- Smith Argus
 UPDATE `creature_template` SET `subname`='Journeyman Blacksmith' WHERE `entry`=514;

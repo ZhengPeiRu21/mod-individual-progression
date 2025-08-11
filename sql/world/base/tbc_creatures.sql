@@ -135,7 +135,15 @@ UPDATE `creature_template` SET `DamageModifier` = 1.3 WHERE `entry`=15418;
 UPDATE `creature_template` SET `speed_walk` = 1.125 WHERE `entry`=15420;
 
 /*  Yasmine Teli'Larien  */
-UPDATE `creature_template` SET `subname` = 'Demon Trainer', `speed_walk` = 1.125 WHERE `entry`=15494;
+UPDATE `creature_template` SET `subname` = 'Demon Trainer', `speed_walk` = 1.125 WHERE `entry` = 15494;
+UPDATE `creature_template_locale` SET `Title` = 'Dämonenausbilderin' WHERE `entry` = 15494 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Instructora de demonios' WHERE `entry` = 15494 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Instructora de demonios' WHERE `entry` = 15494 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = 15494 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '악마 훈련사' WHERE `entry` = 15494 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Наставница демонов' WHERE `entry` = 15494 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '恶魔训练师' WHERE `entry` = 15494 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '惡魔訓練師' WHERE `entry` = 15494 AND `locale` = 'zhTW';
 
 /*  Ranger Sallina  */
 UPDATE `creature_template` SET `speed_walk` = 1.125 WHERE `entry`=15513;
@@ -459,7 +467,15 @@ UPDATE `creature_template` SET `speed_walk` = 1.125 WHERE `entry`=16263;
 UPDATE `creature_template` SET `speed_walk` = 1.125, `HealthModifier` = 1.09 WHERE `entry`=16264;
 
 /*  Daestra  */
-UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry`=16267;
+UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry` = 16267;
+UPDATE `creature_template_locale` SET `Title` = 'Dämonenausbilderin' WHERE `entry` = 16267 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Instructora de demonios' WHERE `entry` = 16267 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Instructora de demonios' WHERE `entry` = 16267 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = 16267 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '악마 훈련사' WHERE `entry` = 16267 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Наставница демонов' WHERE `entry` = 16267 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '恶魔训练师' WHERE `entry` = 16267 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '惡魔訓練師' WHERE `entry` = 16267 AND `locale` = 'zhTW';
 
 /*  Perascamin  */
 UPDATE `creature_template` SET `speed_walk` = 1.25, `HealthModifier` = 1.09 WHERE `entry`=16280;
@@ -954,7 +970,15 @@ UPDATE `creature_template` SET `speed_walk` = 1.125, `DamageModifier` = 0.8 WHER
 UPDATE `creature_template` SET `speed_walk` = 1.125 WHERE `entry`=16644;
 
 /*  Torian  */
-UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry`=16649;
+UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry` = 16649;
+UPDATE `creature_template_locale` SET `Title` = 'Dämonenausbilder' WHERE `entry` = 16649 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Instructor de demonios' WHERE `entry` = 16649 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Instructor de demonios' WHERE `entry` = 16649 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = 16649 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '악마 훈련사' WHERE `entry` = 16649 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Наставник демонов' WHERE `entry` = 16649 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '恶魔训练师' WHERE `entry` = 16649 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '惡魔訓練師' WHERE `entry` = 16649 AND `locale` = 'zhTW';
 
 /*  Shalenn  */
 UPDATE `creature_template` SET `speed_walk` = 1.125 WHERE `entry`=16656;
@@ -1029,7 +1053,15 @@ UPDATE `creature_template` SET `speed_walk` = 1.125 WHERE `entry`=16703;
 UPDATE `creature_template` SET `DamageModifier` = 4.66 WHERE `entry`=16704;
 
 /*  Oktan  */
-UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry`=16720;
+UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry` = 16720;
+UPDATE `creature_template_locale` SET `Title` = 'Dämonenausbilderin' WHERE `entry` = 16720 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Instructora de demonios' WHERE `entry` = 16720 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Instructora de demonios' WHERE `entry` = 16720 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = 16720 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '악마 훈련사' WHERE `entry` = 16720 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Наставник демонов' WHERE `entry` = 16720 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '恶魔训练师' WHERE `entry` = 16720 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '惡魔訓練師' WHERE `entry` = 16720 AND `locale` = 'zhTW';
 
 /*  Edrem  */
 UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=16740;
@@ -12970,14 +13002,14 @@ UPDATE `creature_template` SET `speed_walk` = 2.0, `speed_run` = 1.71429, `Damag
 
 /*  Krixel Pinchwhistle  */
 UPDATE `creature_template` SET `subname` = 'Arena Vendor', `speed_walk` = 1.1 WHERE `entry` = 23396;
-UPDATE `creature_template_locale` SET Title = 'Arenaverkäufer' WHERE `entry` = 23396 AND `locale` = 'deDE';
-UPDATE `creature_template_locale` SET Title = 'Vendedor de arena' WHERE `entry` = 23396 AND `locale` = 'esES';
-UPDATE `creature_template_locale` SET Title = 'Vendedor de arena' WHERE `entry` = 23396 AND `locale` = 'esMX';
-UPDATE `creature_template_locale` SET Title = 'Vendeur de l''arène' WHERE `entry` = 23396 AND `locale` = 'frFR';
-UPDATE `creature_template_locale` SET Title = '2시즌 투기장 상인' WHERE `entry` = 23396 AND `locale` = 'koKR';
-UPDATE `creature_template_locale` SET Title = 'Продавец экипировки арены' WHERE `entry` = 23396 AND `locale` = 'ruRU';
-UPDATE `creature_template_locale` SET Title = '竞技场商人' WHERE `entry` = 23396 AND `locale` = 'zhCN';
-UPDATE `creature_template_locale` SET Title = '競技場商人' WHERE `entry` = 23396 AND `locale` = 'zhTW';
+UPDATE `creature_template_locale` SET `Title` = 'Arenaverkäufer' WHERE `entry` = 23396 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Vendedor de arena' WHERE `entry` = 23396 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Vendedor de arena' WHERE `entry` = 23396 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Vendeur de l''arène' WHERE `entry` = 23396 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '2시즌 투기장 상인' WHERE `entry` = 23396 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Продавец экипировки арены' WHERE `entry` = 23396 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '竞技场商人' WHERE `entry` = 23396 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '競技場商人' WHERE `entry` = 23396 AND `locale` = 'zhTW';
 
 /*  Illidari Blood Lord  */
 UPDATE `creature_template` SET `speed_walk` = 1.6, `speed_run` = 1.42857, `DamageModifier` = 29.0, `HealthModifier` = 40.0 WHERE `entry`=23397;
@@ -13175,7 +13207,15 @@ UPDATE `creature_template` SET `speed_run` = 1.71429, `DamageModifier` = 16.0, `
 UPDATE `creature_template` SET `speed_walk` = 1.1 WHERE `entry`=23533;
 
 /*  Matero Zeshuwal  */
-UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry`=23535;
+UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry` = 23535;
+UPDATE `creature_template_locale` SET `Title` = 'Dämonenausbilder' WHERE `entry` = 23535 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Instructor de demonios' WHERE `entry` = 23535 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Instructor de demonios' WHERE `entry` = 23535 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = 23535 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '악마 훈련사' WHERE `entry` = 23535 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Наставник демонов' WHERE `entry` = 23535 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '恶魔训练师' WHERE `entry` = 23535 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '惡魔訓練師' WHERE `entry` = 23535 AND `locale` = 'zhTW';
 
 /*  Nagulon  */
 UPDATE `creature_template` SET `DamageModifier` = 1.1, `ArmorModifier` = 1.4374 WHERE `entry`=23536;

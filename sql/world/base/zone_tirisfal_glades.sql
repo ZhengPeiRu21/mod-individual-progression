@@ -14,7 +14,15 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5667, 1470);
 UPDATE `creature_loot_template` SET `Chance` = 80 WHERE `Entry` = 1890 AND `Item` = 6281;
 
 -- Wretched Zombie
-UPDATE `creature_template` SET `name`='Wretched Zombie' WHERE `entry`=1502;
+UPDATE `creature_template` SET `name` = 'Wretched Zombie' WHERE `entry` = 1502;
+UPDATE `creature_template_locale` SET `Name` = 'Elender Zombie' WHERE `entry` = 1502 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Name` = 'Zombi desdichado' WHERE `entry` = 1502 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Name` = 'Zombi desdichado' WHERE `entry` = 1502 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Name` = 'Zombie décharné' WHERE `entry` = 1502 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Name` = '흉측한 좀비' WHERE `entry` = 1502 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Name` = 'Презренный зомби' WHERE `entry` = 1502 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Name` = '丑陋的僵尸' WHERE `entry` = 1502 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Name` = '醜陋的殭屍' WHERE `entry` = 1502 AND `locale` = 'zhTW';
 
 -- Night Web Spider
 UPDATE `creature_template` SET `faction`=22 WHERE `entry`=1505;
@@ -80,10 +88,26 @@ UPDATE `creature_template` SET `subname`='Fisherman' WHERE `entry`=5690;
 UPDATE `creature_template` SET `subname`='Journeyman Enchanter' WHERE `entry`=5695;
 
 -- Kayla Smithe <Demon Trainer>
-UPDATE `creature_template` SET `subname`='Demon Trainer' WHERE `entry`=5749;
+UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry` = 5749;
+UPDATE `creature_template_locale` SET `Title` = 'Dämonenausbilderin' WHERE `entry` = 5749 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Instructor de demonios' WHERE `entry` = 5749 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Instructor de demonios' WHERE `entry` = 5749 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = 5749 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '악마 훈련사' WHERE `entry` = 5749 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Наставница демонов' WHERE `entry` = 5749 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '恶魔训练师' WHERE `entry` = 5749 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '惡魔訓練師' WHERE `entry` = 5749 AND `locale` = 'zhTW';
 
 -- Gina Lang <Demon Trainer>
-UPDATE `creature_template` SET `subname`='Demon Trainer' WHERE `entry`=5750;
+UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry` = 5750;
+UPDATE `creature_template_locale` SET `Title` = 'Dämonenausbilderin' WHERE `entry` = 5750 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Instructor de demonios' WHERE `entry` = 5750 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Instructor de demonios' WHERE `entry` = 5750 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Maître des démons' WHERE `entry` = 5750 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Title` = '악마 훈련사' WHERE `entry` = 5750 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Title` = 'Наставница демонов' WHERE `entry` = 5750 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Title` = '恶魔训练师' WHERE `entry` = 5750 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Title` = '惡魔訓練師' WHERE `entry` = 5750 AND `locale` = 'zhTW';
 
 -- Rand Rhobart <Skinner>
 UPDATE `creature_template` SET `subname`='Skinner' WHERE `entry`=6289;
