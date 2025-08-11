@@ -1,14 +1,39 @@
 -- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (4499, 5937, 10882);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (4499, 5937, 10882);
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (9377);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(4131, 4133, 4139, 4140, 4142, 4143, 4147, 4150, 4151, 4154, 4499, 4507, 5937, 10882);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(4131, 4133, 4139, 4140, 4142, 4143, 4147, 4150, 4151, 4154, 4499, 4507, 5937, 9377, 10882);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(4499, 0, 6, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 44990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Rok Alim the Pounder - On Respawn - Waypoint Start'),
-(5937, 0, 0, 0, 9, 0, 100, 0, 1000, 11000, 16000, 24000, 0, 5, 11, 8257, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Vile Sting - Within 0-5 Range - Cast Venom Sting'),
-(10882, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 17213, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,             'Arikara - In Combat - Cast Curse of Vengeance (No Repeat)');
+(4131, 0, 0, 0, 9, 0, 100, 1, 4000, 7000, 22000, 25000, 0, 5, 11, 6016, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Silithid Invader - Within 0-5 Range - Cast Pierce Armor'),
+(4131, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 16000, 0, 5, 11, 8137, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Silithid Invader - Within 0-5 Range - Cast Silithid Pox'),
+(4133, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 40, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Silithid Hive Drone - On Aggro - Call For Help (No Repeat)'),
+(4133, 0, 1, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 39, 40, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Silithid Hive Drone - Between 0-20% Health - Call For Help (No Repeat)'),
+(4139, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 11000, 17000, 0, 0, 11, 7399, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Scorpid Terror - Within 0-5 Range - Cast Terrify'),
+(4140, 0, 0, 0, 9, 0, 100, 0, 3500, 5500, 6500, 9500, 0, 5, 11, 40505, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scorpid Reaver - Within 0-5 Range - Cast Cleave'),
+(4142, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7273, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Sparkleshell Tortoise - Out of Combat - Cast Lightning Hide (No Repeat)'),
+(4143, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7273, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Sparkleshell Snapper - Out of Combat - Cast Lightning Hide (No Repeat)'),
+(4143, 0, 1, 0, 0, 0, 60, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 6730, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Sparkleshell Snapper - Within 0-5 Range - Cast Head Butt'),
+(4147, 0, 0, 0, 0, 0, 75, 0, 8000, 8000, 30000, 30000, 0, 0, 11, 3636, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Saltstone Basilisk - In Combat - Cast Crystalline Slumber'),
+(4150, 0, 0, 0, 0, 0, 75, 0, 8000, 12000, 15000, 15000, 0, 0, 11, 3635, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Saltstone Gazer - In Combat - Cast Crystal Gaze'),
+(4151, 0, 0, 0, 0, 0, 75, 0, 8000, 8000, 18000, 18000, 0, 0, 11, 8129, 256, 0, 0, 0, 0, 5, 30, 1, 0, 0, 0, 0, 0, 0, 'Saltstone Crystalhide - Within 0-30 Range - Cast Mana Burn'),
+(4154, 0, 0, 0, 12, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Salt Flats Scavenger - Target Between 0-30% Health - Cast Execute (No Repeat)'),
+--
+(4499, 0, 6, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 44990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rok Alim the Pounder - On Respawn - Waypoint Start'),
+(4507, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450700, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Daisy - On Respawn - Call Action List'),
+(4507, 0, 1, 2, 38, 1, 100, 513, 1, 1, 0, 0, 0, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Daisy - On Data Set 1 1 (Phase 1) - Set Phase 2 (No Repeat)'),
+(4507, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450701, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Daisy - Linked - Call Action List'),
+(4507, 0, 3, 4, 38, 1, 100, 513, 1, 2, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Daisy - On Data Set 1 2 (Phase 1) - Set Phase 2 (No Repeat)'),
+(4507, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450701, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Daisy - Linked - Call Action List'),
+(5937, 0, 0, 0, 9, 0, 100, 0, 1000, 11000, 16000, 24000, 0, 5, 11, 8257, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Vile Sting - Within 0-5 Range - Cast Venom Sting'),
+(10882, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 17213, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,              'Arikara - In Combat - Cast Curse of Vengeance (No Repeat)');
+
+-- give Vile Sting some movement
+UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 10 WHERE `id1` = 5937;
 
 -- Pooled Treasure Chests
 DELETE FROM `pool_template` WHERE `entry` IN (66001);

@@ -252,16 +252,16 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (310002, 9993, 9000, 164, 210, 0),
 (310002, 9935, 4500, 164, 215, 0);
 
-UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith' WHERE `entry`=16583;
-UPDATE `creature_template` SET `subname` = 'Expert Blacksmith' WHERE `entry`=16669;
+UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith' WHERE `entry` = 15400;
+UPDATE `creature_template` SET `subname` = 'Expert Blacksmith'     WHERE `entry` = 16669;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (1241, 3136, 3557, 6299, 55356, 4596, 4258, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675);
+DELETE FROM `npc_trainer` WHERE `ID` IN (1241, 3136, 3557, 6299, 55356, 4596, 4258, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Blacksmith
 (1241, -310000, 0, 0, 0, 0),
 (3557, -310000, 0, 0, 0, 0),
 (6299, -310000, 0, 0, 0, 0),
-(16583, -310000, 0, 0, 0, 0),
+(15400, -310000, 0, 0, 0, 0),
 (17245, -310000, 0, 0, 0, 0),
 -- Expert Blacksmith
 (3136, -310000, 0, 0, 0, 0),

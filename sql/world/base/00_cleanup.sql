@@ -11,6 +11,9 @@ UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (29273);
 /* Delete unused Creature Addon data */
 DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 133928);
 
+-- undo incorrect title change
+UPDATE `creature_template` SET `subname` = 'Master Blacksmithing Trainer' WHERE `entry` = 16583;
+
 -- undo previous method of Lights Hope Chapel phasing 
 UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN 
 (11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
@@ -83,6 +86,9 @@ UPDATE `creature_template` SET `npcflag` = 2   WHERE `entry` IN (29441, 29442);
 
 UPDATE `creature` SET `phaseMask` = 1   WHERE `id1` IN (14682, 14684, 14686, 14690, 14693, 14695);
 UPDATE `creature` SET `ScriptName` = '' WHERE `id1` IN (16241, 16255, 16281, 16285, 16359, 16361, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787);
+
+-- remove AzerothCore area triggers used by WotLK Scourge Invasion Event
+DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096, 4098, 4099, 4100, 4101, 4103, 4104, 4105, 5151, 5152, 5153, 5154, 5158, 5159, 5160, 5161);
 
 -- Restore Scourge Invasion Event
 DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN 248650 AND 248654;

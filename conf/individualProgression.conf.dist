@@ -321,8 +321,8 @@ IndividualProgression.TbcRacesUnlockProgression = 0
 # IndividualProgression.DeathKnightUnlockProgression
 #
 #        Description: The progression stage at which Death Knight characters can be created.
-#                     Death Knights will be available when the player reaches this levl with any character on the account.
-#                     Disable to Individual Progression not influence DK creation.
+#                     Death Knights will be available when the player reaches this level with any character on the account.
+#                     Disable to not let Individual Progression influence DK creation.
 #                     Please note that all other Death Knight creation restrictions from worldserver.conf still apply.
 #                     The default value is to not allow Death Knight creation until TBC content is cleared.
 #                     This is due to the game not having a proper progression balancing for Death Knights until WotLK,
@@ -411,6 +411,7 @@ IndividualProgression.ExcludeAccounts = 1
 #                     Only used if ExcludeAccounts is enabled.
 #                     This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
 #                     If the Playerbots module is enabled, "^RNDBOT.*" will exclude randombots from Individual Progression.
+#                     To add more accounts you need to use capital letters and this format: "(^RNDBOT.*|TEST1|TEST2)"
 #
 #        Default:     "^RNDBOT.*"
 #
