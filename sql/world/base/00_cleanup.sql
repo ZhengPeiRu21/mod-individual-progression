@@ -87,6 +87,9 @@ UPDATE `creature_template` SET `npcflag` = 2   WHERE `entry` IN (29441, 29442);
 UPDATE `creature` SET `phaseMask` = 1   WHERE `id1` IN (14682, 14684, 14686, 14690, 14693, 14695);
 UPDATE `creature` SET `ScriptName` = '' WHERE `id1` IN (16241, 16255, 16281, 16285, 16359, 16361, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787);
 
+-- remove AzerothCore area triggers used by WotLK Scourge Invasion Event
+DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096, 4098, 4099, 4100, 4101, 4103, 4104, 4105, 5151, 5152, 5153, 5154, 5158, 5159, 5160, 5161);
+
 -- Restore Scourge Invasion Event
 DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN 248650 AND 248654;
 INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
