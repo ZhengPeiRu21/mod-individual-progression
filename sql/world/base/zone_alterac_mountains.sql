@@ -99,7 +99,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (695015, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 679.818, -897.818, 171.806, 4.8398, 300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 
-DELETE FROM `pool_creature` WHERE `pool_entry` BETWEEN 601001 AND 601007;
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601008, 601009);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
 (16905,  601008, 0, 'Baron Vardus'),
 (695010, 601008, 0, 'Baron Vardus'),
