@@ -153,7 +153,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1491, 0, 1, 0, 105, 0, 100, 0, 4000, 5000, 10000, 11000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Zanzil Naga - In Combat - Cast Pummel'),
 (1550, 0, 0, 0, 0, 0, 75, 0, 5000, 5000, 18000, 18000, 0, 0, 11, 6607, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,       'Thrashtail Basilisk - Within 0-5 Range - Cast Lash (No Repeat)'),
 (1561, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 29651, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Bloodsail Raider - On Aggro - Cast Dual Wield'),
-(1561, 0, 1, 0, 0, 0, 100, 0, 9000, 11000, 18000, 31000, 0, 0, 11, 6533, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,   'Bloodsail Raider - In Combat - Cast Net'),
+(1561, 0, 1, 0, 0, 0, 100, 0, 4000, 11000, 18000, 31000, 0, 0, 11, 6533, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,   'Bloodsail Raider - In Combat - Cast Net'),
 (1561, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bloodsail Raider - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1562, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3600, 5900, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodsail Mage - In Combat - Cast Fireball'),
 (1562, 0, 1, 0, 0, 0, 100, 0, 1200, 4700, 34200, 36800, 0, 0, 11, 2601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Bloodsail Mage - In Combat - Cast Fire Shield III'),
