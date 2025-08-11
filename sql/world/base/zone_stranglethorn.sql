@@ -1,10 +1,10 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (681, 682, 683, 687, 736, 772, 854, 905, 1108, 1114, 4260);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(587, 588, 597, 660, 667, 669, 670, 671, 672, 674, 675, 677, 686, 684, 690, 694, 696, 697, 699, 701, 702, 723, 729, 780, 781, 782, 783, 921, 
+(587, 588, 597, 660, 667, 669, 670, 671, 672, 674, 675, 677, 678, 679, 680, 686, 684, 690, 694, 696, 697, 699, 701, 702, 709, 710, 723, 728, 729, 730, 780, 781, 782, 783, 818, 921, 
 1059, 1060, 1061, 1062, 1085, 1096, 1097, 1144, 1150, 1151, 1488, 1490, 1491, 1550, 2635, 4457, 4458, 4459, 4460, 4461, 4723, 14487, 14488);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(587, 588, 597, 660, 667, 669, 670, 671, 672, 674, 675, 677, 681, 682, 683, 684, 686, 687, 690, 694, 696, 697, 699, 701, 702, 723, 729, 736, 772, 780, 781, 782, 783, 854, 905, 921, 
+(587, 588, 597, 660, 667, 669, 670, 671, 672, 674, 675, 677, 678, 679, 680, 681, 682, 683, 684, 686, 687, 690, 694, 696, 697, 699, 701, 702, 709, 710, 723, 728, 729, 730, 736, 772, 780, 781, 782, 783, 818, 854, 905, 921, 
 1059, 1060, 1061, 1062, 1085, 1096, 1097, 1108, 1114, 1144, 1150, 1151, 1488, 1490, 1491, 1550, 2635, 4260, 4457, 4458, 4459, 4460, 4461, 4723, 14487, 14488);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -48,6 +48,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (677, 0, 1, 0, 0, 0, 100, 0, 3000, 4000, 5000, 10000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Venture Co. Tinkerer - In Combat - Cast Fireball'),
 (677, 0, 2, 0, 0, 0, 100, 0, 5000, 9000, 70000, 85000, 0, 0, 11, 7979, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Venture Co. Tinkerer - In Combat - Cast Compact Harvest Reaper'),
 (677, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Venture Co. Tinkerer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(678, 0, 0, 0, 0, 0, 50, 512, 4000, 6000, 11000, 12000, 0, 0, 11, 5164, 2, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Mosh\'Ogg Mauler - Within 0-5 Range - Cast Knockdown'),
+(678, 0, 1, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mosh\'Ogg Mauler - On Aggro - Say Line 0'),
+(679, 0, 0, 0, 0, 0, 100, 0, 2000, 6000, 5000, 11000, 0, 0, 11, 12058, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Mosh\'Ogg Shaman - In Combat - Cast Chain Lightning'),
+(679, 0, 1, 0, 16, 0, 100, 0, 6742, 30, 20000, 68000, 1, 0, 11, 6742, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Mosh\'Ogg Shaman - In Combat - Cast Bloodlust'),
+(679, 0, 2, 0, 0, 0, 100, 0, 7000, 13000, 30000, 35000, 0, 0, 11, 11899, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Mosh\'Ogg Shaman - In Combat - Cast Healing Ward'),
+(679, 0, 3, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mosh\'Ogg Shaman - On Aggro - Say Line 0'),
+(680, 0, 0, 0, 0, 0, 100, 512, 1000, 4000, 30000, 40000, 0, 0, 11, 9128, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Mosh\'Ogg Lord - In Combat - Cast Battle Shout'),
+(680, 0, 1, 0, 0, 0, 100, 512, 3000, 6000, 20000, 25000, 0, 0, 11, 7093, 2, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Mosh\'Ogg Lord - Within 0-5 Range - Cast Intimidation'),
+(680, 0, 2, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mosh\'Ogg Lord - On Aggro - Say Line 0'),
 (684, 0, 0, 0, 1, 0, 100, 1, 1000, 1500, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Shadowmaw Panther - Out of Combat - Cast Sneak (No Repeat)'),
 (686, 0, 0, 0, 9, 0, 100, 0, 1200, 8800, 19700, 24100, 0, 5, 11, 6607, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Lashtail Raptor - Within 0-5 Range - Cast Lash'),
 (690, 0, 0, 0, 0, 0, 75, 0, 8000, 8000, 30000, 30000, 0, 0, 11, 3636, 64, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,       'Cold Eye Basilisk - Within 0-5 Range - Cast Crystalline Slumber'),
@@ -79,9 +88,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (702, 0, 2, 3, 2, 0, 100, 512, 0, 30, 0, 0, 0, 0, 11, 8599, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Bloodscalp Scavenger - Between 0-30% Health - Cast Enrage'),
 (702, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Bloodscalp Scavenger - On Enrage - Say Line 0'),
 --
-(723, 0, 0, 0, 4, 0, 80, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mosh Ogg Butcher - On Aggro - Say Line 0'),
-(723, 0, 1, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Mosh Ogg Butcher - Within 0-5 Range - Cast Cleave'),
+(709, 0, 0, 0, 9, 0, 100, 512, 2000, 3000, 10000, 11000, 0, 5, 11, 8147, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Mosh\'Ogg Warmonger - Within 0-5 Range - Cast Thunderclap'),
+(709, 0, 1, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mosh\'Ogg Warmonger - On Aggro - Say Line 0'),
+(710, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mosh\'Ogg Spellcrafter - On Aggro - Say Line 0'),
+(710, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 12544, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Mosh\'Ogg Spellcrafter - Out of Combat - Cast Frost Armor'),
+(710, 0, 2, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 9053, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Mosh\'Ogg Spellcrafter - In Combat - Cast Fireball'),
+(710, 0, 3, 0, 0, 0, 100, 0, 5000, 9000, 12000, 15000, 0, 0, 11, 11829, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Mosh\'Ogg Spellcrafter - In Combat - Cast Flamestrike'),
+(723, 0, 0, 0, 4, 0, 80, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mosh\'Ogg Butcher - On Aggro - Say Line 0'),
+(723, 0, 1, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Mosh\'Ogg Butcher - Within 0-5 Range - Cast Cleave'),
+--
+(728, 0, 0, 0, 0, 0, 90, 0, 9000, 9000, 28000, 28000, 0, 0, 11, 3147, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Bhag\'thera - Within 0-5 Range - Cast Rend Flesh'),
+(728, 0, 1, 0, 9, 0, 100, 0, 2000, 2000, 32000, 32000, 0, 5, 11, 6016, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Bhag\'thera - Within 0-5 Range - Cast Pierce Armor'),
 (729, 0, 0, 0, 0, 0, 100, 0, 3000, 4000, 10000, 10000, 0, 0, 11, 5164, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,       'Sin Dall - Within 0-5 Range - Cast Knockdown'),
+(730, 0, 0, 0, 9, 0, 100, 512, 3000, 4000, 11000, 14000, 0, 5, 11, 3604, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Tethis - Within 0-5 Range - Cast Tendon Rip'),
+--
 (780, 0, 0, 0, 0, 0, 100, 0, 0, 0, 1500, 2500, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Skullsplitter Mystic - In Combat - Cast Lightning Bolt'),
 (780, 0, 1, 0, 14, 0, 100, 0, 700, 40, 60000, 60000, 0, 0, 11, 11986, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Skullsplitter Mystic - Friendly missing 700 Health - Cast Healing Wave'),
 (780, 0, 2, 0, 0, 0, 100, 0, 3000, 6000, 14000, 20000, 0, 0, 11, 4980, 96, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Skullsplitter Mystic - In Combat - Cast Quick Frost Ward'),
@@ -94,6 +114,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (782, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Skullsplitter Scout - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (783, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 23000, 26000, 0, 0, 11, 3148, 2, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Skullsplitter Berserker - Within 0-5 Range - Cast Head Crack'),
 (783, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Skullsplitter Berserker - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(818, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 6000, 12000, 0, 0, 11, 8398, 64, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,     'Mai\'Zoth - In Combat - Cast Frostbolt Volley'),
+(818, 0, 1, 0, 0, 0, 100, 0, 5000, 9000, 12000, 15000, 0, 0, 11, 8814, 64, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,    'Mai\'Zoth - In Combat - Cast Flame Spike'),
+(818, 0, 2, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 12544, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Mai\'Zoth - Out of Combat - Cast Frost Armor'),
 (921, 0, 0, 0, 9, 0, 100, 0, 5200, 7500, 5900, 9800, 0, 5, 11, 40505, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Venture Co. Lumberjack - Within 0-5 Range - Cast Cleave'),
 (921, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Venture Co. Lumberjack - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1085, 0, 0, 0, 9, 0, 100, 0, 8600, 8600, 31300, 31300, 0, 5, 11, 13443, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Elder Stranglethorn Tiger - Within 0-5 Range - Cast Rend'),
@@ -151,8 +174,31 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14488, 0, 0, 0, 9, 0, 100, 0, 2000, 4000, 5000, 6000, 0, 5, 11, 15496, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Roloch - Within 0-5 Range - Cast Cleave');
 
 
--- Bloodscalp Shaman missing from Tkashi Ruins
--- saltwater crocolist should share spawn with elder saltwater crocolisk.
+-- Bhag'thera(728) and Tethis(730) have multiple spawn locations 
+DELETE FROM `creature` WHERE `id1` IN (728, 730);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(1348,   728, 0, 0, 0, 0, 0, 1, 1, 0, -12191, -944.651, 32.9082, 0.187693, 480, 0, 0, 1753, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695017, 728, 0, 0, 0, 0, 0, 1, 1, 0, -12016.5, -896.876, 35.3047, 3.59511, 480, 5, 0, 1753, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695018, 728, 0, 0, 0, 0, 0, 1, 1, 0, -12380.4, -787.877, 30.3229, 0.779469, 480, 5, 0, 1753, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(1342,   730, 0, 0, 0, 0, 0, 1, 1, 0, -13076.6, 387.179, 15.4089, 3.01239, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695019, 730, 0, 0, 0, 0, 0, 1, 1, 0, -12978.6, 411.841, 21.7456, 3.43503, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695020, 730, 0, 0, 0, 0, 0, 1, 1, 0, -13017.2, 193.101, 22.7814, 1.45268, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601010, 601011);
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(1348,   601010, 0, 'Bhag thera'),
+(695017, 601010, 0, 'Bhag thera'),
+(695018, 601010, 0, 'Bhag thera'),
+(1342,   601011, 0, 'Tethis'),
+(695019, 601011, 0, 'Tethis'),
+(695020, 601011, 0, 'Tethis');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601010, 601011);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601010, 1, ''),
+(601011, 1, '');
+
 
 -- Drop chance for Pristine Tigress Fang was incorrectly set to 100 - updated to 10
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 3839;
