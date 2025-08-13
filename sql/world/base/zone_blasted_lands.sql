@@ -208,7 +208,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-640203, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6402030, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Justinius the Harbinger - On Respawn - Waypoint Start'),
 (-640206, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6402060, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Melgromm Highmountain - On Respawn - Waypoint Start'),
 --
-(19365, 0, 0, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 25, 30, 0, 0, 0, 0, 0, 0, 0,  'Argent Bowman - Within 5-30 Range - Cast Shoot'), 
+(19365, 0, 0, 0, 110, 0, 100, 1, 0, 0, 0, 0, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Argent Bowman - Outside 30 Range - Start Combat Movement'),
+(19365, 0, 1, 0, 110, 0, 100, 1, 0, 0, 0, 0, 0, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Argent Bowman - Within 0-30 Range - Stop Combat Movement'),
+(19365, 0, 2, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Argent Bowman - Within 5-30 Range - Cast Shoot'),
 --
 (18966, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Justinius the Harbinger - On Aggro - Say Line 0'),
 (18966, 0, 1, 0, 9, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 35, 11, 33554, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Justinius the Harbinger - Within 0-35 Range - Cast Judgement of Command'),
