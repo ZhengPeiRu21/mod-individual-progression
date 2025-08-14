@@ -49,7 +49,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7267, 0, 8, 0, 5, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Chief Ukorz Sandscalp - On Kill - Say line 3'),
 (7274, 0, 0, 1, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Sandfury Executioner - On Aggro - Say line 0'),
 (7274, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7366, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Sandfury Executioner - On Aggro - Cast Berserker Stance'),
-(7274, 0, 2, 0, 0, 0, 100, 0, 7000, 13000, 7000, 23000, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Sandfury Executioner - In Combat - Cast Cleave'),
+(7274, 0, 2, 0, 0, 0, 100, 0, 7000, 13000, 7000, 23000, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Sandfury Executioner - In Combat - Cast Cleave'),
 (7274, 0, 3, 0, 12, 0, 100, 0, 0, 20, 30000, 30000, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Sandfury Executioner - In Combat - Cast Execute'),
 (7274, 0, 4, 0, 5, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Sandfury Executioner - On Kill - Say line 1'),
 (7795, 0, 0, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 10180, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Hydromancer Velratha - In Combat - Cast Frostbolt'),
