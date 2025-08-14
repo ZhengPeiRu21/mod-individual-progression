@@ -85,6 +85,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- Lady Sarevess, Waypoints
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 26129;
+
 DELETE FROM `creature_addon` WHERE `guid` = 26129;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (26129, 48310, 0, 0, 0, 0, 0, NULL);
