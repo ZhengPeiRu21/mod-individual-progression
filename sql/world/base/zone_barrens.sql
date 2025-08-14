@@ -210,6 +210,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- Isha Iwak, Way Points
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 15085;
+
 DELETE FROM `creature_addon` WHERE `guid` = 15085;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (15085, 34760, 0, 0, 0, 0, 0, NULL);
