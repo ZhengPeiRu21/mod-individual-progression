@@ -1,8 +1,8 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(4076, 7327, 7328, 7329, 7332, 7335, 7337, 7341, 7342, 7344, 7345, 7346, 7347, 7348, 7352, 7353, 7354, 8567);
+(4076, 7327, 7328, 7329, 7332, 7335, 7337, 7341, 7342, 7344, 7345, 7346, 7347, 7348, 7352, 7353, 7354, 7358, 8567);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(4076, 7327, 7328, 7329, 7332, 7335, 7337, 7341, 7342, 7344, 7345, 7346, 7347, 7348, 7352, 7353, 7354, 8567);
+(4076, 7327, 7328, 7329, 7332, 7335, 7337, 7341, 7342, 7344, 7345, 7346, 7347, 7348, 7352, 7353, 7354, 7358, 8567);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -52,6 +52,22 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7354, 0, 2, 0, 0, 0, 100, 0, 3000, 5000, 20000, 25000, 0, 0, 11, 11639, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Ragglesnout - In Combat - Cast Shadow Word: Pain'),
 (7354, 0, 3, 0, 0, 0, 100, 0, 9000, 13000, 15000, 20000, 0, 0, 11, 7645, 1, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,    'Ragglesnout - In Combat - Cast Dominate Mind'),
 (7354, 0, 4, 0, 74, 0, 100, 0, 0, 0, 12000, 16000, 40, 40, 11, 12039, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Ragglesnout - Friendly between 0-40% Health - Cast Heal'),
+--
+(7358, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12556, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Amnennar the Coldbringer - On Reset - Cast Frost Armor'),
+(7358, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Amnennar the Coldbringer - On Aggro - Say Line 0'),
+(7358, 0, 2, 0, 5, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Amnennar the Coldbringer - On Kill - Say Line 4'),
+(7358, 0, 3, 0, 0, 0, 100, 0, 8000, 10000, 10000, 16000, 0, 0, 11, 13009, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Amnennar the Coldbringer - In Combat - Cast Amnennars Wrath'),
+(7358, 0, 4, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 15530, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Amnennar the Coldbringer - In Combat - Cast Frostbolt'),
+(7358, 0, 5, 0, 106, 0, 100, 0, 6000, 10000, 13000, 21000, 0, 10, 11, 15531, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Amnennar the Coldbringer - In Combat - Cast Frost Nova'),
+(7358, 0, 6, 0, 2, 0, 100, 1, 0, 70, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Amnennar the Coldbringer - Health Between 0-70% - Say Line 3'),
+(7358, 0, 7, 8, 2, 0, 100, 1, 0, 55, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Amnennar the Coldbringer - Health Between 0-55% - Say Line 5'),
+(7358, 0, 8, 9, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Amnennar the Coldbringer - Health Between 0-55% - Say Line 1'),
+(7358, 0, 9, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12642, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Amnennar the Coldbringer - Health Between 0-55% - Cast Summon Frost Spectres'),
+(7358, 0, 10, 11, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Amnennar the Coldbringer - Health Between 0-30% - Say Line 5'),
+(7358, 0, 11, 12, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Amnennar the Coldbringer - Health Between 0-30% - Say Line 1'),
+(7358, 0, 12, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12642, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Amnennar the Coldbringer - Health Between 0-30% - Cast Summon Frost Spectres'),
+(7358, 0, 13, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 9, 8585, 0, 100, 0, 0, 0, 0, 0,                 'Amnennar the Coldbringer - On Just Died - Despawn Frost Spectres'),
+--
 (8567, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12627, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Glutton - On Reset - Cast Disease Cloud'),
 (8567, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Glutton - On Aggro - Say Line 0'),
 (8567, 0, 2, 0, 5, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Glutton - On Kill - Say Line 1'),
