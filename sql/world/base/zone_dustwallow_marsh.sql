@@ -29,8 +29,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (23786, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 2378600, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Stonemaul Spirit - On Spawn - Run Script'), -- say line 0, start attack
 (23786, 0, 1, 0, 0, 0, 15, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Stonemaul Spirit - In Combat - Say Line 1 (No Repeat)'),
-(23873, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 53625, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Goreclaw the Ravenous - On Aggro - Cast Heroic Leap'),
-(23873, 0, 1, 0, 9, 0, 100, 0, 2600, 2900, 17600, 17900, 0, 5, 11, 32019, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Goreclaw the Ravenous - Within 0-5 Range - Cast Gore');
+(23873, 0, 0, 0, 0, 0, 100, 0, 4000, 6000, 20000, 22000, 0, 0, 11, 6607, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Goreclaw the Ravenous - In Combat - Cast Lash'),
+(23873, 0, 1, 0, 9, 0, 100, 0, 0, 0, 17600, 17900, 0, 5, 11, 32019, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Goreclaw the Ravenous - Within 0-5 Range - Cast Gore');
 
 
 /* Old Vanilla Varian Wrynn Npc in Alcaz during Vanilla phases */
