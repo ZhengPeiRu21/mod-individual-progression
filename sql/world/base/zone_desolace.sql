@@ -189,7 +189,7 @@ UPDATE `creature_template_model` SET `CreatureDisplayID` = 11660 WHERE `Creature
 DELETE FROM `creature` WHERE `guid` IN (29113, 610204);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, 
 `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(29113, 10182, 0, 0, 1, 0, 0, 1, 1, 1, 248.28, 1834.76, 86.2291, 3.32486, 550, 0, 0, 647400, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(29113, 10182, 0, 0, 1, 0, 0, 1, 1, 1, 248.28, 1834.76, 86.2291, 3.32486, 550, 0, 1, 647400, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 (610204, 10204, 0, 0, 1, 0, 0, 1, 1, 0, 247.329, 1830.72, 86.2303, 3.36506, 550, 0, 0, 161850, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_addon` WHERE `guid` = 29113;
