@@ -68,6 +68,36 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10082, 0, 5, 0, 9, 0, 100, 0, 0, 3000, 12000, 25000, 0, 20, 11, 6533, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Zerillis - Within 0-20 Range - Cast Net'),
 (10082, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Zerillis - Between 0-15% Health - Flee For Assist (No Repeat)');
 
+-- create patrol with formation and add way points 
+DELETE FROM `creature` WHERE `guid` IN (81530, 81531, 81532);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+(81530, 7246, 0, 0, 209, 0, 0, 1, 1, 1, 1865.24, 1118.27, 10.8681, 4.69151, 86400, 0, 0, 4119, 2864, 0, 0, 0, 0, '', 0, 0, NULL),
+(81531, 8095, 0, 0, 209, 0, 0, 1, 1, 0, 1867.35, 1117.43, 9.80891, 4.69091, 86400, 0, 1, 5757, 0,    2, 0, 0, 0, '', 0, 0, NULL),
+(81532, 7246, 0, 0, 209, 0, 0, 1, 1, 1, 1869.56, 1120.73, 10.4645, 4.68603, 86400, 0, 0, 4119, 2864, 0, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `creature_formations` WHERE `leaderGUID` = 81531;
+INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
+(81531, 81531, 0, 0, 515, 0, 0),
+(81531, 81530, 4, 160, 515, 0, 0),
+(81531, 81532, 4, 200, 515, 0, 0);
+
+DELETE FROM `creature_addon` WHERE `guid` = 81531;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(81531, 815310, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `waypoint_data` WHERE `id` = 815310;
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+(815310, 1, 1867.72, 1117.63, 9.67427, 5.25511, 0, 0, 0, 100, 0),
+(815310, 2, 1874.56, 1106.29, 8.91544, 5.25511, 0, 0, 0, 100, 0),
+(815310, 3, 1867.78, 1088.92, 8.8768, 4.34012, 0, 0, 0, 100, 0),
+(815310, 4, 1852.9, 1058.97, 8.87697, 4.31656, 0, 0, 0, 100, 0),
+(815310, 5, 1856.97, 1035.76, 8.87697, 4.88597, 0, 0, 0, 100, 0),
+(815310, 6, 1875.22, 1025.96, 8.87697, 5.73028, 0, 0, 0, 100, 0),
+(815310, 7, 1857.31, 1036.28, 8.87706, 1.94073, 0, 0, 0, 100, 0),
+(815310, 8, 1852.3, 1057.99, 8.87706, 1.80328, 0, 0, 0, 100, 0),
+(815310, 9, 1858.01, 1071.58, 8.87706, 1.06108, 0, 0, 0, 100, 0),
+(815310, 10, 1875.04, 1102.94, 8.87917, 1.10035, 0, 0, 0, 100, 0);
 
 /* Restore Mallet requirement to Gong of Zul'Farrak */
 UPDATE `gameobject_template` SET `data0` = 459 WHERE `entry` = 141832;
