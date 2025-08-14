@@ -1,9 +1,9 @@
 /* smart scripts */
 -- UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN ();
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(11685, 11686, 11687, 11688, 11777, 11787, 11790, 11791, 11792, 11793, 11794, 12216, 12223, 12224, 12236, 13141, 13142, 13696, 13718);
+(11685, 11686, 11687, 11688, 11777, 11787, 11790, 11791, 11792, 11793, 11794, 12216, 12219, 12220, 12221, 12223, 12224, 12236, 12258, 13141, 13142, 13533, 13696, 13718);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(11685, 11686, 11687, 11688, 11777, 11787, 11790, 11791, 11792, 11793, 11794, 12216, 12223, 12224, 12236, 13141, 13142, 13696, 13718);
+(11685, 11686, 11687, 11688, 11777, 11787, 11790, 11791, 11792, 11793, 11794, 12216, 12219, 12220, 12221, 12223, 12224, 12236, 12258, 13141, 13142, 13533, 13696, 13718);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -45,6 +45,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11794, 0, 4, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 14516, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Sister of Celebrian - Within 0-5 Range - Cast Strike'),
 (12216, 0, 0, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 0, 30, 11, 21067, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Poison Sprite - Within 0-30 Range - Cast Poison Bolt'),
 (12216, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Poison Sprite - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(12219, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 11000, 0, 10, 11, 21749, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Barbed Lasher - Within 0-10 Range - Cast Thorn Volley'),
+(12220, 0, 0, 0, 0, 0, 100, 0, 0, 0, 9000, 17000, 0, 0, 11, 11922, 32, 1, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,       'Constrictor Vine - Within 0-30 Range - Cast Entangling Roots'),
+(12221, 0, 0, 0, 0, 0, 100, 0, 1000, 7000, 10000, 15000, 0, 0, 11, 21070, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Noxious Slime - In Combat - Cast Noxious Cloud'),
+(12221, 0, 1, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21070, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Noxious Slime - On Just Died - Cast Noxious Cloud'),
 (12223, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 6000, 11000, 0, 0, 11, 11428, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Cavern Lurker - Within 0-5 Range - Cast Knockdown'),
 (12224, 0, 0, 0, 2, 0, 100, 0, 0, 75, 21000, 26000, 0, 0, 11, 7948, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Cavern Shambler - Between 0-75% Health - Cast Wild Regeneration'),
 (12224, 0, 1, 0, 0, 0, 100, 0, 6000, 11000, 6000, 11000, 0, 0, 11, 16790, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Cavern Shambler - In Combat - Cast Knockdown'),
@@ -55,16 +59,25 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12236, 0, 3, 0, 0, 0, 100, 0, 3000, 7000, 7000, 11000, 0, 0, 11, 21390, 0, 0, 0, 0, 0, 28, 30, 1, 1, 5, 0, 0, 0, 0,  'Lord Vyletongue - Within 5-30 Range - Cast Multi-Shot'),
 (12236, 0, 4, 0, 0, 0, 100, 0, 15000, 15000, 15000, 15000, 0, 0, 11, 21655, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Lord Vyletongue - In Combat - Cast Blink'),
 (12236, 0, 5, 0, 0, 0, 100, 0, 13000, 13000, 15000, 15000, 0, 0, 11, 7964, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lord Vyletongue - In Combat - Cast Smoke Bomb'),
+(12258, 0, 0, 0, 0, 0, 100, 0, 3000, 7000, 7000, 11000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Razorlash - Within 0-5 Range - Cast Cleave'),
+(12258, 0, 1, 0, 0, 0, 85, 0, 8000, 12000, 12000, 16000, 0, 0, 11, 15976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Razorlash - Within 0-5 Range - Cast Puncture'),
+(12258, 0, 2, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Razorlash - In Combat - Cast Thrash'),
 --
 (13141, 0, 0, 0, 9, 0, 100, 0, 0, 5000, 7000, 10000, 0, 5, 11, 13446, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Deeprot Stomper - In Combat - Cast Strike'),
 (13141, 0, 1, 0, 0, 0, 100, 0, 11000, 16000, 15000, 21000, 0, 0, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Deeprot Stomper - In Combat - Cast War Stomp'),
 (13142, 0, 0, 0, 1, 0, 100, 0, 1000, 5000, 90000, 90000, 0, 0, 11, 21337, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Deeprot Tangler - Out of Combat - Cast Thorns'),
 (13142, 0, 1, 0, 0, 0, 100, 0, 4000, 11000, 17000, 21000, 0, 0, 11, 21331, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Deeprot Tangler - In Combat - Cast Entangling Roots'),
+(13533, 0, 0, 0, 9, 0, 100, 0, 0, 0, 30000, 45000, 0, 5, 11, 5413, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Spewed Larva - Within 0-5 Range - Cast Noxious Catalyst'),
+(13533, 0, 1, 2, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 69, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 929.95, -353.66, -50.47, 0,  'Spewed Larva - Is Summoned By - Move To Pos'),
+(13533, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 89, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Spewed Larva - Is Summoned By - Random Move'),
 (13696, 0, 0, 0, 0, 0, 100, 0, 4000, 11000, 30000, 45000, 0, 5, 11, 5413, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Noxxious Scion - Within 0-5 Range - Cast Noxious Catalyst'),
 (13696, 0, 1, 0, 0, 0, 100, 0, 1000, 2000, 14000, 21000, 0, 0, 11, 21068, 96, 1, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Noxxious Scion - In Combat - Cast Corruption'),
 (13718, 0, 0, 0, 0, 0, 100, 0, 5400, 6200, 25900, 34600, 0, 0, 11, 15848, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'The Nameless Prophet - In Combat - Cast Festering Rash'),
 (13718, 0, 1, 0, 0, 0, 100, 0, 3000, 11000, 30000, 30000, 0, 0, 11, 16098, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'The Nameless Prophet - In Combat - Cast Curse of Blood');
 
+
+-- Slime shouldn't be skinnable
+UPDATE `creature_template` SET `skinloot` = 0 WHERE `entry` = 13533;
 
 -- Legends of Maraudon
 UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Celebras the Redeemed.' WHERE `ID` = 7044;
