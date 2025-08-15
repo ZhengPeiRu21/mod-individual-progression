@@ -89,6 +89,13 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 (5065,0,0,'I require a vial of aqual quintessence, Hydraxis, for I go to the Molten Core to extinguish a rune of the Firelords.',8666,1,2,0,0,0,0,'',0,0),
 (5065,1,0,'I desire this eternal quintessence, Duke Hydraxis.',12363,1,2,0,0,0,0,'',0,0);
 
+-- reputation fixes
+UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 20 WHERE `creature_id` IN 
+(11667,  -- Flameguard
+ 11668,  -- Firelord
+ 12076,  -- Lava Elemental
+ 12100); -- Lava Reaver
+
 -- MC - Require dusing the runes
 UPDATE `gameobject_template` SET `ScriptName` = 'go_firelord_rune' WHERE `entry` IN (176956, 176957, 176955, 176953, 176952, 176954, 176951);
 
