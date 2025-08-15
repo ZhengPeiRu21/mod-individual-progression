@@ -10,7 +10,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 DELETE FROM `creature` WHERE `guid` = 605981;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(605981, 5981, 0, 0, 0, 0, 0, 1, 1, 1, -11384.5, -2998.08, -0.819786, 2.103, 430, 0, 1, 2158, 4650, 2, 0, 0, 0, '', NULL, 0, NULL);
+(605981, 5981, 0, 0, 0, 0, 0, 1, 1, 1, -11384.5, -2998.08, -0.819786, 2.103, 430, 0, 0, 2158, 4650, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 DELETE FROM `creature_addon` WHERE `guid` = 605981;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
@@ -48,9 +48,9 @@ REPLACE INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`,
 (@CGUID+3, 19287, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11861.4, -3213.53, -22.4019, 0.108753, 120, 0, 0, 3297, 2434, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+4, 19287, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11903.3, -3210.05, -14.8145, 0.126833, 30, 0, 0, 3297, 2434, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+5, 19287, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11903.8, -3206.12, -14.8229, 0.134687, 30, 0, 0, 3297, 2434, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+6, 19288, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11891.6, -3206.74, -14.7911, 0.133866, 1800, 0, 1, 88440, 13100, 2, 0, 0, 0, '', NULL, 0, NULL),   -- Dreadknight, Melgromm
-(@CGUID+7, 19288, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11897.1, -3211.45, -14.6568, 0.0835547, 1200, 0, 1, 88440, 13100, 2, 0, 0, 0, '', NULL, 0, NULL),  -- Dreadknight, Raynor
-(@CGUID+8, 19288, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11897.6, -3202.01, -14.651, 0.0796277, 900, 0, 1, 88440, 13100, 2, 0, 0, 0, '', NULL, 0, NULL),    -- Dreadknight, Justinius
+(@CGUID+6, 19288, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11891.6, -3206.74, -14.7911, 0.133866, 1800, 0, 0, 88440, 13100, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Dreadknight, Melgromm
+(@CGUID+7, 19288, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11897.1, -3211.45, -14.6568, 0.0835547, 1200, 0, 0, 88440, 13100, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Dreadknight, Raynor
+(@CGUID+8, 19288, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11897.6, -3202.01, -14.651, 0.0796277, 900, 0, 0, 88440, 13100, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Dreadknight, Justinius
 --
 (@CGUID+9, 19391, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11902.3, -3207.61, -14.7973, 0.122027, 180, 0, 0, 15260, 0, 0, 0, 0, 0, '', NULL, 0, NULL),        -- Felguard Lieutenant
 --
@@ -102,15 +102,15 @@ REPLACE INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`,
 (@CGUID+119, 19366, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11846, -3171.25, -28.5187, 4.27488, 60, 3, 0, 4979, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+120, 19366, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11844.1, -3234, -25.5526, 1.70452, 60, 3, 0, 4979, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 --
-(@CGUID+200, 19385, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11804.1, -3221.13, -30.622, 2.75383, 1200, 0, 1, 69860, 0, 2, 0, 0, 0, '', NULL, 0, NULL),       -- Lord Marshal Raynor
+(@CGUID+200, 19385, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11804.1, -3221.13, -30.622, 2.75383, 1200, 0, 0, 69860, 0, 0, 0, 0, 0, '', NULL, 0, NULL),       -- Lord Marshal Raynor
 (@CGUID+201, 19386, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11802.5, -3223.36, -30.4378, 2.63601, 1200, 0, 0, 5914, 0, 0, 0, 0, 0, '', NULL, 0, NULL),       -- Stormwind Marshal
 (@CGUID+202, 19386, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11801.4, -3219.95, -30.5844, 2.78131, 1200, 0, 0, 5914, 0, 0, 0, 0, 0, '', NULL, 0, NULL),       -- Stormwind Marshal
 --
-(@CGUID+203, 18966, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11800, -3179.14, -30.4951, 3.5574, 900, 0, 1, 111780, 47325, 2, 0, 0, 0, '', NULL, 0, NULL),     -- Justinius the Harbinger
+(@CGUID+203, 18966, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11800, -3179.14, -30.4951, 3.5574, 900, 0, 0, 111780, 47325, 0, 0, 0, 0, '', NULL, 0, NULL),     -- Justinius the Harbinger
 (@CGUID+204, 19407, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11797.3, -3180.99, -30.3303, 3.42781, 900, 0, 0, 5914, 0, 0, 0, 0, 0, '', NULL, 0, NULL),        -- Azuremyst Vindicator
 (@CGUID+205, 19407, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11800, -3175.74, -30.4326, 3.73019, 900, 0, 0, 5914, 0, 0, 0, 0, 0, '', NULL, 0, NULL),          -- Azuremyst Vindicator
 --
-(@CGUID+206, 18969, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11792.7, -3175.95, -30.0411, 3.55114, 1800, 0, 1, 111780, 47325, 2, 0, 0, 0, '', NULL, 0, NULL), -- Melgromm Highmountain
+(@CGUID+206, 18969, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11792.7, -3175.95, -30.0411, 3.55114, 1800, 0, 0, 111780, 47325, 0, 0, 0, 0, '', NULL, 0, NULL), -- Melgromm Highmountain
 (@CGUID+207, 19406, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11790.8, -3178.18, -29.9874, 3.55507, 1800, 0, 0, 5914, 0, 0, 0, 0, 0, '', NULL, 0, NULL),       -- Thunder Bluff Huntsman
 (@CGUID+208, 19406, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11793.4, -3172.56, -29.8954, 3.65324, 1800, 0, 0, 5914, 0, 0, 0, 0, 0, '', NULL, 0, NULL),       -- Thunder Bluff Huntsman
 --
