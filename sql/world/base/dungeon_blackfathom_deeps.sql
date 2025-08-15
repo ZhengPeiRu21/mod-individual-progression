@@ -74,7 +74,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4831, 0, 3, 0, 106, 0, 100, 0, 6000, 9000, 9000, 13000, 0, 10, 11, 865, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Lady Sarevess - Within 0-10 Range - Cast Frost Nova'),
 (4831, 0, 4, 0, 0, 0, 100, 0, 7000, 9000, 9000, 13000, 0, 0, 11, 246, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Lady Sarevess - Within 0-30 Range - Cast Slow'),
 (4831, 0, 5, 0, 5, 0, 100, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Sarevess - On Player Kill - Say Line 1'),
-(4831, 0, 6, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 48310, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Lady Sarevess - On Respawn - Waypoint Start'),
 --
 (4887, 0, 0, 0, 9, 0, 100, 0, 3000, 6000, 7000, 12000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ghamoo-ra - Within 0-10 Range - Cast Trample'),
 --
@@ -85,6 +84,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- Lady Sarevess, Waypoints
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 26129;
+
 DELETE FROM `creature_addon` WHERE `guid` = 26129;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (26129, 48310, 0, 0, 0, 0, 0, NULL);

@@ -1,8 +1,8 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(4632, 4634, 4635, 4636, 4637, 4654, 4655, 4656, 4657, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4676, 4677, 4681, 4682, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 5760, 5771, 10182, 11787, 13019, 14225);
+(4632, 4634, 4635, 4636, 4637, 4654, 4655, 4656, 4657, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4676, 4677, 4681, 4682, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 5760, 5771, 10182, 13019, 14225);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(4632, 4634, 4635, 4636, 4637, 4654, 4655, 4656, 4657, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4676, 4677, 4681, 4682, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 5760, 5771, 10182, 11787, 13019, 14225);
+(4632, 4634, 4635, 4636, 4637, 4654, 4655, 4656, 4657, 4663, 4664, 4665, 4670, 4671, 4672, 4673, 4674, 4675, 4676, 4677, 4681, 4682, 4692, 4695, 4696, 4705, 4726, 4728, 5402, 5600, 5602, 5760, 5771, 10182, 13019, 14225);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -90,19 +90,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5771, 0, 2, 0, 0, 0, 100, 0, 2100, 3100, 2100, 3100, 0, 0, 11, 12471, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Jugkar Grim\'rod - In Combat - Cast Shadow Bolt'),
 (5771, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Jugkar Grim\'rod - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(10182, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 101820, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rexxar - On Respawn - Waypoint Start'),
-(10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Rexxar - On Reset - Cast Thrash'),
-(10182, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - On Reset - Cast Puncture'),
-(10182, 0, 3, 0, 0, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 0, 11, 18813, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - Within 0-10 Range - Cast Knock Away'),
-(10182, 0, 4, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rexxar - Within 0-5 Range - Cast Cleave'),
-(10182, 0, 5, 0, 9, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 5, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rexxar - Within 0-5 Range - Cast Sundering Cleave'),
-(10182, 0, 6, 7, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
-(10182, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rexxar - On Enrage - Say Line 0'),
-(10182, 0, 8, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 9, 10204, 0, 0, 0, 0, 0, 0, 0,            'Rexxar - On Misha Between 0-20% Health - Cast Vengeance (No Repeat)'),
-(10182, 0, 9, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rexxar - On Agrro - Waypoint Pause'),
-(10182, 0, 10, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Rexxar - OOC - Waypoint Resume'),
+(10182, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Rexxar - On Reset - Cast Thrash'),
+(10182, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21911, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - On Reset - Cast Puncture'),
+(10182, 0, 2, 0, 0, 0, 100, 0, 7000, 9000, 12000, 16000, 0, 0, 11, 18813, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,  'Rexxar - Within 0-10 Range - Cast Knock Away'),
+(10182, 0, 3, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rexxar - Within 0-5 Range - Cast Cleave'),
+(10182, 0, 4, 0, 9, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 5, 11, 17963, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rexxar - Within 0-5 Range - Cast Sundering Cleave'),
+(10182, 0, 5, 6, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 30485, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Rexxar - Between 0-25% Health - Cast Enrage (No Repeat)'),
+(10182, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rexxar - On Enrage - Say Line 0'),
+(10182, 0, 7, 0, 74, 0, 100, 1, 0, 0, 0, 0, 20, 0, 11, 8602, 0, 0, 0, 0, 0, 9, 10204, 0, 0, 0, 0, 0, 0, 0,            'Rexxar - On Misha Between 0-20% Health - Cast Vengeance (No Repeat)'),
+(10182, 0, 8, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rexxar - On Agrro - Waypoint Pause'),
+(10182, 0, 9, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rexxar - OOC - Waypoint Resume'),
 --
-(11787, 0, 0, 0, 9, 0, 100, 0, 7000, 12000, 7000, 12000, 0, 5, 11, 14120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rock Borer - Within 0-5 Range - Cast Tunneler Acid'),
 (13019, 0, 0, 0, 0, 0, 100, 0, 9000, 15000, 16000, 21000, 0, 0, 11, 11829, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Burning Blade Seer - In Combat - Cast Flamestrike'),
 (13019, 0, 1, 0, 0, 0, 85, 0, 4000, 14000, 11000, 17000, 0, 0, 11, 9658, 64, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Burning Blade Seer - Within 0-20 Range - Cast Flame Buffet'),
 (13019, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Burning Blade Seer - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -190,7 +188,7 @@ UPDATE `creature_template_model` SET `CreatureDisplayID` = 20918, `VerifiedBuild
 DELETE FROM `creature` WHERE `guid` IN (29113, 610204);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, 
 `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(29113, 10182, 0, 0, 1, 0, 0, 1, 1, 1, 248.28, 1834.76, 86.2291, 3.32486, 550, 0, 0, 647400, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(29113, 10182, 0, 0, 1, 0, 0, 1, 1, 1, 248.28, 1834.76, 86.2291, 3.32486, 550, 0, 1, 647400, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 (610204, 10204, 0, 0, 1, 0, 0, 1, 1, 0, 247.329, 1830.72, 86.2303, 3.36506, 550, 0, 0, 161850, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_addon` WHERE `guid` = 29113;
