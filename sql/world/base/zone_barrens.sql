@@ -137,11 +137,12 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (3279, 0, 2, 'You will be easy prey, $C.',              12, 0, 100, 0, 0, 0, 2231, 0, 'Witchwing Ambusher');
 
 -- smart scripts    
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (3476);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(3238, 3239, 3240, 3244, 3245, 3246, 3249, 3258, 3279, 3374, 3375, 3378, 3381, 3382, 3392, 3398, 3424, 3435, 3457, 3458, 3459, 3472, 3476, 3634, 
+(3238, 3239, 3240, 3244, 3245, 3246, 3249, 3258, 3279, 3374, 3375, 3378, 3381, 3382, 3392, 3398, 3424, 3435, 3457, 3458, 3459, 3472, 3634, 
 4128, 4129, 5848, 5849, 5851, 5859, 7872, 7873, 7874, 12865);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(3238, 3239, 3240, 3244, 3245, 3246, 3249, 3258, 3279, 3374, 3375, 3378, 3381, 3382, 3392, 3398, 3424, 3435, 3457, 3458, 3459, 3472, 3476, 3634, 
+(3238, 3239, 3240, 3244, 3245, 3246, 3249, 3258, 3279, 3374, 3375, 3378, 3381, 3382, 3392, 3398, 3424, 3435, 3457, 3458, 3459, 3472, 3634, 
 4128, 4129, 5848, 5849, 5851, 5859, 7872, 7873, 7874, 12865);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -183,7 +184,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3458, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                   'Bristleback Hunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3459, 0, 0, 0, 9, 0, 100, 0, 2600, 3300, 9600, 11200, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Razormane Warfrenzy - Within 0-5 Range - Cast Strike'),
 (3472, 0, 0, 0, 0, 0, 80, 0, 4000, 9000, 12000, 15000, 0, 0, 11, 25012, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0, 'Washte Pawne - Within 0-20 Range - Cast Lightning Breath'),
-(3476, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 34760, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Isha Iwak - On Respawn - Waypoint Start'),
 (3634, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Deviate Stalker - Out of Combat - Cast Sneak'),
 (4128, 0, 0, 0, 9, 0, 100, 0, 2100, 2500, 12100, 12500, 0, 5, 11, 3604, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Hecklefang Stalker - Within 0-5 Range - Cast Tendon Rip'),
 (4129, 0, 0, 0, 9, 0, 100, 0, 2100, 2500, 12100, 12500, 0, 5, 11, 3604, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Hecklefang Snarler - Within 0-5 Range - Cast Tendon Rip'),
