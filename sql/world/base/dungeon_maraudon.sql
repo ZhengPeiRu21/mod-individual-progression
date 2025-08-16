@@ -48,10 +48,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12203, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 15000, 0, 0, 11, 10101, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Landslide - In Combat - Cast Knock Away'),
 (12203, 0, 2, 0, 0, 0, 100, 0, 2000, 7000, 8000, 8000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Landslide - In Combat - Cast Trample'),
 (12203, 0, 3, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 11, 11783, 100, 0, 0, 0, 0, 0, 0,          'Landslide - On death - Despawn minions'),
-(12206, 0, 0, 0, 110, 0, 100, 1, 0, 0, 0, 0, 25, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Primordial Behemoth - Outside 25 Range - Start Combat Movement'),
-(12206, 0, 1, 0, 110, 0, 100, 1, 0, 0, 0, 0, 0, 50, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Primordial Behemoth - Within 0-25 Range - Stop Combat Movement'),
-(12206, 0, 2, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 5, 25, 11, 21071, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Primordial Behemoth - In Combat - Cast Boulder'),
-(12206, 0, 3, 0, 9, 0, 100, 0, 1000, 5000, 8000, 13000, 0, 8, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Primordial Behemoth - Within 0-8 Range - Cast Trample'),
+(12206, 0, 0, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 5, 25, 11, 21071, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Primordial Behemoth - In Combat - Cast Boulder'),
+(12206, 0, 1, 0, 9, 0, 100, 0, 1000, 5000, 8000, 13000, 0, 8, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Primordial Behemoth - Within 0-8 Range - Cast Trample'),
 (12207, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21788, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Thessala Hydra - On Reset - Cast Deadly Poison'),
 (12207, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Thessala Hydra - In Combat - Cast Thrash'),
 (12207, 0, 2, 0, 9, 0, 100, 0, 1000, 9000, 12000, 18000, 0, 5, 11, 21790, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Thessala Hydra - Within 0-5 Range - Cast Aqua Jet'),
@@ -402,11 +400,11 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (54658, 54658, 0, 0, 3, 0, 0),
 (54658, 54664, 0, 0, 3, 0, 0),
 (55338, 55338, 0, 0, 3, 0, 0),
-(55338, 54341, 0, 0, 3, 0, 0),
+(55338, 55341, 0, 0, 3, 0, 0),
 (55344, 55344, 0, 0, 3, 0, 0),
-(55344, 54347, 0, 0, 3, 0, 0),
+(55344, 55347, 0, 0, 3, 0, 0),
 (55345, 55345, 0, 0, 3, 0, 0),
-(55345, 54348, 0, 0, 3, 0, 0);
+(55345, 55348, 0, 0, 3, 0, 0);
 
 -- Spewed Larva shouldn't be skinnable
 UPDATE `creature_template` SET `skinloot` = 0 WHERE `entry` = 13533;
