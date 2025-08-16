@@ -1,5 +1,5 @@
 /* smart scripts */
--- UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5490);
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5490);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (5421, 5427, 5441, 5451, 5452, 5456, 5457, 5465, 5471, 5472, 5473, 5474, 5475, 5481, 5485, 5615, 5616, 5617, 5618, 5623, 7847, 7855, 7856, 7857, 7858, 7883, 8201, 8202, 8205, 9397, 12046);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
