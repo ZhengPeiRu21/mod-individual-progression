@@ -1,9 +1,11 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5490);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(5421, 5427, 5441, 5451, 5452, 5456, 5457, 5465, 5471, 5472, 5473, 5474, 5475, 5481, 5485, 5615, 5616, 5617, 5618, 5623, 7847, 7855, 7856, 7857, 7858, 7883, 8201, 8202, 8205, 9397, 12046);
+(5421, 5427, 5441, 5450, 5451, 5452, 5453, 5454, 5455, 5456, 5457, 5465, 5471, 5472, 5473, 5474, 5475, 5481, 5485, 5615, 5616, 5617, 5618, 5623, 
+7847, 7855, 7856, 7857, 7858, 7883, 8201, 8202, 8205, 9397, 12046);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(5421, 5427, 5441, 5451, 5452, 5456, 5457, 5465, 5490, 5471, 5472, 5473, 5474, 5475, 5481, 5485, 5615, 5616, 5617, 5618, 5623, 7847, 7855, 7856, 7857, 7858, 7883, 8201, 8202, 8205, 9397, 12046);
+(5421, 5427, 5441, 5450, 5451, 5452, 5453, 5454, 5455, 5456, 5457, 5465, 5490, 5471, 5472, 5473, 5474, 5475, 5481, 5485, 5615, 5616, 5617, 5618, 5623, 
+7847, 7855, 7856, 7857, 7858, 7883, 8201, 8202, 8205, 9397, 12046);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -13,10 +15,18 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5421, 0, 0, 0, 0, 0, 100, 0, 6000, 20000, 20000, 36000, 0, 0, 11, 11020, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Glasshide Petrifier - Within 0-5 Range - Cast Petrify'),
 (5427, 0, 0, 0, 0, 0, 100, 0, 33000, 44000,34000, 46000, 0, 0, 11, 3150, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Rabid Blisterpaw - In Combat - Cast Rabies'),
 (5441, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hazzali Wasp - On Spawn - Cast Poison Proc'),
+(5450, 0, 0, 0, 0, 0, 75, 0, 2000, 6000, 7000, 12000, 0, 0, 11, 5416, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Hazzali Stinger - Within 0-5 Range - Cast Venom Sting'),
+(5450, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 11023, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Hazzali Stinger - On Just Died - Cast Summon Hazzali Parasites'),
 (5451, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 6589, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Hazzali Swarmer - Out of Combat - Cast Silithid Swarm (No Repeat)'),
 (5451, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 11023, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Hazzali Swarmer - On Just Died - Cast Summon Hazzali Parasites'),
-(5452, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Hazzali Worker - Between 0-30% Health - Flee For Assist (No Repeat)'),
+(5452, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Hazzali Worker - Between 0-30% Health - Flee For Assist (No Repeat)'),
 (5452, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 11023, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Hazzali Worker - On Just Died - Cast Summon Hazzali Parasites'),
+(5453, 0, 0, 0, 0, 0, 100, 0, 8000, 14000, 48000, 50000, 0, 5, 11, 6016, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Hazzali Tunneler - Within 0-5 Range - Cast Pierce Armor'),
+(5453, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 11023, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Hazzali Tunneler - On Just Died - Cast Summon Hazzali Parasites'),
+(5454, 0, 0, 0, 0, 0, 100, 0, 13000, 18000, 8000, 22000, 0, 0, 11, 8374, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Hazzali Sandreaver - Within 0-5 Range - Cast Arcing Smash'),
+(5454, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 11023, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Hazzali Sandreaver - On Just Died - Cast Summon Hazzali Parasites'),
+(5455, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Centipaar Wasp - On Reset - Cast Poison Proc'),
+(5455, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Centipaar Wasp - On Reset - Cast Thrash'),
 (5456, 0, 0, 0, 0, 0, 100, 0, 7000, 21000, 14000, 34000, 0, 0, 11, 5416, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Centipaar Stinger - Within 0-5 Range - Cast Venom Sting'),
 (5456, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Centipaar Stinger - On Reset - Cast Thrash'),
 (5457, 0, 0, 0, 0, 0, 100, 0, 6000, 6000, 1000, 8000, 0, 0, 11, 6589, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Centipaar Swarmer - In Combat - Cast Silithid Swarm'),
