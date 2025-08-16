@@ -378,6 +378,13 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+43, 13718, 0, 0, 1, 0, 0, 1, 1, 0, -1440.87, 3008.59, 115.386, 2.80674, 5, 0, 0, 3804, 1332, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+44, 13718, 0, 0, 1, 0, 0, 1, 1, 0, -1419.18, 2940.57, 95.2565, 3.62354, 5, 0, 0, 3804, 1332, 0, 0, 0, 0, '', NULL, 0, NULL);
 
+DELETE FROM `creature_addon` WHERE `guid` IN (29070, @CGUID+41, @CGUID+42, @CGUID+43, @CGUID+44);
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(@CGUID+41, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+42, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+43, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+44, 0, 0, 0, 1, 0, 0, NULL);
+
 DELETE FROM `pool_creature` WHERE `pool_entry` = 601012;
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
 (@CGUID+41, 601012, 0, 'The Nameless Prophet'),
@@ -389,9 +396,23 @@ DELETE FROM `pool_template` WHERE `entry` = 601012;
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
 (601012, 1, '');
 
+-- Primordial Behemoth (12206), link giants together - https://www.youtube.com/watch?v=ookD9bng7kU&t=16m
+DELETE FROM `creature_formations` WHERE `leaderGUID` IN (54658, 55338, 55344, 55345);
+INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
+(54658, 54658, 0, 0, 3, 0, 0),
+(54658, 54664, 0, 0, 3, 0, 0),
+(55338, 55338, 0, 0, 3, 0, 0),
+(55338, 54341, 0, 0, 3, 0, 0),
+(55344, 55344, 0, 0, 3, 0, 0),
+(55344, 54347, 0, 0, 3, 0, 0),
+(55345, 55345, 0, 0, 3, 0, 0),
+(55345, 54348, 0, 0, 3, 0, 0);
 
 -- Spewed Larva shouldn't be skinnable
 UPDATE `creature_template` SET `skinloot` = 0 WHERE `entry` = 13533;
+
+-- Deep Borer (11789), wrong skinning loot
+UPDATE `creature_template` SET `skinloot` = 100013 WHERE `entry` = 11789;
 
 -- Legends of Maraudon
 UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Celebras the Redeemed.' WHERE `ID` = 7044;
