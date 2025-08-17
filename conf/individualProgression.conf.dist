@@ -324,7 +324,7 @@ IndividualProgression.CustomProgression = ""
 #        Default:     0 - Disabled
 #                     1 - Enabled
 #
-IndividualProgression.AllowEarlyDungeonSet2 = 1
+IndividualProgression.AllowEarlyDungeonSet2 = 0
 
 # IndividualProgression.PvPGearRequirements
 #
