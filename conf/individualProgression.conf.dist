@@ -128,10 +128,10 @@ IndividualProgression.PreviousGearTuning = 0
 #        Description: In WotLK, a catch-up mechanism was added so that hunter pets are leveled up higher when tamed
 #                     Enable this option to restore Vanilla and TBC behavior and require more pet training
 #
-#        Default:     1 - Enabled
-#                     0 - Disabled
+#        Default:     0 - Disabled
+#                     1 - Enabled
 #
-IndividualProgression.HunterPetLevelFix = 1
+IndividualProgression.HunterPetLevelFix = 0
 
 # IndividualProgression.RequireNaxxStrathEntrance
 #
