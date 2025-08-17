@@ -11,8 +11,9 @@ UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (29273);
 /* Delete unused Creature Addon data */
 DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 133928);
 
--- undo incorrect waypoint id for Lady Sarevess
-DELETE FROM `waypoint_data` WHERE `id` = 48310;
+-- undo incorrect waypoint IDs 
+DELETE FROM `waypoint_data` WHERE `id` = 48310;  -- Lady Sarevess
+DELETE FROM `waypoint_data` WHERE `id` = 101820; -- Rexxar
 
 -- undo incorrect title change
 UPDATE `creature_template` SET `subname` = 'Master Blacksmithing Trainer' WHERE `entry` = 16583;
