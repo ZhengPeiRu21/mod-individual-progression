@@ -1,9 +1,11 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5229, 5268);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5278, 5286, 5287, 5295, 5296, 5346, 5356, 7725, 7726, 7727, 11447, 11497, 11498, 14661);
+(5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5262, 5274, 5278, 5286, 5287, 5295, 5296, 5297, 5299, 5346, 5356, 5362, 5363, 5364, 5366, 
+7725, 7726, 7727, 8075, 11447, 11497, 11498, 14661);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(5229, 5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5268, 5278, 5286, 5287, 5295, 5296, 5346, 5356, 7725, 7726, 7727, 11447, 11497, 11498, 14661);
+(5229, 5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5262, 5268, 5274, 5278, 5286, 5287, 5295, 5296, 5297, 5299, 5346, 5356, 5362, 5363, 5364, 5366, 
+7725, 7726, 7727, 8075, 11447, 11497, 11498, 14661);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -53,6 +55,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5258, 0, 2, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Woodpaw Alpha - On Aggro - Say Line 0'),
 (5258, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Woodpaw Alpha - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
+(5262, 0, 0, 0, 9, 0, 100, 0, 0, 0, 13000, 19000, 0, 8, 11, 8078, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Groddoc Thunderer - Within 0-8 Range - Cast Thunderclap'),
+(5274, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 21000, 0, 8, 11, 10968, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ironfur Patriarch - Within 0-8 Range - Cast Demoralizing Roar'),
 (5278, 0, 0, 0, 0, 0, 100, 0, 3400, 7000, 7000, 11000, 0, 0, 11, 11981, 320, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Sprite Darter - In Combat - Cast Mana Burn'),
 (5286, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3149, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Longtooth Runner - On Aggro - Cast Furious Howl'),
 (5287, 0, 0, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Longtooth Howler - Between 0-20% Health - Call For Help (No Repeat)'),
@@ -60,10 +64,25 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5295, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Enraged Feral Scar - On Enrage - Say Line 0'),
 (5296, 0, 0, 1, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Rage Scar Yeti - Between 0-30% Health - Cast Enrage'),
 (5296, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rage Scar Yeti - On Enrage - Say Line 0'),
+(5297, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 12000, 21000, 0, 0, 11, 6507, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Elder Rage Scar - In Combat - Cast Battle Roar'),
+(5299, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 21000, 0, 5, 11, 3147, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Ferocious Rage Scar - Within 0-5 Range - Cast Rend Flesh'),
 (5346, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 22000, 0, 8, 11, 3264, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Bloodroar the Stalker - Within 0-8 Range - Cast Blood Howl'),
 (5346, 0, 1, 2, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Bloodroar the Stalker - Between 0-30% Health - Cast Enrage'),
 (5346, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodroar the Stalker - On Enrage - Say Line 0'),
 (5356, 0, 0, 0, 0, 0, 100, 0, 2500, 5000, 10000, 15000, 0, 0, 11, 5543, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Snarler - In Combat - Cast Fade Out'),
+--
+(5362, 0, 0, 0, 14, 0, 100, 0, 1000, 40, 15000, 20000, 0, 0, 11, 11014, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Northspring Harpy - Friendly Missing 1000 Health - Cast Flow of the Northspring'),
+(5362, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Northspring Harpy - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5363, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 13000, 0, 5, 11, 6595, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Northspring Roguefeather - Within 0-5 Range - Cast Exploit Weakness'),
+(5363, 0, 1, 0, 14, 0, 100, 0, 1000, 40, 15000, 20000, 0, 0, 11, 11014, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Northspring Roguefeather - Friendly Missing 1000 Health - Cast Flow of the Northspring'),
+(5363, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Northspring Roguefeather - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5364, 0, 0, 0, 12, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                    'Northspring Slayer - Target Between 0-20% Health - Cast Execute (No Repeat)'),
+(5364, 0, 1, 0, 14, 0, 100, 0, 1000, 40, 15000, 20000, 0, 0, 11, 11014, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Northspring Slayer - Friendly Missing 1000 Health - Cast Flow of the Northspring'),
+(5364, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Northspring Slayer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5366, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Northspring Windcaller - In Combat - Cast Lightning Bolt'),
+(5366, 0, 1, 0, 0, 0, 100, 0, 8000, 11000, 17000, 21000, 0, 0, 11, 6728, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Northspring Windcaller - In Combat - Cast Enveloping Winds'),
+(5366, 0, 2, 0, 14, 0, 100, 0, 1000, 40, 15000, 20000, 0, 0, 11, 11014, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Northspring Windcaller - Friendly Missing 1000 Health - Cast Flow of the Northspring'),
+(5366, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Northspring Windcaller - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (7725, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7366, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Grimtotem Raider - On Aggro - Cast Berserker Stance'),
 (7725, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 5000, 8000, 0, 0, 11, 6533, 32, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,       'Grimtotem Raider - In Combat - Cast Net'),
@@ -81,16 +100,18 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7727, 0, 1, 0, 14, 0, 100, 0, 800, 30, 25000, 45000, 0, 0, 11, 8005, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Grimtotem Shaman - Friendly missing 800 Health - Cast Healing Wave'),
 (7727, 0, 2, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Grimtotem Shaman - Between 0-20% Health - Flee For Assist (No Repeat)'),
 --
+(8075, 0, 0, 0, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 46, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Edana Hatetalon - on Just summoned - move forward'),
+(8075, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12167, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Edana Hatetalon - In Combat  - Lightning Bolt'),
+(8075, 0, 2, 0, 0, 0, 100, 0, 12000, 15000, 19000, 24000, 0, 0, 11, 8293, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Edana Hatetalon - In Combat - Cast Lightning Cloud'),
+(8075, 0, 3, 0, 0, 0, 100, 0, 9000, 13000, 9000, 12000, 0, 0, 11, 12058, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Edana Hatetalon - In Combat - Cast Chain Lightning'),
 (11447, 0, 0, 0, 9, 0, 100, 0, 2000, 3000, 13000, 15000, 0, 30, 11, 22127, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Mushgog - Within 0-30 Range - Cast Entangling Roots'),
 (11447, 0, 1, 0, 6, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 22948, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Mushgog - On Just Died - Cast Spore Cloud'),
 (11447, 0, 2, 0, 0, 0, 100, 0, 7000, 10000, 8000, 12000, 0, 0, 11, 21749, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Mushgog - In Combat - Cast Thorn Volley'),
 (11447, 0, 3, 0, 0, 0, 100, 0, 12000, 16000, 14000, 17000, 0, 0, 11, 22951, 0, 0, 0, 0, 0, 17, 10, 40, 1, 0, 0, 0, 0, 0, 'Mushgog - In Combat - Cast Summon Player'),
 (11447, 0, 4, 0, 5, 0, 50, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mushgog - On Player Kill - Say Line 0'),
---
 (11497, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 5000, 9000, 0, 5, 11, 22937, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,       'The Razza - In Combat - Cast Poison Bolt'),
 (11497, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 9000, 15000, 0, 0, 11, 16033, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'The Razza - In Combat - Cast Chain Lightning'),
 (11497, 0, 2, 0, 0, 0, 100, 0, 12000, 16000, 14000, 17000, 0, 0, 11, 22951, 0, 0, 0, 0, 0, 17, 10, 40, 1, 0, 0, 0, 0, 0, 'The Razza - In Combat - Cast Summon Player'),
---
 (11498, 0, 0, 0, 9, 0, 100, 0, 7000, 10000, 7000, 10000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skarr the Unbreakable - Within 0-5 Range - Cast Cleave'),
 (11498, 0, 1, 0, 9, 0, 100, 0, 5000, 7000, 13000, 16000, 0, 5, 11, 11428, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skarr the Unbreakable - Within 0-5 Range - Cast Knockdown'),
 (11498, 0, 2, 0, 9, 0, 100, 0, 8000, 12000, 9000, 15000, 0, 5, 11, 15708, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skarr the Unbreakable - Within 0-5 Range - Cast Mortal Strike'),
