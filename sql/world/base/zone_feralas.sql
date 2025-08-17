@@ -1,16 +1,37 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5229, 5268);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(5232, 5249, 5251, 5254, 5255, 5258, 5278, 5286, 5287, 5356, 7725, 7726, 7727, 11447, 11497, 11498);
+(5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5278, 5286, 5287, 5295, 5296, 5346, 5356, 7725, 7726, 7727, 11447, 11497, 11498, 14661);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(5229, 5232, 5249, 5251, 5254, 5255, 5258, 5268, 5278, 5286, 5287, 5356, 7725, 7726, 7727, 11447, 11497, 11498);
+(5229, 5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5268, 5278, 5286, 5287, 5295, 5296, 5346, 5356, 7725, 7726, 7727, 11447, 11497, 11498, 14661);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(5232, 0, 0, 0, 0, 0, 100, 512, 3000, 5000, 12000, 17000, 0, 0, 11, 10966, 2, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,   'Gordunni Brute -  Within 0-10 Range - Cast Uppercut'),
+(5232, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Gordunni Brute - On Aggro - Say Line 0'),
+(5232, 0, 1, 0, 0, 0, 100, 0, 3000, 5000, 12000, 17000, 0, 0, 11, 10966, 2, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,     'Gordunni Brute -  Within 0-10 Range - Cast Uppercut'),
+(5234, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Gordunni Mauler - On Aggro - Say Line 0'),
+(5234, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gordunni Mauler - On Reset - Cast Thrash'),
+(5236, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Gordunni Shaman - On Aggro - Say Line 0'),
+(5236, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 19514, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Gordunni Shaman - Out of Combat - Cast Lightning Shield'),
+(5236, 0, 2, 0, 16, 0, 100, 0, 19514, 30, 15000, 30000, 0, 0, 11, 19514, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Gordunni Shaman - On Friendly Unit Missing Buff - Cast Lightning Shield'),
+(5236, 0, 3, 0, 14, 0, 100, 0, 1200, 40, 14000, 18000, 0, 0, 11, 8005, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Gordunni Shaman - On Friendly missing 1200 health - Cast Healing Wave'),
+(5238, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Gordunni Battlemaster - On Aggro - Say Line 0'),
+(5238, 0, 1, 0, 0, 0, 100, 0, 3000, 5000, 12000, 17000, 0, 0, 11, 13730, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Gordunni Battlemaster - Within 0-5 Range - Cast Demoralizing Shout'),
+(5239, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Gordunni Mage-Lord - On Aggro - Say Line 0'),
+(5239, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Gordunni Mage-Lord - In Combat - Cast Fireball'),
+(5239, 0, 2, 0, 0, 0, 100, 0, 5000, 9000, 20000, 26000, 0, 0, 11, 20827, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Gordunni Mage-Lord - In Combat - Cast Flamestrike'),
+(5239, 0, 3, 0, 2, 0, 100, 0, 0, 70, 120000, 120000, 0, 0, 11, 6742, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Gordunni Mage-Lord - Between 0-70% Health - Cast Bloodlust'),
+(5240, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Gordunni Warlock - On Aggro - Say Line 0'),
+(5240, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20298, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Gordunni Warlock - In Combat - Cast Shadow Bolt'),
+(5240, 0, 2, 0, 0, 0, 100, 0, 6000, 11000, 14000, 21000, 0, 0, 11, 7289, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Gordunni Warlock - In Combat - Cast Shrink'),
+(5241, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Gordunni Warlord - On Aggro - Say Line 0'),
+(5241, 0, 1, 0, 0, 0, 100, 0, 3000, 8000, 20000, 26000, 0, 0, 11, 10967, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Gordunni Warlord - In Combat - Cast Echoing Roar'),
+(5245, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Zukk ash Wasp - On Spawn - Cast Poison Proc'),
+(5246, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Zukk ash Worker - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5247, 0, 0, 0, 9, 0, 100, 0, 1500, 2500, 45000, 46000, 0, 5, 11, 6016, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Zukk ash Tunneler - Within 0-5 Range - Cast Pierce Armor'),
 (5249, 0, 0, 0, 9, 0, 100, 0, 0, 0, 120000, 120000, 0, 5, 11, 7102, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Woodpaw Mongrel - Within 0-5 Range - Cast Contagion of Rot'),
 (5249, 0, 1, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Woodpaw Mongrel - On Aggro - Say Line 0'),
 (5251, 0, 0, 0, 110, 0, 100, 1, 0, 0, 0, 0, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Woodpaw Trapper - Outside 30 Range - Start Combat Movement'),
@@ -35,8 +56,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5278, 0, 0, 0, 0, 0, 100, 0, 3400, 7000, 7000, 11000, 0, 0, 11, 11981, 320, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Sprite Darter - In Combat - Cast Mana Burn'),
 (5286, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3149, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Longtooth Runner - On Aggro - Cast Furious Howl'),
 (5287, 0, 0, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Longtooth Howler - Between 0-20% Health - Call For Help (No Repeat)'),
-(5356, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 53560, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Snarler - On Respawn - Waypoint Start'),
-(5356, 0, 1, 0, 0, 0, 100, 0, 2500, 5000, 10000, 15000, 0, 0, 11, 5543, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Snarler - In Combat - Cast Fade Out'),
+(5295, 0, 0, 1, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Enraged Feral Scar - Between 0-30% Health - Cast Enrage'),
+(5295, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Enraged Feral Scar - On Enrage - Say Line 0'),
+(5296, 0, 0, 1, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Rage Scar Yeti - Between 0-30% Health - Cast Enrage'),
+(5296, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rage Scar Yeti - On Enrage - Say Line 0'),
+(5346, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 22000, 0, 8, 11, 3264, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Bloodroar the Stalker - Within 0-8 Range - Cast Blood Howl'),
+(5346, 0, 1, 2, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Bloodroar the Stalker - Between 0-30% Health - Cast Enrage'),
+(5346, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodroar the Stalker - On Enrage - Say Line 0'),
+(5356, 0, 0, 0, 0, 0, 100, 0, 2500, 5000, 10000, 15000, 0, 0, 11, 5543, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Snarler - In Combat - Cast Fade Out'),
 --
 (7725, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7366, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Grimtotem Raider - On Aggro - Cast Berserker Stance'),
 (7725, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 5000, 8000, 0, 0, 11, 6533, 32, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,       'Grimtotem Raider - In Combat - Cast Net'),
@@ -67,16 +94,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11498, 0, 0, 0, 9, 0, 100, 0, 7000, 10000, 7000, 10000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skarr the Unbreakable - Within 0-5 Range - Cast Cleave'),
 (11498, 0, 1, 0, 9, 0, 100, 0, 5000, 7000, 13000, 16000, 0, 5, 11, 11428, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skarr the Unbreakable - Within 0-5 Range - Cast Knockdown'),
 (11498, 0, 2, 0, 9, 0, 100, 0, 8000, 12000, 9000, 15000, 0, 5, 11, 15708, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skarr the Unbreakable - Within 0-5 Range - Cast Mortal Strike'),
-(11498, 0, 3, 0, 0, 0, 100, 0, 12000, 16000, 14000, 17000, 0, 0, 11, 22951, 0, 0, 0, 0, 0, 17, 10, 40, 1, 0, 0, 0, 0, 0, 'Skarr the Unbreakable - In Combat - Cast Summon Player');
-
-
+(11498, 0, 3, 0, 0, 0, 100, 0, 12000, 16000, 14000, 17000, 0, 0, 11, 22951, 0, 0, 0, 0, 0, 17, 10, 40, 1, 0, 0, 0, 0, 0, 'Skarr the Unbreakable - In Combat - Cast Summon Player'),
+(14661, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 17000, 0, 5, 11, 5416, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Stinglasher - Within 0-5 Range - cast Venom Sting'),
+(14661, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 7000, 10000, 0, 0, 11, 6607, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,        'Stinglasher - Within 0-5 Range - cast Lash');
 
 
 -- 5356, Snarler fix missing waypoints and wrong spawn point
 DELETE FROM `creature` WHERE `id1` = 5356;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(51683, 5356, 0, 0, 1, 0, 0, 1, 1, 0, -4142.19, -423.252, 24.9747, 4.12439, 21000, 0, 0, 1981, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+(51683, 5356, 0, 0, 1, 0, 0, 1, 1, 0, -4142.19, -423.252, 24.9747, 4.12439, 21000, 0, 1, 1981, 0, 2, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_addon` WHERE `guid` = 51683;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
