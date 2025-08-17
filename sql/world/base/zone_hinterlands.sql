@@ -22,7 +22,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2659, 0, 0, 0, 9, 0, 100, 0, 0, 0, 15000, 19000, 0, 5, 11, 3147, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Razorbeak Skylord - Within 0-5 Range - Cast Rend Flesh'),
 (2659, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 12000, 16000, 0, 0, 11, 11019, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Razorbeak Skylord - In Combat - Cast Wing Flap'),
 (2686, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11018, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Witherbark Broodguard - On Death - Summon Witherbark Bloodlings'),
-(2707, 0, 0, 0, 9, 0, 100, 0, 8000, 8000, 15000, 25000, 0, 5, 11, 3609, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Shadra - Within 0-5 Range - Cast Paralyzing Poison'),
+(2707, 0, 0, 0, 0, 0, 100, 0, 0, 0, 15000, 25000, 0, 0, 11, 7992, 96, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,       'Shadra - Within 0-30 Range - Cast Slowing Poison'),
 (2707, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 13299, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Shadra - On Reset - Cast Poison Proc'),
 (2926, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 21000, 0, 5, 11, 7367, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Silvermane Stalker - Within 0-5 Range - Cast Infected Bite'),
 (2926, 0, 1, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Silvermane Stalker - Out of Combat - Cast Sneak'),
@@ -32,9 +32,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4467, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20824, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Vilebranch Soothsayer - In Combat - Cast Lightning Bolt'),
 (4467, 0, 1, 0, 2, 0, 100, 0, 0, 40, 13000, 16000, 0, 0, 11, 10395, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Vilebranch Soothsayer - Between 0-40% Health - Cast Healing Wave'),
 (4467, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Vilebranch Soothsayer - Between 0-15% Health - Flee For Assist (No Repeat)'),
---
-(8215, 0, 0, 0, 0, 0, 100, 0, 3000, 12000, 9000, 14000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Grimungous - In Combat - Cast Trample'),
-(8215, 0, 1, 0, 0, 0, 100, 0, 14000, 20000, 14000, 20000, 0, 0, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Grimungous - In Combat - Cast War Stomp'),
+(8215, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 9000, 14000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Grimungous - In Combat - Cast Trample'),
+(8215, 0, 1, 0, 9, 0, 100, 0, 0, 0, 14000, 20000, 0, 5, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Grimungous - Within 0-5 Range - Cast War Stomp'),
 (8218, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Witherheart the Stalker - On Reset - Cast Sneak'),
 (8218, 0, 1, 0, 67, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Witherheart the Stalker - On Behind Target - Cast Backstab');
 
@@ -44,6 +43,3 @@ UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` = 2880;
 
 -- Shadra incorrect display scale and missing smart AI
 UPDATE `creature_template_model` SET `DisplayScale` = 5  WHERE `CreatureID` = 2707;
-
-
-
