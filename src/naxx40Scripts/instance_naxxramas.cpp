@@ -24,6 +24,7 @@
 #include "PassiveAI.h"
 #include "Player.h"
 #include "naxxramas.h"
+#include "IndividualProgression.h"
 
 struct LivingPoisonData
 {
