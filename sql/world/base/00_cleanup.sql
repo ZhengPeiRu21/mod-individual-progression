@@ -15,6 +15,9 @@ DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 13
 DELETE FROM `waypoint_data` WHERE `id` = 48310;  -- Lady Sarevess
 DELETE FROM `waypoint_data` WHERE `id` = 101820; -- Rexxar
 
+-- removed unused requirement for Onyxia 40, this is now handled with cpp
+DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 123;
+
 -- undo incorrect title change
 UPDATE `creature_template` SET `subname` = 'Master Blacksmithing Trainer' WHERE `entry` = 16583;
 
