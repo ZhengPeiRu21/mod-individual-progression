@@ -829,7 +829,7 @@ public:
         InstanceScript* instance = player->GetInstanceScript();
         if (!instance)
             return false;
-		
+
         if ((instance->GetBossState(BOSS_MAEXXNA)  != DONE) ||
             (instance->GetBossState(BOSS_LOATHEB)  != DONE) ||
             (instance->GetBossState(BOSS_THADDIUS) != DONE) ||
