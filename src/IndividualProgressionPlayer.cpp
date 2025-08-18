@@ -360,11 +360,15 @@ public:
     }
 
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
-    {
+    {     
         if (!sIndividualProgression->enabled || player->IsGameMaster() || isExcludedFromProgression(player))
         {
             return true;
         }
+        if (mapid == MAP_ONYXIAS_LAIR && player->GetLevel() <= IP_LEVEL_TBC && (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET) || player->getClass() == CLASS_DEATH_KNIGHT))
+        {
+            return false;
+        }        
         if (mapid == MAP_BLACKWING_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE))
         {
             return false;
