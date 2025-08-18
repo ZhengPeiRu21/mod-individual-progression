@@ -365,7 +365,7 @@ public:
         {
             return true;
         }
-        if (mapid == MAP_ONYXIAS_LAIR && (player->GetLevel() > IP_LEVEL_TBC || !player->HasItemCount(ITEM_DRAKEFIRE_AMULET)))
+        if (mapid == MAP_ONYXIAS_LAIR && player->GetLevel() <= IP_LEVEL_TBC && (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET) || player->getClass() == CLASS_DEATH_KNIGHT))
         {
             return false;
         }        
