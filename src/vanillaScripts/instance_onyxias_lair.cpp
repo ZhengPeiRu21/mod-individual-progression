@@ -20,7 +20,6 @@
 #include "ScriptedCreature.h"
 #include "SpellInfo.h"
 #include "onyxias_lair.h"
-#include "Chat.h"
 
 ObjectData const creatureData[] =
         {
@@ -147,20 +146,13 @@ public:
     }
 
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
-    {
-        ChatHandler* handler;
-        
+    {       
         if (player->GetLevel() < IP_LEVEL_TBC && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  isExcludedFromProgression(player)))
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
-            return true;            
+            player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);       
         }
-        else 
-        {
-            handler->PSendSysMessage(player->GetName(), " does not have the Drakefire Amulet or is above level 70.");
-            return false;
-        }
+        return true;   
     }
 };
 
