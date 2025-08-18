@@ -147,11 +147,25 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {       
+        ChatHandler handler(player->GetSession());
+	
         if ((player->GetLevel() <= IP_LEVEL_TBC) && (player->getClass() != CLASS_DEATH_KNIGHT) && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  isExcludedFromProgression(player)))
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
             player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
         }
+        else if (player->GetLevel() > IP_LEVEL_TBC && player->GetLevel() < IP_LEVEL_WOTLK)
+        {
+            handler.PSendSysMessage("Your level is too high to enter this version of Onyxia\'s Lair.");
+        }
+        else if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+        {
+            handler.PSendSysMessage("You must have the Drakefire Amulet in your inventory to enter this version of Onyxia\'s Lair.");
+        }	
+        else if (player->getClass() == CLASS_DEATH_KNIGHT)
+        {
+            handler.PSendSysMessage("Death knights are not allowed to enter this version of Onyxia\'s Lair.");
+        }	
         return true;
     }
 };
