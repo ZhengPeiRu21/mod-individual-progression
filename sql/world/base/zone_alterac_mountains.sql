@@ -117,5 +117,16 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (601008, 1, ''),
 (601009, 1, '');
 
--- pooled solid chests, Strahnbrad, Alterac Mountains: 33193, 33206, 33207
--- solid chest missing upstairs in Dandred's Fold main building
+
+-- Pooled Treasure Chests
+DELETE FROM `pool_template` WHERE `entry` IN (66006);
+INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
+(66006, 1, 'Treasures - Alterac Mountains');
+
+UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE`guid` IN (33193, 33206, 33207);
+
+DELETE FROM `pool_gameobject` WHERE `guid` IN (33193, 33206, 33207);
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(33193, 66006, 0, 'Solid Chest, Alterac Mountains, node 1'),
+(33206, 66006, 0, 'Solid Chest, Alterac Mountains, node 2'),
+(33207, 66006, 0, 'Solid Chest, Alterac Mountains, node 3');
