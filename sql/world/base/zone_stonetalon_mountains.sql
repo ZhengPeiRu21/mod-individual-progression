@@ -6,7 +6,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 
-(3989, 0, 0, 0, 9, 0, 100, 0, 0, 0, 2200, 3900, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Venture Co. Logger - In Combat - Cast Throw');
+(3989, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Venture Co. Logger - Outside 30 Range - Start Combat Movement'),
+(3989, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Venture Co. Logger - Within 5-30 Range - Stop Combat Movement'),
+(3989, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Venture Co. Logger - Within 0-5 Range - Start Combat Movement'),
+(3989, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2200, 3900, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Venture Co. Logger - In Combat - Cast Throw');
 
 
 -- Vengeful Ancient, entry 4030
