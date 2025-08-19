@@ -10,9 +10,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(2639, 0, 0, 0, 110, 0, 100, 1, 0, 0, 0, 0, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Vilebranch Axe Thrower - Outside 30 Range - Start Combat Movement'),
-(2639, 0, 1, 0, 110, 0, 100, 1, 0, 0, 0, 0, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Vilebranch Axe Thrower - Within 5-30 Range - Stop Combat Movement'),
-(2639, 0, 2, 0, 110, 0, 100, 1, 0, 0, 0, 0, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Vilebranch Axe Thrower - Within 0-5 Range - Start Combat Movement'),
+(2639, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Vilebranch Axe Thrower - Outside 30 Range - Start Combat Movement'),
+(2639, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Vilebranch Axe Thrower - Within 5-30 Range - Stop Combat Movement'),
+(2639, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Vilebranch Axe Thrower - Within 0-5 Range - Start Combat Movement'),
 (2639, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Vilebranch Axe Thrower - Within 5-30 Range - Cast Throw'),
 (2639, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Vilebranch Axe Thrower - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2653, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Witherbark Sadist - On Reset - Cast Battle Stance'),
