@@ -11,7 +11,7 @@ INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
 
 UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE `guid` IN (49089, 49090, 49091, 85796, 85798, 85799, 85801, 85803);
 
-DELETE FROM `pool_gameobject` WHERE `pool_entry` IN (66002, 66003);
+DELETE FROM `pool_gameobject` WHERE `guid` IN (49089, 49090, 49091, 85796, 85798, 85799, 85801, 85803);
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
 (49091, 66002, 0, 'Solid Chest, Winterfall Village, node 1'),
 (85798, 66002, 0, 'Solid Chest, Winterfall Village, node 2'),
