@@ -42,7 +42,7 @@ INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
 
 UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE `guid` IN (16718, 85670, 87381);
 
-DELETE FROM `pool_gameobject` WHERE `pool_entry` = 66001;
+DELETE FROM `pool_gameobject` WHERE `guid` IN (16718, 85670, 87381);
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
 (16718, 66001, 0, 'Solid Chest, Camp E\'thok, node 1'),
 (85670, 66001, 0, 'Solid Chest, Camp E\'thok, node 2'),
