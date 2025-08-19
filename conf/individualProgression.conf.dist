@@ -125,8 +125,8 @@ IndividualProgression.PreviousGearTuning = 0
 
 # IndividualProgression.RequireNaxxStrathEntrance
 #
-#        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme
-#                     before being able to use the teleportation crystal in EPL. This is consistent behavior with other Vanilla raids (MC, BWL).
+#        Description: If enabled, this will require players to first enter Naxx 40 through the original beta entrance in the back of Stratholme,
+#                     before being able to use the teleportation crystal in EPL.
 #                     If disabled, players can enter Naxx 40 through the crystal as soon as they are attuned and they have reached the correct
 #                     progression level - no Stratholme run will be required.
 #
