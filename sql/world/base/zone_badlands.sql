@@ -10,11 +10,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(2716, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dustbelcher Wyrmhunter - On Aggro - Say Line 0'),
-(2716, 0, 1, 0, 110, 0, 100, 1, 0, 0, 0, 0, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Dustbelcher Wyrmhunter - Outside 30 Range - Start Combat Movement'),
-(2716, 0, 2, 0, 110, 0, 100, 1, 0, 0, 0, 0, 0, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Dustbelcher Wyrmhunter - Within 0-30 Range - Stop Combat Movement'),
+(2716, 0, 0, 0, 9, 0, 100, 0, 0, 0, 3000, 3000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Dustbelcher Wyrmhunter - Outside 30 Range - Start Combat Movement'),
+(2716, 0, 1, 0, 9, 0, 100, 0, 0, 0, 3000, 3000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Dustbelcher Wyrmhunter - Within 5-30 Range - Stop Combat Movement'),
+(2716, 0, 2, 0, 9, 0, 100, 0, 0, 0, 3000, 3000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Dustbelcher Wyrmhunter - Within 0-5 Range - Start Combat Movement'),
 (2716, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 3000, 5, 30, 11, 9483, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Dustbelcher Wyrmhunter - Within 5-30 Range - Cast Boulder'),
 (2716, 0, 4, 0, 0, 0, 100, 0, 8000, 24000, 21000, 30000, 0, 0, 11, 6533, 1, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,  'Dustbelcher Wyrmhunter - In Combat - Cast Net'),
+(2716, 0, 5, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dustbelcher Wyrmhunter - On Aggro - Say Line 0'),
 (2717, 0, 0, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dustbelcher Mauler - On Aggro - Say Line 0'),
 (2717, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Dustbelcher Mauler - In Combat - Cast Thrash'),
 (2718, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dustbelcher Shaman - On Aggro - Say Line 0'),
