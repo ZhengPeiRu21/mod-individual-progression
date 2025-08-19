@@ -68,12 +68,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4829, 0, 2, 3, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 5, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Aku\'mai - On Just Died - Set Instance Data 5 to 3'),
 (4829, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 106, 16, 0, 0, 0, 0, 0, 14, 32935, 103016, 0, 0, 0, 0, 0, 0,        'Aku\'mai - On Just Died - Remove Gameobject Flags'),
 --
-(4831, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Sarevess - In Combat - Say Line 0 (No Repeat)'),
-(4831, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lady Sarevess - Within 5-30 Range - Cast Shoot'),
-(4831, 0, 2, 0, 0, 0, 100, 0, 3000, 5000, 9000, 15000, 0, 0, 11, 8435, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Lady Sarevess - In Combat - Cast Forked Lightning'),
-(4831, 0, 3, 0, 106, 0, 100, 0, 6000, 9000, 9000, 13000, 0, 10, 11, 865, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Lady Sarevess - Within 0-10 Range - Cast Frost Nova'),
-(4831, 0, 4, 0, 0, 0, 100, 0, 7000, 9000, 9000, 13000, 0, 0, 11, 246, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Lady Sarevess - Within 0-30 Range - Cast Slow'),
-(4831, 0, 5, 0, 5, 0, 100, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Sarevess - On Player Kill - Say Line 1'),
+(4831, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Lady Sarevess - Outside 30 Range - Start Combat Movement'),
+(4831, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lady Sarevess - Within 5-30 Range - Stop Combat Movement'),
+(4831, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Lady Sarevess - Within 0-5 Range - Start Combat Movement'),
+(4831, 0, 3, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Sarevess - In Combat - Say Line 0 (No Repeat)'),
+(4831, 0, 4, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lady Sarevess - Within 5-30 Range - Cast Shoot'),
+(4831, 0, 5, 0, 0, 0, 100, 0, 3000, 5000, 9000, 15000, 0, 0, 11, 8435, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Lady Sarevess - In Combat - Cast Forked Lightning'),
+(4831, 0, 6, 0, 106, 0, 100, 0, 6000, 9000, 9000, 13000, 0, 10, 11, 865, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Lady Sarevess - Within 0-10 Range - Cast Frost Nova'),
+(4831, 0, 7, 0, 0, 0, 100, 0, 7000, 9000, 9000, 13000, 0, 0, 11, 246, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Lady Sarevess - Within 0-30 Range - Cast Slow'),
+(4831, 0, 8, 0, 5, 0, 100, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Sarevess - On Player Kill - Say Line 1'),
 --
 (4887, 0, 0, 0, 9, 0, 100, 0, 3000, 6000, 7000, 12000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ghamoo-ra - Within 0-10 Range - Cast Trample'),
 --
