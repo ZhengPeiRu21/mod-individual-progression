@@ -1,6 +1,32 @@
 #include "IndividualProgression.h"
 #include "WorldState.h"
 
+class npc_ipp_bwl : public CreatureScript
+{
+public:
+    npc_ipp_bwl() : CreatureScript("npc_ipp_bwl") { }
+
+    struct npc_ipp_bwlAI: ScriptedAI
+    {
+        explicit npc_ipp_bwlAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_ONYXIA);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_bwlAI(creature);
+    }
+};
+
 class gobject_ipp_preaq : public GameObjectScript
 {
 public:
@@ -554,6 +580,32 @@ public:
     }
 };
 
+class npc_ipp_pvp_vendor_pre_tbc : public CreatureScript
+{
+public:
+    npc_ipp_pvp_vendor_pre_tbc() : CreatureScript("npc_ipp_pvp_vendor_pre_tbc") { }
+
+    struct npc_ipp_pvp_vendor_pre_tbcAI: ScriptedAI
+    {
+        explicit npc_ipp_pvp_vendor_pre_tbcAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_ONYXIA) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_pvp_vendor_pre_tbcAI(creature);
+    }
+};
+
 class npc_ipp_pre_tbc : public CreatureScript
 {
 public:
@@ -922,6 +974,8 @@ public:
 // Add all scripts in one
 void AddSC_mod_individual_progression_awareness()
 {
+    new npc_ipp_bwl();
+    new npc_ipp_pvp_vendor_pre_tbc(); 
     new gobject_ipp_preaq();     // wanted poster Cenarion Hold
     new gobject_ipp_we();        // War Effort supplies in cities
     new gobject_ipp_aqwar();     // AQ war crystals
