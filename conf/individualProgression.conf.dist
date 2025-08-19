@@ -123,20 +123,10 @@ IndividualProgression.QuestXPFix = 1
 #
 IndividualProgression.PreviousGearTuning = 0
 
-# IndividualProgression.HunterPetLevelFix (this option is currently not implemented)
-#
-#        Description: In WotLK, a catch-up mechanism was added so that hunter pets are leveled up higher when tamed
-#                     Enable this option to restore Vanilla and TBC behavior and require more pet training
-#
-#        Default:     0 - Disabled
-#                     1 - Enabled
-#
-IndividualProgression.HunterPetLevelFix = 0
-
 # IndividualProgression.RequireNaxxStrathEntrance
 #
 #        Description: If enabled, requires players to first enter Naxx 40 through the original beta entrance in the back of Stratholme
-#                     before being able to use the teleportation crystal in EPL. This is consistent behavior with other Vanilla raids (MC, BL).
+#                     before being able to use the teleportation crystal in EPL. This is consistent behavior with other Vanilla raids (MC, BWL).
 #                     If disabled, players can enter Naxx 40 through the crystal as soon as they are attuned and they have reached the correct
 #                     progression level - no Stratholme run will be required.
 #
