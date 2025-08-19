@@ -62,15 +62,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10081, 0, 0, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Dustwraith - On Initialize - Despawn In 500 ms'),
 (10081, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12254, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Dustwraith - In Combat - Cast Virulent Poison'),
 (10081, 0, 2, 0, 9, 0, 100, 0, 0, 0, 3600, 7300, 0, 5, 11, 14873, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Dustwraith - Within 0-5 Range - Cast Sinister Strike'),
-    
 (10082, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Zerillis - Outside 30 Range - Start Combat Movement'),
 (10082, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Zerillis - Within 5-30 Range - Stop Combat Movement'),
 (10082, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Zerillis - Within 0-5 Range - Start Combat Movement'),
 (10082, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 15547, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Zerillis - Within 5-30 Range - Cast Shoot'),
 (10082, 0, 4, 0, 0, 0, 100, 0, 6000, 11000, 5000, 18000, 0, 0, 11, 12551, 0, 0, 0, 0, 0, 28, 30, 1, 1, 5, 0, 0, 0, 0, 'Zerillis - Within 5-30 Range - Cast Frost Shot'),
 (10082, 0, 5, 0, 9, 0, 100, 0, 0, 0, 12000, 25000, 0, 20, 11, 6533, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Zerillis - Within 0-20 Range - Cast Net'),
-(10082, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Zerillis - Between 0-15% Health - Flee For Assist (No Repeat)');
-(10082, 0, 7, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Zerillis - On Initialize - Despawn In 500 ms'),
+(10082, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Zerillis - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(10082, 0, 7, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Zerillis - On Initialize - Despawn In 500 ms');
 
 -- create patrol with formation and add way points 
 DELETE FROM `creature` WHERE `guid` IN (81530, 81531, 81532);
