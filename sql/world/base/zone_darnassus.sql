@@ -3,7 +3,7 @@ UPDATE `creature_template` SET `subname` = 'Expert Alchemist'         WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Journeyman Tailor'        WHERE `entry` = 11050; -- Trianna <Journeyman Tailor>
 UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `entry` = 11070; -- Lalina Summermoon <Journeyman Enchanter>
 UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry` = 11083; -- Darianna <Journeyman Leatherworker>
-UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry` = 11081; -- Faldron <Expert Leatherworker>
+UPDATE `creature_template` SET `subname` = 'Expert Leatherworker'     WHERE `entry` = 11081; -- Faldron <Expert Leatherworker>
 
 UPDATE `creature_template` SET `npcflag` = 81, `trainer_type` = 2 WHERE `entry` IN (11041, 11042, 11050, 11070, 11081, 11083);
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4212, 11042, 11081);

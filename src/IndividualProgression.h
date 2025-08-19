@@ -179,7 +179,12 @@ enum ProgressionAreas
 
 enum ProgressionSettings
 {
-    SETTING_PROGRESSION_STATE = 0
+    SETTING_PROGRESSION_STATE   = 0
+};
+
+enum DungeonKeys
+{
+    ITEM_DRAKEFIRE_AMULET       = 16309
 };
 
 enum ProgressionState : uint8         // Progression stands for what has been completed

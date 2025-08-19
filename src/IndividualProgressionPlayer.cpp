@@ -353,12 +353,10 @@ public:
         {
             return true;
         }
-
-        if (sIndividualProgression->isExcludedFromProgression(player))
+        if (mapid == MAP_ONYXIAS_LAIR && player->GetLevel() <= IP_LEVEL_TBC && !player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
         {
-            return true;
+            return false;
         }
-
         if (mapid == MAP_BLACKWING_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE))
         {
             return false;

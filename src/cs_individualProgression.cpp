@@ -16,8 +16,10 @@ public:
     {
         static ChatCommandTable individualProgressionTable =
         {
-            { "set",    HandleSetIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },            
-            { "tele",   HandleTeleIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },        
+            { "set",    HandleSetIndividualProgressionCommand,  SEC_GAMEMASTER,    Console::Yes },
+            { "tele",   HandleTeleIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
+            { "view",   HandleViewIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
+            { "get",    HandleViewIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
         };
 
         static ChatCommandTable commandTable =
@@ -33,15 +35,29 @@ public:
     {
         if (progressionLevel > PROGRESSION_WOTLK_TIER_5)
         {
-            handler->SendSysMessage("Invalid progression level.");
+            handler->SendSysMessage("Invalid Progression Level.");
             return false;
         }
+
         player = PlayerIdentifier::FromTargetOrSelf(handler);
-        if (player && player->GetConnectedPlayer())
-        {
-            sIndividualProgression->ForceUpdateProgressionState(player->GetConnectedPlayer(), static_cast<ProgressionState>(progressionLevel));
-            handler->SendSysMessage("Progression state updated successfully");
-        }
+        Player* target = player->GetConnectedPlayer();
+        std::string playername = target->GetName();
+
+        sIndividualProgression->ForceUpdateProgressionState(player->GetConnectedPlayer(), static_cast<ProgressionState>(progressionLevel));
+
+        handler->PSendSysMessage("Updated Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
+        return true;
+    }
+
+    static bool HandleViewIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player)
+    {
+        player = PlayerIdentifier::FromTargetOrSelf(handler);
+
+        Player* target = player->GetConnectedPlayer();
+        uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        std::string playername = target->GetName();
+
+        handler->PSendSysMessage("Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
         return true;
     }
 
@@ -65,31 +81,29 @@ public:
 		 
         if (location != "naxx40" && location != "onyxia40")
         {
-            handler->SendSysMessage("Invalid teleport location.");
+            handler->PSendSysMessage("|cff00ffff{}|r is not a valid teleport location.", location);
             return false;
         }
 
-        if (player && player->GetConnectedPlayer())
-        {
-            Player* target = player->GetConnectedPlayer();
+        Player* target = player->GetConnectedPlayer();
+        std::string playername = target->GetName();
 
-            if ((location == "naxx40") && (target->GetLevel() <= IP_LEVEL_TBC) && (target->getClass() != CLASS_DEATH_KNIGHT) && isAttuned(target))
-            {
-                target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                target->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
-                return true;
-            }
-            else if (location == "onyxia40" && target->GetLevel() < IP_LEVEL_WOTLK)
-            {
-                target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-                target->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
-                return true;
-            }
-            else
-            {
-                handler->SendSysMessage("You are not allowed to teleport to this location.");
-                return false;
-            }
+        if ((location == "naxx40") && (target->GetLevel() <= IP_LEVEL_TBC) && (target->getClass() != CLASS_DEATH_KNIGHT) && isAttuned(target))
+        {
+            target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+            target->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+            return true;
+        }
+        else if ((location == "onyxia40" && target->GetLevel() < IP_LEVEL_TBC) && (target->getClass() != CLASS_DEATH_KNIGHT) && target->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+        {
+            target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+            target->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+            return true;
+        }
+        else
+        {
+            handler->PSendSysMessage("|cff00ffff{}|r is not allowed to teleport to |cff00ffff{}|r.", playername, location);
+            return false;
         }
     }
 

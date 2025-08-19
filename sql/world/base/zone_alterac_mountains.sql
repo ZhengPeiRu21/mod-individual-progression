@@ -15,9 +15,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2243, 0, 0, 0, 105, 0, 100, 0, 7000, 12000, 10000, 28000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Syndicate Sentry - Within 0-5 Range - Cast Shield Bash'),
 (2243, 0, 1, 0, 2, 0, 100, 0, 0, 50, 30800, 39200, 0, 0, 11, 15062, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Syndicate Sentry - Between 0-50% Health - Cast Shield Wall'),
 (2243, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Sentry - Between 0-15% Health - Flee For Assist'),
-(2245, 0, 0, 0, 9, 0, 100, 0, 0, 0, 2500, 5900, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Syndicate Saboteur - Within 5-30 Range - Cast Shoot'),
-(2245, 0, 1, 0, 0, 0, 100, 0, 7000, 10000, 14000, 27000, 0, 0, 11, 6980, 1, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Syndicate Saboteur - In Combat - Cast Fire Shot'),
-(2245, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Saboteur - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2245, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Syndicate Saboteur - Outside 30 Range - Start Combat Movement'),
+(2245, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Syndicate Saboteur - Within 5-30 Range - Stop Combat Movement'),
+(2245, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Syndicate Saboteur - Within 0-5 Range - Start Combat Movement'),
+(2245, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2500, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Syndicate Saboteur - Within 5-30 Range - Cast Shoot'),
+(2245, 0, 4, 0, 0, 0, 100, 0, 7000, 10000, 14000, 27000, 0, 0, 11, 6980, 1, 0, 0, 0, 0, 28, 30, 1, 1, 5, 0, 0, 0, 0,    'Syndicate Saboteur - Within 5-30 Range - Cast Fire Shot'),
+(2245, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Saboteur - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2246, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Syndicate Assassin - Out of Combat - Cast Sneak (No Repeat)'),
 (2246, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Syndicate Assassin - On Reset - Cast Poison Proc'),
 (2246, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Assassin - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -114,5 +117,16 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (601008, 1, ''),
 (601009, 1, '');
 
--- pooled solid chests, Strahnbrad, Alterac Mountains: 33193, 33206, 33207
--- solid chest missing upstairs in Dandred's Fold main building
+
+-- Pooled Treasure Chests
+DELETE FROM `pool_template` WHERE `entry` IN (66006);
+INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
+(66006, 1, 'Treasures - Alterac Mountains');
+
+UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE`guid` IN (33193, 33206, 33207);
+
+DELETE FROM `pool_gameobject` WHERE `guid` IN (33193, 33206, 33207);
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(33193, 66006, 0, 'Solid Chest, Alterac Mountains, node 1'),
+(33206, 66006, 0, 'Solid Chest, Alterac Mountains, node 2'),
+(33207, 66006, 0, 'Solid Chest, Alterac Mountains, node 3');

@@ -186,7 +186,11 @@ public:
 
     bool OnGossipHello(Player* player, GameObject* /*go*/) override
     {
-        if (!sIndividualProgression->groupHaveLevelDisparity(player)
+        if (player->GetLevel() > IP_LEVEL_TBC)
+            player->SendSystemMessage("Your level is too high for this instance.");
+        else if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+            player->SendSystemMessage("You must have the Drakefire Amulet in your inventory before entering this instance.");
+        else if (!sIndividualProgression->groupHaveLevelDisparity(player)
             && player->GetLevel() <= IP_LEVEL_TBC
             && (sIndividualProgression->isExcludedFromProgression(player)
                 || sIndividualProgression->isBeforeProgression(player, PROGRESSION_TBC_TIER_5)
