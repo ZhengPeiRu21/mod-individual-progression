@@ -60,7 +60,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5708, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 1000, 6000, 0, 0, 11, 12280, 96, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,     'Spawn of Hakkar - In Combat - Cast Acid of Hakkar'),
 --
 (5709, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12535, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Shade of Eranikus - On Reset - Cast Shade of Eranikus Passive Visual'),
-(5709, 0, 1, 0, 0, 0, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Shade of Eranikus - On Reset - Cast Thrash'),
+(5709, 0, 1, 0, 0, 0, 10, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Shade of Eranikus - On Reset - Cast Thrash'),
 (5709, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Shade of Eranikus - On Aggro - Say Line 0'),
 (5709, 0, 3, 0, 0, 0, 100, 0, 14000, 20000, 20000, 30000, 0, 0, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Shade of Eranikus - In Combat - Cast War Stomp'),
 (5709, 0, 4, 0, 0, 0, 100, 0, 5000, 6000, 20000, 25000, 0, 0, 11, 12890, 35, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Shade of Eranikus - In Combat - Cast Deep Slumber'),
