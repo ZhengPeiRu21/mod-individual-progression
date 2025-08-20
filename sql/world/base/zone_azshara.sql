@@ -17,7 +17,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6126, 0, 0, 0, 9, 0, 100, 0, 0, 0, 20000, 45000, 0, 10, 11, 7098, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Haldarr Trickster - In Combat - Cast Curse of Mending'),
 (6127, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 11939, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Haldarr Felsworn - Out of Combat - Cast Summon Imp'),
 (6127, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Haldarr Felsworn - In Combat - Cast Shadow Bolt'),
-(6148, 0, 0, 0, 9, 0, 100, 0, 0, 0, 13000, 17000, 0, 5, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Cliff Walker - Between 30-60% Health - Cast War Stomp (No Repeat)'),
+(6148, 0, 0, 0, 9, 0, 100, 0, 0, 0, 13000, 17000, 0, 5, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Cliff Walker - Within 0-5 Range - Cast War Stomp'),
 (6187, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 13000, 18000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Timbermaw Den Watcher - In Combat - Cast Battle Shout'),
 (6187, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Timbermaw Den Watcher - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (6188, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20295, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Timbermaw Shaman - In Combat - Cast Lightning Bolt'),
@@ -61,7 +61,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6196, 0, 3, 0, 8, 0, 100, 1, 12826, 0, 0, 0, 0, 0, 80, 619300, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Spitelash Myrmidon - On Spellhit \'Polymorph\' - Run Script'),
 (6196, 0, 4, 0, 0, 0, 100, 0, 5000, 7000, 6000, 9000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Spitelash Myrmidon - In Combat - Cast Strike'),
 --
-(6198, 0, 0, 0, 106, 0, 100, 0, 5000, 8000, 8000, 10000, 0, 8, 11, 11969, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Blood Elf Surveyor - Within 0-8 Range - Cast Fire Nova'),
+(6198, 0, 0, 0, 106, 0, 100, 0, 5000, 8000, 8000, 10000, 0, 8, 11, 11969, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Blood Elf Surveyor - Within 0-8 Range - Cast Fire Nova'),
 (6199, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 5000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Blood Elf Reclaimer - In Combat - Cast Fireball'),
 (6199, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 15000, 90, 40, 11, 11640, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Blood Elf Reclaimer - Friendly Between 0-90% Health - Cast Renew'),
 (6199, 0, 2, 0, 74, 0, 100, 0, 0, 0, 10000, 12000, 60, 40, 11, 11642, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Blood Elf Reclaimer - Friendly Between 0-60% Health - Cast Heal'),
