@@ -1,14 +1,17 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (767, 1081);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(744, 745, 746, 750, 751, 752, 755, 761, 762, 763, 764, 765, 766, 768, 769, 858, 1087, 5622, 12900, 14445, 14448, 17115);
+(743, 744, 745, 746, 750, 751, 752, 755, 761, 762, 763, 764, 765, 766, 768, 769, 858, 1087, 5622, 9916, 12900, 14445, 14448, 17115);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(744, 745, 746, 750, 751, 752, 755, 761, 762, 763, 764, 765, 766, 767, 768, 769, 858, 1081, 1087, 5622, 12900, 14445, 14448, 17115);
+(743, 744, 745, 746, 750, 751, 752, 755, 761, 762, 763, 764, 765, 766, 767, 768, 769, 858, 1081, 1087, 5622, 9916, 12900, 14445, 14448, 17115);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
+(743, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7966, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Wyrmkin Dreamwalker - On Aggro - Cast Thorns Aura'),
+(743, 0, 1, 0, 14, 0, 100, 0, 1000, 40, 12000, 15000, 0, 0, 11, 12160, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Wyrmkin Dreamwalker - Friendly Missing 1000 Health - Cast Rejuvenation'),
+(743, 0, 2, 0, 0, 0, 100, 0, 6000, 11000, 15000, 18000, 0, 0, 11, 15970, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Wyrmkin Dreamwalker - Within 0-30 Range - Cast Sleep'),
 (744, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Green Scalebane - Within 0-5 Range - Cast Cleave'),
 (745, 0, 0, 0, 0, 0, 100, 0, 1000, 5000, 15000, 25000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Scalebane Captain - In Combat - Cast Battle Shout'),
 (745, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 21000, 0, 5, 11, 13730, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Scalebane Captain - Within 0-5 Range - Cast Demoralizing Shout'),
@@ -44,6 +47,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1087, 0, 0, 0, 9, 0, 100, 0, 0, 0, 11000, 14000, 0, 5, 11, 3604, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Sawtooth Snapper - Within 0-5 Range - Cast Tendon Rip'),
 --
 (5622, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Ongeku - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9916, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Jarquia - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(9916, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Jarquia - On Enrage - Say Line 0'),
 (12900, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 14000, 17000, 0, 0, 11, 20989, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Somnus - In Combat - Cast Sleep'),
 (12900, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 12000, 15000, 0, 0, 11, 12882, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Somnus - In Combat - Cast Wing Flap'),
 (12900, 0, 2, 0, 0, 0, 100, 0, 9000, 12000, 9000, 12000, 0, 0, 11, 20667, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Somnus - Within 0-5 Range - Cast Corrosive Acid Breath'),
