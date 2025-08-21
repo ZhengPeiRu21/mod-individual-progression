@@ -188,6 +188,32 @@ public:
     }
 };
 
+class gobject_ipp_naxx40_pre_wotlk : public GameObjectScript
+{
+public:
+    gobject_ipp_naxx40_pre_wotlk() : GameObjectScript("gobject_ipp_naxx40_pre_wotlk") { }
+
+    struct gobject_ipp_naxx40_pre_wotlkAI: GameObjectAI
+    {
+        explicit gobject_ipp_naxx40_pre_wotlkAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5));
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_naxx40_pre_wotlkAI(object);
+    }
+};
+
 class gobject_ipp_pre_tbc : public GameObjectScript
 {
 public:
@@ -981,6 +1007,7 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_aqwar();     // AQ war crystals
     new gobject_ipp_si();        // Scourge Invasion
     new gobject_ipp_naxx40();
+    new gobject_ipp_naxx40_pre_wotlk();
     new gobject_ipp_pre_tbc(); // stormwind pvp room
     new gobject_ipp_tbc();
     new gobject_ipp_tbc_t4();
