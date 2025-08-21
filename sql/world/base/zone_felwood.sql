@@ -111,7 +111,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9462, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Chieftain Bloodmaw - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9464, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15793, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Overlord Ror - In Combat - Cast Maul'),
 (9464, 0, 1, 0, 0, 0, 100, 0, 12000, 18000, 17000, 21000, 0, 0, 11, 14100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Overlord Ror - In Combat - Cast Terrifying Roar'),
-(9464, 0, 2, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Overlord Ror - Between 0-50% Health - Call For Help (No Repeat)'),
+(9464, 0, 2, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Overlord Ror - Between 0-50% Health - Call For Help (No Repeat)'), -- https://www.youtube.com/watch?v=mJFGtJ2fg9U
 (9516, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 13000, 0, 15, 11, 17399, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Lord Banehollow - Within 0-15 Range - Cast Shadow Shock'),
 (9516, 0, 1, 0, 9, 0, 100, 0, 0, 0, 12000, 21000, 0, 5, 11, 16247, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Lord Banehollow - Within 0-5 Range - Cast Curse of Thorns (No Repeat)'),
 (9517, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Shadow Lord Fel dan - In Combat - Cast Shadow Bolt'),
