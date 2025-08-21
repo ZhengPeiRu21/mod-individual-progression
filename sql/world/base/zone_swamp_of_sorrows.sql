@@ -1,9 +1,9 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (767, 1081);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(744, 745, 7546, 751, 752, 761, 762, 763, 764, 765, 766, 768, 769, 858, 1087, 12900, 14445, 17115);
+(744, 745, 746, 750, 751, 752, 755, 761, 762, 763, 764, 765, 766, 768, 769, 858, 1087, 5622, 12900, 14445, 14448, 17115);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(744, 745, 7546, 751, 752, 761, 762, 763, 764, 765, 766, 767, 768, 769, 858, 1081, 1087, 12900, 14445, 17115);
+(744, 745, 746, 750, 751, 752, 755, 761, 762, 763, 764, 765, 766, 767, 768, 769, 858, 1081, 1087, 5622, 12900, 14445, 14448, 17115);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -23,14 +23,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (752, 0, 2, 0, 0, 0, 100, 0, 2300, 2900, 8700, 9600, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Marsh Oracle - In Combat - Cast Lightning Bolt'),
 (752, 0, 3, 0, 74, 0, 100, 0, 0, 0, 9000, 15000, 40, 40, 11, 11986, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Marsh Oracle - Friendly Between 0-40% Health - Cast Healing Wave'),
 (752, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Marsh Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(755, 0, 0, 0, 67, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Lost One Mudlurker - Behind Target - Cast Backstab'),
+(755, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Lost One Mudlurker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (761, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 30000, 40000, 0, 0, 11, 8376, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lost One Seer - In Combat - Cast Earthgrab Totem'),
 (761, 0, 1, 0, 2, 0, 100, 0, 0, 50, 20000, 25000, 0, 0, 11, 4971, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Lost One Seer - Between 0-50% Health - Cast Healing Ward'),
 (761, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Lost One Seer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (762, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 11939, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Lost One Riftseeker - Out of Combat - Cast Summon Imp (No Repeat)'),
 (762, 0, 1, 0, 0, 0, 100, 0, 0, 0, 60000, 75000, 0, 0, 11, 9614, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lost One Riftseeker - In Combat - Cast Rift Beacon'),
 (762, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Lost One Riftseeker - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(763, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 7165, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Lost One Chieftain - On Aggro - Cast Battle Stance (No Repeat)'),
-(763, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 39, 25, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Lost One Chieftain - Between 0-30% Health - Call for Help (No Repeat)'),
+(763, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Lost One Chieftain - On Aggro - Cast Battle Stance'),
+(763, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 39, 25, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Lost One Chieftain - Between 0-30% Health - Call for Help (No Repeat)'),
 (764, 0, 0, 0, 2, 0, 100, 0, 0, 30, 20000, 25000, 0, 0, 11, 9616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Swampwalker - Between 0-30% Health - Cast Wild Regeneration'),
 (765, 0, 0, 0, 2, 0, 100, 0, 0, 30, 20000, 25000, 0, 0, 11, 9616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Swampwalker Elder - Between 0-30% Health - Cast Wild Regeneration'),
 (766, 0, 0, 0, 2, 0, 100, 0, 0, 30, 20000, 25000, 0, 0, 11, 9616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Tangled Horror - Between 0-30% Health - Cast Wild Regeneration'),
@@ -41,11 +43,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (858, 0, 1, 0, 9, 0, 100, 0, 0, 0, 8000, 12000, 0, 20, 11, 745, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Sorrow Spinner - Within 0-20 Range - Cast Web'),
 (1087, 0, 0, 0, 9, 0, 100, 0, 0, 0, 11000, 14000, 0, 5, 11, 3604, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Sawtooth Snapper - Within 0-5 Range - Cast Tendon Rip'),
 --
+(5622, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Ongeku - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (12900, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 14000, 17000, 0, 0, 11, 20989, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Somnus - In Combat - Cast Sleep'),
 (12900, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 12000, 15000, 0, 0, 11, 12882, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Somnus - In Combat - Cast Wing Flap'),
 (12900, 0, 2, 0, 0, 0, 100, 0, 9000, 12000, 9000, 12000, 0, 0, 11, 20667, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Somnus - Within 0-5 Range - Cast Corrosive Acid Breath'),
 (12900, 0, 3, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 18368, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Somnus - Within 0-5 Range - Cast Strike'),
 (14445, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lord Captain Wyrmak - Within 0-5 Range - Cast Cleave'),
 (14445, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 9000, 12000, 0, 0, 11, 12533, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Lord Captain Wyrmak - Within 0-5 Range - Cast Acid Breath'),
+(14448, 0, 0, 0, 0, 0, 100, 0, 0, 0, 8000, 11000, 0, 0, 11, 21748, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Molt Thorn - In Combat - Cast Thorn Volley'),
 (17115, 0, 0, 0, 0, 0, 100, 0, 0, 0, 15000, 15000, 0, 0, 11, 14868, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Cursed Lost One - In Combat - Cast Curse of Agony'),
 (17115, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 12000, 14000, 0, 0, 11, 6713, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Cursed Lost One - In Combat - Cast Disarm');
