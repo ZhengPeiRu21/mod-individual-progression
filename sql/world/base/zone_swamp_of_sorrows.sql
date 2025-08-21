@@ -11,7 +11,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (743, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7966, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Wyrmkin Dreamwalker - On Aggro - Cast Thorns Aura'),
 (743, 0, 1, 0, 14, 0, 100, 0, 1000, 40, 12000, 15000, 0, 0, 11, 12160, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Wyrmkin Dreamwalker - Friendly Missing 1000 Health - Cast Rejuvenation'),
-(743, 0, 2, 0, 0, 0, 100, 0, 6000, 11000, 15000, 18000, 0, 0, 11, 15970, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Wyrmkin Dreamwalker - Within 0-30 Range - Cast Sleep'),
+(743, 0, 2, 0, 0, 0, 100, 0, 6000, 11000, 15000, 18000, 0, 0, 11, 15970, 64, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,   'Wyrmkin Dreamwalker - Within 0-30 Range - Cast Sleep'),
 (744, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Green Scalebane - Within 0-5 Range - Cast Cleave'),
 (745, 0, 0, 0, 0, 0, 100, 0, 1000, 5000, 15000, 25000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Scalebane Captain - In Combat - Cast Battle Shout'),
 (745, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 21000, 0, 5, 11, 13730, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Scalebane Captain - Within 0-5 Range - Cast Demoralizing Shout'),
