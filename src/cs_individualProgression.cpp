@@ -86,7 +86,7 @@ public:
         Player* target = player->GetConnectedPlayer();
         uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         std::string playername = target->GetName();
-        
+
         if (location == "naxx40" && ((progressionLevel < PROGRESSION_TBC_TIER_5 && isAttuned(target)) || target->IsGameMaster()))
         {
             target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
