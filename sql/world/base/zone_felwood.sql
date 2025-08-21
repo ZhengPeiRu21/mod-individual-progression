@@ -1,11 +1,11 @@
 /* smart scripts */
-UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (14343);
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (14340, 14343);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(7092, 7093, 7097, 7098, 7099, 7100, 7101, 7104, 7106, 7107, 7108, 7109, 7110, 7111, 7112, 7113, 7114, 7115, 7118, 7120, 7125, 7132, 7136, 7139, 7153, 7154, 7155, 7156, 7157, 7158,
+(7092, 7093, 7097, 7098, 7099, 7100, 7101, 7104, 7105, 7106, 7107, 7108, 7109, 7110, 7111, 7112, 7113, 7114, 7115, 7118, 7120, 7125, 7132, 7136, 7139, 7153, 7154, 7155, 7156, 7157, 7158,
 8957, 8958, 8959, 8960, 8961, 9454, 9462, 9464, 9516, 9517, 9518, 9860, 9861, 9862, 9877, 9878, 10648, 14342, 14344, 14345);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(7092, 7093, 7097, 7098, 7099, 7100, 7101, 7104, 7106, 7107, 7108, 7109, 7110, 7111, 7112, 7113, 7114, 7115, 7118, 7120, 7125, 7132, 7136, 7139, 7153, 7154, 7155, 7156, 7157, 7158,
-8957, 8958, 8959, 8960, 8961, 9454, 9462, 9464, 9516, 9517, 9518, 9860, 9861, 9862, 9877, 9878, 10648, 14342, 14343, 14344, 14345);
+(7092, 7093, 7097, 7098, 7099, 7100, 7101, 7104, 7105, 7106, 7107, 7108, 7109, 7110, 7111, 7112, 7113, 7114, 7115, 7118, 7120, 7125, 7132, 7136, 7139, 7153, 7154, 7155, 7156, 7157, 7158,
+8957, 8958, 8959, 8960, 8961, 9454, 9462, 9464, 9516, 9517, 9518, 9860, 9861, 9862, 9877, 9878, 10648, 14340, 14342, 14343, 14344, 14345);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -24,6 +24,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7104, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 10000, 0, 30, 11, 12058, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Dessecus - In Combat - Cast Chain Lightning'),
 (7104, 0, 1, 0, 0, 0, 100, 0, 6000, 11000, 16000, 21000, 0, 0, 11, 8293, 64, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,  'Dessecus - In Combat - Cast Lightning Cloud'),
 --
+(7105, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 19000, 0, 0, 11, 13578, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Jadefire Satyr - In Combat - Cast Jadefire'),
 (7106, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 19000, 0, 0, 11, 13578, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Jadefire Rogue - In Combat - Cast Jadefire'),
 (7106, 0, 1, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 13579, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Jadefire Rogue - Within 0-5 Range - Cast Gouge'),
 (7106, 0, 2, 0, 67, 0, 100, 0, 0, 0, 6000, 11000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Jadefire Rogue - Behind Target - Cast Backstab'),
@@ -50,7 +51,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7114, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 21000, 0, 5, 11, 11977, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Jaedenar Enforcer - Within 0-5 Range - Cast Rend'),
 (7115, 0, 0, 0, 0, 0, 100, 0, 11000, 15000, 12000, 16000, 0, 0, 11, 20832, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0, 'Jaedenar Adept - Within 0-20 Range - Cast Fire Blast'),
 (7115, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Jaedenar Adept - In Combat - Cast Fireball'),
-(7115, 0, 2, 0, 9, 0, 100, 0, 0, 0, 16000, 21000, 0, 5, 11, 14514, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Jaedenar Adept - Within 0-5 Range - Cast Blink'),
+(7115, 0, 2, 0, 9, 0, 100, 0, 0, 0, 16000, 21000, 0, 5, 11, 14514, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Jaedenar Adept - Within 0-5 Range - Cast Blink'),
 (7115, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Jaedenar Adept - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (7118, 0, 0, 0, 0, 0, 100, 0, 9000, 13000, 21000, 26000, 0, 0, 11, 11962, 97, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Jaedenar Darkweaver - In Combat - Cast Immolate'),
 (7118, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Jaedenar Darkweaver - In Combat - Cast Shadow Bolt'),
@@ -80,17 +81,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7156, 0, 0, 0, 0, 0, 100, 0, 4000, 11000, 12000, 15000, 0, 0, 11, 13583, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Deadwood Den Watcher - In Combat - Cast Curse of the Deadwood'),
 (7156, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Deadwood Den Watcher - Between 0-50% Health - Call For Help (No Repeat)'),
 (7156, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Deadwood Den Watcher - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(7156, 0, 3, 4, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8599, 2, 9, 7157, 0, 30, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Deadwood Den Watcher - On Death - Cross Cast Enrage'),
-(7156, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9, 3925, 0, 30, 1, 0, 0, 0, 0,                   'Deadwood Den Watcher - On Death - Deadwood Avenger Say Line 0'),
+(7156, 0, 3, 4, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8599, 2, 9, 7157, 0, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Deadwood Den Watcher - On Death - Cross Cast Enrage'),
+(7156, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9, 7157, 0, 20, 1, 0, 0, 0, 0,                   'Deadwood Den Watcher - On Death - Deadwood Avenger Say Line 0'),
 (7157, 0, 0, 0, 0, 0, 100, 0, 4000, 11000, 12000, 15000, 0, 0, 11, 13583, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Deadwood Avenger - In Combat - Cast Curse of the Deadwood'),
-(7157, 0, 1, 2, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8599, 2, 9, 7157, 0, 30, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Deadwood Avenger - On Death - Cross Cast Enrage'),
-(7157, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9, 3925, 0, 30, 1, 0, 0, 0, 0,                   'Deadwood Avenger - On Death - Deadwood Avenger Say Line 0'),
+(7157, 0, 1, 2, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8599, 2, 9, 7157, 0, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Deadwood Avenger - On Death - Cross Cast Enrage'),
+(7157, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9, 7157, 0, 20, 1, 0, 0, 0, 0,                   'Deadwood Avenger - On Death - Deadwood Avenger Say Line 0'),
 (7158, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 13585, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Deadwood Shaman - Out of Combat - Cast Lightning Shield'),
 (7158, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Deadwood Shaman - In Combat- Cast Lightning Bolt'),
 (7158, 0, 2, 0, 0, 0, 100, 0, 4000, 11000, 12000, 15000, 0, 0, 11, 13583, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Deadwood Shaman - In Combat - Cast Curse of the Deadwood'),
 (7158, 0, 3, 0, 0, 0, 100, 0, 5000, 9000, 6000, 9000, 0, 0, 11, 12058, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Deadwood Shaman - In Combat - Cast Chain Lightning'),
-(7158, 0, 4, 5, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8599, 2, 9, 7157, 0, 30, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Deadwood Shaman - On Death - Cross Cast Enrage'),
-(7158, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9, 3925, 0, 30, 1, 0, 0, 0, 0,                   'Deadwood Shaman - On Death - Deadwood Avenger Say Line 0'),
+(7158, 0, 4, 5, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8599, 2, 9, 7157, 0, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Deadwood Shaman - On Death - Cross Cast Enrage'),
+(7158, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9, 7157, 0, 20, 1, 0, 0, 0, 0,                   'Deadwood Shaman - On Death - Deadwood Avenger Say Line 0'),
 --
 (8957, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Angerclaw Grizzly - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (8957, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Angerclaw Grizzly - On Enrage - Say Line 0'),
@@ -141,4 +142,4 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 14342;
 
 -- Olm the Wise, Cenarion Circle
-UPDATE `creature_template` SET `faction` = 609 WHERE `entry` = 14343;
+UPDATE `creature_template` SET `faction` = 1254 WHERE `entry` = 14343;
