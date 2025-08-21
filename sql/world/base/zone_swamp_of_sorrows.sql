@@ -1,17 +1,51 @@
-DELETE FROM `creature_text` WHERE `CreatureID` IN (5399);
-INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
-(5399, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0, 'Veyzhak the Cannibal enrage at 30%');
-
 -- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5399, 14445);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (5399, 14445);
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (767, 1081);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(744, 745, 7546, 751, 752, 761, 762, 763, 764, 765, 766, 768, 769, 858, 1087, 12900, 14445, 17115);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(744, 745, 7546, 751, 752, 761, 762, 763, 764, 765, 766, 767, 768, 769, 858, 1081, 1087, 12900, 14445, 17115);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(5399, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Veyzhak the Cannibal - Between 0-30% Health - Cast Enrage'),
-(5399, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Veyzhak the Cannibal - On Enrage - Say Line 0'),
-(5399, 0, 2, 0, 9, 0, 100, 0, 9000, 12000, 21000, 26000, 0, 5, 11, 12054, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Veyzhak the Cannibal - Within 0-5 Range - Cast Rend'),
+(744, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Green Scalebane - Within 0-5 Range - Cast Cleave'),
+(745, 0, 0, 0, 0, 0, 100, 0, 1000, 5000, 15000, 25000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Scalebane Captain - In Combat - Cast Battle Shout'),
+(745, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 21000, 0, 5, 11, 13730, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Scalebane Captain - Within 0-5 Range - Cast Demoralizing Shout'),
+(745, 0, 2, 0, 105, 0, 100, 0, 0, 0, 13000, 18000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Scalebane Captain - In Combat - Cast Pummel'),
+(746, 0, 0, 0, 0, 0, 100, 0, 5000, 12000, 35000, 40000, 0, 0, 11, 6306, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Elder Dragonkin - In Combat - Cast Acid Splash'),
+(750, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 11000, 0, 5, 11, 9612, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Marsh Inkspewer - Within 0-5 Range - Cast Ink Spray'),
+(750, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Marsh Inkspewer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(751, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Marsh Flesheater - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(751, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Marsh Flesheater - On Enrage - Say Line 0'),
+(752, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 12550, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Marsh Oracle - Out of Combat - Cast Lightning Shield'),
+(752, 0, 1, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 12550, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Marsh Oracle - In Combat - Cast Lightning Shield'),
+(752, 0, 2, 0, 0, 0, 100, 0, 2300, 2900, 8700, 9600, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Marsh Oracle - In Combat - Cast Lightning Bolt'),
+(752, 0, 3, 0, 74, 0, 100, 0, 0, 0, 9000, 15000, 40, 40, 11, 11986, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Marsh Oracle - Friendly Between 0-40% Health - Cast Healing Wave'),
+(752, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Marsh Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(761, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 30000, 40000, 0, 0, 11, 8376, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lost One Seer - In Combat - Cast Earthgrab Totem'),
+(761, 0, 1, 0, 2, 0, 100, 0, 0, 50, 20000, 25000, 0, 0, 11, 4971, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Lost One Seer - Between 0-50% Health - Cast Healing Ward'),
+(761, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Lost One Seer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(762, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 11939, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Lost One Riftseeker - Out of Combat - Cast Summon Imp (No Repeat)'),
+(762, 0, 1, 0, 0, 0, 100, 0, 0, 0, 60000, 75000, 0, 0, 11, 9614, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lost One Riftseeker - In Combat - Cast Rift Beacon'),
+(762, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Lost One Riftseeker - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(763, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 7165, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Lost One Chieftain - On Aggro - Cast Battle Stance (No Repeat)'),
+(763, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 39, 25, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Lost One Chieftain - Between 0-30% Health - Call for Help (No Repeat)'),
+(764, 0, 0, 0, 2, 0, 100, 0, 0, 30, 20000, 25000, 0, 0, 11, 9616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Swampwalker - Between 0-30% Health - Cast Wild Regeneration'),
+(765, 0, 0, 0, 2, 0, 100, 0, 0, 30, 20000, 25000, 0, 0, 11, 9616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Swampwalker Elder - Between 0-30% Health - Cast Wild Regeneration'),
+(766, 0, 0, 0, 2, 0, 100, 0, 0, 30, 20000, 25000, 0, 0, 11, 9616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Tangled Horror - Between 0-30% Health - Cast Wild Regeneration'),
+(768, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 1785, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Shadow Panther - Out of Combat - Cast Stealth'),
+(769, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Deathstrike Tarantula - On Spawn - Cast Poison Proc'),
+(769, 0, 1, 0, 0, 0, 100, 0, 9000, 17000, 16000, 21000, 0, 0, 11, 7938, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Deathstrike Tarantula - Within 0-5 Range - Cast Fatal Bite'),
+(858, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Sorrow Spinner - On Spawn - Cast Poison Proc'),
+(858, 0, 1, 0, 9, 0, 100, 0, 0, 0, 8000, 12000, 0, 20, 11, 745, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Sorrow Spinner - Within 0-20 Range - Cast Web'),
+(1087, 0, 0, 0, 9, 0, 100, 0, 0, 0, 11000, 14000, 0, 5, 11, 3604, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Sawtooth Snapper - Within 0-5 Range - Cast Tendon Rip'),
 --
-(14445, 0, 4, 0, 9, 0, 100, 0, 5000, 8000, 5000, 8000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Lord Captain Wyrmak  - Within 0-5 Range - Cast Cleave');
+(12900, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 14000, 17000, 0, 0, 11, 20989, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Somnus - In Combat - Cast Sleep'),
+(12900, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 12000, 15000, 0, 0, 11, 12882, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Somnus - In Combat - Cast Wing Flap'),
+(12900, 0, 2, 0, 0, 0, 100, 0, 9000, 12000, 9000, 12000, 0, 0, 11, 20667, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Somnus - Within 0-5 Range - Cast Corrosive Acid Breath'),
+(12900, 0, 3, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 18368, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Somnus - Within 0-5 Range - Cast Strike'),
+(14445, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lord Captain Wyrmak - Within 0-5 Range - Cast Cleave'),
+(14445, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 9000, 12000, 0, 0, 11, 12533, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Lord Captain Wyrmak - Within 0-5 Range - Cast Acid Breath'),
+(17115, 0, 0, 0, 0, 0, 100, 0, 0, 0, 15000, 15000, 0, 0, 11, 14868, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Cursed Lost One - In Combat - Cast Curse of Agony'),
+(17115, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 12000, 14000, 0, 0, 11, 6713, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Cursed Lost One - In Combat - Cast Disarm');
