@@ -61,7 +61,7 @@ UPDATE `gameobject_template` SET `Data1`=1,`Data6`=0 WHERE `entry`=181056;
 -- specific Naxxramas in Eastern Kingdoms
 DELETE FROM `gameobject` WHERE `id`=193166 and `map`=0;
 INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES
-(193166, 0, 0, 0, 1, 1, 3072.64, -3886.67, 130.449, 2.4011, 0.0, 0.0, -0.932239, -0.361844, 300, 0, 1, '', 0);
+(193166, 0, 0, 0, 1, 1, 3076.63, -3888.23, 131.227, 2.4011, 0.0, 0.0, -0.932238, -0.361845, 300, 0, 1, '', 0);
 -- Update meeting stone requirements (previous: minLvl 15)
 -- AreaTable ID: 3456 ContinentID: 533
 -- https://wow.tools/dbc/?dbc=areatable&build=3.3.5.12340#page=1&search=3456
