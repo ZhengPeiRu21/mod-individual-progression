@@ -365,10 +365,10 @@ public:
         {
             return true;
         }
-        if (mapid == MAP_ONYXIAS_LAIR && player->GetLevel() <= IP_LEVEL_TBC && (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET) || player->getClass() == CLASS_DEATH_KNIGHT))
+        if (mapid == MAP_ONYXIAS_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && !player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
         {
             return false;
-        }        
+        }       
         if (mapid == MAP_BLACKWING_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE))
         {
             return false;
@@ -435,7 +435,7 @@ public:
             {
                 return false;
             }
-            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && !isAttuned(player))  
+            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && (!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))  
             {
                 return false;
             }

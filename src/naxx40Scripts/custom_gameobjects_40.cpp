@@ -51,7 +51,7 @@ public:
 
     bool OnGossipHello(Player* player, GameObject* /*go*/) override
     {
-        if ((isExcludedFromProgression(player) && (player->GetLevel() <= IP_LEVEL_TBC) && (player->getClass() != CLASS_DEATH_KNIGHT))  || 
+        if ((isExcludedFromProgression(player) && (player->GetLevel() <= IP_LEVEL_TBC))  || 
             ((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED) && (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))))
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
