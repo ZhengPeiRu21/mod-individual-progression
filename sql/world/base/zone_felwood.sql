@@ -40,7 +40,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7110, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 19000, 0, 0, 11, 13578, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Jadefire Shadowstalker - In Combat - Cast Jadefire'),
 (7111, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 16000, 19000, 0, 0, 11, 13578, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Jadefire Hellcaller - In Combat - Cast Jadefire'),
 (7111, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Jadefire Hellcaller - In Combat - Cast Fireball'),
-(7111, 0, 2, 0, 0, 0, 100, 0, 9000, 13000, 18000, 22000, 0, 0, 11, 11990, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Jadefire Hellcaller - In Combat - Cast Rain of Fire'),
+(7111, 0, 2, 0, 0, 0, 100, 0, 9000, 13000, 18000, 22000, 0, 0, 11, 11990, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Jadefire Hellcaller - In Combat - Cast Rain of Fire'),
 --
 (7112, 0, 0, 0, 0, 0, 100, 0, 9000, 14000, 22000, 25000, 0, 0, 11, 11639, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Jaedenar Cultist - In Combat - Cast Shadow Word: Pain'),
 (7112, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,            'Jaedenar Cultist - In Combat - Cast Shadow Bolt'),
@@ -62,7 +62,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7120, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Jaedenar Warlock - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (7125, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 15000, 0, 30, 11, 13321, 320, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Jaedenar Hound - Within 0-30 Range - Cast Mana Burn'),
 --
-(7132, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 16000, 0, 5, 11, 7947, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Toxic Horror - In Combat - Cast Localized Toxin'),
+(7132, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 16000, 0, 5, 11, 7947, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Toxic Horror - Within 0-5 Range - Cast Localized Toxin'),
 (7132, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 12000, 18000, 0, 0, 11, 13582, 32, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,  'Toxic Horror - Within 0-10 Range - Cast Deadly Poison'),
 (7136, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 2602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Infernal Sentry - On Aggro - Cast Fire Shield IV'),
 (7139, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 16000, 0, 5, 11, 45, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Irontree Stomper - Within 0-5 Range - Cast War Stomp'),
