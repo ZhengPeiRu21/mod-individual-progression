@@ -8,16 +8,16 @@ INSERT INTO `creature` (`id1`, `map`, `position_x`, `position_y`, `position_z`, 
 -- update npc names
 UPDATE `creature_template` SET `name` = 'Wretched Zombie' WHERE `entry` = 1502; -- Wretched Zombie
 
-UPDATE `creature_template` SET `subname` = 'Apprentice Herbalist' WHERE `entry` = 2114; -- Faruza <Apprentice Herbalist>
-UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist' WHERE `entry` = 2132; -- Carolai Anise <Journeyman Alchemist>
-UPDATE `creature_template` SET `subname` = 'Zeppelin Master' WHERE `entry` = 3150; -- Hin Denburg <Zeppelin Master>
+UPDATE `creature_template` SET `subname` = 'Apprentice Herbalist'     WHERE `entry` = 2114; -- Faruza <Apprentice Herbalist>
+UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist'     WHERE `entry` = 2132; -- Carolai Anise <Journeyman Alchemist>
+UPDATE `creature_template` SET `subname` = 'Zeppelin Master'          WHERE `entry` = 3150; -- Hin Denburg <Zeppelin Master>
 UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry` = 3549; -- Shelene Rhobart <Journeyman Leatherworker>
-UPDATE `creature_template` SET `subname` = 'Fisherman' WHERE `entry` = 5690; -- Clyde Kellen <Fisherman>
-UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter' WHERE `entry` = 5695; -- Vance Undergloom <Journeyman Enchanter>
-UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry` = 5749; -- Kayla Smithe <Demon Trainer>
-UPDATE `creature_template` SET `subname` = 'Demon Trainer' WHERE `entry` = 5750; -- Gina Lang <Demon Trainer>
-UPDATE `creature_template` SET `subname` = 'Skinner' WHERE `entry` = 6289;-- Rand Rhobart <Skinner>
-UPDATE `creature_template` SET `subname` = 'Zeppelin Master' WHERE `entry` = 9566; -- Zapetta <Zeppelin Master>
+UPDATE `creature_template` SET `subname` = 'Fisherman'                WHERE `entry` = 5690; -- Clyde Kellen <Fisherman>
+UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `entry` = 5695; -- Vance Undergloom <Journeyman Enchanter>
+UPDATE `creature_template` SET `subname` = 'Demon Trainer'            WHERE `entry` = 5749; -- Kayla Smithe <Demon Trainer>
+UPDATE `creature_template` SET `subname` = 'Demon Trainer'            WHERE `entry` = 5750; -- Gina Lang <Demon Trainer>
+UPDATE `creature_template` SET `subname` = 'Skinner'                  WHERE `entry` = 6289; -- Rand Rhobart <Skinner>
+UPDATE `creature_template` SET `subname` = 'Zeppelin Master'          WHERE `entry` = 9566; -- Zapetta <Zeppelin Master>
 
 -- update npc factions
 UPDATE `creature_template` SET `faction` = 22 WHERE `entry` = 1505;  -- Night Web Spider
