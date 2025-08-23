@@ -435,7 +435,7 @@ public:
             {
                 return false;
             }
-            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && isAttuned(player) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) )  
+            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && (!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))  
             {
                 return false;
             }
