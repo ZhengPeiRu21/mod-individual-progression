@@ -1,9 +1,9 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (118, 285, 525, 735);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(6, 30, 38, 40, 46, 61, 79, 80, 94, 97, 99, 103, 113, 116, 257, 327, 330, 448, 473, 474, 475, 476, 478, 524, 732, 881);
+(6, 30, 38, 40, 46, 61, 79, 80, 94, 97, 99, 100, 103, 113, 116, 257, 327, 330, 448, 473, 474, 475, 476, 478, 524, 732, 881);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(6, 30, 38, 40, 46, 61, 79, 80, 94, 97, 99, 103, 113, 116, 118, 257, 285, 327, 330, 448, 473, 474, 475, 476, 478, 524, 525, 732, 735, 881);
+(6, 30, 38, 40, 46, 61, 79, 80, 94, 97, 99, 100, 103, 113, 116, 118, 257, 285, 327, 330, 448, 473, 474, 475, 476, 478, 524, 525, 732, 735, 881);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -26,6 +26,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (99, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 0, 5, 11, 1776, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Morgaine the Sly - Within 0-5 Range - Cast Gouge'),
 (99, 0, 1, 0, 0, 0, 100, 0, 8000, 8000, 30000, 40000, 0, 0, 11, 11918, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Morgaine the Sly - In Combat - Cast Poison'),
 (99, 0, 2, 0, 67, 0, 100, 0, 1000, 1000, 10000, 10000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Morgaine the Sly - Behind Target - Cast Backstab'),
+(100, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Gruff Swiftbite - In Combat - Cast Thrash'),
 (103, 0, 0, 1, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Garrick Padfoot - On Aggro - Cast Defensive Stance'),
 (103, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Garrick Padfoot - On Aggro - Say Line 0'),
 (113, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Stonetusk Boar - On Aggro - Cast Rushing Charge'),
