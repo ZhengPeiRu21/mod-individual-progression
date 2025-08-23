@@ -56,7 +56,47 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (881, 0, 2, 0, 0, 0, 100, 0, 0, 0, 1000, 1000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Surena Caledon - In Combat - Cast Fireball');
 
 
--- Hogger, missing waypoints, entry 448, guid 80531
+-- Hogger, fix missing waypoints and spawn points, entry 448, guid 80531
+DELETE FROM `creature` WHERE `id1` = 448;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+(80531, 448, 0, 0, 0, 0, 0, 1, 1, 1, -9946, 604.266, 38.2862, 0.297245, 180, 0, 1, 666, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(695022, 448, 0, 0, 0, 0, 0, 1, 1, 1, -9947.88, 594.773, 39.608, 5.19393, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695023, 448, 0, 0, 0, 0, 0, 1, 1, 1, -10107.2, 618.213, 38.2045, 3.78528, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695024, 448, 0, 0, 0, 0, 0, 1, 1, 1, -10085.4, 585.657, 39.2759, 1.30395, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695025, 448, 0, 0, 0, 0, 0, 1, 1, 1, -10018.6, 640.629, 39.0636, 1.3324, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `creature_addon` WHERE `guid` = 80531;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(80531, 805310, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `waypoint_data` WHERE `id` = 805310;
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+(805310, 1, -9946, 604.266, 38.2862, NULL, 10000, 0, 0, 100, 0),
+(805310, 2, -9969.58, 625.799, 38.4956, NULL, 0, 0, 0, 100, 0),
+(805310, 3, -9996.3, 638.969, 39.1481, NULL, 0, 0, 0, 100, 0),
+(805310, 4, -10010.6, 646.303, 37.7379, NULL, 10000, 0, 0, 100, 0),
+(805310, 5, -10056.1, 659.915, 39.1032, NULL, 0, 0, 0, 100, 0),
+(805310, 6, -10084.5, 663.626, 35.179, NULL, 0, 0, 0, 100, 0),
+(805310, 7, -10104.2, 683.092, 31.897, NULL, 10000, 0, 0, 100, 0),
+(805310, 8, -10115.9, 648.876, 35.9839, NULL, 0, 0, 0, 100, 0),
+(805310, 9, -10101.4, 613.373, 38.9122, NULL, 0, 0, 0, 100, 0),
+(805310, 10, -10068.6, 623.025, 39.2644, NULL, 10000, 0, 0, 100, 0),
+(805310, 11, -10053.6, 612.915, 39.6109, NULL, 0, 0, 0, 100, 0),
+(805310, 12, -9982.26, 628.856, 38.2322, NULL, 0, 0, 0, 100, 0);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` = 601013;
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(80531,  601013, 0, 'Hogger'),
+(695022, 601013, 0, 'Hogger'),
+(695023, 601013, 0, 'Hogger'),
+(695024, 601013, 0, 'Hogger'),
+(695025, 601013, 0, 'Hogger');
+
+DELETE FROM `pool_template` WHERE `entry` = 601013;
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601013, 1, '');
+
 
 -- Kitta Firewind <Enchanting Trainer>
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 4169 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7;
