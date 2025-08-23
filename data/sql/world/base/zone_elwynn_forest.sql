@@ -17,7 +17,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (40, 0, 1, 0, 0, 0, 100, 0, 4000, 14000, 38000, 42000, 0, 0, 11, 6016, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Kobold Miner - Within 0-5 Range - Cast Pierce Armor'),
 (46, 0, 0, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 3368, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Murloc Forager - Between 0-40% Health - Cast Drink Minor Potion'),
 (61, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Thuros Lightfingers - On Aggro - Say Line 0)'),
--- (79, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Narg the Taskmaster - On Aggro - Say Line 0)'), -- what does he say?
+(79, 0, 0, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Narg the Taskmaster - On Aggro - Say Line 0)'), 
 (79, 0, 1, 0, 0, 0, 100, 0, 2000, 2000, 18000, 18000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Narg the Taskmaster - In Combat - Cast Battle Shout'),
 (80, 0, 0, 0, 4, 0, 30, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Kobold Laborer - On Aggro - Say Line 0'),
 (94, 0, 0, 0, 67, 0, 100, 0, 1000, 1000, 2000, 7000, 0, 5, 11, 53, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Defias Cutpurse - Behind Target - Cast Backstab'),
@@ -54,6 +54,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (881, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 1800000, 1800000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Surena Caledon - Out of Combat - Cast Frost Armor'),
 (881, 0, 1, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Surena Caledon - On Aggro - Say Line 0'),
 (881, 0, 2, 0, 0, 0, 100, 0, 0, 0, 1000, 1000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Surena Caledon - In Combat - Cast Fireball');
+
+
+DELETE FROM `creature_text` WHERE `CreatureID` = 79;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(79, 0, 0, 'You no take candle!', 12, 0, 100, 0, 0, 0, 16658, 0,    'Narg the Taskmaster'),
+(79, 0, 1, 'Yiieeeee! Me run!', 12, 7, 100, 0, 0, 0, 1864, 0,       'Narg the Taskmaster'),
+(79, 0, 2, 'No kill me! No kill me!', 12, 0, 100, 0, 0, 0, 1863, 0, 'Narg the Taskmaster');
 
 
 -- Hogger, fix missing waypoints and spawn points, entry 448, guid 80531
