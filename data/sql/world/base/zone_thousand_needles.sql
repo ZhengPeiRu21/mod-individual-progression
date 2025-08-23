@@ -34,21 +34,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 -- give Vile Sting some movement
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 10 WHERE `id1` = 5937;
-
--- Pooled Treasure Chests
-DELETE FROM `pool_template` WHERE `entry` IN (66001);
-INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
-(66001, 1, 'Treasures - Thousand Needles');
-
-UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE `guid` IN (16718, 85670, 87381);
-
-DELETE FROM `pool_gameobject` WHERE `guid` IN (16718, 85670, 87381);
-INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
-(16718, 66001, 0, 'Solid Chest, Camp E\'thok, node 1'),
-(85670, 66001, 0, 'Solid Chest, Camp E\'thok, node 2'),
-(87381, 66001, 0, 'Solid Chest, Camp E\'thok, node 3');
-
-    
+   
 -- Rok'Alim the Pounder, Waypoints
 DELETE FROM `creature_addon` WHERE `guid` = 21591;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
