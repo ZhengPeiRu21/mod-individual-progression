@@ -1,28 +1,3 @@
-DELETE FROM `creature_text` WHERE `CreatureID` IN (7451, 10200);
-INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
-(7451, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0,  'Raging Owlbeast enrage at 30%'),
-(10200, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0, 'Rak shiri enrage at 30%');
-
--- Pooled Treasure Chests
-DELETE FROM `pool_template` WHERE `entry` IN (66002, 66003);
-INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
-(66002, 1, 'Treasures - Winterspring'),
-(66003, 1, 'Treasures - Winterspring');
-
-UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE `guid` IN (49089, 49090, 49091, 85796, 85798, 85799, 85801, 85803);
-
-DELETE FROM `pool_gameobject` WHERE `guid` IN (49089, 49090, 49091, 85796, 85798, 85799, 85801, 85803);
-INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
-(49091, 66002, 0, 'Solid Chest, Winterfall Village, node 1'),
-(85798, 66002, 0, 'Solid Chest, Winterfall Village, node 2'),
-(85799, 66002, 0, 'Solid Chest, Winterfall Village, node 3'),
-(85803, 66002, 0, 'Solid Chest, Winterfall Village, node 4'),
---
-(49089, 66003, 0, 'Solid Chest, Timbermaw Post, node 1'),
-(49090, 66003, 0, 'Solid Chest, Timbermaw Post, node 2'),
-(85796, 66003, 0, 'Solid Chest, Timbermaw Post, node 3'),
-(85801, 66003, 0, 'Solid Chest, Timbermaw Post, node 4');
-
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (7451, 7523, 7524, 10200, 10684, 10737, 14372);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (7451, 7523, 7524, 10200, 10684, 10737, 14372);
@@ -53,3 +28,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10737, 0, 3, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 12, 10741, 1, 180000, 0, 0, 0, 8, 0, 0, 0, 0, 8074.84, -3840, 690.061, 4.6, 'Shy-Rotam - Between 0-50% health - Summon Creature Sian-Rotam (No Repeat)'),
 --
 (14372, 0, 0, 0, 1, 0, 100, 0, 4000, 4000, 4000, 4000, 0, 0, 11, 17205, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Winterfall Ambusher - OOC - Cast Winterfall Firewater');
+
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (7451, 10200);
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(7451, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0,  'Raging Owlbeast enrage at 30%'),
+(10200, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0, 'Rak shiri enrage at 30%');
