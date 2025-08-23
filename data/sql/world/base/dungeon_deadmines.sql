@@ -33,7 +33,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (639, 0, 0, 0, 1, 0, 100, 257, 1000, 1000, 0, 0, 0, 0, 11, 674, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Edwin VanCleef - Out of Combat - Cast Dual Wield (No Repeat)'),
 (639, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Edwin VanCleef - On Aggro - Say Line 0'),
 (639, 0, 3, 0, 2, 0, 100, 1, 50, 75, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Edwin VanCleef - Between 50-75% Health - Say Line 1 (No Repeat)'),
-(639, 0, 4, 5, 2, 0, 100, 1, 48, 52, 0, 0, 0, 0, 11, 5200, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Edwin VanCleef - At 50% Health - Cast VanCleefs Allies (No Repeat)'),
+(639, 0, 4, 5, 2, 0, 100, 1, 48, 52, 0, 0, 0, 0, 11, 5200, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Edwin VanCleef - At 50% Health - Cast VanCleefs Allies (No Repeat)'), -- https://www.hcguides.com/dungeons/the-deadmines
 (639, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Edwin VanCleef - On Summon Allies - Say Line 2'),
 (639, 0, 6, 0, 2, 0, 100, 1, 0, 35, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Edwin VanCleef - Between 0-35% Health - Say Line 3 (No Repeat)'),
 (639, 0, 7, 0, 2, 0, 100, 1, 0, 10, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Edwin VanCleef - Between 0-10% Health - Say Line 5 (No Repeat)'),
