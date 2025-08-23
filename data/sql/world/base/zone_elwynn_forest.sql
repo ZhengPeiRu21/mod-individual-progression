@@ -1,14 +1,109 @@
 /* smart scripts */
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (118, 285, 525, 735);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(94);
+(6, 30, 38, 40, 46, 61, 79, 80, 94, 97, 99, 100, 103, 113, 116, 257, 327, 330, 448, 473, 474, 475, 476, 478, 524, 732, 881);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(94);
+(6, 30, 38, 40, 46, 61, 79, 80, 94, 97, 99, 100, 103, 113, 116, 118, 257, 285, 327, 330, 448, 473, 474, 475, 476, 478, 524, 525, 732, 735, 881);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-(94, 0, 0, 0, 67, 0, 100, 0, 1000, 1000, 2000, 7000, 0, 5, 11, 53, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Defias Cutpurse - Behind Target - Cast Backstab');
+--
+(6, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                            'Kobold Vermin - On Aggro - Say Line 0'),
+(30, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11959, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Forest Spider - In Combat - Cast Poison Proc'),
+(38, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Defias Thug - On Aggro - Say Line 0'),
+(40, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Kobold Miner - On Aggro - Say Line 0'),
+(40, 0, 1, 0, 0, 0, 100, 0, 4000, 14000, 38000, 42000, 0, 0, 11, 6016, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Kobold Miner - Within 0-5 Range - Cast Pierce Armor'),
+(46, 0, 0, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 3368, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Murloc Forager - Between 0-40% Health - Cast Drink Minor Potion'),
+(61, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Thuros Lightfingers - On Aggro - Say Line 0)'),
+(79, 0, 0, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Narg the Taskmaster - On Aggro - Say Line 0)'), 
+(79, 0, 1, 0, 0, 0, 100, 0, 2000, 2000, 18000, 18000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Narg the Taskmaster - In Combat - Cast Battle Shout'),
+(80, 0, 0, 0, 4, 0, 30, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Kobold Laborer - On Aggro - Say Line 0'),
+(94, 0, 0, 0, 67, 0, 100, 0, 1000, 1000, 2000, 7000, 0, 5, 11, 53, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Defias Cutpurse - Behind Target - Cast Backstab'),
+(97, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Riverpaw Runt - On Aggro - Say Line 0'),
+(97, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Riverpaw Runt - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(99, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 0, 5, 11, 1776, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Morgaine the Sly - Within 0-5 Range - Cast Gouge'),
+(99, 0, 1, 0, 0, 0, 100, 0, 8000, 8000, 30000, 40000, 0, 0, 11, 11918, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Morgaine the Sly - In Combat - Cast Poison'),
+(99, 0, 2, 0, 67, 0, 100, 0, 1000, 1000, 10000, 10000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Morgaine the Sly - Behind Target - Cast Backstab'),
+(100, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Gruff Swiftbite - In Combat - Cast Thrash'),
+(103, 0, 0, 1, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Garrick Padfoot - On Aggro - Cast Defensive Stance'),
+(103, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Garrick Padfoot - On Aggro - Say Line 0'),
+(113, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Stonetusk Boar - On Aggro - Cast Rushing Charge'),
+(116, 0, 0, 0, 4, 0, 25, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Defias Bandit - On Aggro - Say Line 0'),
+(116, 0, 1, 0, 0, 0, 65, 0, 4000, 4000, 5000, 9000, 0, 0, 11, 8646, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Defias Bandit - Within 0-5 Range - Cast Snap Kick'),
+(257, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Kobold Worker - On Aggro - Say Line 0'),
+(327, 0, 0, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Goldtooth - On Aggro - Say Line 0'),
+(327, 0, 1, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Goldtooth - Between 0-20% Health - Flee For Assist (No Repeat)'),
+(330, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Princess - On Aggro - Cast Rushing Charge'),
+(448, 0, 0, 1, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Hogger - On Aggro - Cast Rushing Charge'),
+(448, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hogger - On Aggro - Say Line 0'),
+(448, 0, 2, 0, 0, 0, 100, 0, 1000, 3000, 20000, 29000, 0, 0, 11, 6730, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Hogger - Within 0-5 Range - Cast Head Butt'),
+(448, 0, 3, 0, 0, 0, 100, 0, 4000, 6000, 46000, 48000, 0, 0, 11, 6016, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Hogger - Within 0-5 Range - Cast Pierce Armor'),
+(473, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 11000, 13000, 0, 0, 11, 1776, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Morgan the Collector - Within 0-5 Range - Cast Gouge'),
+(474, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 1800000, 1800000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Defias Rogue Wizard - Out of Combat - Cast Frost Armor'),
+(474, 0, 1, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Defias Rogue Wizard - On Aggro - Say Line 0'),
+(474, 0, 2, 0, 0, 0, 100, 0, 0, 0, 1000, 1000, 0, 0, 11, 13322, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Defias Rogue Wizard - In Combat - Cast Frostbolt'),
+(475, 0, 0, 0, 4, 0, 25, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Kobold Tunneler - On Aggro - Say Line 0'),
+(476, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 1800000, 1800000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Kobold Geomancer - Out of Combat - Cast Frost Armor'),
+(476, 0, 1, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Kobold Geomancer - On Aggro - Say Line 0'),
+(476, 0, 2, 0, 0, 0, 100, 0, 0, 0, 1000, 1000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Kobold Geomancer - In Combat - Cast Fireball'),
+(478, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Riverpaw Outrunner - On Aggro - Say Line 0'),
+(478, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Riverpaw Outrunner - In Combat - Cast Thrash'),
+(524, 0, 0, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Rockhide Boar - On Aggro - Cast Rushing Charge'),
+(732, 0, 0, 0, 67, 0, 100, 0, 3000, 6000, 3000, 6000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Murloc Lurker - On Behind Target - Cast Backstab'),
+(881, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 1800000, 1800000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Surena Caledon - Out of Combat - Cast Frost Armor'),
+(881, 0, 1, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Surena Caledon - On Aggro - Say Line 0'),
+(881, 0, 2, 0, 0, 0, 100, 0, 0, 0, 1000, 1000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Surena Caledon - In Combat - Cast Fireball');
+
+
+DELETE FROM `creature_text` WHERE `CreatureID` = 79;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(79, 0, 0, 'You no take candle!', 12, 0, 100, 0, 0, 0, 16658, 0,    'Narg the Taskmaster'),
+(79, 0, 1, 'Yiieeeee! Me run!', 12, 7, 100, 0, 0, 0, 1864, 0,       'Narg the Taskmaster'),
+(79, 0, 2, 'No kill me! No kill me!', 12, 0, 100, 0, 0, 0, 1863, 0, 'Narg the Taskmaster');
+
+
+-- Hogger, fix missing waypoints and spawn points, entry 448, guid 80531
+DELETE FROM `creature` WHERE `id1` = 448;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+(80531, 448, 0, 0, 0, 0, 0, 1, 1, 1, -9946, 604.266, 38.2862, 0.297245, 180, 0, 1, 666, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(695022, 448, 0, 0, 0, 0, 0, 1, 1, 1, -9947.88, 594.773, 39.608, 5.19393, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695023, 448, 0, 0, 0, 0, 0, 1, 1, 1, -10107.2, 618.213, 38.2045, 3.78528, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695024, 448, 0, 0, 0, 0, 0, 1, 1, 1, -10085.4, 585.657, 39.2759, 1.30395, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695025, 448, 0, 0, 0, 0, 0, 1, 1, 1, -10018.6, 640.629, 39.0636, 1.3324, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `creature_addon` WHERE `guid` = 80531;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(80531, 805310, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `waypoint_data` WHERE `id` = 805310;
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+(805310, 1, -9946, 604.266, 38.2862, NULL, 10000, 0, 0, 100, 0),
+(805310, 2, -9969.58, 625.799, 38.4956, NULL, 0, 0, 0, 100, 0),
+(805310, 3, -9996.3, 638.969, 39.1481, NULL, 0, 0, 0, 100, 0),
+(805310, 4, -10010.6, 646.303, 37.7379, NULL, 10000, 0, 0, 100, 0),
+(805310, 5, -10056.1, 659.915, 39.1032, NULL, 0, 0, 0, 100, 0),
+(805310, 6, -10084.5, 663.626, 35.179, NULL, 0, 0, 0, 100, 0),
+(805310, 7, -10104.2, 683.092, 31.897, NULL, 10000, 0, 0, 100, 0),
+(805310, 8, -10115.9, 648.876, 35.9839, NULL, 0, 0, 0, 100, 0),
+(805310, 9, -10101.4, 613.373, 38.9122, NULL, 0, 0, 0, 100, 0),
+(805310, 10, -10068.6, 623.025, 39.2644, NULL, 10000, 0, 0, 100, 0),
+(805310, 11, -10053.6, 612.915, 39.6109, NULL, 0, 0, 0, 100, 0),
+(805310, 12, -9982.26, 628.856, 38.2322, NULL, 0, 0, 0, 100, 0);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` = 601013;
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(80531,  601013, 0, 'Hogger'),
+(695022, 601013, 0, 'Hogger'),
+(695023, 601013, 0, 'Hogger'),
+(695024, 601013, 0, 'Hogger'),
+(695025, 601013, 0, 'Hogger');
+
+DELETE FROM `pool_template` WHERE `entry` = 601013;
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601013, 1, '');
 
 
 -- Kitta Firewind <Enchanting Trainer>
