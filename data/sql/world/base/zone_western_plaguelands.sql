@@ -23,7 +23,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1788, 0, 2, 0, 9, 0, 100, 0, 0, 0, 9000, 14000, 0, 5, 11, 6253, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Skeletal Warlord - Within 0-5 Range - Cast Backhand'),
 (1789, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Skeletal Acolyte - In Combat - Cast Shadow Bolt'),
 (1789, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 11000, 15000, 0, 0, 11, 14887, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Skeletal Acolyte - In Combat - Cast Shadow Bolt Volley'),
-(1789, 0, 2, 0, 74, 0, 80, 0, 0, 70, 60000, 60000, 0, 0, 11, 16588, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Skeletal Acolyte - Friendly Between 0-70% Health - Cast Dark Mending'),
+(1789, 0, 2, 0, 74, 0, 80, 0, 0, 0, 60000, 60000, 70, 40, 11, 16588, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Skeletal Acolyte - Friendly Between 0-70% Health - Cast Dark Mending'),
 (1791, 0, 0, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Slavering Ghoul - In Combat - Cast Thrash'),
 (1791, 0, 1, 0, 9, 0, 100, 0, 0, 0, 60000, 75000, 0, 5, 11, 7125, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Slavering Ghoul - Within 0-5 Range - Cast Toxic Saliva'),
 (1793, 0, 0, 0, 9, 0, 100, 0, 0, 0, 120000, 130000, 0, 5, 11, 7102, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Rotting Ghoul - Within 0-5 Range - Cast Contagion of Rot'),
