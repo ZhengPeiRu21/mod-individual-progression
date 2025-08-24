@@ -209,11 +209,11 @@ DELETE FROM `creature` WHERE `id1` = 11614;
 DELETE FROM `creature_addon` WHERE `guid` = 52640;
 
 -- Lord Maldazzar, fix spawn locations, respawn and movement
-DELETE FROM `pool_creature` WHERE `pool_entry` = 368;
 DELETE FROM `creature` WHERE `id1` = 1848;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(52725, 1848, 0, 0, 0, 0, 0, 1, 1, 1, 1061.03, -1912.26, 31.1128, 4.71571, 18000, 5, 0, 2915, 2163, 1, 0, 0, 0, '', 0, 0, NULL); 
+(52725,  1848, 0, 0, 0, 0, 0, 1, 1, 1, 1061.03, -1912.26, 31.1128, 4.71571, 18000, 5, 0, 2915, 2163, 1, 0, 0, 0, '', 0, 0, NULL),
+(152292, 1848, 0, 0, 0, 0, 0, 1, 1, 1, 1123.73, -1714.49, 62.33, 0, 18000, 5, 0, 2915, 2163, 1, 0, 0, 0, '', 0, 0, NULL);
 
 -- fix npc movement
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 1850; -- Putridius, 
