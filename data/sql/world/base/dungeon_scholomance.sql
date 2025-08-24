@@ -9,7 +9,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(10469, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 200, 0, 0, 11, 15043, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Scholomance Adept - In Combat - Cast Frostbolt'),
+(10469, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 15043, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Scholomance Adept - In Combat - Cast Frostbolt'),
 (10469, 0, 1, 0, 0, 0, 100, 0, 7000, 18000, 9000, 15000, 0, 0, 11, 15244, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Scholomance Adept - In Combat - Cast Cone of Cold'),
 (10469, 0, 2, 0, 0, 0, 100, 0, 7000, 20000, 12000, 25000, 0, 0, 11, 15499, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scholomance Adept - In Combat - Cast Frost Shock'),
 (10469, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scholomance Adept - Between 0-15% Health - Flee For Assist'),
@@ -25,7 +25,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10472, 0, 1, 0, 105, 0, 100, 0, 0, 0, 10000, 20000, 0, 30, 11, 15122, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Scholomance Occultist - Victim Casting - Cast Counterspell'),
 (10472, 0, 2, 0, 0, 0, 100, 0, 2000, 10000, 11000, 17000, 0, 0, 11, 17228, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scholomance Occultist - In Combat - Cast Shadow Bolt Volley'),
 (10472, 0, 3, 0, 0, 0, 100, 0, 6000, 15000, 13000, 21000, 0, 0, 11, 17243, 320, 0, 0, 0, 0, 5, 20, 0, 1, 0, 0, 0, 0, 0, 'Scholomance Occultist - In Combat - Cast Drain Mana'),
-(10477, 0, 0, 0, 0, 0, 100, 0, 0, 4000, 16000, 10000, 16000, 0, 11, 14887, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scholomance Necromancer - In Combat - Cast Shadow Bolt Volley'),
+(10477, 0, 0, 0, 0, 0, 100, 0, 4000, 16000, 10000, 16000, 0, 0, 11, 14887, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scholomance Necromancer - In Combat - Cast Shadow Bolt Volley'),
 (10477, 0, 1, 0, 0, 0, 100, 0, 1000, 25000, 60000, 60000, 0, 0, 11, 12020, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scholomance Necromancer - In Combat - Cast Call of the Graves'),
 (10477, 0, 2, 0, 0, 0, 100, 0, 5000, 10000, 11000, 15000, 0, 0, 11, 17616, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scholomance Necromancer - In Combat - Cast Corpse Explosion'),
 (10477, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scholomance Necromancer - Between 0-15% Health - Flee For Assist'),
@@ -76,7 +76,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11551, 0, 1, 0, 0, 0, 100, 0, 6000, 13000, 10000, 17000, 0, 0, 11, 15474, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Necrofiend - In Combat - Cast Web Explosion'),
 (11622, 0, 0, 0, 0, 0, 100, 0, 7000, 12000, 10000, 17000, 0, 0, 11, 10101, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Rattlegore - Within 0-5 Range - Cast Knock Away'),
 (11622, 0, 1, 0, 0, 0, 100, 0, 6000, 11000, 7000, 11000, 0, 0, 11, 18368, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Rattlegore - Within 0-5 Range - Cast Strike'),
-(11622, 0, 2, 0, 0, 0, 100, 0, 15000, 21000, 130000, 19000, 0, 0, 11, 16727, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Rattlegore - In Combat - Cast War Stomp'),
+(11622, 0, 2, 0, 0, 0, 100, 0, 15000, 21000, 13000, 19000, 0, 0, 11, 16727, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Rattlegore - In Combat - Cast War Stomp'),
 --
 (11636, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Servant of Weldon Barov - On Aggro - Say Line 0'),
 (11637, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Servant of Alexi Barov  - On Aggro - Say Line 0'),
