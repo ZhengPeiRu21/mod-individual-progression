@@ -206,8 +206,10 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 
 -- Bloodshot gets summoned by Huntsman Radley
 DELETE FROM `creature` WHERE `id1` = 11614;
+DELETE FROM `creature_addon` WHERE `guid` = 52640;
 
 -- Lord Maldazzar, fix spawn locations, respawn and movement
+DELETE FROM `pool_creature` WHERE `pool_entry` = 368;
 DELETE FROM `creature` WHERE `id1` = 1848;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
