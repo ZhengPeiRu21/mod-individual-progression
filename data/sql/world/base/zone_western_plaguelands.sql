@@ -213,7 +213,14 @@ DELETE FROM `creature` WHERE `id1` = 1848;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (52725,  1848, 0, 0, 0, 0, 0, 1, 1, 1, 1061.03, -1912.26, 31.1128, 4.71571, 18000, 5, 0, 2915, 2163, 1, 0, 0, 0, '', 0, 0, NULL),
-(152292, 1848, 0, 0, 0, 0, 0, 1, 1, 1, 1123.73, -1714.49, 62.33, 0, 18000, 5, 0, 2915, 2163, 1, 0, 0, 0, '', 0, 0, NULL);
+(695026, 1848, 0, 0, 0, 0, 0, 1, 1, 1, 1123.73, -1714.49, 62.33, 0, 18000, 5, 0, 2915, 2163, 1, 0, 0, 0, '', 0, 0, NULL),
+(695027, 1848, 0, 0, 0, 0, 0, 1, 1, 1, 1071.86, -1766.24, 62.0725, 0.388769, 18000, 5, 0, 2915, 2163, 1, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` = 368;
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(52725,  368, 0, 'Lord Maldazzar Crypt'),
+(695026, 368, 0, 'Lord Maldazzar Sorrow hill'),
+(695027, 368, 0, 'Lord Maldazzar Sorrow hill');
 
 -- fix npc movement
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 1850; -- Putridius, 
