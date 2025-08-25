@@ -932,9 +932,9 @@ INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`
 -- (123, 2, 16309, 'You must have the Drakefire Amulet in your inventory before entering Onyxia''s Lair.', 2, NULL, 0, 'Onyxia''s Lair (40 player)');
 
 DELETE FROM `mapdifficulty_dbc` WHERE `MapID` = 249;
-DELETE FROM `mapdifficulty_dbc` WHERE `ID` = 754;
+DELETE FROM `mapdifficulty_dbc` WHERE `ID` = 755;
 INSERT INTO `mapdifficulty_dbc` (`ID`, `MapID`, `Difficulty`, `Message_Lang_enUS`, `Message_Lang_frFR`, `Message_Lang_Mask`, `RaidDuration`, `MaxPlayers`, `Difficultystring`) VALUES
-(754, 249, 2, 'You must be level 60 and in a raid group to enter.', 'Vous devez être niveau 60 et être en groupe de raid pour entrer.', 16712190, 604800, 40, 'RAID_DIFFICULTY_40PLAYER');
+(755, 249, 2, 'You must be level 60 and in a raid group to enter.', 'Vous devez être niveau 60 et être en groupe de raid pour entrer.', 16712190, 604800, 40, 'RAID_DIFFICULTY_40PLAYER');
 
 DELETE FROM `dungeonencounter_dbc` WHERE `ID` = 895;
 INSERT INTO `dungeonencounter_dbc` (`ID`, `MapID`, `Difficulty`, `OrderIndex`, `Bit`, `Name_Lang_enUS`, `Name_Lang_frFR`, `Name_Lang_Mask`, `SpellIconID`) VALUES

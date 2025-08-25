@@ -48,7 +48,7 @@ UPDATE `broadcast_text`     SET   `MaleText` = 'Can you send me to Theramore? I 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 2465 AND `OptionID` = 1;
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, 
 `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES 
-(2465, 1, 0, 'I\'m ready to travel to Stormwind.', 22522, 1, 1, 0, 0, 0, 0, '', 0, 0);
+(2465, 1, 0, 'I''m ready to travel to Stormwind.', 22522, 1, 1, 0, 0, 0, 0, '', 0, 0);
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 2465 AND `ConditionValue1` = 11222;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 

@@ -39,8 +39,8 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 (7226, 0, 0, 'I still do not understand.', 12287, 1, 1, 7225, 0, 0, 0, '', 0, 0),
 (7227, 0, 0, 'Why have you done such horrible things?', 12285, 1, 1, 7226, 0, 0, 0, '', 0, 0),
 (7228, 0, 0, 'What are you talking about, mage?', 12283, 1, 1, 7227, 0, 0, 0, '', 0, 0),
-(7228, 1, 0, 'What is it Tarsis? I don\'t know what to do!', 12313, 1, 1, 0, 0, 0, 0, '', 0, 0),
-(7232, 0, 0, 'So Kel\'Thuzad holds all of the pieces?', 12308, 1, 1, 7231, 0, 0, 0, '', 0, 0),
+(7228, 1, 0, 'What is it Tarsis? I don''t know what to do!', 12313, 1, 1, 0, 0, 0, 0, '', 0, 0),
+(7232, 0, 0, 'So Kel''Thuzad holds all of the pieces?', 12308, 1, 1, 7231, 0, 0, 0, '', 0, 0),
 (7233, 0, 0, 'So what has led you to Naxxramas?', 12306, 1, 1, 7232, 0, 0, 0, '', 0, 0);
 
 -- Different dialog option if has Splinter of Atiesh

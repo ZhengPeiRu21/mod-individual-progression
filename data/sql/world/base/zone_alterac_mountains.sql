@@ -60,10 +60,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2415, 0, 2, 0, 0, 0, 100, 0, 7000, 13000, 6000, 16000, 0, 0, 11, 13323, 1, 0, 0, 0, 0, 6, 30, 1, 0, 0, 0, 0, 0, 0,     'Warden Belamoore - Within 0-30 Range - Cast Polymorph'),
 (2415, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Warden Belamoore - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(2417, 0, 0, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Grel\'borg the Miser - On Aggro - Say Line 0 (No Repeat)'),
-(2417, 0, 1, 0, 0, 0, 100, 0, 3000, 6000, 29000, 38000, 0, 0, 11, 6742, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Grel\'borg the Miser - In Combat - Cast Bloodlust'),
-(2417, 0, 2, 0, 0, 0, 100, 0, 2000, 2000, 36000, 36000, 0, 0, 11, 4979, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Grel\'borg the Miser - In Combat - Cast Quick Flame Ward'),
-(2417, 0, 3, 0, 0, 0, 100, 0, 10000, 19000, 10000, 23000, 0, 0, 11, 11990, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Grel\'borg the Miser - Within 0-30 Range - Cast Rain of Fire'),
+(2417, 0, 0, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Grel''borg the Miser - On Aggro - Say Line 0 (No Repeat)'),
+(2417, 0, 1, 0, 0, 0, 100, 0, 3000, 6000, 29000, 38000, 0, 0, 11, 6742, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Grel''borg the Miser - In Combat - Cast Bloodlust'),
+(2417, 0, 2, 0, 0, 0, 100, 0, 2000, 2000, 36000, 36000, 0, 0, 11, 4979, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Grel''borg the Miser - In Combat - Cast Quick Flame Ward'),
+(2417, 0, 3, 0, 0, 0, 100, 0, 10000, 19000, 10000, 23000, 0, 0, 11, 11990, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Grel''borg the Miser - Within 0-30 Range - Cast Rain of Fire'),
 (2420, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7366, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Targ - Out of Combat - Cast Berserker Stance (No Repeat)'),
 (2420, 0, 1, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Targ - On Aggro - Say Line 0 (No Repeat)'),
 (2420, 0, 2, 0, 9, 0, 100, 0, 4000, 16000, 6000, 19000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Targ - Within 0-5 Range - Cast Cleave'),
@@ -83,12 +83,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2453, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 18000, 22000, 0, 0, 11, 8814, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Lo Grosh - In Combat - Cast Flame Spike');
 
 
-
--- Jailor Borhuin, 2431, should have multiple spawn locations 
--- https://www.youtube.com/watch?v=3fLlozCjyD0
-
--- Baron Vardus, 2306, should have multiple spawn locations 
--- https://www.youtube.com/watch?v=MgH-PCmxnUo - https://www.youtube.com/watch?v=ZLXbrYUfLtI - https://www.youtube.com/watch?v=Dk6V9prh2gk
+-- Jailor Borhuin(2431) and Baron Vardus(2306) should have multiple spawn locations 
+-- https://www.youtube.com/watch?v=3fLlozCjyD0 - https://www.youtube.com/watch?v=MgH-PCmxnUo - https://www.youtube.com/watch?v=ZLXbrYUfLtI - https://www.youtube.com/watch?v=Dk6V9prh2gk
 
 DELETE FROM `creature` WHERE `id1` IN (2306, 2431);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
@@ -100,7 +96,6 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (17020, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 689.462, -984.645, 165.695, 5.43263, 300, 0, 0, 1536, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695014, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 750.559, -971.896, 167.587, 1.60003, 300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 (695015, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 679.818, -897.818, 171.806, 4.8398, 300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
-
 
 DELETE FROM `pool_creature` WHERE `pool_entry` IN (601008, 601009);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
@@ -116,17 +111,3 @@ DELETE FROM `pool_template` WHERE `entry` IN (601008, 601009);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
 (601008, 1, ''),
 (601009, 1, '');
-
-
--- Pooled Treasure Chests
-DELETE FROM `pool_template` WHERE `entry` IN (66006);
-INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
-(66006, 1, 'Treasures - Alterac Mountains');
-
-UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE`guid` IN (33193, 33206, 33207);
-
-DELETE FROM `pool_gameobject` WHERE `guid` IN (33193, 33206, 33207);
-INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
-(33193, 66006, 0, 'Solid Chest, Alterac Mountains, node 1'),
-(33206, 66006, 0, 'Solid Chest, Alterac Mountains, node 2'),
-(33207, 66006, 0, 'Solid Chest, Alterac Mountains, node 3');

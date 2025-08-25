@@ -13,5 +13,5 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (4687, 6082, 0, 100, 1, 1, 0, 1, 1, 'Deepstrider Searcher - Deepstrider Tumor');
 
 -- Nothing but the Truth, update quest log and description
-UPDATE `quest_template` SET `LogDescription` = 'Apothecary Faustin at Beggar\'s Haunt needs 5 Shadow Panther Hearts, Mire Lord Fungus and a Deepstrider Tumor.' WHERE `ID` = 1383;
+UPDATE `quest_template` SET `LogDescription` = 'Apothecary Faustin at Beggar''s Haunt needs 5 Shadow Panther Hearts, Mire Lord Fungus and a Deepstrider Tumor.' WHERE `ID` = 1383;
 UPDATE `quest_template` SET `QuestDescription` = 'I have just the right serum in mind. It will deal with the truth in precisely the way the truth should be dealt with.$b$bFor this concoction I will need several Shadow Panther hearts from the Swamp. I also require the enchanted fungus off of the Mire Lord who resides there. I am sure one as able as you, $n, can persuade him to part with some.$b$bNow the hard part will be locating a Deepstrider tumor from far-off Desolace. Very rarely the giants there become ill and a tumor forms.$b$bNow, off you go!' WHERE `ID` = 1383;

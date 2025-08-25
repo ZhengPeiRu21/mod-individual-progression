@@ -166,7 +166,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (11663, 16828, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Healer - Cenarion Belt'),
 (11663, 16838, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Healer - Earthfury Belt'),
 (11663, 16840, 0, 0.32, 0, 1, 0, 1, 1, 'Flamewaker Healer - Earthfury Bracers'),
-(11663, 16851, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Healer - Giantstalker\'s Belt'),
+(11663, 16851, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Healer - Giantstalker''s Belt'),
 (11663, 16858, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Healer - Lawbringer Belt');
 
 -- Flamewaker Elite
@@ -175,7 +175,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (11664, 16817, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Elite - Girdle of Prophecy'),
 (11664, 16838, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Elite - Earthfury Belt'),
 (11664, 16840, 0, 0.32, 0, 1, 0, 1, 1, 'Flamewaker Elite - Earthfury Bracers'),
-(11664, 16851, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Elite - Giantstalker\'s Belt'),
+(11664, 16851, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Elite - Giantstalker''s Belt'),
 (11664, 16857, 0, 0.32, 0, 1, 0, 1, 1, 'Flamewaker Elite - Lawbringer Bracers'),
 (11664, 16858, 0, 0.34, 0, 1, 0, 1, 1, 'Flamewaker Elite - Lawbringer Belt'),
 (11664, 16861, 0, 0.32, 0, 1, 0, 1, 1, 'Flamewaker Elite - Bracers of Might');

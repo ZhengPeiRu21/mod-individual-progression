@@ -43,7 +43,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (30422, 21460, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Helm of Domination'),
 (30422, 21461, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Leggings of the Black Blizzard'),
 (30422, 21462, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Gloves of Dark Wisdom'),
-(30422, 21463, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Ossirian\'s Binding'),
+(30422, 21463, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Ossirian''s Binding'),
 (30422, 21464, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Shackles of the Unscarred'),
 --
 (30423, 21452, 0, 0,  0, 1, 1, 1, 1, 'Ossirian the Unscarred - Staff of the Ruins'),
@@ -118,7 +118,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (30428, 20890, 0, 0, 0, 1, 1, 1, 1, 'Qiraji Ornate Hilt'),
 --
 (30429, 21455, 0, 0, 0, 1, 1, 1, 1, 'Moam - Southwind Helm'),
-(30429, 21468, 0, 0, 0, 1, 1, 1, 1, 'Moam - Mantle of Maz\'Nadir'),
+(30429, 21468, 0, 0, 0, 1, 1, 1, 1, 'Moam - Mantle of Maz''Nadir'),
 (30429, 21469, 0, 0, 0, 1, 1, 1, 1, 'Moam - Gauntlets of Southwind'),
 (30429, 21470, 0, 0, 0, 1, 1, 1, 1, 'Moam - Cloak of the Savior'),
 (30429, 21473, 0, 0, 0, 1, 1, 1, 1, 'Moam - Eye of Moam'),
@@ -139,7 +139,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 --
 (30432, 21492, 0, 0, 0, 1, 1, 1, 1, 'General Rajaxx - Manslayer of the Qiraji'),
 (30432, 21493, 0, 0, 0, 1, 1, 1, 1, 'General Rajaxx - Boots of the Vanguard'),
-(30432, 21494, 0, 0, 0, 1, 1, 1, 1, 'General Rajaxx - Southwind\'s Grasp'),
+(30432, 21494, 0, 0, 0, 1, 1, 1, 1, 'General Rajaxx - Southwind''s Grasp'),
 (30432, 21495, 0, 0, 0, 1, 1, 1, 1, 'General Rajaxx - Legplates of the Qiraji Command'),
 (30432, 21496, 0, 0, 0, 1, 1, 1, 1, 'General Rajaxx - Bracers of Qiraji Command'),
 (30432, 21497, 0, 0, 0, 1, 1, 1, 1, 'General Rajaxx - Boots of the Qiraji General'),
@@ -167,7 +167,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (30435, 21483, 0, 0, 0, 1, 1, 1, 1, 'Ayamiss the Hunter - Ring of the Desert Winds'),
 (30435, 21484, 0, 0, 0, 1, 1, 1, 1, 'Ayamiss the Hunter - Helm of Regrowth'),
 --
-(30436, 21485, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Buru\'s Skull Fragment'),
+(30436, 21485, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Buru''s Skull Fragment'),
 (30436, 21486, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Gloves of the Swarm'),
 (30436, 21487, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Slimy Scaled Gauntlets'),
 (30436, 21488, 0, 0, 0, 1, 1, 1, 1, 'Buru the Gorger - Fetish of Chitinous Spikes'),
@@ -203,7 +203,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (15341, 30431, 30431, 100, 0, 1, 0, 1, 1, 'General Rajaxx - Qiraji Ring+Drape ReferenceTable'),
 (15341, 30432, 30432, 100, 0, 1, 0, 1, 1, 'General Rajaxx - Epic ReferenceTable'),
 --
-(15348, 22217, 0,     100, 1, 1, 0, 1, 1, 'Kurinnaxx - Kurinnaxx\'s Venom Sac'),
+(15348, 22217, 0,     100, 1, 1, 0, 1, 1, 'Kurinnaxx - Kurinnaxx''s Venom Sac'),
 (15348, 30411, 30411, 7,   0, 1, 0, 1, 1, 'Kurinnaxx - Formula ReferenceTable'),
 (15348, 30426, 30426, 100, 0, 1, 1, 1, 1, 'Kurinnaxx - Skillbook ReferenceTable'),
 (15348, 30431, 30431, 100, 0, 1, 0, 1, 1, 'Kurinnaxx - Qiraji Ring+Drape ReferenceTable'),

@@ -175,20 +175,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (774800, 44, 40.6797, -4257.42, 118.51, 5.80106, 0, 0, 0, 100, 0),
 (774800, 45, 42.9907, -4278.39, 122.562, 4.67323, 0, 0, 0, 100, 0);
 
--- Pooled Treasure Chests
-DELETE FROM `pool_template` WHERE `entry` IN (66005);
-INSERT INTO `pool_template` (`entry`,`max_limit`,`description`) VALUES
-(66005, 1, 'Treasures - The Hinterlands');
-
-UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE`guid` IN (46292, 46346, 46370, 85894, 87392);
-
-DELETE FROM `pool_gameobject` WHERE `guid` IN (46292, 46346, 46370, 85894, 87392);
-INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
-(46292, 66005, 0, 'Solid Chest, Jintha Alor, node 1'),
-(46346, 66005, 0, 'Solid Chest, Jintha Alor, node 2'),
-(46370, 66005, 0, 'Solid Chest, Jintha Alor, node 3'),
-(85894, 66005, 0, 'Solid Chest, Jintha Alor, node 4'),
-(87392, 66005, 0, 'Solid Chest, Jintha Alor, node 5');
 
 -- Troll Necklace Bounty quest should be for Alliance only
 UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` = 2880;

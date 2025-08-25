@@ -56,6 +56,7 @@ UPDATE `item_template` SET `spellppmRate_1` = -1 WHERE `entry` = 3776;
 UPDATE `item_template` SET `spellid_1` = 8693, `spellcharges_1` = -1 WHERE `entry` = 6951;
 UPDATE `item_template` SET `Flags` = 2097216, `spellid_1` = 11399, `spellcharges_1` = -1 WHERE `entry` = 9186;
 UPDATE `item_template` SET `class` = 0, `subclass` = 0 WHERE `entry` IN (3775, 3776, 10918, 10920, 10921, 10922, 22055, 2892, 2893, 8984, 8985, 20844, 22053, 22054, 6947, 6949, 6950, 8926, 8927, 8928, 21927, 5237, 6951, 9186, 21835);
+
 */
 /*
 UPDATE `item_template` SET `Quality` = 1, `class` = 7 WHERE `entry` IN
