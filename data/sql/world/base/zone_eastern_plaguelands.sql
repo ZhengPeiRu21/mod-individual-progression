@@ -19,7 +19,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8522, 0, 1, 0, 8, 0, 100, 512, 21332, 0, 0, 0, 0, 0, 36, 13279, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Plague Monstrosity - On Spellhit \'Aspect of Neptulon\' - Update Template To \'Discordant Surge\''),
 (8523, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 5000, 9000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Scourge Soldier - Within 0-5 Range - Cast Strike'),
 (8524, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 5000, 0, 0, 11, 20829, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Cursed Mage - In Combat - Cast Arcane Bolt'),
-(8524, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 16567, 2, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cursed Mage - On Just Died - Cast Tainted Mind'), -- test!
+(8524, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 16567, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cursed Mage - On Just Died - Cast Tainted Mind'),
 (8525, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 8000, 11000, 0, 0, 11, 12169, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Scourge Warder - In Combat - Cast Shield Block'),
 (8525, 0, 1, 0, 0, 0, 100, 0, 11000, 17000, 45000, 60000, 0, 0, 11, 12040, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scourge Warder - In Combat - Cast Shadow Shield'),
 (8527, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 5, 11, 8242, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Scourge Guard - Within 0-5 Range - Cast Shield Slam'),
@@ -88,13 +88,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9449, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Cleric - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9450, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Curate - On Aggro - Say Line 0'),
 (9450, 0, 1, 0, 0, 0, 100, 0, 3000, 4000, 6000, 8000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Scarlet Curate - In Combat - Cast Holy Smite'),
-(9450, 0, 2, 0, 15, 0, 100, 0, 30, 1000, 2500, 0, 0, 0, 11, 17201, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Scarlet Curate - On Friendly Crowd Controlled - Cast Dispel Magic'), -- test!
+(9450, 0, 2, 0, 15, 0, 100, 0, 30, 1000, 2500, 0, 0, 0, 11, 17201, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Scarlet Curate - On Friendly Crowd Controlled - Cast Dispel Magic'),
 (9450, 0, 3, 0, 74, 0, 100, 0, 0, 0, 5000, 15000, 40, 40, 11, 11640, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Curate - On Friendly Between 0-40% Health - Cast Renew'),
 (9450, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Curate - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9451, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Archmage - On Aggro - Say Line 0'),
 (9451, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 1800000, 1800000, 0, 0, 11, 18100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Archmage - Out of Combat - Cast Frost Armor'),
 (9451, 0, 2, 0, 9, 0, 100, 0, 0, 0, 2000, 3000, 0, 40, 11, 15242, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Scarlet Archmage - In Combat - Cast Fireball'),
-(9451, 0, 3, 0, 0, 0, 100, 0, 8000, 12000, 5000, 9000, 0, 0, 11, 15244, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Archmage - In Combat - Cast Cone of Cold'), -- test!
+(9451, 0, 3, 0, 0, 0, 100, 0, 8000, 12000, 5000, 9000, 0, 0, 11, 15244, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Archmage - In Combat - Cast Cone of Cold'),
 (9451, 0, 4, 0, 105, 0, 75, 0, 0, 0, 10000, 15000, 0, 30, 11, 15122, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Archmage - Target Casting - Cast Counterspell'),
 (9451, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Archmage - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9452, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Enchanter - On Aggro - Say Line 0'),
@@ -169,13 +169,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12248, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 15000, 17000, 0, 0, 11, 11977, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Infiltrator Hameya - Within 0-5 Range - Cast Rend'),
 (12250, 0, 0, 0, 0, 0, 100, 0, 4000, 6000, 6000, 8000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Zaeldarr the Outcast - Within 0-5 Range - Cast Cleave'),
 (12250, 0, 1, 0, 9, 0, 100, 0, 0, 0, 8000, 14000, 0, 5, 11, 19128, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Zaeldarr the Outcast - Within 0-5 Range - Cast Knockdown'),
-(12322, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Quel\'Lithien Protector - Outside 30 Range - Start Combat Movement'),
-(12322, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Quel\'Lithien Protector - Within 5-30 Range - Stop Combat Movement'),
-(12322, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Quel\'Lithien Protector - Within 0-5 Range - Start Combat Movement'),
-(12322, 0, 3, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 15547, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Quel\'Lithien Protector - Combat - Cast Shoot'),
-(12322, 0, 4, 0, 9, 0, 100, 0, 0, 0, 5000, 7000, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Quel\'Lithien Protector - 0-5 Range - Cast Strike'),
-(12322, 0, 5, 0, 105, 0, 100, 0, 0, 0, 8000, 13000, 0, 5, 11, 11978, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Quel\'Lithien Protector - 0-5 Range - Cast Kick'),
-(12322, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Quel\'Lithien Protector - 0-15% Health - Flee For Assist (No Repeat)'),
+(12322, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Quel Lithien Protector - Outside 30 Range - Start Combat Movement'),
+(12322, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Quel Lithien Protector - Within 5-30 Range - Stop Combat Movement'),
+(12322, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Quel Lithien Protector - Within 0-5 Range - Start Combat Movement'),
+(12322, 0, 3, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 15547, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Quel Lithien Protector - Combat - Cast Shoot'),
+(12322, 0, 4, 0, 9, 0, 100, 0, 0, 0, 5000, 7000, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Quel Lithien Protector - 0-5 Range - Cast Strike'),
+(12322, 0, 5, 0, 105, 0, 100, 0, 0, 0, 8000, 13000, 0, 5, 11, 11978, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Quel Lithien Protector - 0-5 Range - Cast Kick'),
+(12322, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Quel Lithien Protector - 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (12337, 0, 0, 0, 1, 0, 100, 0, 30000, 60000, 120000, 180000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Courier - Out of Combat - Say Line 0'),
 (12337, 0, 1, 2, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Crimson Courier - On Aggro - Call For Help'),
@@ -193,5 +193,30 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (16184, 0, 1, 0, 0, 0, 100, 0, 6000, 10000, 15000, 20000, 0, 0, 11, 31601, 64, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Nerubian Overseer - In Combat - Cast Crypt Scarabs');
 
 
+-- fix spawn locations, respawn and movement
+DELETE FROM `creature` WHERE `id1` IN (10822, 10823, 10827);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(86607,  10822, 0, 0, 0, 0, 0, 1, 1, 1, 3314, -4855.85, 167.322, 2.50322, 18000, 5, 0, 3876, 0, 1, 0, 0, 0, '', 0, 0,        'Warlord Thresh\'jin'),
+(695028, 10822, 0, 0, 0, 0, 0, 1, 1, 1, 3314, -4855.85, 167.322, 2.50322, 18000, 5, 0, 3876, 0, 1, 0, 0, 0, '', 0, 0,        'Warlord Thresh\'jin'), -- https://www.youtube.com/watch?v=1fU3H5dqXZI
+--
+(86625,  10823, 0, 0, 0, 0, 0, 1, 1, 1, 3363.57, -4979.87, 159.273, 3.51245, 37000, 5, 0, 2799, 5598, 1, 0, 0, 0, '', 0, 0,  'Zul\'Brin Warpbranch'), -- https://www.youtube.com/watch?v=0IpkbS4kNoQ
+(695030, 10823, 0, 0, 0, 0, 0, 1, 1, 1, 3221.36, -4710.45, 158.034, 5.60277, 37000, 0, 0, 2799, 5598, 0, 0, 0, 0, '', 0, 0,  'Zul\'Brin Warpbranch'), -- https://www.youtube.com/watch?v=nHQPuMWENsc
+--
+(86755,  10827, 0, 0, 0, 0, 0, 1, 1, 1, 2606.22, -5504.18, 158.046, 0.176863, 18000, 0, 0, 2550, 5206, 0, 0, 0, 0, '', 0, 0, 'Deathspeaker Selendre'); -- https://www.youtube.com/watch?v=qFI1e0g6Rwg
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601014, 601015);
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(86607,  601014, 0, 'Warlord Thresh\'jin - EPL'),
+(695028, 601014, 0, 'Warlord Thresh\'jin - EPL'),
+(86625,  601015, 0, 'Zul\'Brin Warpbranch - EPL'),
+(695030, 601015, 0, 'Zul\'Brin Warpbranch - EPL');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601014, 601015);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601014, 1, 'Warlord Thresh\'jin - EPL'),
+(601015, 1, 'Zul\'Brin Warpbranch - EPL');
+    
+    
 -- Marris, not Morris.
 UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Nathanos Blightcaller at Marris Stead in Eastern Plaguelands.' WHERE `ID` IN (6022, 6042, 6133, 6135, 6145, 6148, 6163, 14350);
