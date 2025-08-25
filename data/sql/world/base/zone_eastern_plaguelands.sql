@@ -198,10 +198,10 @@ DELETE FROM `creature` WHERE `id1` IN (10822, 10823, 10827);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (86607,  10822, 0, 0, 0, 0, 0, 1, 1, 1, 3314, -4855.85, 167.322, 2.50322, 18000, 5, 0, 3876, 0, 1, 0, 0, 0, '', 0, 0,        'Warlord Thresh\'jin'),
-(695028, 10822, 0, 0, 0, 0, 0, 1, 1, 1, 3314, -4855.85, 167.322, 2.50322, 18000, 5, 0, 3876, 0, 1, 0, 0, 0, '', 0, 0,        'Warlord Thresh\'jin'), -- https://www.youtube.com/watch?v=1fU3H5dqXZI
+(695028, 10822, 0, 0, 0, 0, 0, 1, 1, 1, 3221.36, -4710.45, 158.034, 5.60277, 18000, 0, 0, 3876, 0, 0, 0, 0, 0, '', 0, 0,     'Warlord Thresh\'jin'), -- https://www.youtube.com/watch?v=1fU3H5dqXZI
 --
 (86625,  10823, 0, 0, 0, 0, 0, 1, 1, 1, 3363.57, -4979.87, 159.273, 3.51245, 37000, 5, 0, 2799, 5598, 1, 0, 0, 0, '', 0, 0,  'Zul\'Brin Warpbranch'), -- https://www.youtube.com/watch?v=0IpkbS4kNoQ
-(695030, 10823, 0, 0, 0, 0, 0, 1, 1, 1, 3221.36, -4710.45, 158.034, 5.60277, 37000, 0, 0, 2799, 5598, 0, 0, 0, 0, '', 0, 0,  'Zul\'Brin Warpbranch'), -- https://www.youtube.com/watch?v=nHQPuMWENsc
+(695030, 10823, 0, 0, 0, 0, 0, 1, 1, 1, 3405.73, -4899.5, 159.417, 5.77662, 37000, 0, 0, 2799, 5598, 0, 0, 0, 0, '', 0, 0,   'Zul\'Brin Warpbranch'), -- https://www.youtube.com/watch?v=nHQPuMWENsc
 --
 (86755,  10827, 0, 0, 0, 0, 0, 1, 1, 1, 2606.22, -5504.18, 158.046, 0.176863, 18000, 0, 0, 2550, 5206, 0, 0, 0, 0, '', 0, 0, 'Deathspeaker Selendre'); -- https://www.youtube.com/watch?v=qFI1e0g6Rwg
 
