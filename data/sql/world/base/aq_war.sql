@@ -23,41 +23,42 @@ INSERT INTO `creature_text` (`CreatureID`,`GroupID`,`ID`,`Text`,`Type`,`Language
 
 -- add bosses to Silithus and Darkshore 
 DELETE FROM `creature` WHERE `id1` IN (15740, 15741, 15742, 15758, 15810, 15813, 15818);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+101,15810,0,0,1,0,0,1,@IPPPHASE,0,4386.996582, 550.179260, 54.762119, 0.581150,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+102,15810,0,0,1,0,0,1,@IPPPHASE,0,4388.178711, 513.457581, 53.590897, 3.921458,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+103,15810,0,0,1,0,0,1,@IPPPHASE,0,4356.629395, 519.999329, 58.591854, 3.295495,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+104,15810,0,0,1,0,0,1,@IPPPHASE,0,4361.684570, 558.289734, 56.632832, 4.635385,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+105,15813,0,0,1,0,0,1,@IPPPHASE,0,4372.355957, 536.665649, 59.118938, 4.758702,1800,0,0,0,0,0,0,0,0,'',0), -- boss darkshore 1
-
+--
 (@CGUID+106,15810,0,0,1,0,0,1,@IPPPHASE,0, 5083.312988, 90.152863, 45.683632, 4.534914,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+107,15810,0,0,1,0,0,1,@IPPPHASE,0, 5057.701660, 83.685188, 49.825253, 3.410223,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+108,15810,0,0,1,0,0,1,@IPPPHASE,0, 5046.050781, 122.508644, 43.164379, 2.331871,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+109,15810,0,0,1,0,0,1,@IPPPHASE,0, 5071.985840, 138.409653, 41.266869, 0.861605,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+110,15813,0,0,1,0,0,1,@IPPPHASE,0, 5064.384277, 107.279877, 42.528320, 3.140021,1800,0,0,0,0,0,0,0,0,'',0), -- boss darkshore 2
-
+--
 (@CGUID+111,15810,0,0,1,0,0,1,@IPPPHASE,0, 6409.220215, 4.401052, 30.286741, 2.987807,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+112,15810,0,0,1,0,0,1,@IPPPHASE,0, 6424.186035, 30.883730, 27.005314, 0.934775,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+113,15810,0,0,1,0,0,1,@IPPPHASE,0, 6454.531738, 28.456089, 31.199347, 0.068485,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+114,15810,0,0,1,0,0,1,@IPPPHASE,0, 6453.624023, -5.977130, 28.319181, 5.131168,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+115,15813,0,0,1,0,0,1,@IPPPHASE,0, 6434.273438, 12.233818, 26.357977, 0.805967,1800,0,0,0,0,0,0,0,0,'',0), -- boss darkshore 3
-
-(@CGUID+116,15742,0,0,1,0,0,1,@IPPPHASE,0, -6458.704590, 1076.014282, -2.896275, 4.052591,3600,0,1,0,0,2,0,0,0,'',0),  -- Colossus of Ashi
-(@CGUID+117,15741,0,0,1,0,0,1,@IPPPHASE,0, -7922.958008, 625.548523, -29.006325, 0.844522,3600,0,1,0,0,2,0,0,0,'',0),  -- Colossus of Regal
-(@CGUID+118,15740,0,0,1,0,0,1,@IPPPHASE,0, -7461.777832, 1611.004272, -48.327751, 0.616755,3600,0,1,0,0,2,0,0,0,'',0), -- Colossus of Zora
-
+--
+(@CGUID+116,15742,0,0,1,0,0,1,@IPPPHASE,0, -6545.32, 967.875, 0.374282, 0.785268,3600,5,0,0,0,1,0,0,0,'',0),  -- Colossus of Ashi
+(@CGUID+117,15741,0,0,1,0,0,1,@IPPPHASE,0, -7824.52, 663.901, -34.1379, 2.20763,3600,5,0,0,0,1,0,0,0,'',0),   -- Colossus of Regal
+(@CGUID+118,15740,0,0,1,0,0,1,@IPPPHASE,0, -7340.2, 1643.75, -34.0787, 4.01405,3600,5,0,0,0,1,0,0,0,'',0),    -- Colossus of Zora
+--
 (@CGUID+119,15758,0,0,1,0,0,1,@IPPPHASE,0,-7623.261719, 1416.035767, 4.126772,  4.945646,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+120,15758,0,0,1,0,0,1,@IPPPHASE,0,-7659.168457, 1392.619751, 3.995544, 3.687438,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+121,15758,0,0,1,0,0,1,@IPPPHASE,0,-7688.503418, 1428.886963, 3.855407, 2.550966,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+122,15758,0,0,1,0,0,1,@IPPPHASE,0, -7652.402344, 1464.758667, 4.526736, 0.600033,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+123,15818,0,0,1,0,0,1,@IPPPHASE,1, -7644.985840, 1422.093628, 3.326948, 5.378395,1800,0,0,0,0,0,0,0,0,'',0), -- boss Silithus 1
-
+--
 (@CGUID+124,15758,0,0,1,0,0,1,@IPPPHASE,0, -7806.652832, 855.699951, -4.778733, 0.353429,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+125,15758,0,0,1,0,0,1,@IPPPHASE,0, -7831.444336, 808.078979, -9.832852, 4.501119,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+126,15758,0,0,1,0,0,1,@IPPPHASE,0, -7881.184082, 864.466614, -1.765002, 2.737900,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+127,15758,0,0,1,0,0,1,@IPPPHASE,0, -7832.478027, 912.945801, -2.498297, 0.817600,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+128,15818,0,0,1,0,0,1,@IPPPHASE,1, -7830.405273, 851.316223, -4.844313, 4.929938,1800,0,0,0,0,0,0,0,0,'',0), -- boss Silithus 2
-
+--
 (@CGUID+129,15758,0,0,1,0,0,1,@IPPPHASE,0,-6290.943848, 736.276489, 11.109619, 5.837865,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+130,15758,0,0,1,0,0,1,@IPPPHASE,0,-6303.743652, 703.045105, 11.219690, 4.562379,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+131,15758,0,0,1,0,0,1,@IPPPHASE,0, -6349.953613, 715.365662, 2.037906, 3.263330,1800,5,0,0,0,1,0,0,0,'',0),
@@ -94,65 +95,9 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 -- set Resonating Crystal Formations to 'Not selectable'
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` = 180810;
 
--- Colossus of Ashi pathing
-SET @NPC := 15742;
-SET @PATH := @NPC * 10;
-DELETE FROM `waypoint_data` WHERE `id` = @PATH;
-INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES
-(@PATH, 1, -6497.2, 1021.79, 0.376532, NULL, 0, 0, 0, 100, 0),
-(@PATH, 2, -6540.54, 985.638, 0.376532, NULL, 0, 0, 0, 100, 0),
-(@PATH, 3, -6610.06, 924.653, 0.37352, NULL, 0, 0, 0, 100, 0),
-(@PATH, 4, -6662.7, 935.8, 0.0193457, NULL, 0, 0, 0, 100, 0),
-(@PATH, 5, -6704.02, 899.425, -1.39368, NULL, 0, 0, 0, 100, 0),
-(@PATH, 6, -6662.7, 935.8, 0.0193457, NULL, 0, 0, 0, 100, 0),
-(@PATH, 7, -6610.06, 924.653, 0.37352, NULL, 0, 0, 0, 100, 0),
-(@PATH, 8, -6540.54, 985.638, 0.376532, NULL, 0, 0, 0, 100, 0),
-(@PATH, 9, -6497.2, 1021.79, 0.376532, NULL, 0, 0, 0, 100, 0),
-(@PATH, 10, -6461.18, 1087.72, -0.832504, NULL, 0, 0, 0, 100, 0);
-
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@NPC);
-INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES
-(@NPC,@PATH,0,0,1,0,3, '');
-
--- Colossus of Regal pathing
-SET @NPC := 15741;
-SET @PATH := @NPC * 10;
-DELETE FROM `waypoint_data` WHERE `id` = @PATH;
-INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES
-(@PATH, 1, -7915.34, 634.485, -28.1829, NULL, 0, 0, 0, 100, 0),
-(@PATH, 2, -7877.55, 684.929, -26.9979, NULL, 0, 0, 0, 100, 0),
-(@PATH, 3, -7823.26, 668.566, -33.5442, NULL, 0, 0, 0, 100, 0),
-(@PATH, 4, -7780.79, 748.608, -37.4108, NULL, 0, 0, 0, 100, 0),
-(@PATH, 5, -7739.77, 748.827, -39.9039, NULL, 0, 0, 0, 100, 0),
-(@PATH, 6, -7648.13, 654.042, -49.7649, NULL, 0, 0, 0, 100, 0),
-(@PATH, 7, -7633.2, 583.735, -51.9796, NULL, 0, 0, 0, 100, 0),
-(@PATH, 8, -7655.51, 510.06, -43.5478, NULL, 0, 0, 0, 100, 0),
-(@PATH, 9, -7825.94, 550.181, -37.0135, NULL, 0, 0, 0, 100, 0);
-
-
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@NPC);
-INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES
-(@NPC,@PATH,0,0,1,0,3, '');
-
--- Colossus of Zora pathing
-SET @NPC := 15740;
-SET @PATH := @NPC * 10;
-DELETE FROM `waypoint_data` WHERE `id` = @PATH;
-INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES
-(@PATH, 1, -7418.407227, 1649.863770, -32.103611, NULL, 0, 0, 0, 100, 0),
-(@PATH, 2, -7409.972656, 1705.264404, -36.461433, NULL, 0, 0, 0, 100, 0),
-(@PATH, 3, -7352.450684, 1710.901733, -38.267399, NULL, 0, 0, 0, 100, 0),
-(@PATH, 4, -7329.275391, 1640.641968, -32.322731, NULL, 0, 0, 0, 100, 0),
-(@PATH, 5, -7299.695801, 1599.568481, -30.213583, NULL, 0, 0, 0, 100, 0),
-(@PATH, 6, -7329.275391, 1640.641968, -32.322731, NULL, 0, 0, 0, 100, 0),
-(@PATH, 7, -7352.450684, 1710.901733, -38.267399, NULL, 0, 0, 0, 100, 0),
-(@PATH, 8, -7409.972656, 1705.264404, -36.461433, NULL, 0, 0, 0, 100, 0),
-(@PATH, 9, -7418.407227, 1649.863770, -32.103611, NULL, 0, 0, 0, 100, 0),
-(@PATH, 10, -7461.78, 1611, -48.3278, NULL, 0, 0, 0, 100, 0);
-
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@NPC);
-INSERT INTO `creature_template_addon` (`entry`,`path_id`,`mount`,`bytes1`,`bytes2`,`emote`,`visibilityDistanceType`,`auras`) VALUES
-(@NPC,@PATH,0,0,1,0,3, '');
+-- Remove Colossus pathing
+DELETE FROM `waypoint_data` WHERE `id` IN (157400, 157410, 157420);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (15740, 15741, 15742);
 
 -- add loot to Colossus of Zora, Regal and Ashi
 DELETE FROM `creature_loot_template` WHERE `entry` = 15740;
