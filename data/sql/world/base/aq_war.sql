@@ -3,15 +3,39 @@ SET @CGUID    := 650000;
 SET @OGUID    := 650000;
 
 /* smart scripts */
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (15634);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (15634);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(15634, 15740, 15741, 15742, 15758, 15810, 15813, 15818);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(15634, 15740, 15741, 15742, 15758, 15810, 15813, 15818);
+
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(15634, 0, 0, 0, 14, 0, 100, 0, 1000, 200, 50000, 60000, 0, 0, 11, 25839, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Priestess of the Moon - On Friendly Health - Cast Mass Healing');
+(15634, 0, 0, 0, 14, 0, 100, 0, 1000, 200, 50000, 60000, 0, 0, 11, 25839, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Priestess of the Moon - On Friendly Health - Cast Mass Healing');
+--
+(15740, 0, 0, 0, 0, 0, 100, 0, 5000, 5000, 30000, 45000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Colossus of Zora - In Combat - Cast Colossal Smash'),
+(15741, 0, 0, 0, 0, 0, 100, 0, 5000, 5000, 30000, 45000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Colossus of Regal - In Combat - Cast Colossal Smash'),
+(15742, 0, 0, 0, 0, 0, 100, 0, 5000, 5000, 30000, 45000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Colossus of Ashi - In Combat - Cast Colossal Smash'),
+--
+(15758, 0, 0, 0, 0, 0, 100, 0, 8000, 12000, 8000, 12000, 0, 0, 11, 11971, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Supreme Anubisath Warbringer - Within 0-5 Range - Cast Sundering Cleave'),
+(15810, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Eroded Anubisath Warbringer - 0-5 Range - Cast Cleave'),
+(15810, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 8000, 12000, 0, 0, 11, 17963, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Eroded Anubisath Warbringer - Within 0-5 Range - Cast Sundering Cleave'),
+(15810, 0, 2, 0, 0, 0, 100, 0, 12000, 12000, 17000, 17000, 0, 0, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Eroded Anubisath Warbringer - In Combat - Cast War Stomp'),
+(15813, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Qiraji Officer Zod - On Aggro - Say Line 0'),
+(15813, 0, 1, 0, 0, 0, 100, 0, 3000, 6000, 7000, 12000, 0, 0, 11, 19643, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Qiraji Officer Zod - Within 0-5 Range - Cast Mortal Strike'),
+(15818, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Lieutenant General Nokhor - On Aggro - Say Line 0'),
+(15818, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lieutenant General Nokhor - 0-5 Range - Cast Cleave'),
+(15818, 0, 2, 0, 9, 0, 100, 0, 0, 0, 12000, 18000, 0, 8, 11, 16244, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Lieutenant General Nokhor - Within 0-8 Range - Cast Demoralizing Shout'),
+(15818, 0, 3, 0, 0, 0, 100, 0, 3000, 6000, 7000, 12000, 0, 0, 11, 16856, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Lieutenant General Nokhor - Within 0-5 Range - Cast Mortal Strike'),
+(15818, 0, 4, 0, 0, 0, 100, 0, 16000, 20000, 16000, 20000, 0, 0, 11, 25599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Lieutenant General Nokhor - Within 0-8 Range - Cast Thundercrash');
 
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (15813, 15818);
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(15813, 0, 0, 'Kneel before me, mortal! Kneel before Zod!', 12, 7, 100, 0, 0, 0, 11471, 0, 'Qiraji Officer Zod'),
+(15818, 0, 0, 'Burn in hate, $r.', 12, 7, 100, 0, 0, 0, 11475, 0, 'Lieutenant General Nokhor');
 
 DELETE FROM `creature_text` WHERE `CreatureID`= 15693;
 INSERT INTO `creature_text` (`CreatureID`,`GroupID`,`ID`,`Text`,`Type`,`Language`,`Probability`,`Emote`,`Duration`,`Sound`,`BroadcastTextId`, `TextRange`, `comment`) VALUES
