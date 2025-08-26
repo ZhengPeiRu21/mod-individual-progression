@@ -1,3 +1,8 @@
+/*
+    This SQL file attempts to restore the health and mana regen values to how they were during vanilla.
+    There is some uncertainty about these values being correct.
+*/
+
 UPDATE gtoctregenhp_dbc SET Data=	0.131578997	WHERE ID=	0	;
 UPDATE gtoctregenhp_dbc SET Data=	0.166666999	WHERE ID=	1	;
 UPDATE gtoctregenhp_dbc SET Data=	0.185185	WHERE ID=	2	;
