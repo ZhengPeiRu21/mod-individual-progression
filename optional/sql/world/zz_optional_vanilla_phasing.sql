@@ -52,7 +52,6 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 /* Remove interactions between Cersei, Lorrin and the orcs in Stonard */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
 
-
 /* Hide guild vaults until TBC (was introduced during 2.3) - disabled by default, because most players will expect these gobject to be there */
 /* UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` IN 
 (12496, 12497, 20621, 45029, 45030, 45069, 45132, 44706, 44707, 44708, 44709, 44710, 44711, 44715, 44716, 41911, 41912, 41913, 41914, 49821, 49822, 44713, 44714, 14641, 17352, 17353, 49095, 50356, 50357); */

@@ -1,10 +1,10 @@
 /*
     The stats for low level creatures are inconsistent with Vmangos, but damage values do actually appear correct.
     The changes for this file will change creature stats to Vmangos values, resulting in stronger creatures at lower levels
-    than originally intended. It is disabled by default, but feel free to use it if you would like additional challenge.
+    than originally intended. It is disabled by default, but feel free to use it if you would like the additional challenge.
 */
 
-/*
+
 UPDATE `creature_classlevelstats` SET `damage_base` = 0.3523, `attackpower` = 24 WHERE `level` = 1  AND `class` = 1;
 UPDATE `creature_classlevelstats` SET `damage_base` = 0.6826, `attackpower` = 26 WHERE `level` = 2  AND `class` = 1;
 UPDATE `creature_classlevelstats` SET `damage_base` = 1.195,  `attackpower` = 28 WHERE `level` = 3  AND `class` = 1;
@@ -36,4 +36,3 @@ UPDATE `creature_classlevelstats` SET `damage_base` = 0.2226, `attackpower` = 10
 UPDATE `creature_classlevelstats` SET `damage_base` = 0.3556, `attackpower` = 11 WHERE `level` = 2  AND `class` = 8;
 UPDATE `creature_classlevelstats` SET `damage_base` = 0.7131, `attackpower` = 13 WHERE `level` = 5  AND `class` = 8;
 UPDATE `creature_classlevelstats` SET `damage_base` = 1.119,  `attackpower` = 14 WHERE `level` = 6  AND `class` = 8;
-*/

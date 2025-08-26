@@ -3,11 +3,8 @@
     This file will remove these items from the vendors and restore the original skill for Rogues 
     Please note that this requires the optional files from the Optional directory to be installed, as several small client adjustments needed to be made!
 */
-
 /*
 DELETE FROM `spell_dbc` WHERE `ID`= 2995;
-*/
-/*
 INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes`, `AttributesEx`, `AttributesEx2`, `AttributesEx3`, `AttributesEx4`, `AttributesEx5`, `AttributesEx6`, `AttributesEx7`, `ShapeshiftMask`, 
     `unk_320_2`, `ShapeshiftExclude`, `unk_320_3`, `Targets`, `TargetCreatureType`, `RequiresSpellFocus`, `FacingCasterFlags`, `CasterAuraState`, `TargetAuraState`, `ExcludeCasterAuraState`, `ExcludeTargetAuraState`, 
     `CasterAuraSpell`, `TargetAuraSpell`, `ExcludeCasterAuraSpell`, `ExcludeTargetAuraSpell`, `CastingTimeIndex`, `RecoveryTime`, `CategoryRecoveryTime`, `InterruptFlags`, `AuraInterruptFlags`, `ChannelInterruptFlags`, 
@@ -33,32 +30,24 @@ INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes
     `MinReputation`, `RequiredAuraVision`, `RequiredTotemCategoryID_1`, `RequiredTotemCategoryID_2`, `RequiredAreasID`, `SchoolMask`, `RuneCostID`, `SpellMissileID`, `PowerDisplayID`, `EffectBonusMultiplier_1`, 
     `EffectBonusMultiplier_2`, `EffectBonusMultiplier_3`, `SpellDescriptionVariableID`, `SpellDifficultyID`) VALUES
 
-(2995, 0, 0, 0, 256, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 256, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 1, 0, 0, 0, 0),, 0, 0, 101, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 6, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 
- -1, 0, 0, 36, 0, 36, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 2842, 0, 8681, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 107, 0, 342, 0, 0, 
+(2995, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 256, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+ -1, 0, 0, 36, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2842, 0, 8681, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 107, 0, 342, 0, 0, 
  'Poisons', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712190, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712188, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 
- 16712188, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712188, 0, 0, 0, 0),, 0, 0, 0, 0),, 0, 0, 0, 0),, 1, 1, 1, 0, 0, 0, 0),, 0, 0, 1, 0, 0, 0, 0),, 0, 0, 0, 0),);
-*/
+ 16712188, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712188, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);
 
-/*
+
 DELETE FROM `skilllineability_dbc` WHERE `SkillLine` = 40 and `Spell` = 2842;
-*/
-/*
 INSERT INTO `skilllineability_dbc` (`ID`, `SkillLine`, `Spell`, `RaceMask`, `ClassMask`, `ExcludeRace`, `ExcludeClass`, `MinSkillLineRank`, `SupercededBySpell`, 
 `AcquireMethod`, `TrivialSkillLineRankHigh`, `TrivialSkillLineRankLow`, `CharacterPoints_1`, `CharacterPoints_2`) VALUES 
-(1687, 40, 2842, 0, 8, 0, 0, 0, 0),, 2, 0, 0, 0, 0),);
-*/
+(1687, 40, 2842, 0, 8, 0, 0, 0, 0, 2, 0, 0, 0, 0);
 
-/*
 DELETE FROM `spell_dbc` WHERE `ID` = 11202;
-*/
-/*
+
 UPDATE `item_template` SET `spellppmRate_1` = -1 WHERE `entry` = 3776;
 UPDATE `item_template` SET `spellid_1` = 8693, `spellcharges_1` = -1 WHERE `entry` = 6951;
 UPDATE `item_template` SET `Flags` = 2097216, `spellid_1` = 11399, `spellcharges_1` = -1 WHERE `entry` = 9186;
 UPDATE `item_template` SET `class` = 0, `subclass` = 0 WHERE `entry` IN (3775, 3776, 10918, 10920, 10921, 10922, 22055, 2892, 2893, 8984, 8985, 20844, 22053, 22054, 6947, 6949, 6950, 8926, 8927, 8928, 21927, 5237, 6951, 9186, 21835);
 
-*/
-/*
 UPDATE `item_template` SET `Quality` = 1, `class` = 7 WHERE `entry` IN
 (2928,  -- Dust of Decay
  2930,  -- Essence of Pain
@@ -66,14 +55,11 @@ UPDATE `item_template` SET `Quality` = 1, `class` = 7 WHERE `entry` IN
  5173,  -- Deathweed
  8923,  -- Essence of Agony
  8924); -- Dust of Deterioration
-*/
-/*
+
 UPDATE `quest_template` SET `RewardSpell` = 2995 WHERE `ID` IN (2480, 2359);
-*/
-/*
+
 DELETE FROM `npc_vendor` WHERE `item` IN (3775, 2892, 2893, 5237, 6947, 6949, 6950, 6951, 8926, 8927, 8928, 8984, 8985, 3776, 9186, 10918, 10920, 10921, 10922, 20844, 21835, 21927, 22053, 22054, 22055);
-*/
-/*
+
 DELETE FROM `npc_trainer` WHERE `ReqSkillLine` = 40;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (1411, 2835, 10000, 40, 130, 30),
@@ -340,13 +326,12 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (200016, 26969, 65000, 40, 290, 62),
 (200016, 27282, 140000, 40, 330, 70),
 (200016, 27283, 80000, 40, 300, 64);
-*/
-/*
-DELETE FROM `reference_loot_template` WHERE `Entry`= 34024 AND `Item`= 21302;
+
+
+DELETE FROM `reference_loot_template` WHERE `Entry`= 30424 AND `Item`= 21302;
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 (30424, 21302, 0, 0, 0, 1, 1, 1, 1, 'Handbook of Deadly Poison V');
-*/
-/*
+
 DELETE FROM `spell_ranks` WHERE `first_spell_id` IN (2835, 3420, 5763, 8681, 13220);
 INSERT INTO `spell_ranks` (`first_spell_id`, `spell_id`, `rank`) VALUES
 (2835, 2835, 1),
