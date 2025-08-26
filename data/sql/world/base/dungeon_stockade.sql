@@ -62,17 +62,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1720, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bruegal Ironknuckle - Between 0-15% Health - Flee For Assist');
 
 
-DELETE FROM `creature_text` WHERE `CreatureID` IN (1716);
+DELETE FROM `creature_text` WHERE `CreatureID` IN (1720);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
-(1716, 0, 0, 'Eh? What have we here?',                      12, 7, 100, 0, 0, 0, 1386, 0, 'Bruegal Ironknuckle'),
-(1716, 0, 1, 'Welcome to the Stockade!',                    12, 7, 100, 0, 0, 0, 1387, 0, 'Bruegal Ironknuckle'),
-(1716, 0, 2, 'Outsiders! Kill em all!',                     12, 7, 100, 0, 0, 0, 1388, 0, 'Bruegal Ironknuckle'),
-(1716, 0, 3, 'More of the Warden\'s errand boys!',          12, 7, 100, 0, 0, 0, 1390, 0, 'Bruegal Ironknuckle'),
-(1716, 0, 4, 'Tell the Warden this prison is ours now!',    12, 7, 100, 0, 0, 0, 1391, 0, 'Bruegal Ironknuckle'),
-(1716, 0, 5, 'It\'ll be quick, but it won\'t be painless!', 12, 7, 100, 0, 0, 0, 1392, 0, 'Bruegal Ironknuckle'),
-(1716, 0, 6, 'Fresh meat!',                                 12, 7, 100, 0, 0, 0, 1393, 0, 'Bruegal Ironknuckle'),
-(1716, 0, 7, 'I\'ll crush your skull beneath my boot!',     12, 7, 100, 0, 0, 0, 1394, 0, 'Bruegal Ironknuckle'),
-(1716, 0, 8, 'Death to the Warden\'s men!',                 12, 7, 100, 0, 0, 0, 1395, 0, 'Bruegal Ironknuckle');
+(1720, 0, 0, 'Eh? What have we here?',                      12, 7, 100, 0, 0, 0, 1386, 0, 'Bruegal Ironknuckle'),
+(1720, 0, 1, 'Welcome to the Stockade!',                    12, 7, 100, 0, 0, 0, 1387, 0, 'Bruegal Ironknuckle'),
+(1720, 0, 2, 'Outsiders! Kill em all!',                     12, 7, 100, 0, 0, 0, 1388, 0, 'Bruegal Ironknuckle'),
+(1720, 0, 3, 'More of the Warden\'s errand boys!',          12, 7, 100, 0, 0, 0, 1390, 0, 'Bruegal Ironknuckle'),
+(1720, 0, 4, 'Tell the Warden this prison is ours now!',    12, 7, 100, 0, 0, 0, 1391, 0, 'Bruegal Ironknuckle'),
+(1720, 0, 5, 'It\'ll be quick, but it won\'t be painless!', 12, 7, 100, 0, 0, 0, 1392, 0, 'Bruegal Ironknuckle'),
+(1720, 0, 6, 'Fresh meat!',                                 12, 7, 100, 0, 0, 0, 1393, 0, 'Bruegal Ironknuckle'),
+(1720, 0, 7, 'I\'ll crush your skull beneath my boot!',     12, 7, 100, 0, 0, 0, 1394, 0, 'Bruegal Ironknuckle'),
+(1720, 0, 8, 'Death to the Warden\'s men!',                 12, 7, 100, 0, 0, 0, 1395, 0, 'Bruegal Ironknuckle');
 
 
 -- Bazil Thredd, multiple spawn locations?
