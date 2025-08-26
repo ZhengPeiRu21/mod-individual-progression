@@ -5,7 +5,7 @@
    If not run, The Bravery will go directly to Stormwind Harbor.
 */
 
-UPDATE `gameobject_template` SET `Data0` = 295 WHERE `entry` = 176310;  -- The Bravery
+UPDATE `gameobject_template` SET `Data0` = 295  WHERE `entry` = 176310; -- The Bravery
 UPDATE `gameobject_template` SET `Data0` = 1981 WHERE `entry` = 181688; -- The Northspear
 
 UPDATE `transports` SET `name` = 'Menethil Harbor and Auberdine, Darkshore ("Ship (The Bravery)")' WHERE `guid` = 2;
