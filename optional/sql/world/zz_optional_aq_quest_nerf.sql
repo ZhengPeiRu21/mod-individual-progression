@@ -1,18 +1,21 @@
-/* Optional but suggested change. The AQ quests originally was designed for a large group of players to farm items given to a chosen player to turn in.
-   This reduces the quest requirements to be more reasonably completable by a solo player or small group.
-   Be sure to run AFTER vanilla_quest_reputations.sql.
-   Increases the Rep for The Hand of the Righteous by 40 times, so only about 5 turn-ins are necessary instead of 200.
-   Feel free to adjust to taste - divide RewardFactionOverride1 by 100 to get the amount of rep that would be awarded 
-   Sql edit example: 5 turn-ins = 800000 rep, 1 turn-in = 4000000 rep */
+/*
+    Optional but suggested changes. The AQ quests were originally designed for a large group of players to farm items given to a chosen player to turn in.
+    This reduces the quest requirements to be more reasonably completable by a solo player or a small group.
+    Be sure to run AFTER vanilla_quest_reputations.sql.
+*/
+
+-- Increases the Rep for The Hand of the Righteous quest by 40 times, so only about 5 turn-ins are necessary instead of 200.
+-- Feel free to adjust to taste - divide RewardFactionOverride1 by 100 to get the amount of rep that would be awarded 
+-- Sql edit example: 5 turn-ins = 800000 rep, 1 turn-in = 4000000 rep
 UPDATE `quest_template` SET `RewardFactionOverride1` = 800000, `RewardFactionOverride2` = 0, `RewardFactionOverride3` = 0, `RewardFactionOverride4` = 0, `RewardFactionOverride5` = 0 WHERE `ID` = 8301;
 UPDATE `quest_template` SET `RewardFactionOverride1` = 800000, `RewardFactionOverride2` = 0, `RewardFactionOverride3` = 0, `RewardFactionOverride4` = 0, `RewardFactionOverride5` = 0 WHERE `ID` = 8302;
 
-/* Revert drop rate for Nightmare_corruption to nerfed WotLK drop rate */
+-- Revert drop rate for Nightmare_corruption to nerfed WotLK drop rate
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21146;
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21147;
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Item` = 21148;
 
-/* Revert Narain's Scrying Goggles to nerfed WotLK drop rate */
+-- Revert Narain's Scrying Goggles to nerfed WotLK drop rate
 DELETE FROM `creature_loot_template` WHERE `Item` = 20951;
 INSERT INTO `creature_loot_template` (`Chance`, `Comment`, `Entry`, `GroupId`, `Item`, `LootMode`, `MaxCount`, `MinCount`, `QuestRequired`, `Reference`) VALUES
 (1, NULL, 11502, 0, 20951, 1, 1, 1, 1, 0),
