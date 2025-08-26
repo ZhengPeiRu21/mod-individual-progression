@@ -1,6 +1,6 @@
 /* 
-   This will restore cooldown timers for Vanilla and TBC crafting recipes.
-   This may require a reset of the item WDB cache files. 
+    This optional SQL file restores cooldown timers for Vanilla and TBC crafting recipes.
+    This may require a reset of the item WDB client cache files. 
 */
 
 
