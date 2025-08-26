@@ -1,3 +1,119 @@
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(15318, 15319, 15320, 15323, 15324, 15333, 15335, 15336, 15343, 15344, 15385, 15386, 15387, 15388, 15389, 15390, 15391, 15392, 15461, 15462);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(15318, 15319, 15320, 15323, 15324, 15333, 15335, 15336, 15343, 15344, 15385, 15386, 15387, 15388, 15389, 15390, 15391, 15392, 15461, 15462);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(15318, 0, 0, 0, 0, 0, 100, 0, 2000, 2000, 2000, 2000, 0, 0, 13, 0, 100, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Hive\'Zara Drone - In Combat - Reset aggro'),
+(15319, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 16000, 0, 30, 11, 12252, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Hive\'Zara Collector - Within 0-30 Range - Cast Web Spray'),
+(15319, 0, 1, 0, 0, 0, 100, 0, 7000, 11000, 12000, 15000, 0, 0, 11, 3589, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Hive\'Zara Collector - Within 0-5 Range - Cast Deafening Screech'),
+(15320, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 18200, 0, 30, 11, 25497, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Hive\'Zara Soldier - Within 0-30 Range - Cast Venom Spit'),
+(15320, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 22857, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Hive\'Zara Soldier - Between 0-30% Health - Cast Retaliation (No Repeat)'),
+(15320, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hive\'Zara Soldier - Between 0-30% Health - Say Line 0 (No Repeat)'),
+(15323, 0, 0, 1, 0, 0, 100, 0, 5000, 5000, 8000, 10000, 0, 0, 11, 26381, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Hive\'Zara Sandstalker - In Combat - Cast Burrow'),
+(15323, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 13, 0, 100, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Hive\'Zara Sandstalker - In Combat - Set Single Threat 0-100'),
+(15323, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Hive\'Zara Sandstalker - In Combat - Disable melee attack'),
+(15323, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Hive\'Zara Sandstalker - In Combat - Set Phase 1'),
+(15323, 0, 4, 5, 0, 1, 100, 0, 3000, 6000, 3000, 6000, 0, 0, 28, 26381, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Hive\'Zara Sandstalker - In Combat - Remove Borrow'),
+(15323, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 41390, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Hive\'Zara Sandstalker - In Combat - Cast Ambush'),
+(15323, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 20, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Hive\'Zara Sandstalker - In Combat - Enable melee attack'),
+(15323, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Hive\'Zara Sandstalker - In Combat - Set Phase 0'),
+(15324, 0, 0, 0, 11, 0, 100, 256, 0, 0, 0, 0, 0, 0, 211, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Qiraji Gladiator - On Respawn - Set not phase reset'),
+(15324, 0, 1, 0, 0, 0, 100, 0, 3000, 6000, 4000, 8000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Qiraji Gladiator - In Combat - Cast Trample'),
+(15324, 0, 2, 0, 0, 0, 100, 0, 4000, 12000, 8000, 24000, 0, 0, 11, 10966, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,  'Qiraji Gladiator - Within 0-10 Range - Cast Uppercut'),
+(15324, 0, 3, 4, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 25164, 2, 9, 15324, 0, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Qiraji Gladiator - On Death - Cross Cast Vengeance'),
+(15324, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 9, 15324, 0, 20, 1, 0, 0, 0, 0,                 'Qiraji Gladiator - On Death - Qiraji Gladiator Say Line 0'),
+(15333, 0, 0, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 17742, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Silicate Feeder - On Just Died - Cast Cloud of Disease'),
+(15335, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Flesh Hunter - On Respawn - Cast Thrash'),
+(15335, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Flesh Hunter - On Aggro - Set Event Phase 1'),
+(15335, 0, 2, 0, 0, 0, 100, 0, 6000, 7000, 9000, 10000, 0, 0, 11, 25424, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Flesh Hunter - In Combat - Cast Poison Bolt'),
+(15335, 0, 3, 0, 24, 2, 100, 0, 25371, 1, 5000, 5000, 0, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Flesh Hunter - On Target Buffed With Consume - Set Event Phase 2 (Phase 2)'),
+(15335, 0, 4, 0, 28, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Flesh Hunter - On Passenger Removed - Set Event Phase 1'),
+(15335, 0, 5, 0, 9, 1, 100, 0, 0, 0, 21000, 24000, 0, 10, 11, 25371, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Flesh Hunter - Within 0-10 Range - Cast Consume (Phase 1)'),
+(15335, 0, 6, 0, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Flesh Hunter - On Evade - Set Event Phase 1'),
+(15336, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hive\'Zara Tail Lasher - On Aggro - Set Event Phase 1'),
+(15336, 0, 1, 0, 9, 1, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 25645, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Hive\'Zara Tail Lasher - Within 0-5 Range - Cast Poison (Phase 1)'),
+(15336, 0, 2, 0, 24, 1, 100, 0, 25645, 5, 5000, 5000, 0, 0, 22, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Hive\'Zara Tail Lasher - On Target Buffed With Poison - Set Event Phase 2 (Phase 1)'),
+(15336, 0, 3, 0, 24, 2, 100, 0, 25645, 1, 5000, 5000, 0, 0, 22, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Hive\'Zara Tail Lasher - On Target Buffed With Poison - Set Event Phase 1 (Phase 2)'),
+(15336, 0, 4, 0, 9, 0, 100, 0, 0, 0, 7000, 10000, 0, 30, 11, 25654, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Hive\'Zara Tail Lasher - Within 0-30 Range - Cast Tail Lash'),
+(15336, 0, 5, 0, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hive\'Zara Tail Lasher - On Evade - Set Event Phase 0'),
+(15343, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 7000, 0, 5, 11, 25174, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,           'Qiraji Swarmguard - Within 0-5 Range - Cast Sundering Cleave'),
+(15344, 0, 0, 0, 0, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Swarmguard Needler - Within 0-5 Range - Cast Cleave'),
+--
+(15385, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 0, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Colonel Zerran - Within 0-5 Range - Cast Sunder Armor'),
+(15385, 0, 1, 0, 0, 0, 100, 0, 4000, 5000, 10000, 10000, 0, 0, 11, 25462, 32, 0, 0, 0, 0, 26, 20, 0, 0, 0, 0, 0, 0, 0, 'Colonel Zerran - In Combat - Cast Enlarge'),
+(15385, 0, 2, 0, 0, 0, 100, 512, 13000, 17000, 14000, 18000, 0, 0, 23, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Colonel Zerran - In Combat - Increment Phase'),
+(15385, 0, 3, 0, 0, 1, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Colonel Zerran - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15385, 0, 4, 0, 9, 1, 100, 0, 0, 0, 2000, 2000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Colonel Zerran - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15385, 0, 5, 0, 0, 1, 100, 512, 3000, 3000, 3000, 3000, 0, 0, 23, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Colonel Zerran - In Combat - Decrement Phase (Phase 1)'),
+(15385, 0, 6, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 34, 1, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Colonel Zerran - On Aggro - Set Instance Data 1 to 14 (Normal Dungeon)'),
+--
+(15386, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Major Yeggeth - Within 0-5 Range - Cast Sunder Armor'),
+(15386, 0, 1, 0, 0, 0, 100, 0, 12000, 13000, 8000, 9000, 0, 0, 11, 25282, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Major Yeggeth - In Combat - Cast Shield of Rajaxx'),
+(15386, 0, 2, 0, 0, 0, 100, 512, 13000, 17000, 14000, 18000, 0, 0, 23, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Major Yeggeth - In Combat - Increment Phase (Normal Dungeon)'),
+(15386, 0, 3, 0, 0, 1, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Major Yeggeth - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15386, 0, 4, 0, 9, 1, 100, 0, 0, 0, 2000, 2000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Major Yeggeth - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15386, 0, 5, 0, 0, 1, 100, 512, 3000, 3000, 3000, 3000, 0, 0, 23, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Major Yeggeth - In Combat - Decrement Phase (Phase 1)'),
+(15386, 0, 6, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 34, 1, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Major Yeggeth - On Aggro - Set Instance Data 1 to 12 (Normal Dungeon)'),
+--
+(15387, 0, 0, 1, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Qiraji Warrior - Between 0-25% Health - Cast Enrage (No Repeat)'),
+(15387, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Qiraji Warrior - On Enrage - Say Line 0'),
+(15387, 0, 2, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 8, 11, 10966, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Qiraji Warrior - Within 0-8 Range - Cast Uppercut'),
+(15387, 0, 3, 0, 0, 0, 100, 0, 7000, 11000, 14000, 17000, 0, 0, 11, 15588, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Qiraji Warrior - In Combat - Cast Thunderclap'),
+--
+(15388, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Major Pakkon - Within 0-5 Range - Cast Sunder Armor'),
+(15388, 0, 1, 0, 0, 0, 100, 0, 12000, 13000, 14000, 15000, 0, 0, 11, 25322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Major Pakkon - In Combat - Cast Sweeping Slam'),
+(15388, 0, 2, 0, 0, 0, 100, 512, 13000, 17000, 14000, 18000, 0, 0, 23, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Major Pakkon - In Combat - Increment Phase'),
+(15388, 0, 3, 0, 0, 1, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Major Pakkon - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15388, 0, 4, 0, 9, 1, 100, 0, 0, 0, 2000, 2000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Major Pakkon - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15388, 0, 5, 0, 0, 1, 100, 512, 3000, 3000, 3000, 3000, 0, 0, 23, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Major Pakkon - In Combat - Decrement Phase (Phase 1)'),
+(15388, 0, 6, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 34, 1, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Major Pakkon - On Aggro - Set Instance Data 1 to 13 (Normal Dungeon)'),
+--
+(15389, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Drenn - Within 0-5 Range - Cast Sunder Armor'),
+(15389, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 18000, 22000, 0, 0, 11, 26550, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Captain Drenn - In Combat - Cast Lightning Cloud'),
+(15389, 0, 2, 0, 0, 0, 100, 512, 13000, 17000, 14000, 18000, 0, 0, 23, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Drenn - In Combat - Increment Phase'),
+(15389, 0, 3, 0, 0, 1, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Captain Drenn - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15389, 0, 4, 0, 9, 1, 100, 0, 0, 0, 2000, 2000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Drenn - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15389, 0, 5, 0, 0, 1, 100, 512, 3000, 3000, 3000, 3000, 0, 0, 23, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Captain Drenn - In Combat - Decrement Phase (Phase 1)'),
+(15389, 0, 6, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 34, 1, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Captain Drenn - On Aggro - Set Instance Data 1 to 10 (Normal Dungeon)'),
+--
+(15390, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Xurrem - Within 0-5 Range - Cast Sunder Armor'),
+(15390, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 9000, 14000, 0, 0, 11, 25425, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Xurrem - In Combat - Cast Shockwave'),
+(15390, 0, 2, 0, 0, 0, 100, 512, 13000, 17000, 14000, 18000, 0, 0, 23, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Xurrem - In Combat - Increment Phase'),
+(15390, 0, 3, 0, 0, 1, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Captain Xurrem - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15390, 0, 4, 0, 9, 1, 100, 0, 0, 0, 2000, 2000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Xurrem - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15390, 0, 5, 0, 0, 1, 100, 512, 3000, 3000, 3000, 3000, 0, 0, 23, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Captain Xurrem - In Combat - Decrement Phase (Phase 1)'),
+(15390, 0, 6, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 34, 1, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Captain Xurrem - On Aggro - Set Instance Data 1 to 11 (Normal Dungeon)'),
+--
+(15391, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Qeez - Within 0-5 Range - Cast Sunder Armor'),
+(15391, 0, 1, 0, 0, 0, 100, 0, 9000, 13000, 12000, 16000, 0, 0, 11, 19134, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Captain Qeez - In Combat - Cast Frightening Shout'),
+(15391, 0, 2, 0, 0, 0, 100, 512, 13000, 17000, 14000, 18000, 0, 0, 23, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Qeez - In Combat - Increment Phase'),
+(15391, 0, 3, 0, 0, 1, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Captain Qeez - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15391, 0, 4, 0, 9, 1, 100, 0, 0, 0, 2000, 2000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Qeez - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15391, 0, 5, 0, 0, 1, 100, 512, 3000, 3000, 3000, 3000, 0, 0, 23, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Captain Qeez - In Combat - Decrement Phase (Phase 1)'),
+(15391, 0, 6, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 34, 1, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Qeez - On Aggro - Set Instance Data 1 to 8 (Normal Dungeon)'),
+--
+(15392, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Tuubid - Within 0-5 Range - Cast Sunder Armor'),
+(15392, 0, 1, 0, 0, 0, 100, 0, 12000, 13000, 14000, 15000, 0, 0, 11, 25471, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Captain Tuubid - In Combat - Cast Attack Order'),
+(15392, 0, 2, 0, 0, 0, 100, 512, 13000, 17000, 14000, 18000, 0, 0, 23, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Tuubid - In Combat - Increment Phase'),
+(15392, 0, 3, 0, 0, 1, 100, 0, 1000, 1000, 1000, 1000, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Captain Tuubid - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15392, 0, 4, 0, 9, 1, 100, 0, 0, 0, 2000, 2000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Tuubid - Within 0-5 Range - Cast Cleave (Phase 1)'),
+(15392, 0, 5, 0, 0, 1, 100, 512, 3000, 3000, 3000, 3000, 0, 0, 23, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Captain Tuubid - In Combat - Decrement Phase (Phase 1)'),
+(15392, 0, 6, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 34, 1, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Tuubid - On Aggro - Set Instance Data 1 to 9 (Normal Dungeon)'),
+--
+(15461, 0, 0, 0, 0, 0, 100, 0, 4000, 6000, 7000, 10000, 0, 0, 11, 22886, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Shrieker Scarab - In Combat - Cast Berserker Charge'),
+(15461, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 7000, 9000, 0, 0, 11, 26379, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Shrieker Scarab - In Combat - Cast Piercing Shriek'),
+
+(15462, 0, 0, 0, 0, 0, 100, 0, 4000, 6000, 7000, 10000, 0, 0, 11, 22886, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Spitting Scarab - In Combat - Cast Berserker Charge'),
+(15462, 0, 1, 0, 0, 0, 100, 0, 2000, 7000, 8000, 14000, 0, 0, 11, 24334, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Spitting Scarab - In Combat - Cast Acid Spit');
+
+
+/* fix loot tables */
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (30411, 30420, 30421, 30422, 30423, 30424, 30425, 30426, 30427, 30428, 30429, 30430, 30431, 30432, 30433, 30434, 30435, 30436);
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 (30411, 20727, 0, 0, 0, 1, 1, 1, 1, 'Formula: Enchant Gloves - Shadow Power'),
