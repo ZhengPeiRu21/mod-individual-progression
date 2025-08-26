@@ -12,7 +12,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9045, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarshield Acolyte - On Aggro - Call For Help'),
 (9045, 0, 1, 0, 0, 0, 100, 0, 7000, 15000, 21000, 33000, 0, 0, 11, 14032, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarshield Acolyte - In Combat - Cast Shadow Word: Pain'),
 (9045, 0, 2, 0, 2, 0, 100, 1, 0, 75, 0, 0, 0, 0, 11, 12039, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Scarshield Acolyte - Between 0-75% Health - Cast Heal (No Repeat)'),
-(9045, 0, 3, 0, 14, 0, 100, 0, 5000, 35, 17000, 24000, 0, 0, 11, 8362, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarshield Acolyte - On Friendly Between 0-35% Health - Cast Renew'),
+(9045, 0, 3, 0, 74, 0, 100, 0, 0, 0, 17000, 24000, 35, 40, 11, 8362, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Scarshield Acolyte - On Friendly Between 0-35% Health - Cast Renew'),
 (9045, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarshield Acolyte - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9096, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 7000, 12000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,        'Rage Talon Dragonspawn - Within 0-5 Range - Cast Strike'),
 (9096, 0, 1, 0, 0, 0, 100, 0, 7700, 17100, 20300, 34200, 0, 0, 11, 12021, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Rage Talon Dragonspawn - Within 0-5 Range - Cast Fixate'),
@@ -20,7 +20,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9096, 0, 3, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Rage Talon Dragonspawn - In Combat - Cast Thrash'),
 (9096, 0, 4, 5, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rage Talon Dragonspawn - Between 0-30% Health - Cast Frenzy'),
 (9096, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Rage Talon Dragonspawn - On Frenzy - Say Line 0'),
-(9096, 0, 6, 0, 0, 0, 100, 0, 7000, 11200, 22000, 25000, 0, 0, 11, 24023, 0, 0, 0, 0, 0, 28, 25, 1, 1, 8, 0, 0, 0, 0,     'Rage Talon Dragonspawn - Within 8-25 Range - Cast Charge'),
+(9096, 0, 6, 0, 9, 0, 100, 0, 0, 0, 22000, 25000, 8, 25, 11, 24023, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Rage Talon Dragonspawn - Within 8-25 Range - Cast Charge'), -- test!
 (9817, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12380, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Blackhand Dreadweaver - On Reset - Cast Shadow Channeling'),
 (9817, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Blackhand Dreadweaver - On Aggro - Call For Help'),
 (9817, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Blackhand Dreadweaver - In Combat - Cast Shadow Bolt'),
@@ -61,8 +61,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10319, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21478, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Blackhand Iron Guard - On Respawn - Cast Increased Block 16'),
 (10319, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21494, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Blackhand Iron Guard - On Respawn - Cast Increased Block 34'),
 (10319, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21495, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Blackhand Iron Guard - On Respawn - Cast Increased Block 35'),
-(10319, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 7000, 9000, 0, 0, 11, 15655, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,        'Blackhand Iron Guard - Within 0-5 Range - Cast Shield Slam'),
-(10319, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 15062, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Blackhand Iron Guard - Between 0-30% Health - Cast Shield Wall (No Repeat)'),
+(10319, 0, 4, 0, 0, 0, 100, 0, 4000, 7000, 7000, 9000, 0, 0, 11, 15655, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,        'Blackhand Iron Guard - Within 0-5 Range - Cast Shield Slam'),
+(10319, 0, 5, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 15062, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Blackhand Iron Guard - Between 0-30% Health - Cast Shield Wall (No Repeat)'),
 (10366, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 10000, 16000, 0, 0, 11, 15655, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Rage Talon Dragon Guard - Within 0-5 Range - Cast Shield Slam'),
 (10366, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6000, 10000, 0, 5, 11, 16145, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Rage Talon Dragon Guard - In Combat - Cast Sunder Armor'),
 (10366, 0, 2, 0, 0, 0, 100, 0, 3000, 6000, 8000, 12000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Rage Talon Dragon Guard - Within 0-5 Range - Cast Cleave'),
@@ -82,8 +82,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10899, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 6000, 10000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Goraluk Anvilcrack - Within 0-5 Range - Cast Strike'),
 (10899, 0, 2, 0, 0, 0, 100, 0, 3000, 6000, 3000, 6000, 0, 0, 11, 16172, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Goraluk Anvilcrack - Within 0-5 Range - Cast Head Crack'),
 (10899, 0, 3, 0, 0, 0, 100, 0, 5000, 8000, 4000, 6000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Goraluk Anvilcrack - Within 0-5 Range - Cast Backhand');
-
-
 
 
 UPDATE `gameobject` SET `animprogress` = 100, `state` = 1 WHERE `id` = 164725; -- Dragonspine Door
