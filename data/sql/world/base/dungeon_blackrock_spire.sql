@@ -20,7 +20,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9096, 0, 3, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Rage Talon Dragonspawn - In Combat - Cast Thrash'),
 (9096, 0, 4, 5, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rage Talon Dragonspawn - Between 0-30% Health - Cast Frenzy'),
 (9096, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Rage Talon Dragonspawn - On Frenzy - Say Line 0'),
-(9096, 0, 6, 0, 9, 0, 100, 0, 0, 0, 22000, 25000, 8, 25, 11, 24023, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Rage Talon Dragonspawn - Within 8-25 Range - Cast Charge'), -- test!
+(9096, 0, 6, 0, 9, 0, 100, 0, 0, 0, 22000, 25000, 8, 25, 11, 24023, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Rage Talon Dragonspawn - Within 8-25 Range - Cast Charge'),
 (9817, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12380, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Blackhand Dreadweaver - On Reset - Cast Shadow Channeling'),
 (9817, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Blackhand Dreadweaver - On Aggro - Call For Help'),
 (9817, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Blackhand Dreadweaver - In Combat - Cast Shadow Bolt'),
