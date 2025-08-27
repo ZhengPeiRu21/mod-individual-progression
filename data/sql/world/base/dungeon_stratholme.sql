@@ -1,9 +1,9 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(10381, 10382, 10383, 10390, 10391, 10393, 10398, 10400, 10405, 10406, 10407, 10408, 10409, 10412, 10413, 10414, 10416, 10417, 10418, 10419, 
+(10381, 10382, 10383, 10390, 10391, 10393, 10394, 10398, 10400, 10405, 10406, 10407, 10408, 10409, 10412, 10413, 10414, 10416, 10417, 10418, 10419, 
 10420, 10421, 10422, 10423, 10424, 10425, 10426, 10437, 10438, 10439, 10463, 10464, 10516, 10558, 10809, 10811, 10812, 10997, 11032, 11043);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(10381, 10382, 10383, 10390, 10391, 10393, 10398, 10400, 10405, 10406, 10407, 10408, 10409, 10412, 10413, 10414, 10416, 10417, 10418, 10419, 
+(10381, 10382, 10383, 10390, 10391, 10393, 10394, 10398, 10400, 10405, 10406, 10407, 10408, 10409, 10412, 10413, 10414, 10416, 10417, 10418, 10419, 
 10420, 10421, 10422, 10423, 10424, 10425, 10426, 10437, 10438, 10439, 10463, 10464, 10516, 10558, 10809, 10811, 10812, 10997, 11032, 11043);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
@@ -12,10 +12,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (10381, 0, 0, 0, 0, 0, 100, 0, 4400, 10200, 5800, 13800, 0, 0, 11, 13446, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Ravaged Cadaver - Within 0-5 Range - Cast Strike'),
-(10381, 0, 1, 2, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 16324, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Ravaged Cadaver - On Death - Cast Summon Broken Cadaver'), -- test!
+(10381, 0, 1, 2, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 16324, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Ravaged Cadaver - On Death - Cast Summon Broken Cadaver'),
 (10381, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ravaged Cadaver - On Death - Say Line 0'),
-(10382, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 16142, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Mangled Cadaver - On Respawn - Cast Cadaver Worms'), -- test!
-(10383, 0, 0, 0, 0, 0, 100, 1, 4000, 8000, 0, 0, 0, 0, 11, 16141, 2, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Broken Cadaver - On Update - Cast Exploding Cadaver'), -- test!
+(10382, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 16142, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Mangled Cadaver - On Respawn - Cast Cadaver Worms'),
+(10383, 0, 0, 0, 0, 0, 100, 1, 4000, 8000, 0, 0, 0, 0, 11, 16141, 2, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Broken Cadaver - On Update - Cast Exploding Cadaver'),
 --
 (10390, 0, 0, 1, 60, 0, 100, 769, 0, 0, 0, 0, 0, 0, 31, 1, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Skeletal Guardian - On Update - Set Phase Random Between 1-3 (No Repeat)'),
 (10390, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 211, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Skeletal Guardian - On Update - Flag reset 0 (No Repeat)'),
@@ -35,7 +35,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10393, 0, 1, 0, 1, 0, 100, 0, 1000, 3000, 900000, 900000, 0, 0, 11, 12544, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Skul - Out of Combat - Cast Frost Armor'),
 (10393, 0, 2, 0, 0, 0, 80, 0, 0, 0, 2000, 2000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Skul - In Combat - Cast Frostbolt'),
 (10393, 0, 3, 0, 0, 0, 50, 0, 6000, 8000, 16000, 20000, 0, 0, 11, 15499, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skul - In Combat - Cast Frost Shock'),
-(10393, 0, 4, 0, 0, 0, 40, 0, 9000, 11000, 9000, 11000, 0, 0, 11, 15230, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skul - In Combat - Cast Blizzard'),
+(10393, 0, 4, 0, 0, 0, 40, 0, 9000, 11000, 9000, 11000, 0, 0, 11, 15230, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skul - In Combat - Cast Arcane Bolt'),
+(10394, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 5000, 8000, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Black Guard Sentry - Within 0-5 Range - Cast Cleave'),
+(10394, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6000, 6000, 0, 20, 11, 17439, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Black Guard Sentry - Within 0-20 Range - Cast Shadow Shock'),
 --
 (10398, 0, 0, 0, 1, 0, 100, 0, 6000, 6000, 0, 0, 0, 0, 11, 12380, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Thuzadin Shadowcaster - Out of Combat - Cast Shadow Channeling'),
 (10398, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 15232, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Thuzadin Shadowcaster - In Combat - Cast Shadow Bolt'),
@@ -57,8 +59,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (10408, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 12000, 0, 5, 11, 13444, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Rockwing Gargoyle - Within 0-5 Range - Cast Sunder Armor'),
 (10409, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 4, 6596, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rockwing Screecher - On Aggro - Play Sound 6596 (No Repeat)'),
-(10409, 0, 1, 0, 9, 0, 100, 0, 0, 0, 18000, 30000, 0, 0, 11, 13730, 32, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Rockwing Screecher - Within 0-5 Range - Cast Demoralizing Shout'), -- test!
-(10409, 0, 2, 0, 9, 0, 100, 0, 0, 0, 12000, 16000, 0, 5, 11, 8715, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rockwing Screecher - Within 0-5 Range - Cast Terrifying Howl'), -- test!
+(10409, 0, 1, 0, 9, 0, 100, 0, 0, 0, 18000, 30000, 0, 0, 11, 13730, 32, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Rockwing Screecher - Within 0-5 Range - Cast Demoralizing Shout'),
+(10409, 0, 2, 0, 9, 0, 100, 0, 0, 0, 12000, 16000, 0, 5, 11, 8715, 0, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Rockwing Screecher - Within 0-5 Range - Cast Terrifying Howl'),
 (10409, 0, 3, 0, 0, 0, 100, 0, 1000, 1000, 7000, 11000, 0, 0, 11, 16997, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Rockwing Screecher - In Combat - Cast Gargoyle Strike'),
 (10412, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 16000, 0, 20, 11, 15471, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Crawler - Within 0-20 Range - Cast Enveloping Web'),
 (10413, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 16428, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Crypt Beast - On Reset - Cast Virulent Poison Proc'),
@@ -99,7 +101,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10422, 0, 4, 0, 0, 0, 100, 0, 7000, 14000, 21000, 26000, 0, 0, 11, 13323, 96, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,  'Crimson Sorcerer - In Combat - Cast Polymorph'),
 (10422, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Sorcerer - Between 0-15% Health - Flee For Assist'),
 (10423, 0, 0, 0, 0, 0, 100, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 15238, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Priest - In Combat - Cast Holy Smite'),
-(10423, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15586, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Crimson Priest - Between 0-50% Health - Cast Heal'), -- https://www.youtube.com/watch?v=3yAOdhlXotw
+(10423, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15586, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Crimson Priest - Friendly Missing Health - Cast Heal'), -- https://www.youtube.com/watch?v=3yAOdhlXotw
 (10423, 0, 2, 0, 0, 0, 100, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 17142, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Crimson Priest - In Combat - Cast Holy Fire'),
 (10423, 0, 3, 0, 2, 0, 100, 0, 15000, 15000, 45000, 45000, 0, 0, 11, 17139, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Crimson Priest - In Combat - Cast Power Word: Shield'),
 (10423, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Priest - Between 0-15% Health - Flee For Assist'),
