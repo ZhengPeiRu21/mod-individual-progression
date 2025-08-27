@@ -101,7 +101,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10422, 0, 4, 0, 0, 0, 100, 0, 7000, 14000, 21000, 26000, 0, 0, 11, 13323, 96, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,  'Crimson Sorcerer - In Combat - Cast Polymorph'),
 (10422, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Sorcerer - Between 0-15% Health - Flee For Assist'),
 (10423, 0, 0, 0, 0, 0, 100, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 15238, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Priest - In Combat - Cast Holy Smite'),
-(10423, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15586, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Crimson Priest - Friendly Missing Health - Cast Heal'), -- https://www.youtube.com/watch?v=3yAOdhlXotw
+(10423, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15586, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Crimson Priest - Between 0-50% Health - Cast Heal'), -- https://www.youtube.com/watch?v=3yAOdhlXotw
 (10423, 0, 2, 0, 0, 0, 100, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 17142, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Crimson Priest - In Combat - Cast Holy Fire'),
 (10423, 0, 3, 0, 2, 0, 100, 0, 15000, 15000, 45000, 45000, 0, 0, 11, 17139, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Crimson Priest - In Combat - Cast Power Word: Shield'),
 (10423, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Priest - Between 0-15% Health - Flee For Assist'),
