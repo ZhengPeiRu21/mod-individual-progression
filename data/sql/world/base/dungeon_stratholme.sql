@@ -49,8 +49,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (10405, 0, 0, 0, 0, 0, 100, 0, 3000, 10000, 20000, 30000, 0, 0, 11, 16458, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Plague Ghoul - In Combat - Cast Ghoul Plague'),
 (10405, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6300, 10100, 0, 5, 11, 40505, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Plague Ghoul - Within 0-5 Range - Cast Cleave'),
-(10405, 0, 2, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Plague Ghoul - Between Health 0-30% - Cast Enrage'),
-(10405, 0, 3, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Plague Ghoul - On Enrage - Say Line 0'),
+(10405, 0, 2, 3, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Plague Ghoul - Between Health 0-30% - Cast Enrage'),
+(10405, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Plague Ghoul - On Enrage - Say Line 0'),
 (10406, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 16000, 0, 5, 11, 16172, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Ghoul Ravener - Within 0-5 Range - Cast Head Crack'),
 (10406, 0, 1, 0, 0, 0, 100, 0, 7000, 7000, 8000, 8000, 0, 0, 11, 16553, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Ghoul Ravener - In Combat - Cast Ravenous Claw'),
 (10406, 0, 2, 0, 1, 0, 100, 0, 3000, 6000, 8000, 12000, 0, 0, 5, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Ghoul Ravener - Out of Combat - Play Emote 1'),
@@ -107,7 +107,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10423, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Priest - Between 0-15% Health - Flee For Assist'),
 (10424, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Crimson Gallant - On Respawn - Cast Retribution Aura'),
 (10424, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9100, 9100, 0, 5, 11, 14518, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Crimson Gallant - Within 0-5 Range - Cast Crusader Strike'),
-(10424, 0, 2, 0, 0, 0, 100, 0, 5000, 9000, 19000, 16000, 0, 0, 11, 17143, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Crimson Gallant - Within 0-5 Range - Cast Holy Strike'),
+(10424, 0, 2, 0, 0, 0, 100, 0, 5000, 9000, 10000, 16000, 0, 0, 11, 17143, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Crimson Gallant - Within 0-5 Range - Cast Holy Strike'),
 (10424, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Gallant - Between 0-15% Health - Flee For Assist'),
 (10425, 0, 0, 0, 106, 0, 100, 0, 0, 0, 9000, 14000, 0, 8, 11, 15253, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Battle Mage - In Combat - Cast Arcane Explosion'),
 (10425, 0, 1, 0, 0, 0, 100, 0, 8000, 15000, 13000, 17000, 0, 10, 11, 17145, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Crimson Battle Mage - In Combat - Cast Blast Wave'),
@@ -203,7 +203,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11043, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Crimson Monk - On Respawn - Cast Thrash Proc'),
 (11043, 0, 3, 0, 105, 0, 100, 0, 0, 0, 8000, 10000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Monk - Victim Casting - Cast Kick'),
 (11043, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Monk - Between 0-15% Health - Flee For Assist (No Repeat)');
-
 
 -- stratholme living side, 3 doors not locked that should require the scarlet key
 UPDATE gameobject_template SET `Data1` = 299 WHERE `entry` IN (175967, 175968, 176194);
