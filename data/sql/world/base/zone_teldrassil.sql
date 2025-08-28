@@ -1,14 +1,15 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2018, 2020, 2021, 2030, 2038, 2039, 2152, 7234, 7235, 14428, 14429, 14431);
+(2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2018, 2020, 2021, 2030, 2038, 2039, 2152, 7234, 7235, 14428, 14429, 14431, 14432);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2018, 2020, 2021, 2030, 2038, 2039, 2152, 7234, 7235, 14428, 14429, 14431);
+(2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2018, 2020, 2021, 2030, 2038, 2039, 2152, 7234, 7235, 14428, 14429, 14431, 14432);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
+
 (2002, 0, 0, 0, 0, 0, 100, 0, 5000, 12000, 30000, 40000, 0, 0, 11, 6950, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Rascal Sprite - In Combat - Cast Faerie Fire'),
 (2002, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Rascal Sprite - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2003, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Shadow Sprite - In Combat - Cast Shadow Bolt'),
@@ -52,9 +53,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (2038, 0, 0, 0, 2, 0, 40, 0, 0, 70, 17000, 17000, 0, 0, 11, 774, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Lord Melenas - Between 0-70% Health - Cast Rejuvenation'),
 (2038, 0, 1, 0, 2, 0, 80, 0, 0, 40, 15000, 15000, 0, 0, 11, 774, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Lord Melenas - Between 0-40% Health - Cast Rejuvenation'),
-(2038, 0, 2, 3, 0, 0, 100, 0, 0, 0, 8500, 8500, 0, 0, 11, 5759, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Lord Melenas - In Combat - Cast Cat Form'),
+(2038, 0, 2, 3, 0, 0, 100, 1, 8000, 8000, 0, 0, 0, 0, 11, 5759, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Lord Melenas - In Combat - Cast Cat Form (No Repeat'),
 (2038, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Lord Melenas - In Combat - Set Event Phase 1'),
-(2038, 0, 4, 0, 0, 1, 90, 0, 8000, 8000, 13000, 13000, 0, 0, 11, 1822, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Lord Melenas - Within 0-5 Range - Cast Rake (Phase 1)'),
+(2038, 0, 4, 0, 9, 1, 90, 0, 0, 0, 13000, 13000, 0, 0, 11, 1822, 34, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lord Melenas - Within 0-5 Range - Cast Rake (Phase 1)'),
 (2038, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Lord Melenas - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (2039, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15793, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Ursal the Mauler - Within 0-5 Range - Cast Maul'),
@@ -64,7 +65,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14428, 0, 0, 0, 0, 0, 60, 0, 4000, 4000, 33000, 33000, 0, 0, 11, 15971, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Uruson - In Combat - Cast Demoralizing Roar'),
 (14429, 0, 0, 0, 9, 0, 100, 0, 0, 4000, 8000, 12000, 0, 5, 11, 19319, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Grimmaw - Within 0-5 Range - Cast Vicious Bite'),
 (14431, 0, 0, 0, 0, 0, 70, 0, 2000, 2000, 13000, 13000, 0, 0, 11, 3589, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Fury Shelda - In Combat - Cast Deafening Screech'),
-(14431, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Fury Shelda - Between 0-15% Health - Flee For Assist (No Repeat)');
+(14431, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Fury Shelda - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(14432, 0, 0, 0, 0, 0, 80, 0, 2000, 2000, 5000, 5000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Threggil - Within 0-5 Range - Cast Strike'),
+(14432, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Threggil - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 
 -- Byancie <First Aid Trainer> 
