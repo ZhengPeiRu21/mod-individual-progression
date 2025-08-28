@@ -1,12 +1,135 @@
--- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (2160, 10919, 11196);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (2160, 10919, 11196);
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2069);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(2160, 2165, 2167, 2168, 2169, 2170, 2171, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2189, 2190, 2191, 
+2202, 2203, 2204, 2205, 2206, 2207, 2208, 2212, 2236, 2237, 2321, 2324, 2336, 2337, 2338, 2339, 3660, 3662, 3667, 6788, 10157, 10160, 10919, 11196);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(2160, 2069, 2165, 2167, 2168, 2169, 2170, 2171, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2189, 2190, 2191, 
+2202, 2203, 2204, 2205, 2206, 2207, 2208, 2212, 2236, 2237, 2321, 2324, 2336, 2337, 2338, 2339, 3660, 3662, 3667, 6788, 10157, 10160, 10919, 11196);
+
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-
-(2160, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Gravelflint Geomancer - On Reset - Cast Frost Armor'),
-(2160, 0, 1, 0, 9, 0, 100, 0, 0, 0, 3300, 7400, 0, 40, 11, 19816, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Gravelflint Geomancer - Within 0-40 Range - Cast Fireball'),
-(10919, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Shatterspear Troll   - On Aggro - Call for Help (No Repeat)'),
-(11196, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Shatterspear Drummer - On Aggro - Call for Help (No Repeat)');
+--
+(2160, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Gravelflint Geomancer - On Reset - Cast Frost Armor'),
+(2160, 0, 1, 0, 9, 0, 100, 0, 0, 0, 3300, 7400, 0, 40, 11, 19816, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Gravelflint Geomancer - Within 0-40 Range - Cast Fireball'),
+(2165, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 10000, 0, 5, 11, 3242, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Grizzled Thistle Bear - Within 0-5 Range - Cast Ravage'),
+(2167, 0, 0, 0, 9, 0, 100, 0, 0, 0, 30000, 35000, 0, 30, 11, 6950, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Blackwood Pathfinder - Within 0-30 Range - Cast Faerie Fire'),
+(2167, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 10000, 0, 5, 11, 3242, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Blackwood Pathfinder - Within 0-5 Range - Cast Ravage'),
+(2167, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackwood Pathfinder - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2168, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Blackwood Warrior - Out of Combat - Cast Battle Stance (No Repeat)'),
+(2168, 0, 1, 0, 9, 0, 100, 0, 0, 0, 16000, 21000, 0, 8, 11, 13532, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Blackwood Warrior - Within 0-8 Range - Cast Thunder Clap'),
+(2168, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackwood Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2169, 0, 0, 0, 0, 0, 100, 0, 6000, 12000, 30000, 36000, 0, 0, 11, 5605, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Blackwood Totemic - On Aggro - Cast Healing Ward'),
+(2169, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackwood Totemic - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2170, 0, 0, 0, 14, 0, 100, 0, 200, 40, 18000, 21000, 0, 0, 11, 1058, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Blackwood Ursa - Friendly Missing 200 Health - Cast Rejuvenation'),
+(2170, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackwood Ursa - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2171, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Blackwood Shaman - In Combat - Cast Lightning Bolt'),
+(2171, 0, 1, 0, 0, 0, 100, 0, 9000, 14000, 11000, 15000, 0, 0, 11, 2606, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Blackwood Shaman - In Combat - Cast Shock'),
+(2171, 0, 2, 0, 14, 0, 100, 0, 300, 40, 16000, 21000, 0, 0, 11, 913, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Blackwood Shaman - Friendly Missing 300 Health - Cast Healing Wave'),
+(2171, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackwood Shaman - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(2175, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 15000, 0, 30, 11, 17227, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Shadowclaw - Within 0-30 Range - Cast Curse of Weakness'),
+(2176, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 17000, 21000, 0, 0, 11, 5884, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Cursed Highborne - In Combat - Cast Banshee Curse'),
+(2177, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 17000, 21000, 0, 0, 11, 5884, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Writhing Highborne - On Aggro - Cast Banshee Curse'),
+(2178, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 17000, 21000, 0, 0, 11, 5884, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Wailing Highborne - On Aggro - Cast Banshee Curse'),
+--
+(2179, 0, 0, 0, 0, 0, 100, 0, 8000, 13000, 12000, 16000, 0, 0, 11, 13586, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Stormscale Wave Rider - Between 30-60% Health - Cast Aqua Jet'),
+(2179, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Stormscale Wave Rider - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2180, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Stormscale Siren - In Combat - Cast Holy Smite'),
+(2180, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 50, 40, 11, 11642, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Stormscale Siren - Friendly Between 0-50% Health - Cast Heal'),
+(2180, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Stormscale Siren - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2181, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 25000, 60000, 0, 0, 11, 5164, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Stormscale Myrmidon - Within 0-5 Range - Cast Knockdown'),
+(2181, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Stormscale Myrmidon - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2182, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 1800000, 1800000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Stormscale Sorceress - Out of Combat - Cast Frost Armor'),
+(2182, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20792, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Stormscale Sorceress - In Combat - Cast Frostbolt'),
+(2182, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Stormscale Sorceress - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2183, 0, 0, 0, 0, 0, 100, 0, 4000, 8000, 15000, 21000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Stormscale Warrior - In Combat - Cast Improved Blocking'),
+(2183, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Stormscale Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(2184, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Lady Moongazer - Outside 30 Range - Start Combat Movement'),
+(2184, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lady Moongazer - Within 5-30 Range - Stop Combat Movement'),
+(2184, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Lady Moongazer - Within 0-5 Range - Start Combat Movement'),
+(2184, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lady Moongazer - Within 5-30 Range - Cast Shoot'),
+(2184, 0, 4, 0, 9, 0, 100, 0, 0, 0, 20000, 40000, 0, 20, 11, 6533, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Lady Moongazer - Within 0-20 Range - Cast Net'),
+--
+(2185, 0, 0, 0, 9, 0, 100, 0, 0, 0, 45000, 50000, 0, 5, 11, 6016, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Darkshore Thresher - Within 0-5 Range - Cast Pierce Armor'),
+(2186, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Carnivous the Breaker - On Respawn - Cast Thrash Proc'),
+(2186, 0, 1, 0, 9, 0, 100, 0, 0, 0, 45000, 50000, 0, 5, 11, 6016, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Carnivous the Breaker - Within 0-5 Range - Cast Pierce Armor'),
+(2187, 0, 0, 0, 9, 0, 100, 0, 0, 0, 45500, 50000, 0, 5, 11, 6016, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Elder Darkshore Thresher - Within 0-5 Range - Cast Pierce Armor'),
+--
+(2189, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11959, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Vile Sprite - On Respawn - Cast Poison Proc'),
+(2189, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Sprite - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2190, 0, 0, 0, 2, 0, 100, 0, 0, 30, 60000, 65000, 0, 0, 11, 5915, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Wild Grell - Between 0-30% Health - Cast Crazed'),
+(2190, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Grell - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2191, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11980, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                   'Licillin - On Aggro - Cast Curse of Weakness'),
+(2191, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Licillin - In Combat - Cast Fireball'),
+--
+(2202, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greymist Coastrunner - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2203, 0, 0, 0, 16, 0, 100, 0, 26364, 30, 15000, 30000, 0, 0, 11, 26364, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Greymist Seer - Friendly Missing Buff - Cast Lightning Shield'), -- test!
+(2203, 0, 1, 0, 14, 0, 100, 0, 180, 40, 16000, 21000, 0, 0, 11, 547, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Greymist Seer - Friendly Missing 180 Health - Cast Healing Wave'),
+(2203, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greymist Seer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2204, 0, 0, 0, 9, 0, 100, 0, 0, 0, 20800, 40500, 0, 20, 11, 12024, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Greymist Netter - Within 0-20 Range - Cast Net'),
+(2204, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greymist Netter - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2205, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Greymist Warrior - Out of Combat - Cast Battle Stance (No Repeat)'),
+(2205, 0, 1, 0, 0, 0, 100, 0, 3000, 5000, 14000, 21000, 0, 0, 11, 5242, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Greymist Warrior - In Combat - Cast Battle Shout'),
+(2205, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greymist Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2206, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Greymist Hunter - Outside 30 Range - Start Combat Movement'),
+(2206, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Greymist Hunter - Within 5-30 Range - Stop Combat Movement'),
+(2206, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Greymist Hunter - Within 0-5 Range - Start Combat Movement'),
+(2206, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Greymist Hunter - Within 5-30 Range - Cast Throw'),
+(2206, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greymist Hunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2207, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Greymist Oracle - In Combat - Cast Lightning Bolt'),
+(2207, 0, 1, 0, 14, 0, 100, 0, 190, 40, 30000, 45000, 0, 0, 11, 913, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Greymist Oracle - Friendly At 190 Health - Cast Healing Wave'),
+(2207, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greymist Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2208, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Greymist Tidehunter - On Respawn - Cast Poison Proc'),
+(2208, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greymist Tidehunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2212, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Deth ryll Satyr - Outside 30 Range - Start Combat Movement'),
+(2212, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Deth ryll Satyr - Within 5-30 Range - Stop Combat Movement'),
+(2212, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Deth ryll Satyr - Within 0-5 Range - Start Combat Movement'),
+(2212, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Deth ryll Satyr - Within 5-30 Range - Cast Shoot'),
+(2212, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Deth ryll Satyr - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(2236, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Raging Reef Crawler - In Combat - Cast Thrash'),
+(2237, 0, 0, 0, 67, 0, 100, 0, 0, 0, 10000, 14000, 0, 5, 11, 6595, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Moonstalker Sire - Behind Target - Cast Exploit Weakness'),
+(2321, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Foreststrider Fledgling - Between 0-30% Health - Flee For Assist (No Repeat)'),
+(2324, 0, 0, 0, 0, 0, 100, 0, 7000, 11000, 16000, 21000, 0, 0, 11, 6982, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Blackwood Windtalker - In Combat - Cast Gust of Wind'),
+(2324, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackwood Windtalker - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2336, 0, 0, 0, 9, 0, 100, 0, 0, 0, 30000, 45000, 0, 10, 11, 7098, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Dark Strand Fanatic - In Combat - Cast Curse of Mending'),
+(2336, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Dark Strand Fanatic - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2337, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12746, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Dark Strand Voidcaller - Out of Combat - Cast Summon Voidwalker (No Repeat)'),
+(2337, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20807, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Dark Strand Voidcaller - In Combat - Cast Shadow Bolt'),
+(2337, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Dark Strand Voidcaller - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(2338, 0, 0, 0, 14, 0, 100, 0, 280, 40, 21000, 25000, 0, 0, 11, 2054, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Twilight Disciple - Friendly Missing 280 Health - Cast Heal'),
+(2338, 0, 1, 0, 14, 0, 100, 0, 150, 40, 18000, 21000, 0, 0, 11, 6074, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Twilight Disciple - Friendly Missing 150 Health - Cast Renew'),
+(2338, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                        'Twilight Disciple - On Aggro - Talk 0'), -- test!
+(2338, 0, 3, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Twilight Disciple - On Death - Talk 1'),
+(2338, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Disciple - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2339, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Twilight Thug - Out of Combat - Cast Battle Stance (No Repeat)'),
+(2339, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 16000, 21000, 0, 0, 11, 5242, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Twilight Thug - In Combat - Cast Battle Shout'),
+(2339, 0, 2, 0, 2, 0, 100, 1, 20, 40, 0, 0, 0, 0, 11, 6713, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                  'Twilight Thug - Between 20-40% Health - Cast Disarm (No Repeat)'),
+(2339, 0, 3, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                        'Twilight Thug - On Aggro - Talk 0'), -- test!
+(2339, 0, 4, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Twilight Thug - On Death - Talk 1'),
+(2339, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Thug - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(3660, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Athrikus Narassin - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(3662, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20792, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Delmanis the Hated - In Combat - Cast Frostbolt'),
+(3662, 0, 1, 0, 0, 0, 100, 0, 6000, 10000, 12000, 16000, 0, 0, 11, 7101, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Delmanis the Hated - In Combat - Cast Flame Blast'),
+(3662, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Delmanis the Hated - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(3662, 0, 3, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 53, 0, 3662, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Delmanis the Hated - On Respawn - Start Waypoint'),
+(3662, 0, 4, 0, 40, 0, 100, 512, 38, 0, 0, 0, 0, 0, 80, 366200, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Delmanis the Hated - On Waypoint 38 Reached - Run Script'),
+(3667, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 14000, 17000, 0, 0, 11, 5884, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Anaya Dawnrunner - In Combat - Cast Banshee Curse'),
+(3667, 0, 1, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Anaya Dawnrunner - On Just Died - Say Line 0'),
+(6788, 0, 0, 0, 0, 0, 100, 0, 5000, 20000, 20000, 50000, 0, 0, 11, 3242, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Den Mother - Within 0-5 Range - Cast Ravage'),
+--
+(10157, 0, 0, 0, 0, 0, 100, 0, 7000, 11000, 15000, 18000, 0, 0, 11, 15798, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Moonkin Oracle - In Combat - Cast Moonfire'),
+(10157, 0, 1, 0, 0, 0, 100, 0, 0, 0, 12000, 15000, 0, 0, 11, 9739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Moonkin Oracle - In Combat - Cast Wrath'),
+(10157, 0, 2, 0, 14, 0, 100, 0, 200, 40, 25000, 30000, 0, 0, 11, 16561, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Moonkin Oracle - Friendly Missing 200 Health - Cast Regrowth'),
+(10160, 0, 0, 0, 9, 0, 100, 0, 0, 0, 18000, 21000, 0, 5, 11, 13443, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Raging Moonkin - Within 0-5 Range - Cast Rend'),
+(10160, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Raging Moonkin - Between 5-30% Health - Cast Enrage (No Repeat)'),
+(10160, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Raging Moonkin - On Enrage - Say Line 0'),
+--
+(10919, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Troll   - On Aggro - Call for Help (No Repeat)'),
+(11196, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Drummer - On Aggro - Call for Help (No Repeat)');
