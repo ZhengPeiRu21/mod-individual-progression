@@ -131,5 +131,5 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10160, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Raging Moonkin - Between 5-30% Health - Cast Enrage (No Repeat)'),
 (10160, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Raging Moonkin - On Enrage - Say Line 0'),
 --
-(10919, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Troll   - On Aggro - Call for Help (No Repeat)'),
-(11196, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Drummer - On Aggro - Call for Help (No Repeat)');
+(10919, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Troll   - On Aggro - Call for Help'),
+(11196, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Drummer - On Aggro - Call for Help');
