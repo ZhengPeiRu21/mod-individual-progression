@@ -57,8 +57,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8897, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Doomforge Craftsman - Within 5-30 Range - Stop Combat Movement'),
 (8897, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Doomforge Craftsman - Within 0-5 Range - Start Combat Movement'),
 (8897, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 9143, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Doomforge Craftsman - In Combat - Cast Bomb'),
-(8897, 0, 4, 0, 0, 0, 100, 0, 0, 0, 5000, 20000, 0, 0, 11, 13951, 64, 0, 0, 0, 0, 19, 8905, 20, 0, 0, 0, 0, 0, 0,      'Doomforge Craftsman - In Combat - Cast Rebuild'), -- test!
-(8897, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Doomforge Craftsman - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(8897, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Doomforge Craftsman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (8898, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Anvilrage Marshal - On Aggro - Cast Devotion Aura'),
 (8898, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6000, 8000, 0, 5, 11, 13953, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Anvilrage Marshal - Within 0-5 Range - Cast Holy Strike'),
 (8898, 0, 2, 0, 14, 0, 100, 0, 3000, 40, 3000, 6000, 0, 0, 11, 15493, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Anvilrage Marshal - Friendly Missing 3000 Health - Cast Holy Light'),
@@ -111,19 +110,18 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8905, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Warbringer Construct - On Respawn - SET PHASE EVENT 0'),
 (8905, 0, 4, 0, 77, 0, 100, 1, 1, 12, 0, 0, 0, 0, 80, 890500, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Warbringer Construct - On counter1=12 - Actionlist'),
 (8905, 0, 5, 0, 0, 0, 100, 0, 4000, 4000, 8000, 8000, 0, 0, 11, 15621, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Warbringer Construct - Within 0-5 Range - Cast Skull Crack'),
-(8905, 0, 6, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Warbringer Construct - On Aggro - Say Line 0'),
 (8906, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 15088, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Ragereaver Golem - On Respawn - Cast Flurry'),
 (8906, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 12795, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Ragereaver Golem - Between 0-30% Health - Cast Frenzy (No Repeat)'),
 (8906, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ragereaver Golem - On Frenzy - Say Line 0'),
 (8907, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 6000, 9000, 0, 0, 11, 15575, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Wrath Hammer Construct - In Combat - Cast Flame Cannon'),
 (8907, 0, 1, 0, 0, 0, 100, 0, 5000, 15000, 5000, 15000, 0, 0, 11, 10966, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,   'Wrath Hammer Construct - Within 0-10 Range - Cast Uppercut'),
-(8908, 0, 0, 0, 0, 0, 100, 0, 3000, 12000, 14000, 21000, 0, 0, 11, 15506, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Molten War Golem - In Combat - Cast Immolate'),
+(8908, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 15506, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Molten War Golem - In Combat - Cast Immolate Proc'),
 --
 (8909, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 15242, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Fireguard - In Combat - Cast Fireball'),
 (8910, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 6000, 12000, 0, 0, 11, 13341, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Blazing Fireguard - In Combat - Cast Fire Blast'),
 (8910, 0, 1, 0, 0, 0, 100, 0, 9000, 11000, 11000, 18000, 0, 0, 11, 12742, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Blazing Fireguard - In Combat - Cast Immolate'),
 (8910, 0, 2, 0, 0, 0, 100, 0, 5000, 5000, 3000, 6000, 0, 0, 11, 15241, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Blazing Fireguard - In Combat - Cast Scorch'),
-(8911, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 15000, 20000, 0, 30, 11, 15285, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Fireguard Destroyer - In Combat - Cast Fireball Volley'), -- test!
+(8911, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 15000, 20000, 0, 30, 11, 15285, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Fireguard Destroyer - In Combat - Cast Fireball Volley'),
 (8911, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3417, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Fireguard Destroyer - On Reset - Cast Thrash'),
 --
 (8912, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 13616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Twilights Hammer Torturer - On Respawn - Cast Wracking Pains Proc'),
@@ -131,7 +129,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8912, 0, 2, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 53, 1, 8912, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Twilights Hammer Torturer - Just Summoned - Start Waypoint (React State Aggressive)'),
 (8912, 0, 3, 0, 40, 0, 100, 0, 4, 8912, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 19, 9020, 0, 0, 0, 0, 0, 0, 0,               'Twilights Hammer Torturer - On Waypoint 4 Reached - Start Attacking'),
 (8912, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilights Hammer Torturer - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(8913, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 31, 1, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Emissary - On Respawn - Set Phase Random Between 1-3'), -- test!
+(8913, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 31, 1, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Emissary - On Respawn - Set Phase Random Between 1-3'),
 (8913, 0, 1, 0, 1, 1, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 15288, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Twilight Emissary - Out of Combat - Cast Fury of Ragnaros (Phase 1)'),
 (8913, 0, 2, 0, 0, 1, 100, 0, 0, 0, 3000, 5000, 0, 0, 11, 12466, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Twilight Emissary - In Combat - Cast Fireball (Phase 1)'),
 (8913, 0, 3, 0, 0, 2, 100, 0, 0, 0, 3000, 5000, 0, 0, 11, 15043, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Twilight Emissary - In Combat - Cast Frostbolt (Phase 2)'),
@@ -255,8 +253,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9545, 0, 4, 0, 38, 0, 100, 512, 1, 4, 0, 0, 0, 0, 80, 954700, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Grim Patron - On Data set - Action list'),
 (9545, 0, 5, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Grim Patron - On Aggro - Remove Npc Flags Gossip'),
 (9545, 0, 6, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Grim Patron - On Reset - Add Npc Flags Gossip'),
-(9545, 0, 7, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 13, 165738, 0, 30, 0, 0, 0, 0, 0,                 'Grim Patron - OOC - Drink Dark Iron Ale'), -- test!
---
 (9547, 0, 0, 0, 0, 0, 100, 0, 3000, 40000, 6000, 30000, 0, 0, 11, 14868, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Guzzling Patron - In Combat - Cast Curse of Agony'),
 (9547, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Guzzling Patron - In Combat - Cast Shadow Bolt'),
 (9547, 0, 2, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 14822, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Guzzling Patron - Between 0-30% Health - Cast Drunken Rage (No Repeat)'),
@@ -265,7 +261,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9547, 0, 5, 0, 38, 0, 100, 512, 1, 4, 0, 0, 0, 0, 80, 954700, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Guzzling Patron - On Data set - Action list'),
 (9547, 0, 6, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 83, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Guzzling Patron - On Aggro - Remove Npc Flags Gossip'),
 (9547, 0, 7, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 82, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Guzzling Patron - On Reset - Add Npc Flags Gossip'),
-(9547, 0, 8, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 13, 165738, 0, 30, 0, 0, 0, 0, 0,                 'Guzzling Patron - OOC - Drink Dark Iron Ale'), -- test!
 --
 (9956, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9128, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Shadowforge Flame Keeper - On Aggro - Cast Battle Shout'),
 (9956, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Shadowforge Flame Keeper - Outside 30 Range - Start Combat Movement'),
