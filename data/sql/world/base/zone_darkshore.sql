@@ -154,3 +154,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (10919, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Troll   - On Aggro - Call for Help'),
 (11196, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Drummer - On Aggro - Call for Help');
+
+
+-- fix Quest: The Blackwood Corrupted - now only showss one Talisman of Corruption as the requirement
+UPDATE `quest_template` SET `RequiredItemId6` = 0, RequiredItemCount6 = 0 WHERE `ID` = 4763;
