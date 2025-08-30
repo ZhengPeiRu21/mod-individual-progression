@@ -930,7 +930,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (910840, 12, 423.312, -79.215, -64.0575, 2.89846, 0, 0, 0, 100, 0);
 
 
-/* Group General Angerforge together with the 4 Anvilrage Reservists */
+-- Group General Angerforge together with the 4 Anvilrage Reservists
 DELETE FROM `creature_formations` WHERE `leaderGUID` = 45954;
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
 (45954, 45954, 0, 0, 515, 0, 0),
@@ -939,7 +939,10 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (45954, 45958, 0, 0, 515, 0, 0),
 (45954, 45959, 0, 0, 515, 0, 0);
 
-/*  Rockfist was removed from Phalanx's drop table in TBC - placing it back */
+-- Shadowforge Torch drop rate
+UPDATE `creature_loot_template` SET `Chance` = 80 WHERE `Entry` = 9956 AND `Item` = 11885;
+
+--  Rockfist was removed from Phalanx's drop table in TBC - placing it back
 DELETE FROM `creature_loot_template` WHERE `Entry` = 9502 AND `Item` = 11743;
 INSERT INTO `creature_loot_template` (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
 (9502, 11743, 0, 0, 0, 1, 1, 1, 1, 'Phalanx - Rockfist');
