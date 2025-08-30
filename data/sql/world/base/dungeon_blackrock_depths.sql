@@ -930,6 +930,10 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (910840, 12, 423.312, -79.215, -64.0575, 2.89846, 0, 0, 0, 100, 0);
 
 
+-- remove default auras from Twilight Emissaries, they cast them on Respawn
+UPDATE `creature_addon` SET `auras` = NULL WHERE `guid` IN 
+(47736, 47741, 47751, 47760, 47765, 47766, 47772, 47773, 90633, 90636, 90644, 90645, 90649, 90820, 90823, 90825, 90832, 90833);
+
 -- Group General Angerforge together with the 4 Anvilrage Reservists
 DELETE FROM `creature_formations` WHERE `leaderGUID` = 45954;
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
