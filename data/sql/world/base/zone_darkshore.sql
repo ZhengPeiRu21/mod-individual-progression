@@ -1,17 +1,20 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2069);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2160, 2165, 2167, 2168, 2169, 2170, 2171, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2189, 2190, 2191, 
-2202, 2203, 2204, 2205, 2206, 2207, 2208, 2212, 2236, 2237, 2321, 2324, 2336, 2337, 2338, 2339, 3660, 3662, 3667, 6788, 10157, 10160, 10919, 11196);
+(2158, 2159, 2160, 2165, 2167, 2168, 2169, 2170, 2171, 2172, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2189, 2190, 2191, 2192, 
+2202, 2203, 2204, 2205, 2206, 2207, 2208, 2212, 2236, 2237, 2321, 2324, 2336, 2337, 2338, 2339, 3660, 3662, 3667, 6788, 7016, 10157, 10160, 10373, 10919, 11196);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2160, 2069, 2165, 2167, 2168, 2169, 2170, 2171, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2189, 2190, 2191, 
-2202, 2203, 2204, 2205, 2206, 2207, 2208, 2212, 2236, 2237, 2321, 2324, 2336, 2337, 2338, 2339, 3660, 3662, 3667, 6788, 10157, 10160, 10919, 11196);
+(2069, 2158, 2159, 2160, 2165, 2167, 2168, 2169, 2170, 2171, 2172, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2189, 2190, 2191, 2192, 
+2202, 2203, 2204, 2205, 2206, 2207, 2208, 2212, 2236, 2237, 2321, 2324, 2336, 2337, 2338, 2339, 3660, 3662, 3667, 6788, 7016, 10157, 10160, 10373, 10919, 11196);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
+(2158, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gravelflint Scout - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2159, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 3148, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Gravelflint Bonesnapper - Within 0-5 Range - Cast Headcrack'),
+(2159, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gravelflint Bonesnapper - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2160, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Gravelflint Geomancer - On Reset - Cast Frost Armor'),
 (2160, 0, 1, 0, 9, 0, 100, 0, 0, 0, 3300, 7400, 0, 40, 11, 19816, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Gravelflint Geomancer - Within 0-40 Range - Cast Fireball'),
 (2165, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 10000, 0, 5, 11, 3242, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Grizzled Thistle Bear - Within 0-5 Range - Cast Ravage'),
@@ -30,6 +33,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2171, 0, 2, 0, 14, 0, 100, 0, 300, 40, 16000, 21000, 0, 0, 11, 913, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Blackwood Shaman - Friendly Missing 300 Health - Cast Healing Wave'),
 (2171, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackwood Shaman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
+(2172, 0, 0, 0, 0, 0, 100, 0, 7000, 11000, 15000, 18000, 0, 0, 11, 7272, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Strider Clutchmother - In Combat - Cast Dust Cloud'),
+(2172, 0, 1, 0, 9, 0, 100, 0, 0, 0, 20000, 25000, 0, 5, 11, 6607, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Strider Clutchmother - Within 0-5 Range - Cast Lash'),
+(2172, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Strider Clutchmother - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2175, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 15000, 0, 30, 11, 17227, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Shadowclaw - Within 0-30 Range - Cast Curse of Weakness'),
 (2176, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 17000, 21000, 0, 0, 11, 5884, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Cursed Highborne - In Combat - Cast Banshee Curse'),
 (2177, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 17000, 21000, 0, 0, 11, 5884, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Writhing Highborne - On Aggro - Cast Banshee Curse'),
@@ -65,6 +71,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2190, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Grell - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2191, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11980, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                   'Licillin - On Aggro - Cast Curse of Weakness'),
 (2191, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Licillin - In Combat - Cast Fireball'),
+(2192, 0, 0, 0, 0, 0, 100, 0, 2200, 2400, 6500, 6800, 0, 0, 11, 20793, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Firecaller Radison - In Combat - Cast Fireball'),
+(2192, 0, 1, 0, 106, 0, 100, 0, 0, 0, 12000, 16000, 0, 8, 11, 11969, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Firecaller Radison - Within 0-8 Range - Cast Fire Nova'),
+(2192, 0, 2, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 5915, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Firecaller Radison - Between 0-30% Health - Cast Crazed (No Repeat)'),
+(2192, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Firecaller Radison - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (2202, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greymist Coastrunner - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2203, 0, 0, 0, 16, 0, 100, 0, 26364, 30, 15000, 30000, 0, 0, 11, 26364, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Greymist Seer - Friendly Missing Buff - Cast Lightning Shield'), -- test!
@@ -123,6 +133,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3667, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 14000, 17000, 0, 0, 11, 5884, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Anaya Dawnrunner - In Combat - Cast Banshee Curse'),
 (3667, 0, 1, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Anaya Dawnrunner - On Just Died - Say Line 0'),
 (6788, 0, 0, 0, 0, 0, 100, 0, 5000, 20000, 20000, 50000, 0, 0, 11, 3242, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Den Mother - Within 0-5 Range - Cast Ravage'),
+(7016, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Lady Vespira - Outside 30 Range - Start Combat Movement'),
+(7016, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lady Vespira - Within 5-30 Range - Stop Combat Movement'),
+(7016, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Lady Vespira - Within 0-5 Range - Start Combat Movement'),
+(7016, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lady Vespira - Within 5-30 Range - Cast Shoot'),
+(7016, 0, 4, 0, 9, 0, 100, 0, 0, 0, 9000, 14000, 0, 5, 11, 11428, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lady Vespira - Within 0-5 Range - Cast Knockdown'),
+(7016, 0, 5, 0, 0, 0, 100, 0, 11000, 15000, 14000, 17000, 0, 0, 11, 12549, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lady Vespira - In Combat - Cast Forked Lightning'),
 --
 (10157, 0, 0, 0, 0, 0, 100, 0, 7000, 11000, 15000, 18000, 0, 0, 11, 15798, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Moonkin Oracle - In Combat - Cast Moonfire'),
 (10157, 0, 1, 0, 0, 0, 100, 0, 0, 0, 12000, 15000, 0, 0, 11, 9739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Moonkin Oracle - In Combat - Cast Wrath'),
@@ -130,6 +146,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10160, 0, 0, 0, 9, 0, 100, 0, 0, 0, 18000, 21000, 0, 5, 11, 13443, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Raging Moonkin - Within 0-5 Range - Cast Rend'),
 (10160, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Raging Moonkin - Between 5-30% Health - Cast Enrage (No Repeat)'),
 (10160, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Raging Moonkin - On Enrage - Say Line 0'),
+(10373, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 20000, 23000, 0, 0, 11, 11639, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Xabraxxis - In Combat - Cast Shadow Word: Pain'),
+(10373, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 11980, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Xabraxxis - In Combat - Cast Curse of Weakness'),
+(10373, 0, 2, 3, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Xabraxxis - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(10373, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Xabraxxis - On Enrage - Say Line 0'),
+(10373, 0, 4, 0, 6, 0, 100, 513, 0, 0, 0, 0, 0, 0, 11, 19127, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Xabraxxis - On Just Died - Cast Xabraxxis Demon Bag'),
 --
 (10919, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Troll   - On Aggro - Call for Help'),
 (11196, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shatterspear Drummer - On Aggro - Call for Help');
