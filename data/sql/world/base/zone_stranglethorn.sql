@@ -117,7 +117,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (728, 0, 1, 0, 9, 0, 100, 0, 2000, 2000, 32000, 32000, 0, 5, 11, 6016, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Bhag\'thera - Within 0-5 Range - Cast Pierce Armor'),
 (729, 0, 0, 0, 0, 0, 100, 0, 3000, 4000, 10000, 10000, 0, 0, 11, 5164, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,       'Sin Dall - Within 0-5 Range - Cast Knockdown'),
 (730, 0, 0, 0, 9, 0, 100, 512, 3000, 4000, 11000, 14000, 0, 5, 11, 3604, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Tethis - Within 0-5 Range - Cast Tendon Rip'),
-(731, 0, 0, 0, 2, 0, 100, 1, 48, 52, 0, 0, 0, 0, 11, 8816, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'King Bangalash - At 50% Health - Cast Summon Panthers (No Repeat)'),
+(731, 0, 0, 0, 2, 0, 100, 1, 45, 50, 0, 0, 0, 0, 11, 8816, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'King Bangalash - At 50% Health - Cast Summon Panthers (No Repeat)'),
 --
 (780, 0, 0, 0, 0, 0, 100, 0, 0, 0, 1500, 2500, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Skullsplitter Mystic - In Combat - Cast Lightning Bolt'),
 (780, 0, 1, 0, 14, 0, 100, 0, 700, 40, 60000, 60000, 0, 0, 11, 11986, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Skullsplitter Mystic - Friendly missing 700 Health - Cast Healing Wave'),
