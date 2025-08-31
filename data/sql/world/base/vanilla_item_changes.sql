@@ -20112,7 +20112,7 @@ UPDATE item_template SET BuyPrice = 10000, SellPrice = 2500 WHERE entry=7988;
 UPDATE item_template SET BuyPrice = 8000, SellPrice = 2000 WHERE entry=7994;
 
 /*  Wicked Claw  */
-UPDATE item_template SET Quality = 1, class = 7 WHERE entry=8146;
+UPDATE item_template SET Quality = 1, class = 7, subclass = 11 WHERE entry = 8146;
 
 /*  Wildvine  */
 UPDATE item_template SET Quality = 1 WHERE entry=8153;
