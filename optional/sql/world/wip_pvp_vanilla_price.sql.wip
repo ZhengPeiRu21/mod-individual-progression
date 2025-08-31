@@ -1,0 +1,32 @@
+
+-- WIP
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '57282' WHERE `entry` = '23314';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '42600' WHERE `entry` = '23457';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '13312' WHERE `entry` = '23458';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '24937' WHERE `entry` = '23459';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '24937' WHERE `entry` = '23461';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '24937' WHERE `entry` = '23462';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '28420' WHERE `entry` = '29594';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '22425' WHERE `entry` = '29617';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '27500' WHERE `entry` = '29616';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '34237' WHERE `entry` = '29615';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '23100' WHERE `entry` = '29614';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '15870' WHERE `entry` = '29613';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '14437' WHERE `entry` = '29612';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '17637' WHERE `entry` = '29611';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '17637' WHERE `entry` = '29610';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '29050' WHERE `entry` = '29609';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '22120' WHERE `entry` = '29608';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '19625' WHERE `entry` = '29607';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '22425' WHERE `entry` = '29606';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '28420' WHERE `entry` = '29605';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '28420' WHERE `entry` = '29595';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '31377' WHERE `entry` = '29596';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '31301' WHERE `entry` = '29597';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '31300' WHERE `entry` = '29598';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '28420' WHERE `entry` = '29599';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '28420' WHERE `entry` = '29600';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '28420' WHERE `entry` = '29601';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '31377' WHERE `entry` = '29602';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '31301' WHERE `entry` = '29603';
+UPDATE `acore_world`.`item_template` SET `BuyPrice` = '31300' WHERE `entry` = '29604';
