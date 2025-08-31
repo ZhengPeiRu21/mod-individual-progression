@@ -18,14 +18,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (3664, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Ilkrud Magthrull - On Aggro - Say Line 0'),
 (3664, 0, 1, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 8722, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Ilkrud Magthrull - Out of Combat - Cast Summon Succubus (No Repeat)'),
-(3664, 0, 2, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 20791, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Ilkrud Magthrull - In Combat CMC - Cast Shadow Bolt'),
-(3664, 0, 3, 0, 2, 0, 100, 0, 0, 50, 66500, 76300, 0, 0, 11, 6487, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Ilkrud Magthrull - Between 0-50% Health - Cast Ilkruds Guardians'),
-(3664, 0, 4, 0, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 9, 1860, 0, 100, 0, 0, 0, 0, 0,                   'Ilkrud Magthrull - On Evade - Despawn Ilkruds Guardians'), -- test!
+(3664, 0, 2, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 20791, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Ilkrud Magthrull - In Combat - Cast Shadow Bolt'),
+(3664, 0, 3, 0, 2, 0, 100, 0, 0, 50, 66500, 76300, 0, 0, 11, 6487, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Ilkrud Magthrull - Between 0-50% Health - Cast \'Ilkrud\'s Guardians\''),
+(3664, 0, 4, 0, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 9, 1860, 0, 100, 0, 0, 0, 0, 0,                   'Ilkrud Magthrull - On Evade - Despawn \'Ilkrud\'s Guardians\''),
 (3711, 0, 0, 0, 0, 0, 100, 0, 5000, 15000, 10000, 19000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Wrathtail Myrmidon - Within 0-5 Range - Cast Strike'),
 (3711, 0, 1, 0, 9, 0, 100, 0, 0, 0, 26600, 39800, 0, 5, 11, 11977, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Wrathtail Myrmidon - Within 0-5 Range - Cast Rend'),
 (3711, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Wrathtail Myrmidon - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3715, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 8598, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Wrathtail Sea Witch - In Comba - Cast Lightning Blast'),
-(3715, 0, 1, 0, 0, 0, 100, 0, 0, 0, 20000, 35000, 0, 0, 11, 11981, 321, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Wrathtail Sea Witch - In Combat - Cast Mana Burn'), -- test!
+(3715, 0, 1, 0, 0, 0, 100, 0, 0, 0, 20000, 35000, 0, 0, 11, 11981, 321, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Wrathtail Sea Witch - In Combat - Cast Mana Burn'),
 (3715, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Wrathtail Sea Witch - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3717, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20792, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Wrathtail Sorceress - In Combat - Cast Frostbolt'),
 (3717, 0, 1, 0, 106, 0, 100, 0, 0, 0, 15000, 35000, 0, 8, 11, 11831, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Wrathtail Sorceress - Within 0-8 Range - Cast Frost Nova'),
@@ -38,7 +38,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3725, 0, 2, 0, 0, 0, 100, 0, 3000, 5000, 10000, 12000, 0, 0, 11, 6222, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Dark Strand Cultist - In Combat - Cast Corruption'),
 (3727, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Dark Strand Enforcer - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (3727, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dark Strand Enforcer - On Enrage - Say Line 0'),
-(3730, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3582, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Dark Strand Excavator - On Respawn - Cast Torch Burst Proc'), -- test!
+(3730, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3582, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Dark Strand Excavator - On Respawn - Cast Torch Burst Proc'),
 (3730, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dark Strand Excavator - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3732, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 8000, 12000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Forsaken Seeker - In Combat - Cast Holy Smite'),
@@ -201,11 +201,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3940, 0, 1, 0, 2, 0, 100, 0, 0, 90, 15000, 18000, 0, 0, 11, 6077, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Taneel Darkwood - Between 0-90% Health - Cast Renew'),
 (3940, 0, 2, 0, 2, 0, 100, 0, 0, 20, 20000, 30000, 0, 0, 11, 6063, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Taneel Darkwood - Between 0-20% Health - Cast Heal'),
 (3941, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7090, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Uthil Mooncall - On Respawn - Cast Bear Form'), -- https://www.youtube.com/watch?v=Jy__YLALZB0&t=223s
-(3941, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Uthil Mooncall - Between 0-50% Health - Set phase to 1'), -- test!
-(3941, 0, 2, 0, 9, 1, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 12161, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Uthil Mooncall - Within 0-5 Range - Cast Maul'),
-(3941, 0, 3, 4, 2, 1, 100, 0, 0, 50, 15000, 19000, 0, 0, 11, 2091, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Uthil Mooncall - Between 0-50% Health - Cast Rejuvenation'),
+(3941, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Uthil Mooncall - Between 0-50% Health - Set phase to 1'),
+(3941, 0, 2, 0, 9, 1, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 12161, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Uthil Mooncall - Within 0-5 Range - Cast Maul (Phase 1)'),
+(3941, 0, 3, 4, 2, 1, 100, 0, 0, 50, 0, 0, 0, 0, 28, 7090, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Uthil Mooncall - Between 0-50% Health - Remove Aura Bear Form  (Phase 1)'),
 (3941, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Uthil Mooncall - Between 0-50% Health - Set phase to 2'),
-(3941, 0, 5, 0, 0, 2, 100, 0, 0, 0, 20000, 26000, 0, 0, 11, 8927, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Uthil Mooncall - In Combat - Cast Moonfire (Phase 1)'),
+(3941, 0, 5, 0, 2, 2, 100, 0, 0, 50, 15000, 19000, 0, 0, 11, 2091, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Uthil Mooncall - Between 0-50% Health - Cast Rejuvenation (Phase 2)'),
+(3941, 0, 6, 0, 0, 2, 100, 0, 0, 0, 20000, 26000, 0, 0, 11, 8927, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Uthil Mooncall - In Combat - Cast Moonfire (Phase 2)'),
 (3942, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 17000, 20000, 0, 0, 11, 6535, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Mavoris Cloudsbreak - In Combat - Cast Lightning Cloud'),
 (3942, 0, 1, 0, 0, 0, 100, 0, 8000, 11000, 17000, 20000, 0, 0, 11, 421, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Mavoris Cloudsbreak - In Combat - Cast Chain Lightning'),
 --
@@ -213,7 +214,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3943, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10300, 20900, 0, 5, 11, 25712, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Ruuzel - Within 0-5 Range - Cast Heroic Strike'),
 (3943, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ruuzel - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3944, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 15000, 19000, 0, 0, 11, 15970, 96, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Wrathtail Priestess - In Combat - Cast Sleep'),
-(3944, 0, 1, 0, 74, 0, 100, 0, 0, 0, 25000, 40000, 40, 0, 11, 11642, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Wrathtail Priestess - Friendly Between 0-40% Health - Cast Heal'),
+(3944, 0, 1, 0, 74, 0, 100, 0, 0, 0, 25000, 40000, 40, 40, 11, 11642, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Wrathtail Priestess - Friendly Between 0-40% Health - Cast Heal'),
 (3944, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Wrathtail Priestess - Between 0-15% Health - Flee For Assist'),
 (3987, 0, 0, 0, 2, 0, 100, 0, 0, 75, 22100, 32600, 0, 0, 11, 18557, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Dal Bloodclaw - Between 0-75% Health - Cast \'Drain Life\''),
 (3987, 0, 1, 0, 2, 0, 100, 0, 0, 50, 0, 0, 0, 0, 39, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dal Bloodclaw - Between 0-50% Health - Call For Help'),
@@ -228,7 +229,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4619, 0, 0, 0, 0, 0, 100, 0, 8000, 14000, 9000, 16000, 0, 0, 11, 7098, 96, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,     'Geltharis - Within 0-10 Range - Cast Curse of Mending'),
 (4619, 0, 1, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 6925, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Geltharis - Between 0-20% Health - Cast Gift of the Xavian (No Repeat)'),
 (5314, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 7000, 10000, 0, 0, 11, 20667, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Phantim - In Combat - Cast Corrosive Acid Breath'),
-(5314, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 10000, 10000, 0, 0, 12, 12898, 7, 600000, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Phantim - In Combat - Cast Summon Phantim Illusion'),
+(5314, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 10000, 10000, 0, 0, 12, 12898, 7, 300000, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Phantim - In Combat - Cast Summon Phantim Illusion'),
 --
 (6072, 0, 0, 0, 2, 0, 100, 0, 0, 75, 22100, 32600, 0, 0, 11, 17620, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Diathorus the Seeker - Between 0-75% Health - Cast Drain Life'),
 (6072, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Diathorus the Seeker - Between 0-50% Health - Call For Help (No Repeat)'),
@@ -325,14 +326,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 DELETE FROM `creature_text` WHERE `CreatureID` = 3816;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
-(3816, 0, 0,  '%s charges!', 16, 0, 100, 0, 0, 0, 37643, 0,  'Wild Buck');
+(3816, 0, 0, '%s charges!', 16, 0, 100, 0, 0, 0, 37643, 0, 'Wild Buck');
 
 UPDATE `creature` SET `spawntimesecs` = 75600, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 10642; -- Eck'alom
 UPDATE `creature` SET `spawntimesecs` = 30600, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 10643; -- Mugglefin
 UPDATE `creature` SET `spawntimesecs` = 37800, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 12037; -- Ursul'lok
 
 -- Glowing Soul Gem(5366), fix drop rate
-UPDATE `creature_loot_template` SET `Chance` = 4 WHERE `Item` = 5366,
+UPDATE `creature_loot_template` SET `Chance` = 4 WHERE `Item` = 5366;
 
 /* Freedom to Ruul */
 UPDATE `creature_template` SET `AIName` =  'SmartAI' WHERE `entry` = 12818;
