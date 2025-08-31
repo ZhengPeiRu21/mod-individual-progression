@@ -848,7 +848,10 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 26396, 18874, 0, 0, 18, 0, 28, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 26396, 23469, 0, 0, 18, 0, 28, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12796, 34129, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Raider Bork will not sell Swift Warstrider until the player has completed PROGRESSION_PRE_TBC'),
-(23, 12783, 35906, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lieutenant Karter will not sell Reins of the Black War Elekk until the player has completed PROGRESSION_PRE_TBC');
+(23, 12783, 35906, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lieutenant Karter will not sell Reins of the Black War Elekk until the player has completed PROGRESSION_PRE_TBC'),
+-- Battle standards
+(23, 112781, 18606, 0, 0, 18, 0, 9, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 112793, 18607, 0, 0, 18, 0, 23, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)');
 
 -- Gold prices for new Vanilla 60 PvP items added during 2.0
 UPDATE `item_template` SET `BuyPrice` = 43208, `SellPrice` = 8641 WHERE `entry` = 23314; -- Lieutenant Commander's Plate Helmet
@@ -912,8 +915,8 @@ WHERE `entry` IN (
 16526, 23251, 16528, 23252, 23253, 16503, 23254, 16501, 23255, 17570, 17573, 23256, 29604, 29605, 16506, 23257, 16507, 23258, 23259, 16521, 23260, 16524, 16514, 23244, 16516, 23243, 17610, 23261, 23262, 17613, 23263, 16489, 23264, 16492,
 16569, 16572, 16571, 16567, 16570, 16556, 16554, 16553, 16555, 16552, 17589, 17586, 17587, 17588, 17593, 29612, 29613, 29614, 16559, 16557, 16564, 16560, 16558, 16573, 16576, 16574, 16579, 16575, 16546, 16545, 16548, 16547, 16543, 17618, 17619, 17621, 17620, 17625, 16539, 16538, 16540, 16537, 16534,
 16565, 16566, 16568, 16551, 16549, 16550, 17591, 17590, 17592, 29615, 29616, 29617, 16563, 16561, 16562, 16577, 16578, 16580, 16541, 16542, 16544, 17623, 17622, 17624, 16536, 16533, 16535,
-18831, 23459, 23464, 16345, 18866, 18828, 18837, 23457, 23465, 18877, 18848, 18871, 18868, 23461, 23467, 18840, 18835, 18844, 18826, 23458, 23466, 18860, 23462, 23468, 23469, 18874
-);
+18831, 23459, 23464, 16345, 18866, 18828, 18837, 23457, 23465, 18877, 18848, 18871, 18868, 23461, 23467, 18840, 18835, 18844, 18826, 23458, 23466, 18860, 23462, 23468, 23469, 18874,
+18834, 18845, 18846, 18849, 18850, 18851, 18852, 18853, 18854, 18856, 18857, 18858, 18859, 18862, 18863, 18864, 29592, 29593, 18606, 18607);
 
 /* Restore Honor cost if needed to Vanilla PvP items */
 -- UPDATE `npc_vendor` SET `ExtendedCost` = 386 WHERE `entry` = 112781 AND `item` = 18606;
