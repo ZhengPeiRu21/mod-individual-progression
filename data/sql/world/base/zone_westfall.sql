@@ -17,7 +17,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (98, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Riverpaw Taskmaster - On Aggro - Say Line 0'),
 (98, 0, 1, 0, 74, 0, 100, 0, 0, 0, 15000, 16000, 30, 30, 11, 3229, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Riverpaw Taskmaster - Friendly Between 0-30% Health - Cast Quick Bloodlust'),
 (98, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Riverpaw Taskmaster - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(115, 0, 0, 0, 0, 0, 100, 0, 2000, 6000, 14000, 22000, 0, 0, 11, 7342, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Harvest Reaper - Within 0-5 Range - Cast Wide Slash'), -- test!
+(115, 0, 0, 0, 0, 0, 100, 0, 2000, 6000, 14000, 22000, 0, 0, 11, 7342, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Harvest Reaper - Within 0-5 Range - Cast Wide Slash'),
 (117, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Riverpaw Gnoll - On Aggro - Say Line 0'),
 (117, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Riverpaw Gnoll - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (121, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Defias Pathstalker - On Aggro - Say Line 0'),
@@ -25,10 +25,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (121, 0, 2, 0, 105, 0, 100, 0, 0, 0, 25200, 39100, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Defias Pathstalker - Target Casting - Cast Shield Bash'),
 (121, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Defias Pathstalker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (122, 0, 0, 0, 4, 0, 15, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Defias Highwayman - On Aggro - Say Line 0 (No Repeat)'),
-(122, 0, 1, 0, 67, 0, 100, 0, 1000, 3000, 1000, 3000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Defias Highwayman - Behind Target  - Cast Backstab'), -- test!
+(122, 0, 1, 0, 67, 0, 100, 0, 1000, 3000, 1000, 3000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Defias Highwayman - Behind Target  - Cast Backstab'),
 (122, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Defias Highwayman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (123, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Riverpaw Mongrel - On Aggro - Say Line 0'),
-(123, 0, 1, 0, 0, 0, 100, 1, 2300, 35400, 0, 0, 0, 0, 11, 8016, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Riverpaw Mongrel - Within 0-5 Range - Cast Spirit Decay (No Repeat)'), -- test!
+(123, 0, 1, 0, 0, 0, 100, 1, 2300, 35400, 0, 0, 0, 0, 11, 8016, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Riverpaw Mongrel - Within 0-5 Range - Cast Spirit Decay (No Repeat)'),
 (123, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Riverpaw Mongrel - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (124, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Riverpaw Brute - On Aggro - Say Line 0'),
 (124, 0, 1, 0, 0, 0, 100, 0, 3000, 16000, 19000, 21000, 0, 0, 11, 13730, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Riverpaw Brute - In Combat - Cast Demoralizing Shout'),
@@ -41,7 +41,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (127, 0, 1, 0, 106, 0, 100, 0, 0, 0, 17000, 31000, 0, 8, 11, 11831, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Murloc Tidehunter - Within 0-8 Range - Cast Frost Nova'),
 (127, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Murloc Tidehunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (154, 0, 0, 0, 0, 0, 90, 0, 5000, 16000, 20000, 28000, 0, 0, 11, 12166, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Greater Fleshripper - Within 0-5 Range - Cast Muscle Tear'),
-(157, 0, 0, 0, 9, 0, 100, 1, 0, 0, 500, 1000, 10, 25, 11, 6268, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Goretusk - Within 6-15 Range - Cast Rushing Charge (No Repeat)'), -- test!
+(157, 0, 0, 0, 9, 0, 100, 1, 0, 0, 500, 1000, 10, 25, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Goretusk - Within 6-15 Range - Cast Rushing Charge (No Repeat)'),
 (171, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Murloc Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (391, 0, 0, 0, 0, 0, 100, 0, 1000, 2000, 2000, 5000, 0, 0, 11, 3584, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Old Murk-Eye - In Combat - Cast Volatile Infection'),
 (391, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Old Murk-Eye - Between 0-15% Health - Flee For Assist'),
@@ -81,7 +81,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (504, 0, 2, 0, 0, 0, 100, 0, 6000, 14000, 20000, 31000, 0, 0, 11, 12024, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Defias Trapper - In Combat - Cast Net'),
 (504, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Defias Trapper - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (506, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Sergeant Brashclaw - On Aggro - Say Line 0'),
-(506, 0, 1, 0, 0, 0, 90, 0, 1000, 1000, 30000, 38000, 0, 0, 11, 3136, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Sergeant Brashclaw - In Combat - Cast Frenzied Command'), -- test!
+(506, 0, 1, 0, 0, 0, 90, 0, 1000, 1000, 30000, 38000, 0, 0, 11, 3136, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Sergeant Brashclaw - In Combat - Cast Frenzied Command'),
 (506, 0, 2, 0, 0, 0, 100, 0, 2000, 5000, 10000, 18000, 0, 0, 11, 5164, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Sergeant Brashclaw - Within 0-5 Range - Cast Knockdown'),
 (506, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Sergeant Brashclaw - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (513, 0, 0, 0, 0, 0, 100, 0, 11000, 13900, 20500, 33000, 0, 0, 11, 12024, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Murloc Netter - In Combat - Cast Net'),
