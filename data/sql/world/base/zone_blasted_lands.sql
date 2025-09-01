@@ -1,11 +1,11 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5984, 6011);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(5974, 5975, 5976, 5979, 5981, 5982, 5983, 5988, 5992, 5993, 5996, 5997, 5998, 5999, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 
-7665, 7667, 8297, 8299, 8300, 8301, 8302, 8303, 8304, 8675, 8716, 8717, 8718, 12396);
+(5974, 5975, 5976, 5979, 5982, 5983, 5988, 5992, 5993, 5996, 5997, 5998, 5999, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 
+7665, 7667, 8297, 8298, 8299, 8300, 8301, 8302, 8303, 8304, 8675, 8716, 8717, 8718, 12396);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(5974, 5975, 5976, 5979, 5981, 5982, 5983, 5984, 5988, 5992, 5993, 5996, 5997, 5998, 5999, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 6011, 
-7665, 7667, 8297, 8299, 8300, 8301, 8302, 8303, 8304, 8675, 8716, 8717, 8718, 12396);
+(5974, 5975, 5976, 5979, 5982, 5983, 5984, 5988, 5992, 5993, 5996, 5997, 5998, 5999, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 6011, 
+7665, 7667, 8297, 8298, 8299, 8300, 8301, 8302, 8303, 8304, 8675, 8716, 8717, 8718, 12396);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -21,8 +21,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (5979, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 10000, 24000, 0, 0, 11, 11962, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Wretched Lost One - In Combat - Cast Immolate'),
 (5979, 0, 1, 0, 0, 0, 100, 0, 17000, 39000, 29000, 39000, 0, 0, 11, 11963, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Wretched Lost One - In Combat - Cast Enfeeble'),
-(5981, 0, 0, 0, 106, 0, 100, 0, 1000, 3200, 2800, 5200, 0, 10, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Portal Seeker - Within 0-10 Range - Cast Arcane Explosion'),
-(5981, 0, 1, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 25, 40, 0, 0, 0, 0, 0, 0, 0,        'Portal Seeker - Within 0-40 Range - Cast Frostbolt'),
 (5982, 0, 0, 0, 12, 0, 100, 0, 0, 20, 30000, 35000, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Black Slayer - Target Between 0-20% Health - Cast Execute'),
 (5983, 0, 0, 0, 12, 0, 100, 0, 0, 20, 6000, 12000, 0, 0, 11, 8139, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Bonepicker - Target Between 0-20% Health - Cast Fevered Fatigue'),
 (5988, 0, 0, 0, 0, 0, 100, 0, 7000, 18000, 7000, 17000, 0, 0, 11, 5416, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Scorpok Stinger - Within 0-5 Range - Cast Venom Sting'),
@@ -81,6 +79,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8297, 0, 1, 0, 9, 0, 100, 0, 0, 0, 12000, 14000, 0, 5, 11, 9080, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Magronos the Unyielding - Within 0-5 Range - Cast Hamstring'),
 (8297, 0, 2, 3, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Magronos the Unyielding - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (8297, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Magronos the Unyielding - On Enrage - Say Line 0'),
+(8298, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20824, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Akubar the Seer - In Combat - Cast Lightning Bolt'),
+(8298, 0, 1, 0, 9, 0, 100, 0, 0, 0, 12000, 16000, 0, 30, 11, 20831, 65, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,         'Akubar the Seer - Within 0-30 Range - Cast Chain Lightning'),
+(8298, 0, 2, 0, 0, 0, 100, 0, 3000, 5000, 12000, 14000, 0, 0, 11, 11436, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Akubar the Seer - In Combat - Cast Slow'),
 --
 (8299, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Spiteflayer - On Respawn - Cast Thrash Proc'),
 (8299, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 15042, 32, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,    'Spiteflayer - In Combat - Cast Curse of Blood'),
