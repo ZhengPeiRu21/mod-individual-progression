@@ -1,3 +1,53 @@
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(7370, 7371, 7372, 7376, 7379, 12377, 12378, 12379, 12380);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(7370, 7371, 7372, 7376, 7379, 12377, 12378, 12379, 12380);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(7370, 0, 0, 0, 0, 0, 100, 0, 1000, 2000, 30000, 40000, 0, 0, 11, 18267, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Restless Shade - In Combat - Cast Curse of Weakness'),
+(7370, 0, 1, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 12531, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Restless Shade - In Combat - Cast Chilling Touch'),
+(7371, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Deadwind Mauler - On Aggro - Say Line 0'),
+(7371, 0, 1, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 10966, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,    'Deadwind Mauler - Within 0-10 Range - Cast Uppercut'),
+(7372, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Deadwind Warlock - On Aggro - Say Line 0'),
+(7372, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Deadwind Warlock - In Combat - Cast Shadow Bolt'),
+(7372, 0, 2, 0, 0, 0, 100, 0, 6000, 8000, 7000, 15000, 0, 0, 11, 11980, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Deadwind Warlock - In Combat - Cast Curse of Weakness'),
+(7372, 0, 3, 0, 0, 0, 100, 0, 9000, 11000, 11000, 18000, 0, 0, 11, 20787, 97, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Deadwind Warlock - In Combat - Cast Immolate'),
+(7376, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 16000, 19000, 0, 0, 11, 13443, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Sky Shadow - In Combat - Cast Rend'),
+(7379, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Deadwind Ogre Mage - On Aggro - Say Line 0'),
+(7379, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 12550, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Deadwind Ogre Mage - Out of Combat - Cast Lightning Shield'),
+(7379, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20824, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Deadwind Ogre Mage - In Combat - Cast Lightning Bolt'),
+(7379, 0, 3, 0, 0, 0, 100, 0, 7000, 9000, 16000, 20000, 0, 0, 11, 15039, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Deadwind Ogre Mage - In Combat - Cast Flame Shock'),
+(7379, 0, 4, 0, 2, 0, 100, 0, 0, 30, 30000, 36000, 0, 0, 11, 6742, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Deadwind Ogre Mage - Between 0-30% Health - Cast Bloodlust'),
+--
+(12377, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 11000, 14000, 0, 0, 11, 7713, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Wailing Spectre - In Combat - Cast Wailing Dead'),
+(12378, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Damned Soul - Combat - Cast Shadow Bolt'),
+(12378, 0, 1, 0, 0, 0, 100, 0, 0, 0, 7000, 10000, 0, 0, 11, 13748, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Damned Soul - Combat - Cast Arcane Bolt'),
+(12379, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 8000, 10000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Unliving Caretaker - Within 0-5 Range - Cast Strike'),
+(12379, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Unliving Caretaker - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(12379, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Unliving Caretaker - On Enrage - Say Line 0'),
+(12380, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Unliving Resident - Within 0-5 Range - Cast Sunder Armor'),
+(12380, 0, 1, 0, 105, 0, 100, 0, 6000, 8000, 6000, 9000, 0, 5, 11, 11978, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Unliving Resident - Target Casting - Cast Kick');
+
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (7371, 7372, 7379);
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+--
+(7371, 0, 0, 'I\'ll crush you!',                                  12, 0, 100, 0, 0, 0, 1925, 0, 'Deadwind Mauler'),
+(7371, 0, 1, 'Me smash! You die!',                                12, 0, 100, 0, 0, 0, 1926, 0, 'Deadwind Mauler'),
+(7371, 0, 2, 'Raaaaaaaaaaaaaaaaaaaaaaaaaaaaaar!!! Me smash $R!',  12, 0, 100, 0, 0, 0, 1927, 0, 'Deadwind Mauler'),
+(7372, 0, 0, 'I\'ll crush you!',                                  12, 0, 100, 0, 0, 0, 1925, 0, 'Deadwind Warlock'),
+(7372, 0, 1, 'Me smash! You die!',                                12, 0, 100, 0, 0, 0, 1926, 0, 'Deadwind Warlock'),
+(7372, 0, 2, 'Raaaaaaaaaaaaaaaaaaaaaaaaaaaaaar!!! Me smash $R!',  12, 0, 100, 0, 0, 0, 1927, 0, 'Deadwind Warlock'),
+(7379, 0, 0, 'I\'ll crush you!',                                  12, 0, 100, 0, 0, 0, 1925, 0, 'Deadwind Ogre Mage'),
+(7379, 0, 1, 'Me smash! You die!',                                12, 0, 100, 0, 0, 0, 1926, 0, 'Deadwind Ogre Mage'),
+(7379, 0, 2, 'Raaaaaaaaaaaaaaaaaaaaaaaaaaaaaar!!! Me smash $R!',  12, 0, 100, 0, 0, 0, 1927, 0, 'Deadwind Ogre Mage');
+
+
 -- Deadwind Brute
 DELETE FROM `creature_loot_template` WHERE `Entry` = 7369;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
