@@ -21,7 +21,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12459, 0, 3, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 11, 14081, 10, 0, 0, 0, 0, 0, 0,              'Blackwing Warlock - On Just Died - Despawn Instant'),
 (12459, 0, 4, 0, 7, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 9, 14081, 0, 10, 1, 0, 0, 0, 0,               'Blackwing Warlock - On Evade - Despawn Instant'),
 (12460, 0, 0, 0, 0, 0, 80, 0, 8000, 8000, 8000, 14000, 0, 0, 11, 24375, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Wyrmguard - In Combat - Cast War Stomp'),
-(12460, 0, 1, 0, 0, 0, 80, 0, 2000, 2000, 2000, 6000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Wyrmguard - Within 0-5 Range - Cast Cleave'),
+(12460, 0, 1, 0, 0, 0, 75, 0, 2000, 2000, 2000, 6000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Wyrmguard - Within 0-5 Range - Cast Cleave'),
 (12460, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22282, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Death Talon Wyrmguard - On Reset - Cast Brood Power'),
 (12460, 0, 3, 0, 0, 0, 100, 1, 4000, 4000, 0, 0, 0, 0, 11, 22276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Death Talon Wyrmguard - In Combat (4 sec) - Cast Elemental Shield'),
 (12461, 0, 0, 0, 0, 0, 75, 0, 2000, 2000, 2000, 6000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Overseer - Within 0-5 Range - Cast Cleave'),
