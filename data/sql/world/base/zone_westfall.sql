@@ -123,10 +123,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- Gina MacGregor <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=843 AND `item`=39354;
+DELETE FROM `npc_vendor` WHERE `entry` = 843 AND `item` = 39354;
 
 -- Christopher Hewen <General Trade Goods Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=8934 AND `item` IN (10648, 14341, 18256, 30817, 39354);
+DELETE FROM `npc_vendor` WHERE `entry` = 8934 AND `item` IN (10648, 14341, 18256, 30817, 39354);
 
 -- Restore Defias Pillager to original Fireball spell (was nerfed in 2.3)
 DELETE FROM `creature_template_spell` WHERE `CreatureID` = 589 AND `Index` = 0;
