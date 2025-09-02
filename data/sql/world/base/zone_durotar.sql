@@ -141,6 +141,21 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (695056, 5826, 0, 0, 1, 0, 0, 1, 1, 1, 424.321, -4245.13, 26.3462, 1.74533, 3600, 5, 0, 166, 178, 1, 0, 0, 0, '', 0, 0, NULL),
 (695057, 5826, 0, 0, 1, 0, 0, 1, 1, 1, 29.7214, -4278.99, 69.91, 0.785398, 3600, 0, 0, 166, 178, 0, 0, 0, 0, '', 0, 0, NULL);
 
+DELETE FROM `creature_addon` WHERE `guid` IN (6456, 12209, 12218, 12384); -- using custom guids now
+DELETE FROM `creature_addon` WHERE `guid` BETWEEN 695041 AND 695057;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(695041, 0, 0, 0, 1, 0, 0, NULL),
+(695042, 0, 0, 0, 1, 0, 0, NULL),
+(695043, 0, 0, 0, 1, 0, 0, NULL),
+(695048, 0, 0, 0, 1, 0, 0, NULL),
+(695049, 0, 0, 0, 1, 0, 0, NULL),
+(695050, 0, 0, 0, 1, 0, 0, NULL),
+(695051, 0, 0, 1114112, 1, 0, 0, ''), -- no idea what this does:
+(695052, 0, 0, 1114112, 1, 0, 0, ''), -- https://www.azerothcore.org/wiki/creature_addon#bytes1
+(695053, 0, 0, 1114112, 1, 0, 0, ''),
+(695055, 0, 0, 0, 1, 0, 0, NULL),
+(695056, 0, 0, 0, 1, 0, 0, NULL),
+(695057, 0, 0, 0, 1, 0, 0, NULL);
 
 DELETE FROM `pool_creature` WHERE `pool_entry` IN (601031, 601032, 601033, 601034, 601035);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
