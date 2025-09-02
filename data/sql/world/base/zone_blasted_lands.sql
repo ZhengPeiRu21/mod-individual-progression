@@ -1,11 +1,122 @@
--- Portal Seeker missing smart AI
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 5981;
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5984, 6011);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(5974, 5975, 5976, 5979, 5982, 5983, 5988, 5992, 5993, 5996, 5997, 5998, 5999, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 
+7665, 7667, 8297, 8298, 8299, 8300, 8301, 8302, 8303, 8304, 8675, 8716, 8717, 8718, 12396);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(5974, 5975, 5976, 5979, 5982, 5983, 5984, 5988, 5992, 5993, 5996, 5997, 5998, 5999, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 6011, 
+7665, 7667, 8297, 8298, 8299, 8300, 8301, 8302, 8303, 8304, 8675, 8716, 8717, 8718, 12396);
 
-DELETE FROM `smart_scripts` WHERE `entryorguid` = 5981;
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-(5981, 0, 0, 0, 106, 0, 100, 0, 1000, 3200, 2800, 5200, 0, 10, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Portal Seeker - Within 0-10 Range - Cast Arcane Explosion'),
-(5981, 0, 1, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 25, 40, 0, 0, 0, 0, 0, 0, 0,    'Portal Seeker - Within 0-40 Range - Cast Frostbolt');
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(5974, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dreadmaul Ogre - On Aggro - Say Line 0'),
+(5974, 0, 1, 0, 0, 0, 100, 0, 13000, 26000, 13000, 56000, 0, 0, 11, 11960, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Dreadmaul Ogre - Within 0-5 Range - Cast Curse of the Dreadmaul'),
+(5975, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Dreadmaul Ogre Mage - In Combat - Cast Fireball'),
+(5975, 0, 1, 0, 2, 0, 100, 0, 0, 30, 34000, 38000, 0, 0, 11, 6742, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Dreadmaul Ogre Mage - Between 0-30% Health - Cast Bloodlust'),
+(5976, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dreadmaul Brute - On Aggro - Say Line 0'),
+(5976, 0, 1, 0, 0, 0, 100, 0, 13000, 26000, 13000, 56000, 0, 0, 11, 11960, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Dreadmaul Brute - Within 0-5 Range - Cast Curse of the Dreadmaul'),
+--
+(5979, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 10000, 24000, 0, 0, 11, 11962, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Wretched Lost One - In Combat - Cast Immolate'),
+(5979, 0, 1, 0, 0, 0, 100, 0, 17000, 39000, 29000, 39000, 0, 0, 11, 11963, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Wretched Lost One - In Combat - Cast Enfeeble'),
+(5982, 0, 0, 0, 12, 0, 100, 0, 0, 20, 30000, 35000, 0, 0, 11, 7160, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Black Slayer - Target Between 0-20% Health - Cast Execute'),
+(5983, 0, 0, 0, 12, 0, 100, 0, 0, 20, 6000, 12000, 0, 0, 11, 8139, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Bonepicker - Target Between 0-20% Health - Cast Fevered Fatigue'),
+(5988, 0, 0, 0, 0, 0, 100, 0, 7000, 18000, 7000, 17000, 0, 0, 11, 5416, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Scorpok Stinger - Within 0-5 Range - Cast Venom Sting'),
+(5992, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12898, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Ashmane Boar - Out of Combat - Cast Smoke Aura Visual  (No Repeat)'),
+(5992, 0, 1, 0, 9, 0, 50, 1, 0, 0, 0, 0, 5, 20, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ashmane Boar - Within 5-20 Range - Cast Rushing Charge (No Repeat)'),
+(5993, 0, 0, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Helboar - On Aggro - Cast Rushing Charge'),
+(5993, 0, 1, 0, 0, 0, 100, 0, 11000, 16000, 17000, 32000, 0, 0, 11, 11970, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Helboar - In Combat - Cast Fire Nova'),
+--
+(5996, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Nethergarde Miner - In Combat - Cast Sunder Armor'),
+(5996, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Nethergarde Miner - Between 0-15% Health - Flee For Assist'),
+(5997, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Nethergarde Engineer - Outside 30 Range - Start Combat Movement'),
+(5997, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Nethergarde Engineer - Within 5-30 Range - Stop Combat Movement'),
+(5997, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Nethergarde Engineer - Within 0-5 Range - Start Combat Movement'),
+(5997, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Nethergarde Engineer - Within 5-30 Range - Cast Shoot'),
+(5997, 0, 4, 0, 0, 0, 100, 0, 8000, 11000, 12000, 16000, 5, 30, 11, 8858, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Nethergarde Engineer - In Combat - Cast Bomb'),
+(5997, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Nethergarde Engineer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5998, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 12000, 16000, 0, 0, 11, 5115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Nethergarde Foreman - In Combat - Cast Battle Command'),
+(5998, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Nethergarde Foreman - Between 0-15% Health - Flee For Assist'),
+(5999, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Nethergarde Soldier - In Combat - Cast Improved Blocking'),
+(5999, 0, 1, 0, 105, 0, 100, 0, 0, 0, 13000, 16000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Nethergarde Soldier - Target Casting - Cast Shield Bash'),
+--
+(6004, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Shadowsworn Cultist - Outside 30 Range - Start Combat Movement'),
+(6004, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Shadowsworn Cultist - Within 5-30 Range - Stop Combat Movement'),
+(6004, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Shadowsworn Cultist - Within 0-5 Range - Start Combat Movement'),
+(6004, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Shadowsworn Cultist - Within 5-30 Range - Cast Throw'),
+(6004, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Shadowsworn Cultist - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(6005, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Shadowsworn Thug - On Respawn - Cast Thrash Proc'),
+(6005, 0, 1, 0, 105, 0, 100, 0, 0, 0, 8400, 16100, 0, 5, 11, 11978, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Shadowsworn Thug - Target Casting - Cast Kick'),
+(6005, 0, 2, 0, 0, 0, 100, 0, 8000, 24000, 13000, 24000, 0, 0, 11, 8646, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Shadowsworn Thug - Within 0-5 Range - Cast Snap Kick'),
+(6006, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 8000, 15000, 0, 0, 11, 11015, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Shadowsworn Adept - Within 0-5 Range - Cast Blood Leech'),
+(6006, 0, 1, 0, 14, 0, 100, 1, 1200, 10, 0, 0, 0, 0, 11, 7154, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Shadowsworn Adept - Friendly Missing 1200 Health - Cast Dark Offering'),
+(6007, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 5000, 8000, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Shadowsworn Enforcer - Within 0-5 Range - Cast Cleave'),
+(6008, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 5108, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Shadowsworn Warlock - Out of Combat - Cast Voidwalker (No Repeat)'),
+(6008, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Shadowsworn Warlock - In Combat - Cast Shadow Bolt'),
+(6008, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 30000, 45000, 0, 0, 11, 11980, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Shadowsworn Warlock - In Combat - Cast Curse of Weakness'),
+(6008, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Shadowsworn Warlock - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(6009, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Shadowsworn Dreadweaver - In Combat - Cast Shadow Bolt'),
+(6009, 0, 1, 0, 0, 0, 100, 0, 8000, 11000, 19000, 24000, 0, 0, 11, 8994, 65, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Shadowsworn Dreadweaver - In Combat - Cast Banish'),
+(6009, 0, 2, 0, 0, 0, 100, 0, 12000, 16000, 30000, 45000, 0, 0, 11, 7098, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Shadowsworn Dreadweaver - In Combat - Cast Curse of Mending'),
+(6010, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 7000, 9000, 0, 0, 11, 13321, 320, 0, 0, 0, 0, 5, 30, 0, 1, 0, 0, 0, 0, 0,     'Felhound - In Combat - Cast Mana Burn'),
+--
+(7665, 0, 0, 0, 0, 0, 100, 0, 8000, 11000, 18000, 24000, 0, 0, 11, 12734, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Grol the Destroyer - In Combat - Cast Ground Smash'),
+(7665, 0, 1, 0, 0, 0, 100, 0, 20000, 25000, 40000, 45000, 0, 0, 11, 10101, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,  'Grol the Destroyer - Within 0-10 Range - Cast Knock Away'),
+(7665, 0, 3, 0, 8, 0, 100, 512, 12938, 0, 0, 0, 0, 0, 11, 12943, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Grol the Destroyer - On Spellhit Fel Curse - Cast Fel Curse Effect'),
+(7665, 0, 4, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 42, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Grol the Destroyer - On Reset - Set HP Invincibility'),
+(7665, 0, 5, 0, 8, 0, 100, 512, 12938, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Grol the Destroyer - On Spellhit Fel Curse - Remove Invincibility'),
+(7667, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 12544, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Lady Sevine - Out of Combat - Cast Frost Armor'),
+(7667, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Lady Sevine - In Combat - Cast Shadow Bolt'),
+(7667, 0, 2, 0, 0, 0, 100, 0, 9000, 12000, 24000, 27000, 0, 0, 11, 12742, 97, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Lady Sevine - In Combat - Cast Immolate'),
+(7667, 0, 3, 0, 0, 0, 100, 0, 2000, 5000, 30000, 45000, 0, 0, 11, 12741, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Lady Sevine - In Combat - Cast Curse of Weakness'),
+(7667, 0, 4, 0, 0, 0, 100, 0, 7000, 9000, 15000, 25000, 0, 0, 11, 12740, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Lady Sevine - In Combat - Cast Summon Infernal Servant'),
+(7667, 0, 5, 0, 8, 0, 100, 512, 12938, 0, 0, 0, 0, 0, 11, 12943, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Lady Sevine - On Spellhit Fel Curse - Cast Fel Curse Effect'),
+(7667, 0, 6, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 42, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Lady Sevine - On Reset - Set HP Invincibility'),
+(7667, 0, 7, 0, 8, 0, 100, 512, 12938, 0, 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Lady Sevine - On Spellhit Fel Curse - Remove Invincibility'),
+(8297, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 5000, 8000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Magronos the Unyielding - Within 0-5 Range - Cast Cleave'),
+(8297, 0, 1, 0, 9, 0, 100, 0, 0, 0, 12000, 14000, 0, 5, 11, 9080, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Magronos the Unyielding - Within 0-5 Range - Cast Hamstring'),
+(8297, 0, 2, 3, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Magronos the Unyielding - Between 0-30% Health - Cast Enrage (No Repeat)'),
+(8297, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Magronos the Unyielding - On Enrage - Say Line 0'),
+(8298, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20824, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Akubar the Seer - In Combat - Cast Lightning Bolt'),
+(8298, 0, 1, 0, 9, 0, 100, 0, 0, 0, 12000, 16000, 0, 30, 11, 20831, 65, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,         'Akubar the Seer - Within 0-30 Range - Cast Chain Lightning'),
+(8298, 0, 2, 0, 0, 0, 100, 0, 3000, 5000, 12000, 14000, 0, 0, 11, 11436, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Akubar the Seer - In Combat - Cast Slow'),
+--
+(8299, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Spiteflayer - On Respawn - Cast Thrash Proc'),
+(8299, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 15042, 32, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,    'Spiteflayer - In Combat - Cast Curse of Blood'),
+(8300, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 5, 11, 19448, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Ravage - Within 0-5 Range - Cast Poison'),
+(8300, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 16000, 24000, 0, 0, 11, 7367, 33, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Ravage - Within 0-5 Range - Cast Infected Bite'),
+(8301, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 9000, 17000, 0, 0, 11, 5416, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Clack the Reaver - Within 0-5 Range - Cast Venom Sting'),
+(8301, 0, 1, 0, 0, 0, 100, 0, 2000, 4000, 12000, 15000, 0, 0, 11, 16790, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Clack the Reaver - Within 0-5 Range - Cast Knockdown'),
+(8302, 0, 0, 0, 0, 0, 100, 0, 10000, 15000, 18000, 25000, 0, 0, 11, 3635, 64, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Deatheye - Within 0-5 Range - Cast Crystal Gaze'),
+(8302, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 12020, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                   'Deatheye - Between 0-50% Health - Cast Call of the Grave'),
+(8303, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8260, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Grunter - On Aggro - Cast Rushing Charge'),
+(8303, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 9000, 12000, 0, 0, 11, 19471, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,     'Grunter - In Combat - Cast Berserker Charge'),
+(8303, 0, 2, 0, 0, 0, 100, 0, 4000, 6000, 9000, 12000, 0, 0, 11, 3604, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Grunter - Within 0-5 Range - Cast Tendon Rip'),
+(8304, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 5000, 8000, 0, 0, 11, 12057, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Dreadscorn - Within 0-5 Range - Cast Strike'),
+(8304, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 9000, 12000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Dreadscorn - Within 0-5 Range - Cast Backhand'),
+(8304, 0, 2, 0, 2, 0, 100, 0, 0, 30, 30000, 35000, 0, 0, 11, 21049, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Dreadscorn - Between 0-30% Health - Cast Bloodlust'),
+--
+(8675, 0, 0, 0, 0, 0, 100, 0, 10000, 16000, 16000, 24000, 0, 0, 11, 13321, 320, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Felbeast - In Combat - Cast Mana Burn'),
+(8716, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 5000, 8000, 0, 0, 11, 17287, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Dreadlord - In Combat - Cast Mind Blast'),
+(8716, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 18000, 23000, 0, 0, 11, 13704, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Dreadlord - In Combat - Cast Psychic Scream'),
+(8716, 0, 2, 0, 0, 0, 100, 0, 7000, 9000, 30000, 35000, 0, 0, 11, 12098, 1, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,     'Dreadlord - In Combat - Cast Sleep'),
+(8717, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 8000, 21000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Felguard Elite - Within 0-5 Range - Cast Cleave'),
+(8717, 0, 1, 0, 0, 0, 100, 0, 4000, 20000, 8000, 24000, 0, 0, 11, 13737, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Felguard Elite - Within 0-5 Range - Cast Mortal Strike'),
+(8717, 0, 2, 0, 0, 0, 100, 0, 8000, 15000, 10000, 29000, 0, 0, 11, 16046, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Felguard Elite - In Combat - Cast Blast Wave'),
+(8718, 0, 0, 0, 0, 0, 100, 0, 2000, 13000, 6000, 18000, 0, 0, 11, 20817, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Manahound - In Combat - Cast Mana Burn'),
+(8718, 0, 1, 0, 0, 0, 100, 0, 8000, 13000, 21000, 33000, 0, 0, 11, 3604, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Manahound - Within 0-5 Range - Cast Tendon Rip'),
+(8718, 0, 2, 0, 0, 0, 100, 0, 3000, 8000, 6000, 20000, 0, 0, 11, 14331, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Manahound - Within 0-5 Range - Cast Vicious Rend'),
+(12396, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 18000, 24000, 0, 0, 11, 16005, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Doomguard Commander - In Combat - Cast Rain of Fire'),
+(12396, 0, 1, 0, 0, 0, 100, 0, 12000, 15000, 20000, 25000, 0, 0, 11, 16727, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Doomguard Commander - In Combat - Cast War Stomp'),
+(12396, 0, 2, 0, 0, 0, 100, 0, 2000, 4000, 25000, 32000, 0, 0, 11, 20812, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Doomguard Commander - In Combat - Cast Cripple'),
+(12396, 0, 3, 0, 0, 0, 100, 0, 7000, 14000, 17000, 22000, 0, 0, 11, 15090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Doomguard Commander - In Combat - Cast Dispel Magic'),
+(12396, 0, 4, 5, 8, 0, 100, 0, 23019, 0, 0, 0, 0, 0, 50, 179644, 180, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Doomguard Commander - On Spellhit \'Crystal Prison Dummy DND\' - Summon Gameobject \'Imprisoned Doomguard\''),
+(12396, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Doomguard Commander - On Spellhit \'Crystal Prison Dummy DND\' - Despawn Instant');
 
+
+-- Portal Seeker missing waypoints
 DELETE FROM `creature` WHERE `guid` = 605981;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
