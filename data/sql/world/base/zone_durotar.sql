@@ -188,7 +188,7 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (601035, 1, 'Geolord Mottle - Durotar');
 
 -- Warlord Kolkanis(5808), fix movement and respawn time
-UPDATE `creature` SET `spawntimesecs` = 3600, `MovementType` = 1, `Wander_distance` = 5 WHERE `guid` = 12268;
+UPDATE `creature` SET `spawntimesecs` = 3600, `MovementType` = 1, `Wander_distance` = 5 WHERE `guid` = 12260;
 
 -- Death Flayer, fix waypoints and respawn time
 DELETE FROM `creature` WHERE `id1` = 5823;
