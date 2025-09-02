@@ -92,7 +92,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (3205, 0, 0, 0, 2, 0, 100, 0, 0, 50, 16000, 21000, 0, 0, 11, 332, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Zalazane - Between 0-50% Health - Cast Healing Wave'),
 (3205, 0, 1, 0, 0, 0, 100, 0, 6000, 11000, 12000, 21000, 0, 0, 11, 7289, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Zalazane - In Combat - Cast Shrink'),
-(3206, 0, 0, 0, 16, 0, 100, 0, 324, 1, 15000, 30000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Voodoo Troll - Missing Buff - Cast Lightning Shield'), -- test!
+(3206, 0, 0, 0, 16, 0, 100, 0, 324, 1, 15000, 30000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Voodoo Troll - Missing Buff - Cast Lightning Shield'),
 (3206, 0, 1, 0, 2, 0, 100, 0, 0, 50, 16000, 21000, 0, 0, 11, 332, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Voodoo Troll - Between 0-50% Health - Cast Healing Wave'),
 (3206, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Voodoo Troll - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3207, 0, 0, 0, 0, 0, 100, 0, 3000, 8000, 19000, 24000, 0, 0, 11, 11962, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Hexed Troll - In Combat - Cast Immolate'),
