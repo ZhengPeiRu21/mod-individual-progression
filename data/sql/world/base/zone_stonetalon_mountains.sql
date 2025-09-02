@@ -1,10 +1,10 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (4067, 11910);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(3988, 3989, 3991, 3992, 3993, 4005, 4006, 4007, 4009, 4012, 4016, 4017, 4018, 4019, 4020, 4021, 4022, 4023, 4024, 4027, 4028, 4030, 4031, 4036, 4037, 4038, 4041, 4042, 4044, 
+(3988, 3989, 3991, 3992, 3993, 3999, 4003, 4004, 4005, 4006, 4007, 4009, 4012, 4016, 4017, 4018, 4019, 4020, 4021, 4022, 4023, 4024, 4027, 4028, 4030, 4031, 4036, 4037, 4038, 4041, 4042, 4044, 
 4050, 4051, 4052, 4053, 4057, 4061, 4070, 4202, 4409, 5916, 5928, 5931, 5932, 8518, 11911, 11912, 11913, 11914, 11915, 11917, 11918, 11920, 11921, 12579);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(3988, 3989, 3991, 3992, 3993, 4005, 4006, 4007, 4009, 4012, 4016, 4017, 4018, 4019, 4020, 4021, 4022, 4023, 4024, 4027, 4028, 4030, 4031, 4036, 4037, 4038, 4041, 4042, 4044, 
+(3988, 3989, 3991, 3992, 3993, 3999, 4003, 4004, 4005, 4006, 4007, 4009, 4012, 4016, 4017, 4018, 4019, 4020, 4021, 4022, 4023, 4024, 4027, 4028, 4030, 4031, 4036, 4037, 4038, 4041, 4042, 4044, 
 4050, 4051, 4052, 4053, 4057, 4061, 4067, 4070, 4202, 4409, 5916, 5928, 5931, 5932, 8518, 11910, 11911, 11912, 11913, 11914, 11915, 11917, 11918, 11920, 11921, 12579);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
@@ -28,6 +28,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3992, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Venture Co. Engineer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3993, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 70000, 85000, 0, 0, 11, 7979, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Venture Co. Machine Smith - In Combat - Cast Compact Harvest Reaper'),
 (3993, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Venture Co. Machine Smith - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(3999, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Windshear Digger - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4003, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20792, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Windshear Geomancer - In Combat - Cast Frostbolt'),
+(4003, 0, 1, 0, 0, 0, 100, 0, 4000, 11000, 7000, 15000, 0, 0, 11, 8139, 97, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Windshear Geomancer - In Combat - Cast Fevered Fatigue'),
+(4003, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Windshear Geomancer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(4004, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 30000, 45000, 0, 0, 11, 3631, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Windshear Overlord - In Combat - Cast Battle Fury'),
+(4004, 0, 1, 0, 0, 0, 100, 0, 4000, 11000, 7000, 15000, 0, 0, 11, 8139, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Windshear Overlord - In Combat - Cast Fevered Fatigue'),
+(4004, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Windshear Overlord - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (4005, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Deepmoss Creeper - On Respawn - Cast Poison Proc'),
 (4006, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 12000, 0, 30, 11, 745, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Deepmoss Webspinner - Within 0-30 Range - Cast Web'),
@@ -67,12 +75,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4050, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 782, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Cenarion Caretaker - On Aggro - Cast Thorns'),
 (4050, 0, 1, 0, 0, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7090, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cenarion Caretaker - In Combat - Cast Bear Form (No Repeat)'),
 (4050, 0, 2, 0, 9, 0, 100, 0, 0, 0, 7000, 10000, 0, 5, 11, 12161, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Cenarion Caretaker - Within 0-5 Range - Cast Maul'),
-(4051, 0, 0, 0, 74, 0, 100, 0, 0, 0, 16000, 18000, 0, 0, 11, 1430, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Cenarion Botanist - Friendly Between 0-90% Health - Cast Rejuvenation'),
+(4051, 0, 0, 0, 74, 0, 100, 0, 0, 0, 16000, 18000, 90, 40, 11, 1430, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Cenarion Botanist - Friendly Between 0-90% Health - Cast Rejuvenation'),
 (4051, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Cenarion Botanist - In Combat - Cast Wrath'),
 (4051, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Cenarion Botanist - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4052, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Cenarion Druid - On Aggro - Set phase to 1'),
 (4052, 0, 1, 0, 0, 1, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Cenarion Druid - In Combat - Cast Wrath (Phase 1)'),
-(4052, 0, 2, 3, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 5759, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cenarion Druid - Between 0-50% Health - Cast Cat Form (No Repeat)'), -- test!
+(4052, 0, 2, 3, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 5759, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cenarion Druid - Between 0-50% Health - Cast Cat Form (No Repeat)'),
 (4052, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Cenarion Druid - On Cast Cat Form - Set phase to 2'),
 (4052, 0, 4, 0, 0, 0, 100, 0, 12000, 16000, 30000, 35000, 0, 0, 11, 5217, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Cenarion Druid - In Combat - Cast Tigers Fury (Phase 2)'),
 --
@@ -97,11 +105,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4070, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Venture Co. Builder - Within 0-5 Range - Start Combat Movement'),
 (4070, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Venture Co. Builder - Within 5-30 Range - Cast Shoot'),
 (4070, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Venture Co. Builder - Between 0-15% Health - Flee For Assist (No Repeat)'),
+
 (4202, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gerenzo Wrenchwhistle - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4409, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gatekeeper Kordurus - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5916, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Sentinel Amarassan - On Aggro - Set phase to 1'),
 (5916, 0, 1, 0, 0, 1, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Sentinel Amarassan - In Combat - Cast Wrath (Phase 1)'),
-(5916, 0, 2, 3, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 5759, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Sentinel Amarassan - Between 0-50% Health - Cast Cat Form (No Repeat)'), -- test!
+(5916, 0, 2, 3, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 5759, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Sentinel Amarassan - Between 0-50% Health - Cast Cat Form (No Repeat)'),
 (5916, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Sentinel Amarassan - On Cast Cat Form - Set phase to 2'),
 (5916, 0, 4, 0, 0, 0, 100, 0, 12000, 16000, 30000, 35000, 0, 0, 11, 5217, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Sentinel Amarassan - In Combat - Cast Tigers Fury (Phase 2)'),
 (5928, 0, 0, 0, 0, 0, 100, 0, 11000, 18000, 12000, 15000, 0, 0, 11, 3405, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Sorrow Wing - Within 0-5 Range - Cast Soul Rend'),
