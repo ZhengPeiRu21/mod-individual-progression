@@ -66,7 +66,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7452, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Crazed Owlbeast - On Enrage - Say Line 0'),
 (7453, 0, 0, 0, 0, 0, 100, 0, 7000, 11000, 15000, 18000, 0, 0, 11, 15798, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Moontouched Owlbeast - In Combat - Cast Moonfire'),
 (7453, 0, 1, 0, 74, 0, 100, 0, 0, 0, 20000, 32000, 50, 40, 11, 12160, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Moontouched Owlbeast - Friendly Between 0-50% Health - Cast Rejuvenation'),
-(7454, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Berserk Owlbeast - In Combat - Cast Frenzy'),
+(7454, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Berserk Owlbeast - In Combat - Cast Enrage'),
 (7454, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Berserk Owlbeast - On Enrage - Say Line 0'),
 --
 (7456, 0, 0, 0, 9, 0, 100, 0, 0, 0, 13000, 16000, 0, 5, 11, 3589, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Winterspring Screecher - Within 0-5 Range - Cast Deafening Screech'),
