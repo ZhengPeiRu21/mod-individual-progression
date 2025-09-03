@@ -5,7 +5,7 @@ UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN
 7460, 7461, 7462, 7463, 7523, 7524, 10684, 10196, 10198, 10199, 10200, 10201, 10659, 10662, 10663, 10664, 10737, 10738, 10741, 10806, 10807, 10916, 14372);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
 (7428, 7429, 7430, 7431, 7432, 7433, 7434, 7436, 7437, 7438, 7439, 7440, 7441, 7442, 7443, 7444, 7445, 7446, 7447, 7448, 7449, 7450, 7451, 7452, 7453, 7454, 7455, 7456, 7457, 7458, 7459, 
-7460, 7461, 7462, 7463, 7523, 7524, 10684, 10196, 10198, 10199, 10200, 10201, 10659, 10662, 10663, 10664, 10737, 10738, 10741, 10806, 10807, 10916, 14372);
+7460, 7461, 7462, 7463, 7523, 7524, 10684, 10196, 10198, 10199, 10200, 10201, 10659, 10660, 10661, 10662, 10663, 10664, 10737, 10738, 10741, 10806, 10807, 10916, 14372);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -54,7 +54,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7447, 0, 0, 0, 0, 0, 100, 0, 0, 0, 7000, 10000, 0, 0, 11, 16552, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Fledgling Chillwind - In Combat - Cast Venom Spit'),
 (7448, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 15850, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                    'Chillwind Chimaera - On Aggro - Cast Chilled'),
 (7448, 0, 1, 0, 0, 0, 100, 0, 8000, 13000, 12000, 15000, 0, 0, 11, 15797, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Chillwind Chimaera - In Combat - Cast Lightning Breath'),
-(7449, 0, 0, 0, 0, 0, 75, 0, 5000, 15000, 30000, 45000, 0, 0, 11, 3132, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Chillwind Ravager - In Combat - Cast Chilling Breath'), -- test!
+(7449, 0, 0, 0, 0, 0, 75, 0, 5000, 15000, 30000, 45000, 0, 0, 11, 3132, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Chillwind Ravager - In Combat - Cast Chilling Breath'),
 (7449, 0, 1, 2, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Chillwind Ravager - Between 0-25% Health - Cast Enrage (No Repeat)'),
 (7449, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Chillwind Ravager - On Enrage - Say Line 0'),
 --
@@ -109,11 +109,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10201, 0, 1, 0, 0, 0, 100, 0, 14000, 28000, 24000, 30000, 0, 0, 11, 7645, 96, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,  'Lady Hederine - In Combat - Cast Dominate Mind'),
 (10201, 0, 2, 0, 0, 0, 100, 0, 9000, 15000, 16000, 21000, 0, 0, 11, 12096, 96, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Lady Hederine - In Combat - Cast Fear'),
 --
-(10659, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 31, 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Cobalt Whelp - On Aggro - Set Phase Random Between 1-2'), -- test!
+(10659, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 31, 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Cobalt Whelp - On Aggro - Set Phase Random Between 1-2'),
 (10659, 0, 1, 2, 0, 1, 100, 0, 3000, 3000, 15000, 20000, 0, 0, 11, 15089, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Cobalt Whelp - In Combat - Cast Frost Shock (Phase 1)'),
 (10659, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 31, 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Cobalt Whelp - On Cast - Set Phase Random Between 1-2'),
 (10659, 0, 3, 4, 0, 2, 100, 0, 3000, 3000, 15000, 20000, 0, 0, 11, 13443, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Cobalt Whelp - In Combat - Cast Rend (Phase 2'),
 (10659, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 31, 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Cobalt Whelp - On Cast - Set Phase Random Between 1-2'),
+(10660, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9672, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Cobalt Broodling - In Combat - Cast Frostbolt'),
+(10660, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 17008, 257, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 'Cobalt Broodling - Within 0-10 Range - Cast Drain Mana'),
+(10661, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 5000, 15000, 0, 0, 11, 16340, 64, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Spell Eater - Within 0-5 Range - Cast Frost Breath'),
 --
 (10662, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 34304, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Spellmaw - On Respawn - Cast Damage Immunity: Arcane'),
 (10662, 0, 1, 0, 0, 0, 100, 0, 10000, 10000, 60000, 63000, 0, 0, 11, 16099, 64, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0, 'Spellmaw - Within 0-5 Range - Cast Frost Breath'),
