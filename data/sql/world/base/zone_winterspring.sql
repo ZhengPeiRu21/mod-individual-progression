@@ -132,7 +132,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10738, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 17205, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'High Chief Winterfall - Out of Combat - Cast Winterfall Firewater'),
 (10738, 0, 1, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15793, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'High Chief Winterfall - Within 0-5 Range - Cast Maul'),
 (10738, 0, 2, 0, 0, 0, 100, 0, 0, 9000, 9000, 13000, 0, 0, 11, 12548, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'High Chief Winterfall - In Combat - Cast Frost Shock'),
-(10738, 0, 3, 0, 0, 0, 100, 0, 9000, 14000, 16000, 21000, 0, 0, 11, 8384, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'High Chief Winterfall - In Combat - Cast Blizzard'),
+(10738, 0, 3, 0, 0, 0, 100, 0, 9000, 14000, 16000, 21000, 0, 0, 11, 8364, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'High Chief Winterfall - In Combat - Cast Blizzard'),
 (10741, 0, 0, 0, 0, 0, 100, 0, 10000, 15000, 10000, 15000, 0, 0, 11, 14100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Sian-Rotam - In Combat - Cast Terrifying Roar '),
 (10741, 0, 1, 0, 0, 0, 100, 0, 3000, 8000, 23000, 28000, 0, 0, 11, 13443, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Sian-Rotam - Within 0-5 Range - Cast Rend'),
 (10741, 0, 2, 0, 0, 0, 100, 0, 6000, 12000, 16000, 22000, 0, 0, 11, 3604, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Sian-Rotam - Within 0-5 Range - Cast Tendon Rip'),
