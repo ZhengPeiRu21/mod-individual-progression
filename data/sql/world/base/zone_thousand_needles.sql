@@ -118,6 +118,7 @@ DELETE FROM `creature_addon` WHERE `guid` = 21591;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (21591, 215910, 0, 0, 0, 0, 0, NULL);
 
+DELETE FROM `waypoint_data` WHERE `id` IN (44990); -- previously used incorrect id
 DELETE FROM `waypoint_data` WHERE `id` IN (215910);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
 (215910, 1, -5204.92, -1565.98, -48.1972, 0, 0, 0, 0, 100, 0),
