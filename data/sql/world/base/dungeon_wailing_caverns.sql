@@ -92,9 +92,9 @@ DELETE FROM `creature` WHERE `id1` IN (3655, 3671);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
-(14055,  3655, 0, 0, 1, 0, 0, 1, 1, 1, -658.948, -2006.91, 61.816, 3.46793,  275, 0, 0, 386, 0, 0, 0, 0, 0, '', 0, 0, NULL),      -- Mad Magglish
-(695071, 3655, 0, 0, 1, 0, 0, 1, 1, 1, -729.461, -2123.53, 67.0995, 0.57721, 275, 0, 0, 386, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(695072, 3655, 0, 0, 1, 0, 0, 1, 1, 1, -785.027, -2084.49, 74.7325, 0.48296, 275, 0, 0, 386, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(14055,  3655, 0, 0, 1, 0, 0, 1, 1, 1, -658.948, -2006.91, 61.816, 3.46793,     275, 0, 0, 386, 0, 0, 0, 0, 0, '', 0, 0, NULL),   -- Mad Magglish
+(695071, 3655, 0, 0, 1, 0, 0, 1, 1, 1, -729.461, -2123.53, 67.0995, 0.57721,    275, 0, 0, 386, 0, 0, 0, 0, 0, '', 0, 0, NULL),   -- https://www.youtube.com/watch?v=LyWBLEYizL4
+(695072, 3655, 0, 0, 1, 0, 0, 1, 1, 1, -786.0494, -2086.528, 74.86207, 0.48296, 275, 0, 0, 386, 0, 0, 0, 0, 0, '', 0, 0, NULL),   -- https://www.youtube.com/watch?v=xNqTbW-WECk
 --
 (27366,  3671, 0, 0, 43, 0, 0, 1, 1, 1, 15.3449, 297.176, -87.7016, 2.80998, 36000, 0, 0, 2165, 490, 0, 0, 0, 0, '', 0, 0, NULL), -- Lady Anacondra
 (695073, 3671, 0, 0, 43, 0, 0, 1, 1, 1, -53.984, 271.39, -92.844, 2.41,      36000, 0, 0, 2165, 490, 0, 0, 0, 0, '', 0, 0, NULL),
