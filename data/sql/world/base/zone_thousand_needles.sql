@@ -77,9 +77,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4249, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 12000, 16000, 0, 0, 11, 6576, 64, 0, 0, 0, 0, 6, 5, 0, 0, 0, 0, 0, 0, 0,    'Pesterhide Snarler - Within 0-5 Range - Cast Intimidating Growl'),
 --
 (4507, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450700, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Daisy - On Respawn - Call Action List'),
-(4507, 0, 1, 2, 38, 1, 100, 513, 1, 1, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Daisy - On Data Set 1 1 (Phase 1) - Set Phase 2 (No Repeat)'),
+(4507, 0, 1, 2, 38, 1, 100, 513, 1, 1, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Daisy - On Data Set 1 1 (Phase 1) - Set Phase 0 (No Repeat)'),
 (4507, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450701, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Daisy - Linked - Call Action List'),
-(4507, 0, 3, 4, 38, 1, 100, 513, 1, 2, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Daisy - On Data Set 1 2 (Phase 1) - Set Phase 2 (No Repeat)'),
+(4507, 0, 3, 4, 38, 1, 100, 513, 1, 2, 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Daisy - On Data Set 1 2 (Phase 1) - Set Phase 0 (No Repeat)'),
 (4507, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 450701, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Daisy - Linked - Call Action List'),
 --
 (5933, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Achellios the Banished - On Aggro - Cast Battle Shout'),
