@@ -166,8 +166,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14271, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ribchaser - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 
--- update respawn times for Gath'Ilzogg and Singe
-UPDATE `creature` SET `spawntimesecs` = 900 WHERE `id1` IN (334, 335);
+-- update respawn time for Stonewatch elites
+UPDATE `creature` SET `spawntimesecs` = 900 WHERE `id1` IN (334, 335, 436, 486, 4064, 4065, 4462, 4464);
 
 -- missing patrols
 DELETE FROM `creature` WHERE `guid` IN (17972, 18379, 18389, 18394, 18396, 18397, 18434, 18451, 18455, 26167, 28362, 31829);
