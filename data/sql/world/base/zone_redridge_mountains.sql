@@ -13,9 +13,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (334, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gath Ilzogg - On Aggro - Cast Defensive Stance'),
 (334, 0, 1, 0, 0, 0, 100, 0, 2000, 12000, 32000, 39000, 0, 0, 11, 3427, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Gath Ilzogg - In Combat - Cast Infected Wound'),
-(334, 0, 2, 0, 0, 0, 100, 0, 2500, 2500, 5200, 12100, 0, 0, 11, 11792, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Gath Ilzogg - In Combat - Cast Opening Cage'), -- test!
-(334, 0, 4, 0, 105, 0, 100, 0, 0, 0, 5200, 12100, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Gath Ilzogg - Target Casting - Cast Shield Bash'),
-(334, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Gath Ilzogg - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(334, 0, 2, 0, 105, 0, 100, 0, 0, 0, 5200, 12100, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Gath Ilzogg - Target Casting - Cast Shield Bash'),
+(334, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Gath Ilzogg - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (335, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 13375, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Singe - In Combat - Cast Fireball'),
 (335, 0, 1, 0, 0, 0, 100, 0, 4000, 10000, 20000, 22000, 0, 0, 11, 12468, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Singe - In Combat - Cast Flamestrike'),
 (345, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Bellygrub - On Aggro - Cast Rushing Charge'),
