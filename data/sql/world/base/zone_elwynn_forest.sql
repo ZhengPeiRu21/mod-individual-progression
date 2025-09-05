@@ -1,9 +1,9 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (118, 285, 525, 735);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(6, 30, 38, 40, 46, 61, 79, 80, 94, 97, 99, 100, 103, 113, 116, 257, 327, 330, 448, 473, 474, 475, 476, 478, 524, 732, 881);
+(6, 30, 38, 40, 43, 46, 61, 79, 80, 94, 97, 99, 100, 103, 113, 116, 257, 327, 330, 448, 473, 474, 475, 476, 478, 524, 732, 881);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(6, 30, 38, 40, 46, 61, 79, 80, 94, 97, 99, 100, 103, 113, 116, 118, 257, 285, 327, 330, 448, 473, 474, 475, 476, 478, 524, 525, 732, 735, 881);
+(6, 30, 38, 40, 43, 46, 61, 79, 80, 94, 97, 99, 100, 103, 113, 116, 118, 257, 285, 327, 330, 448, 473, 474, 475, 476, 478, 524, 525, 732, 735, 881);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -15,6 +15,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (38, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Defias Thug - On Aggro - Say Line 0'),
 (40, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Kobold Miner - On Aggro - Say Line 0'),
 (40, 0, 1, 0, 0, 0, 100, 0, 4000, 14000, 38000, 42000, 0, 0, 11, 6016, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Kobold Miner - Within 0-5 Range - Cast Pierce Armor'),
+(43, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11959, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Mine Spider - On Respawn - Cast Poison Proc'),
 (46, 0, 0, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 3368, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Murloc Forager - Between 0-40% Health - Cast Drink Minor Potion'),
 (61, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Thuros Lightfingers - On Aggro - Say Line 0)'),
 (79, 0, 0, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Narg the Taskmaster - On Aggro - Say Line 0)'), 
