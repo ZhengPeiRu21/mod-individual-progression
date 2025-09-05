@@ -177,10 +177,10 @@ UPDATE `creature` SET `spawntimesecs` = 900 WHERE `id1` IN (
 DELETE FROM `creature` WHERE `guid` IN (17972, 18434, 18455, 31829);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(17972, 437, 0, 0, 0, 0, 0, 1, 1, 1, -9524.7, -2876.99, 93.2134, 4.76323,   300, 0, 0, 531, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Renegade
-(18434, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9390.57, -3026.71, 137.051, 2.81873,  900, 0, 0, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
-(18455, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9356.56, -3085.09, 164.701, 3.18573,  900, 0, 0, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
-(31829, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9421.56, -3059.08, 136.809, 0.669421, 900, 0, 0, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL); -- Blackrock Shadowcaster
+(17972, 437, 0, 0, 0, 0, 0, 1, 1, 1, -9524.7, -2876.99, 93.2134, 4.76323,   300, 0, 1, 531, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Renegade
+(18434, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9390.57, -3026.71, 137.051, 2.81873,  900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
+(18455, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9356.56, -3085.09, 164.701, 3.18573,  900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
+(31829, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9421.56, -3059.08, 136.809, 0.669421, 900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL); -- Blackrock Shadowcaster
 
 DELETE FROM `creature_addon` WHERE `guid` IN (17972, 18434, 18455, 31829);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
