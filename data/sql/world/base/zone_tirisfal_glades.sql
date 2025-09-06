@@ -228,28 +228,37 @@ DELETE FROM `creature_queststarter` WHERE `id` = 5667 AND `quest` = 1470;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5667, 1470);
 
 
+-- fix respawn times and movement
+UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1910; -- Muad
+UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id1` = 1911; -- Deeb
+UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1936; -- Farmer Solliden
+
+UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 1911;
+
 -- fix patrols
-DELETE FROM `creature` WHERE `guid` IN (37920, 38292, 44762, 44763, 44990, 49222);
+DELETE FROM `creature` WHERE `guid` IN (37920, 38292, 42142, 44762, 44763, 44990, 49222);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (37920, 1540, 0, 0, 0, 0, 0, 1, 1, 1, 2943.75, -554.264, 109.317, 3.22052, 300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Vanguard
 (38292, 3547, 0, 0, 0, 0, 0, 1, 1, 1, 2282.38, 343.513, 34.21, 4.52215,    300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Hamlin Atkins
+(42142, 10356, 0, 0, 0, 0, 0, 1, 1, 0, 2405.87, 974.879, 71.1481, 4.45794, 5400, 0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Bayne
 (44762, 1539, 0, 0, 0, 0, 0, 1, 1, 1, 3066.25, -538.546, 126.765, 3.39442, 300,  0, 1, 186, 191, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Neophyte
 (44763, 1538, 0, 0, 0, 0, 0, 1, 1, 1, 3054.86, -558.552, 125.615, 4.58007, 300,  0, 1, 166, 178, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Friar
 (44990, 1655, 0, 0, 0, 0, 0, 1, 1, 0, 2742.71, 785.519, 119.133, 0.453786, 300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Nissa Agamand
 (49222, 1533, 0, 0, 0, 0, 0, 1, 1, 0, 2885.04, 973.306, 116.983, 0.199966, 5400, 0, 1, 187, 0,   2, 0, 0, 0, '', 0, 0, NULL); -- Tormented Spirit
 
-DELETE FROM `creature_addon` WHERE `guid` IN (37920, 38292, 44762, 44763, 44990, 49222);
+DELETE FROM `creature_addon` WHERE `guid` IN (37920, 38292, 42142, 44762, 44763, 44990, 49222);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (37920, 379200, 0, 0, 1, 0, 0, NULL),
 (38292, 382920, 0, 0, 1, 0, 0, NULL),
+(42142, 421420, 0, 0, 1, 0, 0, NULL),
 (44762, 447620, 0, 0, 1, 0, 0, NULL),
 (44763, 447630, 0, 0, 1, 0, 0, NULL),
 (44990, 449900, 0, 0, 1, 0, 0, NULL),
 (49222, 492220, 0, 0, 1, 0, 0, NULL);
 
-DELETE FROM `waypoint_data` WHERE `id` IN (379200, 382920, 447620, 447630, 449900, 492220);
+DELETE FROM `waypoint_data` WHERE `id` IN (379200, 382920, 421420, 447620, 447630, 449900, 492220);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
 --
 (379200, 1, 2960.3, -552.672, 110.327, NULL, 0, 0, 0, 100, 0),
@@ -343,6 +352,23 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (382920, 64, 2285.92, 393.952, 34.0544, NULL, 0, 0, 0, 100, 0),
 (382920, 65, 2293.63, 396.229, 34.0751, NULL, 0, 0, 0, 100, 0),
 (382920, 66, 2305.73, 397.131, 33.9895, NULL, 0, 0, 0, 100, 0),
+--
+(421420, 1, 2412.42, 956.28, 71.9938, 5.19032, 0, 0, 0, 100, 0),
+(421420, 2, 2452.55, 917.825, 77.2033, 5.5516, 0, 0, 0, 100, 0),
+(421420, 3, 2470.74, 898.827, 81.6906, 2.64956, 0, 0, 0, 100, 0),
+(421420, 4, 2470.75, 895.358, 81.7894, 2.46696, 0, 0, 0, 100, 0),
+(421420, 5, 2461.1, 883.453, 80.1041, 1.43612, 0, 0, 0, 100, 0),
+(421420, 6, 2437.6, 879.715, 73.9088, 2.88321, 0, 0, 0, 100, 0),
+(421420, 7, 2401.93, 887.366, 67.1455, 2.95783, 0, 0, 0, 100, 0),
+(421420, 8, 2359.51, 911.356, 62.4552, 2.77129, 0, 0, 0, 100, 0),
+(421420, 9, 2328.25, 934.621, 61.2293, 4.32834, 0, 0, 0, 100, 0),
+(421420, 10, 2289, 937.2, 53.6748, 3.09527, 0, 0, 0, 100, 0),
+(421420, 11, 2270.99, 952.763, 46.5578, 0.856879, 0, 0, 0, 100, 0),
+(421420, 12, 2281.11, 995.701, 45.3271, 5.09803, 0, 0, 0, 100, 0),
+(421420, 13, 2307.68, 1013.27, 46.3188, 6.0621, 0, 0, 0, 100, 0),
+(421420, 14, 2354.59, 1005.3, 55.0511, 6.16617, 0, 0, 0, 100, 0),
+(421420, 15, 2401.77, 1004.12, 61.9311, 5.46324, 0, 0, 0, 100, 0),
+(421420, 16, 2413.23, 981.802, 69.8087, 4.89187, 0, 0, 0, 100, 0),
 --
 (447620, 1, 3060.96, -544.896, 126.663, NULL, 0, 0, 0, 100, 0),
 (447620, 2, 3069.91, -537.846, 126.605, NULL, 0, 0, 0, 100, 0),
