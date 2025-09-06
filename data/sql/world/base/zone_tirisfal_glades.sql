@@ -228,7 +228,7 @@ DELETE FROM `creature_queststarter` WHERE `id` = 5667 AND `quest` = 1470;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5667, 1470);
 
 
--- fix waypoints
+-- fix patrols
 DELETE FROM `creature` WHERE `guid` IN (37920, 38292, 44762, 44763, 44990, 49222);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
