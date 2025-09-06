@@ -1,3 +1,116 @@
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(1504, 1505, 1506, 1507, 1522, 1523, 1525, 1526, 1527, 1528, 1529, 1530, 1531, 1532, 1533, 1534, 1535, 1536, 1537, 1538, 1539, 1540, 1544, 1545, 1553, 1554, 1555, 
+1657, 1660, 1662, 1664, 1665, 1674, 1675, 1688, 1753, 1765, 1910, 1911, 1934, 1935, 1936, 1941, 1943, 1944, 10356, 10358, 13158, 15195);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(1504, 1505, 1506, 1507, 1522, 1523, 1525, 1526, 1527, 1528, 1529, 1530, 1531, 1532, 1533, 1534, 1535, 1536, 1537, 1538, 1539, 1540, 1544, 1545, 1553, 1554, 1555, 
+1657, 1660, 1662, 1664, 1665, 1674, 1675, 1688, 1753, 1765, 1910, 1911, 1934, 1935, 1936, 1941, 1943, 1944, 10356, 10358, 13158, 15195);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(1504, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6752, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Young Night Web Spider - On Respawn - Cast Weak Poison Proc'),
+(1505, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6752, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Night Web Spider - On Respawn - Cast Weak Poison Proc'),
+(1506, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Convert - On Aggro - Say Line 0'),
+(1507, 0, 0, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Initiate - On Aggro - Say Line 0'),
+(1507, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Initiate - Out of Combat - Cast Frost Armor'),
+(1507, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Scarlet Initiate - In Combat - Cast Fireball'),
+(1522, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 13322, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Darkeye Bonecaster - In Combat - Cast Frostbolt'),
+(1523, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 21000, 25000, 0, 0, 11, 589, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Cracked Skull Soldier - On Aggro - Cast Shadow Word: Pain'),
+(1525, 0, 0, 0, 9, 0, 100, 9, 0, 0, 9000, 15000, 0, 5, 11, 3234, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Rotting Dead - Within 0-5 Range - Cast Disease Touch'),
+(1526, 0, 0, 0, 9, 0, 100, 9, 0, 0, 9000, 15000, 0, 5, 11, 3234, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Ravaged Corpse - Within 0-5 Range - Cast Disease Touch'),
+(1527, 0, 0, 0, 9, 0, 100, 9, 0, 0, 9000, 15000, 0, 5, 11, 3234, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Hungering Dead - Within 0-5 Range - Cast Disease Touch'),
+(1528, 0, 0, 0, 9, 0, 100, 9, 0, 0, 9000, 15000, 0, 5, 11, 3234, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Shambling Horror - Between 20-80% Health - Cast Disease Touch'),
+(1529, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3235, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Bleeding Horror - On Respawn - Cast Rancid Blood Proc'),
+(1530, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3235, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Rotting Ancestor - On Respawn - Cast Rancid Blood Proc'),
+(1531, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 21000, 0, 8, 11, 7713, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Lost Soul - Within 0-8 Range - Cast Wailing Dead'),
+(1532, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 21000, 0, 8, 11, 7713, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Wandering Spirit - Within 0-8 Range - Cast Wailing Dead'),
+(1533, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 21000, 0, 8, 11, 7713, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Tormented Spirit - Within 0-8 Range - Cast Wailing Dead'),
+(1534, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 21000, 0, 8, 11, 7713, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Wailing Ancestor - Within 0-8 Range - Cast Wailing Dead'),
+--
+(1535, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Warrior - On Aggro - Say Line 0'),
+(1535, 0, 1, 0, 0, 0, 100, 0, 3000, 5000, 45000, 50000, 0, 0, 11, 3238, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Warrior - In Combat - Cast Nimble Reflexes'),
+(1535, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1536, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Missionary - On Aggro - Say Line 0'),
+(1536, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Missionary - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1537, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Zealot - On Aggro - Say Line 0'),
+(1537, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Zealot - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1538, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Friar - On Aggro - Say Line 0'),
+(1538, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 1243, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Friar - Out of Combat - Cast Power Word: Fortitude'),
+(1538, 0, 2, 0, 14, 0, 100, 0, 55, 40, 8000, 12000, 0, 0, 11, 2052, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Friar - Friendly Missing 55 Health - Cast Lesser Heal'),
+(1538, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Friar - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1539, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Neophyte - On Aggro - Say Line 0'),
+(1539, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 12544, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Neophyte - Out of Combat - Cast Frost Armor'),
+(1539, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 13322, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Scarlet Neophyte - In Combat - Cast Frostbolt'),
+(1539, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Neophyte - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1540, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Vanguard - On Aggro - Say Line 0'),
+(1540, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 180000, 184000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Vanguard - In Combat - Cast Defensive Stance'),
+(1540, 0, 2, 0, 105, 0, 100, 0, 0, 0, 9000, 16000, 0, 5, 11, 72, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Scarlet Vanguard - Target Casting - Cast Shield Bash'),
+(1540, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Vanguard - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(1544, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Vile Fin Minor Oracle - Out of Combat - Cast Lightning Shield'),
+(1544, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Vile Fin Minor Oracle - In Combat - Cast Lightning Bolt'),
+(1544, 0, 2, 0, 0, 0, 100, 0, 11000, 16000, 12000, 16000, 0, 0, 11, 2607, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Vile Fin Minor Oracle - In Combat - Cast Shock'),
+(1544, 0, 3, 0, 16, 0, 100, 0, 324, 1, 15000, 30000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Vile Fin Minor Oracle - On Missing Buff - Cast Lightning Shield'),
+(1544, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Minor Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1545, 0, 0, 0, 67, 0, 100, 0, 3000, 7000, 7000, 12000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Vile Fin Muckdweller - Behind Target - Cast Backstab'),
+(1545, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Muckdweller - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1553, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 0, 5, 11, 3242, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Greater Duskbat - Within 0-5 Range - Cast Ravage'),
+(1554, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 0, 5, 11, 3242, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Vampiric Duskbat - Within 0-5 Range - Cast Ravage'),
+(1555, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Vicious Night Web Spider - On Respawn - Cast Poison Proc'),
+(1657, 0, 0, 0, 1, 0, 100, 0, 0, 0, 30000, 60000, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Devlin Agamand - Out of Combat - Say Line 1'),
+(1657, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Devlin Agamand - On Aggro - Say Line 0'),
+(1657, 0, 2, 0, 9, 0, 100, 0, 0, 0, 16000, 30000, 0, 5, 11, 3148, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Devlin Agamand - Within 0-5 Range - Cast Head Crack'),
+(1660, 0, 0, 0, 0, 0, 100, 0, 1000, 7000, 5000, 28000, 0, 0, 11, 12169, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Bodyguard - In Combat - Cast Shield Block'),
+(1660, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Bodyguard - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1662, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Perrine - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1664, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 182000, 186000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Vachon - In Combat - Cast Defensive Stance'),
+(1664, 0, 1, 0, 105, 0, 100, 0, 0, 0, 16000, 24000, 0, 5, 11, 72, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Vachon - Target Casting - Cast Shield Bash'),
+(1664, 0, 2, 0, 0, 0, 100, 0, 8000, 14000, 18000, 30000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Captain Vachon - In Combat - Cast Improved Blocking'),
+(1664, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Vachon - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1665, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 240000, 300000, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Melrache - In Combat - Cast Devotion Aura'),
+(1665, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Melrache - Within 0-5 Range - Cast Strike'),
+(1665, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Melrache - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(1674, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Gnoll - On Aggro - Say Line 0'),
+(1674, 0, 1, 0, 0, 0, 100, 0, 7000, 21000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Gnoll - In Combat - Cast Curse of Thule'), -- test!
+(1674, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Rot Hide Gnoll - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1675, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Mongrel - On Aggro - Say Line 0'),
+(1675, 0, 1, 0, 0, 0, 100, 0, 7000, 14000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Mongrel - In Combat - Cast Curse of Thule'), -- test!
+(1688, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11959, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Night Web Matriarch - On Respawn - Cast Poison Proc'),
+(1753, 0, 0, 0, 2, 0, 100, 0, 4000, 9000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Maggot Eye - In Combat - Cast Curse of Thule'), -- test!
+(1753, 0, 1, 0, 2, 0, 100, 0, 0, 75, 7000, 14000, 0, 0, 11, 3243, 64, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,          'Maggot Eye - Between 0-75% Health - Cast Life Harvest'),
+(1765, 0, 0, 0, 0, 0, 100, 0, 4000, 14000, 34000, 60000, 0, 0, 11, 3149, 24604, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Worg - In Combat - Cast Furious Howl'), -- test!
+--
+(1910, 0, 0, 0, 0, 0, 100, 0, 2000, 6000, 6000, 10000, 0, 0, 11, 2607, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Muad - In Combat - Cast Shock'),
+(1910, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 16000, 50, 40, 11, 332, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Muad - Friendly Between 0-50% Health - Cast Healing Wave'),
+(1910, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Muad - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1911, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Deeb - In Combat - Cast Lightning Bolt'),
+(1911, 0, 1, 0, 0, 0, 100, 0, 2000, 6000, 6000, 6000, 0, 0, 11, 2607, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Deeb - In Combat - Cast Shock'),
+(1911, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Deeb - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(1934, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Tirisfal Farmer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1935, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Tirisfal Farmhand - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1936, 0, 0, 0, 0, 0, 100, 0, 2400, 2900, 8700, 9200, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Farmer Solliden - Within 0-5 Range - Cast Strike'),
+(1941, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Graverobber - On Aggro - Say Line 0'),
+(1941, 0, 1, 0, 0, 0, 100, 0, 7000, 14000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Graverobber - In Combat - Cast Curse of Thule'), -- test!
+(1943, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Puddlejumper - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(1944, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Vile Fin Minor Oracle - Out of Combat - Cast Lightning Shield'),
+(1944, 0, 1, 0, 16, 0, 100, 0, 324, 1, 15000, 30000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Vile Fin Minor Oracle - On Missing Buff - Cast Lightning Shield'),
+(1944, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Minor Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(10356, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 21000, 25000, 0, 0, 11, 13443, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Bayne - Within 0-5 Range - Cast Rend'),
+(10356, 0, 1, 0, 9, 0, 100, 0, 0, 0, 20000, 24000, 0, 5, 11, 3604, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Bayne - Within 0-5 Range - Cast Tendon Rip'),
+(10358, 0, 0, 0, 0, 0, 100, 0, 6000, 11000, 21000, 27000, 0, 0, 11, 7068, 96, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Fellicents Shade - Within 0-20 Range - Cast Veil of Shadow'),
+(10358, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 13901, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Fellicents Shade - In Combat - Cast Arcane Bolt'),
+(10358, 0, 2, 0, 106, 0, 100, 0, 0, 0, 12000, 17000, 0, 8, 11, 11975, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Fellicents Shade - Within 0-8 Range - Cast Arcane Explosion'),
+(13158, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Lieutenant Sanders - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(15195, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 18368, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Wickerman Guardian - Within 0-5 Range - Cast Strike'),
+(15195, 0, 1, 0, 0, 0, 100, 0, 8000, 14000, 9000, 15000, 0, 0, 11, 19128, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Wickerman Guardian - Within 0-5 Range - Cast Knockdown'),
+(15195, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 25007, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Wickerman Guardian - On Just Died - Cast Wickerman Guardian Ember');
+
+
 /* Drop chance for Rattlecage Skull was incorrectly set to 15 - updated to 80 */
 UPDATE `creature_loot_template` SET `Chance` = 80 WHERE `Entry` = 1890 AND `Item` = 6281;
 
