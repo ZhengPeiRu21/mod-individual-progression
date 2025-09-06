@@ -100,6 +100,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8503, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gibblewilt - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 
+-- fix respawn times
+UPDATE `creature` SET `spawntimesecs` = 270  WHERE `id1` = 808;  -- Grik'nir the Cold
+UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1119; -- Hammerspine
+UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1137; -- Edan the Howler
+UPDATE `creature` SET `spawntimesecs` = 270  WHERE `id1` = 1961; -- Mangeclaw
+UPDATE `creature` SET `spawntimesecs` = 270  WHERE `id1` = 6124; -- Captain Beld
+
 -- Beginnings (Warlock)
 DELETE FROM `creature_questender` WHERE `id` = 460 AND `quest` = 1599;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (460, 1599);
