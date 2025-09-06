@@ -75,14 +75,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1665, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Melrache - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (1674, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Gnoll - On Aggro - Say Line 0'),
-(1674, 0, 1, 0, 0, 0, 100, 0, 7000, 21000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Gnoll - In Combat - Cast Curse of Thule'), -- test!
+(1674, 0, 1, 0, 0, 0, 100, 0, 7000, 21000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Gnoll - In Combat - Cast Curse of Thule'),
 (1674, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Rot Hide Gnoll - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1675, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Mongrel - On Aggro - Say Line 0'),
-(1675, 0, 1, 0, 0, 0, 100, 0, 7000, 14000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Mongrel - In Combat - Cast Curse of Thule'), -- test!
+(1675, 0, 1, 0, 0, 0, 100, 0, 7000, 14000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Mongrel - In Combat - Cast Curse of Thule'),
 (1688, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11959, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Night Web Matriarch - On Respawn - Cast Poison Proc'),
-(1753, 0, 0, 0, 2, 0, 100, 0, 4000, 9000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Maggot Eye - In Combat - Cast Curse of Thule'), -- test!
+(1753, 0, 0, 0, 2, 0, 100, 0, 4000, 9000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Maggot Eye - In Combat - Cast Curse of Thule'),
 (1753, 0, 1, 0, 2, 0, 100, 0, 0, 75, 7000, 14000, 0, 0, 11, 3243, 64, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,          'Maggot Eye - Between 0-75% Health - Cast Life Harvest'),
-(1765, 0, 0, 0, 0, 0, 100, 0, 4000, 14000, 34000, 60000, 0, 0, 11, 3149, 24604, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Worg - In Combat - Cast Furious Howl'), -- test!
+(1765, 0, 0, 0, 0, 0, 100, 0, 4000, 14000, 34000, 60000, 0, 0, 11, 3149, 24604, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Worg - In Combat - Cast Furious Howl'),
 --
 (1910, 0, 0, 0, 0, 0, 100, 0, 2000, 6000, 6000, 10000, 0, 0, 11, 2607, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Muad - In Combat - Cast Shock'),
 (1910, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 16000, 50, 40, 11, 332, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Muad - Friendly Between 0-50% Health - Cast Healing Wave'),
@@ -95,7 +95,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1935, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Tirisfal Farmhand - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1936, 0, 0, 0, 0, 0, 100, 0, 2400, 2900, 8700, 9200, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Farmer Solliden - Within 0-5 Range - Cast Strike'),
 (1941, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Graverobber - On Aggro - Say Line 0'),
-(1941, 0, 1, 0, 0, 0, 100, 0, 7000, 14000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Graverobber - In Combat - Cast Curse of Thule'), -- test!
+(1941, 0, 1, 0, 0, 0, 100, 0, 7000, 14000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Graverobber - In Combat - Cast Curse of Thule'),
 (1943, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Puddlejumper - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1944, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Vile Fin Minor Oracle - Out of Combat - Cast Lightning Shield'),
 (1944, 0, 1, 0, 16, 0, 100, 0, 324, 1, 15000, 30000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Vile Fin Minor Oracle - On Missing Buff - Cast Lightning Shield'),
