@@ -14,7 +14,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (1767, 0, 0, 0, 0, 0, 100, 0, 8000, 17000, 32000, 58000, 0, 0, 11, 3252, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Vile Fin Shredder - In Combat - Cast Shred'),
 (1767, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Shredder - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(1768, 0, 0, 0, 11, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Vile Fin Tidehunter - Out of Combat - Cast Frost Armor'),
+(1768, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Vile Fin Tidehunter - Out of Combat - Cast Frost Armor'),
 (1768, 0, 1, 0, 106, 0, 100, 0, 0, 0, 21000, 28000, 0, 8, 11, 12748, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Vile Fin Tidehunter - Within 0-8 Range - Cast Frost Nova'),
 (1768, 0, 2, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 4980, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Vile Fin Tidehunter - In Combat - Cast Quick Frost Ward'),
 (1768, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Tidehunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -168,6 +168,7 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 
 -- Quest: The Dead Fields - Nightlash now gets summoned by killing Rot Hide Mystics
 DELETE FROM `creature` WHERE `id1` = 1983;
+DELETE FROM `creature_addon` WHERE `guid` = 28379;
 
 -- Quest: Call of Water (Shaman)
 UPDATE `quest_template` SET `LogDescription`='Speak to the Minor Manifestation of Water in Silverpine Forest.' WHERE `ID`=100;
