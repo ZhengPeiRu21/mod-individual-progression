@@ -19,11 +19,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1768, 0, 2, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 4980, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Vile Fin Tidehunter - In Combat - Cast Quick Frost Ward'),
 (1768, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Tidehunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1769, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Moonrage Whitescalp - Out of Combat - Cast Frost Armor'),
+--
 (1772, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Gladerunner - On Aggro - Say Line 0'),
 (1772, 0, 1, 0, 0, 0, 100, 0, 7000, 20000, 32000, 54000, 0, 0, 11, 3237, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Gladerunner - In Combat - Cast Curse of Thule'),
 (1773, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Mystic - On Aggro - Say Line 0'),
 (1773, 0, 1, 0, 74, 0, 100, 0, 0, 0, 14000, 22000, 50, 40, 11, 332, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Rot Hide Mystic - Friendly Between 0-50% Health - Cast Healing Wave'),
 (1773, 0, 2, 0, 0, 0, 100, 0, 2000, 12000, 30000, 45000, 0, 0, 11, 3237, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Mystic - In Combat - Cast Curse of Thule'),
+(1773, 0, 3, 0, 6, 0, 20, 0, 0, 0, 0, 0, 0, 0, 12, 1983, 4, 150000, 0, 0, 0, 8, 0, 0, 0, 0, 1073.84, 1543.37, 28.6752, 0.174533, 'Rot Hide Mystic - On Just Died - Summon Creature \'Nightlash\''),
+--
 (1779, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 6958, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Moonrage Glutton - Within 0-5 Range - Cast Blood Leech'),
 (1780, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Moss Stalker - On Respawn - Cast Poison Proc'),
 (1781, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Mist Creeper - On Respawn - Cast Poison Proc'),
@@ -117,11 +120,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1971, 0, 0, 0, 11, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7668, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ivar the Foul - On Respawn - Cast Foul Odor (No Repeat)'),
 (1973, 0, 0, 0, 0, 0, 100, 0, 8000, 19000, 36000, 51000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Ravenclaw Guardian - In Combat - Cast Improved Blocking'),
 (1974, 0, 0, 0, 0, 0, 100, 0, 26000, 26000, 32000, 44000, 0, 0, 11, 3269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Ravenclaw Drudger - In Combat - Cast Blessing of Thule'),
-(1983, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 21000, 25000, 0, 0, 11, 3485, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,    'Nightlash - Within 0-10 Range - Cast Wail of Nightlash'), -- test!
+(1983, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 21000, 25000, 0, 0, 11, 3485, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,    'Nightlash - Within 0-10 Range - Cast Wail of Nightlash'),
 (1983, 0, 1, 0, 14, 0, 100, 1, 150, 30, 0, 0, 0, 0, 11, 3477, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Nightlash - Friendly Missing 150 Health - Cast Spirit Steal (No Repeat)'),
+(1983, 0, 2, 0, 6, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Savage - On Aggro - Say Line 0'),
+
 (2053, 0, 0, 0, 0, 0, 100, 0, 12000, 26000, 28000, 36000, 0, 0, 11, 3261, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Haggard Refugee - Within 0-5 Range - Cast Ignite'),
 (2053, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Haggard Refugee - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2054, 0, 0, 0, 0, 0, 100, 0, 1000, 8000, 19000, 32000, 0, 0, 11, 1776, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Sickly Refugee - In Combat - Cast Gouge'), -- test!
+(2054, 0, 0, 0, 0, 0, 100, 0, 1000, 8000, 19000, 32000, 0, 0, 11, 1776, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Sickly Refugee - In Combat - Cast Gouge'),
 (2054, 0, 1, 0, 0, 0, 100, 0, 3000, 9000, 12000, 19000, 0, 0, 11, 101, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Sickly Refugee - In Combat - Cast Trip'),
 (2054, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Sickly Refugee - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2120, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 3000, 0, 0, 11, 20792, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Archmage Ataeric - In Combat - Cast Frostbolt'),
@@ -155,6 +160,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12433, 0, 0, 0, 2, 0, 100, 0, 0, 20, 32100, 38100, 0, 0, 11, 12040, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Krethis Shadowspinner - Between 0-20% Health - Cast Shadow Shield'),
 (12433, 0, 1, 0, 0, 0, 100, 0, 9000, 15000, 12000, 17000, 0, 0, 11, 17439, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Krethis Shadowspinner - In Combat - Cast Shadow Shock');
 
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (1983);
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(1983, 0, 0, 'I shall return in time...', 12, 0, 100, 0, 0, 0, 500,  0, 'Nightlash');
+
+
+-- Quest: The Dead Fields - Nightlash now gets summoned by killing Rot Hide Mystics
+DELETE FROM `creature` WHERE `id1` = 1983;
 
 -- Quest: Call of Water (Shaman)
 UPDATE `quest_template` SET `LogDescription`='Speak to the Minor Manifestation of Water in Silverpine Forest.' WHERE `ID`=100;
