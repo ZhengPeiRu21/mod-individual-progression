@@ -122,8 +122,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1974, 0, 0, 0, 0, 0, 100, 0, 26000, 26000, 32000, 44000, 0, 0, 11, 3269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Ravenclaw Drudger - In Combat - Cast Blessing of Thule'),
 (1983, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 21000, 25000, 0, 0, 11, 3485, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,    'Nightlash - Within 0-10 Range - Cast Wail of Nightlash'),
 (1983, 0, 1, 0, 14, 0, 100, 1, 150, 30, 0, 0, 0, 0, 11, 3477, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Nightlash - Friendly Missing 150 Health - Cast Spirit Steal (No Repeat)'),
-(1983, 0, 2, 0, 6, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rot Hide Savage - On Aggro - Say Line 0'),
-
+(1983, 0, 2, 0, 6, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Nightlash - On Just Died - Say Line 0'),
+--
 (2053, 0, 0, 0, 0, 0, 100, 0, 12000, 26000, 28000, 36000, 0, 0, 11, 3261, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Haggard Refugee - Within 0-5 Range - Cast Ignite'),
 (2053, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Haggard Refugee - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2054, 0, 0, 0, 0, 0, 100, 0, 1000, 8000, 19000, 32000, 0, 0, 11, 1776, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Sickly Refugee - In Combat - Cast Gouge'),
