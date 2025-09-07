@@ -163,7 +163,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (1983);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
-(1983, 0, 0, 'I shall return in time...', 12, 0, 100, 0, 0, 0, 500,  0, 'Nightlash');
+(1983, 0, 0, 'I shall return in time...', 12, 0, 100, 0, 0, 0, 500, 0, 'Nightlash');
 
 
 -- Quest: The Dead Fields - Nightlash now gets summoned by killing Rot Hide Mystics
