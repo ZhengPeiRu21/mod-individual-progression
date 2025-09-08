@@ -1,3 +1,10 @@
+-- Summon Warhorse - Tome of Nobility (Paladin)
+DELETE FROM `creature_queststarter` WHERE `quest` IN (1661, 4485, 4486); 
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6171, 1661), (6179, 4485), (5149, 4486);
+
+DELETE FROM `creature_questender` WHERE `id` = 6171 AND `quest` IN (1661, 4485, 4486);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6171, 1661), (6171, 4485), (6171, 4486);
+
 -- Re-enable Summon Felsteed (Warlock)
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (3631, 4487, 4488, 4489, 4490);
 
@@ -7,21 +14,16 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 3631), (5172, 
 DELETE FROM `creature_questender` WHERE `id` = 6251 AND `quest` IN (3631, 4487, 4488, 4489, 4490);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6251, 3631), (6251, 4487), (6251, 4488), (6251, 4489), (6251, 4490);
 
-
--- Summon Warhorse - Tome of Nobility (Paladin)
-DELETE FROM `creature_queststarter` WHERE `quest` IN (1661, 4485, 4486); 
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6171, 1661), (6179, 4485), (5149, 4486);
-
-DELETE FROM `creature_questender` WHERE `id` = 6171 AND `quest` IN (1661, 4485, 4486);
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6171, 1661), (6171, 4485), (6171, 4486);
-
+-- Warlock Dreadsteed Quest Line
+UPDATE `quest_template` SET `RequiredItemCount1` = 10, `LogDescription` = "Bring 10 Elixirs of Shadow Power to Gorzeeki Wildeyes in the Burning Steppes." WHERE `ID` = 7626; -- Bell of Dethmoora
+UPDATE `quest_template` SET `RequiredItemCount1` = 35, `LogDescription` = "Bring 35 Black Dragonscales to Gorzeeki Wildeyes in the Burning Steppes." WHERE `ID` = 7628; -- Doomsday Candle
+UPDATE `quest_template` SET `RequiredItemCount1` = 3,  `LogDescription` = "Bring 3 Arcanite Bars to Gorzeeki in the Burning Steppes." WHERE `ID` = 7630; -- Arcanite
 
 -- Remove incorrect mail about riding which doesn't match Vanilla levels
 DELETE FROM `mail_level_reward` WHERE `level` <= 60;
 
 -- Move letter about cold weather flying to level 71 instead of 70, as in Wotlk classic
 UPDATE `mail_level_reward` SET `level` = 71 WHERE `mailTemplateId` IN (285, 284);
-
 
 -- Riding Skills
 UPDATE npc_trainer SET ReqLevel = 40        WHERE SpellID = 33388; -- Apprentice Riding
