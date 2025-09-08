@@ -317,20 +317,11 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4206, 0, 7, 165, 50, 'Show menu if leatherworking is 50 or higher'), -- Krulmoo Fullmoon <Expert Leatherworker>
 (15, 4350, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');      -- Mahani <Expert Tailor>
 
+
 -- Vile Familiars (Warlock)
 DELETE FROM `creature_questender` WHERE `id` = 5765 AND `quest` = 1485;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (5765, 1485);
 
--- Summon Felsteed (Warlock)
-DELETE FROM `creature_questender` WHERE `id` = 6251 AND `quest` IN (3631, 4487, 4488, 4489, 4490);
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6251, 3631), (6251, 4487), (6251, 4488), (6251, 4489), (6251, 4490);
-
-DELETE FROM `creature_queststarter` WHERE `id` = 6251 AND `quest` = 4490;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6251, 4490);
-
--- Vile Familiars (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id`=5765 AND `quest`=1485;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5765, 1485);
 
 UPDATE `creature_template` SET `subname` = 'Blacksmithing Supplier'   WHERE `entry` = 3477;-- Hraq <Blacksmithing Supplier>
 UPDATE `creature_template` SET `subname` = 'Expert Blacksmith'        WHERE `entry` = 3478; -- Traugh <Expert Blacksmith>
