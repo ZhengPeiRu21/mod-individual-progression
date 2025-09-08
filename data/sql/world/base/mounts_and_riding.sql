@@ -1,11 +1,7 @@
 -- Re-enable Summon Felsteed (Warlock)
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (3631, 4487, 4488, 4489, 4490);
 
-DELETE FROM `creature_queststarter` WHERE `id` = 3326 AND `quest` = 3631; -- Orgrimmar
-DELETE FROM `creature_queststarter` WHERE `id` = 5172 AND `quest` = 4487; -- Ironforge
-DELETE FROM `creature_queststarter` WHERE `id` = 461  AND `quest` = 4488; -- Stormwind
-DELETE FROM `creature_queststarter` WHERE `id` = 4563 AND `quest` = 4489; -- Undercity
-DELETE FROM `creature_queststarter` WHERE `id` = 6251 AND `quest` = 4490; -- Ratchet
+DELETE FROM `creature_queststarter` WHERE `quest` IN (3631, 4487, 4488, 4489, 4490); 
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 3631), (5172, 4487), (461, 4488), (4563, 4489), (6251, 4490);
 
 DELETE FROM `creature_questender` WHERE `id` = 6251 AND `quest` IN (3631, 4487, 4488, 4489, 4490);
@@ -13,11 +9,11 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6251, 3631), (6251, 44
 
 
 -- Summon Warhorse - Tome of Nobility (Paladin)
-DELETE FROM `creature_queststarter` WHERE `id` = 6171 AND `quest` = 1661; -- Stormwind, but what aobut Ironforge?
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6171, 1661);
+DELETE FROM `creature_queststarter` WHERE `quest` IN (1661, 4485, 4486); 
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6171, 1661), (6179, 4485), (5149, 4486);
 
-DELETE FROM `creature_questender` WHERE `id` = 6171 AND `quest` = 1661;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6171, 1661);
+DELETE FROM `creature_questender` WHERE `id` = 6171 AND `quest` IN (1661, 4485, 4486);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6171, 1661), (6171, 4485), (6171, 4486);
 
 
 -- Remove incorrect mail about riding which doesn't match Vanilla levels
@@ -28,20 +24,23 @@ UPDATE `mail_level_reward` SET `level` = 71 WHERE `mailTemplateId` IN (285, 284)
 
 
 -- Riding Skills
-UPDATE npc_trainer SET ReqLevel=40 WHERE SpellID=33388;
-UPDATE npc_trainer SET MoneyCost=800000 WHERE SpellID=33388;
-UPDATE npc_trainer SET ReqLevel=60 WHERE SpellID=33391;
-UPDATE npc_trainer SET MoneyCost=10000000 WHERE SpellID=33391;
-UPDATE npc_trainer SET ReqLevel=70 WHERE SpellID=34090;
-UPDATE npc_trainer SET MoneyCost=6000000 WHERE SpellID=34090;
-DELETE FROM npc_trainer WHERE SpellID=13819; # Delete Summon Warhorse from trainer - it is a free reward from a quest instead
-DELETE FROM npc_trainer WHERE SpellID=13820; # Delete Summon Warhorse from more trainers
-DELETE FROM npc_trainer WHERE SpellID=23214;
-DELETE FROM npc_trainer WHERE SpellID=34767;
-DELETE FROM npc_trainer WHERE SpellID=23161;
-UPDATE npc_trainer SET ReqLevel=40 WHERE SpellID=34768;
-UPDATE npc_trainer SET ReqLevel=40 WHERE SpellID=1710;
-UPDATE npc_trainer SET ReqLevel=68 WHERE SpellID=33950;
+UPDATE npc_trainer SET ReqLevel = 40        WHERE SpellID = 33388; -- Apprentice Riding
+UPDATE npc_trainer SET MoneyCost = 800000   WHERE SpellID = 33388;
+UPDATE npc_trainer SET ReqLevel = 60        WHERE SpellID = 33391; -- Journeyman Riding
+UPDATE npc_trainer SET MoneyCost = 10000000 WHERE SpellID = 33391;
+UPDATE npc_trainer SET ReqLevel = 70        WHERE SpellID = 34090; -- Expert Riding
+UPDATE npc_trainer SET MoneyCost = 6000000  WHERE SpellID = 34090;
+
+DELETE FROM `npc_trainer` WHERE `SpellID` = 13819; -- Summon Warhorse
+DELETE FROM `npc_trainer` WHERE `SpellID` = 13820; -- Summon Warhorse
+DELETE FROM `npc_trainer` WHERE `SpellID` = 23214; -- Summon Charger (alliance)
+DELETE FROM `npc_trainer` WHERE `SpellID` = 34767; -- Summon Charger (horde)
+DELETE FROM `npc_trainer` WHERE `SpellID` = 23161; -- Dreadsteed
+DELETE FROM `npc_trainer` WHERE `SpellID` = 1710;  -- Summon Felsteed
+
+UPDATE npc_trainer SET ReqLevel = 40 WHERE SpellID = 34768; -- Summon Warhorse
+UPDATE npc_trainer SET ReqLevel = 40 WHERE SpellID = 1710;  -- Summon Felsteed
+UPDATE npc_trainer SET ReqLevel = 68 WHERE SpellID = 33950; -- Flight Form
 
 
 -- Hide pre 1.6 epic mounts ater BWL is unlocked
