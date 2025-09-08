@@ -703,7 +703,7 @@ INSERT INTO `areatrigger` (`entry`, `map`, `x`, `y`, `z`, `radius`) VALUES
 (@AGUID+9, 0, 1980.01, 305.231, 41.1893, 10);   -- Undercity
 */
 
-DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (@AGUID+1, @AGUID+2, @AGUID+3, @AGUID+4, @AGUID+5, @AGUID+6, @AGUID+7, @AGUID+8, @AGUID+9);
+DELETE FROM `areatrigger_involvedrelation` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265);
 /*
 INSERT INTO `areatrigger_involvedrelation` (`id`, `quest`) VALUES
 (@AGUID+1, 9260), -- Stormwind
