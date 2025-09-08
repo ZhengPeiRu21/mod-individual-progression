@@ -1,5 +1,16 @@
 -- Re-enable Summon Felsteed (Warlock)
-DELETE FROM `disables` WHERE `sourceType`=1 AND `entry` IN (3631, 4487, 4488, 4489, 4490);
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (3631, 4487, 4488, 4489, 4490);
+
+DELETE FROM `creature_queststarter` WHERE `id` = 3326 AND `quest` = 3631;
+DELETE FROM `creature_queststarter` WHERE `id` = 5172 AND `quest` = 4487;
+DELETE FROM `creature_queststarter` WHERE `id` = 461  AND `quest` = 4488;
+DELETE FROM `creature_queststarter` WHERE `id` = 4563 AND `quest` = 4489;
+DELETE FROM `creature_queststarter` WHERE `id` = 6251 AND `quest` = 4490;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 3631), (5172, 4487), (461, 4488), (4563, 4489), (6251, 4490);
+
+DELETE FROM `creature_questender` WHERE `id` = 6251 AND `quest` IN (3631, 4487, 4488, 4489, 4490);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6251, 3631), (6251, 4487), (6251, 4488), (6251, 4489), (6251, 4490);
+
 
 -- Remove incorrect mail about riding which doesn't match Vanilla levels
 DELETE FROM `mail_level_reward` WHERE `level` <= 60;
