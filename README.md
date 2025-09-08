@@ -13,9 +13,10 @@ Note that this module either requires many players working together on a server 
 Lower-level content added in later expansions that is not "catch-up" content has not been removed. This includes Draenei and Blood Elf starting zones, Inscription and Jewelcrafting skills, new quests and hubs added to the Vanilla world in TBC, and so on. I feel this content does not negatively impact the player journey like "catch-up" content. Some of this content can optionally be phased until the appropriate patch in which it was introduced for those who prefer an even more authentic Vanilla world - see the optional SQL files for more details.
 
 ## Some Included Features
-* Power level and health adjustment in Vanilla and TBC content to simulate Vanilla world difficulty
 * NPCs and Game Objects are aware of individual player progress, visible based on player progression to each player
 * Restoration of content that was removed, nerfed or released in a later patch, such as original Naxxramas, Onyxia quests, TBC Attunements and riding skills and quests.
+* Complete overhaul of all vanilla creatures. smart AI, quest drop chances, respawn times, creature spells, patrols and spawn locations have all been restored.
+* Optional power and health adjustment in Vanilla and TBC content to simulate Vanilla world difficulty
 
 For a complete list of changes, please see [here](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Changes).
 
