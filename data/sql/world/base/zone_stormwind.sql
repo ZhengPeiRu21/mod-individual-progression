@@ -67,16 +67,12 @@ UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805;
 
 
 -- Tome of Nobility (Paladin)
-DELETE FROM `creature_questender` WHERE `id`=6171 AND `quest`=1661;
+DELETE FROM `creature_questender` WHERE `id` = 6171 AND `quest` = 1661;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6171, 1661);
 
 -- Tome of Nobility (Paladin)
-DELETE FROM `creature_queststarter` WHERE `id`=6171 AND `quest`=1661;
+DELETE FROM `creature_queststarter` WHERE `id` = 6171 AND `quest` = 1661;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6171, 1661);
-
--- Summon Felsteed (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id`=461 AND `quest`=4488;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (461, 4488);
 
 
 UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 68;    -- Stormwind City Guard
