@@ -299,10 +299,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11470, 0, 2, 0, 0, 0, 100, 0, 10000, 14000, 7000, 13000, 0, 0, 11, 22823, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Eldreth Sorcerer - In Combat - Cast Starshards'),
 (11471, 0, 0, 0, 1, 0, 100, 0, 1000, 10000, 600000, 600000, 0, 0, 11, 18100, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Eldreth Apparition - Out of Combat - Cast Frost Armor'),
 (11471, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Eldreth Apparition - In Combat - Cast Frostbolt'),
-(11471, 0, 2, 0, 0, 0, 100, 0, 11000, 14000, 20000, 30000, 0, 0, 11, 15244, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Eldreth Apparition - In Combat - Cast Cone of Cold'), -- test!
+(11471, 0, 2, 0, 0, 0, 100, 0, 11000, 14000, 20000, 30000, 0, 0, 11, 15244, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Eldreth Apparition - In Combat - Cast Cone of Cold'),
 (11471, 0, 3, 0, 0, 0, 100, 0, 7000, 12000, 20000, 28000, 0, 0, 11, 22744, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0, 'Eldreth Apparition - In Combat - Cast Chains of Ice'),
 (11472, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6100, 14400, 0, 5, 11, 16838, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Eldreth Spirit - Within 0-5 Range - Cast Banshee Shriek'),
-(11472, 0, 1, 0, 0, 0, 100, 0, 0, 0, 4900, 8800, 0, 0, 11, 22743, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Eldreth Spirit - In Combat - Cast Ribbon of Souls'), -- test!
+(11472, 0, 1, 0, 0, 0, 100, 0, 0, 0, 4900, 8800, 0, 0, 11, 22743, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Eldreth Spirit - In Combat - Cast Ribbon of Souls'),
 (11473, 0, 0, 0, 1, 0, 100, 0, 0, 0, 16000, 16000, 0, 0, 11, 16380, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Eldreth Spectre - Out of Combat - Cast Greater Invisibility'),
 (11473, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 28, 16380, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Eldreth Spectre - On Aggro - Remove Greater Invisibility'),
 (11473, 0, 2, 0, 9, 0, 100, 0, 0, 0, 14000, 25000, 0, 5, 11, 17831, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Eldreth Spectre - Within 0-5 Range - Cast Call of the Graves'),
@@ -321,8 +321,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11484, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 9000, 14000, 0, 0, 11, 22940, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Residual Monstrosity - In Combat - Cast Arcane Blast'),
 (11484, 0, 2, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 22939, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Residual Monstrosity - On Death - Cast Summon Mana Bursts'),
 --
-(11486, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Prince Tortheldrin - On Aggro - Say Line 0'),
-(11486, 0, 1, 0, 60, 0, 100, 257, 5000, 5000, 5000, 5000, 0, 0, 2, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Prince Tortheldrin - On Update - Set Faction'),
+(11486, 0, 0, 1, 60, 0, 100, 257, 5000, 5000, 5000, 5000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Prince Tortheldrin - On Update - Say Line 0'),
+(11486, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Prince Tortheldrin - On Update - Set Faction'),
 (11486, 0, 2, 0, 25, 0, 100, 257, 0, 0, 0, 0, 0, 0, 11, 674, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Prince Tortheldrin - On Reset - Cast Dual Wield'),
 (11486, 0, 3, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Prince Tortheldrin - On Reset - Cast Thrash'),
 (11486, 0, 4, 0, 0, 0, 100, 0, 8000, 12000, 10000, 12000, 0, 0, 11, 22920, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Prince Tortheldrin - In Combat - Cast Arcane Blast'),
@@ -353,7 +353,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11489, 0, 2, 0, 0, 0, 100, 0, 2000, 4000, 17000, 22000, 0, 0, 11, 22924, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Tendris Warpwood - In Combat - Cast Grasping Vines'),
 (11489, 0, 3, 0, 0, 0, 100, 0, 6000, 12000, 15000, 20000, 0, 0, 11, 22994, 32, 0, 0, 0, 0, 6, 40, 0, 0, 0, 0, 0, 0, 0, 'Tendris Warpwood - In Combat - Cast Entangle'),
 (11489, 0, 4, 0, 0, 0, 100, 0, 9000, 12000, 12000, 15000, 0, 0, 11, 22916, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0, 'Tendris Warpwood - Within 0-10 Range - Cast Uppercut'),
-(11489, 0, 5, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 14566, 4, 120000, 0, 0, 0, 8, 0, 0, 0, 0, 63.5089, 492.417, -23.2966, 3.21228, 'Tendris Warpwood - On Death - Summon Ancient Equine Spirit'), -- test!
+(11489, 0, 5, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 14566, 4, 120000, 0, 0, 0, 8, 0, 0, 0, 0, 63.5089, 492.417, -23.2966, 3.21228, 'Tendris Warpwood - On Death - Summon Ancient Equine Spirit'),
 --
 (11496, 0, 0, 1, 38, 0, 100, 512, 1, 1, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 11, 11466, 200, 0, 0, 0, 0, 0, 0,            'Immol\'thar - On Data Set - Set Data'),
 (11496, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 19, 11466, 200, 0, 0, 0, 0, 0, 0,             'Immol\'thar - On Data Set - Say Line 0 Target'),
