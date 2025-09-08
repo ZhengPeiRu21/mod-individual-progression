@@ -900,3 +900,80 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (@WPID+180, 16, -58.7163, 921.933, -24.5796, 2.80575, 0, 0, 0, 100, 0),
 (@WPID+180, 17, -20.9416, 925.498, -24.5802, 2.80575, 0, 0, 0, 100, 0),
 (@WPID+180, 18, 20.1434, 910.762, -24.5802, 2.80575, 0, 0, 0, 100, 0);
+
+
+/* ---- Dire Maul East ---- */
+
+
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(11451, 11452, 11453, 11454, 11456, 11457, 11461, 11462, 11464, 11465, 11490, 13021, 13022, 13197, 13276, 13280, 13285, 14327, 14349);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(11451, 11452, 11453, 11454, 11456, 11457, 11461, 11462, 11464, 11465, 11490, 13021, 13022, 13197, 13276, 13280, 13285, 14327, 14349);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(11451, 0, 0, 0, 0, 0, 100, 0, 3000, 7000, 10000, 19000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Wildspawn Satyr - In Combat - Cast Battle Shout'),
+(11451, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6100, 8400, 0, 5, 11, 15580, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Wildspawn Satyr - Within 0-5 Range - Cast Strike'),
+(11451, 0, 2, 0, 0, 0, 100, 0, 10000, 13000, 7000, 13000, 0, 0, 11, 9080, 32, 0, 0, 0, 0, 21, 2, 0, 0, 0, 0, 0, 0, 0,   'Wildspawn Satyr - Within 0-5 Range - Cast Hamstring'),
+(11451, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Wildspawn Satyr - Between 0-30% Health - Cast Enrage'),
+(11451, 0, 4, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Wildspawn Satyr - On Enrage - Say Line 0'),
+(11452, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 13299, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Wildspawn Rogue - On Respawn - Cast Poison Proc'),
+(11452, 0, 1, 0, 0, 0, 100, 0, 9000, 13000, 10000, 14000, 0, 0, 11, 15667, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Wildspawn Rogue - Within 0-5 Range - Cast Sinister Strike'),
+(11452, 0, 2, 0, 0, 0, 100, 0, 5000, 7000, 12000, 16000, 0, 0, 11, 15583, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Wildspawn Rogue - Within 0-5 Range - Cast Rupture'),
+(11453, 0, 0, 0, 0, 0, 100, 0, 7000, 10000, 16000, 22000, 0, 0, 11, 3609, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Wildspawn Trickster - Within 0-5 Range - Cast Paralyzing Poison'),
+(11453, 0, 1, 0, 0, 0, 100, 0, 10000, 15000, 10000, 15000, 0, 0, 11, 12493, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Wildspawn Trickster - In Combat - Cast Curse of Weakness'),
+(11453, 0, 2, 0, 0, 0, 100, 0, 4000, 8000, 6000, 12000, 0, 0, 11, 22371, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Wildspawn Trickster - In Combat - Cast Curse of Impotence'),
+(11454, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Wildspawn Betrayer - Outside 30 Range - Start Combat Movement'),
+(11454, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Wildspawn Betrayer - Within 5-30 Range - Stop Combat Movement'),
+(11454, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wildspawn Betrayer - Within 0-5 Range - Start Combat Movement'),
+(11454, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 16100, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Wildspawn Betrayer - Within 5-30 Range - Cast Shoot'),
+(11454, 0, 4, 0, 0, 0, 100, 0, 5000, 10000, 10000, 14000, 0, 0, 11, 7896, 0, 0, 0, 0, 0, 28, 30, 1, 1, 5, 0, 0, 0, 0,   'Wildspawn Betrayer - Within 5-30 Range - Cast Exploding Shot'),
+(11454, 0, 5, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 5, 30, 11, 18649, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Wildspawn Betrayer - Within 5-30 Range - Shadow Shot'),
+(11454, 0, 6, 0, 9, 0, 100, 0, 0, 0, 8000, 11000, 0, 5, 11, 11428, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Wildspawn Betrayer - Within 0-5 Range - Cast Knockdown'),
+(11454, 0, 7, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Wildspawn Betrayer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(11456, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Wildspawn Shadowstalker - Out of Combat - Cast Sneak (No Repeat)'),
+(11456, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Wildspawn Shadowstalker - On Respawn - Cast Slowing Poison Proc'),
+(11456, 0, 2, 0, 67, 0, 100, 0, 0, 0, 10000, 10000, 0, 5, 11, 22416, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Wildspawn Shadowstalker - Behind Target - Cast Backstab'),
+(11457, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 15228, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Wildspawn Hellcaller - In Combat - Cast Fireball'),
+(11457, 0, 1, 0, 0, 0, 100, 0, 8000, 14000, 10000, 16000, 0, 0, 11, 20754, 1, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Wildspawn Hellcaller - In Combat - Cast Rain of Fire'),
+(11457, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Wildspawn Hellcaller - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(11461, 0, 0, 0, 0, 0, 100, 0, 4000, 8000, 13000, 17000, 0, 0, 11, 16172, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Warpwood Guardian - Within 0-5 Range - Cast Head Crack'),
+(11461, 0, 1, 0, 105, 0, 100, 0, 0, 0, 1000, 4000, 0, 5, 11, 15615, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Warpwood Guardian - Target Casting - Cast Pummel'),
+(11461, 0, 2, 0, 14, 0, 100, 0, 3400, 40, 9000, 14000, 0, 0, 11, 22373, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Warpwood Guardian - Friendly Missing Health - Cast Regrowth'),
+(11461, 0, 3, 0, 2, 0, 100, 0, 0, 75, 6000, 18000, 0, 0, 11, 22373, 96, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Warpwood Guardian - Between 0-75% Health - Cast Regrowth'),
+(11462, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 5000, 7000, 0, 0, 11, 18368, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Warpwood Treant - Within 0-5 Range - Cast Strike'),
+(11462, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 18000, 22000, 0, 0, 11, 14331, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Warpwood Treant - Within 0-5 Range - Cast Vicious Rend'),
+(11462, 0, 2, 0, 0, 0, 100, 0, 7000, 12000, 9000, 14000, 0, 0, 11, 11428, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Warpwood Treant - Within 0-5 Range - Cast Knockdown'),
+(11464, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 5000, 7000, 0, 0, 11, 22414, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Warpwood Tangler - In Combat - Cast Lightning Bolt'),
+(11464, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 8000, 16000, 0, 0, 11, 22415, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Warpwood Tangler - In Combat - Cast Entangling Roots'),
+(11465, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Warpwood Stomper - On Respawn - Cast Thrash Proc'),
+(11465, 0, 1, 0, 0, 0, 100, 0, 6000, 10000, 18000, 26000, 0, 0, 11, 16727, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Warpwood Stomper - In Combat - Cast War Stomp'),
+(11490, 0, 0, 0, 0, 0, 100, 0, 1000, 5000, 12000, 18000, 0, 0, 11, 22478, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Zevrim Thornhoof - In Combat - Cast Intense Pain'),
+(11490, 0, 1, 0, 0, 0, 100, 0, 8000, 10000, 16000, 24000, 0, 0, 11, 22651, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,   'Zevrim Thornhoof - In Combat - Cast Sacrifice'),
+(11490, 0, 2, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Zevrim Thornhoof - On Death - Set Instance Data 0 to 1'),
+(13021, 0, 0, 0, 9, 0, 100, 0, 0, 0, 3600, 11100, 0, 10, 11, 22426, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Warpwood Crusher - Within 0-10 Range - Cast Crush Armor'),
+(13021, 0, 1, 0, 9, 0, 100, 0, 0, 0, 11700, 19400, 0, 8, 11, 15550, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Warpwood Crusher - Within 0-8 Range - Cast Trample'),
+(13022, 0, 0, 0, 67, 0, 100, 0, 0, 0, 4200, 13400, 0, 5, 11, 21987, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Whip Lasher - Behind Target - Cast Lash of Pain'),
+(13197, 0, 0, 0, 0, 0, 100, 0, 9000, 15000, 11000, 16000, 0, 0, 11, 22271, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Fel Lash - In Combat - Cast Arcane Explosion'),
+(13197, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 15230, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Fel Lash - In Combat - Cast Arcane Bolt'),
+(13276, 0, 0, 0, 0, 0, 100, 0, 3000, 10000, 6000, 15000, 0, 0, 11, 13340, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Wildspawn Imp - In Combat - Cast Fire Blast'),
+--
+(13280, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 20000, 0, 8, 11, 22419, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Hydrospawn - Within 0-8 Range - Cast Riptide'),
+(13280, 0, 1, 0, 0, 0, 100, 0, 2000, 6000, 45000, 65000, 0, 0, 11, 22420, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Hydrospawn - In Combat - Cast Submersion'),
+(13280, 0, 2, 0, 2, 0, 100, 1, 0, 75, 0, 0, 0, 0, 11, 22714, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hydrospawn - Between 0-75% Health - Cast Summon Hydroling (No Repeat)'),
+(13280, 0, 3, 0, 0, 0, 100, 0, 7000, 15000, 7000, 15000, 0, 0, 11, 22421, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Hydrospawn - In Combat - Cast Massive Geyser'),
+(13285, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 16428, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Death Lash - On Respawn - Cast Virulent Poison Proc'),
+--
+(14327, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 6000, 0, 0, 11, 22709, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lethtendris - In Combat - Cast Void Bolt'),
+(14327, 0, 1, 0, 0, 0, 100, 0, 8000, 13000, 13000, 18000, 0, 0, 11, 17228, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Lethtendris - In Combat - Cast Shadow Bolt Volley'), -- test!
+(14327, 0, 2, 0, 0, 0, 100, 0, 7000, 12000, 25000, 30000, 0, 0, 11, 12742, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Lethtendris - In Combat - Cast Immolate'),
+(14327, 0, 3, 0, 0, 0, 100, 0, 2000, 9000, 15000, 35000, 0, 0, 11, 16247, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Lethtendris - In Combat - Cast Curse of Thorns'),
+(14327, 0, 4, 0, 0, 0, 100, 0, 9000, 12000, 18000, 22000, 0, 0, 11, 13338, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,  'Lethtendris - In Combat - Cast Curse of Tongues'),
+(14349, 0, 0, 0, 0, 0, 100, 0, 0, 2000, 3000, 3500, 0, 0, 11, 14034, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Pimgib - In Combat - Cast Fireball'),
+(14349, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 14000, 19000, 0, 0, 11, 22713, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Pimgib - In Combat - Cast Flame Buffet'),
+(14349, 0, 2, 0, 0, 0, 100, 0, 8000, 12000, 11000, 15000, 0, 0, 11, 16046, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Pimgib - In Combat - Cast Blast Wave'),
+(14349, 0, 3, 0, 0, 0, 100, 0, 0, 0, 30000, 30000, 0, 0, 11, 22710, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Pimgib - In Combat - Cast Enlarge');
