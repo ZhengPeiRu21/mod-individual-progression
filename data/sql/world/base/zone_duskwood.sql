@@ -110,6 +110,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6170, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Gutspill - On Respawn - Cast Poison Proc');
 
 
+-- fix respawn time of Lord Malathrom and Naraxis
+UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` IN (503, 574);
+
 -- Nothing but the Truth, should require deepstrider tumor(6082)
 DELETE FROM `item_dbc` WHERE `ID` = 6082;
 INSERT INTO `item_dbc` (`ID`, `ClassID`, `SubclassID`, `Sound_Override_Subclassid`, `Material`, `DisplayInfoID`, `InventoryType`, `SheatheType`) VALUES
