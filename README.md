@@ -15,7 +15,7 @@ Lower-level content added in later expansions that is not "catch-up" content has
 ## Some Included Features
 * NPCs and Game Objects are aware of individual player progress, visible based on player progression to each player
 * Restoration of content that was removed, nerfed or released in a later patch, such as original Naxxramas, Onyxia quests, TBC Attunements and riding skills and quests.
-* Complete overhaul of all vanilla creatures. smart AI, quest drop chances, respawn times, creature spells, patrols and spawn locations have all been restored.
+* Complete overhaul of all vanilla creatures. Smart AI, quest drop chances, creature respawn times, spells, patrols and spawn locations have all been restored.
 * Optional power and health adjustment in Vanilla and TBC content to simulate Vanilla world difficulty
 
 For a complete list of changes, please see [here](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Changes).
