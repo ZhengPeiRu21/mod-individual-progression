@@ -14,7 +14,7 @@ Lower-level content added in later expansions that is not "catch-up" content has
 
 ## Some Included Features
 * NPCs and Game Objects are aware of individual player progress, visible based on player progression to each player
-* Restoration of content that was removed, nerfed or released in a later patch. Such as the original Naxxramas, Onyxia and TBC Attunements quests and riding skills.
+* Restoration of content that was removed, nerfed or released in a later patch. Such as the original Naxxramas, Onyxia and TBC Attunement quests and riding skills.
 * Complete overhaul of all vanilla creatures and quests. Smart AI, quest drop chances, creature respawn times, spells, patrols and spawn locations have all been restored.
 * Optional power and health adjustment in Vanilla and TBC content to simulate Vanilla world difficulty
 * WotLK emblems drop based on your progression.
