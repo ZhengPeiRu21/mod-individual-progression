@@ -1005,7 +1005,7 @@ public:
 
                 if (mapid == MAP_SHADOWFANG_KEEP)  
                 {
-					if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || isExcludedFromProgression(player))
+					if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
                     {
                         player->RemoveAura(IPP_PHASE);
                         player->RemoveAura(IPP_PHASE_II);
@@ -1015,7 +1015,7 @@ public:
                 }
                 if (mapid == MAP_RAZORFEN_DOWNS)
                 {
-					if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || isExcludedFromProgression(player))
+					if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
                     {
                         player->RemoveAura(IPP_PHASE);
                         player->RemoveAura(IPP_PHASE_II);
@@ -1025,7 +1025,7 @@ public:
                 }    
                 if (mapid == MAP_SCARLET_MONASTERY)
                 {
-				    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || isExcludedFromProgression(player))
+				    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
                     {
                         player->RemoveAura(IPP_PHASE);
                         player->RemoveAura(IPP_PHASE_II);
@@ -1035,7 +1035,7 @@ public:
                 }
                 if (mapid == MAP_STRATHOLME)
                 {
-                    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || isExcludedFromProgression(player))
+                    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
                     {
                         player->RemoveAura(IPP_PHASE);
                         player->RemoveAura(IPP_PHASE_II);
@@ -1045,7 +1045,7 @@ public:
                 }
                 if (mapid == MAP_DIRE_MAUL)
                 {
-                    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || isExcludedFromProgression(player))
+                    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
                     {
                         player->RemoveAura(IPP_PHASE);
                         player->RemoveAura(IPP_PHASE_II);
