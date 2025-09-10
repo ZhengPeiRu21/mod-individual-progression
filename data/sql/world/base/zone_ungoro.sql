@@ -95,12 +95,12 @@ UPDATE `creature` SET `spawntimesecs` = 108000 WHERE `id1` = 6583; -- Gruff
 UPDATE `creature` SET `spawntimesecs` = 108000 WHERE `id1` = 6584; -- King Mosh
 UPDATE `creature` SET `spawntimesecs` = 23400  WHERE `id1` = 6585; -- Uhk'loc
 
-UPDATE `creature` SET`MovementType` = 1, `wander_distance` = 5 WHERE `id1` IN (6581, 6582, 6583, 6585)
+UPDATE `creature` SET`MovementType` = 1, `wander_distance` = 5 WHERE `id1` IN (6581, 6582, 6583, 6585);
 
 -- U'cha, waypoints
-https://www.youtube.com/watch?v=UYj7pj7Jqf4&t=10s
-https://www.youtube.com/watch?v=Ee2KVKJuINw&t=200s
-https://www.youtube.com/watch?v=_YKpLAzQaX8&t=150s
+-- https://www.youtube.com/watch?v=UYj7pj7Jqf4&t=10s
+-- https://www.youtube.com/watch?v=Ee2KVKJuINw&t=200s
+-- https://www.youtube.com/watch?v=_YKpLAzQaX8&t=150s
 
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `id1` = 9622; -- U'cha
 
