@@ -211,6 +211,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3181, -350000);
 
 
 -- missing patrols
+DELETE FROM `pool_creature` WHERE `pool_entry` = 1072; -- remove 22 spawn locations used by AC, we are now using waypoints
 DELETE FROM `creature` WHERE `id1` IN (14424);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
