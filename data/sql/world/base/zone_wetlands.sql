@@ -122,7 +122,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1052, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dark Iron Saboteur - On Aggro - Say Line 2'),
 (1052, 0, 1, 0, 0, 0, 100, 0, 2000, 7000, 18000, 26000, 0, 0, 11, 7891, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Dark Iron Saboteur - In Combat - Cast Gift of Ragnaros'),
 (1052, 0, 2, 3, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 11, 3204, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Dark Iron Saboteur - Between 0-15% Health - Cast Sapper Explode (No Repeat)'), -- test!
-(1052, 0, 3, 4, 61, 0, 100, 1, 0, 15, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dark Iron Saboteur - On Sapper Explode - Say Line 0'),
+(1052, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Saboteur - On Sapper Explode - Say Line 0'),
 (1052, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Saboteur - On Sapper Explode - Say Line 1'),
 (1053, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dark Iron Tunneler - On Aggro - Say Line 0'),
 (1053, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 180000, 180000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Dark Iron Tunneler - In Combat - Cast Defensive Stance'),
