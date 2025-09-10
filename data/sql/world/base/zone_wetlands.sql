@@ -121,7 +121,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1051, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dark Iron Dwarf - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1052, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dark Iron Saboteur - On Aggro - Say Line 2'),
 (1052, 0, 1, 0, 0, 0, 100, 0, 2000, 7000, 18000, 26000, 0, 0, 11, 7891, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Dark Iron Saboteur - In Combat - Cast Gift of Ragnaros'),
-(1052, 0, 2, 3, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 11, 3204, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Dark Iron Saboteur - Between 0-15% Health - Cast Sapper Explode (No Repeat)'), -- test!
+(1052, 0, 2, 3, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 11, 3204, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Dark Iron Saboteur - Between 0-15% Health - Cast Sapper Explode (No Repeat)'),
 (1052, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Saboteur - On Sapper Explode - Say Line 0'),
 (1052, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Saboteur - On Sapper Explode - Say Line 1'),
 (1053, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dark Iron Tunneler - On Aggro - Say Line 0'),
@@ -189,13 +189,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2108, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Garneg Charskull - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4040, 0, 0, 0, 0, 0, 100, 0, 4000, 17000, 40000, 64000, 0, 0, 11, 3358, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Cave Stalker - Within 0-5 Range - Cast Leech Poison'),
 --
-(12899, 0, 0, 0, 0, 0, 100, 0, 6000, 7000, 16000, 16000, 0, 0, 11, 20712, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Axtroz - In Combat - Cast Flame Breath'), -- test!
+(12899, 0, 0, 0, 0, 0, 100, 0, 6000, 7000, 16000, 16000, 0, 0, 11, 20712, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Axtroz - In Combat - Cast Flame Breath'),
 (12899, 0, 1, 0, 0, 0, 100, 0, 8000, 13000, 7000, 11000, 0, 0, 11, 16095, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Axtroz - Within 0-5 Range - Cast Vicious Rend'),
 (12899, 0, 2, 0, 0, 0, 90, 0, 4000, 5000, 6000, 11000, 0, 0, 11, 20714, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Axtroz - In Combat - Cast Fireball'),
-(14424, 0, 0, 0, 0, 0, 100, 0, 10000, 16000, 14000, 28000, 0, 0, 11, 22127, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Mirelow - In Combat - Cast \'Entangling Roots\''),
+(14424, 0, 0, 0, 0, 0, 100, 0, 10000, 16000, 14000, 28000, 0, 0, 11, 22127, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Mirelow - In Combat - Cast Entangling Roots'),
 (14425, 0, 0, 0, 0, 0, 100, 0, 8000, 8000, 8000, 26000, 0, 0, 11, 11977, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Gnawbone - Within 0-5 Range - Cast Rend'),
 (14425, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnawbone - Between 0-15% Health - Flee For Assist (No Repeat)');
 
+
+-- Quest: Digging Through the Ooze - Sida's Bag drop chance 
+UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` = 3349;
 
 -- Fremal Doohickey <First Aid Trainer>
 DELETE FROM `npc_trainer` WHERE `ID`=3181; 
