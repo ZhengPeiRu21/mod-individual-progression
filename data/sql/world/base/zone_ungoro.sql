@@ -86,3 +86,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9376, 0, 2, 0, 8, 0, 100, 0, 14247, 0, 0, 0, 0, 0, 28, 13913, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Blazerunner - On Spellhit - Remove Aura Blazerunner\'s Aura'),
 (9622, 0, 0, 0, 0, 0, 100, 0, 4000, 4000, 8000, 12000, 0, 0, 11, 8374, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'U\'cha - Within 0-5 Range - Cast Arcing Smash'),
 (9622, 0, 1, 0, 0, 0, 100, 0, 7000, 7000, 10000, 50000, 0, 0, 11, 11428, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'U\'cha - Within 0-5 Range - Cast Knockdown');
+
+
+UPDATE `creature` SET `spawntimesecs` = 54000  WHERE `id1` = 6581; -- Ravasaur Matriarch
+UPDATE `creature` SET `spawntimesecs` = 47000  WHERE `id1` = 6582; -- Clutchmother Zavas
+UPDATE `creature` SET `spawntimesecs` = 108000 WHERE `id1` = 6583; -- Gruff
+UPDATE `creature` SET `spawntimesecs` = 108000 WHERE `id1` = 6584; -- King Mosh
+UPDATE `creature` SET `spawntimesecs` = 23400  WHERE `id1` = 6585; -- Uhk'loc
+
+UPDATE `creature` SET`MovementType` = 1, `wander_distance` = 5 WHERE `id1` IN (6581, 6582, 6583, 6585)
