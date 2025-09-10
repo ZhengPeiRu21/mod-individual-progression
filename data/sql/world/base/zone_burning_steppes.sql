@@ -95,3 +95,25 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (16043, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 6000, 16000, 0, 0, 11, 23114, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Magma Lord Bokk - In Combat - Cast Earth Shock'),
 (16043, 0, 1, 0, 0, 0, 100, 0, 12000, 14000, 10000, 17000, 0, 0, 11, 10101, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0, 'Magma Lord Bokk - Within 0-10 Range - Cast Knock Away'),
 (16043, 0, 2, 0, 0, 0, 100, 0, 6000, 14000, 9000, 22000, 0, 0, 11, 6524, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Magma Lord Bokk - In Combat - Cast Ground Tremor');
+
+
+-- fix spawn locations
+DELETE FROM `creature` WHERE `id1` IN (8977);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+--
+(4596,   8977, 0, 0, 0, 0, 0, 1, 1, 1, -7958.56, -2603.77, 173.694, 5.76038, 500, 0, 0, 2634, 2041, 0, 0, 0, 0, '', 0, 0, NULL), -- Krom'Grul
+(695091, 8977, 0, 0, 0, 0, 0, 1, 1, 1, -7836.08, -2565.46, 125.553, 1.8295,  500, 0, 0, 2634, 2041, 0, 0, 0, 0, '', 0, 0, NULL), -- https://www.youtube.com/watch?v=7ia3WaeLCbs&t=400s
+(695092, 8977, 0, 0, 0, 0, 0, 1, 1, 1, -7928.66, -2670.63, 158.508, 4.53516, 500, 0, 0, 2634, 2041, 0, 0, 0, 0, '', 0, 0, NULL), -- https://www.youtube.com/watch?v=d40q6NJAzBY&t=600s
+(695093, 8977, 0, 0, 0, 0, 0, 1, 1, 1, -7962.19, -2659.41, 168.874, 2.29284, 500, 0, 0, 2634, 2041, 0, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601046);
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(8977,   601046, 0, 'Krom\'Grul'),
+(695091, 601046, 0, 'Krom\'Grul'),
+(695092, 601046, 0, 'Krom\'Grul'),
+(695093, 601046, 0, 'Krom\'Grul');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601046);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601046, 1, 'Krom\'Grul - Burning Steppes');
