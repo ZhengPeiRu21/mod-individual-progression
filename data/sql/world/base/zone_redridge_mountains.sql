@@ -133,7 +133,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4064, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Blackrock Scout - Within 5-30 Range - Stop Combat Movement'),
 (4064, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Blackrock Scout - Within 0-5 Range - Start Combat Movement'),
 (4064, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Blackrock Scout - Within 5-30 Range - Cast Shoot'),
-(4064, 0, 4, 2, 0, 0, 100, 0, 1400, 4300, 16900, 25300, 0, 0, 11, 3019, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Blackrock Scout - In Combat - Cast Frenzy'),
+(4064, 0, 4, 5, 0, 0, 100, 0, 1400, 4300, 16900, 25300, 0, 0, 11, 3019, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Blackrock Scout - In Combat - Cast Frenzy'),
 (4064, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Blackrock Scout - On Frenzy - Say Line 0'),
 (4064, 0, 6, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Blackrock Scout - On Aggro - Say Line 1'),
 (4064, 0, 7, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackrock Scout - Between 0-15% Health - Flee For Assist (No Repeat)'),
