@@ -273,14 +273,13 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (80405, 94, 0, 0, 0, 0, 0, 1, 1, 1, -9517.96, 494.378, 52.2181, 5.29769, 180, 5, 0, 102, 0, 1, 0, 0, 0, '', 0);
 
 
+-- fix Defias Thug worldserver errors
 UPDATE `creature` SET `MovementType` = 0  WHERE `guid` = 80149;
 UPDATE `creature` SET `MovementType` = 0  WHERE `guid` = 80251;
 
 UPDATE `creature_addon` SET `path_id` = 0 WHERE `guid` = 80149;
 UPDATE `creature_addon` SET `path_id` = 0 WHERE `guid` = 80251;
 
-
--- fix Defias Thug worldserver errors
 DELETE FROM smart_scripts WHERE `entryorguid` IN (-80251,-80149) and `source_type` = 0;
 DELETE FROM smart_scripts WHERE `entryorguid` IN (3800) and `source_type` = 9;
 
