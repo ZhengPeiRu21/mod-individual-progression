@@ -1,6 +1,6 @@
 #ifdef MOD_PLAYERBOTS
 #include "Playerbots.h"
-#include "IPOnyxiaActions.h"
+#include "IndividualProgressionOnyxiaActions.h"
 
 bool IPOnyxiaKillWhelpsAction::Execute(Event event)
 {

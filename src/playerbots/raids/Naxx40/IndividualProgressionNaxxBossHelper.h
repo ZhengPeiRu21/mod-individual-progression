@@ -14,7 +14,7 @@
 #include "SharedDefines.h"
 
 #include "RaidNaxxBossHelper.h"
-#include "RaidNaxxAi40.h"
+#include "IndividualProgressionNaxxAi40.h"
 
 
 template <class BossAiType, class Boss40AiType>

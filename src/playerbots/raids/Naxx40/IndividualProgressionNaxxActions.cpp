@@ -2,7 +2,7 @@
 
 #include "IndividualProgressionNaxxActions.h"
 #include "RaidNaxxActions.h"
-#include "RaidNaxxAi40.h"
+#include "IndividualProgressionNaxxAi40.h"
 
 #include "LastMovementValue.h"
 #include "ObjectGuid.h"

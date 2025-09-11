@@ -3,7 +3,7 @@
 #define MOD_INDIVIDUAL_PROGRESSION_ACTIONCONTEXT_H
 
 #include "ActionContext.h"
-#include "IPOnyxiaActions.h"
+#include "IndividualProgressionOnyxiaActions.h"
 #include "RaidOnyxiaActionContext.h"
 
 #include "IndividualProgressionNaxxActions.h"

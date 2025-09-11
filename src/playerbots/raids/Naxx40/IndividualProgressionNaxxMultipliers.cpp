@@ -1,7 +1,7 @@
 #ifdef MOD_PLAYERBOTS
 
 #include "IndividualProgressionNaxxMultipliers.h"
-#include "RaidNaxxAi40.h"
+#include "IndividualProgressionNaxxAi40.h"
 #include "ChooseTargetActions.h"
 #include "DKActions.h"
 #include "DruidActions.h"

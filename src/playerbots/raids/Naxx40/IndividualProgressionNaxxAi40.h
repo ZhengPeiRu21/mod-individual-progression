@@ -1,9 +1,6 @@
-/*
- * Cast intended Naxxramas 40 struct for mod-individual-progression Naxx classes
- */
-
-#ifndef _PLAYERBOT_RAIDNAXXAI40_H
-#define _PLAYERBOT_RAIDNAXXAI40_H
+#ifdef MOD_PLAYERBOTS
+#ifndef MOD_INDIVIDUAL_PROGRESSION_NAXXAI_H
+#define MOD_INDIVIDUAL_PROGRESSION_NAXXAI_H
 
 #include "EventMap.h"
 #include "CreatureAIImpl.h"
@@ -80,4 +77,5 @@ struct BossAiKelthuzad40 : BossAI
     SummonList summons;
 };
 
+#endif
 #endif
