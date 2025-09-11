@@ -3,20 +3,39 @@
 #define MOD_INDIVIDUAL_PROGRESSION_ACTIONCONTEXT_H
 
 #include "ActionContext.h"
-#include "OnyxiaActions.h"
-#include "RaidOnyxiaActions.h"
+#include "IPOnyxiaActions.h"
+#include "RaidOnyxiaActionContext.h"
+
+#include "IndividualProgressionNaxxActions.h"
+#include "RaidNaxxActionContext.h"
 
 class IPOnyxiaActionContext : public RaidOnyxiaActionContext
 {
 public:
 {
-    IPOnyxiaActionContext() : public RaidOnyxiaActionContext()
+    IPOnyxiaActionContext() : public RaidOnyxiaActionContext ()
     {
-        creators["ony kill whelps"] = &MyCustomOnyxiaActionContext::kill_whelps;
+        creators["ony kill whelps"] = &IPOnyxiaActionContext::kill_whelps;
     }
 private
     static Action* kill_playerbots::ActionRegistry::RegisterAction("ony kill whelps", []() { return new IPOnyxiaKillWhelpsAction(ai); }
 
 };
+
+class IPNaxxActionContext : public RaidNaxxActionContext
+{
+public:
+    IPNaxxActionContext() : public RaidNaxxActionContext()
+    {
+        creators["grobbulus go behind"] = &IPRaidNaxxActionContext::go_behind_the_boss;
+        creators["rotate grobbulus"] = &IPRaidNaxxActionContext::rotate_grobbulus;
+    }
+
+private:
+    static Action* go_behind_the_boss(PlayerbotAI* ai) { return new IPGrobbulusGoBehindAction(ai); }
+    static Action* rotate_grobbulus(PlayerbotAI* ai) { return new IPGrobbulusRotateAction(ai); }
+};
+
+
 #endif
 #endif
