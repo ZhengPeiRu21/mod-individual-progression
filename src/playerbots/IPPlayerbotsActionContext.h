@@ -12,12 +12,11 @@
 class IPOnyxiaActionContext : public RaidOnyxiaActionContext
 {
 public:
-{
-    IPOnyxiaActionContext() : public RaidOnyxiaActionContext ()
+    IPOnyxiaActionContext : public RaidOnyxiaActionContext ()
     {
         creators["ony kill whelps"] = &IPOnyxiaActionContext::kill_whelps;
     }
-private
+private:
     static Action* kill_playerbots::ActionRegistry::RegisterAction("ony kill whelps", []() { return new IPOnyxiaKillWhelpsAction(ai); }
 
 };
@@ -25,10 +24,10 @@ private
 class IPNaxxActionContext : public RaidNaxxActionContext
 {
 public:
-    IPNaxxActionContext() : public RaidNaxxActionContext()
+    IPNaxxActionContext : public RaidNaxxActionContext()
     {
-        creators["grobbulus go behind"] = &IPRaidNaxxActionContext::go_behind_the_boss;
-        creators["rotate grobbulus"] = &IPRaidNaxxActionContext::rotate_grobbulus;
+        creators["grobbulus go behind"] = &IPNaxxActionContext::go_behind_the_boss;
+        creators["rotate grobbulus"] = &IPNaxxActionContext::rotate_grobbulus;
     }
 
 private:

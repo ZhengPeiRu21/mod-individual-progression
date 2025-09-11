@@ -11,7 +11,6 @@ class IPHeiganDanceMultiplier : public Multiplier
 public:
     IPHeiganDanceMultiplier(PlayerbotAI* ai) : Multiplier(ai, "helgan dance") {}
 
-public:
     virtual float GetValue(Action* action);
 };
 
@@ -19,7 +18,6 @@ class IPThaddiusGenericMultiplier : public Multiplier
 {
 public:
     IPThaddiusGenericMultiplier(PlayerbotAI* ai) : Multiplier(ai, "thaddius generic"), helper(ai) {}
-
 
     virtual float GetValue(Action* action);
 

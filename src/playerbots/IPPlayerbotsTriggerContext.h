@@ -12,10 +12,10 @@
 #include "IndividualProgressionNaxxTriggers.h"
 
 
-class IPRaidNaxxTriggerContext : public RaidNaxxTriggerContext()>
+class IPRaidNaxxTriggerContext : public RaidNaxxTriggerContext
 {
 public:
-    RaidNaxxTriggerContext()
+    IPRaidNaxxTriggerContext : RaidNaxxTriggerContext()
     {
         creators["grobbulus cloud"] = &IPRaidNaxxTriggerContext::grobbulus_cloud;
         creators["heigan melee"] = &IPRaidNaxxTriggerContext::heigan_melee;
@@ -65,4 +65,5 @@ private:
     static Trigger* loatheb(PlayerbotAI* ai) { return new IPLoathebTrigger(ai); }
 };
 
+#endif
 #endif
