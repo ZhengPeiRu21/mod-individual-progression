@@ -1,3 +1,5 @@
+/* ---- Upper Blackrock Spire ---- */
+
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (9045, 9096, 9817, 9818, 9819, 10083, 10317, 10318, 10319, 10366, 10371, 10372, 10509, 10814, 10899);
@@ -82,6 +84,159 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10899, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 6000, 10000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Goraluk Anvilcrack - Within 0-5 Range - Cast Strike'),
 (10899, 0, 2, 0, 0, 0, 100, 0, 3000, 6000, 3000, 6000, 0, 0, 11, 16172, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Goraluk Anvilcrack - Within 0-5 Range - Cast Head Crack'),
 (10899, 0, 3, 0, 0, 0, 100, 0, 5000, 8000, 4000, 6000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Goraluk Anvilcrack - Within 0-5 Range - Cast Backhand');
+
+
+/* ---- Lower Blackrock Spire ---- */
+
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (9416);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(9045, 9097, 9098, 9197, 9198, 9199, 9200, 9201, 9216, 9217, 9218, 9219, 9236, 9239, 9240, 9241, 9257, 9258, 9259, 
+9260, 9261, 9262, 9263, 9264, 9265, 9266, 9267, 9268, 9269, 9583, 9596, 9692, 9693, 9716, 9717, 10374, 10376, 10596);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(9045, 9097, 9098, 9197, 9198, 9199, 9200, 9201, 9216, 9217, 9218, 9219, 9236, 9239, 9240, 9241, 9257, 9258, 9259, 
+9260, 9261, 9262, 9263, 9264, 9265, 9266, 9267, 9268, 9269, 9416, 9583, 9596, 9692, 9693, 9716, 9717, 10374, 10376, 10596);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(9045, 0, 0, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 39, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarshield Acolyte - On Aggro - Call For Help (Normal Dungeon)'),
+(9045, 0, 1, 0, 0, 0, 100, 0, 7000, 15000, 21000, 33000, 0, 0, 11, 14032, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarshield Acolyte - In Combat - Cast Shadow Word: Pain'),
+(9045, 0, 2, 0, 2, 0, 100, 1, 0, 75, 0, 0, 0, 0, 11, 12039, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarshield Acolyte - Between 0-75% Health - Cast Heal (No Repeat)'),
+(9045, 0, 3, 0, 74, 0, 100, 0, 0, 0, 17000, 24000, 35, 40, 11, 8362, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Scarshield Acolyte - On Friendly Between 0-35% Health - Cast Renew'),
+(9045, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarshield Acolyte - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9097, 0, 0, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 39, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarshield Legionnaire - On Aggro - Call For Help (Normal Dungeon)'),
+(9097, 0, 1, 0, 0, 0, 100, 0, 7800, 11500, 8000, 22100, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Scarshield Legionnaire - Within 0-5 Range - Cast Cleave'),
+(9097, 0, 2, 0, 105, 0, 100, 0, 0, 0, 14000, 20000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarshield Legionnaire - Target Casting - Cast Shield Bash'),
+(9098, 0, 0, 0, 63, 0, 100, 0, 0, 0, 0, 0, 0, 0, 58, 1, 13748, 1100, 3000, 30, 30, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarshield Spellbinder - On Respawn - Set Caster Template'),
+(9098, 0, 1, 0, 4, 0, 100, 2, 0, 0, 0, 0, 0, 0, 39, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarshield Spellbinder - On Aggro - Call For Help (Normal Dungeon)'),
+(9098, 0, 2, 0, 16, 0, 100, 0, 15123, 30, 3000, 6000, 0, 0, 11, 15123, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Scarshield Spellbinder - On Friendly Missing Buff - Cast Resist Fire'),
+--
+(9197, 0, 0, 0, 0, 0, 100, 0, 4000, 10000, 5000, 15000, 0, 0, 11, 15305, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Spirestone Battle Mage - In Combat - Cast Chain Lightning'),
+(9197, 0, 1, 0, 14, 0, 100, 0, 6000, 40, 20000, 20000, 0, 0, 11, 16170, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Spirestone Battle Mage - Friendly Missing 6000 Health - Cast Bloodlust'),
+(9198, 0, 0, 0, 0, 0, 100, 0, 4000, 10000, 5000, 15000, 0, 0, 11, 15659, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Spirestone Mystic - In Combat - Cast Chain Lightning'),
+(9198, 0, 1, 0, 0, 0, 100, 0, 5000, 5000, 10000, 20000, 0, 0, 11, 8435, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Spirestone Mystic - In Combat - Cast Forked Lightning'),
+(9198, 0, 2, 0, 14, 0, 100, 0, 3000, 40, 5000, 10000, 0, 0, 11, 15981, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Spirestone Mystic - Friendly Missing 3000 Health - Cast Rejuvenation'),
+(9198, 0, 3, 0, 14, 0, 100, 0, 4000, 40, 10000, 15000, 0, 0, 11, 15982, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Spirestone Mystic - Friendly Missing 4000 Health - Cast Healing Wave'),
+(9199, 0, 0, 0, 0, 0, 100, 0, 6000, 20000, 8000, 18000, 0, 0, 11, 14516, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Spirestone Enforcer - Within 0-5 Range - Cast Strike'),
+(9200, 0, 0, 0, 0, 0, 100, 0, 7000, 15000, 15000, 22000, 0, 0, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Spirestone Reaver - In Combat - Cast War Stomp'),
+(9200, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 3000, 10000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Spirestone Reaver - Within 0-5 Range - Cast Cleave'),
+(9201, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 15979, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Spirestone Ogre Magus - In Combat - Cast Arcane Bolt'),
+(9201, 0, 1, 0, 2, 0, 100, 0, 0, 60, 30000, 35000, 0, 0, 11, 6742, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Spirestone Ogre Magus - Between 0-60% Health - Cast Bloodlust'),
+(9201, 0, 2, 0, 0, 0, 100, 0, 6000, 9000, 20000, 30000, 0, 0, 11, 13747, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Spirestone Ogre Magus - In Combat - Cast Slow'),
+(9216, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 20000, 20000, 0, 0, 11, 16171, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Spirestone Warlord - In Combat - Cast Empower Will'),
+(9216, 0, 1, 2, 2, 0, 100, 0, 0, 30, 30000, 30000, 0, 0, 11, 8269, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Spirestone Warlord - Between 0-30% Health - Cast Frenzy'),
+(9216, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Spirestone Warlord - On Frenzy - Say Line 0'),
+--
+(9217, 0, 0, 0, 37, 0, 85, 2, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Spirestone Lord Magus - On AI initialize - Despawn in 0.5s (Normal Dungeon)'),
+(9217, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 15230, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Spirestone Lord Magus - In Combat - Cast Arcane Bolt'),
+(9217, 0, 2, 0, 0, 0, 100, 0, 7000, 12000, 14000, 19000, 0, 0, 11, 13323, 33, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,  'Spirestone Lord Magus - In Combat - Cast Polymorph'),
+(9217, 0, 3, 0, 74, 0, 100, 0, 0, 0, 25000, 30000, 50, 0, 11, 8365, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Spirestone Lord Magus - Friendly Between 0-50% Health - Cast Enlarge'),
+(9217, 0, 4, 0, 74, 0, 100, 0, 0, 0, 30000, 30000, 70, 30, 11, 6742, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Spirestone Lord Magus - Friendly Between 0-70% Health - Cast Bloodlust'),
+(9218, 0, 0, 0, 37, 0, 85, 2, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Spirestone Battle Lord - On AI initialize - Despawn in 0.5s (Normal Dungeon)'),
+(9219, 0, 0, 0, 37, 0, 85, 2, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Spirestone Butcher - On AI initialize - Despawn in 0.5s (Normal Dungeon)'),
+--
+(9236, 0, 0, 0, 0, 0, 100, 0, 2000, 2000, 45000, 45000, 0, 0, 11, 16098, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Shadow Hunter Vosh gajin - In Combat - Cast Curse of Blood'),
+(9236, 0, 1, 0, 0, 0, 100, 0, 8000, 8000, 15000, 15000, 0, 0, 11, 16097, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Shadow Hunter Vosh gajin - In Combat - Cast Hex'),
+(9236, 0, 2, 0, 0, 0, 100, 0, 14000, 14000, 7000, 7000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Shadow Hunter Vosh gajin - Within 0-5 Range - Cast Cleave'),
+(9239, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 5000, 10000, 0, 0, 11, 16006, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Smolderthorn Mystic - In Combat - Cast Chain Lightning'),
+(9239, 0, 1, 0, 14, 0, 100, 0, 2000, 40, 10000, 15000, 0, 0, 11, 15799, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Smolderthorn Mystic - Friendly Missing 2000 Health - Cast Chain Heal'),
+(9239, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Smolderthorn Mystic - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9240, 0, 0, 0, 0, 0, 100, 0, 10000, 10000, 10000, 10000, 0, 0, 11, 15090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Smolderthorn Shadow Priest - In Combat - Cast Dispel Magic'),
+(9240, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 20000, 20000, 0, 0, 11, 11641, 32, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Smolderthorn Shadow Priest - Within 0-20 Range - Cast Hex'),
+(9240, 0, 2, 0, 0, 0, 100, 0, 6000, 8000, 5000, 10000, 0, 0, 11, 15800, 320, 0, 0, 0, 0, 5, 30, 0, 1, 0, 0, 0, 0, 0,   'Smolderthorn Shadow Priest - Within 0-30 Range - Cast Mana Burn'),
+(9240, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Smolderthorn Shadow Priest - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9241, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Smolderthorn Headhunter - Outside 30 Range - Start Combat Movement'),
+(9241, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Smolderthorn Headhunter - Within 5-30 Range - Stop Combat Movement'),
+(9241, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Smolderthorn Headhunter - Within 0-5 Range - Start Combat Movement'),
+(9241, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 15795, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Smolderthorn Headhunter - Within 5-30 Range - Cast Throw'),
+(9241, 0, 4, 0, 9, 0, 100, 0, 0, 0, 9000, 13000, 5, 30, 11, 16001, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Smolderthorn Headhunter - Within 5-30 Range - Cast Impale'),
+(9241, 0, 5, 0, 0, 0, 100, 0, 5000, 10000, 22000, 26000, 0, 0, 11, 6016, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Smolderthorn Headhunter - Within 0-5 Range - Cast Pierce Armor'),
+(9241, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Smolderthorn Headhunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9257, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12471, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Scarshield Warlock - In Combat - Cast Shadow Bolt'),
+(9257, 0, 1, 0, 0, 0, 100, 0, 10000, 20000, 60000, 75000, 0, 0, 11, 15125, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarshield Warlock - In Combat - Cast Scarshield Portal'),
+(9257, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarshield Warlock - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9258, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Scarshield Raider - Within 0-5 Range - Cast Strike'),
+(9258, 0, 1, 0, 9, 0, 100, 0, 0, 0, 15000, 34000, 5, 30, 11, 14030, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarshield Raider - Within 5-30 Range - Cast Hooked Net'),
+--
+(9259, 0, 0, 1, 2, 0, 100, 0, 0, 30, 30000, 35000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Firebrand Grunt - Between 0-30% Health - Cast Frenzy'),
+(9259, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Firebrand Grunt - On Frenzy - Say Line 0'),
+(9259, 0, 2, 0, 0, 0, 100, 0, 5000, 5000, 6000, 10000, 0, 0, 11, 13737, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Firebrand Grunt - Within 0-5 Range - Cast Mortal Strike'),
+(9259, 0, 3, 0, 0, 0, 100, 0, 20000, 20000, 30000, 30000, 0, 0, 11, 15128, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Grunt - In Combat - Cast Mark of Flames'),
+(9260, 0, 0, 0, 0, 0, 100, 0, 1000, 5000, 10000, 15000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Firebrand Legionnaire - In Combat - Cast Improved Blocking'),
+(9260, 0, 1, 0, 105, 0, 100, 0, 0, 0, 6000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Firebrand Legionnaire - Target Casting - Cast Shield Bash'),
+(9260, 0, 2, 0, 0, 0, 100, 0, 20000, 20000, 30000, 30000, 0, 0, 11, 15128, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Legionnaire - In Combat - Cast Mark of Flames'),
+(9261, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12471, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Firebrand Darkweaver - In Combat - Cast Shadow Bolt'),
+(9261, 0, 1, 0, 0, 0, 50, 0, 4000, 6000, 30000, 45000, 0, 0, 11, 15128, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Firebrand Darkweaver - In Combat - Cast Mark of Flames'),
+(9261, 0, 2, 0, 0, 0, 100, 0, 9000, 14000, 9000, 14000, 0, 0, 11, 15090, 1, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Firebrand Darkweaver - In Combat - Cast Dispel Magic'),
+(9261, 0, 3, 0, 0, 0, 100, 0, 1000, 4000, 12000, 15000, 0, 0, 11, 16071, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Firebrand Darkweaver - In Combat - Cast Curse of the Firebrand'),
+(9261, 0, 4, 0, 0, 0, 100, 0, 12000, 15000, 12000, 15000, 0, 0, 11, 14887, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Darkweaver - In Combat - Cast Shadow Bolt Volley'),
+(9261, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Firebrand Darkweaver - Between 0-15% Health - Flee For Assist (Normal Dungeon)'),
+(9262, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 15242, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Firebrand Invoker - In Combat - Cast Fireball'),
+(9262, 0, 1, 0, 0, 0, 50, 0, 4000, 6000, 30000, 45000, 0, 0, 11, 15128, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Firebrand Invoker - In Combat - Cast Mark of Flames'),
+(9262, 0, 2, 0, 0, 0, 100, 0, 8000, 10000, 11000, 14000, 0, 0, 11, 12470, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Firebrand Invoker - In Combat - Cast Fire Nova'),
+(9262, 0, 3, 0, 0, 0, 100, 0, 12000, 16000, 14000, 18000, 0, 0, 11, 12468, 65, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Firebrand Invoker - In Combat - Cast Flamestrike'),
+(9262, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Firebrand Invoker - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9263, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 30000, 30000, 0, 0, 11, 15128, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Dreadweaver - In Combat - Cast Mark of Flames'),
+(9263, 0, 1, 0, 0, 0, 100, 0, 1000, 4000, 12000, 15000, 0, 0, 11, 16071, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Firebrand Dreadweaver - In Combat - Cast Curse of the Firebrand'),
+(9263, 0, 2, 0, 0, 0, 100, 0, 10000, 15000, 10000, 20000, 0, 0, 11, 15728, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Dreadweaver - In Combat - Cast Plague Cloud'),
+(9263, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Firebrand Dreadweaver - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9264, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 30000, 30000, 0, 0, 11, 15128, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Pyromancer - In Combat - Cast Mark of Flames'),
+(9264, 0, 1, 0, 0, 0, 100, 0, 1000, 4000, 5000, 8000, 0, 0, 11, 15096, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0,       'Firebrand Pyromancer - In Combat - Cast Flame Shock'),
+(9264, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Firebrand Pyromancer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(9265, 0, 0, 0, 0, 0, 100, 0, 10000, 10000, 12000, 15000, 0, 0, 11, 12540, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Smolderthorn Shadow Hunter - Within 0-5 Range - Cast Gouge'),
+(9265, 0, 1, 0, 105, 0, 100, 0, 0, 0, 6000, 12000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Smolderthorn Shadow Hunter - Target Casting - Cast Kick'),
+(9265, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Smolderthorn Shadow Hunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9266, 0, 0, 0, 0, 0, 100, 0, 20000, 20000, 20000, 20000, 0, 0, 11, 15867, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Smolderthorn Witch Doctor - In Combat - Cast Flame Buffet Totem'),
+(9266, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 10000, 15000, 0, 0, 11, 15869, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Smolderthorn Witch Doctor - In Combat - Cast Superior Healing Ward'),
+(9266, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Smolderthorn Witch Doctor - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9267, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Smolderthorn Axe Thrower - Outside 30 Range - Start Combat Movement'),
+(9267, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Smolderthorn Axe Thrower - Within 5-30 Range - Stop Combat Movement'),
+(9267, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Smolderthorn Axe Thrower - Within 0-5 Range - Start Combat Movement'),
+(9267, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 15795, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Smolderthorn Axe Thrower - Within 5-30 Range - Cast Throw'),
+(9267, 0, 4, 0, 0, 0, 100, 0, 6000, 9000, 9000, 12000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Smolderthorn Axe Thrower - In Combat - Cast Thrash'),
+(9267, 0, 5, 0, 0, 0, 100, 0, 9000, 14000, 11000, 15000, 0, 0, 11, 11428, 1, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Smolderthorn Axe Thrower - Within 0-5 Range - Cast Knockdown'),
+(9267, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Smolderthorn Axe Thrower - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(9268, 0, 0, 1, 2, 0, 100, 0, 0, 30, 30000, 35000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Smolderthorn Berserker - Between 0-30% Health - Cast Frenzy'),
+(9268, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Smolderthorn Berserker - On Frenzy - Say Line 0'),
+(9268, 0, 2, 0, 0, 0, 100, 0, 5000, 7000, 4000, 6000, 0, 0, 11, 13446, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Smolderthorn Berserker - Within 0-5 Range - Cast Strike'),
+(9268, 0, 3, 0, 0, 0, 100, 0, 5000, 5000, 6000, 10000, 0, 0, 11, 17547, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Smolderthorn Berserker - Within 0-5 Range - Cast Mortal Strike'),
+(9269, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 13585, 33, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Smolderthorn Seer - Out of Combat - Cast Lightning Shield'),
+(9269, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 15801, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Smolderthorn Seer - In Combat - Cast Lightning Bolt'),
+(9269, 0, 2, 0, 14, 0, 100, 0, 3000, 40, 15000, 25000, 0, 0, 11, 12492, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Smolderthorn Seer - Friendly Missing 3000 Health - Cast Healing Wave'),
+(9269, 0, 3, 0, 0, 0, 100, 0, 3000, 6000, 12000, 15000, 0, 0, 11, 15802, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Smolderthorn Seer - In Combat - Cast Shrink'),
+(9269, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Smolderthorn Seer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(9583, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 674, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Bloodaxe Veteran - On Aggro - Cast Dual Wield'),
+(9583, 0, 1, 0, 0, 0, 80, 0, 12000, 12000, 15000, 15000, 0, 0, 11, 15618, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Bloodaxe Veteran - Within 0-5 Range - Cast Snap Kick'),
+(9583, 0, 2, 0, 105, 0, 90, 0, 0, 0, 9000, 9000, 0, 5, 11, 15615, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodaxe Veteran - Target Casting - Cast Pummel'),
+(9596, 0, 0, 0, 37, 0, 85, 2, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Bannok Grimaxe - On AI initialize - Despawn in 0.5s (Normal Dungeon)'),
+(9596, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 5, 11, 13737, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Bannok Grimaxe - Within 0-5 Range - Cast Mortal Strike'),
+(9692, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 15572, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Bloodaxe Raider - Within 0-5 Range - Cast Sunder Armor'),
+(9692, 0, 1, 0, 0, 0, 100, 0, 4000, 7000, 7000, 11000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 4, 0, 0, 0, 0, 0, 0, 0,     'Bloodaxe Raider - Within 0-5 Range - Cast Cleave'),
+(9693, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 5000, 0, 0, 11, 13748, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodaxe Evoker - In Combat - Cast Arcane Bolt'),
+(9693, 0, 1, 0, 0, 0, 75, 0, 12000, 14000, 25000, 30000, 0, 0, 11, 15743, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Bloodaxe Evoker - In Combat - Cast Flamecrack'),
+(9693, 0, 2, 0, 106, 0, 80, 0, 7000, 9000, 15000, 20000, 0, 10, 11, 15744, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Bloodaxe Evoker - In Combat - Cast Blast Wave'),
+(9693, 0, 3, 0, 2, 0, 100, 3, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bloodaxe Evoker - Between 0-15% Health - Flee For Assist (No Repeat) (Normal Dungeon)'),
+(9716, 0, 0, 0, 0, 0, 80, 0, 5000, 9000, 9000, 13000, 0, 0, 11, 10966, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Bloodaxe Warmonger - Within 0-5 Range - Cast Uppercut'),
+(9716, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Bloodaxe Warmonger - Between 0-30% Health - Cast Frenzy (No Repeat)'),
+(9716, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Bloodaxe Warmonger - On Frenzy - Say Line 0'),
+(9717, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 3000, 0, 0, 11, 15791, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodaxe Summoner - In Combat - Cast Arcane Missiles'),
+(9717, 0, 1, 0, 106, 0, 90, 0, 0, 0, 13000, 18000, 0, 8, 11, 15532, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Bloodaxe Summoner - Within 0-8 Range - Cast Frost Nova'),
+(9717, 0, 2, 0, 0, 0, 75, 0, 6000, 12000, 15000, 20000, 0, 0, 11, 15734, 1, 0, 0, 0, 0, 6, 40, 0, 0, 0, 0, 0, 0, 0,    'Bloodaxe Summoner - In Combat - Cast Summon'),
+(9717, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bloodaxe Summoner - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(10374, 0, 0, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 16103, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Spire Spider - On Death - Cast Summon Spire Spiderling'),
+(10374, 0, 1, 0, 0, 0, 100, 0, 15000, 15000, 15000, 15000, 0, 0, 11, 16104, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 'Spire Spider - Within 0-5 Range - Cast Crystallize'),
+(10374, 0, 2, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 89, 20, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Spire Spider - Out of Combat - Random move'),
+(10376, 0, 0, 0, 37, 0, 85, 2, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Crystal Fang - On AI initialize - Despawn in 0.5s (Normal Dungeon)'),
+(10376, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 5000, 10000, 0, 0, 11, 16103, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Crystal Fang - In Combat - Cast Spell Summon Spire Spiderling'),
+(10596, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 7000, 15000, 0, 0, 11, 16468, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Mother Smolderweb - In Combat - Cast Mothers Milk'), -- test!
+(10596, 0, 1, 0, 0, 0, 100, 0, 7000, 15000, 10000, 17000, 0, 0, 11, 16104, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,  'Mother Smolderweb - Within 0-5 Range - Cast Crystallize'),
+(10596, 0, 2, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 16103, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Mother Smolderweb - On Death - Cast Summon Spire Spiderling');
 
 
 UPDATE `gameobject` SET `animprogress` = 100, `state` = 1 WHERE `id` = 164725; -- Dragonspine Door
