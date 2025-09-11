@@ -145,10 +145,13 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 
 -- Quest: Into the Breach
-SET @CGUID       := 640000;
+SET @CGUID       := 656000;
+SET @WPID        := 6560000;
 SET @IPPPHASE_II := 131072;
 
-REPLACE INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+212;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 
 (@CGUID,   19287, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11871, -3218.74, -14.8771, 0.159796, 120, 0, 0, 3297, 2434, 0, 0, 0, 0, '', NULL, 0, NULL),        -- Invading Voidwalker
@@ -161,7 +164,7 @@ REPLACE INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`,
 (@CGUID+7, 19288, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11897.1, -3211.45, -14.6568, 0.0835547, 1200, 0, 1, 88440, 13100, 2, 0, 0, 0, '', NULL, 0, NULL),  -- Dreadknight, Raynor
 (@CGUID+8, 19288, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 0, -11897.6, -3202.01, -14.651, 0.0796277, 900, 0, 1, 88440, 13100, 2, 0, 0, 0, '', NULL, 0, NULL),    -- Dreadknight, Justinius
 --
-(@CGUID+9, 19391, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11902.3, -3207.61, -14.7973, 0.122027, 180, 0, 0, 15260, 0, 0, 0, 0, 0, '', NULL, 0, NULL),        -- Felguard Lieutenant
+(@CGUID+9, 19391, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11902.3, -3207.61, -14.7973, 0.122027, 180, 0, 1, 15260, 0, 2, 0, 0, 0, '', NULL, 0, NULL),        -- Felguard Lieutenant
 --
 (@CGUID+10, 19284, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11904.2, -3206.61, -14.8357, 0.157618, 30, 0, 1, 4121, 0, 2, 0, 0, 0, '', NULL, 0, NULL),         -- Invading Felguard
 (@CGUID+11, 19284, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11903.9, -3209.76, -14.8296, 0.14191, 30, 0, 1, 4121, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
@@ -258,159 +261,163 @@ UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (19566, 19567);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (19385, 19566, 19567);
 UPDATE `creature_template` SET `flags_extra` = 2 WHERE `entry` = 19006;
 
-UPDATE `creature_template` SET `flags_extra` = 134217728 WHERE `entry` IN (18966, 18969, 19284, 19286, 19287, 19288, 19320); -- DONT_OVERRIDE_SAI_ENTRY (134217728)  
+UPDATE `creature_template` SET `flags_extra` = 134217728 WHERE `entry` IN (19288); -- DONT_OVERRIDE_SAI_ENTRY (134217728) - Dreadknight
 
 UPDATE `creature_template` SET `detection_range` = 40 WHERE `entry` IN (19287, 19566, 19567);
 UPDATE `creature_template` SET `detection_range` = 30 WHERE `entry` IN (19285, 19290, 19365, 19366);
 
 
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-640004, -640005, -640006, -640007, -640008, -640010, -640011, -640012, -640013, -640014, -640015, -640016, -640017, -640018, -640019, 
-                                                    -640020, -640021, -640022, -640102, -640203, -640206, 18966, 18969, 19287, 19365, 19385, 19391, 19566, 19567);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-656006, -656007, -656008);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (18966, 18969, 19288, 19287, 19365, 19385, 19391, 19566, 19567);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
 `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
-
-(-640006, 0, 0, 1,  6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+206, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Melgromm Highmountain'),
-(-640006, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+207, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Thunder Bluff Huntsman'),
-(-640006, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+208, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Thunder Bluff Huntsman'),
-(-640006, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Dreadknight - On Death - Despawn Self'),
-(-640006, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+23, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - On Death - Despawn Portal Hound'),
-(-640006, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+24, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - On Death - Despawn Portal Hound'),
 --
-(-640007, 0, 0, 1,  6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+200, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Marshal Raynor'),
-(-640007, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+201, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Stormwind Marshal'),
-(-640007, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+202, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Stormwind Marshal'),
-(-640007, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Dreadknight - On Death - Despawn Self'),
-(-640007, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+25, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - On Death - Despawn Portal Hound'),
-(-640007, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+26, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - On Death - Despawn Portal Hound'),
+(-656006, 0, 0, 1,  6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+206, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Melgromm Highmountain'),
+(-656006, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+207, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Thunder Bluff Huntsman'),
+(-656006, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+208, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Thunder Bluff Huntsman'),
+(-656006, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Dreadknight - On Death - Despawn Self'),
+(-656006, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+23, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
+(-656006, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+24, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
 --
-(-640008, 0, 0, 1,  6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+203, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Justinius the Harbinger'),
-(-640008, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+204, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Azuremyst Vindicator'),
-(-640008, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+205, 0, 0, 0, 0, 0, 0, 0, 'Dreadknight - On Death - Despawn Azuremyst Vindicator'),
-(-640008, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Dreadknight - On Death - Despawn Self'),
-(-640008, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+27, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - On Death - Despawn Portal Hound'),
-(-640008, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+28, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - On Death - Despawn Portal Hound'),
+(-656007, 0, 0, 1,  6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+200, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Marshal Raynor'),
+(-656007, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+201, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Stormwind Marshal'),
+(-656007, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+202, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Stormwind Marshal'),
+(-656007, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Dreadknight - On Death - Despawn Self'),
+(-656007, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+25, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
+(-656007, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+26, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
+--
+(-656008, 0, 0, 1,  6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+203, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Justinius the Harbinger'),
+(-656008, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+204, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Azuremyst Vindicator'),
+(-656008, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+205, 0, 0, 0, 0, 0, 0, 0,         'Dreadknight - On Death - Despawn Azuremyst Vindicator'),
+(-656008, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Dreadknight - On Death - Despawn Self'),
+(-656008, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+27, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
+(-656008, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+28, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
+--
+(19288, 0, 0, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - In Combat - Cast Shadow Bolt'),
+(19288, 0, 1, 0, 0, 0, 100, 0, 12000, 16000, 10000, 13000, 0, 0, 11, 16583, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - In Combat - Cast Shadow Shock'),
+(19288, 0, 2, 0, 0, 0, 100, 0, 9000, 14000, 11000, 15000, 0, 0, 11, 9081, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Dreadknight - In Combat - Cast Shadow Bolt Volley'),
 --
 (19365, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Argent Bowman - Outside 30 Range - Start Combat Movement'),
 (19365, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Argent Bowman - Within 5-30 Range - Stop Combat Movement'),
 (19365, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Argent Bowman - Within 0-5 Range - Start Combat Movement'),   
-(19365, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Argent Bowman - Within 5-30 Range - Cast Shoot'),
+(19365, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Argent Bowman - Within 5-30 Range - Cast Shoot'),
 --
 (18966, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Justinius the Harbinger - On Aggro - Say Line 0'),
-(18966, 0, 1, 0, 9, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 35, 11, 33554, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Justinius the Harbinger - Within 0-35 Range - Cast Judgement of Command'),
-(18966, 0, 2, 0, 14, 0, 100, 0, 2500, 40, 18000, 21000, 0, 0, 11, 33641, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Justinius the Harbinger - Friendly At 2500 Health - Cast Flash of Light'),
+(18966, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33554, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Justinius the Harbinger - In Combat - Cast Judgement of Command'),
+(18966, 0, 2, 0, 14, 0, 100, 0, 2500, 40, 18000, 21000, 0, 0, 11, 33641, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Justinius the Harbinger - Friendly Missing 2500 Health - Cast Flash of Light'),
 --
-(18969, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33643, 0, 0, 0, 0, 0, 25, 30, 0, 0, 0, 0, 0, 0, 0, 'Melgromm Highmountain - Within 0-30 Range - Cast Chain Lightning'),
-(18969, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 22885, 0, 0, 0, 0, 0, 25, 20, 0, 0, 0, 0, 0, 0, 0, 'Melgromm Highmountain - Within 0-20 Range - Cast Earth Shock'),
+(18969, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33643, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Melgromm Highmountain - Within 0-30 Range - Cast Chain Lightning'),
+(18969, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 22885, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Melgromm Highmountain - Within 0-20 Range - Cast Earth Shock'),
 --
-(19385, 0, 0, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Lord Marshal Raynor - Within 0-5 Range - Cast Cleave'),
+(19385, 0, 0, 0, 0, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Lord Marshal Raynor - Within 0-5 Range - Cast Cleave'),
 --
-(19287, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 12000, 24000, 0, 0, 11, 11829, 0, 0, 0, 0, 0, 25, 30, 0, 0, 0, 0, 0, 0, 0,  'Invading Voidwalker - Within 0-30 Range - Cast Flamestrike'),
-(19287, 0, 1, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 0, 0, 0, 0, 0, 25, 40, 0, 0, 0, 0, 0, 0, 0,         'Invading Voidwalker - Within 0-40 Range - Cast Shadow Bolt'),
+(19287, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 12000, 24000, 0, 0, 11, 11829, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Invading Voidwalker - Within 0-30 Range - Cast Flamestrike'),
+(19287, 0, 1, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Invading Voidwalker - In Combat - Cast Shadow Bolt'),
 --
-(19391, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6400090, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Felguard Lieutenant - On Respawn - Waypoint Start'),
-(19391, 0, 1, 0, 9, 0, 100, 0, 3000, 6000, 10000, 15000, 0, 5, 11, 3551, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Felguard Lieutenant - Within 0-5 Range - Cast Skull Crack'),
+(19391, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 10000, 15000, 0, 0, 11, 3551, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Felguard Lieutenant - Within 0-5 Range - Cast Skull Crack'),
 --
-(19566, 0, 0, 0, 9, 0, 100, 0, 1000, 3200, 2800, 5200, 0, 20, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Nethergarde Advisor - Within 0-20 Range - Cast Arcane Explosion'),
-(19566, 0, 1, 0, 0, 0, 100, 0, 0, 0, 3600, 5900, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 25, 40, 0, 0, 0, 0, 0, 0, 0,         'Nethergarde Advisor - Within 0-40 Range - Cast Fireball'),
-(19567, 0, 0, 0, 9, 0, 100, 0, 1000, 3200, 2800, 5200, 0, 20, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Watcher Theronus - Within 0-20 Range - Cast Arcane Explosion'),
-(19567, 0, 1, 0, 0, 0, 100, 0, 0, 1000, 3000, 4000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 25, 40, 0, 0, 0, 0, 0, 0, 0,      'Watcher Theronus - Within 0-40 Range - Cast Frostbolt');
+(19566, 0, 0, 0, 106, 0, 100, 0, 0, 0, 2800, 5200, 0, 8, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Nethergarde Advisor - Within 0-8 Range - Cast Arcane Explosion'),
+(19566, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Nethergarde Advisor - In Combat - Cast Fireball'),
+(19567, 0, 0, 0, 106, 0, 100, 0, 0, 0, 2800, 5200, 0, 8, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Watcher Theronus - Within 0-8 Range - Cast Arcane Explosion'),
+(19567, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Watcher Theronus - In Combat - Cast Frostbolt');
 
 
-DELETE FROM `creature_addon` WHERE `guid` IN (640004, 640005, 640006, 640007, 640008, 640009, 
-                                              640010, 640011, 640012, 640013, 640014, 640015, 640016, 640017, 640018, 640019,
-                                              640020, 640021, 640022, 640102, 640200, 640203, 640206);
+DELETE FROM `creature_addon` WHERE `guid` IN 
+(@CGUID+4, @CGUID+5, @CGUID+6, @CGUID+7, @CGUID+8, @CGUID+9, @CGUID+10, @CGUID+11, @CGUID+12, @CGUID+13, @CGUID+14, @CGUID+15, 
+@CGUID+16, @CGUID+17, @CGUID+18, @CGUID+19, @CGUID+20, @CGUID+21, @CGUID+22, @CGUID+102, @CGUID+200, @CGUID+203, @CGUID+206);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
-(640004, 6400040, 0, 0, 0, 0, 0, NULL),
-(640005, 6400050, 0, 0, 0, 0, 0, NULL),
-(640006, 6400060, 0, 0, 0, 0, 0, NULL),
-(640007, 6400070, 0, 0, 0, 0, 0, NULL),
-(640008, 6400080, 0, 0, 0, 0, 0, NULL),
-(640009, 6400090, 0, 0, 0, 0, 0, NULL),
-(640010, 6400100, 0, 0, 0, 0, 0, NULL),
-(640011, 6400110, 0, 0, 0, 0, 0, NULL),
-(640012, 6400120, 0, 0, 0, 0, 0, NULL),
-(640013, 6400130, 0, 0, 0, 0, 0, NULL),
-(640014, 6400140, 0, 0, 0, 0, 0, NULL),
-(640015, 6400150, 0, 0, 0, 0, 0, NULL),
-(640016, 6400160, 0, 0, 0, 0, 0, NULL),
-(640017, 6400170, 0, 0, 0, 0, 0, NULL),
-(640018, 6400180, 0, 0, 0, 0, 0, NULL),
-(640019, 6400190, 0, 0, 0, 0, 0, NULL),
-(640020, 6400200, 0, 0, 0, 0, 0, NULL),
-(640021, 6400210, 0, 0, 0, 0, 0, NULL),
-(640022, 6400220, 0, 0, 0, 0, 0, NULL),
-(640102, 6401020, 0, 0, 0, 0, 0, NULL),
-(640200, 6402000, 0, 0, 0, 0, 0, NULL),
-(640203, 6402030, 0, 0, 0, 0, 0, NULL),
-(640206, 6402060, 0, 0, 0, 0, 0, NULL);
+--
+(@CGUID+4,   @WPID+40,   0, 0, 0, 0, 0, NULL),
+(@CGUID+5,   @WPID+50,   0, 0, 0, 0, 0, NULL),
+(@CGUID+6,   @WPID+60,   0, 0, 0, 0, 0, NULL),
+(@CGUID+7,   @WPID+70,   0, 0, 0, 0, 0, NULL),
+(@CGUID+8,   @WPID+80,   0, 0, 0, 0, 0, NULL),
+(@CGUID+9,   @WPID+90,   0, 0, 0, 0, 0, NULL),
+(@CGUID+10,  @WPID+100,  0, 0, 0, 0, 0, NULL),
+(@CGUID+11,  @WPID+110,  0, 0, 0, 0, 0, NULL),
+(@CGUID+12,  @WPID+120,  0, 0, 0, 0, 0, NULL),
+(@CGUID+13,  @WPID+130,  0, 0, 0, 0, 0, NULL),
+(@CGUID+14,  @WPID+140,  0, 0, 0, 0, 0, NULL),
+(@CGUID+15,  @WPID+150,  0, 0, 0, 0, 0, NULL),
+(@CGUID+16,  @WPID+160,  0, 0, 0, 0, 0, NULL),
+(@CGUID+17,  @WPID+170,  0, 0, 0, 0, 0, NULL),
+(@CGUID+18,  @WPID+180,  0, 0, 0, 0, 0, NULL),
+(@CGUID+19,  @WPID+190,  0, 0, 0, 0, 0, NULL),
+(@CGUID+20,  @WPID+200,  0, 0, 0, 0, 0, NULL),
+(@CGUID+21,  @WPID+210,  0, 0, 0, 0, 0, NULL),
+(@CGUID+22,  @WPID+220,  0, 0, 0, 0, 0, NULL),
+(@CGUID+102, @WPID+1020, 0, 0, 0, 0, 0, NULL),
+(@CGUID+200, @WPID+2000, 0, 0, 0, 0, 0, NULL),
+(@CGUID+203, @WPID+2030, 0, 0, 0, 0, 0, NULL),
+(@CGUID+206, @WPID+2060, 0, 0, 0, 0, 0, NULL);
 
 
-DELETE FROM `waypoint_data` WHERE `id` IN (6400040, 6400050, 6400060, 6400070, 6400080, 6400090, 
-                                           6400100, 6400110, 6400120, 6400130, 6400140, 6400150, 6400160, 6400170, 6400180, 6400190,
-                                           6400200, 6400210, 6400220, 6401020, 6402000, 6402030, 6402060);
+DELETE FROM `waypoint_data` WHERE `id` IN 
+(@WPID+40, @WPID+50, @WPID+60, @WPID+70, @WPID+80, @WPID+90, @WPID+100, @WPID+110, @WPID+120, @WPID+130, @WPID+140, @WPID+150, 
+@WPID+160, @WPID+170, @WPID+180, @WPID+190, @WPID+200, @WPID+0210, @WPID+0220, @WPID+1020, @WPID+2000, @WPID+2030, @WPID+2060);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
-
-(6402000, 1, -11824.2, -3225.97, -30.3699, NULL, 0, 0, 0, 100, 0),     -- Lord Marshal Raynor
-(6402000, 2, -11839, -3211.73, -30.043, NULL, 0, 0, 0, 100, 0),
-(6402030, 1, -11823.1, -3192.1, -30.7322, NULL, 0, 0, 0, 100, 0),      -- Justinius the Harbinger
-(6402030, 2, -11837.2, -3195.41, -29.8546, NULL, 0, 0, 0, 100, 0),
-(6402060, 1, -11812.5, -3186.91, -30.6074, NULL, 0, 0, 0, 100, 0),     -- Melgromm Highmountain
-(6402060, 2, -11821.2, -3208.73, -29.7076, NULL, 0, 0, 0, 100, 0),
-(6402060, 3, -11836, -3204.49, -30.2795, NULL, 0, 0, 0, 100, 0),
 --
-(6400040, 1, -11889.6, -3208.69, -14.963, NULL, 0, 0, 0, 100, 0),      -- Invading Voidwalker
-(6400040, 2, -11855.6, -3204.76, -26.665, NULL, 30000, 0, 0, 100, 0),
-(6400050, 1, -11890.4, -3204.01, -14.7968, NULL, 0, 0, 0, 100, 0),
-(6400050, 2, -11855.8, -3199.2, -26.909, NULL, 30000, 0, 0, 100, 0),
+(@WPID+2000, 1, -11824.2, -3225.97, -30.3699, NULL, 0, 0, 0, 100, 0),     -- Lord Marshal Raynor
+(@WPID+2000, 2, -11839, -3211.73, -30.043, NULL, 0, 0, 0, 100, 0),
+(@WPID+2030, 1, -11823.1, -3192.1, -30.7322, NULL, 0, 0, 0, 100, 0),      -- Justinius the Harbinger
+(@WPID+2030, 2, -11837.2, -3195.41, -29.8546, NULL, 0, 0, 0, 100, 0),
+(@WPID+2060, 1, -11812.5, -3186.91, -30.6074, NULL, 0, 0, 0, 100, 0),     -- Melgromm Highmountain
+(@WPID+2060, 2, -11821.2, -3208.73, -29.7076, NULL, 0, 0, 0, 100, 0),
+(@WPID+2060, 3, -11836, -3204.49, -30.2795, NULL, 0, 0, 0, 100, 0),
 --
-(6400060, 1, -11845.1, -3200.56, -29.3595, NULL, 0, 0, 0, 100, 0),     -- Dreadknight, Melgromm
-(6400070, 1, -11891.3, -3206.46, -14.8065, NULL, 0, 0, 0, 100, 0),     -- Dreadknight, Raynor
-(6400070, 2, -11850.2, -3201.36, -28.6679, NULL, 0, 0, 0, 100, 0),
-(6400070, 3, -11843.8, -3206.54, -29.5158, NULL, 0, 0, 0, 100, 0),
-(6400080, 1, -11889.9, -3206.58, -14.9646, NULL, 0, 0, 0, 100, 0),     -- Dreadknight, Justinius
-(6400080, 2, -11851.1, -3201.08, -28.5624, NULL, 0, 0, 0, 100, 0),
-(6400080, 3, -11843.6, -3196.09, -29.3421, NULL, 0, 0, 0, 100, 0),
-(6400090, 1, -11837.4, -3199.97, -29.9665, NULL, 30000, 0, 0, 100, 0), -- Felguard Lieutenant
+(@WPID+40, 1, -11889.6, -3208.69, -14.963, NULL, 0, 0, 0, 100, 0),        -- Invading Voidwalker
+(@WPID+40, 2, -11855.6, -3204.76, -26.665, NULL, 30000, 0, 0, 100, 0),
+(@WPID+50, 1, -11890.4, -3204.01, -14.7968, NULL, 0, 0, 0, 100, 0),
+(@WPID+50, 2, -11855.8, -3199.2, -26.909, NULL, 30000, 0, 0, 100, 0),
 --
-(6400200, 1, -11889.4, -3210.32, -14.9459, NULL, 0, 0, 0, 100, 0),     -- Invading Fel Stalker
-(6400200, 2, -11845.4, -3204.67, -29.4112, NULL, 0, 1, 0, 100, 0),
-(6400200, 3, -11832.9, -3215.73, -30.5512, NULL, 30000, 1, 0, 100, 0),
-(6400210, 1, -11889, -3206.14, -15.0842, NULL, 0, 0, 0, 100, 0),
-(6400210, 2, -11843.2, -3200.21, -29.5037, NULL, 0, 1, 0, 100, 0),
-(6400210, 3, -11826.9, -3207.13, -30.0613, NULL, 30000, 1, 0, 100, 0),
-(6400220, 1, -11890.1, -3202.46, -14.781, NULL, 0, 0, 0, 100, 0),
-(6400220, 2, -11841.1, -3195.8, -29.4767, NULL, 0, 1, 0, 100, 0),
-(6400220, 3, -11833.8, -3179.55, -30.1652, NULL, 30000, 1, 0, 100, 0),
+(@WPID+60, 1, -11845.1, -3200.56, -29.3595, NULL, 0, 0, 0, 100, 0),       -- Dreadknight, Melgromm
+(@WPID+70, 1, -11891.3, -3206.46, -14.8065, NULL, 0, 0, 0, 100, 0),       -- Dreadknight, Raynor
+(@WPID+70, 2, -11850.2, -3201.36, -28.6679, NULL, 0, 0, 0, 100, 0),
+(@WPID+70, 3, -11843.8, -3206.54, -29.5158, NULL, 0, 0, 0, 100, 0),
+(@WPID+80, 1, -11889.9, -3206.58, -14.9646, NULL, 0, 0, 0, 100, 0),       -- Dreadknight, Justinius
+(@WPID+80, 2, -11851.1, -3201.08, -28.5624, NULL, 0, 0, 0, 100, 0),
+(@WPID+80, 3, -11843.6, -3196.09, -29.3421, NULL, 0, 0, 0, 100, 0),
+(@WPID+90, 1, -11837.4, -3199.97, -29.9665, NULL, 30000, 0, 0, 100, 0),   -- Felguard Lieutenant
 --
-(6401020, 1, -11818.4, -3210.99, -30.1687, NULL, 0, 1, 0, 100, 0),     -- Argent Protector
-(6401020, 2, -11846.5, -3200.56, -29.201, NULL, 30000, 1, 0, 100, 0),
+(@WPID+200, 1, -11889.4, -3210.32, -14.9459, NULL, 0, 0, 0, 100, 0),      -- Invading Fel Stalker
+(@WPID+200, 2, -11845.4, -3204.67, -29.4112, NULL, 0, 1, 0, 100, 0),
+(@WPID+200, 3, -11832.9, -3215.73, -30.5512, NULL, 30000, 1, 0, 100, 0),
+(@WPID+210, 1, -11889, -3206.14, -15.0842, NULL, 0, 0, 0, 100, 0),
+(@WPID+210, 2, -11843.2, -3200.21, -29.5037, NULL, 0, 1, 0, 100, 0),
+(@WPID+210, 3, -11826.9, -3207.13, -30.0613, NULL, 30000, 1, 0, 100, 0),
+(@WPID+220, 1, -11890.1, -3202.46, -14.781, NULL, 0, 0, 0, 100, 0),
+(@WPID+220, 2, -11841.1, -3195.8, -29.4767, NULL, 0, 1, 0, 100, 0),
+(@WPID+220, 3, -11833.8, -3179.55, -30.1652, NULL, 30000, 1, 0, 100, 0),
 --
-(6400100, 1, -11893.4, -3204.94, -14.6618, NULL, 0, 0, 0, 100, 0),     -- Invading Felguard
-(6400100, 2, -11850, -3200.02, -28.7504, NULL, 0, 1, 0, 100, 0),
-(6400100, 3, -11837.2, -3192.87, -29.8202, NULL, 30000, 1, 0, 100, 0),
-(6400110, 1, -11892.3, -3208.3, -14.7235, NULL, 0, 0, 0, 100, 0),
-(6400110, 2, -11847.9, -3202.94, -29.0108, NULL, 0, 1, 0, 100, 0),
-(6400110, 3, -11834.2, -3205.21, -30.4318, NULL, 30000, 1, 0, 100, 0),
-(6400120, 1, -11888.2, -3210.41, -15.0273, NULL, 0, 1, 0, 100, 0),
-(6400120, 2, -11846.8, -3206.71, -29.0062, NULL, 30000, 1, 0, 100, 0),
-(6400130, 1, -11889.1, -3202.02, -14.8334, NULL, 0, 1, 0, 100, 0),
-(6400130, 2, -11847.9, -3196.42, -28.9539, NULL, 30000, 1, 0, 100, 0),
-(6400140, 1, -11889.6, -3206.22, -14.994, NULL, 0, 1, 0, 100, 0),
-(6400140, 2, -11842.7, -3200.9, -29.5849, NULL, 30000, 1, 0, 100, 0),
-(6400150, 1, -11848, -3206.28, -28.8014, NULL, 0, 1, 0, 100, 0),
-(6400150, 2, -11837.3, -3213.55, -30.1827, NULL, 30000, 1, 0, 100, 0),
-(6400160, 1, -11849.9, -3196.86, -28.6516, NULL, 0, 1, 0, 100, 0),
-(6400160, 2, -11837.5, -3191.1, -29.7639, NULL, 30000, 1, 0, 100, 0),
-(6400170, 1, -11850.5, -3201.05, -28.6364, NULL, 0, 1, 0, 100, 0),
-(6400170, 2, -11834.5, -3199.66, -30.1119, NULL, 30000, 1, 0, 100, 0),
-(6400180, 1, -11893, -3202.07, -14.6551, NULL, 0, 0, 0, 100, 0),
-(6400180, 2, -11849.6, -3196.98, -28.7049, NULL, 0, 1, 0, 100, 0),
-(6400180, 3, -11852.3, -3184.09, -28.1065, NULL, 30000, 1, 0, 100, 0),
-(6400190, 1, -11891.9, -3211.69, -14.6478, NULL, 0, 0, 0, 100, 0),
-(6400190, 2, -11847.1, -3205.97, -28.9958, NULL, 0, 1, 0, 100, 0),
-(6400190, 3, -11842.5, -3223.27, -28.9624, NULL, 30000, 1, 0, 100, 0);
+(@WPID+1020, 1, -11818.4, -3210.99, -30.1687, NULL, 0, 1, 0, 100, 0),     -- Argent Protector
+(@WPID+1020, 2, -11846.5, -3200.56, -29.201, NULL, 30000, 1, 0, 100, 0),
+--
+(@WPID+100, 1, -11893.4, -3204.94, -14.6618, NULL, 0, 0, 0, 100, 0),      -- Invading Felguard
+(@WPID+100, 2, -11850, -3200.02, -28.7504, NULL, 0, 1, 0, 100, 0),
+(@WPID+100, 3, -11837.2, -3192.87, -29.8202, NULL, 30000, 1, 0, 100, 0),
+(@WPID+110, 1, -11892.3, -3208.3, -14.7235, NULL, 0, 0, 0, 100, 0),
+(@WPID+110, 2, -11847.9, -3202.94, -29.0108, NULL, 0, 1, 0, 100, 0),
+(@WPID+110, 3, -11834.2, -3205.21, -30.4318, NULL, 30000, 1, 0, 100, 0),
+(@WPID+120, 1, -11888.2, -3210.41, -15.0273, NULL, 0, 1, 0, 100, 0),
+(@WPID+120, 2, -11846.8, -3206.71, -29.0062, NULL, 30000, 1, 0, 100, 0),
+(@WPID+130, 1, -11889.1, -3202.02, -14.8334, NULL, 0, 1, 0, 100, 0),
+(@WPID+130, 2, -11847.9, -3196.42, -28.9539, NULL, 30000, 1, 0, 100, 0),
+(@WPID+140, 1, -11889.6, -3206.22, -14.994, NULL, 0, 1, 0, 100, 0),
+(@WPID+140, 2, -11842.7, -3200.9, -29.5849, NULL, 30000, 1, 0, 100, 0),
+(@WPID+150, 1, -11848, -3206.28, -28.8014, NULL, 0, 1, 0, 100, 0),
+(@WPID+150, 2, -11837.3, -3213.55, -30.1827, NULL, 30000, 1, 0, 100, 0),
+(@WPID+160, 1, -11849.9, -3196.86, -28.6516, NULL, 0, 1, 0, 100, 0),
+(@WPID+160, 2, -11837.5, -3191.1, -29.7639, NULL, 30000, 1, 0, 100, 0),
+(@WPID+170, 1, -11850.5, -3201.05, -28.6364, NULL, 0, 1, 0, 100, 0),
+(@WPID+170, 2, -11834.5, -3199.66, -30.1119, NULL, 30000, 1, 0, 100, 0),
+(@WPID+180, 1, -11893, -3202.07, -14.6551, NULL, 0, 0, 0, 100, 0),
+(@WPID+180, 2, -11849.6, -3196.98, -28.7049, NULL, 0, 1, 0, 100, 0),
+(@WPID+180, 3, -11852.3, -3184.09, -28.1065, NULL, 30000, 1, 0, 100, 0),
+(@WPID+190, 1, -11891.9, -3211.69, -14.6478, NULL, 0, 0, 0, 100, 0),
+(@WPID+190, 2, -11847.1, -3205.97, -28.9958, NULL, 0, 1, 0, 100, 0),
+(@WPID+190, 3, -11842.5, -3223.27, -28.9624, NULL, 30000, 1, 0, 100, 0);
 
 /* Outland map outside Dark Portal */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 42457;

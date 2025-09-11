@@ -4,18 +4,20 @@
 
 This module simulates progress through expansions and expansion tiers for individual players.
 
-Each tier is designed to simulate the experience of being within that tier and expansion, within the limitations of the WotLK client. This means Vanilla content is like Vanilla WoW, and so on.
+Each tier is designed to simulate the experience of being within that tier and expansion, within the limitations of the WotLK client. This means Vanilla content is like it was during Vanilla WoW.
 
 The goal of the module is to focus on the journey of the player. All catch-up mechanics have been removed. There is no goal to rush to end-game or find a "fresh" server, because each new character is a fresh experience.
 
-Note that this module either requires many players working together on a server for each tier, or adjustments for smaller raid size to allow individual groups to progress. Please see the [auto-balance module](https://github.com/azerothcore/mod-autobalance) and some of the built-in config options for some adjustments that improve this process on a lower populated server. This module also works well together with Playerbots and NPCbots.
+Note that this module either requires many players working together, or adjustments for smaller raid size to allow individual groups to progress. This module works well together with Playerbots and NPCbots.
 
-Lower-level content added in later expansions that is not "catch-up" content has not been removed. This includes Draenei and Blood Elf starting zones, Inscription and Jewelcrafting skills, new quests and hubs added to the Vanilla world in TBC, and so on. I feel this content does not negatively impact the player journey like "catch-up" content. Some of this content can optionally be phased until the appropriate patch in which it was introduced for those who prefer an even more authentic Vanilla world - see the optional SQL files for more details.
+Lower-level content added in later expansions that is not "catch-up" content has NOT been removed. This includes Draenei and Blood Elf starting zones, Inscription and Jewelcrafting skills, new quests and hubs added to the Vanilla world in TBC, and so on. I feel this content does not negatively impact the player journey like "catch-up" content. Some of this content can optionally be phased until the appropriate patch in which it was introduced for those who prefer an even more authentic Vanilla world - see the optional SQL files for more details.
 
 ## Some Included Features
-* Power level and health adjustment in Vanilla and TBC content to simulate Vanilla world difficulty
 * NPCs and Game Objects are aware of individual player progress, visible based on player progression to each player
-* Restoration of content that was removed, nerfed or released in a later patch, such as original Naxxramas, Onyxia quests, TBC Attunements and riding skills and quests.
+* Restoration of content that was removed, nerfed or released in a later patch. Such as the original Naxxramas, Onyxia and TBC Attunement quests, elite creatures in outdoor areas and riding skills.
+* Complete overhaul of all vanilla creatures and quests. Smart AI, quest drop chances, creature respawn times, spells, patrols and spawn locations have all been restored.
+* Optional power and health adjustment for Vanilla and TBC content to simulate the original world difficulty.
+* WotLK emblems drop based on your progression.
 
 For a complete list of changes, please see [here](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Changes).
 
@@ -29,8 +31,6 @@ This module uses Player Settings to save individual character progress. *Please 
 
 ### Optional Data Files
 Some changes for Vanilla and TBC content require DBC modification. The .mpq file for the client and .dbc files for the server can be found in the "optional" directory. These changes include requiring Vanilla reagents such as Flint and Steel for campfires, changing Level 60 enchanting to use Vanilla and not TBC reagents, profession leveling adjustments, etc. These files are all optional and the module will work without the patch, but these recipes will remain their WotLK versions.
-
-Please note that if optional files are not used, please avoid running `optional_restore_rogue_poisons.sql`, as it will remove Rogue poisons from vendors due to them now being created through the Poisons skill, which requires the optional files.
 
 ### Optional Recommended Addon
 For a more authentic experience, some players may prefer to have pre-3.2 behavior of item prices only being displayed in tooltips when at a vendor. 

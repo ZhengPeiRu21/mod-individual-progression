@@ -41,10 +41,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4354, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');     -- Josef Gregorian <Artisan Tailor>
 
 
--- Summon Felsteed (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id`=4563 AND `quest`=4489;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4563, 4489);
-
 -- Mary Edras <First Aid Trainer> 
 DELETE FROM `npc_trainer` WHERE `ID`=4591; 
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4591, -350000); 
