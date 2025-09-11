@@ -21,57 +21,11 @@ DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 123;
 -- undo incorrect title change
 UPDATE `creature_template` SET `subname` = 'Master Blacksmithing Trainer' WHERE `entry` = 16583;
 
--- undo previous method of Lights Hope Chapel phasing 
-UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN 
-(11102, 16112, 16113, 16114, 16115, 16116, 16131, 16132, 16133, 16134, 16135, 16212, 16225, 16228, 16229, 16256, 16283, 16284, 16376, 16378, 17069, 17072);
-
--- Naxx40 - Razuvious
-DELETE FROM `spell_script_names` WHERE `spell_id` IN (29107, 55543);
-
--- Drop source for 2.3 Jewelcrafting Recipe
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 19768; -- disabled for now to prevent the creature from attacking while phased
-
--- undo TBC vendor phasing
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (17585, 17657, 21655);  
-
--- UNDO previous cloning method to hide vendor item drops
-SET @Nakodu  := 121655;
-SET @Urgronn := 117585;
-SET @Ulrike  := 117657;
-
-DELETE FROM `creature_template` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Nakodu, @Urgronn, @Ulrike);
-DELETE FROM `creature` WHERE `id1` IN (@Nakodu, @Urgronn, @Ulrike);
-DELETE FROM `npc_vendor` WHERE `entry` IN (@Nakodu, @Urgronn, @Ulrike);
-DELETE FROM `creature_equip_template` WHERE `CreatureID` = @Ulrike;
-
--- UNDO previous cloning - SI friendship NPCs
-SET @Zarena    := 102482;
-SET @Miles     := 103044;
-SET @Elissa    := 104165;
-SET @Alexander := 105173;
-SET @Joanna    := 105698;
-SET @Deze      := 115006;
-
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (2482, 3044, 4165, 5173, 5698, 15006);
-DELETE FROM `creature_template` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Elissa, @Alexander);
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
-DELETE FROM `creature` WHERE `id1` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
-DELETE FROM `creature_equip_template` WHERE `CreatureID` IN (@Zarena, @Miles, @Elissa, @Alexander, @Joanna, @Deze);
-DELETE FROM `npc_vendor` WHERE `entry` = @Zarena;
-DELETE FROM `npc_trainer` WHERE `ID` = @Elissa;
-DELETE FROM `battlemaster_entry` WHERE `entry` = @Deze;
-
 -- alliance battlemasters
 DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 208042, 208081, 208107);
 
--- Alterac Valley - now using @CGUID 670000 instead
-DELETE FROM `waypoint_data` WHERE `id` IN (6300880, 6300890, 6301050, 6301060, 6301140, 6301330, 6301380, 6301390);
-DELETE FROM `creature_addon` WHERE `guid` IN (630088, 630089, 630105, 630106, 630114, 630133, 630138, 630139, 630164, 630165, 630181, 630182, 630190, 630209, 630214, 630215);
+-- Naxx40 - Razuvious
+DELETE FROM `spell_script_names` WHERE `spell_id` IN (29107, 55543);
 
 -- Naxx40
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 15975;
@@ -97,38 +51,34 @@ UPDATE `creature` SET `ScriptName` = '' WHERE `id1` IN (16241, 16255, 16281, 162
 -- remove AzerothCore area triggers used by WotLK Scourge Invasion Event
 DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096, 4098, 4099, 4100, 4101, 4103, 4104, 4105, 5151, 5152, 5153, 5154, 5158, 5159, 5160, 5161);
 
--- Restore Scourge Invasion Event
-DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN 248650 AND 248654;
-INSERT INTO `game_event_creature` (`eventEntry`, `guid`) VALUES
-(17, 248650),
-(17, 248651),
-(17, 248652),
-(17, 248653),
-(17, 248654);
+-- maraudon cleanup
+SET @CGUID  := 349000;
+SET @WPID   := 3490000;
 
-DELETE FROM `game_event_npcflag` WHERE `eventEntry` = 17 AND `guid` IN (1803, 26771, 38112, 46320, 208240);
-INSERT INTO `game_event_npcflag` (`eventEntry`, `guid`, `npcflag`) VALUES
-(17, 1803,   179),
-(17, 26771,  179),
-(17, 38112,  129),
-(17, 46320,  177),
-(17, 208240, 1048705);
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+32;
+DELETE FROM `creature_formations` WHERE `leaderGUID` IN (@CGUID+1, @CGUID+6, @CGUID+11, @CGUID+16, @CGUID+21, @CGUID+26, @CGUID+31);
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+1, @CGUID+6, @CGUID+11, @CGUID+16, @CGUID+21, @CGUID+26, @CGUID+31);
+DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+10, @WPID+60, @WPID+110, @WPID+160, @WPID+210, @WPID+260, @WPID+310);
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+41, @CGUID+42, @CGUID+43, @CGUID+44);
 
-DELETE FROM `game_event_npc_vendor` WHERE `eventEntry` = 17 AND `guid` IN (7, 1803, 26771, 38112, 46320, 208240);
-INSERT INTO `game_event_npc_vendor` (`eventEntry`, `guid`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
-(17, 7,      0, 23160, 0, 0, 0),
-(17, 7,      0, 23161, 0, 0, 0),
-(17, 1803,   0, 23160, 0, 0, 0),
-(17, 1803,   0, 23161, 0, 0, 0),
-(17, 26771,  0, 23160, 0, 0, 0),
-(17, 26771,  0, 23161, 0, 0, 0),
-(17, 38112,  0, 23160, 0, 0, 0),
-(17, 38112,  0, 23161, 0, 0, 0),
-(17, 46320,  0, 23160, 0, 0, 0),
-(17, 46320,  0, 23161, 0, 0, 0),
-(17, 208240, 0, 23160, 0, 0, 0),
-(17, 208240, 0, 23161, 0, 0, 0);
+-- Into the Breach cleanup
+SET @CGUID  := 640000;
+SET @WPID   := 6400000;
 
-DELETE FROM `game_event` WHERE `eventEntry` = 17;
-INSERT INTO `game_event` (`eventEntry`, `start_time`, `end_time`, `occurence`, `length`, `holiday`, `holidayStage`, `description`, `world_event`, `announce`) VALUES 
-(17, '2000-01-01 14:00:00', '2000-01-01 14:00:00', 525600, 1, 0, 0, 'Scourge Invasion', 0, 2);
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+212;
+DELETE FROM `creature_formations` WHERE `leaderGUID` IN (@CGUID+6, @CGUID+7, @CGUID+8, @CGUID+200, @CGUID+203, @CGUID+206);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-640006, -640007, -640008);
+DELETE FROM `creature_addon` WHERE `guid` IN 
+(@CGUID+4, @CGUID+5, @CGUID+6, @CGUID+7, @CGUID+8, @CGUID+9, @CGUID+10, @CGUID+11, @CGUID+12, @CGUID+13, @CGUID+14, @CGUID+15, 
+@CGUID+16, @CGUID+17, @CGUID+18, @CGUID+19, @CGUID+20, @CGUID+21, @CGUID+22, @CGUID+102, @CGUID+200, @CGUID+203, @CGUID+206);
+DELETE FROM `waypoint_data` WHERE `id` IN 
+(@WPID+40, @WPID+50, @WPID+60, @WPID+70, @WPID+80, @WPID+90, @WPID+100, @WPID+110, @WPID+120, @WPID+130, @WPID+140, @WPID+150, 
+@WPID+160, @WPID+170, @WPID+180, @WPID+190, @WPID+200, @WPID+0210, @WPID+0220, @WPID+1020, @WPID+2000, @WPID+2030, @WPID+2060);
+
+-- AV cleanup
+SET @CGUID  := 670000;
+SET @WPID   := 6700000;
+
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+88, @CGUID+89, @CGUID+105, @CGUID+106, @CGUID+114, @CGUID+133, @CGUID+138, @CGUID+139);
+DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+880, @WPID+890, @WPID+1050, @WPID+1060, @WPID+1140, @WPID+1330, @WPID+1380, @WPID+1390);
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+164, @CGUID+165, @CGUID+181, @CGUID+182, @CGUID+190, @CGUID+209, @CGUID+214, @CGUID+215);
