@@ -1,5 +1,6 @@
-SET @IPPPHASE    := 65536; -- this method of phasing is useful for aggressive creatures
-SET @IPPPHASE_II := 131072;
+SET @IPPPHASE     := 65536;  -- this method of phasing is useful for aggressive creatures
+SET @IPPPHASE_II  := 131072;
+SET @IPPPHASE_III := 262144;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16841, 19254, 16840,
                                                                               20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130,
