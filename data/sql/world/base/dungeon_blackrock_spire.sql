@@ -342,6 +342,25 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (44333, 0, 0, 3, 1, 0, 0, NULL), -- sleeping
 (44334, 0, 0, 3, 1, 0, 0, NULL); -- sleeping
 
+UPDATE `creature_template` SET `flags_extra` = 134217728 WHERE `entry` IN (9259, 9261); -- DONT_OVERRIDE_SAI_ENTRY (134217728) - Firebrand Grunt and Darkweaver
+
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-43765, -44311, -44312, -44333, -44334);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(-43765, 0, 0, 0, 1, 0, 100, 1, 3000, 6000, 0, 0, 0, 0, 11, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Firebrand Grunt - Out of Combat - Cast Sleep Aura (No Repeat)'),
+(-43765, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 28, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Firebrand Grunt - On Aggro - Remove Sleep Aura'),
+(-44311, 0, 0, 0, 1, 0, 100, 1, 3000, 6000, 0, 0, 0, 0, 11, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Firebrand Grunt - Out of Combat - Cast Sleep Aura (No Repeat)'),
+(-44311, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 28, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Firebrand Grunt - On Aggro - Remove Sleep Aura'),
+(-44312, 0, 0, 0, 1, 0, 100, 1, 3000, 6000, 0, 0, 0, 0, 11, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Firebrand Darkweaver - Out of Combat - Cast Sleep Aura (No Repeat)'),
+(-44312, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 28, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Firebrand Darkweaver - On Aggro - Remove Sleep Aura'),
+(-44333, 0, 0, 0, 1, 0, 100, 1, 3000, 6000, 0, 0, 0, 0, 11, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Firebrand Grunt - Out of Combat - Cast Sleep Aura (No Repeat)'),
+(-44333, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 28, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Firebrand Grunt - On Aggro - Remove Sleep Aura'),
+(-44334, 0, 0, 0, 1, 0, 100, 1, 3000, 6000, 0, 0, 0, 0, 11, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Firebrand Grunt - Out of Combat - Cast Sleep Aura (No Repeat)'),
+(-44334, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 28, 26115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Firebrand Grunt - On Aggro - Remove Sleep Aura');
+
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 3 WHERE `guid` IN  (44271, 44315);
 
 -- remove wrong patrol
