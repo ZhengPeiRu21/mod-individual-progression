@@ -1,13 +1,44 @@
--- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (12458);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (12458);
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(12420, 12457, 12458, 12459, 12460, 12461, 12463, 12465, 12467, 12468, 13996);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(12420, 12457, 12458, 12459, 12460, 12461, 12463, 12465, 12467, 12468, 13996);
+
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(12458, 0, 0, 0, 1, 0, 100, 0, 15000, 35000, 15000, 35000, 0, 0, 11, 22458, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Blackwing Taskmaster - OOC - Cast Healing Circle'),
-(12458, 0, 1, 0, 9, 0, 100, 0, 1000, 6000, 8000, 12000, 0, 20, 11, 17289, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Blackwing Taskmaster - Within 0-20 Range - Cast Shadow Shock');
+(12420, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 4500, 0, 0, 11, 17290, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Blackwing Mage - In Combat - Cast Fireball'),
+(12420, 0, 1, 0, 106, 0, 100, 0, 0, 0, 3000, 6000, 0, 8, 11, 22271, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Blackwing Mage - Within 0-8 Range - Cast Arcane Explosion'),
+(12457, 0, 0, 0, 0, 0, 60, 0, 10000, 10000, 15000, 20000, 0, 0, 11, 22274, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0, 'Blackwing Spellbinder - In Combat - Cast Greater Polymorph'),
+(12457, 0, 1, 0, 0, 0, 60, 0, 6000, 10000, 6000, 10000, 0, 0, 11, 22275, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Blackwing Spellbinder - In Combat - Cast Flamestrike'),
+(12458, 0, 0, 0, 1, 0, 100, 0, 15000, 35000, 15000, 35000, 0, 0, 11, 22458, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Blackwing Taskmaster - Out of Combat - Cast Healing Circle'),
+(12458, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 4000, 7000, 0, 0, 11, 17289, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Blackwing Taskmaster - In Combat - Cast Shadow Shock'),
+(12459, 0, 0, 0, 0, 0, 90, 0, 5000, 5000, 5000, 7000, 0, 0, 11, 19717, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,      'Blackwing Warlock - In Combat - Cast Rain of Fire'),
+(12459, 0, 1, 0, 0, 0, 90, 0, 6000, 6000, 3000, 7000, 0, 0, 11, 22336, 64, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,     'Blackwing Warlock - In Combat - Cast Shadow Bolt'),
+(12459, 0, 2, 0, 0, 0, 100, 0, 30000, 45000, 30000, 45000, 0, 0, 11, 22372, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Blackwing Warlock - In Combat - Cast Demon Portal'),
+(12459, 0, 3, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 11, 14081, 10, 0, 0, 0, 0, 0, 0,              'Blackwing Warlock - On Just Died - Despawn Instant'),
+(12459, 0, 4, 0, 7, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 9, 14081, 0, 10, 1, 0, 0, 0, 0,               'Blackwing Warlock - On Evade - Despawn Instant'),
+(12460, 0, 0, 0, 0, 0, 80, 0, 8000, 8000, 8000, 14000, 0, 0, 11, 24375, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Wyrmguard - In Combat - Cast War Stomp'),
+(12460, 0, 1, 0, 0, 0, 75, 0, 2000, 2000, 2000, 6000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Wyrmguard - Within 0-5 Range - Cast Cleave'),
+(12460, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22282, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Death Talon Wyrmguard - On Reset - Cast Brood Power'),
+(12460, 0, 3, 0, 0, 0, 100, 1, 4000, 4000, 0, 0, 0, 0, 11, 22276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Death Talon Wyrmguard - In Combat (4 sec) - Cast Elemental Shield'),
+(12461, 0, 0, 0, 0, 0, 75, 0, 2000, 2000, 2000, 6000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Overseer - Within 0-5 Range - Cast Cleave'),
+(12461, 0, 1, 0, 0, 0, 100, 0, 10000, 10000, 10000, 10000, 0, 0, 11, 20623, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0, 'Death Talon Overseer - Within 0-20 Range - Cast Fire Blast'),
+(12461, 0, 2, 0, 0, 0, 100, 1, 4000, 4000, 0, 0, 0, 0, 11, 22276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Death Talon Overseer - In Combat (4 sec) - Cast Elemental Shield'),
+(12463, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 3000, 6000, 0, 0, 11, 22423, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Flamescale - In Combat - Cast Flame Shock'),
+(12463, 0, 1, 0, 0, 0, 100, 0, 12000, 15000, 12000, 15000, 0, 0, 11, 16636, 0, 0, 0, 0, 0, 6, 40, 0, 0, 0, 0, 0, 0, 0, 'Death Talon Flamescale - In Combat - Cast Berserker Charge'),
+(12465, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 15000, 20000, 0, 0, 11, 22424, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Death Talon Wyrmkin - In Combat - Cast Blast Wave'),
+(12465, 0, 1, 0, 0, 0, 100, 0, 3000, 6000, 3000, 5000, 0, 0, 11, 22425, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Wyrmkin - In Combat - Cast Fireball Volley'),
+(12467, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22440, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Death Talon Captain - On Aggro - Cast Commanding Shout'),
+(12467, 0, 1, 0, 0, 0, 85, 0, 4000, 4000, 5000, 5000, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Death Talon Captain - Within 0-5 Range - Cast Cleave'),
+(12467, 0, 2, 0, 0, 0, 80, 0, 20000, 20000, 20000, 20000, 0, 0, 11, 22438, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Death Talon Captain - In Combat - Cast Mark of Detonation'),
+(12468, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22442, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                  'Death Talon Hatcher - On Aggro - Cast Growing Flames'),
+(12468, 0, 1, 0, 0, 0, 100, 0, 6000, 10000, 6000, 10000, 0, 0, 11, 22275, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Death Talon Hatcher - In Combat - Cast Flamestrike'),
+(13996, 0, 0, 0, 0, 0, 75, 0, 2000, 2000, 2000, 6000, 0, 0, 11, 22334, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Blackwing Technician - In Combat - Cast Bomb'),
+(13996, 0, 1, 0, 0, 0, 85, 0, 2000, 2000, 8000, 8000, 0, 0, 11, 22335, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Blackwing Technician - Within 0-5 Range - Cast Bottle of Poison'),
+(13996, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Blackwing Technician - On Respawn - Disable Auto Attack');
 
 
 DELETE FROM `spell_script_names` WHERE `spell_id` = 23310 AND `ScriptName` = 'spell_bwl_chromaggus_time_lapse';
