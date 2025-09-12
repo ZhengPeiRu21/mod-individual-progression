@@ -330,7 +330,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 -- sitting / sleeping
 DELETE FROM `creature_addon` WHERE `guid` IN (43111, 43762, 43765, 44311, 44312, 44321, 44331, 44333, 44334, 45796, 52128, 52131);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
-(43131, 0, 0, 3, 1, 0, 0, NULL), -- sleeping
+(43111, 0, 0, 3, 1, 0, 0, NULL), -- sleeping
 (43762, 0, 0, 1, 1, 0, 0, NULL), -- sitting
 (43765, 0, 0, 3, 1, 0, 0, NULL), -- sleeping
 (44311, 0, 0, 3, 1, 0, 0, NULL), -- sleeping
