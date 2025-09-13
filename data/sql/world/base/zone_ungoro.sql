@@ -123,3 +123,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (242540, 11, -6263.07, -2010.88, -264.302, NULL, 0, 0, 0, 100, 0),
 (242540, 12, -6282.18, -1998.39, -263.888, NULL, 0, 0, 0, 100, 0),
 (242540, 13, -6276.26, -1987.49, -261.782, NULL, 60000, 0, 0, 100, 0);
+
+-- Quest: The Apes of Un'Goro - drop chance was incorrectly set to 100%
+UPDATE `creature_loot_template` SET `Chance` = 50 WHERE `Item` IN (11478, 11479, 11480); -- imo 50 is still too high, but that's the value VMangos uses.
