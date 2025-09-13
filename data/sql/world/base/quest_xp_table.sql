@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS `custom_quest_xp`;
 CREATE TABLE IF NOT EXISTS `custom_quest_xp` (
-                                                 `entry` int(9) unsigned NOT NULL,
-                                                 `xpValue` int(9) unsigned NOT NULL,
-                                                 PRIMARY KEY (`entry`)
+    `entry` int unsigned NOT NULL,
+    `xpValue` int unsigned NOT NULL,
+    PRIMARY KEY (`entry`)
 ) ENGINE=InnoDB;
 
 
