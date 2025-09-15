@@ -81,6 +81,7 @@ enum NaxxramasData
     DATA_CHARGES_CROSSED            = 305,
     DATA_HUNDRED_CLUB               = 306,
     DATA_ABOMINATION_KILLED         = 307,
+	DATA_THADDIUS_SCREAMS           = 308,
 };
 
 enum NaxxramasPersistentData
