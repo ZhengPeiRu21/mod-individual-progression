@@ -181,12 +181,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14661, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 7000, 10000, 0, 0, 11, 6607, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,        'Stinglasher - Within 0-5 Range - cast Lash');
 
 
--- 5356, Snarler fix missing waypoints and wrong spawn point
-DELETE FROM `creature` WHERE `id1` = 5356;
+UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` = 5343; -- Lady Szallah
+UPDATE `creature` SET `spawntimesecs` = 54000 WHERE `id1` = 5347; -- Antilus the Soarer
+UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` = 5349; -- Arash-ethis
+
+DELETE FROM `creature` WHERE `id1` IN (5356, 11447, 11497, 11498);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(51683, 5356, 0, 0, 1, 0, 0, 1, 1, 0, -4142.19, -423.252, 24.9747, 4.12439, 21000, 0, 1, 1981, 0, 2, 0, 0, 0, '', 0, 0, NULL);
+(51683, 5356,  0, 0, 1, 0, 0, 1, 1, 0, -4142.19, -423.252, 24.9747, 4.12439, 21000,  0, 1, 1981,  0,     2, 0, 0, 0, '', 0, 0, NULL), -- Snarler
+(45758, 11447, 0, 0, 1, 0, 0, 1, 1, 0, -3758.47, 1096.15, 131.97, 3.34614,   25200, 10, 0, 60000, 0,     1, 0, 0, 0, '', 0, 0, NULL), -- Mushgog
+(45759, 11497, 0, 0, 1, 0, 0, 1, 1, 0, -3753.2, 1097.89, 131.97, 3.46003,    25200, 10, 0, 73000, 24340, 1, 0, 0, 0, '', 0, 0, NULL), -- The Razza
+(45760, 11498, 0, 0, 1, 0, 0, 1, 1, 1, -3758.51, 1093.64, 132.094, 0.425866, 25200, 10, 0, 57000, 0,     1, 0, 0, 0, '', 0, 0, NULL); -- Skarr the Unbreakable
 
+
+-- Snarler fix missing waypoints
 DELETE FROM `creature_addon` WHERE `guid` = 51683;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (51683, 516830, 0, 0, 0, 0, 0, NULL);
