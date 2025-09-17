@@ -127,6 +127,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (23873, 0, 1, 0, 9, 0, 100, 0, 0, 0, 17600, 17900, 0, 5, 11, 32019, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Goreclaw the Ravenous - Within 0-5 Range - Cast Gore');
 
 
+UPDATE `creature` SET `spawntimesecs` = 18000, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 14230; -- Burgle Eye
+
 DELETE FROM `creature`       WHERE `id1` = 23589;  -- Defias Rummager
 DELETE FROM `creature`       WHERE `id1` = 23841;  -- Razorspine
 DELETE FROM `creature_addon` WHERE `guid` = 39309; -- Razorspine
