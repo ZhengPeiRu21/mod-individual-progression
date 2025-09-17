@@ -704,16 +704,20 @@ class at_thaddius_entrance : public AreaTriggerScript
 public:
     at_thaddius_entrance() : AreaTriggerScript("at_thaddius_entrance") { }
 
+    bool _thaddiusIntro = false;
+
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
         InstanceScript* instance = player->GetInstanceScript();
-        if (!instance || instance->GetData(DATA_THADDIUS_INTRO) == 1 || instance->GetBossState(BOSS_THADDIUS) == DONE)
+        if (!instance || _thaddiusIntro == true || instance->GetBossState(BOSS_THADDIUS) == DONE)
             return true;
 
         if (Creature* thaddius = instance->GetCreature(DATA_THADDIUS_BOSS))
+		{
             thaddius->AI()->Talk(SAY_GREET);
+			_thaddiusIntro = true;
+        }
 
-        instance->SetData(DATA_THADDIUS_INTRO, 1);
         return true;
     }
 };

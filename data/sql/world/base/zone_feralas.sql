@@ -1,11 +1,13 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5229, 5268);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5262, 5274, 5278, 5286, 5287, 5295, 5296, 5297, 5299, 5346, 5356, 5362, 5363, 5364, 5366, 
-7725, 7726, 7727, 8075, 11447, 11497, 11498, 14661);
+(5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5262, 5274, 5278, 5286, 5287, 5288, 5295, 5296, 5297, 5299, 
+5304, 5305, 5307, 5308, 5312, 5317, 5319, 5320, 5331, 5332, 5333, 5334, 5335, 5336, 5337, 5343, 5346, 5347, 5349, 5356, 5357, 5358, 5362, 5363, 5364, 5366, 5462, 
+7725, 7726, 7727, 8075, 8136, 11447, 11497, 11498, 12497, 14661);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(5229, 5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5262, 5268, 5274, 5278, 5286, 5287, 5295, 5296, 5297, 5299, 5346, 5356, 5362, 5363, 5364, 5366, 
-7725, 7726, 7727, 8075, 11447, 11497, 11498, 14661);
+(5229, 5232, 5234, 5236, 5238, 5239, 5240, 5241, 5245, 5246, 5247, 5249, 5251, 5254, 5255, 5258, 5262, 5268, 5274, 5278, 5286, 5287, 5288, 5295, 5296, 5297, 5299, 
+5304, 5305, 5307, 5308, 5312, 5317, 5319, 5320, 5331, 5332, 5333, 5334, 5335, 5336, 5337, 5343, 5346, 5347, 5349, 5356, 5357, 5358, 5362, 5363, 5364, 5366, 5462, 
+7725, 7726, 7727, 8075, 8136, 11447, 11497, 11498, 12497, 14661);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -61,16 +63,67 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5278, 0, 0, 0, 0, 0, 100, 0, 3400, 7000, 7000, 11000, 0, 0, 11, 11981, 320, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Sprite Darter - In Combat - Cast Mana Burn'),
 (5286, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3149, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Longtooth Runner - On Aggro - Cast Furious Howl'),
 (5287, 0, 0, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Longtooth Howler - Between 0-20% Health - Call For Help (No Repeat)'),
+(5288, 0, 0, 0, 9, 0, 100, 0, 0, 0, 30000, 35000, 0, 5, 11, 3150, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Rabid Longtooth - Within 0-5 Range - Cast Rabies'),
 (5295, 0, 0, 1, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Enraged Feral Scar - Between 0-30% Health - Cast Enrage'),
 (5295, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Enraged Feral Scar - On Enrage - Say Line 0'),
 (5296, 0, 0, 1, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Rage Scar Yeti - Between 0-30% Health - Cast Enrage'),
 (5296, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rage Scar Yeti - On Enrage - Say Line 0'),
 (5297, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 12000, 21000, 0, 0, 11, 6507, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Elder Rage Scar - In Combat - Cast Battle Roar'),
 (5299, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 21000, 0, 5, 11, 3147, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Ferocious Rage Scar - Within 0-5 Range - Cast Rend Flesh'),
+(5304, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 5708, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Frayfeather Stagwing - Within 0-5 Range - Cast Swoop'),
+(5305, 0, 0, 0, 0, 0, 100, 0, 6000, 11000, 40000, 45000, 0, 0, 11, 6535, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Frayfeather Skystormer - In Combat - Cast Lightning Cloud'),
+(5307, 0, 0, 0, 9, 0, 100, 0, 0, 0, 11000, 15000, 0, 8, 11, 8281, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Vale Screecher - Within 0-8 Range - Cast Sonic Burst'),
+(5308, 0, 0, 0, 9, 0, 100, 0, 0, 0, 11000, 15000, 0, 8, 11, 8281, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Rogue Vale Screecher - Within 0-8 Range - Cast Sonic Burst'),
+--
+(5312, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 20667, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Lethlas - In Combat - Cast Corrosive Acid Breath'),
+(5312, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 10000, 14000, 0, 0, 11, 12882, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Lethlas - In Combat - Cast Wing Flap'),
+(5317, 0, 0, 0, 14, 0, 100, 0, 20000, 40, 8000, 12000, 0, 0, 11, 20664, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Jademir Oracle - Friendly Missing 20k Health - Cast Rejuvenation'),
+(5317, 0, 1, 0, 14, 0, 100, 0, 30000, 40, 10000, 15000, 0, 0, 11, 20665, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Jademir Oracle - Friendly Missing 30k Health - Cast Regrowth'),
+(5319, 0, 0, 0, 0, 0, 100, 0, 0, 0, 5000, 9000, 0, 0, 11, 20656, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Jademir Tree Warder - In Combat - Cast Faerie Fire'),
+(5319, 0, 1, 0, 0, 0, 100, 0, 2000, 6000, 19000, 23000, 0, 0, 11, 20654, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Jademir Tree Warder - In Combat - Cast Entangling Roots'),
+(5320, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 5, 11, 20666, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Jademir Boughguard - Within 0-5 Range - Cast Cleave'),
+(5320, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 12000, 15000, 0, 0, 11, 15708, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Jademir Boughguard - Within 0-5 Range - Cast Mortal Strike'),
+--
+(5331, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hatecrest Warrior - On Aggro - Cast Defensive Stance'),
+(5331, 0, 1, 0, 0, 0, 100, 0, 6000, 16000, 20000, 36000, 0, 0, 11, 6713, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,       'Hatecrest Warrior - Within 0-5 Range - Cast Disarm'),
+(5331, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5332, 0, 0, 0, 0, 0, 100, 0, 7000, 11000, 11000, 16000, 0, 0, 11, 10987, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Hatecrest Wave Rider - In Combat - Cast Geyser'),
+(5332, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Wave Rider - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5333, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 13000, 0, 25, 11, 8058, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Hatecrest Serpent Guard - Within 0-25 Range - Cast Frost Shock'),
+(5333, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Serpent Guard - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5334, 0, 0, 0, 9, 0, 100, 0, 0, 0, 20500, 36900, 0, 20, 11, 6533, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Hatecrest Myrmidon - Within 0-20 Range - Cast Net'),
+(5334, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Myrmidon - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5335, 0, 0, 0, 14, 0, 100, 0, 800, 40, 13000, 16000, 0, 0, 11, 6078, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Hatecrest Screamer - Friendly Missing 800 Health - Cast Renew'),
+(5335, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 14000, 0, 8, 11, 8281, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Hatecrest Screamer - Within 0-8 Range - Cast Sonic Burst'),
+(5335, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Screamer - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5336, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20822, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Hatecrest Sorceress - In Combat - Cast Frostbolt'),
+(5336, 0, 1, 0, 0, 0, 100, 0, 15000, 21000, 18000, 24000, 0, 0, 11, 10185, 1, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Hatecrest Sorceress - In Combat - Cast Blizzard'),
+(5336, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Sorceress - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(5337, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Hatecrest Siren - In Combat - Cast Lightning Bolt'),
+(5337, 0, 1, 0, 0, 0, 100, 0, 8000, 14000, 19000, 24000, 0, 0, 11, 7645, 97, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,     'Hatecrest Siren - In Combat - Cast Dominate Mind'),
+(5337, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Siren - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(5343, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Lady Szallah - In Combat - Cast Lightning Bolt'),
+(5343, 0, 1, 0, 0, 0, 100, 0, 8000, 11000, 12000, 15000, 0, 0, 11, 8435, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Lady Szallah - In Combat - Cast Forked Lightning'),
+(5343, 0, 2, 0, 0, 0, 100, 0, 12000, 15000, 17000, 21000, 0, 0, 11, 6728, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Lady Szallah - In Combat - Cast Enveloping Winds'),
+(5343, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Szallah - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5346, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 22000, 0, 8, 11, 3264, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Bloodroar the Stalker - Within 0-8 Range - Cast Blood Howl'),
 (5346, 0, 1, 2, 2, 0, 100, 0, 0, 30, 120000, 120000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Bloodroar the Stalker - Between 0-30% Health - Cast Enrage'),
 (5346, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodroar the Stalker - On Enrage - Say Line 0'),
+(5347, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 21000, 0, 5, 11, 13445, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Antilus the Soarer - Within 0-5 Range - Cast Rend'),
+(5349, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 6000, 0, 30, 11, 15117, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Arash-ethis - In Combat - Cast Chain Lightning'),
+(5349, 0, 1, 0, 0, 0, 100, 0, 5000, 5000, 6000, 11000, 0, 0, 11, 12553, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,       'Arash-ethis - In Combat - Cast Shock'),
 (5356, 0, 0, 0, 0, 0, 100, 0, 2500, 5000, 10000, 15000, 0, 0, 11, 5543, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Snarler - In Combat - Cast Fade Out'),
+--
+(5357, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Land Walker - Outside 30 Range - Start Combat Movement'),
+(5357, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Land Walker - Within 5-30 Range - Stop Combat Movement'),
+(5357, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Land Walker - Within 0-5 Range - Start Combat Movement'),
+(5357, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 23391, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Land Walker - Within 5-30 Range - Cast Boulder'),
+(5357, 0, 4, 0, 8, 0, 100, 512, 23359, 0, 0, 0, 0, 0, 36, 14604, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Land Walker - On Spellhit \'Transmogrify!\' - Update Template To Zapped Land Walker'),
+(5357, 0, 5, 0, 8, 0, 100, 0, 23359, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                     'Land Walker - On Spellhit \'Transmogrify!\' - Starts an attack'),
+(5358, 0, 0, 0, 8, 0, 100, 512, 23359, 0, 0, 0, 0, 0, 36, 14640, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Cliff Giant - On Spellhit \'Transmogrify!\' - Update Template To \'Zapped Cliff Giant\''),
+(5358, 0, 1, 0, 8, 0, 100, 0, 23359, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                     'Cliff Giant - On Spellhit \'Transmogrify!\' - Starts an attack'),
+(5358, 0, 2, 0, 9, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 45, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cliff Giant - Within 0-5 Range - Cast War Stomp'),
 --
 (5362, 0, 0, 0, 14, 0, 100, 0, 1000, 40, 15000, 20000, 0, 0, 11, 11014, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Northspring Harpy - Friendly Missing 1000 Health - Cast Flow of the Northspring'),
 (5362, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Northspring Harpy - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -84,6 +137,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5366, 0, 1, 0, 0, 0, 100, 0, 8000, 11000, 17000, 21000, 0, 0, 11, 6728, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Northspring Windcaller - In Combat - Cast Enveloping Winds'),
 (5366, 0, 2, 0, 14, 0, 100, 0, 1000, 40, 15000, 20000, 0, 0, 11, 11014, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Northspring Windcaller - Friendly Missing 1000 Health - Cast Flow of the Northspring'),
 (5366, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Northspring Windcaller - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(5462, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 11538, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Sea Spray - In Combat - Cast Frostbolt'),
+(5462, 0, 1, 0, 9, 0, 100, 0, 0, 0, 11000, 15000, 0, 8, 11, 10987, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Sea Spray - Within 0-8 Range - Cast Geyser'),
 --
 (7725, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7366, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Grimtotem Raider - On Aggro - Cast Berserker Stance'),
 (7725, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 5000, 8000, 0, 0, 11, 6533, 32, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,       'Grimtotem Raider - In Combat - Cast Net'),
@@ -105,6 +161,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8075, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12167, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Edana Hatetalon - In Combat  - Lightning Bolt'),
 (8075, 0, 2, 0, 0, 0, 100, 0, 12000, 15000, 19000, 24000, 0, 0, 11, 8293, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Edana Hatetalon - In Combat - Cast Lightning Cloud'),
 (8075, 0, 3, 0, 0, 0, 100, 0, 9000, 13000, 9000, 12000, 0, 0, 11, 12058, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Edana Hatetalon - In Combat - Cast Chain Lightning'),
+(8136, 0, 0, 0, 9, 0, 100, 0, 0, 0, 16000, 21000, 0, 25, 11, 8058, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Lord Shalzaru - In Combat - Cast Frost Shock'),
+(8136, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lord Shalzaru - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (11447, 0, 0, 0, 9, 0, 100, 0, 2000, 3000, 13000, 15000, 0, 30, 11, 22127, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Mushgog - Within 0-30 Range - Cast Entangling Roots'),
 (11447, 0, 1, 0, 6, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 22948, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Mushgog - On Just Died - Cast Spore Cloud'),
 (11447, 0, 2, 0, 0, 0, 100, 0, 7000, 10000, 8000, 12000, 0, 0, 11, 21749, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Mushgog - In Combat - Cast Thorn Volley'),
@@ -117,16 +175,26 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11498, 0, 1, 0, 9, 0, 100, 0, 5000, 7000, 13000, 16000, 0, 5, 11, 11428, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skarr the Unbreakable - Within 0-5 Range - Cast Knockdown'),
 (11498, 0, 2, 0, 9, 0, 100, 0, 8000, 12000, 9000, 15000, 0, 5, 11, 15708, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Skarr the Unbreakable - Within 0-5 Range - Cast Mortal Strike'),
 (11498, 0, 3, 0, 0, 0, 100, 0, 12000, 16000, 14000, 17000, 0, 0, 11, 22951, 0, 0, 0, 0, 0, 17, 10, 40, 1, 0, 0, 0, 0, 0, 'Skarr the Unbreakable - In Combat - Cast Summon Player'),
+(12497, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 6000, 11000, 0, 0, 11, 20667, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,       'Dreamroarer - Within 0-5 Range - Cast Corrosive Acid Breath'),
+(12497, 0, 1, 0, 9, 0, 100, 0, 0, 0, 12000, 16000, 0, 30, 11, 20668, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Dreamroarer - In Combat - Cast Sleepwalk'),
 (14661, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 17000, 0, 5, 11, 5416, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Stinglasher - Within 0-5 Range - cast Venom Sting'),
 (14661, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 7000, 10000, 0, 0, 11, 6607, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,        'Stinglasher - Within 0-5 Range - cast Lash');
 
 
--- 5356, Snarler fix missing waypoints and wrong spawn point
-DELETE FROM `creature` WHERE `id1` = 5356;
+UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` = 5343; -- Lady Szallah
+UPDATE `creature` SET `spawntimesecs` = 54000 WHERE `id1` = 5347; -- Antilus the Soarer
+UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` = 5349; -- Arash-ethis
+
+DELETE FROM `creature` WHERE `id1` IN (5356, 11447, 11497, 11498);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(51683, 5356, 0, 0, 1, 0, 0, 1, 1, 0, -4142.19, -423.252, 24.9747, 4.12439, 21000, 0, 1, 1981, 0, 2, 0, 0, 0, '', 0, 0, NULL);
+(51683, 5356,  0, 0, 1, 0, 0, 1, 1, 0, -4142.19, -423.252, 24.9747, 4.12439, 21000,  0, 1, 1981,  0,     2, 0, 0, 0, '', 0, 0, NULL), -- Snarler
+(45758, 11447, 0, 0, 1, 0, 0, 1, 1, 0, -3758.47, 1096.15, 131.97, 3.34614,   25200, 10, 0, 60000, 0,     1, 0, 0, 0, '', 0, 0, NULL), -- Mushgog
+(45759, 11497, 0, 0, 1, 0, 0, 1, 1, 0, -3753.2, 1097.89, 131.97, 3.46003,    25200, 10, 0, 73000, 24340, 1, 0, 0, 0, '', 0, 0, NULL), -- The Razza
+(45760, 11498, 0, 0, 1, 0, 0, 1, 1, 1, -3758.51, 1093.64, 132.094, 0.425866, 25200, 10, 0, 57000, 0,     1, 0, 0, 0, '', 0, 0, NULL); -- Skarr the Unbreakable
 
+
+-- Snarler fix missing waypoints
 DELETE FROM `creature_addon` WHERE `guid` = 51683;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (51683, 516830, 0, 0, 0, 0, 0, NULL);

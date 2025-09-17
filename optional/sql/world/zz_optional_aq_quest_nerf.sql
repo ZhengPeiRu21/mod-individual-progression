@@ -1,7 +1,6 @@
 /*
     Optional but suggested changes. The AQ quests were originally designed for a large group of players to farm items given to a chosen player to turn in.
     This reduces the quest requirements to be more reasonably completable by a solo player or a small group.
-    Be sure to run AFTER vanilla_quest_reputations.sql.
 */
 
 -- Increases the Rep for The Hand of the Righteous quest by 40 times, so only about 5 turn-ins are necessary instead of 200.
