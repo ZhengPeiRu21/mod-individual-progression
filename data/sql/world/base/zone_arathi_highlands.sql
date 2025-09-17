@@ -131,6 +131,36 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4481, 0, 3, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Marcel Dabyrie - Between 0-30% Health - Flee For Assist (No Repeat)');
 
 
+-- multiple spawn locations for Prince Nazjak
+DELETE FROM `creature` WHERE `id1` IN (2779);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+--
+(84713, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2316.75, -1582.54, -36.352, 4.89399, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695102, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2315.92, -1755.23, -34.1144, 5.33605, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695103, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2214.64, -1734.71, -64.7424, 1.18521, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695104, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2158.53, -1680.49, -40.1574, 4.4132, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695105, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2186.8, -1596.94, -38.3966, 5.35174, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695106, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2145.72, -1637.69, -44.1156, 2.46148, 115200, 0, 0, 1902, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695107, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2131.6, -1843.87, -42.1255, 1.84023, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695108, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2266.25, -1614.29, -63.013, 3.3215, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601048);
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(84713,  601048, 0, 'Prince Nazjak'),
+(695102, 601048, 0, 'Prince Nazjak'),
+(695103, 601048, 0, 'Prince Nazjak'),
+(695104, 601048, 0, 'Prince Nazjak'),
+(695105, 601048, 0, 'Prince Nazjak'),
+(695106, 601048, 0, 'Prince Nazjak'),
+(695107, 601048, 0, 'Prince Nazjak'),
+(695108, 601048, 0, 'Prince Nazjak');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601048);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601048, 1, 'Prince Nazjak - Arathi Highlands');
+
+
 -- remove non elite Syndicate thief from Stromgarde
 DELETE FROM `creature` WHERE `id1` = 24477;
 
