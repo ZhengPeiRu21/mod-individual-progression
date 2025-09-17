@@ -139,7 +139,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5366, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Northspring Windcaller - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (5462, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 11538, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Sea Spray - In Combat - Cast Frostbolt'),
-(5462, 0, 1, 0, 9, 0, 100, 0, 0, 0, 11000, 15000, 0, 8, 11, 10987, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Sea Spray - Within 0-8 Range - Cast Geyser'),
+(5462, 0, 1, 0, 9, 0, 100, 0, 0, 0, 11000, 15000, 0, 8, 11, 10987, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Sea Spray - Within 0-8 Range - Cast Geyser'),
 --
 (7725, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7366, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Grimtotem Raider - On Aggro - Cast Berserker Stance'),
 (7725, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 5000, 8000, 0, 0, 11, 6533, 32, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,       'Grimtotem Raider - In Combat - Cast Net'),
