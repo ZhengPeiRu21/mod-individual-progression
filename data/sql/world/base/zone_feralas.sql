@@ -97,10 +97,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5335, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 14000, 0, 8, 11, 8281, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Hatecrest Screamer - Within 0-8 Range - Cast Sonic Burst'),
 (5335, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Screamer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5336, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20822, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Hatecrest Sorceress - In Combat - Cast Frostbolt'),
-(5336, 0, 1, 0, 0, 0, 100, 0, 15000, 21000, 18000, 24000, 0, 0, 11, 10185, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Hatecrest Sorceress - In Combat - Cast Blizzard'),
+(5336, 0, 1, 0, 0, 0, 100, 0, 15000, 21000, 18000, 24000, 0, 0, 11, 10185, 1, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Hatecrest Sorceress - In Combat - Cast Blizzard'),
 (5336, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Sorceress - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5337, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Hatecrest Siren - In Combat - Cast Lightning Bolt'),
-(5337, 0, 1, 0, 0, 0, 100, 0, 8000, 14000, 19000, 24000, 0, 0, 11, 7645, 96, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,     'Hatecrest Siren - In Combat - Cast Dominate Mind'),
+(5337, 0, 1, 0, 0, 0, 100, 0, 8000, 14000, 19000, 24000, 0, 0, 11, 7645, 97, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,     'Hatecrest Siren - In Combat - Cast Dominate Mind'),
 (5337, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Hatecrest Siren - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (5343, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Lady Szallah - In Combat - Cast Lightning Bolt'),
