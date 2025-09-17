@@ -2,7 +2,6 @@
     This will change item stack sizes for Vanilla items to Vanilla stack sizes,
     and TBC items to TBC stack sizes. Higher stack sizes are mostly just QoL,
     so some players may wish to exclude this optional file.
-    Note that ammo is not included as it is already adjusted in vanilla_item_changes.sql 
 */
 
 UPDATE item_template SET stackable = 5  WHERE entry = 118;  -- Minor Healing Potion
