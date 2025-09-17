@@ -14,6 +14,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_preaq' WHERE `entry` IN (
 -- Phasing Cenarion Hold guards
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` = 15184 AND `guid` IN (42782, 42783, 42768);
 
+-- Phasing ZG quest NPCs on YoJamba Isle
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` IN (14904, 14910, 15070);
+
 -- Phasing NPCs until after the outdoors AQ war has been completed
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN  (15498, 15499, 15500, 15540, 16091);                -- Cenarion Hold
 
