@@ -1,9 +1,12 @@
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2581);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2598, 2604, 2606, 2607, 2793, 4479, 4480, 4481);
+(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 
+2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2779, 2793, 4479, 4480, 4481);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 2590, 2591, 2598, 2604, 2606, 2607, 2793, 4479, 4480, 4481);
+(2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 
+2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2779, 2793, 4479, 4480, 4481);
+
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -66,11 +69,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2582, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Dabyrie Laborer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2583, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 19000, 23000, 0, 0, 11, 2767, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Stromgarde Troll Hunter - In Combat - Cast Shadow Word: Pain'),
 (2583, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 18000, 50, 40, 11, 17137, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Stromgarde Troll Hunter - On Friendly Between 0-50% Health - Cast Flash Heal'),
-(2583, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Troll Hunter - On Death - Cross Cast Vengeance'),
+(2583, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Troll Hunter - On Death - Cross Cast Vengeance'),
 (2584, 0, 0, 0, 1, 0, 100, 1, 2000, 6000, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Stromgarde Defender - Out of Combat - Cast Defensive Stance (No Repeat)'),
 (2584, 0, 1, 0, 105, 0, 100, 0, 7000, 10000, 9000, 13000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Stromgarde Defender - Within 0-5 Range - Cast Shield Bash'),
-(2584, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Defender - On Death - Cross Cast Vengeance'),
-(2585, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 20, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Vindicator - On Death - Cross Cast Vengeance'),
+(2584, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Defender - On Death - Cross Cast Vengeance'),
+(2585, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Vindicator - On Death - Cross Cast Vengeance'),
 (2586, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Highwayman - Out of Combat - Cast Sneak (No Repeat)'),
 (2586, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 28, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Syndicate Highwayman - On Aggro - Remove Aura Sneak'),
 (2586, 0, 2, 0, 67, 0, 100, 0, 1000, 3000, 4000, 7000, 0, 5, 11, 2591, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Syndicate Highwayman - On Behind Target - Cast Backstab'),
@@ -95,6 +98,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2591, 0, 1, 0, 0, 0, 100, 0, 0, 0, 3000, 4000, 0, 0, 11, 9672, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Magus - In Combat - Cast Frostbolt'),
 (2591, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Syndicate Magus - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
+(2595, 0, 0, 0, 0, 0, 100, 0, 12000, 15000, 17000, 34000, 0, 0, 11, 6533, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Daggerspine Raider - In Combat - Cast Net'),
+(2595, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Daggerspine Raider - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2596, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 4000, 0, 0, 11, 20824, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Daggerspine Sorceress - In Combat - Cast Lightning Bolt'),
+(2596, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 8134, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Daggerspine Sorceress - Between 0-50% Health - Cast Lightning Shield (No Repeat)'),
+(2596, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Daggerspine Sorceress - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
 (2598, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 8722, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Darbel Montrose - Out of Combat - Cast Summon Succubus (No Repeat)'),
 (2598, 0, 1, 0, 0, 0, 100, 0, 0, 0, 3600, 6000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Darbel Montrose - In Combat - Cast Shadow Bolt'),
 (2598, 0, 2, 0, 0, 0, 100, 0, 4000, 7000, 60000, 60000, 0, 0, 11, 12741, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Darbel Montrose - In Combat - Cast Curse of Weakness'),
@@ -108,6 +117,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2607, 0, 0, 0, 9, 0, 100, 0, 3000, 5000, 12000, 15000, 0, 10, 11, 13730, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Prince Galen Trollbane - Within 0-10 Range - Cast Demoralizing Shout'),
 (2607, 0, 1, 0, 9, 0, 100, 0, 2000, 4000, 6000, 12000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Prince Galen Trollbane - Within 0-5 Range - Cast Sunder Armor'),
 (2607, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Prince Galen Trollbane - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2779, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Prince Nazjak - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2793, 0, 0, 0, 4, 0, 30, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Kor gresh Coldrage - On Aggro - Say Line 0 (No Repeat)'),
 (2793, 0, 1, 0, 106, 0, 100, 0, 8000, 12000, 48000, 53000, 0, 10, 11, 865, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Kor gresh Coldrage - Within 0-10 Range - Cast Frost Nova'),
 (2793, 0, 2, 0, 0, 0, 100, 0, 1000, 7000, 48000, 55000, 0, 0, 11, 4320, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Kor gresh Coldrage - In Combat - Cast Trelanes Freezing Touch'),
@@ -119,6 +129,36 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4481, 0, 1, 0, 105, 0, 100, 0, 6000, 11000, 19000, 25000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Marcel Dabyrie - In Combat - Cast Shield Bash'),
 (4481, 0, 2, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15062, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Marcel Dabyrie - Between 0-50% Health - Cast Shield Wall (No Repeat)'),
 (4481, 0, 3, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Marcel Dabyrie - Between 0-30% Health - Flee For Assist (No Repeat)');
+
+
+-- multiple spawn locations for Prince Nazjak
+DELETE FROM `creature` WHERE `id1` IN (2779);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+--
+(84713, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2316.75, -1582.54, -36.352, 4.89399, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695102, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2315.92, -1755.23, -34.1144, 5.33605, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695103, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2214.64, -1734.71, -64.7424, 1.18521, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695104, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2158.53, -1680.49, -40.1574, 4.4132, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695105, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2186.8, -1596.94, -38.3966, 5.35174, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695106, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2145.72, -1637.69, -44.1156, 2.46148, 115200, 0, 0, 1902, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695107, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2131.6, -1843.87, -42.1255, 1.84023, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695108, 2779, 0, 0, 0, 0, 0, 1, 1, 1, -2266.25, -1614.29, -63.013, 3.3215, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601048);
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(84713,  601048, 0, 'Prince Nazjak'),
+(695102, 601048, 0, 'Prince Nazjak'),
+(695103, 601048, 0, 'Prince Nazjak'),
+(695104, 601048, 0, 'Prince Nazjak'),
+(695105, 601048, 0, 'Prince Nazjak'),
+(695106, 601048, 0, 'Prince Nazjak'),
+(695107, 601048, 0, 'Prince Nazjak'),
+(695108, 601048, 0, 'Prince Nazjak');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601048);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601048, 1, 'Prince Nazjak - Arathi Highlands');
 
 
 -- remove non elite Syndicate thief from Stromgarde

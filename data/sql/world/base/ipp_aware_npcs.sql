@@ -1,5 +1,6 @@
-SET @IPPPHASE    := 65536; -- this method of phasing is useful for aggressive creatures
-SET @IPPPHASE_II := 131072;
+SET @IPPPHASE     := 65536;  -- this method of phasing is useful for aggressive creatures
+SET @IPPPHASE_II  := 131072;
+SET @IPPPHASE_III := 262144;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16841, 19254, 16840,
                                                                               20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130,
@@ -12,6 +13,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_preaq' WHERE `entry` IN (
                                                                                 15306, 15419, 15599, 15612, 15613, 15614, 15693, 15903, 16543, 17081, 17082);
 -- Phasing Cenarion Hold guards
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` = 15184 AND `guid` IN (42782, 42783, 42768);
+
+-- Phasing ZG quest NPCs on YoJamba Isle
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` IN (14904, 14910, 15070);
 
 -- Phasing NPCs until after the outdoors AQ war has been completed
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN  (15498, 15499, 15500, 15540, 16091);                -- Cenarion Hold
@@ -64,6 +68,11 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN 
 -- Dragons of Nightmare
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (14887, 14888, 14889, 14890);
 
+-- Vault of Archavon
+UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1` = 33993; -- Emalon the Storm Watcher
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II  WHERE `id1` = 35013; -- Koralon the Flame Watcher
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 38433; -- Toravon the Ice Watcher
+    
 -- Argent Tournament
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` IN (25, 63129, 63236, 63370, 63371, 65274, 65275, 65283, 65284, 65285, 65325, 65327, 65350, 65351, 65371, 65451,
 65522, 65523, 65526, 65901, 66478, 66479, 66741, 66753, 66788, 66790, 66792, 66910, 66941, 67185, 67187, 68005, 68457, 68583, 68906, 68941, 68947, 68987, 68989, 68990, 69010,
