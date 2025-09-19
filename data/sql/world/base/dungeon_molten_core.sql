@@ -92,7 +92,8 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 
 -- reputation fixes
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 20 WHERE `creature_id` IN 
-(11667,  -- Flameguard
+(11666,  -- Firewalker
+ 11667,  -- Flameguard
  11668,  -- Firelord
  12076,  -- Lava Elemental
  12100); -- Lava Reaver
