@@ -32,9 +32,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13278, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Duke Hydraxis - On Link - Add item Eternal Quintessence');
 
 
-
-
-
 DELETE FROM `creature_queststarter` WHERE `quest` IN (6804, 6821, 6822, 6823, 6824, 7486) AND `id` = 13278;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (13278, 6804), -- Poisoned Water
