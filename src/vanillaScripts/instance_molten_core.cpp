@@ -321,7 +321,7 @@ public:
             {
                 if (GameObject* rune = instance->GetGameObject(_runesGUIDs[bossId]))
                 {
-                    if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1))
+                    if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1) == 1)
                     {
                         rune->SetGoState(GO_STATE_ACTIVE);
                         rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
@@ -432,12 +432,14 @@ public:
                 return false;
             }
 
-            if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1))
+            if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1) == 1)
             {
                 return CheckFirelordRunes();
             }
-
-            return true;
+			else
+			{
+                return true;
+			}
         }
 
         bool CheckFirelordRunes() const
