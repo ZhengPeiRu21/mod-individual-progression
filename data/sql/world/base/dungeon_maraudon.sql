@@ -116,8 +116,8 @@ DELETE FROM `creature_addon` WHERE `guid` IN
 
 
 -- create new patrols
-SET @CGUID  := 349000;
-SET @WPID   := 3490000;
+SET @CGUID  := 652000;
+SET @WPID   := 6520000;
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+32;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 

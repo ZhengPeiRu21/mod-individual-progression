@@ -63,20 +63,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (614981, 14981, 0, -8454.62, 318.853, 120.969, 0.698132, 180), -- Elfarran <Warsong Gulch Battlemaster>
 (615008, 15008, 0, -8420.48, 328.711, 120.886, 3.06638, 180);  -- Lady Hoteshem <Arathi Basin Battlemaster>
 
-UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805;
-
-
--- Tome of Nobility (Paladin)
-DELETE FROM `creature_questender` WHERE `id`=6171 AND `quest`=1661;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6171, 1661);
-
--- Tome of Nobility (Paladin)
-DELETE FROM `creature_queststarter` WHERE `id`=6171 AND `quest`=1661;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6171, 1661);
-
--- Summon Felsteed (Warlock)
-DELETE FROM `creature_queststarter` WHERE `id`=461 AND `quest`=4488;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (461, 4488);
+UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
 
 
 UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 68;    -- Stormwind City Guard

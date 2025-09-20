@@ -108,14 +108,14 @@ INSERT INTO npc_vendor (entry, slot, item) VALUES
 /*-- Alchemy --*/
 DELETE FROM `npc_trainer` WHERE `ID` IN (300000, 300001, 300002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
--- Apprentice Alchemist
+-- Journeyman Alchemist
 (300000, 2275, 10, 0, 0, 5),
 (300000, 3170, 50, 171, 15, 0),
 (300000, 2331, 100, 171, 25, 0),
 (300000, 2332, 150, 171, 40, 0),
 (300000, 2334, 250, 171, 50, 0),
 (300000, 2337, 250, 171, 55, 0),
--- Journeyman Alchemist
+-- Expert Alchemist
 (300001, 2280, 500, 171, 50, 10),
 (300001, 7836, 250, 171, 80, 0),
 (300001, 3171, 500, 171, 90, 0),
@@ -127,7 +127,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (300001, 3177, 2000, 171, 130, 0),
 (300001, 7837, 1000, 171, 130, 0),
 (300001, 7845, 3000, 171, 140, 0),
--- Expert Alchemist
+-- Artisan Alchemist
 (300002, 3448, 5000, 171, 165, 0),
 (300002, 3450, 6000, 171, 175, 0),
 (300002, 3452, 5000, 171, 160, 0),
@@ -135,6 +135,11 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (300002, 7181, 5000, 171, 155, 0),
 (300002, 11449, 6500, 171, 185, 0),
 (300002, 11450, 7500, 171, 195, 0),
+(300002, 12609, 8000, 171, 200, 0),
+(300002, 11448, 9000, 171, 205, 0),
+(300002, 11451, 8000, 171, 205, 0),
+(300002, 11457, 10000, 171, 215, 0),
+(300002, 22808, 10000, 171, 215, 0),
 (300002, 53042, 10000, 171, 50, 0),
 (300002, 63732, 2000, 171, 135, 0);
 
@@ -183,7 +188,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 /*-- Blacksmithing --*/
 DELETE FROM `npc_trainer` WHERE `ID` IN (310000, 310001, 310002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
--- Apprentice Blacksmith
+-- Journeyman Blacksmith
 (310000, 2020, 10, 0, 0, 5),
 (310000, 2662, 50, 164, 1, 0),
 (310000, 2737, 50, 164, 15, 0),
@@ -203,7 +208,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (310000, 2666, 200, 164, 70, 0),
 (310000, 3294, 500, 164, 70, 0),
 (310000, 3326, 250, 164, 75, 0),
--- Journeyman Blacksmith
+-- Expert Blacksmith
 (310001, 2021, 500, 164, 50, 10),
 (310001, 2664, 500, 164, 90, 0),
 (310001, 3292, 500, 164, 90, 0),
@@ -232,7 +237,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (310001, 8768, 250, 164, 150, 0),
 (310001, 14379, 250, 164, 150, 0),
 (310001, 19667, 250, 164, 150, 0),
--- Expert Blacksmith
+-- Artisan Blacksmith
 (310002, 3539, 4500, 164, 125, 20),
 (310002, 3506, 900, 164, 155, 0),
 (310002, 3501, 900, 164, 165, 0),
@@ -310,7 +315,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 /*-- Enchanting --*/
 DELETE FROM `npc_trainer` WHERE `ID` IN (330000, 330001, 330002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
--- Apprentice Enchanter
+-- Journeyman Enchanter
 (330000, 7414, 10, 0, 0, 5),
 (330000, 14293, 50, 333, 10, 0),
 (330000, 7420, 50, 333, 15, 0),
@@ -320,7 +325,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (330000, 7748, 250, 333, 60, 0),
 (330000, 7771, 200, 333, 70, 0),
 (330000, 14807, 200, 333, 70, 0),
--- Journeyman Enchanter
+-- Expert Enchanter
 (330001, 7415, 500, 333, 50, 10),
 (330001, 7779, 400, 333, 80, 0),
 (330001, 7788, 500, 333, 90, 0),
@@ -340,7 +345,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (330001, 13622, 2500, 333, 150, 0),
 (330001, 13626, 2500, 333, 150, 0),
 (330001, 13628, 2500, 333, 150, 0),
--- Expert Enchanter
+-- Artisan Enchanter
 (330002, 7416, 5000, 333, 125, 20),
 (330002, 13635, 2600, 333, 155, 0),
 (330002, 13631, 2600, 333, 155, 0),
@@ -408,7 +413,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 /*-- Engineering --*/
 DELETE FROM `npc_trainer` WHERE `ID` IN (340000, 340001, 340002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES 
--- Apprentice Engineer
+-- Journeyman Engineer
 (340000, 4039, 10, 0, 0, 5),
 (340000, 3922, 115, 202, 30, 0),
 (340000, 3923, 130, 202, 30, 0),
@@ -420,7 +425,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (340000, 3929, 250, 202, 75, 0),
 (340000, 3931, 250, 202, 75, 0),
 (340000, 3930, 250, 202, 75, 0),
--- Journeyman Engineer
+-- Expert Engineer
 (340001, 4040, 500, 202, 50, 10),
 (340001, 3932, 300, 202, 85, 0),
 (340001, 3973, 300, 202, 90, 0),
@@ -443,7 +448,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (340001, 3955, 700, 202, 150, 0),
 (340001, 12584, 1000, 202, 150, 0),
 (340001, 3956, 700, 202, 150, 0),
--- Expert Engineer
+-- Artisan Engineer
 (340002, 4041, 4500, 202, 125, 20),
 (340002, 3958, 800, 202, 160, 0),
 (340002, 3961, 850, 202, 170, 0),
@@ -544,7 +549,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 /*-- Leatherworking --*/
 DELETE FROM `npc_trainer` WHERE `ID` IN (380000, 380001, 380002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
--- Apprentice Leatherworker
+-- Journeyman Leatherworker
 (380000, 2155, 10, 0, 0, 5),
 (380000, 2153, 50, 165, 15, 0),
 (380000, 3753, 75, 165, 25, 0),
@@ -557,7 +562,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (380000, 2162, 100, 165, 60, 0),
 (380000, 9065, 450, 165, 70, 0),
 (380000, 3759, 2000, 165, 75, 0),
--- Journeyman Leatherworker
+-- Expert Leatherworker
 (380001, 2154, 500, 165, 50, 10),
 (380001, 3763, 500, 165, 80, 0),
 (380001, 2159, 550, 165, 85, 0),
@@ -582,7 +587,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (380001, 9193, 2000, 165, 150, 0),
 (380001, 9194, 2000, 165, 150, 0),
 (380001, 20649, 1800, 165, 150, 0),
--- Expert Leatherworker
+-- Artisan Leatherworker
 (380002, 3812, 5000, 165, 125, 20),
 (380002, 3774, 2500, 165, 160, 0),
 (380002, 7147, 2500, 165, 160, 0),
@@ -677,7 +682,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 /*-- Tailoring --*/
 DELETE FROM `npc_trainer` WHERE `ID` IN (410000, 410001, 410002);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
--- Apprentice Tailor
+-- Journeyman Tailor
 (410000, 3911, 10, 0, 0, 5),
 (410000, 2393, 25, 197, 1, 0),
 (410000, 3915, 25, 197, 1, 0),
@@ -702,7 +707,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (410000, 2402, 250, 197, 75, 0),
 (410000, 2964, 100, 197, 75, 0),
 (410000, 12046, 300, 197, 75, 0),
--- Journeyman Tailor
+-- Expert Tailor
 (410001, 3912, 500, 197, 50, 10),
 (410001, 3757, 200, 197, 80, 0),
 (410001, 3845, 300, 197, 80, 0),
@@ -723,7 +728,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (410001, 8760, 600, 197, 145, 0),
 (410001, 3813, 750, 197, 150, 0),
 (410001, 3859, 700, 197, 150, 0),
--- Expert Tailor
+-- Artisan Tailor
 (410002, 3913, 5000, 197, 125, 20),
 (410002, 8483, 500, 197, 160, 0),
 (410002, 8762, 700, 197, 160, 0),

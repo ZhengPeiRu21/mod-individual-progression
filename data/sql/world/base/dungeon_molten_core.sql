@@ -1,8 +1,8 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(11658, 11659, 11667, 11668, 11669, 11673, 13278);
+(11658, 11659, 11666, 11667, 11668, 11669, 11673, 13278);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(11658, 11659, 11667, 11668, 11669, 11673, 13278);
+(11658, 11659, 11666, 11667, 11668, 11669, 11673, 13278);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -15,6 +15,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11659, 0, 0, 0, 0, 0, 100, 0, 9000, 12000, 8000, 11000, 0, 0, 11, 19129, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Molten Destroyer - In Combat - Cast Massive Tremor'),
 (11659, 0, 1, 2, 9, 0, 100, 0, 0, 0, 7000, 10000, 0, 10, 11, 20276, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Molten Destroyer - Within 0-10 Range - Cast Knockdown'),
 (11659, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                           'Molten Giant - On Knockdown - Reduce Aggro'),
+(11666, 0, 0, 0, 0, 0, 100, 0, 8000, 12000, 12000, 15000, 0, 0, 11, 19635, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Firewalker - In Combat - Cast Incite Flames'),
+(11666, 0, 1, 0, 0, 0, 100, 0, 14000, 18000, 11000, 19000, 0, 0, 11, 19636, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Firewalker - In Combat - Cast Fire Blossom'),
 (11667, 0, 0, 0, 0, 0, 100, 0, 12000, 12000, 10000, 10000, 0, 0, 11, 19630, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Flameguard - In Combat - Cast Cone of Fire'),
 (11667, 0, 1, 0, 0, 0, 100, 0, 8000, 8000, 15000, 15000, 0, 0, 11, 19631, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Flameguard - In Combat - Cast Melt Armor'),
 (11668, 0, 0, 0, 0, 0, 100, 0, 6000, 6000, 15000, 22000, 0, 0, 11, 19393, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,          'Firelord - In Combat - Cast Soul Burn'),
@@ -28,6 +30,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13278, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 56, 17333, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Duke Hydraxis - On Link - Add item Aqual Quintessence'),
 (13278, 0, 2, 3, 62, 0, 100, 0, 5065, 1, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Duke Hydraxis - On Gossip Option 1 Selected - Close Gossip'),
 (13278, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 56, 22754, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Duke Hydraxis - On Link - Add item Eternal Quintessence');
+
 
 DELETE FROM `creature_queststarter` WHERE `quest` IN (6804, 6821, 6822, 6823, 6824, 7486) AND `id` = 13278;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
@@ -92,7 +95,8 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 
 -- reputation fixes
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 20 WHERE `creature_id` IN 
-(11667,  -- Flameguard
+(11666,  -- Firewalker
+ 11667,  -- Flameguard
  11668,  -- Firelord
  12076,  -- Lava Elemental
  12100); -- Lava Reaver

@@ -542,6 +542,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
@@ -553,12 +554,14 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) 
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE_II, false);
                 }
                 break;  
@@ -572,6 +575,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
@@ -615,6 +619,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
@@ -626,6 +631,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE_II, false);
                 }
                 else if (((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC))
@@ -633,6 +639,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
@@ -642,6 +649,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
@@ -650,12 +658,14 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) 
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE_II, false);
                 }					
                 break;
@@ -682,6 +692,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
@@ -720,16 +731,41 @@ public:
                 break;
             default:
                 uint32 mapid = player->GetMapId();
-                if(((mapid == MAP_SHADOWFANG_KEEP || mapid == MAP_RAZORFEN_DOWNS || mapid == MAP_SCARLET_MONASTERY || mapid == MAP_STRATHOLME || mapid == MAP_DIRE_MAUL || mapid == MAP_KARAZHAN) &&
+                if (mapid == MAP_VAULT_OF_ARCHAVON)
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_2))
+                    {
+                        player->CastSpell(player, IPP_PHASE, false);
+                    }
+                    else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_3))
+                    {
+                        player->CastSpell(player, IPP_PHASE, false);
+                        player->CastSpell(player, IPP_PHASE_II, false);
+                    }
+                    else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_3) || sIndividualProgression->isExcludedFromProgression(player))
+                    {
+                        player->CastSpell(player, IPP_PHASE, false);
+                        player->CastSpell(player, IPP_PHASE_II, false);
+                        player->CastSpell(player, IPP_PHASE_III, false);
+                    }
+                    break;
+                } else if (((mapid == MAP_SHADOWFANG_KEEP || mapid == MAP_RAZORFEN_DOWNS || mapid == MAP_SCARLET_MONASTERY || mapid == MAP_STRATHOLME || mapid == MAP_DIRE_MAUL || mapid == MAP_KARAZHAN) &&
                     ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC)))
                     || (sIndividualProgression->isExcludedFromProgression(player) && (player->GetLevel() == IP_LEVEL_VANILLA || player->GetLevel() == IP_LEVEL_TBC)))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
+                    break;
                 } else {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    break;
                 }
         }
     }
@@ -956,7 +992,6 @@ private:
         {
             return;
         }
-
         if (!pet || !pet->GetOwner())
         {
             return;
