@@ -1475,7 +1475,7 @@ UPDATE `creature_template` SET `DamageModifier` = 1.05, `ArmorModifier` = 2.4 WH
 UPDATE `creature_template` SET `detection_range` = 18.0 WHERE `entry`=919;
 
 /*  Silt Crawler  */
-UPDATE `creature_template` SET `ArmorModifier` = 1.5 WHERE `entry`=922;
+UPDATE `creature_template` SET `faction` = 7, `ArmorModifier` = 1.5 WHERE `entry`=922;
 
 /*  [UNUSED] Lesser Arachnid  */
 UPDATE `creature_template` SET `detection_range` = 18.0 WHERE `entry`=924;
