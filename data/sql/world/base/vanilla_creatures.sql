@@ -5375,10 +5375,10 @@ UPDATE `creature_template` SET `DamageModifier` = 0.7 WHERE `entry`=2987;
 UPDATE `creature_template` SET `DamageModifier` = 0.75 WHERE `entry`=2988;
 
 /*  Bael'dun Digger  */
-UPDATE `creature_template` SET `speed_run` = 0.857143, `DamageModifier` = 1.7, `ArmorModifier` = 0.9 WHERE `entry`=2989;
+UPDATE `creature_template` SET `faction` = 122, `speed_run` = 0.857143, `DamageModifier` = 1.7, `ArmorModifier` = 0.9 WHERE `entry` = 2989;
 
 /*  Bael'dun Appraiser  */
-UPDATE `creature_template` SET `speed_run` = 0.857143, `DamageModifier` = 0.9, `ArmorModifier` = 0.8 WHERE `entry`=2990;
+UPDATE `creature_template` SET `faction` = 122, `speed_run` = 0.857143, `DamageModifier` = 0.9, `ArmorModifier` = 0.8 WHERE `entry` = 2990;
 
 /*  Greatmother Hawkwind  */
 UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=2991;
