@@ -722,7 +722,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (282820, 26, -1439.9, 1799.24, 50.1445, NULL, 10000, 0, 0, 100, 0);
 
 /* smart scripts */
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (4700, 4701);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (4700);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-28272, -28278, -28282);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
