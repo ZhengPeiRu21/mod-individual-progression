@@ -32,6 +32,7 @@ enum ProgressionBossIDs
 {
     RAGNAROS             = 11502,
     ONYXIA               = 10184,
+    ONYXIA_40            = 301000,
     NEFARIAN             = 11583,
     CTHUN                = 15727,
     KELTHUZAD            = 15990,
