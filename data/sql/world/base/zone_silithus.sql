@@ -174,19 +174,35 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+7, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6890.95, 1635.1, 2.7273, 0.535647, 3540, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+8, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6887.17, 1634.11, 3.02476, 0.618115, 3540, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
+
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (11880);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-651001, -651002, -651003, -651004, -651005, -651006, -651007, -651008);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+(-651001, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'), -- needed to keep formation together
+(-651002, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
+(-651003, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
+(-651004, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
+(-651005, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
+(-651006, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
+(-651007, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
+(-651008, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active');
+
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (43322, 43323);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
-(43322, 43322, 0, 0, 515, 0, 0),
-(43322, @CGUID+1, 4, 90, 515, 0, 0),
-(43322, @CGUID+2, 4, 180, 515, 0, 0),
-(43322, @CGUID+3, 4, 270, 515, 0, 0),
-(43322, @CGUID+4, 4, 360, 515, 0, 0),
+(43322, 43322, 0, 0, 515, 0, 0),       -- https://www.youtube.com/watch?v=FgmHdNUmWbk
+(43322, @CGUID+1, 4, 20, 515, 0, 0),
+(43322, @CGUID+2, 4, 80, 515, 0, 0),
+(43322, @CGUID+3, 4, 280, 515, 0, 0),
+(43322, @CGUID+4, 4, 340, 515, 0, 0),
 --
-(43323, 43323, 0, 0, 515, 0, 0),
-(43323, @CGUID+5, 4, 90, 515, 0, 0),
-(43323, @CGUID+6, 4, 180, 515, 0, 0),
-(43323, @CGUID+7, 4, 270, 515, 0, 0),
-(43323, @CGUID+8, 4, 360, 515, 0, 0);
+(43323, 43323, 0, 0, 515, 0, 0),      -- https://www.youtube.com/watch?v=qEwUei95hZU
+(43323, @CGUID+5, 4, 100, 515, 0, 0),
+(43323, @CGUID+6, 4, 160, 515, 0, 0),
+(43323, @CGUID+7, 4, 200, 515, 0, 0),
+(43323, @CGUID+8, 4, 260, 515, 0, 0);
 
 DELETE FROM `pool_creature` WHERE `guid` IN (43322, 43323);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
@@ -363,16 +379,26 @@ DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+11 AND @CGUID+15;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (43201, 15541, 0, 0, 1, 0, 0, 1, 1, 1, -6374.21, 532.318, 6.19409, 4.31401, 600, 0, 1, 10529, 0, 2, 0, 0, 0, '', 0, 0, NULL),
---
 (@CGUID+11, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6365.12, 537.924, 7.15975, 6.17294, 600, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 15541
 (@CGUID+12, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6362.22, 546.458, 7.44477, 6.01315, 600, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+13, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6360.62, 550.402, 7.53199, 5.87763, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+14, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6365.58, 534.399, 7.14401, 6.2507, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+15, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6365.58, 534.399, 7.14401, 6.2507, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (15542);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-651011, -651012, -651013, -651014, -651015);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+(-651011, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Marauder - On Respawn - Set Active'), -- needed to keep formation together
+(-651012, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Marauder - On Respawn - Set Active'),
+(-651013, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Marauder - On Respawn - Set Active'),
+(-651014, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Marauder - On Respawn - Set Active'),
+(-651015, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Marauder - On Respawn - Set Active');
+
 DELETE FROM `creature_formations` WHERE `leaderGUID` = 43201;
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
---
 (43201, 43201, 0, 0, 515, 0, 0),
 (43201, @CGUID+11, 4, 150, 515, 0, 0),
 (43201, @CGUID+12, 4, 210, 515, 0, 0),
