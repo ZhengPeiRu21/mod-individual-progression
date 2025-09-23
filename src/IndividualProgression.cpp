@@ -324,7 +324,7 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
         case RAGNAROS:
             UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
             break;
-        case ONYXIA:
+        case ONYXIA_40:
             UpdateProgressionState(killer, PROGRESSION_ONYXIA);
             break;
         case NEFARIAN:
