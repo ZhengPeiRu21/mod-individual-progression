@@ -323,48 +323,63 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
     {
         case RAGNAROS:
             UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
+            UpdateProgressionQuests(killer);
             break;
         case ONYXIA_40:
             UpdateProgressionState(killer, PROGRESSION_ONYXIA);
+            UpdateProgressionQuests(killer);
             break;
         case NEFARIAN:
             UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
+            UpdateProgressionQuests(killer);
             break;
         case CTHUN:
             UpdateProgressionState(killer, PROGRESSION_AQ);
+            UpdateProgressionQuests(killer);
             break;
         case KELTHUZAD_40:
             UpdateProgressionState(killer, PROGRESSION_NAXX40);
+            UpdateProgressionQuests(killer);
             break;
         case MALCHEZAAR:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
+            UpdateProgressionQuests(killer);
             break;
         case KAELTHAS:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_2);
+            UpdateProgressionQuests(killer);
             break;
         case ILLIDAN:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_3);
+            UpdateProgressionQuests(killer);
             break;
         case ZULJIN:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_4);
+            UpdateProgressionQuests(killer);
             break;
         case KILJAEDEN:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
+            UpdateProgressionQuests(killer);
             break;
         case KELTHUZAD:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
+            UpdateProgressionQuests(killer);
             break;
         case YOGGSARON:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_2);
+            UpdateProgressionQuests(killer);
             break;
         case ANUBARAK:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_3);
+            UpdateProgressionQuests(killer);
             break;
         case LICH_KING:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_4);
+            UpdateProgressionQuests(killer);
             break;
         case HALION:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_5);
+            UpdateProgressionQuests(killer);
             break;
     }
 }
