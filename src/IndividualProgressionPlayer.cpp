@@ -294,24 +294,28 @@ public:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                    sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
             case BANG_A_GONG:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                    sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
             case CHAOS_AND_DESTRUCTION:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_AQ_WAR);
+                    sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
             case INTO_THE_BREACH:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
+                    sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
             case QUEST_MORROWGRAIN:
