@@ -369,6 +369,35 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
     }
 }
 
+void IndividualProgression::UpdateProgressionQuests(Player* player)
+{
+	// remove all hidden progression quests
+    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
+    {
+        uint32 PROGRESSION_QUEST = 66000;
+        PROGRESSION_QUEST = PROGRESSION_QUEST + i;
+		
+        if (player->GetQuestStatus(PROGRESSION_QUEST) == QUEST_STATUS_REWARDED)
+            player->RemoveRewardedQuest(PROGRESSION_QUEST);		
+    }
+
+    // add hidden progression quests
+    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
+    {
+		ProgressionState PROGRESSION_STATE = static_cast<ProgressionState>(i);
+        uint32 PROGRESSION_QUEST = 66000;
+        PROGRESSION_QUEST = PROGRESSION_QUEST + i;
+		
+        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_STATE)) && (player->GetQuestStatus(PROGRESSION_QUEST) != QUEST_STATUS_REWARDED))
+        {
+            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
+
+            player->AddQuest(quest, nullptr);
+            player->CompleteQuest(PROGRESSION_QUEST);
+            player->RewardQuest(quest, 0, player, false, false);
+        }
+    }
+}
 
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {
