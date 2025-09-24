@@ -43,7 +43,8 @@ public:
         Player* target = player->GetConnectedPlayer();
         std::string playername = target->GetName();
 
-        sIndividualProgression->ForceUpdateProgressionState(player->GetConnectedPlayer(), static_cast<ProgressionState>(progressionLevel));
+        sIndividualProgression->ForceUpdateProgressionState(target, static_cast<ProgressionState>(progressionLevel));
+        sIndividualProgression->UpdateProgressionQuests(target);
 
         handler->PSendSysMessage("Updated Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
         return true;
