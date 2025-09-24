@@ -371,9 +371,13 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
 
 void IndividualProgression::UpdateProgressionQuests(Player* player)
 {
-    for (uint8 i = PROGRESSION_FLAG_MC; i <= PROGRESSION_FLAG_WOTLK_T5; ++i)
+    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
     {
-        player->RemoveRewardedQuest(i);
+        uint32 PROGRESSION_QUEST = 66000;
+        PROGRESSION_QUEST = PROGRESSION_QUEST + i;
+		
+        if (player->GetQuestStatus(PROGRESSION_QUEST) == QUEST_STATUS_REWARDED)
+            player->RemoveRewardedQuest(PROGRESSION_QUEST);		
     }
     
     if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_FLAG_MC) != QUEST_STATUS_REWARDED))
