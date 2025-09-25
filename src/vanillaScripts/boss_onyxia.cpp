@@ -284,7 +284,7 @@ public:
                         uint8 selectedCave = urand(0, 1);
 
                         // Summon a whelp at the selected cave mouth
-                        Creature* whelp = me->SummonCreature(NPC_ONYXIAN_WHELP, caveMouths[selectedCave][0], caveMouths[selectedCave][1], caveMouths[selectedCave][2], 0);
+                        Creature* whelp = me->SummonCreature(NPC_ONYXIAN_WHELP_40, caveMouths[selectedCave][0], caveMouths[selectedCave][1], caveMouths[selectedCave][2], 0);
 
                         if (whelp)
                         {
