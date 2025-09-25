@@ -14899,8 +14899,8 @@ UPDATE `creature_template` SET `DamageModifier` = 0.85 WHERE `entry`=10176;
 /*  Lady Sylvanas Windrunner  */
 UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `speed_walk` = 1.0, `speed_run` = 1.14286, `DamageModifier` = 15.0, `HealthModifier` = 300.0, `mingold` = 1, `maxgold` = 866 WHERE `entry`=10181;
 
-/*  Onyxia  */
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `DamageModifier` = 15.05, `HealthModifier` = 330.0, `ManaModifier` = 4.0, `mingold` = 914892, `maxgold` = 1066294 WHERE `entry`=10184;
+/*  Onyxia (10) */
+UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `DamageModifier` = 35, `HealthModifier` = 350.0, `ManaModifier` = 1, `mingold` = 93755, `maxgold` = 122438 WHERE `entry` = 10184;
 
 /*  General Colbatann  */
 UPDATE `creature_template` SET `speed_walk` = 0.888888, `DamageModifier` = 3.6, `RangeAttackTime` = 1292 WHERE `entry`=10196;
@@ -16366,8 +16366,8 @@ UPDATE `creature_template` SET `speed_walk` = 0.666668, `DamageModifier` = 1.3 W
 /*  Doctor Theolen Krastinov  */
 UPDATE `creature_template` SET `DamageModifier` = 8.1, `ArmorModifier` = 1.1 WHERE `entry`=11261;
 
-/*  Onyxian Whelp  */
-UPDATE `creature_template` SET `minlevel` = 56, `maxlevel` = 57, `DamageModifier` = 3.7, `HealthModifier` = 1.0 WHERE `entry`=11262;
+/*  Onyxian Whelp (10) */
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `DamageModifier` = 1, `HealthModifier` = 5 WHERE `entry` = 11262;
 
 /*  Spectral Projection  */
 UPDATE `creature_template` SET `minlevel` = 58, `HealthModifier` = 1.0, `ArmorModifier` = 1.05 WHERE `entry`=11263;
@@ -17785,8 +17785,8 @@ UPDATE `creature_template` SET `DamageModifier` = 1.6, `mingold` = 83, `maxgold`
 /*  Crimson Elite  */
 UPDATE `creature_template` SET `DamageModifier` = 3.75, `ArmorModifier` = 1.1, `RangeAttackTime` = 1265, `mingold` = 176, `maxgold` = 3033 WHERE `entry`=12128;
 
-/*  Onyxian Warder  */
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 63, `DamageModifier` = 9.8, `HealthModifier` = 25.0, `ManaModifier` = 3.0 WHERE `entry`=12129;
+/*  Onyxian Warder (10) */
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `DamageModifier` = 7.5, `HealthModifier` = 70, `ManaModifier` = 1 WHERE `entry` = 12129;
 
 /*  Snurk Bucksquick  */
 UPDATE `creature_template` SET `subname` = 'Zeppelin Master', `DamageModifier` = 4.9 WHERE `entry`=12136;
