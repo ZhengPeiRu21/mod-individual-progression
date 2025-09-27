@@ -166,6 +166,17 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (26000, 26000, 0, 0, 515, 0, 0),
 (26000, 26019, 4, 90, 515, 0, 0);
 
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (2968);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-26001, -26002, -26019);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(-26001, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Galak Outrunner - On Respawn - Set Active'),
+(-26002, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Galak Outrunner - On Respawn - Set Active'),
+(-26019, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Galak Outrunner - On Respawn - Set Active');
+
 DELETE FROM `creature_addon` WHERE `guid` IN (25998, 25999, 26000);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (25998, 259980, 0, 0, 1, 0, 0, NULL),
