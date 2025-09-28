@@ -20408,36 +20408,6 @@ UPDATE item_template SET RequiredLevel = 0 WHERE entry=18171;
 /*  Nature Mantle of the Dawn  */
 UPDATE item_template SET RequiredLevel = 0 WHERE entry=18172;
 
-/*  Shadow Mantle of the Dawn  */
-UPDATE item_template SET RequiredLevel = 0 WHERE entry=18173;
-
-/*  Chromatic Mantle of the Dawn  */
-UPDATE item_template SET RequiredLevel = 0 WHERE entry=18182;
-
-/*  Black War Steed Bridle  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18241;
-
-/*  Reins of the Black War Tiger  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18242;
-
-/*  Black Battlestrider  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18243;
-
-/*  Black War Ram  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18244;
-
-/*  Horn of the Black War Wolf  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18245;
-
-/*  Whistle of the Black War Raptor  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18246;
-
-/*  Black War Kodo  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18247;
-
-/*  Red Skeletal Warhorse  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18248;
-
 /*  Major Rejuvenation Potion  */
 UPDATE item_template SET BuyPrice = 60, SellPrice = 15 WHERE entry=18253;
 
