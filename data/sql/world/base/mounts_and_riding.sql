@@ -66,10 +66,10 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 
 -- Alliance 60% speed mounts
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black Stallion Bridle'            WHERE `entry` = 2411;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Pinto Bridle'                     WHERE `entry` = 2414;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Chestnut Mare Bridle'             WHERE `entry` = 5655;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Brown Horse Bridle'               WHERE `entry` = 5656;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black Stallion'                   WHERE `entry` = 2411;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Pinto'                            WHERE `entry` = 2414;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Chestnut Mare'                    WHERE `entry` = 5655;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Brown Horse'                      WHERE `entry` = 5656;
 
 UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Gray Ram'                         WHERE `entry` = 5864;
 UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Brown Ram'                        WHERE `entry` = 5872;
@@ -117,8 +117,8 @@ UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel`
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift White Mechanostrider'       WHERE `entry` = 18773;
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift Yellow Mechanostrider'      WHERE `entry` = 18774;
 
-UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'White Stallion Bridle'            WHERE `entry` = 12353;
-UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Palomino Bridle'                  WHERE `entry` = 12354;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'White Stallion'                   WHERE `entry` = 12353;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Palomino'                         WHERE `entry` = 12354;
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift Palomino'                   WHERE `entry` = 18776;
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift Brown Steed'                WHERE `entry` = 18777;
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift White Steed'                WHERE `entry` = 18778;
