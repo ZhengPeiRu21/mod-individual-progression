@@ -933,12 +933,14 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (20566, 20858, 3, 240, 515, 0, 0);
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (3275, 3397, 4316);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-14007, -20588, -20858);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-13991, -13992, -14007, -20588, -20858);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
+(-13991, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Kolkar Bloodcharger - On Respawn - Set Active'), -- Hezrul Bloodmark patrol
+(-13992, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Kolkar Bloodcharger - On Respawn - Set Active'), -- Hezrul Bloodmark patrol 
 (-14007, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Kolkar Bloodcharger - On Respawn - Set Active'), -- Rocklance patrol
 (-20588, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Kolkar Marauder - On Respawn - Set Active'),     -- Rocklance patrol
 (-20858, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Kolkar Packhound - On Respawn - Set Active');
