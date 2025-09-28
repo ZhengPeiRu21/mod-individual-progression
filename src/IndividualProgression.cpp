@@ -42,8 +42,6 @@ void IndividualProgression::UpdateProgressionState(Player* player, ProgressionSt
         player->CompleteQuest(PROGRESSION_FLAG_MC);
         player->RewardQuest(quest, 0, player, false, false);
     }
-
-    UpdateProgressionQuests(player);
 }
 
 void IndividualProgression::ForceUpdateProgressionState(Player* player, ProgressionState newState)
