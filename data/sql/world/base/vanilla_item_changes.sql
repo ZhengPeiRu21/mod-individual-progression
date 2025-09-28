@@ -20408,6 +20408,12 @@ UPDATE item_template SET RequiredLevel = 0 WHERE entry=18171;
 /*  Nature Mantle of the Dawn  */
 UPDATE item_template SET RequiredLevel = 0 WHERE entry=18172;
 
+/*  Shadow Mantle of the Dawn  */
+UPDATE item_template SET RequiredLevel = 0 WHERE entry=18173;
+
+/*  Chromatic Mantle of the Dawn  */
+UPDATE item_template SET RequiredLevel = 0 WHERE entry=18182;
+
 /*  Major Rejuvenation Potion  */
 UPDATE item_template SET BuyPrice = 60, SellPrice = 15 WHERE entry=18253;
 
