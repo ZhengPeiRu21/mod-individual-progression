@@ -38,6 +38,8 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 17238, -- Anchorite Truuen, Western Plaguelands
 19923, -- Bipp Glizzitor (Arena Master), Silvermoon
 19925, -- Miglik Blotstrom (Arena Master), Exodar
+20381, -- Jovil <Eye of the Storm Battlemaster>, Stormwind
+20385, -- Andrissa Heartspear <Eye of the Storm Battlemaster>, Orgrimmar
 21045, -- Landro Hired Bodyguard, Booty Bay
 22931, -- Gorrim, Emerald Sanctuary, Flight Master
 23131, -- Blood Knight Honor Guard, Orgrimmar
