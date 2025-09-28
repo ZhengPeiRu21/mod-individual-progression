@@ -43,158 +43,7 @@ void IndividualProgression::UpdateProgressionState(Player* player, ProgressionSt
         player->RewardQuest(quest, 0, player, false, false);
     }
 
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA)) && (player->GetQuestStatus(PROGRESSION_FLAG_ONYXIA) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_ONYXIA);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_ONYXIA);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR)) && (player->GetQuestStatus(PROGRESSION_FLAG_BWL) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_BWL);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_BWL);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (player->GetQuestStatus(PROGRESSION_FLAG_PRE_AQ) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_PRE_AQ);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_PRE_AQ);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (player->GetQuestStatus(PROGRESSION_FLAG_AQ_WAR) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_AQ_WAR);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_AQ_WAR);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (player->GetQuestStatus(PROGRESSION_FLAG_AQ) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_AQ);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_AQ);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) && (player->GetQuestStatus(PROGRESSION_FLAG_NAXX40) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_NAXX40);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_NAXX40);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) && (player->GetQuestStatus(PROGRESSION_FLAG_PRE_TBC) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_PRE_TBC);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_PRE_TBC);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T1) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T1);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_TBC_T1);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T2) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T2);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_TBC_T2);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_3)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T3) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T3);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_TBC_T3);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T4) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T4);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_TBC_T4);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T5) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T5);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_TBC_T5);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T1) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T1);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T1);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T2) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T2);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T2);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_3)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T3) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T3);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T3);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_4)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T4) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T4);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T4);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
-
-    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_5)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T5) != QUEST_STATUS_REWARDED))
-    {
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T5);
-
-        player->AddQuest(quest, nullptr);
-        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T5);
-        player->RewardQuest(quest, 0, player, false, false);
-    }
+    UpdateProgressionQuests(player);
 }
 
 void IndividualProgression::ForceUpdateProgressionState(Player* player, ProgressionState newState)
@@ -245,6 +94,10 @@ void IndividualProgression::CheckHPAdjustments(Player* player) const
     else if (player->GetLevel() <= IP_LEVEL_TBC)
     {
         player->SetMaxHealth(player->GetMaxHealth() * tbcHealthAdjustment);
+    }
+    else
+    {
+        player->SetMaxHealth(player->GetMaxHealth()); // just to trigger OnPlayerAfterUpdateMaxHealth
     }
 }
 
@@ -625,9 +478,11 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
                 UpdateProgressionState(killer, PROGRESSION_ONYXIA);
             else
                 UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
+            UpdateProgressionQuests(killer);
             break;
-        case ONYXIA:
+        case ONYXIA_40:
             UpdateProgressionState(killer, PROGRESSION_ONYXIA);
+            UpdateProgressionQuests(killer);
             break;
         case NEFARIAN:
             if ((killer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value == PROGRESSION_BLACKWING_LAIR))
@@ -642,46 +497,250 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
             {
                 UpdateProgressionState(killer, PROGRESSION_PRE_AQ);
             }
+            UpdateProgressionQuests(killer);
             break;
         case CTHUN:
             UpdateProgressionState(killer, PROGRESSION_AQ);
+            UpdateProgressionQuests(killer);
             break;
         case KELTHUZAD_40:
             UpdateProgressionState(killer, PROGRESSION_NAXX40);
+            UpdateProgressionQuests(killer);
             break;
         case MALCHEZAAR:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
+            UpdateProgressionQuests(killer);
             break;
         case KAELTHAS:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_2);
+            UpdateProgressionQuests(killer);
             break;
         case ILLIDAN:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_3);
+            UpdateProgressionQuests(killer);
             break;
         case ZULJIN:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_4);
+            UpdateProgressionQuests(killer);
             break;
         case KILJAEDEN:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
+            UpdateProgressionQuests(killer);
             break;
         case KELTHUZAD:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
+            UpdateProgressionQuests(killer);
             break;
         case YOGGSARON:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_2);
+            UpdateProgressionQuests(killer);
             break;
         case ANUBARAK:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_3);
+            UpdateProgressionQuests(killer);
             break;
         case LICH_KING:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_4);
+            UpdateProgressionQuests(killer);
             break;
         case HALION:
             UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_5);
+            UpdateProgressionQuests(killer);
             break;
     }
 }
 
+void IndividualProgression::UpdateProgressionQuests(Player* player)
+{
+	// remove all hidden progression quests
+    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= 18; ++i) // not same number of phase as main repo but same numner of quests
+    {
+        uint32 PROGRESSION_QUEST = 66000;
+        PROGRESSION_QUEST = PROGRESSION_QUEST + i;
+		
+        if (player->GetQuestStatus(PROGRESSION_QUEST) == QUEST_STATUS_REWARDED)
+            player->RemoveRewardedQuest(PROGRESSION_QUEST);		
+    }
+
+    // add hidden progression quests
+    // for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
+    // {
+	// 	ProgressionState PROGRESSION_STATE = static_cast<ProgressionState>(i);
+    //     uint32 PROGRESSION_QUEST = 66000;
+    //     PROGRESSION_QUEST = PROGRESSION_QUEST + i;
+		
+    //     if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_STATE)) && (player->GetQuestStatus(PROGRESSION_QUEST) != QUEST_STATUS_REWARDED))
+    //     {
+    //         Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
+
+    //         player->AddQuest(quest, nullptr);
+    //         player->CompleteQuest(PROGRESSION_QUEST);
+    //         player->RewardQuest(quest, 0, player, false, false);
+    //     }
+    // }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_FLAG_MC) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_MC);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_MC);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA)) && (player->GetQuestStatus(PROGRESSION_FLAG_ONYXIA) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_ONYXIA);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_ONYXIA);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR)) && (player->GetQuestStatus(PROGRESSION_FLAG_BWL) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_BWL);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_BWL);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (player->GetQuestStatus(PROGRESSION_FLAG_PRE_AQ) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_PRE_AQ);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_PRE_AQ);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (player->GetQuestStatus(PROGRESSION_FLAG_AQ_WAR) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_AQ_WAR);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_AQ_WAR);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (player->GetQuestStatus(PROGRESSION_FLAG_AQ) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_AQ);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_AQ);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) && (player->GetQuestStatus(PROGRESSION_FLAG_NAXX40) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_NAXX40);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_NAXX40);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) && (player->GetQuestStatus(PROGRESSION_FLAG_PRE_TBC) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_PRE_TBC);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_PRE_TBC);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T1) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T1);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_TBC_T1);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T2) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T2);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_TBC_T2);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_3)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T3) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T3);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_TBC_T3);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T4) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T4);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_TBC_T4);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T5) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T5);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_TBC_T5);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T1) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T1);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T1);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T2) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T2);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T2);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_3)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T3) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T3);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T3);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_4)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T4) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T4);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T4);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+
+    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_5)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T5) != QUEST_STATUS_REWARDED))
+    {
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T5);
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T5);
+        player->RewardQuest(quest, 0, player, false, false);
+    }
+}
 
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {

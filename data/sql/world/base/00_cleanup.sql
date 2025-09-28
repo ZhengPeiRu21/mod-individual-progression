@@ -24,6 +24,11 @@ UPDATE `creature_template` SET `subname` = 'Master Blacksmithing Trainer' WHERE 
 -- alliance battlemasters
 DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 208042, 208081, 208107);
 
+-- Onyxia wotlk version
+UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `DamageModifier` = 35, `HealthModifier` = 350.0, `ManaModifier` = 1, `mingold` = 93755, `maxgold` = 122438 WHERE `entry` = 10184;
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `DamageModifier` = 1, `HealthModifier` = 5 WHERE `entry` = 11262;
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `DamageModifier` = 7.5, `HealthModifier` = 70, `ManaModifier` = 1 WHERE `entry` = 12129;
+
 -- Naxx40 - Razuvious
 DELETE FROM `spell_script_names` WHERE `spell_id` IN (29107, 55543);
 

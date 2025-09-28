@@ -32,6 +32,7 @@ enum ProgressionBossIDs
 {
     RAGNAROS             = 11502,
     ONYXIA               = 10184,
+    ONYXIA_40            = 301000,
     NEFARIAN             = 11583,
     CTHUN                = 15727,
     KELTHUZAD            = 15990,
@@ -279,6 +280,7 @@ public:
     void AdjustWotLKStats(Player* player) const;
     bool hasCustomProgressionValue(uint32 creatureEntry);
     void checkIPProgression(Player* player);	
+    void UpdateProgressionQuests(Player* player);
     void checkKillProgression(Player* player, Creature* killed);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
     static void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment);
