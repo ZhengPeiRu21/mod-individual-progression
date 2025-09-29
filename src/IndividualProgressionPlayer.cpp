@@ -36,6 +36,7 @@ public:
         sIndividualProgression->CheckAdjustments(player);
         sIndividualProgression->CheckHPAdjustments(player);
         sIndividualProgression->checkIPProgression(player);
+        sIndividualProgression->UpdateProgressionQuests(player);
     }
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
