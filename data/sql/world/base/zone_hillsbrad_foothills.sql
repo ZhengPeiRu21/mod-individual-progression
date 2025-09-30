@@ -26,7 +26,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2249, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ferocious Yeti - On Enrage - Say Line 0'),
 (2260, 0, 0, 0, 67, 0, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 37685, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Syndicate Rogue - Behind Target - Cast Backstab'),
 (2260, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Syndicate Rogue - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2261, 0, 0, 0, 9, 0, 100, 0, 0, 0, 20000, 30000, 0, 5, 11, 3602, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Watchman - Within 0-5 Range - Cast Torch Burst'),
+(2261, 0, 0, 0, 9, 0, 100, 0, 0, 0, 15000, 30000, 0, 5, 11, 3602, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Watchman - Within 0-5 Range - Cast Torch Burst'),
 (2261, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Syndicate Watchman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (2264, 0, 0, 0, 67, 0, 100, 0, 0, 0, 7000, 9000, 0, 5, 11, 2590, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Hillsbrad Tailor - Behind Target - Cast Backstab'),
