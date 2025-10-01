@@ -24,6 +24,7 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_rubysanctum' WHERE `map` = 0
 39368, -- Drill Sergeant Steamcrank, Dun Morogh
 39386, -- Pilot Muzzlesprock, Dun Morogh
 39396, -- 'Thunderflash', Dun Morogh
+39675, -- Captain Tread Sparknozzle, Dun Morogh
 39678, -- Toby Zeigear <Speechwriter>, Dun Morogh
 39711, -- Mechano-Tank Attack Target, Dun Morogh
 39715, -- Ejector Mechano-Tank, Dun Morogh
