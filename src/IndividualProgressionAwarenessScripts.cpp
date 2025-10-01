@@ -917,26 +917,27 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_3);
         }
+
+        protected:
+            void MoveInLineOfSight(Unit* who) override // To test: NPC attack player if in bad phase or not ?
+            {
+                if (!who)
+                    return;
+
+                if (sIndividualProgression->enabled
+                    && who->IsPlayer()
+                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_WOTLK_TIER_3))
+                {
+                    return;
+                }
+
+                ScriptedAI::MoveInLineOfSight(who);
+            }
     };
 
     CreatureAI* GetAI(Creature* creature) const override
     {
         return new npc_ipp_wotlk_iccAI(creature);
-    }
-protected:
-    void MoveInLineOfSight(Unit* who) override // To test: NPC attack player if in bad phase or not ?
-    {
-        if (!who)
-            return;
-
-        if (sIndividualProgression->enabled
-            && who->IsPlayer()
-            && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_WOTLK_TIER_3))
-        {
-            return;
-        }
-
-        ScriptedAI::MoveInLineOfSight(who);
     }
 };
 
@@ -958,26 +959,27 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_4);
         }
+
+        protected:
+            void MoveInLineOfSight(Unit* who) override // To test: NPC attack player if in bad phase or not ?
+            {
+                if (!who)
+                    return;
+
+                if (sIndividualProgression->enabled
+                    && who->IsPlayer()
+                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_WOTLK_TIER_4))
+                {
+                    return;
+                }
+
+                ScriptedAI::MoveInLineOfSight(who);
+            }
     };
 
     CreatureAI* GetAI(Creature* creature) const override
     {
         return new npc_ipp_wotlk_rubysanctumAI(creature);
-    }
-protected:
-    void MoveInLineOfSight(Unit* who) override // To test: NPC attack player if in bad phase or not ?
-    {
-        if (!who)
-            return;
-
-        if (sIndividualProgression->enabled
-            && who->IsPlayer()
-            && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_WOTLK_TIER_4))
-        {
-            return;
-        }
-
-        ScriptedAI::MoveInLineOfSight(who);
     }
 };
 
