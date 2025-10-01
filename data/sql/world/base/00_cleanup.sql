@@ -11,6 +11,9 @@ UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (29273);
 /* Delete unused Creature Addon data */
 DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 133928);
 
+-- needed to avoid error because zone_burning_steppes is run before zone_hillsbrad_foothills
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601046);
+
 -- undo incorrect waypoint IDs 
 DELETE FROM `waypoint_data` WHERE `id` = 48310;  -- Lady Sarevess
 DELETE FROM `waypoint_data` WHERE `id` = 101820; -- Rexxar
