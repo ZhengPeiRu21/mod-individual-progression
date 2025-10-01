@@ -397,6 +397,32 @@ public:
     }
 };
 
+class gobject_ipp_wotlk_rubysanctum : public GameObjectScript
+{
+public:
+    gobject_ipp_wotlk_rubysanctum() : GameObjectScript("gobject_ipp_wotlk_rubysanctum") { }
+
+    struct gobject_ipp_wotlk_rubysanctumAI: GameObjectAI
+    {
+        explicit gobject_ipp_wotlk_rubysanctumAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_4);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_wotlk_rubysanctumAI(object);
+    }
+};
+
 class npc_ipp_preaq : public CreatureScript
 {
 public:
@@ -897,6 +923,62 @@ public:
     {
         return new npc_ipp_wotlk_iccAI(creature);
     }
+protected:
+    void MoveInLineOfSight(Unit* who) override // To test: NPC attack player if in bad phase or not ?
+    {
+        if (!who)
+            return;
+
+        if (sIndividualProgression->enabled
+            && who->IsPlayer()
+            && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_WOTLK_TIER_3))
+        {
+            return;
+        }
+
+        ScriptedAI::MoveInLineOfSight(who);
+    }
+};
+
+class npc_ipp_wotlk_rubysanctum : public CreatureScript
+{
+public:
+    npc_ipp_wotlk_rubysanctum() : CreatureScript("npc_ipp_wotlk_rubysanctum") { }
+
+    struct npc_ipp_wotlk_rubysanctumAI: ScriptedAI
+    {
+        explicit npc_ipp_wotlk_rubysanctumAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_4);
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_wotlk_rubysanctumAI(creature);
+    }
+protected:
+    void MoveInLineOfSight(Unit* who) override // To test: NPC attack player if in bad phase or not ?
+    {
+        if (!who)
+            return;
+
+        if (sIndividualProgression->enabled
+            && who->IsPlayer()
+            && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_WOTLK_TIER_4))
+        {
+            return;
+        }
+
+        ScriptedAI::MoveInLineOfSight(who);
+    }
 };
 
 class npc_ipp_ds2 : public CreatureScript
@@ -1015,6 +1097,7 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_pre_wotlk();
     new gobject_ipp_wotlk();
     new gobject_ipp_wotlk_icc();
+    new gobject_ipp_wotlk_rubysanctum();
     new npc_ipp_preaq();         // Cenarion Hold NPCs
     new npc_ipp_we_recruiters(); // War effort recruiters
     new npc_ipp_we();            // War Effort NPCs in cities
@@ -1031,6 +1114,7 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_wotlk_ulduar();
     new npc_ipp_wotlk_totc();
     new npc_ipp_wotlk_icc();
+    new npc_ipp_wotlk_rubysanctum();
     new npc_ipp_ds2();
     new npc_suns_reach_reclamation_ipp_tbc_t5();
     new npc_training_dummy_ipp_wotlk();
