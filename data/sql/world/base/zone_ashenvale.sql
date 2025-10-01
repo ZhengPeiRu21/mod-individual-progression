@@ -355,12 +355,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12818, 0, 8, 0, 1, 1, 100, 513, 5000, 5000, 0, 0, 0, 0, 3, 0, 29421, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ruul Snowhoof - Out of Combat - Morph To Model 29421 (Phase 1) (No Repeat)'),
 (12818, 0, 9, 0, 1, 1, 100, 513, 5000, 5000, 0, 0, 0, 0, 3, 12819, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ruul Snowhoof - Out of Combat - Morph To Creature Ruul Snowhoof Bear Form (Phase 1) (No Repeat)'),
 --
-(12818, 0, 10, 0, 60, 1, 100, 1, 50000, 50000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Ursa\' (Phase 1) (No Repeat)'),
-(12818, 0, 11, 0, 60, 1, 100, 1, 54000, 54000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Totemic\' (Phase 1) (No Repeat)'),
-(12818, 0, 12, 0, 60, 1, 100, 1, 58000, 58000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Pathfinder\' (Phase 1) (No Repeat)'),
-(12818, 0, 13, 0, 60, 1, 100, 1, 120000, 120000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Ursa\' (Phase 1) (No Repeat)'),
-(12818, 0, 14, 0, 60, 1, 100, 1, 124000, 124000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Totemic\' (Phase 1) (No Repeat)'),
-(12818, 0, 15, 0, 60, 1, 100, 1, 128000, 128000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Pathfinder\' (Phase 1) (No Repeat)'),
+(12818, 0, 10, 0, 60, 1, 100, 1, 40000, 40000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Ursa\' (Phase 1) (No Repeat)'),
+(12818, 0, 11, 0, 60, 1, 100, 1, 44000, 44000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Totemic\' (Phase 1) (No Repeat)'),
+(12818, 0, 12, 0, 60, 1, 100, 1, 48000, 48000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Pathfinder\' (Phase 1) (No Repeat)'),
+(12818, 0, 13, 0, 60, 1, 100, 1, 90000, 90000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Ursa\' (Phase 1) (No Repeat)'),
+(12818, 0, 14, 0, 60, 1, 100, 1, 94000, 94000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Totemic\' (Phase 1) (No Repeat)'),
+(12818, 0, 15, 0, 60, 1, 100, 1, 98000, 98000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Pathfinder\' (Phase 1) (No Repeat)'),
 --
 (12818, 0, 16, 17, 58, 1, 100, 1, 15, 0, 0, 0, 0, 0, 1, 1, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,           'Ruul Snowhoof - On Waypoint Finished - Say Line 1 (Phase 1) (No Repeat)'),
 (12818, 0, 17, 18, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ruul Snowhoof - On Waypoint Finished - Demorph (Phase 1) (No Repeat)'),
