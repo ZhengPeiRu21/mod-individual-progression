@@ -61,22 +61,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_BLACKWING_LAIR))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -112,30 +96,6 @@ public:
                 return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
             }
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (!sIndividualProgression->enabled || !who->IsPlayer())
-                {
-                    ScriptedAI::MoveInLineOfSight(who);
-                    return;
-                }
-                   
-                Player* player = who->ToPlayer();
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
-                {
-                    if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ))
-                        ScriptedAI::MoveInLineOfSight(who);
-                }
-                else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR))
-                    ScriptedAI::MoveInLineOfSight(who);
-
-                return;
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -171,30 +131,6 @@ public:
                 return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
             }
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (!sIndividualProgression->enabled || !who->IsPlayer())
-                {
-                    ScriptedAI::MoveInLineOfSight(who);
-                    return;
-                }
-                   
-                Player* player = who->ToPlayer();
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
-                {
-                    if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ))
-                        ScriptedAI::MoveInLineOfSight(who);
-                }
-                else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR))
-                    ScriptedAI::MoveInLineOfSight(who);
-
-                return;
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -234,33 +170,6 @@ public:
                 return false;
             }
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (!sIndividualProgression->enabled || !who->IsPlayer())
-                {
-                    ScriptedAI::MoveInLineOfSight(who);
-                    return;
-                }
-
-                Player* player = who->ToPlayer();
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-                {
-                    if (player->GetLevel() == IP_LEVEL_TBC)
-                        ScriptedAI::MoveInLineOfSight(who);
-                }
-                else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
-                {
-                    if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
-                        ScriptedAI::MoveInLineOfSight(who);
-                }
-
-                return;
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -287,22 +196,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_AQ))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -329,28 +222,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5));
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (!sIndividualProgression->enabled || !who->IsPlayer())
-                {
-                    ScriptedAI::MoveInLineOfSight(who);
-                    return;
-                }
-                
-                Player* player = who->ToPlayer();
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
-                {
-                    if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_TBC_TIER_5))
-                        ScriptedAI::MoveInLineOfSight(who);
-                }
-
-                return;
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -377,22 +248,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->isBeforeProgression(who->ToPlayer(), PROGRESSION_NAXX40))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -419,22 +274,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_NAXX40))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -461,22 +300,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_3);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_3))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -503,22 +326,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_4);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_4))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -545,22 +352,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->isBeforeProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_5))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -588,22 +379,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_5))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -630,22 +405,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_3);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_WOTLK_TIER_3))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
@@ -672,22 +431,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_4);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_WOTLK_TIER_4))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     GameObjectAI* GetAI(GameObject* object) const override
