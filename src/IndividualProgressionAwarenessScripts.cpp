@@ -1404,22 +1404,6 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5);
         }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_5))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
     };
 
     CreatureAI* GetAI(Creature* creature) const override
