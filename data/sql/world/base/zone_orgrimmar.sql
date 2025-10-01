@@ -276,10 +276,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
-DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 620278, 623396, 623447, 626396, 626397);
-DELETE FROM `creature` WHERE `id1` IN (12792, 12793, 12794, 12795, 12796, 12799, 14581, 20278, 23396, 23447, 26396, 26397, 112793, 112794, 112795) AND `map` = 1;
+DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125694, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 620278, 623396, 623447, 626396, 626397);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-
+--
 (612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),        -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
 (626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
 (612792, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC

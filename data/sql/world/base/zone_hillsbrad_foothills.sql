@@ -26,7 +26,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2249, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ferocious Yeti - On Enrage - Say Line 0'),
 (2260, 0, 0, 0, 67, 0, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 37685, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Syndicate Rogue - Behind Target - Cast Backstab'),
 (2260, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Syndicate Rogue - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2261, 0, 0, 0, 9, 0, 100, 0, 0, 0, 20000, 30000, 0, 5, 11, 3602, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Watchman - Within 0-5 Range - Cast Torch Burst'),
+(2261, 0, 0, 0, 9, 0, 100, 0, 0, 0, 15000, 30000, 0, 5, 11, 3602, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Watchman - Within 0-5 Range - Cast Torch Burst'),
 (2261, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Syndicate Watchman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (2264, 0, 0, 0, 67, 0, 100, 0, 0, 0, 7000, 9000, 0, 5, 11, 2590, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Hillsbrad Tailor - Behind Target - Cast Backstab'),
@@ -152,17 +152,21 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 UPDATE `quest_template_addon` SET `PrevQuestID` = 527 WHERE `ID` = 546;
 
 -- fix creature movement and spawn locations
-DELETE FROM `creature` WHERE `id1` IN (232, 2403, 2450, 14275, 14276, 14277, 14280);
+DELETE FROM `creature` WHERE `id1` IN (232, 2403, 2427, 2428, 2450, 14275, 14276, 14277, 14280);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (16520,  232, 0, 0, 0, 0, 0, 1, 1, 1, -341.604, 3.60308, 60.3681, 2.21657,        300, 0, 0, 617, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Farmer Ray
 (695081, 232, 0, 0, 0, 0, 0, 1, 1, 1, -348.713, 10.4609, 55.5201, 2.45648,        300, 0, 0, 617, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=RrKUsnh0eUI&t=146s
 (695082, 232, 0, 0, 0, 0, 0, 1, 1, 1, -357.796, -12.7334, 55.0301, 2.45255,       300, 0, 0, 617, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=U0RFwLk8fXI&t=56s
---
 (16033,  2403, 0, 0, 0, 0, 0, 1, 1, 1, -441.325, -108.685, 55.0466, 4.54965,      300, 3, 0, 664, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- Farmer Getz
 (695083, 2403, 0, 0, 0, 0, 0, 1, 1, 1, -404.693, -63.9941, 54.4383, 0.838548,     300, 3, 0, 664, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=RrKUsnh0eUI&t=84s
 (695084, 2403, 0, 0, 0, 0, 0, 1, 1, 1, -461.805, -75.588, 54.9525, 5.90828,       300, 5, 0, 664, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+--
+(16100,  2427, 0, 0, 0, 0, 0, 1, 1, 1, -492.277, -1480.43, 88.0715, 4.87372,      300, 0, 0, 664, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Jailor Eston
+(695089, 2427, 0, 0, 0, 0, 0, 1, 1, 1, -489.347, -1341.93, 53.6018, 3.77872,      300, 3, 0, 665, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=oU9G9Ormowc
+(16063,  2428, 0, 0, 0, 0, 0, 1, 1, 1, -465.482, -1476.91, 90.2819, 5.11627,      300, 0, 0, 664, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Jailor Marlgen
+(695090, 2428, 0, 0, 0, 0, 0, 1, 1, 1, -456.353, -1429.64, 90.9867, 2.87945,      300, 0, 0, 665, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=CpMW6hAvVaM
 --
 (16017,  2450, 0, 0, 0, 0, 0, 1, 1, 0, -850.691, 70.7417, 3.18556, 5.24437,       300, 3, 0, 950, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- Miner Hackett
 (695085, 2450, 0, 0, 0, 0, 0, 1, 1, 0, -806.764, 72.9448, 5.48975, 1.47675,       300, 3, 0, 950, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=U0fVBiMcKw4&t=46s
@@ -176,31 +180,33 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (16047,  14277, 0, 0, 0, 0, 0, 1, 1, 1, -1473.69, -1099.37, -4.31768, 0.553209, 23400, 0, 1, 918, 2457, 2, 0, 0, 0, '', 0, 0, NULL), -- Lady Zephris
 (15839,  14280, 0, 0, 0, 0, 0, 1, 1, 0, -451.793, -1686.39, 85.5209, 1.55137,   43200, 5, 0, 1080, 0, 1, 0, 0, 0, '', 0, 0, NULL);   -- Big Samras
 
-DELETE FROM `pool_creature` WHERE `pool_entry` IN (601041, 601042, 601043, 601044);
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601041, 601042, 601043, 601044, 601045, 601046);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
---
 (232,    601041, 0, 'Farmer Ray'),
 (695081, 601041, 0, 'Farmer Ray'),
 (695082, 601041, 0, 'Farmer Ray'),
---
 (2403,   601042, 0, 'Farmer Getz'),
 (695083, 601042, 0, 'Farmer Getz'),
 (695084, 601042, 0, 'Farmer Getz'),
---
 (16017,  601043, 0, 'Miner Hackett'),
 (695085, 601043, 0, 'Miner Hackett'),
 (695086, 601043, 0, 'Miner Hackett'),
---
 (90783,  601044, 0, 'Tamra Stormpike'),
 (695087, 601044, 0, 'Tamra Stormpike'),
-(695088, 601044, 0, 'Tamra Stormpike');
+(695088, 601044, 0, 'Tamra Stormpike'),
+(16100,  601045, 0, 'Jailor Eston'),
+(695089, 601045, 0, 'Jailor Eston'),
+(16063,  601046, 0, 'Jailor Marlgen'),
+(695090, 601046, 0, 'Jailor Marlgen');
 
-DELETE FROM `pool_template` WHERE `entry` IN (601041, 601042, 601043, 601044);
+DELETE FROM `pool_template` WHERE `entry` IN (601041, 601042, 601043, 601044, 601045, 601046);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
 (601041, 1, 'Farmer Ray - Hillsbrad Foothills'),
 (601042, 1, 'Farmer Getz - Hillsbrad Foothills'),
 (601043, 1, 'Miner Hackett - Hillsbrad Foothills'),
-(601044, 1, 'Tamra Stormpike - Hillsbrad Foothills');
+(601044, 1, 'Tamra Stormpike - Hillsbrad Foothills'),
+(601045, 1, 'Jailor Eston - Hillsbrad Foothills'),
+(601046, 1, 'Jailor Marlgen - Hillsbrad Foothills');
 
 DELETE FROM `creature_addon` WHERE `guid` IN (16047);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
