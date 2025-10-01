@@ -290,66 +290,6 @@ void IndividualProgression::TeleportOutsideRestoredRaid(Player *player)
     }
 }
 
-bool IndividualProgression::isMonsterFromAqEvent(Unit* unit)
-{
-    switch (unit->GetEntry())
-    {
-        case 15740: // Colossus of Zora
-        case 15741: // Colossus of Regal
-        case 15742: // Colossus of Ashi
-        case 15758: // Supreme Anubisath Warbringer
-        case 15810: // Eroded Anubisath Warbringer
-        case 15813: // Qiraji Officer Zod
-        case 15818: // Lieutenant General Nokhor
-            return true;
-        default:
-            return false;
-    }
-}
-
-bool IndividualProgression::isMonsterFromDarkPortalEvent(Unit* unit)
-{
-    switch (unit->GetEntry())
-    {
-        case 19284: // Invading Felguard
-        case 19285: // Invading Infernal
-        case 19286: // Invading Fel Stalker
-        case 19287: // Invading Voidwalker
-        case 19288: // Dreadknight
-        case 19290: // Invading Anguisher
-        case 19311: // Portal Hound
-        case 19391: // Felguard Lieutenant
-            return true;
-        default:
-            return false;
-    }
-}
-
-bool IndividualProgression::isMonsterFromScourgeEvent(Unit* unit)
-{
-    switch (unit->GetEntry())
-    {
-        case 14697: // Lumbering Horror
-        case 16141: // Ghoul Berserker
-        case 16143: // Shadow of Doom
-        case 16230: // Cultist Engineer
-        case 16298: // Spectral Soldier
-        case 16299: // Skeletal Shocktrooper
-        case 16379: // Spirit of the Damned
-        case 16380: // Bone Witch
-        case 16422: // Skeletal Soldier
-        case 16423: // Spectral Apparition
-        case 16437: // Spectral Spirit
-        case 16438: // Skeletal Trooper
-        case 28194: // Tenris
-        case 29604: // Broll Bearmantle
-        case 29607: // Valeera Sanguinar
-            return true;
-        default:
-            return false;
-    }
-}
-
 void IndividualProgression::LoadCustomProgressionEntries(std::string const& customProgressionString)
 {
     std::string delimitedValue;
@@ -760,7 +700,6 @@ private:
         sIndividualProgression->requireNaxxStrath = sConfigMgr->GetOption<bool>("IndividualProgression.RequireNaxxStrathEntrance", false);
         sIndividualProgression->naxxExitViaPortals = sConfigMgr->GetOption<bool>("IndividualProgression.NaxxExitViaPortals", false);
         sIndividualProgression->naxxSkipToSaphiron = sConfigMgr->GetOption<bool>("IndividualProgression.NaxxSkipToSaphiron", false);
-        sIndividualProgression->dynamicPhasingEventMobs = sConfigMgr->GetOption<bool>("IndividualProgression.DynamicPhasingEventMobs", false);
         sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
         sIndividualProgression->fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
         sIndividualProgression->simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
