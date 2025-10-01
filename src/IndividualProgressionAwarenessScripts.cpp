@@ -28,7 +28,7 @@ public:
 
                 if (sIndividualProgression->enabled
                     && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(target, PROGRESSION_ONYXIA))
+                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_ONYXIA))
                 {
                     return;
                 }
@@ -70,7 +70,7 @@ public:
 
                 if (sIndividualProgression->enabled
                     && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR))
+                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_BLACKWING_LAIR))
                 {
                     return;
                 }
@@ -775,8 +775,8 @@ public:
                 }
                    
                 Player* player = who->ToPlayer();
-                if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR) 
-                    && sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR) 
+                    && sIndividualProgression->isBeforeProgression(player, PROGRESSION_PRE_AQ))
                     ScriptedAI::MoveInLineOfSight(who);
 
                 return;
