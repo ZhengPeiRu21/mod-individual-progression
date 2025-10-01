@@ -33,8 +33,8 @@ UPDATE npc_trainer SET MoneyCost = 10000000 WHERE SpellID = 33391;
 UPDATE npc_trainer SET ReqLevel = 70        WHERE SpellID = 34090; -- Expert Riding
 UPDATE npc_trainer SET MoneyCost = 6000000  WHERE SpellID = 34090;
 
-DELETE FROM `npc_trainer` WHERE `SpellID` = 13819; -- Summon Warhorse
-DELETE FROM `npc_trainer` WHERE `SpellID` = 13820; -- Summon Warhorse
+DELETE FROM `npc_trainer` WHERE `SpellID` = 13819; -- Summon Warhorse (alliance)
+DELETE FROM `npc_trainer` WHERE `SpellID` = 13820; -- Summon Warhorse (alliance)
 DELETE FROM `npc_trainer` WHERE `SpellID` = 23214; -- Summon Charger (alliance)
 DELETE FROM `npc_trainer` WHERE `SpellID` = 34767; -- Summon Charger (horde)
 DELETE FROM `npc_trainer` WHERE `SpellID` = 23161; -- Dreadsteed
