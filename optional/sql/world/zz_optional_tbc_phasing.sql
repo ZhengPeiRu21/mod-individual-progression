@@ -6,6 +6,7 @@
 /* Open world Zul Aman NPCs */
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `map` = 530 AND `id1` IN (
 23559, -- Budd Nedreck, Ghostlands
+23560, -- Provisioner Ameenah <Reagents>, Ghostlands
 23565, -- Turgore, Ghostlands
 23705, -- Catlord Corpse, Ghostlands
 23716, -- Hexxer Corpse, Ghostlands
@@ -18,7 +19,8 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `map` = 530 AND `id1
 23762, -- Brend, Ghostlands
 23764, -- Marge, Ghostlands
 23766, -- Morgom, Ghostlands
-23858 -- Donna Brascoe, Ghostlands
+23858, -- Donna Brascoe, Ghostlands
+24851 -- Kiz Coilspanner <Flight Master>, Ghostlands
 );
 /* Guards as @IPPPHASE 65536 */
 UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
@@ -65,7 +67,9 @@ UPDATE `creature` SET `ScriptName` = 'npc_suns_reach_reclamation_ipp_tbc_t5' WHE
 );
 /* NPCs with special behaviours as @IPPPHASE 65536 */
 UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
+5202, -- Archery Target, Shattrath & Isle of Quel Danas
 24938, -- Shattered Sun Marksman, Shattrath + Isle of Quel Danas
+24979, -- Dawnblade Marksman, Isle of Quel Danas
 25036, -- Caregiver Inaara, Isle of Quel Danas
 25115, -- Shattered Sun Warrior, Shattrath + Isle of Quel Danas
 25134, -- Shattered Sun Trainee, Shattrath
@@ -79,3 +83,5 @@ UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
 
 /* Open world Sunwell gobjects, including meeting stone */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t5' WHERE `map` = 530 AND `id` IN (187056, 187116, 187345, 187356, 187357, 188171, 188172);
+/* Sunwell decorative gobjects in Shattrath */
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t5' WHERE `map` = 530 AND `id` IN (183318, 187057, 187058) AND `guid` IN (24152, 24154, 24155, 47197, 47198, 47199, 47200, 47201, 47202, 47203);

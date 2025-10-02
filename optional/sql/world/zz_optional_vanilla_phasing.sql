@@ -41,12 +41,19 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 20381, -- Jovil <Eye of the Storm Battlemaster>, Stormwind
 20385, -- Andrissa Heartspear <Eye of the Storm Battlemaster>, Orgrimmar
 21045, -- Landro Hired Bodyguard, Booty Bay
+22097, -- Veteran Gladiator, Silvermoon
+22098, -- Grizzled Gladiator, Silvermoon
 22931, -- Gorrim, Emerald Sanctuary, Flight Master
 23131, -- Blood Knight Honor Guard, Orgrimmar
 24366, -- Nizzle, Rebel Camp, Flight Master
 27705, -- Lorrin Foxfire, Stonard
 29093, -- Ian Drake, Stormwind
 29095, -- Edward Cairn, Undercity
+34988, -- Landuen Moonclaw <Battlemaster>, Darnassus
+34955, -- Karg Skullgore <Battlemaster>, Orgrimmar
+34997, -- Devin Fardale <Battlemaster>, Stormwind
+34998, -- Alison Devay <Battlemaster>, Stormwind
+35008, -- Sawemba <Battlemaster>, Orgrimmar
 37888, -- Frax Bucketdrop, Thondroril River, Flight Master
 37915  -- Timothy Cunningham, The Bulwark, Flight Master
 );

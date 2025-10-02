@@ -564,6 +564,10 @@ UPDATE `creature_template` SET `DamageModifier` = 0.75 WHERE `entry`=377;
 
 /*  Darcy  */
 UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=379;
+UPDATE `creature_template_locale` SET `Title` = 'Kellnerin' WHERE `entry` = 379 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Title` = 'Camarera' WHERE `entry` = 379 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Title` = 'Camarera' WHERE `entry` = 379 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Title` = 'Serveuse' WHERE `entry` = 379 AND `locale` = 'frFR';
 
 /*  [UNUSED] Waldin Thorbatt  */
 UPDATE `creature_template` SET `detection_range` = 18.0 WHERE `entry`=380;
