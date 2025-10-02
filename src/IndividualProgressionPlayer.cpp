@@ -37,6 +37,11 @@ public:
         sIndividualProgression->CheckHPAdjustments(player);
         sIndividualProgression->checkIPProgression(player);
         sIndividualProgression->UpdateProgressionQuests(player);
+
+        if (sIndividualProgression->enabled)
+        {
+            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
+        }
     }
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
