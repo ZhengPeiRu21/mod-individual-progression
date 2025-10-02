@@ -66,7 +66,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4829, 0, 0, 0, 9, 0, 100, 0, 5000, 9000, 5000, 9000, 0, 8, 11, 3815, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Aku\'mai - Within 0-8 Range - Cast Poison Cloud'),
 (4829, 0, 1, 0, 0, 0, 100, 0, 15000, 15000, 20000, 20000, 0, 0, 11, 3490, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Aku\'mai - In Combat - Cast Frenzied Rage'),
 (4829, 0, 2, 3, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 5, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Aku\'mai - On Just Died - Set Instance Data 5 to 3'),
-(4829, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 106, 16, 0, 0, 0, 0, 0, 14, 32935, 103016, 0, 0, 0, 0, 0, 0,        'Aku\'mai - On Just Died - Remove Gameobject Flags'),
+(4829, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 106, 16, 0, 0, 0, 0, 0, 14, 32935, 103016, 0, 0, 0, 0, 0, 0,        'Aku\'mai - On Just Died - Remove Gameobject Flags'),
 --
 (4831, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Lady Sarevess - Outside 30 Range - Start Combat Movement'),
 (4831, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lady Sarevess - Within 5-30 Range - Stop Combat Movement'),
