@@ -1,8 +1,9 @@
--- smart scripts
+/* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (4798, 4799, 4805, 4807, 4809, 4810, 4811, 4812, 4813, 4814, 4815, 4818, 4819, 4820, 4823, 4825, 4827, 4829, 4831, 4887, 6243);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
 (4798, 4799, 4805, 4807, 4809, 4810, 4811, 4812, 4813, 4814, 4815, 4818, 4819, 4820, 4823, 4825, 4827, 4829, 4831, 4887, 6243);
+
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -85,6 +86,24 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6243, 0, 2, 3, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gelihast - On Just Died - Set Instance Data 0 to 3'),
 (6243, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 106, 16, 0, 0, 0, 0, 0, 14, 32610, 103015, 0, 0, 0, 0, 0, 0,        'Gelihast - On Just Died - Remove Gameobject Flags');
 
+
+-- Lorgus Jett spawn locations
+DELETE FROM `creature` WHERE `id1` IN (12902);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(26173, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -622.355, -10.3501, -22.777, 4.90438, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL),
+(695095, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -455.93, -39.96, -32.5239, 2.5, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL),
+(695096, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -474.22, -86.95, -39.87, 2.98, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601052);
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(26173,  601052, 0, 'Lorgus Jett'),
+(695095, 601052, 0, 'Lorgus Jett'),
+(695096, 601052, 0, 'Lorgus Jett');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601052);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601052, 1, 'Lorgus Jett - Blackfathom Deeps');
 
 -- Lady Sarevess, waypoints
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 26129;
