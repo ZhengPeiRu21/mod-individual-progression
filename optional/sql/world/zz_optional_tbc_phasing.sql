@@ -26,9 +26,13 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `map` = 530 AND `id1
 UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
 25145 -- Budd's Bodyguard, Ghostlands
 );
-
 /* Open world Zul Aman gobjects, including meeting stone */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `map` = 530 AND `id` IN (186251, 186280, 186285, 186286, 186302, 186323);
+/* Quest phasing/unlock */
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` = 11130; -- https://www.wowhead.com/tbc/quest=11130 (Oooh, Shinies!)
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(19, 0, 11130, 0, 0, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'Quest: Oooh, Shinies! only available AFTER the player completes the TBC T3');
 
 /* 2.4 - Sunwell */
 /* Open world Sunwell NPCs, including quest/daily NPCs to prevent ppl from building up reputation before Sunwell phase */
@@ -78,7 +82,6 @@ UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
 25141, -- Commander Steele, Shattrath
 25143 -- Shattered Sun Veteran, Shattrath
 );
-
 /* Open world Sunwell gobjects, including meeting stone */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t5' WHERE `map` = 530 AND `id` IN (187056, 187116, 187345, 187356, 187357, 188171, 188172);
 /* Sunwell decorative gobjects in Shattrath */
