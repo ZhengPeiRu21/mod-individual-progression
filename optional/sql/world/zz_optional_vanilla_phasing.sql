@@ -33,9 +33,12 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 17106, -- Vindicator Palanaar, Astranaar
 17109, -- Cersei Dusksinger, Stonard
 17119, -- Ithania, North Point Tower
+17127, -- Anchorite Avuun, Swamp of Sorrows
 17218, -- Huraan, Southshore
 17223, -- Ambassador Rualeth, Aerie Peak
 17238, -- Anchorite Truuen, Western Plaguelands
+17531, -- Draenei Protector, Swamp of Sorrows
+18221, -- Holaaru, Swamp of Sorrows
 19923, -- Bipp Glizzitor (Arena Master), Silvermoon
 19925, -- Miglik Blotstrom (Arena Master), Exodar
 20381, -- Jovil <Eye of the Storm Battlemaster>, Stormwind

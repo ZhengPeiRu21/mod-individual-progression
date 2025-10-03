@@ -5,7 +5,12 @@
 /* Patch 2.0 - The Burning Crusade */
 /* Phase Blood Elf Paladin & Draenei Chaman Trainer in Vanilla areas (stay visible for Blood Elf & Draenei) */
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_class_trainer' WHERE `id1` IN (
-23128 -- Master Pyreanor <Paladin Trainer>, Orgrimmar
+16287, -- Ambassador Sunsorrow, Undercity
+17105, -- Emissary Valustraa <Mage Trainer>, Darnassus
+23128, -- Master Pyreanor <Paladin Trainer>, Orgrimmar
+20406, -- Champion Cyssa Dawnrose <Paladin Trainer>, Undercity
+20407, -- Farseer Umbrua <Shaman Trainer>, Stormwind
+35281 -- Rukua <Paladin Trainer>, Darnassus
 );
 
 
