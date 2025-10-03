@@ -32,7 +32,7 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `map` = 530 AN
 
 /* 2.4 - Sunwell */
 /* Open world Sunwell NPCs, including quest/daily NPCs to prevent ppl from building up reputation before Sunwell phase */
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `map` = 530 AND `id1` IN (
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `ScriptName` != 'npc_suns_reach_reclamation' AND `map` = 530 AND `id1` IN (
 19202, -- Emissary Mordin, Shattrath
 19475, -- Harbinger Haronem, Shattrath
 24813, -- Exarch Larethor, Isle of Quel Danas
@@ -53,24 +53,22 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `map` = 530 AND `id1
 27667, -- Anwehu, Shattrath
 37527 -- Halduron Brightwing, Isle of Quel Danas
 );
-UPDATE `creature` SET `ScriptName` = 'npc_suns_reach_reclamation_ipp_tbc_t5' WHERE `map` = 530 AND `id1` IN (
+/* NPCs with special behaviours as @IPPPHASE 65536 */
+UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
+5202, -- Archery Target, Shattrath & Isle of Quel Danas
 24932, -- Exarch Nasuun, Shattrath
+24938, -- Shattered Sun Marksman, Shattrath + Isle of Quel Danas
 24965, -- Vindicator Xayann, Isle of Quel Danas
 24967, -- Captain Theris Dawnhearth, Isle of Quel Danas
 24975, -- Mar nah, Isle of Quel Danas
+24979, -- Dawnblade Marksman, Isle of Quel Danas
+25036, -- Caregiver Inaara, Isle of Quel Danas
 25046, -- Smith Hauthaa, Isle of Quel Danas
 25057, -- Battlemage Arynna, Isle of Quel Danas
 25061, -- Harbinger Inuuro, Isle of Quel Danas
 25069, -- Magister Ilastar, Isle of Quel Danas
 25108, -- Vindicator Kaalan, Isle of Quel Danas
-25112 -- Anchorite Ayuri, Isle of Quel Danas
-);
-/* NPCs with special behaviours as @IPPPHASE 65536 */
-UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
-5202, -- Archery Target, Shattrath & Isle of Quel Danas
-24938, -- Shattered Sun Marksman, Shattrath + Isle of Quel Danas
-24979, -- Dawnblade Marksman, Isle of Quel Danas
-25036, -- Caregiver Inaara, Isle of Quel Danas
+25112, -- Anchorite Ayuri, Isle of Quel Danas
 25115, -- Shattered Sun Warrior, Shattrath + Isle of Quel Danas
 25134, -- Shattered Sun Trainee, Shattrath
 25135, -- Shattered Sun Trainee, Shattrath

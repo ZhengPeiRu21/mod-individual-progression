@@ -1040,54 +1040,6 @@ public:
     }
 };
 
-class npc_suns_reach_reclamation_ipp_tbc_t5 : public CreatureScript
-{
-public:
-    npc_suns_reach_reclamation_ipp_tbc_t5() : CreatureScript("npc_suns_reach_reclamation_ipp_tbc_t5") { }
-
-    struct npc_suns_reach_reclamation_ipp_tbc_t5AI: ScriptedAI
-    {
-        /*explicit*/ npc_suns_reach_reclamation_ipp_tbc_t5AI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_4);
-        }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (sIndividualProgression->enabled
-                    && who->IsPlayer()
-                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_4))
-                {
-                    return;
-                }
-
-                ScriptedAI::MoveInLineOfSight(who);
-            }
-    };
-
-    bool OnQuestReward(Player* /*player*/, Creature* /*creature*/, const Quest* quest, uint32 /*slot*/) override
-    {
-        sWorldState->AddSunsReachProgress(quest->GetQuestId());
-        return true;
-    }
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_suns_reach_reclamation_ipp_tbc_t5AI(creature);
-    }
-};
-
 class npc_ipp_wotlk : public CreatureScript
 {
 public:
@@ -1449,6 +1401,5 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_wotlk_icc();
     new npc_ipp_wotlk_rubysanctum();
     new npc_ipp_ds2();
-    new npc_suns_reach_reclamation_ipp_tbc_t5();
     new npc_training_dummy_ipp_wotlk();
 }
