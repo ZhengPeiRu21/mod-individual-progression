@@ -2,6 +2,13 @@
     This will phase TBC NPCs & Gobjects placed in TBC areas until they were originally added to the game.
 */
 
+/* Patch 2.0 - The Burning Crusade */
+/* Phase Blood Elf Paladin & Draenei Chaman Trainer in Vanilla areas (stay visible for Blood Elf & Draenei) */
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_class_trainer' WHERE `id1` IN (
+23128 -- Master Pyreanor <Paladin Trainer>, Orgrimmar
+);
+
+
 /* Patch 2.3 - Zul Aman */
 /* Open world Zul Aman NPCs */
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `map` = 530 AND `id1` IN (

@@ -914,6 +914,54 @@ public:
     }
 };
 
+class npc_ipp_tbc_class_trainer : public CreatureScript
+{
+public:
+    npc_ipp_tbc_class_trainer() : CreatureScript("npc_ipp_tbc_class_trainer") { }
+
+    struct npc_ipp_tbc_class_trainerAI: ScriptedAI
+    {
+        explicit npc_ipp_tbc_class_trainerAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) || target->getRace(true) == 512 || target->getRace(true) == 1024; // 512 = Blood Elf, 1024 = Draenei
+        }
+
+        protected:
+            void MoveInLineOfSight(Unit* who) override
+            {
+                if (!who)
+                    return;
+
+                if (!sIndividualProgression->enabled || !who->IsPlayer())
+                {
+                    ScriptedAI::MoveInLineOfSight(who);
+                    return;
+                }
+                   
+                Player* player = who->ToPlayer();
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || player->getRace(true) == 512
+                    || player->getRace(true) == 1024)
+                    ScriptedAI::MoveInLineOfSight(who);
+
+                return;
+            }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_tbc_class_trainerAI(creature);
+    }
+};
+
+
 class npc_ipp_tbc_pre_t4 : public CreatureScript
 {
 public:
@@ -1392,6 +1440,7 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_naxx40();
     new npc_ipp_pre_tbc();     // vanilla pvp vendors
     new npc_ipp_tbc();
+    new npc_ipp_tbc_class_trainer();
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();
     new npc_ipp_tbc_t5();
