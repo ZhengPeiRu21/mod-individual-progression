@@ -1,22 +1,23 @@
--- smart scripts
+/* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (4798, 4799, 4805, 4807, 4809, 4810, 4811, 4812, 4813, 4814, 4815, 4818, 4819, 4820, 4823, 4825, 4827, 4829, 4831, 4887, 6243);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
 (4798, 4799, 4805, 4807, 4809, 4810, 4811, 4812, 4813, 4814, 4815, 4818, 4819, 4820, 4823, 4825, 4827, 4829, 4831, 4887, 6243);
+
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (4798, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 5916, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Fallenroot Shadowstalker - Out of Combat - Cast Shadowstalker Stealth'),
-(4798, 0, 1, 0, 9, 0, 100, 0, 5000, 7000, 20000, 35000, 0, 30, 11, 6205, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Fallenroot Shadowstalker - Within 0-30 Range - Cast Curse of Weakness'),
-(4799, 0, 0, 0, 9, 0, 100, 0, 500, 1000, 3000, 3500, 0, 40, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Fallenroot Hellcaller - Within 0-40 Range - Cast Shadow Bolt'),
+(4798, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 20000, 35000, 0, 0, 11, 6205, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Fallenroot Shadowstalker - In Combat - Cast Curse of Weakness'),
+(4799, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Fallenroot Hellcaller - In Combat - Cast Shadow Bolt'),
 (4799, 0, 1, 0, 0, 0, 100, 0, 12000, 15000, 30000, 45000, 0, 0, 11, 8129, 256, 0, 0, 0, 0, 5, 30, 0, 1, 0, 0, 0, 0, 0, 'Fallenroot Hellcaller - Within 0-30 Range - Cast Mana Burn'),
 (4805, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 12544, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Blackfathom Sea Witch - Out of Combat - Cast Frost Armor'),
-(4805, 0, 1, 0, 106, 0, 100, 0, 7000, 10000, 16000, 20000, 0, 10, 11, 122, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Blackfathom Sea Witch - Within 0-10 Range - Cast Frost Nova'),
+(4805, 0, 1, 0, 0, 0, 100, 0, 7000, 10000, 16000, 20000, 0, 0, 11, 122, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Blackfathom Sea Witch - Within 0-10 Range - Cast Frost Nova'),
 (4805, 0, 2, 0, 0, 0, 100, 1, 3000, 6000, 0, 0, 0, 0, 11, 6143, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Blackfathom Sea Witch - In Combat - Cast Frost Ward (No Repeat)'),
 (4805, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackfathom Sea Witch - Between 0-15% Health - Flee For Assist'),
-(4807, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 16000, 20000, 0, 5, 11, 8379, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Blackfathom Myrmidon - Within 0-5 Range - Cast Disarm'),
+(4807, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 16000, 20000, 0, 0, 11, 8379, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Blackfathom Myrmidon - Within 0-5 Range - Cast Disarm'),
 (4807, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blackfathom Myrmidon - Between 0-15% Health - Flee For Assist'),
 --
 (4809, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Twilight Acolyte - On Aggro - Say Line 0'),
@@ -24,7 +25,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4809, 0, 2, 0, 74, 0, 100, 0, 0, 0, 22000, 25000, 50, 40, 11, 8362, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Twilight Acolyte - Friendly Missing Health - Cast Renew'),
 (4809, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Acolyte - Between 0-15% Health - Flee For Assist'),
 (4810, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Twilight Reaver - On Aggro - Say Line 0'),
-(4810, 0, 1, 0, 9, 0, 100, 0, 5000, 9000, 8000, 12000, 0, 5, 11, 8374, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Twilight Reaver - Within 0-5 Range - Cast Arcing Smash'),
+(4810, 0, 1, 0, 0, 0, 100, 0, 5000, 9000, 8000, 12000, 0, 0, 11, 8374, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Twilight Reaver - Within 0-5 Range - Cast Arcing Smash'),
 (4810, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Reaver - Between 0-15% Health - Flee For Assist'),
 (4811, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Twilight Aquamancer - On Aggro - Say Line 0'),
 (4811, 0, 1, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 8372, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Twilight Aquamancer - Out of Combat - Cast Summon Aqua Guardian'),
@@ -42,14 +43,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4814, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Twilight Elementalist - On Aggro - Say Line 0'),
 (4814, 0, 1, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 13728, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,     'Twilight Elementalist - Within 0-20 Range - Cast Earth Shock'),
 (4814, 0, 2, 0, 0, 0, 100, 0, 5000, 9000, 13000, 17000, 0, 0, 11, 15039, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,    'Twilight Elementalist - Within 0-20 Range - Cast Flame Shock'),
-(4814, 0, 3, 0, 9, 0, 100, 0, 1000, 2500, 11000, 15000, 0, 20, 11, 12548, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Twilight Elementalist - Within 0-20 Range - Cast Frost Shock'),
-(4814, 0, 4, 0, 9, 0, 100, 0, 3000, 6000, 7000, 12000, 0, 20, 11, 11824, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Twilight Elementalist - Within 0-20 Range - Cast Shock'),
+(4814, 0, 3, 0, 9, 0, 100, 0, 0, 0, 11000, 15000, 0, 20, 11, 12548, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Twilight Elementalist - Within 0-20 Range - Cast Frost Shock'),
+(4814, 0, 4, 0, 0, 0, 100, 0, 3000, 6000, 7000, 12000, 0, 0, 11, 11824, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Elementalist - In Combat - Cast Shock'),
 (4814, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Elementalist - Between 0-15% Health - Flee For Assist'),
 --
-(4815, 0, 0, 0, 9, 0, 100, 0, 5000, 9000, 16000, 20000, 0, 5, 11, 8379, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Murkshallow Snapclaw - Within 0-5 Range - Cast Disarm'),
+(4815, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 16000, 20000, 0, 0, 11, 8379, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Murkshallow Snapclaw - Within 0-5 Range - Cast Disarm'),
 (4815, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Murkshallow Snapclaw - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4818, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Blindlight Murloc - In Combat - Cast Defensive Stance (No Repeat)'),
-(4818, 0, 1, 0, 9, 0, 100, 0, 3000, 5000, 8000, 11000, 0, 5, 11, 7405, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Blindlight Murloc - Within 0-5 Range - Cast Sunder Armor'),
+(4818, 0, 1, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 7405, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Blindlight Murloc - Within 0-5 Range - Cast Sunder Armor'),
 (4818, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blindlight Murloc - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4819, 0, 0, 0, 2, 0, 100, 0, 0, 50, 50000, 60000, 0, 0, 11, 8382, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,           'Blindlight Muckdweller - Between 0-50% Health - Cast Leech Poison'),
 (4819, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blindlight Muckdweller - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -59,32 +60,50 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4820, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Blindlight Oracle - Between 0-15% Health - Flee For Assist'),
 (4823, 0, 0, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Barbed Crustacean - Is Summoned - Set In Combat With Zone'),
 (4823, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Barbed Crustacean - Between 0-15% Health - Flee For Assist'),
-(4825, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 9000, 14000, 0, 5, 11, 8391, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Aku''mai Snapjaw - Within 0-5 Range - Cast Ravage'),
+(4825, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 9000, 14000, 0, 0, 11, 8391, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Aku''mai Snapjaw - Within 0-5 Range - Cast Ravage'),
 (4825, 0, 1, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Aku''mai Snapjaw - Is Summoned - Set In Combat With Zone'),
-(4827, 0, 0, 0, 9, 0, 100, 0, 3000, 6000, 20000, 25000, 0, 5, 11, 3604, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Deep Pool Threshfin - Within 0-5 Range - Cast Tendon Rip'),
+(4827, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 20000, 25000, 0, 0, 11, 3604, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Deep Pool Threshfin - Within 0-5 Range - Cast Tendon Rip'),
 --
-(4829, 0, 0, 0, 9, 0, 100, 0, 5000, 9000, 5000, 9000, 0, 8, 11, 3815, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Aku''mai - Within 0-8 Range - Cast Poison Cloud'),
+(4829, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 8, 11, 3815, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Aku''mai - Within 0-8 Range - Cast Poison Cloud'),
 (4829, 0, 1, 0, 0, 0, 100, 0, 15000, 15000, 20000, 20000, 0, 0, 11, 3490, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Aku''mai - In Combat - Cast Frenzied Rage'),
 (4829, 0, 2, 3, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 5, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Aku''mai - On Just Died - Set Instance Data 5 to 3'),
-(4829, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 106, 16, 0, 0, 0, 0, 0, 14, 32935, 103016, 0, 0, 0, 0, 0, 0,        'Aku''mai - On Just Died - Remove Gameobject Flags'),
+(4829, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 106, 16, 0, 0, 0, 0, 0, 14, 32935, 103016, 0, 0, 0, 0, 0, 0,        'Aku''mai - On Just Died - Remove Gameobject Flags'),
 --
 (4831, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Lady Sarevess - Outside 30 Range - Start Combat Movement'),
 (4831, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lady Sarevess - Within 5-30 Range - Stop Combat Movement'),
 (4831, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Lady Sarevess - Within 0-5 Range - Start Combat Movement'),
-(4831, 0, 3, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Sarevess - In Combat - Say Line 0 (No Repeat)'),
-(4831, 0, 4, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lady Sarevess - Within 5-30 Range - Cast Shoot'),
+(4831, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Lady Sarevess - Within 5-30 Range - Cast Shoot'),
+(4831, 0, 4, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Sarevess - In Combat - Say Line 0 (No Repeat)'),
 (4831, 0, 5, 0, 0, 0, 100, 0, 3000, 5000, 9000, 15000, 0, 0, 11, 8435, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Lady Sarevess - In Combat - Cast Forked Lightning'),
-(4831, 0, 6, 0, 106, 0, 100, 0, 6000, 9000, 9000, 13000, 0, 10, 11, 865, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Lady Sarevess - Within 0-10 Range - Cast Frost Nova'),
+(4831, 0, 6, 0, 106, 0, 100, 0, 0, 0, 9000, 13000, 0, 8, 11, 865, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Lady Sarevess - Within 0-8 Range - Cast Frost Nova'),
 (4831, 0, 7, 0, 0, 0, 100, 0, 7000, 9000, 9000, 13000, 0, 0, 11, 246, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Lady Sarevess - Within 0-30 Range - Cast Slow'),
 (4831, 0, 8, 0, 5, 0, 100, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Sarevess - On Player Kill - Say Line 1'),
 --
-(4887, 0, 0, 0, 9, 0, 100, 0, 3000, 6000, 7000, 12000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ghamoo-ra - Within 0-10 Range - Cast Trample'),
+(4887, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Ghamoo-ra - Within 0-10 Range - Cast Trample'),
 --
-(6243, 0, 0, 1, 9, 0, 100, 0, 3000, 6000, 15500, 25300, 0, 20, 11, 6533, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Gelihast - Within 0-20 Range - Cast Net'),
+(6243, 0, 0, 1, 0, 0, 100, 0, 3000, 6000, 15500, 25300, 0, 0, 11, 6533, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Gelihast - In Combat - Cast Net'),
 (6243, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gelihast - On Cast Net - Reduce Aggro'),
 (6243, 0, 2, 3, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gelihast - On Just Died - Set Instance Data 0 to 3'),
 (6243, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 106, 16, 0, 0, 0, 0, 0, 14, 32610, 103015, 0, 0, 0, 0, 0, 0,        'Gelihast - On Just Died - Remove Gameobject Flags');
 
+
+-- Lorgus Jett spawn locations
+DELETE FROM `creature` WHERE `id1` IN (12902);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(26173, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -622.355, -10.3501, -22.777, 4.90438, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL),
+(695095, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -455.93, -39.96, -32.5239, 2.5, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL),
+(695096, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -474.22, -86.95, -39.87, 2.98, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601052);
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(26173,  601052, 0, 'Lorgus Jett'),
+(695095, 601052, 0, 'Lorgus Jett'),
+(695096, 601052, 0, 'Lorgus Jett');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601052);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601052, 1, 'Lorgus Jett - Blackfathom Deeps');
 
 -- Lady Sarevess, waypoints
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 26129;
