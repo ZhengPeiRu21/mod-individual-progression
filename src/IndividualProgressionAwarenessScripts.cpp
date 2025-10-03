@@ -930,7 +930,7 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) || target->getRace(true) == 512 || target->getRace(true) == 1024; // 512 = Blood Elf, 1024 = Draenei
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) || target->getRace(true) >= 10;
         }
 
         protected:
@@ -947,8 +947,7 @@ public:
                    
                 Player* player = who->ToPlayer();
                 if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
-                    || player->getRace(true) == 512
-                    || player->getRace(true) == 1024)
+                    || player->getRace(true) >= 10) // 10 = Blood Elf, 11 = Draenei
                     ScriptedAI::MoveInLineOfSight(who);
 
                 return;
