@@ -176,8 +176,19 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (774800, 45, 42.9907, -4278.39, 122.562, 4.67323, 0, 0, 0, 100, 0);
 
 
--- Troll Necklace Bounty quest should be for Alliance only
-UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` = 2880;
+-- Troll Necklace Bounty quest should be for Alliance only + repeatable Necklace quest
+UPDATE `quest_template` SET `AllowableRaces` = 1101 WHERE `ID` IN (2880, 2881);
+INSERT IGNORE INTO `creature_queststarter` (`id`, `quest`) VALUES (7884, 2881), (7884, 2880);
+INSERT IGNORE INTO `creature_questender` (`id`, `quest`) VALUES (7884, 2881), (7884, 2880);
+UPDATE `quest_template` SET
+`QuestDescription` = 'You''ve done it already, but we will continue to accept any troll tribal necklaces you find and are willing to turn in.  By turning them in to me, you''ll continue to improve your standing amongst the Wildhammers; if you''re willing to fight for us, then we''ll be willing to fight for you! I need five troll tribal necklaces for them to count.',
+`LogDescription` = 'Bring 5 Troll Tribal Necklaces to Fraggar Thundermantle in Aerie Peak.' WHERE `ID` = 2881;
+UPDATE `quest_template_addon` SET `NextQuestID` = 2881 WHERE `ID` = 2880;
+UPDATE `quest_template_addon` SET `PrevQuestID` = 2880, `SpecialFlags` = 1 WHERE `ID` = 2881; 
+UPDATE `quest_template_locale` SET `Details` = 'Ihr habt das zwar bereits erledigt, aber wir nehmen weiterhin alle Troll-Stammeshalsketten an, die Ihr findet und eintauschen wollt. Indem Ihr sie bei mir eintauscht, verbessert Ihr weiter Eure Stellung unter den Wildhammers. Wenn Ihr für uns kämpft, dann kämpfen wir auch für Euch! Ich benötige 5 Troll-Stammeshalsketten, damit ich es gelten lassen kann.', `Objectives` = 'Bringt Fraggar Donnermantel beim Nistgipfel 5 Trollstammeshalsketten.' WHERE `ID` = 2881 AND `locale` = 'deDE';
+UPDATE `quest_template_locale` SET `Details` = 'Ya has cumplido tu misión, pero aceptaremos todos los collares tribales que nos traigas; así seguirás ganando méritos ante los Martillo Salvaje. Trae 5 collares tribales.', `Objectives` = 'Lleva 5 collares tribales trol a Fraggar Mantrueno a Pico Nidal.' WHERE `ID` = 2881 AND `locale` = 'esES';
+UPDATE `quest_template_locale` SET `Details` = 'Ya has cumplido tu misión, pero aceptaremos todos los collares tribales que nos traigas; así seguirás ganando méritos ante los Martillo Salvaje. Trae 5 collares tribales.', `Objectives` = 'Lleva 5 collares tribales trol a Fraggar Mantrueno a Pico Nidal.' WHERE `ID` = 2881 AND `locale` = 'esMX';
+UPDATE `quest_template_locale` SET `Details` = 'Vous l''avez déjà fait, mais nous continuerons d''accepter tous les Colliers tribaux que vous trouverez. En me les donnant, vous continuerez d''accroître votre prestige parmi les Wildhammer ; si vous désirez vous battre pour nous, nous pourrons nous battre pour vous ! J''ai besoin de cinq colliers tribaux trolls.', `Objectives` = 'Rapporter 5 Colliers tribaux trolls à Fraggar Tonnemante au Nid-de-l''Aigle.' WHERE `ID` = 2881 AND `locale` = 'frFR';
 
 -- Shadra incorrect display scale and missing smart AI
 UPDATE `creature_template_model` SET `DisplayScale` = 5  WHERE `CreatureID` = 2707;

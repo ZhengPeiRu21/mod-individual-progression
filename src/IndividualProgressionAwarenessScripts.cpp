@@ -387,6 +387,58 @@ public:
     }
 };
 
+class gobject_ipp_wotlk_ulduar : public GameObjectScript
+{
+public:
+    gobject_ipp_wotlk_ulduar() : GameObjectScript("gobject_ipp_wotlk_ulduar") { }
+
+    struct gobject_ipp_wotlk_ulduarAI: GameObjectAI
+    {
+        explicit gobject_ipp_wotlk_ulduarAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_1);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_wotlk_ulduarAI(object);
+    }
+};
+
+class gobject_ipp_wotlk_totc : public GameObjectScript
+{
+public:
+    gobject_ipp_wotlk_totc() : GameObjectScript("gobject_ipp_wotlk_totc") { }
+
+    struct gobject_ipp_wotlk_totcAI: GameObjectAI
+    {
+        explicit gobject_ipp_wotlk_totcAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_2);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_wotlk_totcAI(object);
+    }
+};
+
 class gobject_ipp_wotlk_icc : public GameObjectScript
 {
 public:
@@ -1428,6 +1480,8 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_tbc_t5();
     new gobject_ipp_pre_wotlk();
     new gobject_ipp_wotlk();
+    new gobject_ipp_wotlk_ulduar();
+    new gobject_ipp_wotlk_totc();
     new gobject_ipp_wotlk_icc();
     new gobject_ipp_wotlk_rubysanctum();
     new npc_ipp_preaq();         // Cenarion Hold NPCs
