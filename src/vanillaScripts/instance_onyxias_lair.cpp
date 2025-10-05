@@ -167,7 +167,7 @@ public:
         {
             handler.PSendSysMessage("You must have the Drakefire Amulet in your inventory to enter Onyxia\'s Lair.");
         }	
-        else if (player->GetLevel() <= IP_LEVEL_TBC && progressionLevel > PROGRESSION_TBC_TIER_4)
+        else if (player->GetLevel() <= IP_LEVEL_TBC && progressionLevel > PROGRESSION_TBC_TIER_4) // block Death Knights from getting into Onyxia40
         {
             handler.PSendSysMessage("Your progression level is too high to enter this version of Onyxia\'s Lair.");
         }	
