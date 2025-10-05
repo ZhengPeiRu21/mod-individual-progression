@@ -123,7 +123,23 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (177673, 1, 0, 0, 70, 0, 100, 0, 2, 0, 0, 0, 0, 0, 50, 177705, 4, 0, 0, 0, 0, 8, 0, 0, 0, 0, 252.547, 2963.69, 1.64267, 5.58505,    'Serpent Statue - On Gameobject State Changed - Summon Gameobject \'Naga Beam\''),
 (177705, 1, 0, 0, 63, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 12369, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 255.13, 2967.05, 1.39319, 0.785541, 'Naga Beam - On Gameobject Just spawned - Summon Creature \'Lord Kragaru\'');
 
--- Khan Dez'Hepah, 5600, should have multiple spawn locations
+-- Khan Dez'Hepah, 3 spawn locations
+DELETE FROM `creature` WHERE `guid` IN (29141, 27042, 27052);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(29141, 5600, 0, 0, 1, 0, 0, 1, 1, 1, -795.566, 934.17, 90.5846, 2.77507,  300, 0, 0, 1342, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(27042, 5600, 0, 0, 1, 0, 0, 1, 1, 1, -947.212, 954.353, 96.303, 4.27606,  300, 0, 0, 1342, 0, 0, 0, 0, 0, '', 0, 0, NULL), -- https://www.youtube.com/watch?v=tkMfTwnqFNY
+(27052, 5600, 0, 0, 1, 0, 0, 1, 1, 1, -1010.09, 874.882, 92.6127, 2.05949, 300, 0, 0, 1342, 0, 0, 0, 0, 0, '', 0, 0, NULL); -- https://www.youtube.com/watch?v=_dOku9rqHTo
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601020);
+INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(29141, 601020, 0, 'Khan Dez\'Hepah'),
+(27042, 601020, 0, 'Khan Dez\'Hepah'),
+(27052, 601020, 0, 'Khan Dez\'Hepah');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601020);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601020, 1, 'Khan Dezz\'Hepah - Desolace');
 
 /* Restore Rexxar in Desolace. */
 UPDATE `creature_template` SET `name` = 'Rexxar', `flags_extra` = 2050 WHERE `entry` = 10182;
