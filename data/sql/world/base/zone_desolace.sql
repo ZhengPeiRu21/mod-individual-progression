@@ -114,7 +114,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14225, 0, 0, 0, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Prince Kellen - Between 0-30% Health - Cast Enrage');
 
 -- fix worldserver error at serpent shrine to summon Lord Kragaru
-UPDATE `smart_scripts` SET `link` = 0 WHERE `entryorguid` = 177705;
+DELETE FROM `smart_scripts` WHERE `source_type` = 1 AND `entryorguid` IN (177673, 177705);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(177673, 1, 0, 0, 70, 0, 100, 0, 2, 0, 0, 0, 0, 0, 50, 177705, 4, 0, 0, 0, 0, 8, 0, 0, 0, 0, 252.547, 2963.69, 1.64267, 5.58505,    'Serpent Statue - On Gameobject State Changed - Summon Gameobject \'Naga Beam\''),
+(177705, 1, 0, 0, 63, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 12369, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 255.13, 2967.05, 1.39319, 0.785541, 'Naga Beam - On Gameobject Just spawned - Summon Creature \'Lord Kragaru\'');
 
 -- Khan Dez'Hepah, 5600, should have multiple spawn locations
 
