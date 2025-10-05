@@ -6,9 +6,9 @@
 /* Ulduar raid portal phasing */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk_ulduar' WHERE `map` = 571 AND `guid` IN (61102,66839) AND `id` IN (192512,192511);
 
-/* 3.2 - Argent Tournament */
-/* Argent Tournament raid & dungeon portal phasing */
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk_totc' WHERE `map` = 571 AND `guid` IN (58079,58087,58106,58111) AND `id` IN (195593,195594,195595,195596);
+/* 3.2 - TotC */
+/* TotC raid & dungeon portal phasing */
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk_totc' WHERE `map` = 571 AND `guid` IN (58075,58079,58087,58106,58111,58116) AND `id` IN (195592,195593,195594,195595,195596,195598);
 
 /* 3.3 - ICC */
 /* Open world ICC NPCs */
@@ -21,6 +21,8 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `map` = 571 AND `
 );
 /* Open world ICC gobjects, including meeting stone */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk_icc'  WHERE `map` = 571 AND `id` IN (195695, 202184, 202218);
+/* ICC raid & dungeon portal phasing */
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk_icc'  WHERE `map` = 571 AND `guid` IN (151103,151104,151105,151106,151108,151109,151110,151111,151113,151114) AND `id` IN (202347,202348,202349,202350,196391,196392);
 
 /* 3.3 - Sanctum Ruby + Limited Cataclysm preparation events */
 /* Open world "Operation: Gnomeregan" NPCs in Dun Morogh */
