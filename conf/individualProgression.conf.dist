@@ -35,8 +35,8 @@ IndividualProgression.EnforceGroupRules = 1
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
 #
-#        Default:     1 - Disabled
-#        Suggested:   0.5 - 50% of regular damage
+#        Default:     1 - No Adjustment
+#        Suggested:   between 0.5 and 0.6 (50-60% of regular damage)
 #
 IndividualProgression.VanillaPowerAdjustment = 1
 
@@ -46,8 +46,8 @@ IndividualProgression.VanillaPowerAdjustment = 1
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
 #
-#        Default:     1 - Disabled
-#        Suggested:   0.5 - 50% of regular healing
+#        Default:     1 - No Adjustment
+#        Suggested:   0.5 (50% of regular healing)
 #
 IndividualProgression.VanillaHealingAdjustment = 1
 
@@ -57,7 +57,7 @@ IndividualProgression.VanillaHealingAdjustment = 1
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
 #
-#        Default:     1 - Disabled
+#        Default:     1 - No Adjustment
 #
 IndividualProgression.VanillaHealthAdjustment = 1
 
@@ -67,8 +67,8 @@ IndividualProgression.VanillaHealthAdjustment = 1
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
 #
-#        Default:     1 - Disabled
-#        Suggested:   0.5 - 50% of regular damage
+#        Default:     1 - No Adjustment
+#        Suggested:   between 0.5 and 0.6 (50-60% of regular damage)
 #
 IndividualProgression.TBCPowerAdjustment = 1
 
@@ -78,8 +78,8 @@ IndividualProgression.TBCPowerAdjustment = 1
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
 #
-#        Default:     1 - Disabled
-#        Suggested:   0.6 - 60% of regular healing
+#        Default:     1 - No Adjustment
+#        Suggested:   between 0.5 and 0.6 (50-60% of regular healing)
 #
 IndividualProgression.TBCHealingAdjustment = 1
 
@@ -89,7 +89,7 @@ IndividualProgression.TBCHealingAdjustment = 1
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
 #
-#        Default:     1 - Disabled
+#        Default:     1 - No Adjustment
 #
 IndividualProgression.TBCHealthAdjustment = 1
 
