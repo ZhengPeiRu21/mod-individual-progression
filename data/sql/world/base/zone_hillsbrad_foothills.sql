@@ -276,22 +276,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 /* ---- Purgation Isle (896) ---- */
 
--- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (7073, 607069, 607071, 607072, 607075);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (7073, 607069, 607071, 607072, 607075);
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
-`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-
-(7073,   0, 0, 0, 14, 0, 100, 0, 3000, 30, 10000, 12000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Arados the Damned - Friendly Missing Health - Cast Holy Light'),
-(7073,   0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 13874, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Arados the Damned - Between 0-30% Health - Cast Divine Shield'),
-(607069, 0, 1, 0, 105, 0, 100, 0, 13000, 15000, 13000, 15000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Condemned Monk  - Target Casting - Cast Kick'),
-(607069, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 7000, 10000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Condemned Monk  - Within 0-5 Range - Cast Pummel'),
-(607071, 0, 0, 0, 9, 0, 100, 0, 0, 0, 14000, 18000, 0, 8, 11, 13005, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Cursed Paladin  - Within 0-8 Range - Cast Hammer of Justice'),
-(607072, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 7000, 10000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Cursed Justicar - Within 0-5 Range - Cast Strike'),
-(607075, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Writhing Mage   - Between 0-15% Health - Flee For Assist (No Repeat)');
-
 DELETE FROM `creature_template` WHERE `entry` IN (607068, 607069, 607070, 607071, 607072, 607075);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
@@ -299,12 +283,12 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, 
 `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
-(607068, 0, 0, 0, 0, 0, 'Condemned Acolyte', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.3, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 421, 555, '', 0, 1, 3.3, 3, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607069, 0, 0, 0, 0, 0, 'Condemned Monk', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.55, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 474, 624, '', 0, 1, 3, 1, 0.25, 1, 0, 0, 1, 8413702, 0, 0, '', 12340),
-(607070, 0, 0, 0, 0, 0, 'Condemned Cleric', NULL, NULL, 0, 32, 33, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.25, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 454, 598, '', 0, 1, 3.3, 3, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607071, 0, 0, 0, 0, 0, 'Cursed Paladin', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.8, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 413, 544, '', 0, 1, 3.3, 2, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607072, 0, 0, 0, 0, 0, 'Cursed Justicar', NULL, NULL, 0, 32, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.7, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 527, 693, '', 0, 1, 3.3, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607075, 0, 0, 0, 0, 0, 'Writhing Mage', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.75, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 397, 524, '', 0, 1, 3, 3, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
+(607068, 0, 0, 0, 0, 0, 'Condemned Acolyte', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.3, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 421, 555, 'SmartAI', 0, 1, 3.3, 3, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607069, 0, 0, 0, 0, 0, 'Condemned Monk', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.55, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 474, 624, 'SmartAI', 0, 1, 3, 1, 0.25, 1, 0, 0, 1, 8413702, 0, 0, '', 12340),
+(607070, 0, 0, 0, 0, 0, 'Condemned Cleric', NULL, NULL, 0, 32, 33, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.25, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 454, 598, 'SmartAI', 0, 1, 3.3, 3, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607071, 0, 0, 0, 0, 0, 'Cursed Paladin', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.8, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 413, 544, 'SmartAI', 0, 1, 3.3, 2, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607072, 0, 0, 0, 0, 0, 'Cursed Justicar', NULL, NULL, 0, 32, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.7, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 527, 693, 'SmartAI', 0, 1, 3.3, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607075, 0, 0, 0, 0, 0, 'Writhing Mage', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.75, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 397, 524, 'SmartAI', 0, 1, 3, 3, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN (607068, 607070);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
