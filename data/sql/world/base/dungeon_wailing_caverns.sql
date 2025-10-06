@@ -123,17 +123,3 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (14055,  0, 0, 131072, 1, 0, 0, ''),
 (695071, 0, 0, 131072, 1, 0, 0, ''),
 (695072, 0, 0, 131072, 1, 0, 0, '');
-
-
-UPDATE `creature_template` SET `minlevel` = 22, `maxlevel` = 22 WHERE `entry` = 3654; -- Mutanus the Devourer
-UPDATE `creature_template` SET `minlevel` = 21, `maxlevel` = 21 WHERE `entry` = 3670; -- Lord Pythas
-UPDATE `creature_template` SET `minlevel` = 21, `maxlevel` = 21 WHERE `entry` = 3673; -- Lord Serpentis
-UPDATE `creature_template` SET `minlevel` = 21, `maxlevel` = 21 WHERE `entry` = 3674; -- Skum
-UPDATE `creature_template` SET `maxlevel` = 20                  WHERE `entry` = 3840; -- Druid of the Fang
-UPDATE `creature_template` SET `maxlevel` = 20                  WHERE `entry` = 5055; -- Deviate Lasher
-UPDATE `creature_template` SET `minlevel` = 20, `maxlevel` = 21 WHERE `entry` = 5056; -- Deviate Dreadfang
-UPDATE `creature_template` SET `maxlevel` = 20                  WHERE `entry` = 5755; -- Deviate Viper
-UPDATE `creature_template` SET `minlevel` = 20, `maxlevel` = 21 WHERE `entry` = 5756; -- Deviate Venomwing
-UPDATE `creature_template` SET `maxlevel` = 20                  WHERE `entry` = 5761; -- Deviate Shambler
-UPDATE `creature_template` SET `minlevel` = 21, `maxlevel` = 21 WHERE `entry` = 5775; -- Verdan the Everliving
-UPDATE `creature_template` SET `minlevel` = 20, `maxlevel` = 20, `faction` = 32 WHERE `entry` = 5912; -- Deviate Faerie Dragon

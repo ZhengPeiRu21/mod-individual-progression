@@ -1,29 +1,3 @@
-UPDATE `creature_template` SET `minlevel` = 24, `maxlevel` = 25 WHERE `entry` = 2529;-- Son of Arugal
-UPDATE `creature_template` SET `minlevel` = 25, `maxlevel` = 25 WHERE `entry` = 3872;-- Deathsworn Captain
-UPDATE `creature_template` SET `maxlevel` = 20                  WHERE `entry` = 3853;-- Shadowfang Moonwalker
-UPDATE `creature_template` SET `maxlevel` = 21                  WHERE `entry` = 3854;-- Shadowfang Wolfguard
-UPDATE `creature_template` SET `minlevel` = 20, `maxlevel` = 21 WHERE `entry` = 3855;-- Shadowfang Darksoul
-UPDATE `creature_template` SET `minlevel` = 21, `maxlevel` = 22 WHERE `entry` = 3857;-- Shadowfang Glutton
-UPDATE `creature_template` SET `minlevel` = 23, `maxlevel` = 24 WHERE `entry` = 3859;-- Shadowfang Ragetooth
-UPDATE `creature_template` SET `maxlevel` = 19                  WHERE `entry` = 3861;-- Bleak Worg
-UPDATE `creature_template` SET `maxlevel` = 19                  WHERE `entry` = 3862;-- Slavering Worg
-UPDATE `creature_template` SET `minlevel` = 24, `maxlevel` = 25 WHERE `entry` = 3863;-- Lupine Horror
-UPDATE `creature_template` SET `maxlevel` = 20                  WHERE `entry` = 3864;-- Fel Steed
-UPDATE `creature_template` SET `minlevel` = 22, `maxlevel` = 23 WHERE `entry` = 3866;-- Vile Bat
-UPDATE `creature_template` SET `minlevel` = 23, `maxlevel` = 24 WHERE `entry` = 3868;-- Blood Seeker
-UPDATE `creature_template` SET `minlevel` = 23, `maxlevel` = 24 WHERE `entry` = 3873;-- Tormented Officer
-UPDATE `creature_template` SET `minlevel` = 20, `maxlevel` = 21 WHERE `entry` = 3875;-- Haunted Servitor
-UPDATE `creature_template` SET `minlevel` = 21, `maxlevel` = 22 WHERE `entry` = 3877;-- Wailing Guardsman
-UPDATE `creature_template` SET `minlevel` = 22, `maxlevel` = 22 WHERE `entry` = 3886;-- Razorclaw the Butcher
-UPDATE `creature_template` SET `minlevel` = 24, `maxlevel` = 24 WHERE `entry` = 3887;-- Baron Silverlaine
-UPDATE `creature_template` SET `minlevel` = 25, `maxlevel` = 25 WHERE `entry` = 3927;-- Wolf Master Nandos
-UPDATE `creature_template` SET `minlevel` = 25, `maxlevel` = 25 WHERE `entry` = 4274;-- Fenrus the Devourer
-UPDATE `creature_template` SET `minlevel` = 26, `maxlevel` = 26 WHERE `entry` = 4275;-- Archmage Arugal
-UPDATE `creature_template` SET `minlevel` = 24, `maxlevel` = 24 WHERE `entry` = 4278;-- Commander Springvale
-UPDATE `creature_template` SET `minlevel` = 24, `maxlevel` = 24 WHERE `entry` = 4279;-- Odo the Blindwatcher
-UPDATE `creature_template` SET `minlevel` = 24, `maxlevel` = 25 WHERE `entry` = 4627;-- Arugal's Voidwalker
-UPDATE `creature_template` SET `maxlevel` = 21                  WHERE `entry` = 4627;-- Wolfguard Worg
-
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (2529, 3855, 3859, 3861, 3873, 3875, 3877, 3886, 3887, 3914, 3927, 4278);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (2529, 3855, 3859, 3861, 3873, 3875, 3877, 3886, 3887, 3914, 3927, 4278);

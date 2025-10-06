@@ -6584,7 +6584,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.75 WHERE `entry`=3583;
 UPDATE `creature_template` SET `DamageModifier` = 0.7 WHERE `entry`=3585;
 
 /*  Miner Johnson  */
-UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 2.55, `RangeAttackTime` = 1650 WHERE `entry`=3586;
+UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 2.55, `RangeAttackTime` = 1650, `faction` = 14 WHERE `entry`=3586;
 
 /*  Lyrai  */
 UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=3587;
@@ -10727,7 +10727,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.8 WHERE `entry`=5910;
 UPDATE `creature_template` SET `DamageModifier` = 0.85 WHERE `entry`=5911;
 
 /*  Deviate Faerie Dragon  */
-UPDATE `creature_template` SET `minlevel` = 20, `maxlevel` = 20, `ArmorModifier` = 0.95, `RangeAttackTime` = 1631 WHERE `entry`=5912;
+UPDATE `creature_template` SET `minlevel` = 20, `maxlevel` = 20, `ArmorModifier` = 0.95, `RangeAttackTime` = 1631, `faction` = 32 WHERE `entry`=5912;
 
 /*  Deviate Nightmare  */
 UPDATE `creature_template` SET `DamageModifier` = 1.25, `ArmorModifier` = 0.95 WHERE `entry`=5914;
@@ -14651,7 +14651,7 @@ UPDATE `creature_template` SET `DamageModifier` = 3.7 WHERE `entry`=9693;
 UPDATE `creature_template` SET `DamageModifier` = 1.15 WHERE `entry`=9694;
 
 /*  Bloodaxe Worg  */
-UPDATE `creature_template` SET `DamageModifier` = 2.8 WHERE `entry`=9696;
+UPDATE `creature_template` SET `DamageModifier` = 2.8, `HealthModifier` = 1.92 WHERE `entry`=9696;
 
 /*  Giant Ember Worg  */
 UPDATE `creature_template` SET `DamageModifier` = 1.2 WHERE `entry`=9697;
@@ -16352,7 +16352,7 @@ UPDATE `creature_template` SET `speed_walk` = 1.55556, `speed_run` = 1.14286, `D
 UPDATE `creature_template` SET `DamageModifier` = 4.0, `ArmorModifier` = 1.05 WHERE `entry`=11257;
 
 /*  Frail Skeleton  */
-UPDATE `creature_template` SET `minlevel` = 1, `maxlevel` = 1, `DamageModifier` = 1.3 WHERE `entry`=11258;
+UPDATE `creature_template` SET `minlevel` = 1, `maxlevel` = 1, `DamageModifier` = 1.3, `faction` = 233 WHERE `entry`=11258;
 
 /*  Nataka Longhorn  */
 UPDATE `creature_template` SET `DamageModifier` = 1.1 WHERE `entry`=11259;
@@ -16427,7 +16427,7 @@ UPDATE `creature_template` SET `ArmorModifier` = 0.7 WHERE `entry`=11317;
 UPDATE `creature_template` SET `DamageModifier` = 1.5 WHERE `entry`=11319;
 
 /*  Molten Elemental  */
-UPDATE `creature_template` SET `maxlevel` = 15, `DamageModifier` = 1.65, `ArmorModifier` = 1.2 WHERE `entry`=11321;
+UPDATE `creature_template` SET `minlevel` = 13, `maxlevel` = 15, `DamageModifier` = 1.65, `ArmorModifier` = 1.2 WHERE `entry`=11321;
 
 /*  Panda Cub  */
 UPDATE `creature_template` SET `DamageModifier` = 6.65 WHERE `entry`=11325;
