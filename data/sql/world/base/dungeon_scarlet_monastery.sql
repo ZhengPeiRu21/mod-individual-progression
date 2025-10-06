@@ -195,6 +195,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4543, 0, 4, 0, 0, 0, 100, 0, 0, 8000, 8000, 16000, 0, 0, 11, 8814, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,       'Bloodmage Thalnos - Within 0-30 Range - Cast Flame Spike'),
 (4543, 0, 5, 0, 0, 0, 100, 0, 0, 16000, 16000, 60000, 0, 0, 11, 8053, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,     'Bloodmage Thalnos - Within 0-20 Range - Cast Flame Shock'),
 (4543, 0, 6, 0, 106, 0, 100, 0, 0, 9000, 9000, 12000, 0, 10, 11, 12470, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Bloodmage Thalnos - In Combat - Cast Fire Nova'),
+(4543, 0, 7, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 14693, 8, 0, 0, 0, 0, 8, 0, 0, 0, 0, 1797.84, 1233.68, 18.3153, 1.58286,  'Bloodmage Thalnos - On Just Died - Summon Creature \'Scorn\''),
+(4543, 0, 8, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 614693, 8, 0, 0, 0, 0, 8, 0, 0, 0, 0, 1797.84, 1233.68, 18.3153, 1.58286, 'Bloodmage Thalnos - On Just Died - Summon Creature \'Scorn\''),
+
 (6426, 0, 0, 0, 9, 0, 100, 0, 3000, 9000, 10000, 20000, 0, 20, 11, 7068, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Anguished Dead - Within 0-20 Range - Cast Veil of Shadows'),
 (6488, 0, 0, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Fallen Champion - On AI Init - Despawn'),
 (6488, 0, 1, 0, 9, 0, 100, 0, 5000, 8000, 6000, 14000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Fallen Champion - Within 0-5 Range - Cast Cleave'),
