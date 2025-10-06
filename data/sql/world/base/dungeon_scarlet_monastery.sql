@@ -211,26 +211,21 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 -- Scarlet Scryer (4293) missing in SM graveyard. they share spawns with Scarlet Torturer (4306)
 
+DELETE FROM `creature` WHERE `guid` IN (40068, 40070);
 DELETE FROM `creature` WHERE `guid` BETWEEN 695001 AND 695007;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(695001, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1759.54, 1121.24, 7.49103, 4.75209, 86400, 0, 1, 2865, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+--
+(40068, 4288, 0, 0, 189, 0, 0, 1, 1, 1, 201.223, -232.896, 18.5307, 3.14066, 86400, 0, 1, 3489, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Beastmaster
+(40070, 4304, 0, 0, 189, 0, 0, 1, 1, 0, 201.061, -230.432, 18.5307, 3.13901, 86400, 0, 0, 3330, 0, 0, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Tracking Hound
+--
+(695001, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1759.54, 1121.24, 7.49103, 4.75209, 86400, 0, 1, 2865, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Scryer
 (695002, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1784.03, 1118.32, 7.57362, 2.87979, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695003, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1755.47, 1146.65, 7.57362, 0,       86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695004, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1759.29, 1144.24, 7.57362, 3.14159, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695005, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1793.07, 1146.38, 7.57362, 5.37561, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695006, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1807.48, 1170.39, 6.90373, 4.95674, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695007, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1807.84, 1165.98, 6.90374, 1.51844, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL);
-
-DELETE FROM `pool_template` WHERE `entry` BETWEEN 601001 AND 601007;
-INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
-(601001, 1, ''),
-(601002, 1, ''),
-(601003, 1, ''),
-(601004, 1, ''),
-(601005, 1, ''),
-(601006, 1, ''),
-(601007, 1, '');
 
 DELETE FROM `pool_creature` WHERE `pool_entry` BETWEEN 601001 AND 601007;
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
@@ -248,6 +243,16 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 (695006, 601006, 0, 'Scarlet Scryer'),
 (39857,  601007, 0, 'Scarlet Torturer'),
 (695007, 601007, 0, 'Scarlet Scryer');
+
+DELETE FROM `pool_template` WHERE `entry` BETWEEN 601001 AND 601007;
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601001, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601002, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601003, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601004, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601005, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601006, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601007, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery');
 
 DELETE FROM `creature_addon` WHERE `guid` = 695001;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
