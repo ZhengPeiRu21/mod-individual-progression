@@ -656,6 +656,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@SKELETAL_SHOCKTROOPER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Skeletal Shocktrooper - On Just Died - Cast Zap Crystal'),
 (@SKELETAL_SHOCKTROOPER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Skeletal Shocktrooper - On Spellhit Spirit Spawn-out - Despawn In 3000 ms');
 
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND  `SourceGroup` = 9 AND `SourceEntry` = 4543;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(22, 9, 4543, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Scorn will only spawn if the player has completed PROGRESSION_AQ'),
+(22, 9, 4543, 0, 1, 8, 0, 66007, 0, 0, 1, 0, 0, '', 'Scorn will only spawn if the player has NOT completed PROGRESSION_NAXX40');
+
 /* temporary - this will be done by AC soon */
 SET @ENTRY := 14693;
 DELETE FROM `waypoints` WHERE `entry` = @ENTRY * 100;
