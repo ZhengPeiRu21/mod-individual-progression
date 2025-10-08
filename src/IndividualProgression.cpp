@@ -54,11 +54,17 @@ void IndividualProgression::CheckAdjustments(Player* player) const
  
     if (!hasPassedProgression(player, PROGRESSION_NAXX40) || (!hasPassedProgression(player, PROGRESSION_NAXX40) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
     {
-        AdjustVanillaStats(player);
+        float adjustmentValue = -100.0f * (1.0f - vanillaPowerAdjustment);
+        float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
+        float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
+
+	    AdjustStats(player, computedAdjustment);
     }
     else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
     {
-        AdjustTBCStats(player);
+        float computedAdjustment = -100.0f * (1.0f - tbcPowerAdjustment);
+
+	    AdjustStats(player, computedAdjustment);
     }
 	
     if (player->getClass() == CLASS_HUNTER)
@@ -77,23 +83,6 @@ void IndividualProgression::CheckHPAdjustments(Player* player) const
 	}
 
     player->SetMaxHealth(player->GetMaxHealth()); // just to trigger OnPlayerAfterUpdateMaxHealth
-}
-
-
-void IndividualProgression::AdjustVanillaStats(Player* player) const
-{
-    float adjustmentValue = -100.0f * (1.0f - vanillaPowerAdjustment);
-    float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-    float computedAdjustment = player->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-
-	AdjustStats(player, computedAdjustment);
-}
-
-void IndividualProgression::AdjustTBCStats(Player* player) const
-{
-    float computedAdjustment = -100.0f * (1.0f - tbcPowerAdjustment);
-
-	AdjustStats(player, computedAdjustment);
 }
 
 void IndividualProgression::AdjustStats(Player* player, float computedAdjustment)
