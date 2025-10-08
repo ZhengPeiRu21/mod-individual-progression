@@ -40,7 +40,6 @@ public:
 		}
 
         sIndividualProgression->CheckAdjustments(player);
-        sIndividualProgression->CheckHPAdjustments(player);
 
         if (sIndividualProgression->enabled)
         {
@@ -102,34 +101,6 @@ public:
         return ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == IP_LEVEL_VANILLA) ||
                 // Player is in TBC content - give money at 70 level cap
                 (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC));
-    }
-
-    void OnPlayerAfterUpdateMaxHealth(Player* player, float& value) override
-    {
-        // TODO: This should be adjust to use an aura like damage adjustment. This is more robust to update when changing equipment, etc.
-        if (!sIndividualProgression->enabled || sIndividualProgression->vanillaHealthAdjustment == 1)
-        {
-            return;
-        }
-		
-        // Player is still in Vanilla content - give Vanilla health adjustment
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
-        {
-            float adjustmentAmount = 1.0f - sIndividualProgression->vanillaHealthAdjustment;
-            float applyPercent = ((player->GetLevel() - 10.0f) / 50.0f);
-            float computedAdjustment = player->GetLevel() > 10 ? 1.0f - applyPercent * adjustmentAmount : 1.0f;
-            value *= computedAdjustment;
-        }
-        // Player is in TBC content - give TBC health adjustment
-        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
-        {
-            value *= sIndividualProgression->tbcHealthAdjustment;
-        }
-        // Player is in WotLK content
-        else
-        {
-            return;
-        }
     }
 
     void OnPlayerQuestComputeXP(Player* player, Quest const* quest, uint32& xpValue) override
