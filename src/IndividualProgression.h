@@ -250,7 +250,7 @@ public:
 
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
-    float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
+    float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment;
     bool enabled, questXpFix, hunterPetLevelFix, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, pvpGearRequirements, DisableRDF, excludeAccounts;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression;
     std::string excludedAccountsRegex;
@@ -262,7 +262,6 @@ public:
     void CheckAdjustments(Player* player) const;
     void CheckHPAdjustments(Player* player) const;
     void ApplyGearStatsTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
-    void ComputeGearTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
     void AdjustVanillaStats(Player* player) const;
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;
@@ -271,7 +270,7 @@ public:
     void UpdateProgressionQuests(Player* player);
     void checkKillProgression(Player* player, Creature* killed);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
-    static void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment);
+	static void AdjustStats(Player* player, float computedAdjustment);
     static float ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);
 };
