@@ -19,24 +19,28 @@ public:
 
     void OnPlayerLogin(Player* player) override
     {
-        if (!sIndividualProgression->enabled || isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled)
         {
             return;
         }
-        
-        if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
+
+		if (!isExcludedFromProgression(player))
         {
-            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression));
-        }
-        if (sIndividualProgression->startingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression)))
-        {
-            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
-        }
+            if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression));
+            }
+            if (sIndividualProgression->startingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression)))
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
+            }
+
+            sIndividualProgression->checkIPProgression(player);
+            sIndividualProgression->UpdateProgressionQuests(player);
+		}
 
         sIndividualProgression->CheckAdjustments(player);
         sIndividualProgression->CheckHPAdjustments(player);
-        sIndividualProgression->checkIPProgression(player);
-        sIndividualProgression->UpdateProgressionQuests(player);
 
         if (sIndividualProgression->enabled)
         {
@@ -70,7 +74,6 @@ public:
     void OnPlayerMapChanged(Player* player) override
     {
         sIndividualProgression->CheckAdjustments(player);
-        sIndividualProgression->checkIPProgression(player);
     }
 
     void OnPlayerLevelChanged(Player* player, uint8 /*oldLevel*/) override
@@ -94,6 +97,7 @@ public:
         {
             return false;
         }
+		
         // Player is still in Vanilla content - give money at 60 level cap
         return ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == IP_LEVEL_VANILLA) ||
                 // Player is in TBC content - give money at 70 level cap
@@ -103,16 +107,9 @@ public:
     void OnPlayerAfterUpdateMaxHealth(Player* player, float& value) override
     {
         // TODO: This should be adjust to use an aura like damage adjustment. This is more robust to update when changing equipment, etc.
-        if (!sIndividualProgression->enabled)
+        if (!sIndividualProgression->enabled || sIndividualProgression->vanillaHealthAdjustment == 1)
         {
             return;
-        }
-		
-        float gearAdjustment = 0.0;
-        for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
-        {
-            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
-                sIndividualProgression->ComputeGearTuning(player, gearAdjustment, item->GetTemplate());
         }
 		
         // Player is still in Vanilla content - give Vanilla health adjustment
@@ -123,15 +120,15 @@ public:
             float computedAdjustment = player->GetLevel() > 10 ? 1.0f - applyPercent * adjustmentAmount : 1.0f;
             value *= computedAdjustment;
         }
-            // Player is in TBC content - give TBC health adjustment
+        // Player is in TBC content - give TBC health adjustment
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            value *= (sIndividualProgression->tbcHealthAdjustment - gearAdjustment);
+            value *= sIndividualProgression->tbcHealthAdjustment;
         }
-            // Player is in WotLK content - only need to check gear adjustment
+        // Player is in WotLK content
         else
         {
-            value *= 1 - gearAdjustment;
+            return;
         }
     }
 
@@ -1266,17 +1263,6 @@ public:
 
 class IndividualPlayerProgression_UnitScript : public UnitScript
 {
-private:
-    static float computeTotalGearTuning(Player* player)
-    {
-        float gearAdjustment = 0.0;
-        for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
-        {
-            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
-                sIndividualProgression->ComputeGearTuning(player, gearAdjustment, item->GetTemplate());
-        }
-        return gearAdjustment;
-    }
 
 public:
     IndividualPlayerProgression_UnitScript() : UnitScript("IndividualPlayerProgression_UnitScript") { }
@@ -1311,18 +1297,18 @@ public:
             return;
         }
         Player* player = isPet ? healer->GetOwner()->ToPlayer() : healer->ToPlayer();
-        float gearAdjustment = computeTotalGearTuning(player);
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
-            heal *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaHealingAdjustment) - gearAdjustment);
+            heal *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaHealingAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            heal *= (sIndividualProgression->tbcHealingAdjustment - gearAdjustment);
+            heal *= sIndividualProgression->tbcHealingAdjustment;
         }
         else
         {
-            heal *= 1.0f - gearAdjustment;
+            return;
         }
     }
 
@@ -1330,24 +1316,25 @@ public:
     {
         if (!sIndividualProgression->enabled || !attacker)
             return;
+		
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {
             return;
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
-        float gearAdjustment = computeTotalGearTuning(player);
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
-            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+            damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+            damage *= sIndividualProgression->tbcPowerAdjustment;
         }
         else
         {
-            damage *= 1.0f - gearAdjustment;
+            return;
         }
     }
 
@@ -1362,18 +1349,18 @@ public:
             return;
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
-        float gearAdjustment = computeTotalGearTuning(player);
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
-            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+            damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+            damage *= sIndividualProgression->tbcPowerAdjustment;
         }
         else
         {
-            damage *= 1.0f - gearAdjustment;
+            return;
         }
     }
 
@@ -1397,18 +1384,18 @@ public:
             return;
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
-        float gearAdjustment = computeTotalGearTuning(player);
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
-            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+            damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+            damage *= sIndividualProgression->tbcPowerAdjustment;
         }
         else
         {
-            damage *= 1.0f - gearAdjustment;
+            return;
         }
     }
 
