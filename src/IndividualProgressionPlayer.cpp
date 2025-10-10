@@ -318,13 +318,24 @@ public:
 
     bool OnPlayerCanGroupAccept(Player* player, Group* group) override
     {
-        if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules || isExcludedFromProgression(player))
-        {
-            return true;
-        }
         Player* groupLeader = ObjectAccessor::FindPlayerByLowGUID(group->GetLeaderGUID().GetCounter());
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = groupLeader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+
+        if (isExcludedFromProgression(player))
+        {
+            if (currentState != otherPlayerState)
+            {
+                sIndividualProgression->UpdateProgressionState(player, otherPlayerState);
+            }    
+            return true;
+        }
+
+        if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules)
+        {
+            return true;
+        }
+        
         return (currentState == otherPlayerState);
     }
 
