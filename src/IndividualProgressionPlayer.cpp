@@ -346,23 +346,23 @@ public:
                             return true;
                         }
                         else
-                        {					
+                        {
                             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low or too high.|r");
                             return false;
                         }
                     }
                     else // player is in WotLK
                     {
-                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC) 
+                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC)
                         {
                             return true;
                         }
                         else
-                        {					
+                        {
                             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low.|r");
                             return false;
                         }
-                    }		
+                    }
                 }
                 else // player or ALTbot
                 {
@@ -392,7 +392,7 @@ public:
                             return true;
                         }
                         else
-                        {					
+                        {
                             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low or too high.|r");
                             return false;
                         }
@@ -404,7 +404,7 @@ public:
                             return true;
                         }
                         else
-                        {					
+                        {
                             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low.|r");
                             return false;
                         }
