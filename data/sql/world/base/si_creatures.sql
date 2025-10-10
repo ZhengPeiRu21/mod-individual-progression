@@ -1562,6 +1562,9 @@ UPDATE `creature` SET `wander_distance` = 20, `MovementType` = 1 WHERE `id1` IN 
 UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id1` IN (@NECROTIC_SHARD, @CULTIST_ENGINEER);
 UPDATE `creature` SET `spawntimesecs` = 3600 WHERE `id1` IN (@LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 
+-- undo AC adding IP's creatures to event 17
+DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN @CGUID AND @CGUID+191;
+
 -- Ghoul Berserker,       .npc add 616141
 -- Spectral Soldier,      .npc add 616298
 -- Skeletal Shocktrooper, .npc add 616299
