@@ -777,6 +777,16 @@ INSERT INTO `quest_mail_sender` (`QuestId`, `RewardMailSenderEntry`) VALUES
 (9302, @KEEPER_OF_THE_ROLLS), -- Garon Hutchins
 (9304, @KEEPER_OF_THE_ROLLS); -- Caretaker Alen
 
+DELETE FROM `creature_questender` WHERE `id` = @KEEPER_OF_THE_ROLLS AND `quest` IN (9295, 9299, 9300, 9301, 9302, 9304);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES 
+(@KEEPER_OF_THE_ROLLS, 9295),
+(@KEEPER_OF_THE_ROLLS, 9299),
+(@KEEPER_OF_THE_ROLLS, 9300),
+(@KEEPER_OF_THE_ROLLS, 9301),
+(@KEEPER_OF_THE_ROLLS, 9302),
+(@KEEPER_OF_THE_ROLLS, 9304);
+
+
 DELETE FROM `quest_template_addon` WHERE `ID` IN (9295, 9299, 9300, 9301, 9302, 9304);
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
 `RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES
