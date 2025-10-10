@@ -112,17 +112,6 @@ UPDATE `creature_template` SET `subname` = 'General Trade Goods Merchant' WHERE 
 UPDATE `creature_template` SET `subname` = 'King of Darkspear Trolls'     WHERE `entry` = 10540; -- Vol'jin <King of Darkspear Trolls>
 UPDATE `creature_template` SET `subname` = 'Zeppelin Master'              WHERE `entry` = 12136; -- Snurk Bucksquick <Zeppelin Master>
 
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 3296;  -- Orgrimmar Grunt
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 3310;  -- Doras <Wind Rider Master>
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 4949;  -- Thrall <Warchief>
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 10540; -- Vol'jin <King of Darkspear Trolls>
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14375; -- Scout Stronghand
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14376; -- Scout Manslayer
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14377; -- Scout Tharr
-UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` = 14720; -- High Overlord Saurfang
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `rank` = 0 WHERE `entry` = 14304; -- Kor'kron Elite
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `rank` = 0 WHERE `entry` = 15350; -- Horde Warbringer
-
 -- Legionnaire Teena
 UPDATE `creature_template` SET `subname`= NULL, `npcflag` = 0, `faction` = 85 WHERE `entry` = 12788;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;

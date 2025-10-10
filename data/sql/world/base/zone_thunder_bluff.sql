@@ -76,12 +76,6 @@ UPDATE `creature_template` SET `subname` = 'Reagent Vendor'            WHERE `en
 UPDATE `creature_template` SET `subname` = 'General Goods Vendor'      WHERE `entry` = 8362;-- Kuruk <General Goods Vendor>
 UPDATE `creature_template` SET `subname` = 'Trade Goods Supplier'      WHERE `entry` = 8363;-- Shadi Mistrunner <Trade Goods Supplier>
 
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 3057;  -- Cairne Bloodhoof <High Chieftain>
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14440; -- Hunter Sagewind
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14441; -- Hunter Ragetotem
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `rank` = 0      WHERE `entry` = 3083; -- Honor Guard
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `faction` = 105 WHERE `entry` = 3084; -- Bluffwatcher
-
 
 -- Kurm Stonehoof <Mining Supplier>
 DELETE FROM `npc_vendor` WHERE `entry`=3002 AND `item` IN (20815, 20824);
