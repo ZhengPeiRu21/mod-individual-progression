@@ -341,7 +341,7 @@ public:
                     }
                     else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // player is in TBC
                     {
-                        if (otherPLayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPLayer->GetLevel() <= IP_LEVEL_TBC)
+                        if ((otherPlayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPlayer->GetLevel() <= IP_LEVEL_TBC))
                         {
                             return true;
                         }
@@ -353,7 +353,7 @@ public:
                     }
                     else // player is in WotLK
                     {
-                        if (otherPLayer->GetLevel() > IP_LEVEL_TBC) 
+                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC) 
                         {
                             return true;
                         }
@@ -373,7 +373,7 @@ public:
             {
                 if (isExcludedFromProgression(otherPlayer)) // RNDbot
                 {
-                    if (player->GetLevel() <= IP_LEVEL_VANILLA)) // player is in vanilla
+                    if (player->GetLevel() <= IP_LEVEL_VANILLA) // player is in vanilla
                     {
                         if (otherPlayer->GetLevel() <= IP_LEVEL_VANILLA)
                         {
@@ -385,9 +385,9 @@ public:
                             return false;
                         }
                     }
-                    else if (player->GetLevel() <= IP_LEVEL_TBC)) // player is in TBC
+                    else if (player->GetLevel() <= IP_LEVEL_TBC) // player is in TBC
                     {
-                        if (otherPLayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPLayer->GetLevel() <= IP_LEVEL_TBC)
+                        if ((otherPlayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPlayer->GetLevel() <= IP_LEVEL_TBC))
                         {
                             return true;
                         }
@@ -399,7 +399,7 @@ public:
                     }
                     else // player is in WotLK
                     {
-                        if (otherPLayer->GetLevel() > IP_LEVEL_TBC) 
+                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC)
                         {
                             return true;
                         }
