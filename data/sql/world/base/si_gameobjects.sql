@@ -135,3 +135,6 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `guid` BETWEEN @OGUID AND @OGUID+115;
+
+-- undo AC adding IP's gameobjects to event 17
+DELETE FROM `game_event_gameobject` WHERE `eventEntry` = 17 AND `guid` BETWEEN @OGUID AND @OGUID+115;
