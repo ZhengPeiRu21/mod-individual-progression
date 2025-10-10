@@ -39,6 +39,11 @@ public:
             sIndividualProgression->UpdateProgressionQuests(player);
 		}
 
+		if (isExcludedFromProgression(player))
+        {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));    
+        }
+
         sIndividualProgression->CheckAdjustments(player);
 
         if (sIndividualProgression->enabled)
@@ -318,13 +323,24 @@ public:
 
     bool OnPlayerCanGroupAccept(Player* player, Group* group) override
     {
-        if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules || isExcludedFromProgression(player))
-        {
-            return true;
-        }
         Player* groupLeader = ObjectAccessor::FindPlayerByLowGUID(group->GetLeaderGUID().GetCounter());
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = groupLeader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+
+        if (isExcludedFromProgression(player))
+        {
+            if (currentState != otherPlayerState)
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(otherPlayerState));
+            }    
+            return true;
+        }
+
+        if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules)
+        {
+            return true;
+        }
+        
         return (currentState == otherPlayerState);
     }
 
@@ -463,7 +479,7 @@ public:
                 }
                 break;
             case AREA_BOUGH_SHADOW:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -472,7 +488,7 @@ public:
                 }
                 break;
             case AREA_SERADANE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -481,7 +497,7 @@ public:
                 }
                 break;
             case AREA_DREAM_BOUGH:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -490,7 +506,7 @@ public:
                 }
                 break;
             case AREA_JADEMIR_LAKE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -499,7 +515,7 @@ public:
                 }
                 break;
             case AREA_TWILIGHT_GROVE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -864,7 +880,7 @@ public:
             case AREA_THE_ALLIANCE_VALIANTS_RING:
             case AREA_THE_HORDE_VALIANTS_RING:
             case AREA_ARGENT_PAVILION:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
