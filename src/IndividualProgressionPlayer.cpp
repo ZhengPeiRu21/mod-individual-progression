@@ -311,13 +311,20 @@ public:
 
     bool OnPlayerCanGroupInvite(Player* player, std::string& membername) override
     {
+        Player* otherPlayer = ObjectAccessor::FindPlayerByName(membername, false);
+        uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        uint8 otherPlayerState = otherPlayer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+
         if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules || isExcludedFromProgression(player))
         {
             return true;
         }
-        Player* otherPlayer = ObjectAccessor::FindPlayerByName(membername, false);
-        uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
-        uint8 otherPlayerState = otherPlayer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+			
+        if (sIndividualProgression->enforceGroupRules && (currentState != otherPlayerState))
+        {
+            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Unable to invite this player, because Enforce Group Rules is enabled.|r");
+        }
+
         return (currentState == otherPlayerState);
     }
 
