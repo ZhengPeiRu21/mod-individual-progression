@@ -323,7 +323,7 @@ public:
 				
         if (sIndividualProgression->enforceGroupRules) // enforceGroupRules enabled
         {
-            if (!isExcludedFromProgression(player)) // player is a normal account
+            if (!isExcludedFromProgression(player)) // player has a normal account
             {
                 if (isExcludedFromProgression(otherPlayer)) // RNDbot
                 {
@@ -369,7 +369,7 @@ public:
                     return (currentState == otherPlayerState);
                 }
             }
-            else // player is on an excluded account
+            else // player has an excluded account
             {
                 if (isExcludedFromProgression(otherPlayer)) // RNDbot
                 {
