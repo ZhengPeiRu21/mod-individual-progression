@@ -38,6 +38,7 @@ public:
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
 		}
+		
 
 		if (isExcludedFromProgression(player))
         {
@@ -315,18 +316,113 @@ public:
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = otherPlayer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 
-        if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules || isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled)
         {
             return true;
         }
-			
-        if (sIndividualProgression->enforceGroupRules && (currentState != otherPlayerState))
+				
+        if (sIndividualProgression->enforceGroupRules) // enforceGroupRules enabled
         {
-            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Unable to invite this player, because Enforce Group Rules is enabled.|r");
+            if (!isExcludedFromProgression(player)) // player has a normal account
+            {
+                if (isExcludedFromProgression(otherPlayer)) // RNDbot
+                {
+                    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)) // player is in vanilla
+                    {
+                        if (otherPlayer->GetLevel() <= IP_LEVEL_VANILLA)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too high.|r");
+                            return false;
+                        }
+                    }
+                    else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // player is in TBC
+                    {
+                        if ((otherPlayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPlayer->GetLevel() <= IP_LEVEL_TBC))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low or too high.|r");
+                            return false;
+                        }
+                    }
+                    else // player is in WotLK
+                    {
+                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low.|r");
+                            return false;
+                        }
+                    }
+                }
+                else // player or ALTbot
+                {
+                    return (currentState == otherPlayerState);
+                }
+            }
+            else // player has an excluded account
+            {
+                if (isExcludedFromProgression(otherPlayer)) // RNDbot
+                {
+                    if (player->GetLevel() <= IP_LEVEL_VANILLA) // player is in vanilla
+                    {
+                        if (otherPlayer->GetLevel() <= IP_LEVEL_VANILLA)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too high.|r");
+                            return false;
+                        }
+                    }
+                    else if (player->GetLevel() <= IP_LEVEL_TBC) // player is in TBC
+                    {
+                        if ((otherPlayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPlayer->GetLevel() <= IP_LEVEL_TBC))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low or too high.|r");
+                            return false;
+                        }
+                    }
+                    else // player is in WotLK
+                    {
+                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low.|r");
+                            return false;
+                        }
+                    }
+                }
+                else // player or ALTbot
+                {
+                    ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player does not have an excluded account.|r");
+                    return false;
+                }
+            }
         }
-
-        return (currentState == otherPlayerState);
+        else // enforceGroupRules not enabled
+        {
+            return true;
+        }
     }
+
 
     bool OnPlayerCanGroupAccept(Player* player, Group* group) override
     {
@@ -1257,7 +1353,6 @@ public:
 
 class IndividualPlayerProgression_UnitScript : public UnitScript
 {
-
 public:
     IndividualPlayerProgression_UnitScript() : UnitScript("IndividualPlayerProgression_UnitScript") { }
 
