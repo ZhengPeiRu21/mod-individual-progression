@@ -6743,7 +6743,7 @@ UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 1.7, `HealthModifi
 UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 1.7, `HealthModifier` = 3.0 WHERE `entry` = 3633;
 
 /*  Deviate Stalker  */
-UPDATE `creature_template` SET `minlevel` = 14, `maxlevel` = 17, `rank` = 1, `DamageModifier` = 1.7, `HealthModifier` = 3.0 WHERE `entry` = 3634;
+UPDATE `creature_template` SET `minlevel` = 15, `maxlevel` = 17, `rank` = 1, `DamageModifier` = 1.7, `HealthModifier` = 3.0 WHERE `entry` = 3634;
 
 /*  Devouring Ectoplasm  */
 UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 1.7, `HealthModifier` = 3.0 WHERE `entry` = 3638;
