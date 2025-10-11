@@ -261,11 +261,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (123220, 56, 52.673, -3894.57, 42.6995, NULL, 0, 0, 0, 100, 0);
 
 
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3101; -- Vile Familiar
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3102; -- Felstalker
-UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 3183; -- Yarrog Baneshadow
-
-
 DELETE FROM `npc_trainer` WHERE `ID` IN (3174, 3175, 3184, 3185, 5943, 7953, 11025);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (3174, -310000),  -- Dwukk <Journeyman Blacksmith>

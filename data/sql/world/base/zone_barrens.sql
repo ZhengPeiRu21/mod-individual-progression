@@ -344,42 +344,6 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Skinner'                  WHERE `entry` = 6387;-- Dranh <Skinner>
 UPDATE `creature_template` SET `subname` = 'Master Goblin Engineer'   WHERE `entry` = 8738;-- Vazario Linkgrease <Master Goblin Engineer>
 
-UPDATE `creature_template` SET `minlevel` = 15, `maxlevel` = 17 WHERE `entry` = 3634;  -- Deviate Stalker
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 3615;  -- Devrak <Wind Rider Master>
-UPDATE `creature_template` SET `minlevel` = 19, `maxlevel` = 19 WHERE `entry` = 3652;  -- Trigore the Lasher
-UPDATE `creature_template` SET `minlevel` = 20, `maxlevel` = 20 WHERE `entry` = 3672;  -- Boahn <Druid of the Fang>
-UPDATE `creature_template` SET `minlevel` = 40, `maxlevel` = 40 WHERE `entry` = 4380;  -- Darkmist Widow
-UPDATE `creature_template` SET `minlevel` = 25, `maxlevel` = 25 WHERE `entry` = 5797;  -- Aean Swiftriver <Alliance Outrunner>
-UPDATE `creature_template` SET `minlevel` = 24, `maxlevel` = 24 WHERE `entry` = 5800;  -- Marcus Bel <Alliance Outrunner>
-UPDATE `creature_template` SET `minlevel` = 19, `maxlevel` = 19 WHERE `entry` = 5835;  -- Foreman Grills
-UPDATE `creature_template` SET `minlevel` = 15, `maxlevel` = 15 WHERE `entry` = 8236;  -- Muck Frenzy
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 10378; -- Omusa Thunderhorn <Wind Rider Master>
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 14717; -- Horde Elite
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 16227; -- Bragok <Flight Master>
-
-UPDATE `creature_template` SET `rank` = 1 WHERE `entry` IN (
-3630,   -- Deviate Coiler
-3631,   -- Deviate Stinglash
-3632,   -- Deviate Creeper
-3633,   -- Deviate Slayer
-3634,   -- Deviate Stalker
-3638,   -- Devouring Ectoplasm
-3641,   -- Deviate Lurker
-6132,   -- Razorfen Servitor
-7872,   -- Death's Head Cultist
-7873,   -- Razorfen Battleguard
-7874,   -- Razorfen Thornweaver
-12865   -- Ambassador Malcin
-); 
-
-UPDATE `creature_template` SET `rank` = 2 WHERE `entry` IN (
-3652, -- Trigore the Lasher
-3672, -- Boahn <Druid of the Fang>
-7895  -- Ambassador Bloodrage
-);
-
-UPDATE `creature_template` SET `rank` = 4      WHERE `entry` = 4380; -- Darkmist Widow
-UPDATE `creature_template` SET `faction` = 16  WHERE `entry` = 3503; -- Silithid Protector
 UPDATE `creature_template` SET `gossip_menu_id` = 0, `npcflag` = 2 WHERE `entry` = 3443; -- Grub
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 4244    WHERE `CreatureID` = 3465;-- Gilthares Firebough
 
