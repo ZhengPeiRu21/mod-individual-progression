@@ -376,9 +376,6 @@ UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 3 WHERE `guid` IN 
 DELETE FROM `creature_addon` WHERE `guid` = 43101;
 DELETE FROM `waypoint_data` WHERE `id` = 926800;
 
--- health bloodaxe worg pup higher than bloodaxe worg?! - https://www.wowhead.com/classic/npc=9696/bloodaxe-worg
-UPDATE `creature_template` SET `HealthModifier` = 1.92 WHERE `entry` = 9696;
-
 -- Bannok Grimaxe (9596), spawn locations
 DELETE FROM `creature` WHERE `guid` IN (44020, 44318); -- creatures placed in Bannok Grimaxe's spawn locations by AC
 DELETE FROM `creature` WHERE `id1` IN (9596);

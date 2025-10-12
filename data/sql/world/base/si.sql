@@ -607,6 +607,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@SCORN, 0, 0, 0, 106, 0, 100, 0, 4000, 9000, 8000, 15000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scorn - In Combat - Cast Frost Nova'),
 (@SCORN, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scorn - In Combat - Cast Frostbolt Volley'),
 (@SCORN, 0, 2, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 28873, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,                   'Scorn - In Combat - Cast Lich Slap'),
+(@SCORN, 0, 3, 0, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 53, 0, 1469300, 1, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,                              'Scorn - On Just Summoned - Start Patrol Path 1469300'),
 (@LORD_BLACKWOOD, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 5, 30, 11, 21390, 64, 0, 0, 0, 0, 25, 30, 0, 0, 0, 0, 0, 0, 0,             'Lord Blackwood - On Victim In Range - Cast Multi-Shot'), 
 (@LORD_BLACKWOOD, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 11972, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,          'Lord Blackwood - In Combat - Cast Shield Bash'),
 (@LORD_BLACKWOOD, 0, 2, 0, 106, 0, 100, 0, 13000, 13000, 15000, 15000, 0, 5, 11, 7964, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lord Blackwood - In Combat - Cast Smoke Bomb'),
@@ -654,6 +655,29 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@SKELETAL_SHOCKTROOPER, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 10000, 12000, 0, 0, 11, 55090, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Skeletal Shocktrooper - In Combat - Cast Scourge Strike'),
 (@SKELETAL_SHOCKTROOPER, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28032, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Skeletal Shocktrooper - On Just Died - Cast Zap Crystal'),
 (@SKELETAL_SHOCKTROOPER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Skeletal Shocktrooper - On Spellhit Spirit Spawn-out - Despawn In 3000 ms');
+
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND  `SourceGroup` = 9 AND `SourceEntry` = 4543;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(22, 9, 4543, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Scorn will only spawn if the player has completed PROGRESSION_AQ'),
+(22, 9, 4543, 0, 1, 8, 0, 66007, 0, 0, 1, 0, 0, '', 'Scorn will only spawn if the player has NOT completed PROGRESSION_NAXX40');
+
+/* temporary - this will be done by playerbot's AC fork soon */
+SET @ENTRY := 14693;
+DELETE FROM `waypoints` WHERE `entry` = @ENTRY * 100;
+INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `point_comment`) VALUES
+(@ENTRY*100, 1, 1798.01, 1312.39, 18.69,  NULL, 0, 'Scorn'),
+(@ENTRY*100, 2, 1805.39, 1323.66, 18.91,  NULL, 0, 'Scorn'),
+(@ENTRY*100, 3, 1797.70, 1383.27, 18.76,  NULL, 0, 'Scorn'),
+(@ENTRY*100, 4, 1805.39, 1323.66, 18.91,  NULL, 0, 'Scorn'),
+(@ENTRY*100, 5, 1798.01, 1312.39, 18.69,  NULL, 0, 'Scorn'),
+(@ENTRY*100, 6, 1798.01, 1223.17, 18.274, NULL, 0, 'Scorn - spawn point');
+
+/* temporary - this will be done by playerbot's AC fork soon */
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 22) AND (`SourceGroup` = 8) AND (`SourceEntry` = 4543) AND (`SourceId` = 0) AND (`ElseGroup` = 0);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(22, 8, 4543, 0, 0, 12, 0, 120, 0, 0, 0, 0, 0, '', 'Scourge Invasion - Boss in instance activation event must be active');
 
 
 /*-- Quests --*/
@@ -776,6 +800,16 @@ INSERT INTO `quest_mail_sender` (`QuestId`, `RewardMailSenderEntry`) VALUES
 (9301, @KEEPER_OF_THE_ROLLS), -- Zarena Cromwind
 (9302, @KEEPER_OF_THE_ROLLS), -- Garon Hutchins
 (9304, @KEEPER_OF_THE_ROLLS); -- Caretaker Alen
+
+DELETE FROM `creature_questender` WHERE `id` = @KEEPER_OF_THE_ROLLS AND `quest` IN (9295, 9299, 9300, 9301, 9302, 9304);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES 
+(@KEEPER_OF_THE_ROLLS, 9295),
+(@KEEPER_OF_THE_ROLLS, 9299),
+(@KEEPER_OF_THE_ROLLS, 9300),
+(@KEEPER_OF_THE_ROLLS, 9301),
+(@KEEPER_OF_THE_ROLLS, 9302),
+(@KEEPER_OF_THE_ROLLS, 9304);
+
 
 DELETE FROM `quest_template_addon` WHERE `ID` IN (9295, 9299, 9300, 9301, 9302, 9304);
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 

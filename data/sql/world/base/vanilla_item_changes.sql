@@ -19850,15 +19850,6 @@ UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry
 /*  Tablet of Restoration III  */
 UPDATE item_template SET BuyPrice = 1800 WHERE entry=1057;
 
-/*  Horn of the Timber Wolf  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=1132;
-
-/*  Horn of the Winter Wolf  */
-UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry=1133;
-
-/*  Horn of the Gray Wolf  */
-UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry=1134;
-
 /*  Scroll of Stamina  */
 UPDATE item_template SET ItemLevel = 15, RequiredLevel = 5 WHERE entry=1180;
 
@@ -19883,14 +19874,8 @@ UPDATE item_template SET ItemLevel = 30, RequiredLevel = 20 WHERE entry=2290;
 /*  Light Leather  */
 UPDATE item_template SET BuyPrice = 60 WHERE entry=2318;
 
-/*  Black Stallion Bridle  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=2411;
-
 /*  Palomino  */
 UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000, SellPrice = 0 WHERE entry=2413;
-
-/*  Pinto Bridle  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=2414;
 
 /*  White Stallion  */
 UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000, SellPrice = 0 WHERE entry=2415;
@@ -20018,41 +20003,17 @@ UPDATE item_template SET bonding = 1 WHERE entry=5462;
 /*  Cowardly Flight Potion  */
 UPDATE item_template SET BuyPrice = 340 WHERE entry=5632;
 
-/*  Chestnut Mare Bridle  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=5655;
-
-/*  Brown Horse Bridle  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=5656;
-
 /*  Recipe: Instant Toxin  */
 UPDATE item_template SET BuyPrice = 1000 WHERE entry=5657;
 
 /*  Libram: Seal of Righteousness  */
 UPDATE item_template SET BuyPrice = 1300 WHERE entry=5660;
 
-/*  Horn of the Red Wolf  */
-UPDATE item_template SET Quality = 4, bonding = 1, BuyPrice = 1000000 WHERE entry=5663;
-
-/*  Horn of the Dire Wolf  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=5665;
-
-/*  Horn of the Brown Wolf  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=5668;
-
 /*  Henrig Lonebrow's Journal  */
 UPDATE item_template SET ItemLevel = 29, RequiredLevel = 29 WHERE entry=5791;
 
 /*  Kravel's Scheme  */
 UPDATE item_template SET bonding = 0 WHERE entry=5826;
-
-/*  Gray Ram  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=5864;
-
-/*  Brown Ram  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=5872;
-
-/*  White Ram  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=5873;
 
 /*  Harness: Black Ram  */
 UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry=5874;
@@ -20185,54 +20146,6 @@ UPDATE item_template SET BuyPrice = 1600, SellPrice = 400 WHERE entry=8544;
 
 /*  Heavy Mageweave Bandage  */
 UPDATE item_template SET BuyPrice = 2400, SellPrice = 600 WHERE entry=8545;
-
-/*  Red Mechanostrider  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8563;
-
-/*  Horn of the Skeletal Mount  */
-UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry=8583;
-
-/*  Whistle of the Mottled Red Raptor  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=8586;
-
-/*  Whistle of the Emerald Raptor  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8588;
-
-/*  Old Whistle of the Ivory Raptor  */
-UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry=8589;
-
-/*  Old Whistle of the Obsidian Raptor  */
-UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry=8590;
-
-/*  Whistle of the Turquoise Raptor  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8591;
-
-/*  Whistle of the Violet Raptor  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8592;
-
-/*  Blue Mechanostrider  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8595;
-
-/*  Reins of the Spotted Nightsaber  */
-UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000 WHERE entry=8628;
-
-/*  Reins of the Striped Nightsaber  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8629;
-
-/*  Reins of the Striped Dawnsaber  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=47100;
-
-/*  Reins of the Bengal Tiger  */
-UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000, SellPrice = 0 WHERE entry=8630;
-
-/*  Reins of the Striped Frostsaber  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8631;
-
-/*  Reins of the Spotted Frostsaber  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=8632;
-
-/*  Reins of the Leopard  */
-UPDATE item_template SET Quality = 3, bonding = 1, BuyPrice = 100000, SellPrice = 0 WHERE entry=8633;
 
 /*  Mithril Insignia  */
 UPDATE item_template SET bonding = 4 WHERE entry=8663;
@@ -20399,86 +20312,11 @@ UPDATE item_template SET bonding = 3 WHERE entry=11903;
 /*  Worg Carrier  */
 UPDATE item_template SET BuyPrice = 6000, SellPrice = 1500 WHERE entry=12264;
 
-/*  Reins of the Ancient Frostsaber  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=12302;
-
-/*  Reins of the Nightsaber  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=12303;
-
-/*  Reins of the Primal Leopard  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=12325;
-
-/*  Reins of the Tawny Sabercat  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=12326;
-
-/*  Reins of the Golden Sabercat  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=12327;
-
-/*  Horn of the Red Wolf  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=12330;
-
-/*  Horn of the Arctic Wolf  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=12351;
-
-/*  White Stallion Bridle  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=12353;
-
-/*  Palomino Bridle  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=12354;
-
 /*  Smolderweb Carrier  */
 UPDATE item_template SET BuyPrice = 6000, SellPrice = 1500 WHERE entry=12529;
 
 /*  Attuned Dampener  */
 UPDATE item_template SET description = 'This object has been attuned to work against a specific being.' WHERE entry=12650;
-
-/*  Reins of the Winterspring Frostsaber  */
-UPDATE item_template SET SellPrice = 0, RequiredLevel = 60 WHERE entry=13086;
-
-/*  Whistle of the Ivory Raptor  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=13317;
-
-/*  Green Mechanostrider  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=13321;
-
-/*  Unpainted Mechanostrider  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=13322;
-
-/*  Purple Mechanostrider  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=13323;
-
-/*  Red and Blue Mechanostrider  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=13324;
-
-/*  Fluorescent Green Mechanostrider  */
-UPDATE item_template SET BuyPrice = 100000, RequiredLevel = 40 WHERE entry=13325;
-
-/*  White Mechanostrider Mod A  */
-UPDATE item_template SET Name = 'White Mechanostrider Mod A', BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=13326;
-
-/*  Icy Blue Mechanostrider Mod A  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=13327;
-
-/*  Black Ram  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=13328;
-
-/*  Frost Ram  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=13329;
-
-/*  Red Skeletal Horse  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=13331;
-
-/*  Blue Skeletal Horse  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=13332;
-
-/*  Brown Skeletal Horse  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=13333;
-
-/*  Green Skeletal Warhorse  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=13334;
-
-/*  Deathcharger's Reins  */
-UPDATE item_template SET Quality = 3, BuyPrice = 1000000, SellPrice = 250000, RequiredLevel = 60 WHERE entry=13335;
 
 /*  Crystal of Zin-Malor  */
 UPDATE item_template SET Quality = 2 WHERE entry=13347;
@@ -20515,18 +20353,6 @@ UPDATE item_template SET bonding = 4 WHERE entry=13704;
 
 /*  Runecloth Bandage  */
 UPDATE item_template SET BuyPrice = 2000, SellPrice = 500 WHERE entry=14529;
-
-/*  Gray Kodo  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=15277;
-
-/*  Brown Kodo  */
-UPDATE item_template SET BuyPrice = 100000, SellPrice = 0, RequiredLevel = 40 WHERE entry=15290;
-
-/*  Green Kodo  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=15292;
-
-/*  Teal Kodo  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=15293;
 
 /*  Ironfeather  */
 UPDATE item_template SET Quality = 1, class = 7 WHERE entry=15420;
@@ -20588,30 +20414,6 @@ UPDATE item_template SET RequiredLevel = 0 WHERE entry=18173;
 /*  Chromatic Mantle of the Dawn  */
 UPDATE item_template SET RequiredLevel = 0 WHERE entry=18182;
 
-/*  Black War Steed Bridle  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18241;
-
-/*  Reins of the Black War Tiger  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18242;
-
-/*  Black Battlestrider  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18243;
-
-/*  Black War Ram  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18244;
-
-/*  Horn of the Black War Wolf  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18245;
-
-/*  Whistle of the Black War Raptor  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18246;
-
-/*  Black War Kodo  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18247;
-
-/*  Red Skeletal Warhorse  */
-UPDATE item_template SET BuyPrice = 100000 WHERE entry=18248;
-
 /*  Major Rejuvenation Potion  */
 UPDATE item_template SET BuyPrice = 60, SellPrice = 15 WHERE entry=18253;
 
@@ -20651,89 +20453,14 @@ UPDATE item_template SET BuyPrice = 50000, SellPrice = 12500 WHERE entry=18607;
 /*  Mature Black Dragon Sinew  */
 UPDATE item_template SET bonding = 1 WHERE entry=18705;
 
-/*  Reins of the Swift Frostsaber  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18766;
-
-/*  Reins of the Swift Mistsaber  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18767;
-
-/*  Reins of the Swift Dawnsaber  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18768;
-
-/*  Swift Green Mechanostrider  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18772;
-
-/*  Swift White Mechanostrider  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18773;
-
-/*  Swift Yellow Mechanostrider  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18774;
-
-/*  Swift Palomino  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18776;
-
-/*  Swift Brown Steed  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18777;
-
-/*  Swift White Steed  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18778;
-
-/*  Swift White Ram  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18785;
-
-/*  Swift Brown Ram  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18786;
-
-/*  Swift Gray Ram  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18787;
-
-/*  Swift Blue Raptor  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18788;
-
-/*  Swift Olive Raptor  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18789;
-
-/*  Swift Orange Raptor  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18790;
-
-/*  Purple Skeletal Warhorse  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18791;
-
-/*  Great White Kodo  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18793;
-
-/*  Great Brown Kodo  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18794;
-
-/*  Great Gray Kodo  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18795;
-
-/*  Horn of the Swift Brown Wolf  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18796;
-
-/*  Horn of the Swift Timber Wolf  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18797;
-
-/*  Horn of the Swift Gray Wolf  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18798;
-
 /*  Combat Mana Potion  */
 UPDATE item_template SET BuyPrice = 1100, SellPrice = 275 WHERE entry=18841;
-
-/*  Reins of the Swift Stormsaber  */
-UPDATE item_template SET BuyPrice = 1000000, SellPrice = 0, RequiredLevel = 60 WHERE entry=18902;
 
 /*  Turtle Egg (Loggerhead)  */
 UPDATE item_template SET BuyPrice = 4000 WHERE entry=18964;
 
 /*  Essence of the Firelord  */
 UPDATE item_template SET Quality = 5 WHERE entry=19017;
-
-/*  Horn of the Frostwolf Howler  */
-UPDATE item_template SET BuyPrice = 100000, RequiredLevel = 60 WHERE entry=19029;
-
-/*  Stormpike Battle Charger  */
-UPDATE item_template SET BuyPrice = 100000, RequiredLevel = 60 WHERE entry=19030;
 
 /*  Stormpike Battle Standard  */
 UPDATE item_template SET BuyPrice = 50000, SellPrice = 12500 WHERE entry=19045;
@@ -20759,12 +20486,6 @@ UPDATE item_template SET BuyPrice = 350000, SellPrice = 87500 WHERE entry=19319;
 /*  Gnoll Skin Bandolier  */
 UPDATE item_template SET BuyPrice = 350000, SellPrice = 87500 WHERE entry=19320;
 
-/*  Swift Razzashi Raptor  */
-UPDATE item_template SET RequiredLevel = 60 WHERE entry=19872;
-
-/*  Swift Zulian Tiger  */
-UPDATE item_template SET RequiredLevel = 60 WHERE entry=19902;
-
 /*  Zandalar Signet of Mojo  */
 UPDATE item_template SET RequiredLevel = 0 WHERE entry=20076;
 
@@ -20773,9 +20494,6 @@ UPDATE item_template SET RequiredLevel = 0 WHERE entry=20077;
 
 /*  Zandalar Signet of Serenity  */
 UPDATE item_template SET RequiredLevel = 0 WHERE entry=20078;
-
-/*  Foror's Fabled Steed  */
-UPDATE item_template SET BuyPrice = 10000000, RequiredLevel = 60 WHERE entry=20221;
 
 /*  Defiler's Enriched Ration  */
 UPDATE item_template SET RequiredReputationFaction = 510, RequiredReputationRank = 4 WHERE entry=20222;
@@ -20855,29 +20573,14 @@ UPDATE item_template SET ItemLevel = 60, RequiredLevel = 58 WHERE entry=21161;
 /*  Baby Shark  */
 UPDATE item_template SET bonding = 3, BuyPrice = 6000 WHERE entry=21168;
 
-/*  Black Qiraji Resonating Crystal  */
-UPDATE item_template SET RequiredLevel = 60 WHERE entry=21176;
-
 /*  Fresh Holly  */
 UPDATE item_template SET RequiredLevel = 40 WHERE entry=21212;
 
 /*  Preserved Holly  */
 UPDATE item_template SET RequiredLevel = 40 WHERE entry=21213;
 
-/*  Blue Qiraji Resonating Crystal  */
-UPDATE item_template SET RequiredLevel = 60 WHERE entry=21218;
-
 /*  Tranquil Mechanical Yeti  */
 UPDATE item_template SET bonding = 3 WHERE entry=21277;
-
-/*  Red Qiraji Resonating Crystal  */
-UPDATE item_template SET RequiredLevel = 60 WHERE entry=21321;
-
-/*  Green Qiraji Resonating Crystal  */
-UPDATE item_template SET RequiredLevel = 60 WHERE entry=21323;
-
-/*  Yellow Qiraji Resonating Crystal  */
-UPDATE item_template SET RequiredLevel = 60 WHERE entry=21324;
 
 /*  Valentine's Day Card  */
 UPDATE item_template SET bonding = 0 WHERE entry=22059;

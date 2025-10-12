@@ -11,6 +11,9 @@ UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (29273);
 /* Delete unused Creature Addon data */
 DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 133928);
 
+-- needed to avoid error because zone_burning_steppes is run before zone_hillsbrad_foothills
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601046);
+
 -- undo incorrect waypoint IDs 
 DELETE FROM `waypoint_data` WHERE `id` = 48310;  -- Lady Sarevess
 DELETE FROM `waypoint_data` WHERE `id` = 101820; -- Rexxar
@@ -23,6 +26,11 @@ UPDATE `creature_template` SET `subname` = 'Master Blacksmithing Trainer' WHERE 
 
 -- alliance battlemasters
 DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 208042, 208081, 208107);
+
+-- Onyxia wotlk version
+UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `DamageModifier` = 35, `HealthModifier` = 350.0, `ManaModifier` = 1, `mingold` = 93755, `maxgold` = 122438 WHERE `entry` = 10184;
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `DamageModifier` = 1, `HealthModifier` = 5 WHERE `entry` = 11262;
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `DamageModifier` = 7.5, `HealthModifier` = 70, `ManaModifier` = 1 WHERE `entry` = 12129;
 
 -- Naxx40 - Razuvious
 DELETE FROM `spell_script_names` WHERE `spell_id` IN (29107, 55543);

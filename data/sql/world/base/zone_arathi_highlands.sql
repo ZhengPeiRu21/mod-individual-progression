@@ -161,6 +161,10 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (601048, 1, 'Prince Nazjak - Arathi Highlands');
 
 
+-- misplaced ogre at Boulderfirst Outpost (under the surface)
+DELETE FROM `creature` WHERE `guid` = 11228; -- (11228, 2564, 0, 0, 0, 0, 0, 1, 1, 1, -1251.99, -2054.92, 50.2847, 6.07375, 400, 0, 0, 1221, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+DELETE FROM `creature_addon` WHERE `guid` = 11228;
+
 -- remove non elite Syndicate thief from Stromgarde
 DELETE FROM `creature` WHERE `id1` = 24477;
 

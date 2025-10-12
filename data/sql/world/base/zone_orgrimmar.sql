@@ -112,17 +112,6 @@ UPDATE `creature_template` SET `subname` = 'General Trade Goods Merchant' WHERE 
 UPDATE `creature_template` SET `subname` = 'King of Darkspear Trolls'     WHERE `entry` = 10540; -- Vol'jin <King of Darkspear Trolls>
 UPDATE `creature_template` SET `subname` = 'Zeppelin Master'              WHERE `entry` = 12136; -- Snurk Bucksquick <Zeppelin Master>
 
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 3296;  -- Orgrimmar Grunt
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 3310;  -- Doras <Wind Rider Master>
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 4949;  -- Thrall <Warchief>
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 10540; -- Vol'jin <King of Darkspear Trolls>
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14375; -- Scout Stronghand
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14376; -- Scout Manslayer
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14377; -- Scout Tharr
-UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` = 14720; -- High Overlord Saurfang
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `rank` = 0 WHERE `entry` = 14304; -- Kor'kron Elite
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60, `rank` = 0 WHERE `entry` = 15350; -- Horde Warbringer
-
 -- Legionnaire Teena
 UPDATE `creature_template` SET `subname`= NULL, `npcflag` = 0, `faction` = 85 WHERE `entry` = 12788;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;
@@ -276,9 +265,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
-DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 620278, 623396, 623447, 626396, 626397);
+DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125694, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 620278, 623396, 623447, 626396, 626397);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-
+--
 (612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),        -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
 (626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
 (612792, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC

@@ -166,6 +166,17 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (26000, 26000, 0, 0, 515, 0, 0),
 (26000, 26019, 4, 90, 515, 0, 0);
 
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (2968);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-26001, -26002, -26019);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(-26001, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Galak Outrunner - On Respawn - Set Active'),
+(-26002, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Galak Outrunner - On Respawn - Set Active'),
+(-26019, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Galak Outrunner - On Respawn - Set Active');
+
 DELETE FROM `creature_addon` WHERE `guid` IN (25998, 25999, 26000);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (25998, 259980, 0, 0, 1, 0, 0, NULL),
@@ -251,19 +262,12 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (260000, 22, -2245.92, -1344.81, 30.1417, NULL, 0, 0, 0, 100, 0);
 
 
--- update npc factions
-UPDATE `creature_template` SET `faction` = 14  WHERE `entry` IN (2966, 3229, 8554);       -- Battleboar, Squealer Thornmantle, Chief Sharptusk Thornmantle
-UPDATE `creature_template` SET `faction` = 57  WHERE `entry` IN (2989, 2990);       -- Bael'dun Digger, Appraiser
-UPDATE `creature_template` SET `faction` = 111 WHERE `entry` IN (2952, 2953, 2954); -- Bristleback Quilboar, Shaman, Battleboar
-
 -- update npc names
 UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker'  WHERE `entry` = 3069;  -- Chaw Stronghide <Journeyman Leatherworker>
 UPDATE `creature_template` SET `subname` = 'Armorer and Shieldcrafter' WHERE `entry` = 3075;  -- Bronk Steelrage
 UPDATE `creature_template` SET `subname` = 'Fisherman'                 WHERE `entry` = 5938;  -- Uthan Stillwater <Fisherman>
 UPDATE `creature_template` SET `subname` = 'Skinner'                   WHERE `entry` = 6290;  -- Yonn Deepcut <Skinner>
 UPDATE `creature_template` SET `subname` = 'Journeyman Engineer'       WHERE `entry` = 10993; -- Twizwick Sprocketgrind <Journeyman Engineer>
-
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` IN (3210, 3211, 7975); -- guards
 
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (3069, 3690, 5938, 5939, 6290, 10993);

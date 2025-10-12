@@ -65,19 +65,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 
 UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
 
-
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 68;    -- Stormwind City Guard
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 352;   -- Dungar Longdrink <Gryphon Master>
-UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` = 466;   -- General Marcus Jonathan <High Commander of Stormwind Defense>
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 1976;  -- Stormwind City Patroller
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 1756;  -- Stormwind Royal Guard
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14423; -- Officer Jaxon
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14438; -- Officer Pomeroy
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14439; -- Officer Brady
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 15351; -- Alliance Brigadier General
 UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 29611; -- King Varian Wrynn
-
-UPDATE `creature_template` SET `rank` = 0 WHERE `entry` IN (1756, 15351);
 
 UPDATE `creature_template` SET `subname` = 'Arcane Goods Vendor' WHERE `entry` = 1257; -- Keldric Boucher <Alchemy Supplies & Reagents>
 UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1275; -- Kyra Boucher <Reagents>
@@ -88,7 +76,7 @@ UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 135
 UPDATE `creature_template` SET `subname` = 'Weapon Crafter'  WHERE `entry` = 7232; -- Borgus Steelhand <Weapon Crafter>
 
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-UPDATE `creature_template` SET `subname` = NULL, `minlevel` = 55, `maxlevel` = 55, `npcflag` = 0 WHERE `entry` = 12778;
+UPDATE `creature_template` SET `subname` = NULL, `npcflag` = 0 WHERE `entry` = 12778;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12778;
 
 

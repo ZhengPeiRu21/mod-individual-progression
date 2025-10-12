@@ -1,11 +1,11 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2351, 2354, 2356, 2385, 14280);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2240, 2241, 2244, 2249, 2260, 2261, 2264, 2265, 2266, 2267, 2268, 2269, 2270, 2304, 2305, 2319, 2335, 2344, 2345, 2346, 2348, 2349, 2350, 
-2360, 2368, 2369, 2370, 2371, 2372, 2373, 2374, 2375, 2376, 2377, 2387, 2403, 2404, 2427, 2428, 2448, 2449, 2450, 2451, 2503, 14278);
+(2240, 2241, 2244, 2249, 2260, 2261, 2264, 2265, 2266, 2267, 2268, 2269, 2270, 2304, 2305, 2319, 2335, 2344, 2345, 2346, 2348, 2349, 2350, 2360, 2368, 2369, 
+2370, 2371, 2372, 2373, 2374, 2375, 2376, 2377, 2387, 2403, 2404, 2427, 2428, 2448, 2449, 2450, 2451, 2503, 7068, 7069, 7070, 7071, 7072, 7073, 7075, 607068, 607069, 607070, 607071, 607072, 607075, 14278);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2240, 2241, 2244, 2249, 2260, 2261, 2264, 2265, 2266, 2267, 2268, 2269, 2270, 2304, 2305, 2319, 2335, 2344, 2345, 2346, 2348, 2349, 2350, 2351, 2354, 2356, 
-2360, 2368, 2369, 2370, 2371, 2372, 2373, 2374, 2375, 2376, 2377, 2385, 2387, 2403, 2404, 2427, 2428, 2448, 2449, 2450, 2451, 2503, 14278, 14280);
+(2240, 2241, 2244, 2249, 2260, 2261, 2264, 2265, 2266, 2267, 2268, 2269, 2270, 2304, 2305, 2319, 2335, 2344, 2345, 2346, 2348, 2349, 2350, 2351, 2354, 2356, 2360, 2368, 2369, 
+2370, 2371, 2372, 2373, 2374, 2375, 2376, 2377, 2385, 2387, 2403, 2404, 2427, 2428, 2448, 2449, 2450, 2451, 2503, 7068, 7069, 7070, 7071, 7072, 7073, 7075, 607068, 607069, 607070, 607071, 607072, 607075, 14278, 14280);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -26,7 +26,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2249, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ferocious Yeti - On Enrage - Say Line 0'),
 (2260, 0, 0, 0, 67, 0, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 37685, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Syndicate Rogue - Behind Target - Cast Backstab'),
 (2260, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Syndicate Rogue - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2261, 0, 0, 0, 9, 0, 100, 0, 0, 0, 20000, 30000, 0, 5, 11, 3602, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Watchman - Within 0-5 Range - Cast Torch Burst'),
+(2261, 0, 0, 0, 9, 0, 100, 0, 0, 0, 15000, 30000, 0, 5, 11, 3602, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Watchman - Within 0-5 Range - Cast Torch Burst'),
 (2261, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Syndicate Watchman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (2264, 0, 0, 0, 67, 0, 100, 0, 0, 0, 7000, 9000, 0, 5, 11, 2590, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Hillsbrad Tailor - Behind Target - Cast Backstab'),
@@ -134,6 +134,31 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2451, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Farmer Kalaba - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2503, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 11000, 15000, 0, 0, 11, 5115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Hillsbrad Foreman - In Combat - Cast Battle Command'),
 (2503, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hillsbrad Foreman - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(7068, 0, 0, 0, 0, 0, 100, 0, 0, 0, 21000, 25000, 0, 0, 11, 15654, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Condemned Acolyte - In Combat - Cast Shadow Word: Pain'),
+(7068, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 40, 40, 11, 25058, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Acolyte - Friendly Between 0-40% Health - Cast Renew'),
+(7069, 0, 0, 0, 105, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Condemned Monk - Target Casting - Cast Kick'),
+(7069, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Condemned Monk - Target Casting - Cast Pummel'),
+(7070, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 25054, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Condemned Cleric - In Combat - Cast Holy Smite'),
+(7070, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 21000, 40, 40, 11, 15586, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Cleric - Friendly Between 0-40% Health - Cast Heal'),
+(7071, 0, 0, 0, 9, 0, 100, 0, 0, 0, 14000, 18000, 0, 8, 11, 13005, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Cursed Paladin - Within 0-8 Range - Cast Hammer of Justice'),
+(7072, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15580, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Cursed Justicar - Within 0-5 Range - Cast Strike'),   
+(7073, 0, 0, 0, 14, 0, 100, 0, 3000, 30, 3000, 6000, 0, 0, 11, 15493, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Arados the Damned - Friendly Missing 3000 Health - Cast Holy Light'),
+(7073, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 13874, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Arados the Damned - Between 0-30% Health - Cast Divine Shield (No Repeat)'),
+(7075, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12675, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Writhing Mage - In Combat - Cast Frostbolt'),
+(7075, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Writhing Mage - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(607068, 0, 0, 0, 0, 0, 100, 0, 0, 0, 21000, 25000, 0, 0, 11, 15654, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Acolyte - In Combat - Cast Shadow Word: Pain'),
+(607068, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 40, 40, 11, 11640, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Condemned Acolyte - Friendly Between 0-40% Health - Cast Renew'),
+(607069, 0, 0, 0, 105, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Monk - Target Casting - Cast Kick'),
+(607069, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Monk - Target Casting - Cast Pummel'),
+(607070, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Condemned Cleric - In Combat - Cast Holy Smite'),
+(607070, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 21000, 40, 40, 11, 15586, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Condemned Cleric - Friendly Between 0-40% Health - Cast Heal'),
+(607071, 0, 0, 0, 9, 0, 100, 0, 0, 0, 14000, 18000, 0, 8, 11, 13005, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Cursed Paladin - Within 0-8 Range - Cast Hammer of Justice'),
+(607072, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15580, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Cursed Justicar - Within 0-5 Range - Cast Strike'),
+(607075, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12675, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Writhing Mage - In Combat - Cast Frostbolt'),
+(607075, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Writhing Mage - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
 (14278, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ro\'Bark - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 
@@ -152,17 +177,21 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 UPDATE `quest_template_addon` SET `PrevQuestID` = 527 WHERE `ID` = 546;
 
 -- fix creature movement and spawn locations
-DELETE FROM `creature` WHERE `id1` IN (232, 2403, 2450, 14275, 14276, 14277, 14280);
+DELETE FROM `creature` WHERE `id1` IN (232, 2403, 2427, 2428, 2450, 14275, 14276, 14277, 14280);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (16520,  232, 0, 0, 0, 0, 0, 1, 1, 1, -341.604, 3.60308, 60.3681, 2.21657,        300, 0, 0, 617, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Farmer Ray
 (695081, 232, 0, 0, 0, 0, 0, 1, 1, 1, -348.713, 10.4609, 55.5201, 2.45648,        300, 0, 0, 617, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=RrKUsnh0eUI&t=146s
 (695082, 232, 0, 0, 0, 0, 0, 1, 1, 1, -357.796, -12.7334, 55.0301, 2.45255,       300, 0, 0, 617, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=U0RFwLk8fXI&t=56s
---
 (16033,  2403, 0, 0, 0, 0, 0, 1, 1, 1, -441.325, -108.685, 55.0466, 4.54965,      300, 3, 0, 664, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- Farmer Getz
 (695083, 2403, 0, 0, 0, 0, 0, 1, 1, 1, -404.693, -63.9941, 54.4383, 0.838548,     300, 3, 0, 664, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=RrKUsnh0eUI&t=84s
 (695084, 2403, 0, 0, 0, 0, 0, 1, 1, 1, -461.805, -75.588, 54.9525, 5.90828,       300, 5, 0, 664, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+--
+(16100,  2427, 0, 0, 0, 0, 0, 1, 1, 1, -492.277, -1480.43, 88.0715, 4.87372,      300, 0, 0, 664, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Jailor Eston
+(695089, 2427, 0, 0, 0, 0, 0, 1, 1, 1, -489.347, -1341.93, 53.6018, 3.77872,      300, 3, 0, 665, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=oU9G9Ormowc
+(16063,  2428, 0, 0, 0, 0, 0, 1, 1, 1, -465.482, -1476.91, 90.2819, 5.11627,      300, 0, 0, 664, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Jailor Marlgen
+(695090, 2428, 0, 0, 0, 0, 0, 1, 1, 1, -456.353, -1429.64, 90.9867, 2.87945,      300, 0, 0, 665, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=CpMW6hAvVaM
 --
 (16017,  2450, 0, 0, 0, 0, 0, 1, 1, 0, -850.691, 70.7417, 3.18556, 5.24437,       300, 3, 0, 950, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- Miner Hackett
 (695085, 2450, 0, 0, 0, 0, 0, 1, 1, 0, -806.764, 72.9448, 5.48975, 1.47675,       300, 3, 0, 950, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- https://www.youtube.com/watch?v=U0fVBiMcKw4&t=46s
@@ -176,31 +205,33 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (16047,  14277, 0, 0, 0, 0, 0, 1, 1, 1, -1473.69, -1099.37, -4.31768, 0.553209, 23400, 0, 1, 918, 2457, 2, 0, 0, 0, '', 0, 0, NULL), -- Lady Zephris
 (15839,  14280, 0, 0, 0, 0, 0, 1, 1, 0, -451.793, -1686.39, 85.5209, 1.55137,   43200, 5, 0, 1080, 0, 1, 0, 0, 0, '', 0, 0, NULL);   -- Big Samras
 
-DELETE FROM `pool_creature` WHERE `pool_entry` IN (601041, 601042, 601043, 601044);
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601041, 601042, 601043, 601044, 601045, 601046);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
---
 (232,    601041, 0, 'Farmer Ray'),
 (695081, 601041, 0, 'Farmer Ray'),
 (695082, 601041, 0, 'Farmer Ray'),
---
 (2403,   601042, 0, 'Farmer Getz'),
 (695083, 601042, 0, 'Farmer Getz'),
 (695084, 601042, 0, 'Farmer Getz'),
---
 (16017,  601043, 0, 'Miner Hackett'),
 (695085, 601043, 0, 'Miner Hackett'),
 (695086, 601043, 0, 'Miner Hackett'),
---
 (90783,  601044, 0, 'Tamra Stormpike'),
 (695087, 601044, 0, 'Tamra Stormpike'),
-(695088, 601044, 0, 'Tamra Stormpike');
+(695088, 601044, 0, 'Tamra Stormpike'),
+(16100,  601045, 0, 'Jailor Eston'),
+(695089, 601045, 0, 'Jailor Eston'),
+(16063,  601046, 0, 'Jailor Marlgen'),
+(695090, 601046, 0, 'Jailor Marlgen');
 
-DELETE FROM `pool_template` WHERE `entry` IN (601041, 601042, 601043, 601044);
+DELETE FROM `pool_template` WHERE `entry` IN (601041, 601042, 601043, 601044, 601045, 601046);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
 (601041, 1, 'Farmer Ray - Hillsbrad Foothills'),
 (601042, 1, 'Farmer Getz - Hillsbrad Foothills'),
 (601043, 1, 'Miner Hackett - Hillsbrad Foothills'),
-(601044, 1, 'Tamra Stormpike - Hillsbrad Foothills');
+(601044, 1, 'Tamra Stormpike - Hillsbrad Foothills'),
+(601045, 1, 'Jailor Eston - Hillsbrad Foothills'),
+(601046, 1, 'Jailor Marlgen - Hillsbrad Foothills');
 
 DELETE FROM `creature_addon` WHERE `guid` IN (16047);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
@@ -245,22 +276,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 /* ---- Purgation Isle (896) ---- */
 
--- smart scripts
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (7073, 607069, 607071, 607072, 607075);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (7073, 607069, 607071, 607072, 607075);
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
-`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-
-(7073,   0, 0, 0, 14, 0, 100, 0, 3000, 30, 10000, 12000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Arados the Damned - Friendly Missing Health - Cast Holy Light'),
-(7073,   0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 13874, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Arados the Damned - Between 0-30% Health - Cast Divine Shield'),
-(607069, 0, 1, 0, 105, 0, 100, 0, 13000, 15000, 13000, 15000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Condemned Monk  - Target Casting - Cast Kick'),
-(607069, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 7000, 10000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Condemned Monk  - Within 0-5 Range - Cast Pummel'),
-(607071, 0, 0, 0, 9, 0, 100, 0, 0, 0, 14000, 18000, 0, 8, 11, 13005, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Cursed Paladin  - Within 0-8 Range - Cast Hammer of Justice'),
-(607072, 0, 0, 0, 9, 0, 100, 0, 5000, 8000, 7000, 10000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Cursed Justicar - Within 0-5 Range - Cast Strike'),
-(607075, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Writhing Mage   - Between 0-15% Health - Flee For Assist (No Repeat)');
-
 DELETE FROM `creature_template` WHERE `entry` IN (607068, 607069, 607070, 607071, 607072, 607075);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
@@ -268,12 +283,12 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, 
 `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
-(607068, 0, 0, 0, 0, 0, 'Condemned Acolyte', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 5.75, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 1430, 1630, '', 0, 1, 3.3, 3, 1, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607069, 0, 0, 0, 0, 0, 'Condemned Monk', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 4.3, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 1538, 1738, '', 0, 1, 3, 1, 1, 1, 0, 0, 1, 8413702, 0, 0, '', 12340),
-(607070, 0, 0, 0, 0, 0, 'Condemned Cleric', NULL, NULL, 0, 32, 33, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 4.8, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 1491, 1691, '', 0, 1, 3.3, 3, 1.05, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607071, 0, 0, 0, 0, 0, 'Cursed Paladin', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 6.45, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 1465, 1665, '', 0, 1, 3.3, 2, 1, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607072, 0, 0, 0, 0, 0, 'Cursed Justicar', NULL, NULL, 0, 32, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 4.75, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 1430, 1630, '', 0, 1, 3.3, 1, 0.8, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607075, 0, 0, 0, 0, 0, 'Writhing Mage', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 3.85, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 1571, 1771, '', 0, 1, 3, 3, 0.7, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
+(607068, 0, 0, 0, 0, 0, 'Condemned Acolyte', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.3, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 421, 555, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607069, 0, 0, 0, 0, 0, 'Condemned Monk', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.55, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 474, 624, 'SmartAI', 0, 1, 1, 1, 0.25, 1, 0, 0, 1, 8413702, 0, 0, '', 12340),
+(607070, 0, 0, 0, 0, 0, 'Condemned Cleric', NULL, NULL, 0, 32, 33, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.25, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 454, 598, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607071, 0, 0, 0, 0, 0, 'Cursed Paladin', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.8, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 413, 544, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607072, 0, 0, 0, 0, 0, 'Cursed Justicar', NULL, NULL, 0, 32, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.7, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 527, 693, 'SmartAI', 0, 1, 1.1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607075, 0, 0, 0, 0, 0, 'Writhing Mage', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.75, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 397, 524, 'SmartAI', 0, 1, 1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN (607068, 607070);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
@@ -400,7 +415,7 @@ DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+10 AND @CGUID+42;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
-(@CGUID+10, 607068, 0, 0, 0, 0, 0, 1, 1, 1, -1262.56, 479.974, 10.5137, 5.06174,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),  -- Condemned Acolyte
+(@CGUID+10, 607068, 0, 0, 0, 0, 0, 1, 1, 1, -1262.56, 479.974, 10.5137, 5.06174,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL), -- Condemned Acolyte
 (@CGUID+11, 607068, 0, 0, 0, 0, 0, 1, 1, 1, -1267.31, 436.379, 16.4786, 0.916549, 600, 5, 0, 1, 1, 1, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+12, 607068, 0, 0, 0, 0, 0, 1, 1, 1, -1232.49, 480.7, 13.6295, 5.2709,     600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+13, 607068, 0, 0, 0, 0, 0, 1, 1, 1, -1240.95, 434.424, 3.14377, 1.66122,  600, 5, 0, 1, 1, 1, 0, 0, 0, '', 0, 0, NULL),
@@ -408,11 +423,11 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+15, 607069, 0, 0, 0, 0, 0, 1, 1, 1, -1307.52, 637.362, 47.8771, 2.00713,  600, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+16, 607069, 0, 0, 0, 0, 0, 1, 1, 1, -1256.24, 553.844, 27.4701, 4.55558,  600, 0, 0, 1, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+17, 607069, 0, 0, 0, 0, 0, 1, 1, 1, -1246.71, 566.755, 28.5484, 3.83972,  600, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+18, 607070, 0, 0, 0, 0, 0, 1, 1, 1, -1326.72, 546.228, 100.942, 5.60251,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),  -- Condemned Cleric
+(@CGUID+18, 607070, 0, 0, 0, 0, 0, 1, 1, 1, -1326.72, 546.228, 100.942, 5.60251,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL), -- Condemned Cleric
 (@CGUID+19, 607070, 0, 0, 0, 0, 0, 1, 1, 1, -1315.18, 512.496, 100.148, 1.41913,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+20, 607070, 0, 0, 0, 0, 0, 1, 1, 1, -1367.22, 648.284, 50.3003, 3.80482,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+21, 607070, 0, 0, 0, 0, 0, 1, 1, 1, -1317.12, 531.126, 99.7401, 3.61283,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+22, 607071, 0, 0, 0, 0, 0, 1, 1, 1, -1319.1, 457.083, 37.618, 3.90954,    600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),    -- Cursed Paladin
+(@CGUID+22, 607071, 0, 0, 0, 0, 0, 1, 1, 1, -1319.1, 457.083, 37.618, 3.90954,    600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL), -- Cursed Paladin
 (@CGUID+23, 607071, 0, 0, 0, 0, 0, 1, 1, 1, -1233.07, 560.679, 33.5691, 0.872665, 600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+24, 607071, 0, 0, 0, 0, 0, 1, 1, 1, -1265.33, 476.39, 10.6086, 5.77704,   600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+25, 607071, 0, 0, 0, 0, 0, 1, 1, 1, -1377.69, 644.3, 50.7874, 2.53073,    600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -420,11 +435,11 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+27, 607071, 0, 0, 0, 0, 0, 1, 1, 1, -1232.39, 479.16, 13.6295, 5.67232,   600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+28, 607071, 0, 0, 0, 0, 0, 1, 1, 1, -1233.45, 434.88, 3.64377, 4.4855,    600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+29, 607071, 0, 0, 0, 0, 0, 1, 1, 1, -1234.14, 512.85, 14.1555, 2.72271,   600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+30, 607072, 0, 0, 0, 0, 0, 1, 1, 1, -1345.56, 575.438, 103.609, 5.32325,  600, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),  -- Cursed Justicar
+(@CGUID+30, 607072, 0, 0, 0, 0, 0, 1, 1, 1, -1345.56, 575.438, 103.609, 5.32325,  600, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL), -- Cursed Justicar
 (@CGUID+31, 607072, 0, 0, 0, 0, 0, 1, 1, 1, -1390.78, 616.502, 54.3849, 0.978326, 600, 0, 0, 1, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+32, 607072, 0, 0, 0, 0, 0, 1, 1, 1, -1312.72, 566.287, 106.176, 2.46091,  600, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+33, 607072, 0, 0, 0, 0, 0, 1, 1, 1, -1387.68, 526.302, 80.425, 1.15192,   600, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+34, 607075, 0, 0, 0, 0, 0, 1, 1, 1, -1251.87, 571.952, 30.2319, 1.81913,  600, 3, 0, 1, 1, 1, 0, 0, 0, '', 0, 0, NULL),  -- Writhing Mage
+(@CGUID+34, 607075, 0, 0, 0, 0, 0, 1, 1, 1, -1251.87, 571.952, 30.2319, 1.81913,  600, 3, 0, 1, 1, 1, 0, 0, 0, '', 0, 0, NULL), -- Writhing Mage
 (@CGUID+35, 607075, 0, 0, 0, 0, 0, 1, 1, 1, -1321.62, 519.507, 99.2873, 3.25392,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+36, 607075, 0, 0, 0, 0, 0, 1, 1, 1, -1353.38, 543.865, 101.984, 3.76991,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+37, 607075, 0, 0, 0, 0, 0, 1, 1, 1, -1412.1, 548.535, 80.6403, 4.18879,   600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL),

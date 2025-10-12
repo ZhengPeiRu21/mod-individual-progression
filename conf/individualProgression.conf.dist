@@ -34,10 +34,9 @@ IndividualProgression.EnforceGroupRules = 1
 #        Description: Adjustment to player's attack power before completing Vanilla content and opening the Dark Portal
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
-#                     Set to 1 (100% of regular damage) to disable
 #
-#        Default:     1 - Disabled
-#        Vanilla:   0.6 - 60% of regular damage
+#        Default:     1 - No Adjustment
+#        Suggested:   between 0.5 and 0.6 (50-60% of regular damage)
 #
 IndividualProgression.VanillaPowerAdjustment = 1
 
@@ -46,10 +45,9 @@ IndividualProgression.VanillaPowerAdjustment = 1
 #        Description: Adjustment to player's healing power before completing Vanilla content and opening the Dark Portal
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
-#                     Set to 1 (100% of regular damage) to disable
 #
-#        Default:     1 - Disabled
-#        Vanilla:   0.5 - 50% of regular healing
+#        Default:     1 - No Adjustment
+#        Suggested:   0.5 (50% of regular healing)
 #
 IndividualProgression.VanillaHealingAdjustment = 1
 
@@ -58,10 +56,8 @@ IndividualProgression.VanillaHealingAdjustment = 1
 #        Description: Adjustment to player's max HP before completing Vanilla content and opening the Dark Portal
 #                     This is meant to provide a more accurate Vanilla feeling in Vanilla content
 #                     Applied linearly per level between levels 11 and 60
-#                     Set to 1 (100% of regular health) to disable
 #
-#        Default:     1 - Disabled
-#        Vanilla:   0.8 - 80% of regular health
+#        Default:     1 - No Adjustment
 #
 IndividualProgression.VanillaHealthAdjustment = 1
 
@@ -70,10 +66,9 @@ IndividualProgression.VanillaHealthAdjustment = 1
 #        Description: Adjustment to player's attack power after opening the Dark Portal but before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
-#                     Set to 1 (100% of regular damage) to disable
 #
-#        Default:     1 - Disabled
-#        TBC:       0.6 - 60% of regular damage
+#        Default:     1 - No Adjustment
+#        Suggested:   between 0.5 and 0.6 (50-60% of regular damage)
 #
 IndividualProgression.TBCPowerAdjustment = 1
 
@@ -82,10 +77,9 @@ IndividualProgression.TBCPowerAdjustment = 1
 #        Description: Adjustment to player's healing power after opening the Dark Portal but before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
-#                     Set to 1 (100% of regular damage) to disable
 #
-#        Default:     1 - Disabled
-#        TBC:       0.5 - 50% of regular healing
+#        Default:     1 - No Adjustment
+#        Suggested:   between 0.5 and 0.6 (50-60% of regular healing)
 #
 IndividualProgression.TBCHealingAdjustment = 1
 
@@ -94,10 +88,8 @@ IndividualProgression.TBCHealingAdjustment = 1
 #        Description: Adjustment to player's max HP after opening the Dark Portal but before completing TBC content
 #                     This is meant to provide a more accurate TBC feeling in TBC content
 #                     Unlike Vanilla adjustment, a flat value is always used
-#                     Set to 1 (100% of regular health) to disable
 #
-#        Default:     1 - Disabled
-#        TBC:       0.8 - 80% of regular health
+#        Default:     1 - No Adjustment
 #
 IndividualProgression.TBCHealthAdjustment = 1
 
@@ -110,18 +102,6 @@ IndividualProgression.TBCHealthAdjustment = 1
 #                     0 - Disabled
 #
 IndividualProgression.QuestXPFix = 1
-
-# IndividualProgression.PreviousGearTuning
-#
-#        Description: Reduces the power of previous expansion end-game gear when entering the next expansion for leveling.
-#                     This resolves a balancing problem where players would not get any useful gear until near the end of the leveling experience,
-#                     as well as overpowering the leveling content. This is particularly true in TBC leveling due to the strength of Naxx 40 gear.
-#                     Set to 0 (0% adjustment) to disable
-#
-#        Default:     0 - Disabled
-#                  0.01 - 1% reduced health and damage per previous expansion epic
-#
-IndividualProgression.PreviousGearTuning = 0
 
 # IndividualProgression.RequireNaxxStrathEntrance
 #

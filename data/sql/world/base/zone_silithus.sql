@@ -118,6 +118,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15542, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Twilight Marauder - On Enrage - Say Line 0');
 
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (9415, 9416);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(19, 0, 9415, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Quest: \'Report to Marshal Bluewall\' only available AFTER the player completes the AQ war'),
+(19, 0, 9416, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Quest: \'Report to General Kirika\' only available AFTER the player completes the AQ war');
+
+
 -- fix movement of Twilight cultists
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 15 WHERE `guid` IN (42970, 42997, 43036);
 

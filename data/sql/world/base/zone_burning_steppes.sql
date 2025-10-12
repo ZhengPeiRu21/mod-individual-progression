@@ -107,13 +107,13 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (695092, 8977, 0, 0, 0, 0, 0, 1, 1, 1, -7928.66, -2670.63, 158.508, 4.53516, 500, 0, 0, 2634, 2041, 0, 0, 0, 0, '', 0, 0, NULL), -- https://www.youtube.com/watch?v=d40q6NJAzBY&t=600s
 (695093, 8977, 0, 0, 0, 0, 0, 1, 1, 1, -7962.19, -2659.41, 168.874, 2.29284, 500, 0, 0, 2634, 2041, 0, 0, 0, 0, '', 0, 0, NULL);
 
-DELETE FROM `pool_creature` WHERE `pool_entry` IN (601046);
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (601050);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
-(8977,   601046, 0, 'Krom\'Grul'),
-(695091, 601046, 0, 'Krom\'Grul'),
-(695092, 601046, 0, 'Krom\'Grul'),
-(695093, 601046, 0, 'Krom\'Grul');
+(8977,   601050, 0, 'Krom\'Grul'),
+(695091, 601050, 0, 'Krom\'Grul'),
+(695092, 601050, 0, 'Krom\'Grul'),
+(695093, 601050, 0, 'Krom\'Grul');
 
-DELETE FROM `pool_template` WHERE `entry` IN (601046);
+DELETE FROM `pool_template` WHERE `entry` IN (601050);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
-(601046, 1, 'Krom\'Grul - Burning Steppes');
+(601050, 1, 'Krom\'Grul - Burning Steppes');

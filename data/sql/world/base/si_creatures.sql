@@ -571,7 +571,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+592, @BALZAPHON,       0, 0, 329, 2017, 2017, 1, 1, 0, 3733.27, -3480.11, 131.04, 3.05433, 7200, 0, 0, 14652, 14604, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+593, @LADY_FALTHERESS, 0, 0, 129, 722, 722, 1, 1, 0, 2583.18, 695.861, 56.8033, 1.8675, 7200, 0, 0, 8744, 4568, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+594, @REVANCHION,      0, 0, 429, 2557, 2557, 1, 1, 0, -112.776, 583.823, -3.47887, 5.60251, 7200, 0, 0, 24420, 4868, 0, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+595, @SCORN,           0, 0, 189, 796, 796, 1, 1, 0, 1797.84, 1233.68, 18.3153, 1.58286, 7200, 0, 0, 7104, 5610, 0, 0, 0, 0, '', 0, 0, NULL),
+-- (@CGUID+595, @SCORN,           0, 0, 189, 796, 796, 1, 1, 0, 1797.84, 1233.68, 18.3153, 1.58286, 7200, 0, 0, 7104, 5610, 0, 0, 0, 0, '', 0, 0, NULL), -- now summoned after Bloodmage Thalnos dies
 (@CGUID+596, @LORD_BLACKWOOD,  0, 0, 289, 0, 0, 1, 1, 0, 200.201, 150.839, 109.879, 5.06145, 604800, 0, 0, 61040, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 
 -- Ghoul Berserker
@@ -1561,6 +1561,9 @@ UPDATE `creature` SET `wander_distance` = 20, `MovementType` = 1 WHERE `id1` IN 
 
 UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id1` IN (@NECROTIC_SHARD, @CULTIST_ENGINEER);
 UPDATE `creature` SET `spawntimesecs` = 3600 WHERE `id1` IN (@LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
+
+-- undo AC adding IP's creatures to event 17
+DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN @CGUID AND @CGUID+191;
 
 -- Ghoul Berserker,       .npc add 616141
 -- Spectral Soldier,      .npc add 616298

@@ -19,184 +19,37 @@ public:
 
     void OnPlayerLogin(Player* player) override
     {
-        if (!sIndividualProgression->enabled || isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled)
         {
             return;
         }
-        
-        if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
+
+		if (!isExcludedFromProgression(player))
         {
-            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression));
-        }
-        if (sIndividualProgression->startingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression)))
+            if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression));
+            }
+            if (sIndividualProgression->startingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression)))
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
+            }
+
+            sIndividualProgression->checkIPProgression(player);
+            sIndividualProgression->UpdateProgressionQuests(player);
+		}
+		
+
+		if (isExcludedFromProgression(player))
         {
-            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));    
         }
 
         sIndividualProgression->CheckAdjustments(player);
-        sIndividualProgression->CheckHPAdjustments(player);
-        sIndividualProgression->checkIPProgression(player);
 
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_FLAG_MC) != QUEST_STATUS_REWARDED))
+        if (sIndividualProgression->enabled)
         {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_MC);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_MC);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA)) && (player->GetQuestStatus(PROGRESSION_FLAG_ONYXIA) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_ONYXIA);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_ONYXIA);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR)) && (player->GetQuestStatus(PROGRESSION_FLAG_BWL) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_BWL);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_BWL);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (player->GetQuestStatus(PROGRESSION_FLAG_PRE_AQ) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_PRE_AQ);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_PRE_AQ);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR)) && (player->GetQuestStatus(PROGRESSION_FLAG_AQ_WAR) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_AQ_WAR);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_AQ_WAR);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (player->GetQuestStatus(PROGRESSION_FLAG_AQ) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_AQ);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_AQ);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) && (player->GetQuestStatus(PROGRESSION_FLAG_NAXX40) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_NAXX40);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_NAXX40);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)) && (player->GetQuestStatus(PROGRESSION_FLAG_PRE_TBC) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_PRE_TBC);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_PRE_TBC);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T1) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T1);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_TBC_T1);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T2) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T2);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_TBC_T2);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_3)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T3) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T3);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_TBC_T3);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T4) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T4);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_TBC_T4);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) && (player->GetQuestStatus(PROGRESSION_FLAG_TBC_T5) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_TBC_T5);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_TBC_T5);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T1) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T1);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T1);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T2) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T2);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T2);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_3)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T3) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T3);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T3);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_4)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T4) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T4);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T4);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_5)) && (player->GetQuestStatus(PROGRESSION_FLAG_WOTLK_T5) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_FLAG_WOTLK_T5);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_FLAG_WOTLK_T5);
-            player->RewardQuest(quest, 0, player, false, false);
+            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
         }
     }
 
@@ -226,7 +79,6 @@ public:
     void OnPlayerMapChanged(Player* player) override
     {
         sIndividualProgression->CheckAdjustments(player);
-        sIndividualProgression->checkIPProgression(player);
     }
 
     void OnPlayerLevelChanged(Player* player, uint8 /*oldLevel*/) override
@@ -250,45 +102,11 @@ public:
         {
             return false;
         }
+		
         // Player is still in Vanilla content - give money at 60 level cap
         return ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == IP_LEVEL_VANILLA) ||
                 // Player is in TBC content - give money at 70 level cap
                 (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC));
-    }
-
-    void OnPlayerAfterUpdateMaxHealth(Player* player, float& value) override
-    {
-        // TODO: This should be adjust to use an aura like damage adjustment. This is more robust to update when changing equipment, etc.
-        if (!sIndividualProgression->enabled)
-        {
-            return;
-        }
-		
-        float gearAdjustment = 0.0;
-        for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
-        {
-            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
-                sIndividualProgression->ComputeGearTuning(player, gearAdjustment, item->GetTemplate());
-        }
-		
-        // Player is still in Vanilla content - give Vanilla health adjustment
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
-        {
-            float adjustmentAmount = 1.0f - sIndividualProgression->vanillaHealthAdjustment;
-            float applyPercent = ((player->GetLevel() - 10.0f) / 50.0f);
-            float computedAdjustment = player->GetLevel() > 10 ? 1.0f - applyPercent * adjustmentAmount : 1.0f;
-            value *= computedAdjustment;
-        }
-            // Player is in TBC content - give TBC health adjustment
-        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
-        {
-            value *= (sIndividualProgression->tbcHealthAdjustment - gearAdjustment);
-        }
-            // Player is in WotLK content - only need to check gear adjustment
-        else
-        {
-            value *= 1 - gearAdjustment;
-        }
     }
 
     void OnPlayerQuestComputeXP(Player* player, Quest const* quest, uint32& xpValue) override
@@ -455,24 +273,28 @@ public:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                    sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
             case BANG_A_GONG:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                    sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
             case CHAOS_AND_DESTRUCTION:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_AQ_WAR);
+                    sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
             case INTO_THE_BREACH:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
+                    sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
             case QUEST_MORROWGRAIN:
@@ -490,25 +312,138 @@ public:
 
     bool OnPlayerCanGroupInvite(Player* player, std::string& membername) override
     {
-        if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules || isExcludedFromProgression(player))
-        {
-            return true;
-        }
         Player* otherPlayer = ObjectAccessor::FindPlayerByName(membername, false);
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = otherPlayer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
-        return (currentState == otherPlayerState);
-    }
 
-    bool OnPlayerCanGroupAccept(Player* player, Group* group) override
-    {
-        if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules || isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled)
         {
             return true;
         }
+				
+        if (sIndividualProgression->enforceGroupRules) // enforceGroupRules enabled
+        {
+            if (!isExcludedFromProgression(player)) // player has a normal account
+            {
+                if (isExcludedFromProgression(otherPlayer)) // RNDbot
+                {
+                    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)) // player is in vanilla
+                    {
+                        if (otherPlayer->GetLevel() <= IP_LEVEL_VANILLA)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too high.|r");
+                            return false;
+                        }
+                    }
+                    else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // player is in TBC
+                    {
+                        if ((otherPlayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPlayer->GetLevel() <= IP_LEVEL_TBC))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low or too high.|r");
+                            return false;
+                        }
+                    }
+                    else // player is in WotLK
+                    {
+                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low.|r");
+                            return false;
+                        }
+                    }
+                }
+                else // player or ALTbot
+                {
+                    return (currentState == otherPlayerState);
+                }
+            }
+            else // player has an excluded account
+            {
+                if (isExcludedFromProgression(otherPlayer)) // RNDbot
+                {
+                    if (player->GetLevel() <= IP_LEVEL_VANILLA) // player is in vanilla
+                    {
+                        if (otherPlayer->GetLevel() <= IP_LEVEL_VANILLA)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too high.|r");
+                            return false;
+                        }
+                    }
+                    else if (player->GetLevel() <= IP_LEVEL_TBC) // player is in TBC
+                    {
+                        if ((otherPlayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPlayer->GetLevel() <= IP_LEVEL_TBC))
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low or too high.|r");
+                            return false;
+                        }
+                    }
+                    else // player is in WotLK
+                    {
+                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player's level is too low.|r");
+                            return false;
+                        }
+                    }
+                }
+                else // player or ALTbot
+                {
+                    ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Enforce Group Rules is enabled: |cffccccccthis player does not have an excluded account.|r");
+                    return false;
+                }
+            }
+        }
+        else // enforceGroupRules not enabled
+        {
+            return true;
+        }
+    }
+
+
+    bool OnPlayerCanGroupAccept(Player* player, Group* group) override
+    {
         Player* groupLeader = ObjectAccessor::FindPlayerByLowGUID(group->GetLeaderGUID().GetCounter());
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = groupLeader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+
+        if (isExcludedFromProgression(player))
+        {
+            if (currentState != otherPlayerState)
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(otherPlayerState));
+            }    
+            return true;
+        }
+
+        if (!sIndividualProgression->enabled || !sIndividualProgression->enforceGroupRules)
+        {
+            return true;
+        }
+        
         return (currentState == otherPlayerState);
     }
 
@@ -647,7 +582,7 @@ public:
                 }
                 break;
             case AREA_BOUGH_SHADOW:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -656,7 +591,7 @@ public:
                 }
                 break;
             case AREA_SERADANE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -665,7 +600,7 @@ public:
                 }
                 break;
             case AREA_DREAM_BOUGH:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -674,7 +609,7 @@ public:
                 }
                 break;
             case AREA_JADEMIR_LAKE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -683,7 +618,7 @@ public:
                 }
                 break;
             case AREA_TWILIGHT_GROVE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -1048,7 +983,7 @@ public:
             case AREA_THE_ALLIANCE_VALIANTS_RING:
             case AREA_THE_HORDE_VALIANTS_RING:
             case AREA_ARGENT_PAVILION:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2) || isExcludedFromProgression(player))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
@@ -1418,18 +1353,6 @@ public:
 
 class IndividualPlayerProgression_UnitScript : public UnitScript
 {
-private:
-    static float computeTotalGearTuning(Player* player)
-    {
-        float gearAdjustment = 0.0;
-        for (uint8 i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
-        {
-            if (Item* item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, i))
-                sIndividualProgression->ComputeGearTuning(player, gearAdjustment, item->GetTemplate());
-        }
-        return gearAdjustment;
-    }
-
 public:
     IndividualPlayerProgression_UnitScript() : UnitScript("IndividualPlayerProgression_UnitScript") { }
 
@@ -1463,18 +1386,18 @@ public:
             return;
         }
         Player* player = isPet ? healer->GetOwner()->ToPlayer() : healer->ToPlayer();
-        float gearAdjustment = computeTotalGearTuning(player);
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
-            heal *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaHealingAdjustment) - gearAdjustment);
+            heal *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaHealingAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            heal *= (sIndividualProgression->tbcHealingAdjustment - gearAdjustment);
+            heal *= sIndividualProgression->tbcHealingAdjustment;
         }
         else
         {
-            heal *= 1.0f - gearAdjustment;
+            return;
         }
     }
 
@@ -1482,24 +1405,25 @@ public:
     {
         if (!sIndividualProgression->enabled || !attacker)
             return;
+		
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {
             return;
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
-        float gearAdjustment = computeTotalGearTuning(player);
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
-            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+            damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+            damage *= sIndividualProgression->tbcPowerAdjustment;
         }
         else
         {
-            damage *= 1.0f - gearAdjustment;
+            return;
         }
     }
 
@@ -1514,18 +1438,18 @@ public:
             return;
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
-        float gearAdjustment = computeTotalGearTuning(player);
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
-            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+            damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+            damage *= sIndividualProgression->tbcPowerAdjustment;
         }
         else
         {
-            damage *= 1.0f - gearAdjustment;
+            return;
         }
     }
 
@@ -1549,18 +1473,18 @@ public:
             return;
         }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
-        float gearAdjustment = computeTotalGearTuning(player);
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
         {
-            damage *= (sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment) - gearAdjustment);
+            damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
         {
-            damage *= (sIndividualProgression->tbcPowerAdjustment - gearAdjustment);
+            damage *= sIndividualProgression->tbcPowerAdjustment;
         }
         else
         {
-            damage *= 1.0f - gearAdjustment;
+            return;
         }
     }
 

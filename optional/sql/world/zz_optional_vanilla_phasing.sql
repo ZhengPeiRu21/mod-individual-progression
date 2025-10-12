@@ -41,6 +41,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 21045, -- Landro Hired Bodyguard, Booty Bay
 22931, -- Gorrim, Emerald Sanctuary, Flight Master
 23131, -- Blood Knight Honor Guard, Orgrimmar
+23534, -- Babagaya Shadowcleft, Ratchet
+23535, -- Matero Zeshuwal, Ratchet
+23536, -- Nagulon, Ratchet
 24366, -- Nizzle, Rebel Camp, Flight Master
 24924, -- Sky-Captain Bomblast, Zep
 24926, -- Chief Officer Brassbolt, Zep

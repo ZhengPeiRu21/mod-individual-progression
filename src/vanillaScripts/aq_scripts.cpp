@@ -173,7 +173,7 @@ public:
                 return;
 
             if (announce)
-                sWorldSessionMgr->SendZoneText(GLOBAL_TEXT_CHAMPION, player->GetName().c_str());
+                player->GetMap()->SendZoneText(GLOBAL_TEXT_CHAMPION, player->GetName().c_str());
 
             eventTimer += 1000;
             eventStage = STAGE_OPEN_GATES;

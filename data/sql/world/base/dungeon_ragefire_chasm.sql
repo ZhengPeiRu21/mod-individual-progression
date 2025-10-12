@@ -27,7 +27,3 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11519, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4900, 15700, 0, 5, 11, 14873, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Bazzalan - Within 0-5 Range - Cast Sinister Strike'),
 (11520, 0, 0, 0, 0, 0, 100, 0, 7000, 12000, 6000, 16000, 0, 0, 11, 18072, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,  'Taragaman the Hungerer - Within 0-10 Range - Cast Uppercut'),
 (11520, 0, 1, 0, 0, 0, 100, 0, 9000, 14000, 10000, 18000, 0, 0, 11, 11970, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Taragaman the Hungerer - In Combat - Cast Fire Nova');
-
-
--- Molten Elemental
-UPDATE `creature_template` SET `minlevel` = 13, `maxlevel` = 15 WHERE `entry` = 11321;
