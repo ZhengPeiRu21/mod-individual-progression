@@ -663,7 +663,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (22, 9, 4543, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Scorn will only spawn if the player has completed PROGRESSION_AQ'),
 (22, 9, 4543, 0, 1, 8, 0, 66007, 0, 0, 1, 0, 0, '', 'Scorn will only spawn if the player has NOT completed PROGRESSION_NAXX40');
 
-/* temporary - this will be done by AC soon */
+/* temporary - this will be done by playerbot's AC fork soon */
 SET @ENTRY := 14693;
 DELETE FROM `waypoints` WHERE `entry` = @ENTRY * 100;
 INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `point_comment`) VALUES
@@ -673,6 +673,11 @@ INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `positi
 (@ENTRY*100, 4, 1805.39, 1323.66, 18.91,  NULL, 0, 'Scorn'),
 (@ENTRY*100, 5, 1798.01, 1312.39, 18.69,  NULL, 0, 'Scorn'),
 (@ENTRY*100, 6, 1798.01, 1223.17, 18.274, NULL, 0, 'Scorn - spawn point');
+
+/* temporary - this will be done by playerbot's AC fork soon */
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 22) AND (`SourceGroup` = 8) AND (`SourceEntry` = 4543) AND (`SourceId` = 0) AND (`ElseGroup` = 0);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(22, 8, 4543, 0, 0, 12, 0, 120, 0, 0, 0, 0, 0, '', 'Scourge Invasion - Boss in instance activation event must be active');
 
 
 /*-- Quests --*/
