@@ -89,76 +89,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (5513, -390000); -- Gelman Stonehand <Mining Trainer>
 
 
--- the following should perhaps go to vanilla_vendors
--- Elaine Trias <Mistress of Cheese>
-DELETE FROM `npc_vendor` WHERE `entry` = 483 AND `item` IN (27857, 33443, 35952);
-
--- Keldric Boucher <Alchemy Supplies & Reagents>
-DELETE FROM `npc_vendor` WHERE `entry` = 1257 AND `item` IN (22147, 22148, 37201, 40411);
-
--- Kyra Boucher <Reagents>
-DELETE FROM `npc_vendor` WHERE `entry` = 1275 AND `item` IN (22147, 22148, 37201);
-
--- Edna Mullby <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` IN (14341, 18256, 20856);
-DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` IN (2324, 2605, 2928, 6260, 6529);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (1286, 2324), (1286, 2605), (1286, 2928), (1286, 6260), (1286, 6529);
-
--- Frederick Stover <Bow & Arrow Merchant>
-DELETE FROM `npc_vendor` WHERE `entry` = 1298 AND `item` IN (11303, 11306, 11307, 28053);
-
--- Bernard Gump <Florist>
-DELETE FROM `npc_vendor` WHERE `entry` = 1302 AND `item` IN (785, 2449, 2453, 3355, 3356, 3357);
-
--- Charys Yserian <Arcane Trinkets Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1307 AND `item` IN (22147, 22148, 37201);
-
--- Owen Vaughn <Reagent Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` IN (22147, 22148, 37201);
-
--- Maria Lumere <Alchemy Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1313 AND `item`=40411;
-
--- Jasper Fel <Shady Dealer>
-DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
-
--- Sloan McCoy <Poison Supplier>
-DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
-
--- Alexandra Bolero <Tailoring Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1347 AND `item`=38426;
-
--- Brother Cassius <Reagent Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1351 AND `item` IN (22147, 22148, 37201);
-
--- Thomas Miller <Baker>
-DELETE FROM `npc_vendor` WHERE `entry` = 3518 AND `item` IN (27855, 33449, 35950);
-
--- Bren Trias <Apprentice of Cheese>
-DELETE FROM `npc_vendor` WHERE `entry` = 4981 AND `item` IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
-
--- Rebecca Laughlin <Tabard Designer>
-DELETE FROM `npc_vendor` WHERE `entry` = 5193 AND `item` IN (15196, 15198, 19032, 19506, 23999, 31774, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
-
--- Eldraeith <Herbalism Supplier>
-DELETE FROM `npc_vendor` WHERE `entry` = 5503 AND `item` IN (18256, 40411);
-
--- Brooke Stonebraid <Mining Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5514 AND `item` IN (20815, 20824);
-
--- Billibub Cogspinner <Engineering Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5519 AND `item` IN (39684, 40533);
-
--- Jillian Tanner <Leatherworking Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5565 AND `item`=38426;
-
--- Innkeeper Allison <Innkeeper>
-DELETE FROM `npc_vendor` WHERE `entry` = 6740 AND `item` IN (4536, 4537, 4538, 4539, 4602, 8953, 27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
-
--- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry` = 12778;
-
-
 SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
 SET @Clate       := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Wrynn       := 629611; -- creating copy with 'npc_king_varian_wrynn' script, to prevent AC worldserver error for not using the script
@@ -497,14 +427,3 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (12739, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Onyxias Elite Guard - Between 0-30% Health - Cast Enrage'),
 (12739, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Onyxias Elite Guard - On Enrage - Say Line 0');
-
--- this should probably go to vanilla_vendors
--- Remove non-Vanilla food items from Stormwind vendors
-DELETE FROM npc_vendor WHERE entry = 483   and item IN (27857, 33443, 35952);
-DELETE FROM npc_vendor WHERE entry = 3518  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 3003  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 4255  and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954);
-DELETE FROM npc_vendor WHERE entry = 4981  and item IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
-DELETE FROM npc_vendor WHERE entry = 5109  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 6740  and item IN (27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
-DELETE FROM npc_vendor WHERE entry = 10367 and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954, 27859, 29453, 33452, 35947);
