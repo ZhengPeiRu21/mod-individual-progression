@@ -24,10 +24,10 @@ UPDATE `creature_template` SET `ArmorModifier` = 1.33333 WHERE `entry`=1825;
 UPDATE `creature_template` SET `DamageModifier` = 2.5 WHERE `entry`=9095;
 
 /*  Tender  */
-UPDATE `creature_template` SET `speed_walk` = 1.2, `speed_run` = 1.14286 WHERE `entry`=15271;
+UPDATE `creature_template` SET `speed_walk` = 1.2, `speed_run` = 1.14286, `faction` = 16 WHERE `entry`=15271;
 
 /*  Arcane Wraith  */
-UPDATE `creature_template` SET `speed_walk` = 1.31, `speed_run` = 1.14286 WHERE `entry`=15273;
+UPDATE `creature_template` SET `speed_walk` = 1.31, `speed_run` = 1.14286, `faction` = 16 WHERE `entry`=15273;
 
 /*  Magistrix Erona  */
 UPDATE `creature_template` SET `speed_walk` = 1.125, `DamageModifier` = 2.4 WHERE `entry`=15278;
@@ -63,7 +63,7 @@ UPDATE `creature_template` SET `speed_walk` = 1.125 WHERE `entry`=15291;
 UPDATE `creature_template` SET `speed_walk` = 1.125 WHERE `entry`=15292;
 
 /*  Feral Tender  */
-UPDATE `creature_template` SET `speed_walk` = 1.2, `speed_run` = 1.14286 WHERE `entry`=15294;
+UPDATE `creature_template` SET `speed_walk` = 1.2, `speed_run` = 1.14286, `faction` = 16 WHERE `entry`=15294;
 
 /*  Arcanist Ithanas  */
 UPDATE `creature_template` SET `speed_walk` = 1.125, `DamageModifier` = 2.0 WHERE `entry`=15296;
@@ -72,13 +72,13 @@ UPDATE `creature_template` SET `speed_walk` = 1.125, `DamageModifier` = 2.0 WHER
 UPDATE `creature_template` SET `speed_walk` = 1.125, `DamageModifier` = 2.0 WHERE `entry`=15297;
 
 /*  Tainted Arcane Wraith  */
-UPDATE `creature_template` SET `speed_walk` = 1.3, `speed_run` = 1.14286 WHERE `entry`=15298;
+UPDATE `creature_template` SET `speed_walk` = 1.3, `speed_run` = 1.14286, `faction` = 16 WHERE `entry`=15298;
 
 /*  Outrunner Alarion  */
 UPDATE `creature_template` SET `speed_walk` = 1.125, `DamageModifier` = 1.6 WHERE `entry`=15301;
 
 /*  Felendren the Banished  */
-UPDATE `creature_template` SET `speed_walk` = 1.35, `speed_run` = 1.14286 WHERE `entry`=15367;
+UPDATE `creature_template` SET `speed_walk` = 1.35, `speed_run` = 1.14286, `faction` = 14 WHERE `entry`=15367;
 
 /*  Sunstrider Guardian  */
 UPDATE `creature_template` SET `speed_walk` = 1.125, `DamageModifier` = 0.5 WHERE `entry`=15371;
@@ -702,7 +702,7 @@ UPDATE `creature_template` SET `DamageModifier` = 4.5, `HealthModifier` = 2.0 WH
 UPDATE `creature_template` SET `ArmorModifier` = 0.980061 WHERE `entry`=16469;
 
 /*  Ghostly Philanthropist  */
-UPDATE `creature_template` SET `DamageModifier` = 10.0 WHERE `entry`=16470;
+UPDATE `creature_template` SET `DamageModifier` = 10.0, `mingold` = 110000, `maxgold` = 130000 WHERE `entry`=16470;
 
 /*  Skeletal Usher  */
 UPDATE `creature_template` SET `DamageModifier` = 22.0, `HealthModifier` = 12.0 WHERE `entry`=16471;
@@ -743,11 +743,17 @@ UPDATE `creature_template` SET `DamageModifier` = 30.0, `HealthModifier` = 16.0 
 /*  Shattered Hand Sentry  */
 UPDATE `creature_template` SET `DamageModifier` = 4.664 WHERE `entry`=16507;
 
+/* Mutated Root Lasher */
+UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 16517;
+
 /*  Nestlewood Owlkin  */
 UPDATE `creature_template` SET `speed_walk` = 1.125, `speed_run` = 1.14286 WHERE `entry`=16518;
 
+/* Blood Elf Scout */
+UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 16521;
+
 /*  Surveyor Candress  */
-UPDATE `creature_template` SET `speed_walk` = 1.2, `speed_run` = 1.14286, `DamageModifier` = 1.4, `ArmorModifier` = 1.01538 WHERE `entry`=16522;
+UPDATE `creature_template` SET `speed_walk` = 1.2, `speed_run` = 1.14286, `DamageModifier` = 1.4, `ArmorModifier` = 1.01538, `faction` = 16 WHERE `entry`=16522;
 
 /*  Shattered Hand Savage  */
 UPDATE `creature_template` SET `DamageModifier` = 4.664 WHERE `entry`=16523;
@@ -771,7 +777,7 @@ UPDATE `creature_template` SET `DamageModifier` = 5.0 WHERE `entry`=16534;
 UPDATE `creature_template` SET `DamageModifier` = 3.0 WHERE `entry`=16535;
 
 /*  Mutated Owlkin  */
-UPDATE `creature_template` SET `speed_walk` = 1.1, `speed_run` = 1.14286 WHERE `entry`=16537;
+UPDATE `creature_template` SET `speed_walk` = 1.1, `speed_run` = 1.14286, `faction` = 14 WHERE `entry`=16537;
 
 /*  Homunculus  */
 UPDATE `creature_template` SET `DamageModifier` = 3.0, `HealthModifier` = 3.0 WHERE `entry`=16539;
