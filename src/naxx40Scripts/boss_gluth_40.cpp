@@ -117,7 +117,7 @@ public:
             me->SetInCombatWithZone();
             events.ScheduleEvent(EVENT_MORTAL_WOUND, 10s);
             events.ScheduleEvent(EVENT_ENRAGE, 10s); // VMangos value
-            events.ScheduleEvent(EVENT_DECIMATE, RAID_MODE(110000, 90000, 110000, 90000));
+            events.ScheduleEvent(EVENT_DECIMATE, RAID_MODE(110s, 90s, 110s, 90s));
             events.ScheduleEvent(EVENT_BERSERK, 6min);
             events.ScheduleEvent(EVENT_SUMMON_ZOMBIE, 6s); // VMangos value
             events.ScheduleEvent(EVENT_CAN_EAT_ZOMBIE, 3s);  // VMangos value
