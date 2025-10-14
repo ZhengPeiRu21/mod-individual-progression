@@ -167,9 +167,9 @@ public:
                 */
                 case EVENT_POISON_SHOCK:
                     if (me->CastSpell(me, SPELL_POISON_SHOCK, true) == SPELL_CAST_OK)
-                        events.RepeatEvent(6000);
+                        events.Repeat(6s);
                     else
-                        events.RepeatEvent(100);
+                        events.Repeat(100ms);
                     break;
                 case EVENT_INEVITABLE_DOOM:
                 {
@@ -181,7 +181,7 @@ public:
                         events.Repeat(doomCounter < 6 ? 30s : 15s);
                     }
                     else
-                        events.RepeatEvent(100);
+                        events.Repeat(100ms);
                     break;
                 }
                 /*
