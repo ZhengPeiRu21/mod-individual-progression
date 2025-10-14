@@ -818,9 +818,9 @@ public:
                         me->GetMotionMaster()->MovePoint(29, -8446.87f, 339.904f, 121.33f, false);
                         break;
                     case 49:
-                        _events.ScheduleEvent(50, 9000);
-                        _events.ScheduleEvent(64, 4000);
-                        _events.ScheduleEvent(59, 2000);
+                        _events.ScheduleEvent(50, 9s);
+                        _events.ScheduleEvent(64, 4s);
+                        _events.ScheduleEvent(59, 2s);
                         break;
                     case 50:
                         if (Creature* katrana = me->FindNearestCreature(NPC_KATRANA_PRESTOR, 20.0f))
@@ -829,35 +829,35 @@ public:
                             katrana->AI()->Talk(EMOTE_KATRANA_LAUGH);
                             katrana->m_Events.AddEvent(new DelayedEmoteEvent(katrana, EMOTE_ONESHOT_LAUGH), katrana->m_Events.CalculateTime(1000));
                         }
-                        _events.ScheduleEvent(51, 4000);
+                        _events.ScheduleEvent(51, 4s);
                         break;
                     case 51:
                         if (Creature* katrana = me->FindNearestCreature(NPC_KATRANA_PRESTOR, 20.0f))
                             katrana->AI()->Talk(SAY_KATRANA_2);
-                        _events.ScheduleEvent(52, 8000);
+                        _events.ScheduleEvent(52, 8s);
                         break;
                     case 52:
                         if (Creature* katrana = me->FindNearestCreature(NPC_KATRANA_PRESTOR, 20.0f))
                             katrana->AI()->Talk(SAY_KATRANA_3);
-                        _events.ScheduleEvent(53, 15000);
-                        _events.ScheduleEvent(65, 10000);
+                        _events.ScheduleEvent(53, 15s);
+                        _events.ScheduleEvent(65, 10s);
                         break;
                     case 53:
                         Talk(EMOTE_REACH_TABLETS);
-                        _events.ScheduleEvent(54, 6000);
+                        _events.ScheduleEvent(54, 6s);
                         break;
                     case 54:
                         Talk(SAY_REGINALD_TABLETS);
-                        _events.ScheduleEvent(55, 5000);
+                        _events.ScheduleEvent(55, 5s);
                         break;
                     case 55:
                         Talk(SAY_REGINALD_LISTEN_DRAGON);
-                        _events.ScheduleEvent(56, 5000);
+                        _events.ScheduleEvent(56, 5s);
                         break;
                     case 56:
                         DoCastAOE(SPELL_WINDSOR_READ);
                         Talk(EMOTE_READ_TABLETS);
-                        _events.ScheduleEvent(57, 11000);
+                        _events.ScheduleEvent(57, 11s);
                         break;
                     case 57:
                         if (Creature* katrana = me->FindNearestCreature(NPC_KATRANA_PRESTOR, 20.0f))
@@ -872,8 +872,8 @@ public:
                             bolvar->AI()->Talk(EMOTE_BOLVAR_GASP);
                             bolvar->GetMotionMaster()->MovePoint(1, -8448.690f, 337.074f, 121.330f, false);
                         }
-                        _events.ScheduleEvent(58, 2000);
-                        _events.ScheduleEvent(60, 6000);
+                        _events.ScheduleEvent(58, 2s);
+                        _events.ScheduleEvent(60, 6s);
                         break;
                     case 58:
                         if (Creature* onyxia = me->FindNearestCreature(NPC_LADY_ONYXIA, 20.0f))
@@ -896,7 +896,7 @@ public:
                         {
                             anduinn->SetWalk(true);
                             anduinn->GetMotionMaster()->MovePoint(1, -8505.770f, 338.312f, 120.886f, true);
-                            anduinn->DespawnOrUnsummon(5000);
+                            anduinn->DespawnOrUnsummon(5s);
                         }
                         break;
                     case 60:
@@ -927,25 +927,25 @@ public:
                             }
                         }
 
-                        _events.ScheduleEvent(61, 5000);
-                        _events.ScheduleEvent(66, 6000);
+                        _events.ScheduleEvent(61, 5s);
+                        _events.ScheduleEvent(66, 6s);
                         break;
                     }
                     case 61:
                         if (Creature* onyxia = me->FindNearestCreature(NPC_LADY_ONYXIA, 20.0f))
                             onyxia->AI()->Talk(SAY_ONYXYA_WAS_THIS_FATED);
-                        _events.ScheduleEvent(62, 10000);
+                        _events.ScheduleEvent(62, 10s);
                         break;
                     case 62:
                         if (Creature* onyxia = me->FindNearestCreature(NPC_LADY_ONYXIA, 20.0f))
                             onyxia->AI()->Talk(SAY_ONYXIA_FAREWELL);
-                        _events.ScheduleEvent(63, 8000);
+                        _events.ScheduleEvent(63, 8s);
                         break;
                     case 63:
                         if (Creature* onyxia = me->FindNearestCreature(NPC_LADY_ONYXIA, 20.0f))
                         {
                             onyxia->CastSpell(onyxia, 20466, true);
-                            onyxia->DespawnOrUnsummon(2000);
+                            onyxia->DespawnOrUnsummon(2s);
                         }
                         break;
                     case 64:
@@ -968,7 +968,7 @@ public:
                         if (!ObjectAccessor::FindPlayer(_playerGUID))
                         {
                             DoAction(ACTION_RESET_MASQUERADE);
-                            me->DespawnOrUnsummon(10000);
+                            me->DespawnOrUnsummon(10s);
                         }
                         break;
                     case 68:
@@ -980,20 +980,20 @@ public:
                             bolvar->SetFacingToObject(me);
                             bolvar->SetStandState(UNIT_STAND_STATE_KNEEL);
                         }
-                        _events.ScheduleEvent(69, 3000);
+                        _events.ScheduleEvent(69, 3s);
                         break;
                     case 69:
                         if (Creature* bolvar = me->FindNearestCreature(NPC_BOLVAR, 20.0f))
                             bolvar->AI()->Talk(SAY_BOLVAR_TO_REGINALD);
-                        _events.ScheduleEvent(70, 3000);
+                        _events.ScheduleEvent(70, 3s);
                         break;
                     case 70:
                         Talk(SAY_REGINALD_BOLVAR_MEDALION);
-                        _events.ScheduleEvent(71, 3000);
+                        _events.ScheduleEvent(71, 3s);
                         break;
                     case 71:
                         Talk(EMOTE_REGINALD_DIES);
-                        _events.ScheduleEvent(72, 5000);
+                        _events.ScheduleEvent(72, 5s);
                         break;
                     case 72:
                         if (Creature* bolvar = me->FindNearestCreature(NPC_BOLVAR, 20.0f))
@@ -1008,7 +1008,7 @@ public:
                                 player->GroupEventHappens(QUEST_THE_GREAT_MASQUERADE, me);
 
                             DoAction(ACTION_RESET_MASQUERADE);
-                            me->DespawnOrUnsummon(10000);
+                            me->DespawnOrUnsummon(10s);
                         }
                         break;
                     default:
@@ -1082,7 +1082,7 @@ public:
                 _inEvent = data == 1 ? true : false;
         }
 
-        void SetGUID(ObjectGuid guid, int32 /*data*/) override
+        void SetGUID(ObjectGuid const& guid, int32 /*data*/) override
         {
             _invokerGUID = guid;
         }
@@ -1100,8 +1100,8 @@ public:
         {
             if (me->GetEntry() == NPC_ONYXIA_GUARD)
             {
-                _events.ScheduleEvent(5, 3000);
-                _events.ScheduleEvent(6, 4000);
+                _events.ScheduleEvent(5, 3s);
+                _events.ScheduleEvent(6, 4s);
             }
         }
 
@@ -1118,7 +1118,7 @@ public:
                 {
                     case 5:
                         DoCastVictim(15284); // Cleave
-                        _events.ScheduleEvent(5, urand(5000, 8000));
+                        _events.ScheduleEvent(5, (5s, 8s));
                         break;
                 }
             }
