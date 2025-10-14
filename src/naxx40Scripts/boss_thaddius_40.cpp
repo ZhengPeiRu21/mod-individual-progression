@@ -253,7 +253,7 @@ public:
                         }
                     }
                     reviveTimer = 0;
-                    events.ScheduleEvent(EVENT_THADDIUS_INIT, 750);
+                    events.ScheduleEvent(EVENT_THADDIUS_INIT, 750ms);
                 }
                 return;
             }
@@ -404,19 +404,19 @@ public:
             }
             if (me->GetEntry() == NPC_STALAGG_40)
             {
-                events.ScheduleEvent(EVENT_MINION_POWER_SURGE, 10000);
+                events.ScheduleEvent(EVENT_MINION_POWER_SURGE, 10s);
                 Talk(SAY_STAL_AGGRO);
             }
             else
             {
-                events.ScheduleEvent(EVENT_MINION_STATIC_FIELD, 5000);
+                events.ScheduleEvent(EVENT_MINION_STATIC_FIELD, 5s);
                 Talk(SAY_FEUG_AGGRO);
             }
-            events.ScheduleEvent(EVENT_MINION_CHECK_DISTANCE, 5000);
+            events.ScheduleEvent(EVENT_MINION_CHECK_DISTANCE, 5s);
 
             if (me->GetEntry() == NPC_STALAGG_40) // This event needs synchronisation, called for stalagg only
             {
-                events.ScheduleEvent(EVENT_MINION_MAGNETIC_PULL, 20000);
+                events.ScheduleEvent(EVENT_MINION_MAGNETIC_PULL, 20s);
             }
 
             if (Creature* cr = me->GetInstanceScript()->GetCreature(DATA_THADDIUS_BOSS))
