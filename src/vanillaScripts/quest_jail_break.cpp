@@ -101,7 +101,7 @@ public:
             _instance = creature->GetInstanceScript();
         }
 
-        void SetGUID(ObjectGuid playerGUID, int32 /*id*/) override
+        void SetGUID(ObjectGuid const& playerGUID, int32 /*id*/) override
         {
             _playerGUID = playerGUID;
             Start(true, false, playerGUID, 0, false, false);
@@ -204,7 +204,7 @@ public:
                     break;
                 case 22:
                     SetEscortPaused(true);
-                    _events.ScheduleEvent(EVENT_RESUME_ESCORT, 8000);
+                    _events.ScheduleEvent(EVENT_RESUME_ESCORT, 8s);
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                     {
                         me->GetMotionMaster()->Clear();
