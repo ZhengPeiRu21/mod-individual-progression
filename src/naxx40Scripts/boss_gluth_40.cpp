@@ -224,7 +224,7 @@ public:
                             }
                         }
                     }
-                    events.RepeatEvent(105000);
+                    events.Repeat(105s);
                     break;
                 case EVENT_SUMMON_ZOMBIE:
                     {
@@ -248,7 +248,7 @@ public:
                         break;
                     }
                 case EVENT_CAN_EAT_ZOMBIE:
-                    events.RepeatEvent(1000);
+                    events.Repeat(1s);
                     if (me->GetVictim()->GetEntry() == NPC_ZOMBIE_CHOW && me->IsWithinMeleeRange(me->GetVictim()))
                     {
                         me->CastCustomSpell(SPELL_CHOW_SEARCHER, SPELLVALUE_RADIUS_MOD, 20000, me, true);
