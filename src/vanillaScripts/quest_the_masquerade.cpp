@@ -186,11 +186,11 @@ public:
                 me->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
         }
 
-        void SetGUID(ObjectGuid guid, int32 index) override
+        void SetGUID(ObjectGuid const& guid, int32 index) override
         {
             if (index == ACTION_START_ESCORT)
             {
-                _events.ScheduleEvent(1, 2000);
+                _events.ScheduleEvent(1, 2s);
                 _playerGUID = guid;
             }
         }
@@ -203,7 +203,7 @@ public:
             switch (point)
             {
                 case 1:
-                    _events.ScheduleEvent(point + 1, 1);
+                    _events.ScheduleEvent(point + 1, 1ms);
                     break;
                 case 2:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_KNEEL);
@@ -213,15 +213,15 @@ public:
                         reginald->AI()->SetGUID(_playerGUID, ACTION_START_ESCORT);
                         reginald->RemoveFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
                     }
-                    _events.ScheduleEvent(point + 1, 5000);
+                    _events.ScheduleEvent(point + 1, 5s);
                     break;
                 case 3:
-                    _events.ScheduleEvent(point + 1, 1);
+                    _events.ScheduleEvent(point + 1, 1ms);
                     break;
                 case 4:
                     me->GetMotionMaster()->Clear();
                     me->SetFacingTo(me->GetHomePosition().GetOrientation());
-                    _events.ScheduleEvent(5, 1000);
+                    _events.ScheduleEvent(5, 1s);
                     break;
                 default:
                     break;
@@ -338,16 +338,16 @@ public:
             }
 
             if (actionId == ACTION_START_ESCORT)
-                _events.ScheduleEvent(46, 3000);
+                _events.ScheduleEvent(46, 3s);
 
             if (actionId == ACTION_INCREASE_DEATH_COUNTER)
             {
                 if (!me->FindNearestCreature(NPC_ONYXIA_GUARD, 20.0f))
-                    _events.ScheduleEvent(68, 3000);
+                    _events.ScheduleEvent(68, 3s);
             }
         }
 
-        void SetGUID(ObjectGuid guid, int32 index) override
+        void SetGUID(ObjectGuid const& guid, int32 index) override
         {
             if (index == ACTION_START_ESCORT)
             {
@@ -357,12 +357,12 @@ public:
                     return;
                 }
 
-                _events.ScheduleEvent(1, 2000);
+                _events.ScheduleEvent(1, 2s);
                 _playerGUID = guid;
             }
             else if (index == ACTION_START_MASQUERADE)
             {
-                _events.ScheduleEvent(EVENT_REGINALD_SAY_2, 5000);
+                _events.ScheduleEvent(EVENT_REGINALD_SAY_2, 5s);
             }
         }
 
@@ -394,95 +394,95 @@ public:
             switch (point)
             {
                 case 1:
-                    _events.ScheduleEvent(2, 1);
+                    _events.ScheduleEvent(2, 1ms);
                     break;
                 case 2:
-                    _events.ScheduleEvent(3, 1);
+                    _events.ScheduleEvent(3, 1ms);
                     break;
                 case 3:
                     me->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP | UNIT_NPC_FLAG_QUESTGIVER);
-                    _events.ScheduleEvent(EVENT_DISMOUNT, 3000);
+                    _events.ScheduleEvent(EVENT_DISMOUNT, 3s);
                     break;
                 case 4:
-                    _events.ScheduleEvent(9, 1);
+                    _events.ScheduleEvent(9, 1ms);
                     break;
                 case 5:
                     if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
                         jonathan->AI()->Talk(SAY_JONATHAN_TO_REGINALD_1);
-                    _events.ScheduleEvent(10, 3000);
+                    _events.ScheduleEvent(10, 3s);
                     break;
                 case 6:
-                    _events.ScheduleEvent(26, 1);
+                    _events.ScheduleEvent(26, 1ms);
                     break;
                 case 7:
-                    _events.ScheduleEvent(27, 1);
+                    _events.ScheduleEvent(27, 1ms);
                     break;
                 case 8:
-                    _events.ScheduleEvent(28, 1);
+                    _events.ScheduleEvent(28, 1ms);
                     break;
                 case 9:
-                    _events.ScheduleEvent(29, 1);
+                    _events.ScheduleEvent(29, 1ms);
                     break;
                 case 10:
-                    _events.ScheduleEvent(30, 1);
+                    _events.ScheduleEvent(30, 1ms);
                     break;
                 case 11:
-                    _events.ScheduleEvent(31, 1);
+                    _events.ScheduleEvent(31, 1ms);
                     break;
                 case 12:
-                    _events.ScheduleEvent(32, 1);
+                    _events.ScheduleEvent(32, 1ms);
                     break;
                 case 13:
-                    _events.ScheduleEvent(33, 1);
+                    _events.ScheduleEvent(33, 1ms);
                     break;
                 case 14:
-                    _events.ScheduleEvent(34, 1);
+                    _events.ScheduleEvent(34, 1ms);
                     break;
                 case 15:
-                    _events.ScheduleEvent(35, 1);
+                    _events.ScheduleEvent(35, 1ms);
                     break;
                 case 16:
-                    _events.ScheduleEvent(36, 1);
+                    _events.ScheduleEvent(36, 1ms);
                     break;
                 case 17:
-                    _events.ScheduleEvent(37, 1);
+                    _events.ScheduleEvent(37, 1ms);
                     break;
                 case 18:
-                    _events.ScheduleEvent(38, 1);
+                    _events.ScheduleEvent(38, 1ms);
                     break;
                 case 19:
-                    _events.ScheduleEvent(39, 1);
+                    _events.ScheduleEvent(39, 1ms);
                     break;
                 case 20:
-                    _events.ScheduleEvent(40, 1);
+                    _events.ScheduleEvent(40, 1ms);
                     break;
                 case 21:
-                    _events.ScheduleEvent(41, 1);
+                    _events.ScheduleEvent(41, 1ms);
                     break;
                 case 22:
-                    _events.ScheduleEvent(42, 1);
+                    _events.ScheduleEvent(42, 1ms);
                     break;
                 case 23:
-                    _events.ScheduleEvent(43, 1);
+                    _events.ScheduleEvent(43, 1ms);
                     break;
                 case 24:
-                    _events.ScheduleEvent(44, 1);
+                    _events.ScheduleEvent(44, 1ms);
                     break;
                 case 25:
-                    _events.ScheduleEvent(45, 1);
+                    _events.ScheduleEvent(45, 1ms);
                     break;
                 case 26: // Keep gossip
-                    _events.ScheduleEvent(EVENT_CHECK_PLAYER, 5 * MINUTE * IN_MILLISECONDS);
+                    _events.ScheduleEvent(EVENT_CHECK_PLAYER, 300s);
                     Talk(SAY_REGINALD_BEFORE_KEEP);
                     me->GetMotionMaster()->Clear();
                     me->SetFacingTo(5.41f);
                     me->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_GOSSIP);
                     break;
                 case 27:
-                    _events.ScheduleEvent(47, 1);
+                    _events.ScheduleEvent(47, 1ms);
                     break;
                 case 28:
-                    _events.ScheduleEvent(48, 1);
+                    _events.ScheduleEvent(48, 1ms);
                     break;
                 case 29:
                     if (Creature* katrana = me->FindNearestCreature(NPC_KATRANA_PRESTOR, 50.0f))
@@ -493,7 +493,7 @@ public:
                     }
                     _canGreet = false;
                     Talk(SAY_REGINALD_TO_ANDUINN);
-                    _events.ScheduleEvent(49, 1);
+                    _events.ScheduleEvent(49, 1ms);
                     break;
                 default:
                     break;
@@ -555,12 +555,12 @@ public:
                             me->HandleEmoteCommand(EMOTE_ONESHOT_ATTACK_UNARMED);
                             Talk(SAY_REGINALD_SHOO_HORSE);
                             mercutio->GetMotionMaster()->MovePoint(1, -9150.777344f, 370.672607f, 90.537186f, false);
-                            mercutio->DespawnOrUnsummon(10000);
+                            mercutio->DespawnOrUnsummon(10s);
                         }
-                        _events.ScheduleEvent(EVENT_END_INTRO, 3000);
+                        _events.ScheduleEvent(EVENT_END_INTRO, 3s);
                         break;
                     case EVENT_END_INTRO:
-                        _events.ScheduleEvent(EVENT_CHECK_PLAYER, 5 * MINUTE * IN_MILLISECONDS);
+                        _events.ScheduleEvent(EVENT_CHECK_PLAYER, 300s);
                         me->SetFacingTo(3.760818f);
                         me->SetFlag(UNIT_NPC_FLAGS, UNIT_NPC_FLAG_QUESTGIVER);
                         if (Player* player = ObjectAccessor::FindConnectedPlayer(_playerGUID))
@@ -570,7 +570,7 @@ public:
                         me->SetFacingTo(0.717398f);
                         me->HandleEmoteCommand(EMOTE_ONESHOT_SHOUT);
                         Talk(SAY_REGINALD_MASQUERADE_2);
-                        _events.ScheduleEvent(EVENT_KATRANA_SAY_1, 5000);
+                        _events.ScheduleEvent(EVENT_KATRANA_SAY_1, 5s);
                         break;
                     case EVENT_KATRANA_SAY_1:
                     {
@@ -610,7 +610,7 @@ public:
                             }
                         }
 
-                        _events.ScheduleEvent(8, 3000);
+                        _events.ScheduleEvent(8, 3s);
                         break;
                     }
                     case 8:
@@ -621,34 +621,34 @@ public:
                         break;
                     case 10:
                         Talk(SAY_REGINALD_TO_MARCUS_1);
-                        _events.ScheduleEvent(11, 10000);
+                        _events.ScheduleEvent(11, 10s);
                         break;
                     case 11:
                         Talk(SAY_REGINALD_TO_MARCUS_2);
-                        _events.ScheduleEvent(12, 4000);
+                        _events.ScheduleEvent(12, 4s);
                         break;
                     case 12:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
                             jonathan->AI()->Talk(EMOTE_CONTEMPLATION);
-                        _events.ScheduleEvent(13, 6000);
+                        _events.ScheduleEvent(13, 6s);
                         break;
                     case 13:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
                             jonathan->AI()->Talk(SAY_JONATHAN_TO_REGINALD_2);
-                        _events.ScheduleEvent(14, 10000);
+                        _events.ScheduleEvent(14, 10s);
                         break;
                     case 14:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
                             jonathan->AI()->Talk(SAY_JONATHAN_TO_REGINALD_3);
-                        _events.ScheduleEvent(15, 6000);
+                        _events.ScheduleEvent(15, 6s);
                         break;
                     case 15:
                         Talk(SAY_REGINALD_TO_MARCUS_3);
-                        _events.ScheduleEvent(16, 10000);
+                        _events.ScheduleEvent(16, 10s);
                         break;
                     case 16:
                         Talk(SAY_REGINALD_TO_MARCUS_4);
-                        _events.ScheduleEvent(17, 10000);
+                        _events.ScheduleEvent(17, 10s);
                         break;
                     case 17:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
@@ -669,7 +669,7 @@ public:
                         if (Creature* guard = ObjectAccessor::GetCreature(*me, _guardsGUID[3]))
                             guard->GetMotionMaster()->MovePoint(1, -8957.670f, 507.056f, 96.595f);
 
-                        _events.ScheduleEvent(18, 5000);
+                        _events.ScheduleEvent(18, 5s);
                         break;
                     case 18:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
@@ -690,7 +690,7 @@ public:
                         if (Creature* guard = ObjectAccessor::GetCreature(*me, _guardsGUID[0]))
                             guard->GetMotionMaster()->MovePoint(2, -8969.100f, 520.395f, 96.595f);
 
-                        _events.ScheduleEvent(19, 5000);
+                        _events.ScheduleEvent(19, 5s);
                         break;
                     case 19:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
@@ -698,7 +698,7 @@ public:
                             jonathan->HandleEmoteCommand(EMOTE_ONESHOT_SHOUT);
                             jonathan->AI()->Talk(SAY_JONATHAN_TO_GUARDS_3);
                         }
-                        _events.ScheduleEvent(20, 3000);
+                        _events.ScheduleEvent(20, 3s);
                         break;
                     case 20:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
@@ -707,7 +707,7 @@ public:
                             jonathan->AI()->Talk(SAY_JONATHAN_TO_REGINALD_4);
                             jonathan->m_Events.AddEvent(new DelayedEmoteEvent(jonathan, EMOTE_ONESHOT_SALUTE), jonathan->m_Events.CalculateTime(1000));
                         }
-                        _events.ScheduleEvent(21, 5000);
+                        _events.ScheduleEvent(21, 5s);
                         break;
                     case 21:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
@@ -715,7 +715,7 @@ public:
                             jonathan->SetWalk(true);
                             jonathan->GetMotionMaster()->MovePoint(1, -8974.590f, 516.213f, 96.590f);
                         }
-                        _events.ScheduleEvent(22, 5000);
+                        _events.ScheduleEvent(22, 5s);
                         break;
                     case 22:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
@@ -724,7 +724,7 @@ public:
                             jonathan->SetFacingToObject(me);
                             jonathan->SetStandState(UNIT_STAND_STATE_KNEEL);
                         }
-                        _events.ScheduleEvent(23, 3000);
+                        _events.ScheduleEvent(23, 3s);
                         break;
                     case 23:
                         if (Creature* jonathan = me->FindNearestCreature(NPC_JONATHAN, 20.0f))
@@ -734,14 +734,14 @@ public:
                             Talk(SAY_REGINALD_TO_MARCUS_5);
                             jonathan->m_Events.AddEvent(new DelayedResetEvent(jonathan), jonathan->m_Events.CalculateTime(60000));
                         }
-                        _events.ScheduleEvent(24, 4000);
+                        _events.ScheduleEvent(24, 4s);
                         break;
                     case 24:
                         me->GetMotionMaster()->Clear();
                         me->SetFacingTo(0.06f);
                         Talk(SAY_REGINALD_MASQUERADE_3);
                         me->m_Events.AddEvent(new DelayedEmoteEvent(me, EMOTE_ONESHOT_POINT), me->m_Events.CalculateTime(1000));
-                        _events.ScheduleEvent(25, 5000);
+                        _events.ScheduleEvent(25, 5s);
                         break;
                     case 25:
                         _canGreet = true;
