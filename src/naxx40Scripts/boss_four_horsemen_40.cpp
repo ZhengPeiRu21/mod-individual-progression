@@ -144,8 +144,8 @@ public:
             BossAI::Reset();
             me->SetPosition(me->GetHomePosition());
             events.Reset();
-            events.RescheduleEvent(EVENT_MARK_CAST, 20000);
-            events.RescheduleEvent(EVENT_BERSERK, 600000);
+            events.RescheduleEvent(EVENT_MARK_CAST, 20s);
+            events.RescheduleEvent(EVENT_BERSERK, 600s);
             summons.DespawnAll(); // despawn spirits
             if ((me->GetEntry() != NPC_LADY_BLAUMEUX_40 && me->GetEntry() != NPC_SIR_ZELIEK_40))
             {
