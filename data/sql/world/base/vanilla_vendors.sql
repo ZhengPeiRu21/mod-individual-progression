@@ -4692,7 +4692,7 @@ DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 29448;
 /* Remove non-Vanilla item Bladespire Bagel */
 DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 29449;
 /* Remove non-Vanilla item Telaari Grapes */
-DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 29449;
+DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 29450;
 /* Remove non-Vanilla item Clefthoof Ribs */
 DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` = 29451;
 /* Remove non-Vanilla item Zangar Trout */
