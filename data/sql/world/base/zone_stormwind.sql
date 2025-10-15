@@ -78,7 +78,7 @@ UPDATE `creature_template` SET `subname` = 'Weapon Crafter'  WHERE `entry` = 723
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 UPDATE `creature_template` SET `subname` = NULL, `npcflag` = 0 WHERE `entry` = 12778;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12778;
-
+DELETE FROM `npc_vendor` WHERE `entry`= 12778; -- was placed in battlegrounds during Vanilla and TBC. needs to be hidden until wotlk
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (1430, 2327, 5482, 5493, 5513);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
