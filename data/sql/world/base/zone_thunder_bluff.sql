@@ -13,6 +13,8 @@ UPDATE `creature_template` SET `subname` = 'Expert Leatherworker'     WHERE `ent
 UPDATE `creature_template` SET `npcflag` = 81, `trainer_type` = 2 WHERE `entry` IN (3008, 10278, 11047, 11051, 11071, 11084);
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (3004, 3007, 3009, 3011, 11084);
 
+/* NPC Thrumn - Remove non-Vanilla Tabards */
+DELETE FROM `npc_vendor` WHERE `entry`= 5189 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (2798, 2998, 3001, 3004, 3007, 3008, 3009, 3011, 3013, 3026, 3028, 7089, 10278, 11047, 11051, 11071, 11084);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
