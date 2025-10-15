@@ -2928,21 +2928,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (5175,
 DELETE FROM `npc_vendor` WHERE `entry` = 5178 AND `item` = 40411;
 
 
-/* NPC Garyl - 5188 */
-/* Remove non-Vanilla Tabards */
-DELETE FROM `npc_vendor` WHERE `entry`= 5188 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
-
-
-/* NPC Thrumn - 5189 */
-/* Remove non-Vanilla Tabards */
-DELETE FROM `npc_vendor` WHERE `entry`= 5189 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
-
-
-/* NPC Rebecca Laughlin - 5193 */
-/* Remove non-Vanilla Tabards */
-DELETE FROM `npc_vendor` WHERE `entry`= 5193 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
-
-
 /* NPC Erika Tate - 5483 */
 /* Remove non-Vanilla item Simple Flour */
 DELETE FROM `npc_vendor` WHERE `entry` = 5483 AND `item` = 30817;
