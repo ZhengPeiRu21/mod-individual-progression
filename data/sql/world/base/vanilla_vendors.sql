@@ -3871,8 +3871,6 @@ DELETE FROM `npc_vendor` WHERE `entry` = 12781 AND `item` = 38589;
 /* Remove non-Vanilla item Greater Inscription of the Gladiator */
 DELETE FROM `npc_vendor` WHERE `entry` = 12781 AND `item` = 44957;
 
--- NPC Lieutenant Rachel Vaccar - 12778 - not a Vendor in Vanilla */
-DELETE FROM `npc_vendor` WHERE `entry`= 12778;
 
 /* NPC Brave Stonehide - 12793 */
 /* Remove non-Vanilla item Senior Sergeant's Insignia */
@@ -3992,8 +3990,6 @@ DELETE FROM `npc_vendor` WHERE `entry` = 12793 AND `item` = 38588;
 /* Remove non-Vanilla item Greater Inscription of the Gladiator */
 DELETE FROM `npc_vendor` WHERE `entry` = 12793 AND `item` = 44957;
 
--- NPC Teena - 12788 - not a Vendor in Vanilla */
-DELETE FROM `npc_vendor` WHERE `entry`= 12788;
 
 /* NPC Jase Farlane - 12941 */
 /* Remove non-Vanilla item Blacksmith Hammer */
