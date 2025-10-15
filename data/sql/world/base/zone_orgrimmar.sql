@@ -115,6 +115,7 @@ UPDATE `creature_template` SET `subname` = 'Zeppelin Master'              WHERE 
 -- Legionnaire Teena
 UPDATE `creature_template` SET `subname`= NULL, `npcflag` = 0, `faction` = 85 WHERE `entry` = 12788;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;
+DELETE FROM `npc_vendor` WHERE `entry`= 12788; -- was placed in battlegrounds during Vanilla and TBC. needs to be hidden until wotlk
 
 -- Nazgrel <Advisor to Thrall>
 UPDATE `creature_template` SET `scale`=0.7, `npcflag`=2, `faction`=29, `gossip_menu_id`=0 WHERE `entry`=3230;
