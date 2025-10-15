@@ -300,7 +300,7 @@ DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` = 22147;
 /* Remove non-Vanilla item Wild Quillvine */
 DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` = 22148;
 /* Remove non-Vanilla item Corpse Dust */
-DELETE FROM `npc_vendor` WHERE `entry` = 1307 AND `item` = 37201;
+DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` = 37201;
 /* Add Missing Vanilla item Arcane Dust */
 DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` = 17019;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1308, 17019, 0, 0);
