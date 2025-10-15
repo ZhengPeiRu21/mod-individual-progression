@@ -390,6 +390,8 @@ DELETE FROM `creature` WHERE `id1` IN
  34075,  -- Captain Dirgehammer <Armor Quartermaster>
  34081); -- Captain O'Neal <Jewelcrafting Quartermaster>
 
+/* NPC Rebecca Laughlin - Remove non-Vanilla Tabards */
+DELETE FROM `npc_vendor` WHERE `entry`= 5193 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
 
 -- Summon Felsteed (Warlock)
 DELETE FROM `quest_offer_reward` WHERE `ID` = 4488;
