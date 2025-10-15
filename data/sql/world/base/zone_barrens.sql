@@ -361,6 +361,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (6387, -400000), -- Dranh <Skinner>
 (8306, -320000); -- Duhng <Cook>
 
+/* NPC Grub - not a Vendor in Vanilla */
+DELETE FROM `npc_vendor` WHERE `entry` = 3443;
 
 -- The Angry Scytheclaws
 DELETE FROM `quest_offer_reward` WHERE `ID` = 905;
