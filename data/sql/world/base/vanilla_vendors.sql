@@ -1605,10 +1605,6 @@ DELETE FROM `npc_vendor` WHERE `entry` = 3413 AND `item` = 16042;
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3413, 16042, 1, 10800);
 
 
-/* NPC Grub - 3443 - not a Vendor in Vanilla */
-DELETE FROM `npc_vendor` WHERE `entry` = 3443;
-
-
 /* NPC Barg - 3481 */
 /* Add Missing Vanilla item Flint and Tinder */
 DELETE FROM `npc_vendor` WHERE `entry` = 3481 AND `item` = 4471;
