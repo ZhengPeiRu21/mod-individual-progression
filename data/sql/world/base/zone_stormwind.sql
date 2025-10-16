@@ -65,19 +65,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 
 UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
 
-
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 68;    -- Stormwind City Guard
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 352;   -- Dungar Longdrink <Gryphon Master>
-UPDATE `creature_template` SET `minlevel` = 62, `maxlevel` = 62 WHERE `entry` = 466;   -- General Marcus Jonathan <High Commander of Stormwind Defense>
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 1976;  -- Stormwind City Patroller
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 1756;  -- Stormwind Royal Guard
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14423; -- Officer Jaxon
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14438; -- Officer Pomeroy
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 14439; -- Officer Brady
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60 WHERE `entry` = 15351; -- Alliance Brigadier General
 UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 29611; -- King Varian Wrynn
-
-UPDATE `creature_template` SET `rank` = 0 WHERE `entry` IN (1756, 15351);
 
 UPDATE `creature_template` SET `subname` = 'Arcane Goods Vendor' WHERE `entry` = 1257; -- Keldric Boucher <Alchemy Supplies & Reagents>
 UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1275; -- Kyra Boucher <Reagents>
@@ -88,9 +76,9 @@ UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 135
 UPDATE `creature_template` SET `subname` = 'Weapon Crafter'  WHERE `entry` = 7232; -- Borgus Steelhand <Weapon Crafter>
 
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-UPDATE `creature_template` SET `subname` = NULL, `minlevel` = 55, `maxlevel` = 55, `npcflag` = 0 WHERE `entry` = 12778;
+UPDATE `creature_template` SET `subname` = NULL, `npcflag` = 0 WHERE `entry` = 12778;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12778;
-
+DELETE FROM `npc_vendor` WHERE `entry`= 12778; -- was placed in battlegrounds during Vanilla and TBC. needs to be hidden until wotlk
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (1430, 2327, 5482, 5493, 5513);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
@@ -99,76 +87,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (5482, -320000), -- Stephen Ryback <Cooking Trainer>
 (5493, -360000), -- Arnold Leland <Fishing Trainer>
 (5513, -390000); -- Gelman Stonehand <Mining Trainer>
-
-
--- the following should perhaps go to vanilla_vendors
--- Elaine Trias <Mistress of Cheese>
-DELETE FROM `npc_vendor` WHERE `entry` = 483 AND `item` IN (27857, 33443, 35952);
-
--- Keldric Boucher <Alchemy Supplies & Reagents>
-DELETE FROM `npc_vendor` WHERE `entry` = 1257 AND `item` IN (22147, 22148, 37201, 40411);
-
--- Kyra Boucher <Reagents>
-DELETE FROM `npc_vendor` WHERE `entry` = 1275 AND `item` IN (22147, 22148, 37201);
-
--- Edna Mullby <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` IN (14341, 18256, 20856);
-DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` IN (2324, 2605, 2928, 6260, 6529);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (1286, 2324), (1286, 2605), (1286, 2928), (1286, 6260), (1286, 6529);
-
--- Frederick Stover <Bow & Arrow Merchant>
-DELETE FROM `npc_vendor` WHERE `entry` = 1298 AND `item` IN (11303, 11306, 11307, 28053);
-
--- Bernard Gump <Florist>
-DELETE FROM `npc_vendor` WHERE `entry` = 1302 AND `item` IN (785, 2449, 2453, 3355, 3356, 3357);
-
--- Charys Yserian <Arcane Trinkets Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1307 AND `item` IN (22147, 22148, 37201);
-
--- Owen Vaughn <Reagent Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` IN (22147, 22148, 37201);
-
--- Maria Lumere <Alchemy Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1313 AND `item`=40411;
-
--- Jasper Fel <Shady Dealer>
-DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
-
--- Sloan McCoy <Poison Supplier>
-DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
-
--- Alexandra Bolero <Tailoring Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1347 AND `item`=38426;
-
--- Brother Cassius <Reagent Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1351 AND `item` IN (22147, 22148, 37201);
-
--- Thomas Miller <Baker>
-DELETE FROM `npc_vendor` WHERE `entry` = 3518 AND `item` IN (27855, 33449, 35950);
-
--- Bren Trias <Apprentice of Cheese>
-DELETE FROM `npc_vendor` WHERE `entry` = 4981 AND `item` IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
-
--- Rebecca Laughlin <Tabard Designer>
-DELETE FROM `npc_vendor` WHERE `entry` = 5193 AND `item` IN (15196, 15198, 19032, 19506, 23999, 31774, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
-
--- Eldraeith <Herbalism Supplier>
-DELETE FROM `npc_vendor` WHERE `entry` = 5503 AND `item` IN (18256, 40411);
-
--- Brooke Stonebraid <Mining Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5514 AND `item` IN (20815, 20824);
-
--- Billibub Cogspinner <Engineering Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5519 AND `item` IN (39684, 40533);
-
--- Jillian Tanner <Leatherworking Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5565 AND `item`=38426;
-
--- Innkeeper Allison <Innkeeper>
-DELETE FROM `npc_vendor` WHERE `entry` = 6740 AND `item` IN (4536, 4537, 4538, 4539, 4602, 8953, 27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
-
--- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry` = 12778;
 
 
 SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
@@ -472,6 +390,8 @@ DELETE FROM `creature` WHERE `id1` IN
  34075,  -- Captain Dirgehammer <Armor Quartermaster>
  34081); -- Captain O'Neal <Jewelcrafting Quartermaster>
 
+/* NPC Rebecca Laughlin - Remove non-Vanilla Tabards */
+DELETE FROM `npc_vendor` WHERE `entry`= 5193 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
 
 -- Summon Felsteed (Warlock)
 DELETE FROM `quest_offer_reward` WHERE `ID` = 4488;
@@ -509,14 +429,3 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (12739, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Onyxias Elite Guard - Between 0-30% Health - Cast Enrage'),
 (12739, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Onyxias Elite Guard - On Enrage - Say Line 0');
-
--- this should probably go to vanilla_vendors
--- Remove non-Vanilla food items from Stormwind vendors
-DELETE FROM npc_vendor WHERE entry = 483   and item IN (27857, 33443, 35952);
-DELETE FROM npc_vendor WHERE entry = 3518  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 3003  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 4255  and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954);
-DELETE FROM npc_vendor WHERE entry = 4981  and item IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
-DELETE FROM npc_vendor WHERE entry = 5109  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 6740  and item IN (27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
-DELETE FROM npc_vendor WHERE entry = 10367 and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954, 27859, 29453, 33452, 35947);

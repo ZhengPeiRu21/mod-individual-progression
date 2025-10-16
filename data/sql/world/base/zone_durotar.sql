@@ -261,11 +261,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (123220, 56, 52.673, -3894.57, 42.6995, NULL, 0, 0, 0, 100, 0);
 
 
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3101; -- Vile Familiar
-UPDATE `creature_template` SET `faction` = 14 WHERE `entry` = 3102; -- Felstalker
-UPDATE `creature_template` SET `faction` = 16 WHERE `entry` = 3183; -- Yarrog Baneshadow
-
-
 DELETE FROM `npc_trainer` WHERE `ID` IN (3174, 3175, 3184, 3185, 5943, 7953, 11025);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (3174, -310000),  -- Dwukk <Journeyman Blacksmith>
@@ -275,11 +270,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (5943, -350000),  -- Rawrk <First Aid Trainer>
 (7953, -450000),  -- Xar'Ti <Riding Trainer>
 (11025, -340000); -- Mukdrak <Journeyman Engineer>
-
-DELETE FROM `npc_vendor` WHERE `entry` = 3167 AND `item` IN (20815, 20824); -- Wuark <Armorer & Shieldcrafter>
-DELETE FROM `npc_vendor` WHERE `entry` = 3168 AND `item` IN (30817);        -- Flakk <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 3187 AND `item` IN (30817);        -- Tai'tasi <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5942 AND `item` IN (6365, 6533);   -- Zansoa <Fishing Supplies>
 
 
 /* Quests */

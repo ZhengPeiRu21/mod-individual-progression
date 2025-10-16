@@ -140,6 +140,3 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 
 -- Ragepaw, fix movement
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 14342;
-
--- Olm the Wise, Cenarion Circle
-UPDATE `creature_template` SET `faction` = 1254 WHERE `entry` = 14343;
