@@ -1,30 +1,3 @@
-UPDATE `creature_template` SET `minlevel` = 40, `maxlevel` = 40 WHERE `entry` = 3975; -- Herod <The Scarlet Champion>
-UPDATE `creature_template` SET `minlevel` = 42, `maxlevel` = 42 WHERE `entry` = 3976; -- Scarlet Commander Mograine
-UPDATE `creature_template` SET `minlevel` = 42, `maxlevel` = 42 WHERE `entry` = 3977; -- High Inquisitor Whitemane
-UPDATE `creature_template` SET `rank` = 1                       WHERE `entry` = 4283; -- Scarlet Sentry
-UPDATE `creature_template` SET `maxlevel` = 36                  WHERE `entry` = 4286; -- Scarlet Soldier
-UPDATE `creature_template` SET `minlevel` = 34, `maxlevel` = 35 WHERE `entry` = 4288; -- Scarlet Beastmaster
-UPDATE `creature_template` SET `minlevel` = 36, `maxlevel` = 37 WHERE `entry` = 4289; -- Scarlet Evoker
-UPDATE `creature_template` SET `minlevel` = 36, `maxlevel` = 37 WHERE `entry` = 4290; -- Scarlet Guardsman
-UPDATE `creature_template` SET `maxlevel` = 35                  WHERE `entry` = 4291; -- Scarlet Diviner
-UPDATE `creature_template` SET `minlevel` = 36, `maxlevel` = 37 WHERE `entry` = 4292; -- Scarlet Protector
-UPDATE `creature_template` SET `minlevel` = 37, `maxlevel` = 38 WHERE `entry` = 4295; -- Scarlet Myrmidon
-UPDATE `creature_template` SET `maxlevel` = 36                  WHERE `entry` = 4297; -- Scarlet Conjuror
-UPDATE `creature_template` SET `minlevel` = 37, `maxlevel` = 38 WHERE `entry` = 4298; -- Scarlet Defender
-UPDATE `creature_template` SET `maxlevel` = 36                  WHERE `entry` = 4299; -- Scarlet Chaplain
-UPDATE `creature_template` SET `maxlevel` = 40                  WHERE `entry` = 4302; -- Scarlet Champion
-UPDATE `creature_template` SET `maxlevel` = 40                  WHERE `entry` = 4303; -- Scarlet Abbot
-UPDATE `creature_template` SET `maxlevel` = 34                  WHERE `entry` = 4304; -- Scarlet Tracking Hound
-UPDATE `creature_template` SET `minlevel` = 31, `maxlevel` = 32 WHERE `entry` = 4308; -- Unfettered Spirit
-UPDATE `creature_template` SET `minlevel` = 35, `maxlevel` = 36 WHERE `entry` = 4540; -- Scarlet Monk
-UPDATE `creature_template` SET `minlevel` = 34, `maxlevel` = 34 WHERE `entry` = 4543; -- Bloodmage Thalnos
-UPDATE `creature_template` SET `maxlevel` = 33                  WHERE `entry` = 6426; -- Anguished Dead
-UPDATE `creature_template` SET `minlevel` = 32, `maxlevel` = 33 WHERE `entry` = 6427; -- Haunting Phantasm
-UPDATE `creature_template` SET `minlevel` = 37, `maxlevel` = 37 WHERE `entry` = 6487; -- Arcanist Doan
-UPDATE `creature_template` SET `minlevel` = 33, `maxlevel` = 33 WHERE `entry` = 6488; -- Fallen Champion
-UPDATE `creature_template` SET `minlevel` = 33, `maxlevel` = 33 WHERE `entry` = 6489; -- Ironspine
-UPDATE `creature_template` SET `minlevel` = 33, `maxlevel` = 33 WHERE `entry` = 6490; -- Azshir the Sleepless
-
 UPDATE `gameobject_template_addon` SET `flags` = 34 WHERE `entry` = 104591; -- Chapel Door
 
 
@@ -195,6 +168,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4543, 0, 4, 0, 0, 0, 100, 0, 0, 8000, 8000, 16000, 0, 0, 11, 8814, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,       'Bloodmage Thalnos - Within 0-30 Range - Cast Flame Spike'),
 (4543, 0, 5, 0, 0, 0, 100, 0, 0, 16000, 16000, 60000, 0, 0, 11, 8053, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,     'Bloodmage Thalnos - Within 0-20 Range - Cast Flame Shock'),
 (4543, 0, 6, 0, 106, 0, 100, 0, 0, 9000, 9000, 12000, 0, 10, 11, 12470, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Bloodmage Thalnos - In Combat - Cast Fire Nova'),
+(4543, 0, 7, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 14693, 8, 0, 0, 0, 0, 8, 0, 0, 0, 0, 1797.84, 1233.68, 18.3153, 1.58286,  'Bloodmage Thalnos - On Just Died - Summon Creature \'Scorn\''), -- AC's wotlk version
+(4543, 0, 8, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 614693, 8, 0, 0, 0, 0, 8, 0, 0, 0, 0, 1797.84, 1233.68, 18.3153, 1.58286, 'Bloodmage Thalnos - On Just Died - Summon Creature \'Scorn\''), -- IP's vanilla version
+
 (6426, 0, 0, 0, 9, 0, 100, 0, 3000, 9000, 10000, 20000, 0, 20, 11, 7068, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Anguished Dead - Within 0-20 Range - Cast Veil of Shadows'),
 (6488, 0, 0, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Fallen Champion - On AI Init - Despawn'),
 (6488, 0, 1, 0, 9, 0, 100, 0, 5000, 8000, 6000, 14000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Fallen Champion - Within 0-5 Range - Cast Cleave'),
@@ -211,26 +187,21 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 -- Scarlet Scryer (4293) missing in SM graveyard. they share spawns with Scarlet Torturer (4306)
 
+DELETE FROM `creature` WHERE `guid` IN (40068, 40070);
 DELETE FROM `creature` WHERE `guid` BETWEEN 695001 AND 695007;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(695001, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1759.54, 1121.24, 7.49103, 4.75209, 86400, 0, 1, 2865, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+--
+(40068, 4288, 0, 0, 189, 0, 0, 1, 1, 1, 201.223, -232.896, 18.5307, 3.14066, 86400, 0, 1, 3489, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Beastmaster
+(40070, 4304, 0, 0, 189, 0, 0, 1, 1, 0, 201.061, -230.432, 18.5307, 3.13901, 86400, 0, 0, 3330, 0, 0, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Tracking Hound
+--
+(695001, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1759.54, 1121.24, 7.49103, 4.75209, 86400, 0, 1, 2865, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Scryer
 (695002, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1784.03, 1118.32, 7.57362, 2.87979, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695003, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1755.47, 1146.65, 7.57362, 0,       86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695004, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1759.29, 1144.24, 7.57362, 3.14159, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695005, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1793.07, 1146.38, 7.57362, 5.37561, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695006, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1807.48, 1170.39, 6.90373, 4.95674, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (695007, 4293, 0, 0, 189, 0, 0, 1, 1, 1, 1807.84, 1165.98, 6.90374, 1.51844, 86400, 0, 0, 2865, 0, 0, 0, 0, 0, '', 0, 0, NULL);
-
-DELETE FROM `pool_template` WHERE `entry` BETWEEN 601001 AND 601007;
-INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
-(601001, 1, ''),
-(601002, 1, ''),
-(601003, 1, ''),
-(601004, 1, ''),
-(601005, 1, ''),
-(601006, 1, ''),
-(601007, 1, '');
 
 DELETE FROM `pool_creature` WHERE `pool_entry` BETWEEN 601001 AND 601007;
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
@@ -248,6 +219,16 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 (695006, 601006, 0, 'Scarlet Scryer'),
 (39857,  601007, 0, 'Scarlet Torturer'),
 (695007, 601007, 0, 'Scarlet Scryer');
+
+DELETE FROM `pool_template` WHERE `entry` BETWEEN 601001 AND 601007;
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601001, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601002, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601003, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601004, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601005, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601006, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery'),
+(601007, 1, 'Scarlet Scryer or Torturer - Scarlet Monastery');
 
 DELETE FROM `creature_addon` WHERE `guid` = 695001;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 

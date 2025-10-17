@@ -90,9 +90,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14511, 0, 5, 0, 8, 0, 100, 0, 20271, 0, 15000, 15000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Shadowed Spirit - On Spell Hit - Say Line 0');
 
 
-UPDATE `creature_template` SET `minlevel` = 60, `maxlevel` = 60                 WHERE `entry` = 10506; -- Kirtonos the Herald
-UPDATE `creature_template` SET `minlevel` = 1,  `maxlevel` = 1, `faction` = 233 WHERE `entry` = 11258; -- Frail Skeleton
-
 -- Darkmaster Gandling - fix his shout message not displaying
 UPDATE `creature_text` SET `TextRange` = 1 WHERE `CreatureID` = 1853;
 

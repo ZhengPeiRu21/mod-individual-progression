@@ -272,9 +272,7 @@ public:
     void UpdateProgressionState(Player* player, ProgressionState newState) const;
     static void ForceUpdateProgressionState(Player* player, ProgressionState newState);
     void CheckAdjustments(Player* player) const;
-    void CheckHPAdjustments(Player* player) const;
     void ApplyGearStatsTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
-    void ComputeGearTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
     void AdjustVanillaStats(Player* player) const;
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;
@@ -283,16 +281,13 @@ public:
     void UpdateProgressionQuests(Player* player);
     void checkKillProgression(Player* player, Creature* killed);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
-    static void AdjustStats(Player* player, float computedAdjustment, float computedHealingAdjustment);
+	static void AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment);
     static float ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);
     static bool isAttunedNaxx(Player* player);
     bool isExcludedFromProgression(Player* player);
     bool groupHaveLevelDisparity(Player* player);
     void TeleportOutsideRestoredRaid(Player *player);
-    bool isMonsterFromAqEvent(Unit* unit);
-    bool isMonsterFromDarkPortalEvent(Unit* unit);
-    bool isMonsterFromScourgeEvent(Unit* unit);
 };
 
 #define sIndividualProgression IndividualProgression::instance()

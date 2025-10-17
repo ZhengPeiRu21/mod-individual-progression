@@ -48,6 +48,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 22098, -- Grizzled Gladiator, Silvermoon
 22931, -- Gorrim, Emerald Sanctuary, Flight Master
 23131, -- Blood Knight Honor Guard, Orgrimmar
+23534, -- Babagaya Shadowcleft, Ratchet
+23535, -- Matero Zeshuwal, Ratchet
+23536, -- Nagulon, Ratchet
 24366, -- Nizzle, Rebel Camp, Flight Master
 27705, -- Lorrin Foxfire, Stonard
 29093, -- Ian Drake, Stormwind
@@ -65,10 +68,10 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
 
 /* Hide guild vaults until TBC (was introduced during 2.3) - disabled by default, because most players will expect these gobject to be there */
-/* UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` IN 
-(12496, 12497, 20621, 45029, 45030, 45069, 45132, 44706, 44707, 44708, 44709, 44710, 44711, 44715, 44716, 41911, 41912, 41913, 41914, 49804, 49821, 49822, 44713, 44714, 14641, 17352, 17353, 49095, 50356, 50357); */
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` IN 
+(12496, 12497, 20621, 45029, 45030, 45069, 45132, 44706, 44707, 44708, 44709, 44710, 44711, 44715, 44716, 41911, 41912, 41913, 41914, 49804, 49821, 49822, 44713, 44714, 14641, 17352, 17353, 49095, 50356, 50357);
 /* if you want to keep one guild vault by faction during vanilla */
--- UPDATE `gameobject` SET `ScriptName` = '' WHERE `guid` IN (12496, 44716);
+UPDATE `gameobject` SET `ScriptName` = '' WHERE `guid` IN (12496, 44716);
 
 /* 3.0+ - NPCs/Gobjects added in Eastern/Kalimdor during WotLK pre-patch or more */
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (

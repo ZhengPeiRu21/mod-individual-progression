@@ -10,7 +10,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (4422, 0, 0, 0, 38, 0, 100, 0, 1, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 2070.26, 2003.44, 64, 0,        'Agathelos the Raging - On Data Set - Move Point'),
 (4422, 0, 1, 0, 0, 0, 100, 0, 8000, 14000, 25000, 31000, 0, 0, 11, 8285, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Agathelos the Raging - In Combat - Cast Rampage'),
-(4422, 0, 2, 0, 9, 0, 100, 0, 2000, 8000, 21000, 35000, 0, 5, 11, 8555, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Agathelos the Raging - Within 0-5 Range - Cast Left For Dead'),
+(4422, 0, 2, 0, 0, 0, 100, 0, 2000, 8000, 21000, 35000, 0, 5, 11, 8555, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Agathelos the Raging - Within 0-5 Range - Cast Left For Dead'),
 (4422, 0, 3, 4, 2, 0, 100, 1, 0, 60, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Agathelos the Raging - Between 0-25% Health - Cast Enrage'),
 (4422, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Agathelos the Raging - On Enrage - Say Line 0'),
 (4422, 0, 5, 6, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Agathelos the Raging - Between 0-25% Health - Cast Enrage'),
@@ -23,10 +23,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4428, 0, 1, 0, 0, 0, 100, 0, 7000, 10000, 10000, 15000, 0, 0, 11, 14515, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Death Speaker Jargba - Within 0-20 Range - Cast Dominate Mind'),
 --
 (4436, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Razorfen Quilguard - On Aggro - Cast Battle Stance'),
-(4436, 0, 1, 0, 9, 0, 100, 0, 2000, 4000, 8000, 14000, 0, 10, 11, 15548, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Razorfen Quilguard - Within 0-10 Range - Cast Thunderclap'),
+(4436, 0, 1, 0, 9, 0, 100, 0, 0, 0, 8000, 14000, 0, 8, 11, 15548, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Razorfen Quilguard - Within 0-8 Range - Cast Thunderclap'),
 (4436, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Razorfen Quilguard - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4442, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Razorfen Defender - On Aggro - Cast Defensive Stance'),
-(4442, 0, 1, 0, 9, 0, 100, 0, 6000, 14000, 10000, 30000, 0, 5, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Razorfen Defender - Within 0-5 Range - Cast Improved Blocking'),
+(4442, 0, 1, 0, 0, 0, 100, 0, 6000, 14000, 10000, 30000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Razorfen Defender - Within 0-5 Range - Cast Improved Blocking'),
 (4442, 0, 2, 0, 105, 0, 100, 0, 2000, 16000, 10000, 20000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Razorfen Defender - Victim Casting - Cast Shield Bash'),
 (4442, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Razorfen Defender - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
@@ -37,14 +37,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4516, 0, 1, 0, 0, 0, 100, 0, 3000, 6000, 10000, 15000, 0, 0, 11, 113, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Death''s Head Adept - In Combat - Cast Chains of Ice'),
 (4516, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Death''s Head Adept - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(4523, 0, 0, 0, 9, 0, 100, 0, 6000, 10000, 9000, 12000, 0, 10, 11, 6524, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Razorfen Groundshaker - Within 0-10 Range - Cast Ground Tremor'),
-(4523, 0, 1, 0, 9, 0, 100, 0, 2000, 6000, 13000, 18000, 0, 25, 11, 8046, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Razorfen Groundshaker - Within 0-25 Range - Cast Earth Shock'),
+(4523, 0, 0, 0, 0, 0, 100, 0, 6000, 10000, 9000, 12000, 0, 0, 11, 6524, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Razorfen Groundshaker - In Combat - Cast Ground Tremor'),
+(4523, 0, 1, 0, 0, 0, 100, 0, 2000, 6000, 13000, 18000, 0, 0, 11, 8046, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Razorfen Groundshaker - In Combat - Cast Earth Shock'),
 (4523, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Razorfen Groundshaker - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(4539, 0, 0, 0, 9, 0, 100, 0, 1000, 8000, 8000, 13000, 0, 10, 11, 8281, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Greater Kraul Bat - Within 0-10 Range - Cast Sonic Burst'),
+(4539, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 13000, 0, 8, 11, 8281, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Greater Kraul Bat - Within 0-8 Range - Cast Sonic Burst'),
 (4623, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Quilguard Champion - On Aggro - Cast Defensive Stance'),
 (4623, 0, 1, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Quilguard Champion - In Combat - Cast Devotion Aura (No Repeat)'),
-(4623, 0, 2, 0, 9, 0, 100, 0, 3000, 5000, 8000, 11000, 0, 5, 11, 15572, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Quilguard Champion - Within 0-5 Range - Cast Sunder Armor'),
+(4623, 0, 2, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 15572, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Quilguard Champion - Within 0-5 Range - Cast Sunder Armor'),
 (4623, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Quilguard Champion - Between 0-15% Health - Flee For Assist'),
-(6035, 0, 0, 0, 67, 0, 100, 0, 5000, 7000, 5000, 7000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Razorfen Stalker - On Behind Target - Cast Backstab'),
+(6035, 0, 0, 0, 67, 0, 100, 0, 0, 0, 5000, 7000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Razorfen Stalker - On Behind Target - Cast Backstab'),
 (6035, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Razorfen Stalker - Out of Combat - Cast Sneak'),
 (6035, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Razorfen Stalker - Between 0-15% Health - Flee For Assist');

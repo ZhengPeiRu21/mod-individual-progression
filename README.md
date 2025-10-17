@@ -18,6 +18,7 @@ Lower-level content added in later expansions that is not "catch-up" content has
 * Complete overhaul of all vanilla creatures and quests. Smart AI, quest drop chances, creature respawn times, spells, patrols and spawn locations have all been restored.
 * Optional power and health adjustment for Vanilla and TBC content to simulate the original world difficulty.
 * WotLK emblems drop based on your progression.
+* Playerbots support
 
 For a complete list of changes, please see [here](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Changes).
 

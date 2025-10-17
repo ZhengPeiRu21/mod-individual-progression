@@ -132,29 +132,6 @@ UPDATE `creature_template` SET `subname` = 'Demon Trainer'            WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Skinner'                  WHERE `entry` = 6289; -- Rand Rhobart <Skinner>
 UPDATE `creature_template` SET `subname` = 'Zeppelin Master'          WHERE `entry` = 9566; -- Zapetta <Zeppelin Master>
 
--- update npc factions
-UPDATE `creature_template` SET `faction` = 22 WHERE `entry` = 1505;  -- Night Web Spider
-UPDATE `creature_template` SET `faction` = 67 WHERE `entry` = 1506;  -- Scarlet Convert
-UPDATE `creature_template` SET `faction` = 67 WHERE `entry` = 1507;  -- Scarlet Initiate
-UPDATE `creature_template` SET `faction` = 67 WHERE `entry` = 1667;  -- Meven Korgal
-UPDATE `creature_template` SET `faction` = 22 WHERE `entry` = 1688;  -- Night Web Matriarch
-UPDATE `creature_template` SET `faction` = 67 WHERE `entry` = 13158; -- Lieutenant Sanders
-
--- update npc levels
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 1736; -- Deathguard Randolph
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 1737; -- Deathguard Oliver
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 1739; -- Deathguard Phillip
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 1741; -- Deathguard Bartrand
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55 WHERE `entry` = 7980; -- Deathguard Elite
-
--- update npc ranks
-UPDATE `creature_template` SET `rank` = 1 WHERE `entry` = 4280; -- Scarlet Preserver
-UPDATE `creature_template` SET `rank` = 1 WHERE `entry` = 4281; -- Scarlet Scout
-UPDATE `creature_template` SET `rank` = 1 WHERE `entry` = 4282; -- Scarlet Magician
-UPDATE `creature_template` SET `rank` = 1 WHERE `entry` = 4283; -- Scarlet Sentry
-UPDATE `creature_template` SET `rank` = 1 WHERE `entry` = 4284; -- Scarlet Augur
-UPDATE `creature_template` SET `rank` = 1 WHERE `entry` = 4285; -- Scarlet Disciple
-
 DELETE FROM `npc_trainer` WHERE `ID` IN (2114, 2132, 3549, 4773, 5690, 5695, 5759, 6289);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
 (2114, -370000), -- Faruza <Apprentice Herbalist>
@@ -165,10 +142,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (5695, -330000), -- Vance Undergloom <Journeyman Enchanter>
 (5759, -350000), -- Nurse Neela <First Aid Trainer>
 (6289, -400000); -- Rand Rhobart <Skinner>
-
-DELETE FROM `npc_vendor` WHERE `entry` = 2118 AND `item` IN (10648, 30817, 39354); -- Abigail Shiel <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 3548 AND `item` = 40411;                  -- Selina Weston <Alchemy & Herbalism Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 4731 AND `item` IN (46308, 47101);        -- Zachariah Post <Undead Horse Merchant>
 
 
 /* Quests */
