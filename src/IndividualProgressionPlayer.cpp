@@ -317,7 +317,7 @@ public:
             {
                 if (sIndividualProgression->isExcludedFromProgression(otherPlayer)) // RNDbot
                 {
-                    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)) // player is in vanilla
+                    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) // player is in vanilla
                     {
                         if (otherPlayer->GetLevel() <= IP_LEVEL_VANILLA)
                         {
