@@ -27,7 +27,7 @@ public:
             return;
         }
 
-		if (!isExcludedFromProgression(player))
+		if (!sIndividualProgression->isExcludedFromProgression(player))
         {
             if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
             {
@@ -43,7 +43,7 @@ public:
 		}
 		
 
-		if (isExcludedFromProgression(player))
+		if (sIndividualProgression->isExcludedFromProgression(player))
         {
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));    
         }
@@ -313,9 +313,9 @@ public:
 				
         if (sIndividualProgression->enforceGroupRules) // enforceGroupRules enabled
         {
-            if (!isExcludedFromProgression(player)) // player has a normal account
+            if (!sIndividualProgression->isExcludedFromProgression(player)) // player has a normal account
             {
-                if (isExcludedFromProgression(otherPlayer)) // RNDbot
+                if (sIndividualProgression->isExcludedFromProgression(otherPlayer)) // RNDbot
                 {
                     if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)) // player is in vanilla
                     {
@@ -361,7 +361,7 @@ public:
             }
             else // player has an excluded account
             {
-                if (isExcludedFromProgression(otherPlayer)) // RNDbot
+                if (sIndividualProgression->isExcludedFromProgression(otherPlayer)) // RNDbot
                 {
                     if (player->GetLevel() <= IP_LEVEL_VANILLA) // player is in vanilla
                     {
@@ -420,7 +420,7 @@ public:
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = groupLeader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 
-        if (isExcludedFromProgression(player))
+        if (sIndividualProgression->isExcludedFromProgression(player))
         {
             if (currentState != otherPlayerState)
             {
