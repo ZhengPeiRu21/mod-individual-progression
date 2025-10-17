@@ -1,13 +1,12 @@
 /*  Hide vendor items until the player has completed the progression level for them */
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN 
-(66, 372, 483, 789, 790, 843, 844, 958, 983, 989, 1148, 1250, 1257, 1275, 1286, 1307, 1308, 1313, 1325, 1326, 1347, 1351, 1448, 1453, 1454, 1463, 
-1474, 1672, 1673, 1692, 1694, 2118, 2380, 2381, 2394, 2397, 2480, 2481, 2664, 2668, 2669, 2670, 2672, 2682, 2683, 2684, 2685, 2687, 2688, 2697, 2698, 2699, 2803, 
-2805, 2806, 2810, 2812, 2816, 2819, 2821, 2846, 2848, 2849, 3002, 3003, 3005, 3010, 3014, 3017, 3025, 3027, 3081, 3085, 3091, 3096, 3133, 3167, 3168, 3187, 3312, 
-3313, 3323, 3329, 3334, 3335, 3342, 3348, 3351, 3358, 3362, 3364, 3366, 3367, 3368, 3400, 3405, 3410, 3413, 3482, 3485, 3490, 3495, 3499, 3500, 3518, 3542, 3548, 
-3551, 3562, 3578, 3614, 3625, 3685, 3700, 3779, 3954, 3955, 3956, 3958, 3970, 4083, 4168, 4169, 4170, 4189, 4216, 4220, 4221, 4223, 4225, 4229, 4226, 4241, 4256, 
-4265, 4553, 4554, 4255, 4561, 4562, 4571, 4575, 4577, 4585, 4587, 4589, 4599, 4610, 4615, 4731, 4775, 4878, 4890, 4897, 4899, 4981, 5109, 5110, 5111, 5124, 5128, 
-5134, 5138, 5139, 5151, 5154, 5160, 5163, 5175, 5178, 5483, 5503, 5514, 5519, 5565, 5594, 5783, 5817, 5944, 6298, 6301, 6567, 6568, 6574, 6576, 6730, 6731, 6735, 
-6738, 6740, 6741, 6746, 6777, 6929, 7852, 7854, 7940, 7947, 7978, 8145, 8157, 8158, 8160, 8177, 8178, 8305, 8307, 8361, 8363, 8678, 8681, 8679, 8934, 9544, 9676, 
+(66, 372, 483, 789, 790, 843, 844, 958, 983, 989, 1148, 1250, 1257, 1275, 1286, 1307, 1308, 1313, 1325, 1326, 1347, 1351, 1448, 1453, 1454, 1463, 1474, 1672, 1673, 1692, 1694, 
+2118, 2380, 2381, 2394, 2397, 2480, 2481, 2664, 2668, 2669, 2670, 2672, 2682, 2683, 2684, 2685, 2687, 2688, 2697, 2698, 2699, 2803, 2805, 2806, 2810, 2812, 2816, 2819, 2821, 2846, 2848, 2849, 
+3002, 3003, 3005, 3010, 3014, 3017, 3025, 3027, 3081, 3085, 3091, 3096, 3133, 3167, 3168, 3187, 3312, 3313, 3323, 3329, 3334, 3335, 3342, 3348, 3351, 3358, 3364, 3366, 3367, 3368, 
+3400, 3405, 3410, 3413, 3482, 3485, 3490, 3495, 3499, 3500, 3518, 3542, 3548, 3551, 3562, 3578, 3614, 3625, 3700, 3779, 3954, 3955, 3956, 3958, 3970, 4083, 4168, 4169, 4170, 4189, 
+4216, 4220, 4221, 4223, 4225, 4229, 4226, 4241, 4256, 4265, 4553, 4554, 4255, 4561, 4562, 4571, 4575, 4577, 4585, 4587, 4589, 4599, 4610, 4615, 4775, 4878, 4890, 4897, 4899, 4981, 
+5109, 5110, 5111, 5124, 5128, 5134, 5138, 5139, 5151, 5154, 5160, 5163, 5175, 5178, 5483, 5503, 5514, 5519, 5565, 5594, 5783, 5817, 5944, 6298, 6301, 6567, 6568, 6574, 6576, 
+6730, 6731, 6735, 6738, 6740, 6741, 6746, 6777, 6929, 7852, 7854, 7940, 7947, 7978, 8145, 8157, 8158, 8160, 8177, 8178, 8305, 8307, 8361, 8363, 8678, 8681, 8679, 8934, 9544, 9676, 
 10364, 10367, 11186, 11188, 11189, 11874, 12022, 12028, 12033, 12245, 12941, 12942, 12943, 12956, 12957, 12958, 13476, 
 14337, 14637, 14738, 14739, 14846, 14847, 15175, 15179, 16015, 16253, 16261, 16262, 16677, 16718, 17246, 17490, 25082);
 
@@ -234,7 +233,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 3351,  37201, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Magenius - Corpse Dust'),
 (23, 3358,  20815, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Gorina - Jeweler\'s Kit'),
 (23, 3358,  20824, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Gorina - Simple Grinder'),
-(23, 3362,  46099, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Ogunaro Wolfrunner - Horn of the Black Wolf'),                 -- mounts and riding
 (23, 3364,  38426, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Borya - Eternium Thread'),
 (23, 3366,  38426, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Tamar - Eternium Thread'),
 (23, 3367,  14341, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Felika - Rune Thread'),
@@ -296,7 +294,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 3625,  28061, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Rarck - Ironbite Shell'),
 (23, 3625,  41584, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Rarck - Frostbite Bullets'),
 (23, 3625,  41586, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Rarck - Terrorshaft Arrow'),
-(23, 3685,  46100, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harb Clawhoof - White Kodo'),                  -- mounts and riding
 (23, 3700,  22147, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Jadenvis Seawatcher - Flintweed Seed'),
 (23, 3700,  22148, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Jadenvis Seawatcher - Wild Quillvine'),
 (23, 3779,  5956,  0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Syurana - Blacksmith Hammer'),
@@ -415,8 +412,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 4610,  40411, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Algernon - Enchanted Vial'),
 (23, 4615,  18256, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Katrina Alliestar - Imbued Vial'),
 (23, 4615,  40411, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Katrina Alliestar - Enchanted Vial'),
-(23, 4731,  46308, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Zachariah Post - Black Skeletal Horse'),                  -- mounts and riding
-(23, 4731,  47101, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Zachariah Post - Ochre Skeletal Warhorse'),               -- mounts and riding
 (23, 4775,  2325,  0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Felicia Doan - Black Dye'),
 (23, 4775,  4340,  0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Felicia Doan - Gray Dye'),
 (23, 4775,  4341,  0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Felicia Doan - Yellow Dye'),
@@ -814,8 +809,6 @@ DELETE FROM `npc_vendor` WHERE `item` = 6529  AND `entry` IN (1286, 3367, 4229, 
 DELETE FROM `npc_vendor` WHERE `item` = 8923  AND `entry` IN (1325, 1326, 1457, 2622, 3090, 3135, 3334, 3490, 3542, 3551, 3561, 3969, 4585, 5139, 5169, 6779, 15175);
 DELETE FROM `npc_vendor` WHERE `item` = 8924  AND `entry` IN (1325, 1326, 1457, 2622, 3090, 3135, 3334, 3490, 3542, 3551, 3561, 3969, 4585, 5139, 5169, 6779, 15175);
 DELETE FROM `npc_vendor` WHERE `item` = 8925  AND `entry` IN (1325, 1326, 1457, 2622, 3090, 3135, 3334, 3490, 3542, 3551, 3561, 3969, 4585, 5139, 5169, 6779, 10364, 14847, 15175);
-DELETE FROM `npc_vendor` WHERE `item` = 13328 AND `entry` IN (1261);
-DELETE FROM `npc_vendor` WHERE `item` = 13329 AND `entry` IN (1261);
 DELETE FROM `npc_vendor` WHERE `item` = 13477 AND `entry` IN (4226, 4610);
 DELETE FROM `npc_vendor` WHERE `item` = 13480 AND `entry` IN (11188);
 DELETE FROM `npc_vendor` WHERE `item` = 14481 AND `entry` IN (11189);
@@ -853,22 +846,10 @@ DELETE FROM `npc_vendor` WHERE `entry` = 10367 AND `item` IN
 DELETE FROM `npc_vendor` WHERE `entry` = 14846 AND `item` IN (4289, 11303, 11305, 11306, 11308, 12248, 12251);
 
 
-DELETE FROM `npc_vendor` WHERE `entry` = 1460 AND `item` IN (12353, 12354, 18776, 18777, 18778);         -- mounts and riding
-DELETE FROM `npc_vendor` WHERE `entry` = 3362 AND `item` IN (12330, 12331);                              -- mounts and riding
-DELETE FROM `npc_vendor` WHERE `entry` = 3685 AND `item` IN (15292, 15293);                              -- mounts and riding
-DELETE FROM `npc_vendor` WHERE `entry` = 4730 AND `item` IN (12302, 12303);                              -- mounts and riding
-DELETE FROM `npc_vendor` WHERE `entry` = 7952 AND `item` IN (8586, 13317);                               -- mounts and riding
-DELETE FROM `npc_vendor` WHERE `entry` = 7955 AND `item` IN (13326, 13327);                              -- mounts and riding
-DELETE FROM `npc_vendor` WHERE `item` = 12353 AND `entry` IN (384, 2357, 4885);                          -- mounts and riding
-DELETE FROM `npc_vendor` WHERE `item` = 12354 AND `entry` IN (384, 2357, 4885);                          -- mounts and riding
-
-
 INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES 
 --
 (151, 4471, 0, 0),        -- Brog Hamfist, Flint and Tinder
 (227, 4471, 0, 0),        -- Mabel Solaj, Flint and Tinder
-(384, 12353, 0, 0),       -- Katie Hunter, White Stallion Bridle
-(384, 12354, 0, 0),       -- Katie Hunter, Palomino Bridle
 (491, 4471, 0, 0),        -- Quartermaster Lewis, Flint and Tinder
 (734, 4471, 0, 0),        -- Corporal Bluth, Flint and Tinder
 (777, 2692, 0, 0),        -- Amy Davenport, Hot Spices
@@ -891,8 +872,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (1149, 4471, 0, 0),       -- Uthok, Flint and Tinder
 (1250, 4471, 0, 0),       -- Drake Lindgren, Flint and Tinder
 (1257, 17019, 0, 0),      -- Keldric Boucher, Arcane Dust
-(1261, 13328, 0, 0),      -- Veron Amberstill, Black Ram
-(1261, 13329, 0, 0),      -- Veron Amberstill, Frost Ram
 (1275, 17019, 0, 0),      -- Kyra Boucher, Arcane Dust
 (1285, 4471, 0, 0),       -- Thurman Mullby, Flint and Tinder
 (1286, 2324, 0, 0),       -- Edna Mullby, Bleach
@@ -950,11 +929,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (1459, 2506, 0, 0),       -- Naela Trance, Hornwood Recurve Bow
 (1459, 3027, 0, 0),       -- Naela Trance, Heavy Recurve Bow
 (1459, 3030, 0, 0),       -- Naela Trance, Razor Arrow
-(1460, 18776, 0, 0),      -- Unger Statforth, Swift Palomino            -- mounts and riding
-(1460, 18777, 0, 0),      -- Unger Statforth, Swift Brown Steed         -- mounts and riding
-(1460, 18778, 0, 0),      -- Unger Statforth, Swift White Steed         -- mounts and riding
-(1460, 12353, 0, 0),      -- Unger Statforth, White Stallion Bridle     -- mounts and riding
-(1460, 12354, 0, 0),      -- Unger Statforth, Palomino Bridle           -- mounts and riding 
 (1463, 17019, 0, 0),      -- Falkan Armonis, Arcane Dust
 (1465, 2692, 0, 0),       -- Drac Roughcut, Hot Spices
 (1673, 17019, 0, 0),      -- Alyssa Eva, Arcane Dust
@@ -968,8 +942,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (2225, 2928, 0, 0),       -- Zora Guthrek, Dust of Decay
 (2225, 3713, 0, 0),       -- Zora Guthrek, Soothing Spices
 (2225, 3777, 0, 0),       -- Zora Guthrek, Lethargy Root
-(2357, 12353, 0, 0),      -- Merideth Carlson, White Stallion Bridle
-(2357, 12354, 0, 0),      -- Merideth Carlson, Palomino Bridle
 (2381, 2692, 0, 0),       -- Micha Yance, Hot Spices
 (2381, 3713, 0, 0),       -- Micha Yance, Soothing Spices
 (2393, 2692, 0, 0),       -- Christoph Jeffcoat, Hot Spices
@@ -1056,8 +1028,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (3346, 6342, 1, 7200),    -- Kithas, Formula: Enchant Chest - Minor Mana
 (3350, 4471, 0, 0),       -- Asoran, Flint and Tinder
 (3351, 17019, 0, 0),      -- Magenius, Arcane Dust
-(3362, 12330, 0, 0),      -- Ogunaro Wolfrunner, Horn of the Red Wolf                     -- mounts and riding
-(3362, 12351, 0, 0),      -- Ogunaro Wolfrunner, Horn of the Arctic Wolf                  -- mounts and riding
 (3367, 2324, 0, 0),       -- Felika, Bleach
 (3367, 2605, 0, 0),       -- Felika, Green Dye
 (3367, 2692, 0, 0),       -- Felika, Hot Spices
@@ -1127,8 +1097,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (3562, 17019, 0, 0),      -- Alaindia, Arcane Dust
 (3608, 4471, 0, 0),       -- Aldia, Flint and Tinder
 (3625, 4471, 0, 0),       -- Rarck, Flint and Tinder
-(3685, 15293, 0, 0),      -- Harb Clawhoof, Teal Kodo                   -- mounts and riding
-(3685, 15292, 0, 0),      -- Harb Clawhoof, Green Kodo                  -- mounts and riding
 (3779, 2692, 0, 0),       -- Syurana, Hot Spices
 (3779, 2928, 0, 0),       -- Syurana, Dust of Decay
 (3779, 3713, 0, 0),       -- Syurana, Soothing Spices
@@ -1236,8 +1204,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (4585, 8925, 0, 0),       -- Ezekiel Graves, Crystal Vial
 (4610, 13477, 1, 2700),   -- Algernon, Recipe: Superior Mana Potion
 (4617, 6342, 1, 7200),    -- Thaddeus Webb, Formula: Enchant Chest - Minor Mana
-(4730, 12302, 0, 0),      -- Lelanai, Ancient Frostsaber                           -- mounts and riding
-(4730, 12303, 0, 0),      -- Lelanai, Reins of the Nightsaber                      -- mounts and riding
 (4775, 2324, 0, 0),       -- Felicia Doan, Bleach
 (4775, 2605, 0, 0),       -- Felicia Doan, Green Dye
 (4775, 2692, 0, 0),       -- Felicia Doan, Hot Spices
@@ -1249,8 +1215,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (4877, 2692, 0, 0),       -- Jandia, Hot Spices
 (4877, 3713, 0, 0),       -- Jandia, Soothing Spices
 (4878, 17019, 0, 0),      -- Montarr, Arcane Dust
-(4885, 12353, 0, 0),      -- Gregor MacVince, White Stallion Bridle                    -- mounts and riding
-(4885, 12354, 0, 0),      -- Gregor MacVince, Palomino Bridle                          -- mounts and riding
 (4890, 4833, 1, 43200),   -- Piter Verance, Glorious Shoulders
 (4890, 4835, 1, 43200),   -- Piter Verance, Elite Shoulders
 (4896, 4471, 0, 0),       -- Charity Mipsy, Flint and Tinder
@@ -1344,10 +1308,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (7947, 2928, 0, 0),       -- Vivianna, Dust of Decay
 (7947, 3713, 0, 0),       -- Vivianna, Soothing Spices
 (7947, 3777, 0, 0),       -- Vivianna, Lethargy Root
-(7952, 8586, 0, 0),       -- Zjolnir, Whistle of the Mottled Red Raptor                          -- mounts and riding
-(7952, 13317, 0, 0),      -- Zjolnir, Whistle of the Ivory Raptor                                -- mounts and riding
-(7955, 13326, 0, 0),      -- Milli Featherwhistle, White Mechanostrider Mod B                    -- mounts and riding
-(7955, 13327, 0, 0),      -- Milli Featherwhistle, Icy Blue Mechanostrider Mod A                 -- mounts and riding
 (8139, 4471, 0, 0),       -- Jabbey, Flint and Tinder
 (8145, 2692, 0, 0),       -- Sheendra Tallgrass, Hot Spices
 (8145, 2928, 0, 0),       -- Sheendra Tallgrass, Dust of Decay
@@ -1506,7 +1466,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (15179, 3713, 0, 0),      -- Mishta, Soothing Spices
 (15179, 3777, 0, 0),      -- Mishta, Lethargy Root
 (15419, 6342, 1, 7200);   -- Kania, Formula: Enchant Chest - Minor Mana
-
 
 
 
