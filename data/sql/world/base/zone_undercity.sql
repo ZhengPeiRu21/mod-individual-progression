@@ -112,6 +112,12 @@ UPDATE `quest_template` SET `RewardNextQuest` = 1978 WHERE `ID` = 1899;
 
 UPDATE `conditions` SET `ConditionValue1`= 1886,  `comment` = 'Astor Hadren - Show gossip if quest 1886 is taken' WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 126;
 
+-- Hide TBC quests
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (9189, 9425);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(19, 0, 9189, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lor\'Themar - Hide \'Delivery to the Sepulcher\' player reaches WotLK'),
+(19, 0, 9425, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lor\'Themar - Hide \'Report to Tarren Mill\' player reaches WotLK');
 
 /* Restore Varimathras */
 UPDATE `creature` SET `id1` = 2425, `equipment_id` = 0 WHERE `id1` = 36273;
