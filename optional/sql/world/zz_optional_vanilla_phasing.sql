@@ -95,6 +95,13 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 31725  -- Sky-Captain LaFontaine, Zep
 );
 
+-- Hide TBC quests
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (9189, 9425);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(19, 0, 9189, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lor\'Themar - Hide \'Delivery to the Sepulcher\' player reaches WotLK'),
+(19, 0, 9425, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lor\'Themar - Hide \'Report to Tarren Mill\' player reaches WotLK');
+
 /* Hide mailboxes, see: https://www.wowhead.com/classic/object=32349/mailbox */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 49832; -- Darnassus
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (
