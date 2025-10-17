@@ -632,7 +632,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 10367, 27859, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shrye Ragefist - Zangar Caps'),
 (23, 10367, 27860, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shrye Ragefist - Purified Draenic Water'),
 (23, 10367, 28399, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shrye Ragefist - Filtered Draenic Water'),
-(23, 10367, 29448, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shrye Ragefist - Mag'har Mild Cheese'),
+(23, 10367, 29448, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shrye Ragefist - Mag\'har Mild Cheese'),
 (23, 10367, 29449, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shrye Ragefist - Bladespire Bagel'),
 (23, 10367, 29450, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shrye Ragefist - Telaari Grapes'),
 (23, 10367, 29451, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shrye Ragefist - Clefthoof Ribs'),
