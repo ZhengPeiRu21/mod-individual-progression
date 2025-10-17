@@ -136,7 +136,7 @@ UPDATE `creature_template_model` SET `CreatureDisplayID` = 9719  WHERE `Creature
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 9674  WHERE `CreatureID` = 9267  AND `Idx` = 0;
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 9715  WHERE `CreatureID` = 9269  AND `Idx` = 0;
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 9149  WHERE `CreatureID` = 9836  AND `Idx` = 0;
--- UPDATE `creature_template_model` SET `CreatureDisplayID` = 11657 WHERE `CreatureID` = 10181 AND `Idx` = 0; -- Unfortunatly, Sylvanas is unrecognisable with this model
+UPDATE `creature_template_model` SET `CreatureDisplayID` = 11657 WHERE `CreatureID` = 10181 AND `Idx` = 0;
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 9754  WHERE `CreatureID` = 10304 AND `Idx` = 0;
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 2582  WHERE `CreatureID` = 10403 AND `Idx` = 0;
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 2582  WHERE `CreatureID` = 10404 AND `Idx` = 0;
@@ -339,6 +339,7 @@ UPDATE `creature_template_model` SET `CreatureDisplayID` = 901   WHERE `Creature
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 14763 WHERE `CreatureID` = 14730 AND `Idx` = 3;
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 1015  WHERE `CreatureID` = 15111 AND `Idx` = 3;
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 14549 WHERE `CreatureID` = 16225 AND `Idx` = 3;
+UPDATE `creature_template_model` SET `CreatureDisplayID` = 2409 WHERE `CreatureID` = 27365 AND `Idx` = 0;
 
 /* Remove the possibility to Vanilla Azshara Blood Elves to use Post-Vanilla model */
 DELETE FROM `creature_template_model` WHERE `CreatureID` = 6198 AND `CreatureDisplayID` = 18983 AND `Idx` = 1;
