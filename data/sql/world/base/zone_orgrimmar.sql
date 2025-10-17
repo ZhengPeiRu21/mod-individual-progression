@@ -126,8 +126,8 @@ SET @Zarg       := 112794; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Hola       := 112795; -- First Sergeant Hola'mahi, Vanilla
 SET @TH_Classic := 26396;  -- Sergeant Thunderhorn, Vanilla
 SET @TH_TBC     := 14581;  -- Sergeant Thunderhorn, TBC
-SET @LP_Classic := 26397;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
-SET @LP_TBC     := 12792;  -- Lady Palanseer <Armor Quartermaster>, TBC
+SET @LP_Classic := 12792;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+SET @LP_TBC     := 26397;  -- Lady Palanseer <Armor Quartermaster>, TBC
 
 
 DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
@@ -191,8 +191,8 @@ DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125694, 125695, 612792, 
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),        -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
-(626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
-(612792, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
+(612792, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+(626397, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
 (612793, @Stonehide, 1, 1657.6, -4191.97, 56.383, 4.52365, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
 (125690, 12793, 1, 1672.24, -4206.81, 56.3827, 3.30568, 180),       -- Brave Stonehide <Officer Accessories Quartermaster>, TBC
 (612794, @Zarg, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Food and Drink>, Vanilla
@@ -365,7 +365,9 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (@LP_Classic, 22878, 653), (@LP_Classic, 22879, 652), (@LP_Classic, 22880, 653), (@LP_Classic, 22881, 653), (@LP_Classic, 22882, 653), (@LP_Classic, 22883, 653), (@LP_Classic, 22884, 652), 
 (@LP_Classic, 22885, 652), (@LP_Classic, 22886, 652), (@LP_Classic, 22887, 653), (@LP_Classic, 23243, 427), (@LP_Classic, 23244, 444), (@LP_Classic, 23251, 444), (@LP_Classic, 23252, 427), 
 (@LP_Classic, 23253, 444), (@LP_Classic, 23254, 427), (@LP_Classic, 23255, 444), (@LP_Classic, 23256, 427), (@LP_Classic, 23257, 444), (@LP_Classic, 23258, 427), (@LP_Classic, 23259, 444), 
-(@LP_Classic, 23260, 427), (@LP_Classic, 23261, 444), (@LP_Classic, 23262, 427), (@LP_Classic, 23263, 444), (@LP_Classic, 23264, 427);
+(@LP_Classic, 23260, 427), (@LP_Classic, 23261, 444), (@LP_Classic, 23262, 427), (@LP_Classic, 23263, 444), (@LP_Classic, 23264, 427), (@LP_Classic, 29600, 428), (@LP_Classic, 29601, 427), 
+(@LP_Classic, 29602, 652), (@LP_Classic, 29603, 653), (@LP_Classic, 29604, 444), (@LP_Classic, 29605, 427), (@LP_Classic, 29612, 465), (@LP_Classic, 29613, 541), (@LP_Classic, 29614, 542), 
+(@LP_Classic, 29615, 463), (@LP_Classic, 29616, 464), (@LP_Classic, 29617, 465);
 
 -- Lady Palanseer <Armor Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry`= @LP_TBC;
