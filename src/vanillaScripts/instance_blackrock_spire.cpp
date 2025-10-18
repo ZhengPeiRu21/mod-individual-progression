@@ -46,11 +46,6 @@ enum EventIds
     EVENT_UBRS_DOOR_OPEN_STAGE_4    = 12,
 };
 
-enum Timers
-{
-    TIMER_SOLAKAR_WAVE = 30000
-};
-
 enum SolakarWaves
 {
     MAX_WAVE_COUNT = 5
@@ -404,13 +399,13 @@ public:
                     if (data == DATA_DRAGONSPIRE_ROOM)
                     {
                         if (GetBossState(DATA_DRAGONSPIRE_ROOM) != DONE)
-                            Events.ScheduleEvent(EVENT_DARGONSPIRE_ROOM_STORE, 1000);
+                            Events.ScheduleEvent(EVENT_DARGONSPIRE_ROOM_STORE, 1s);
                     }
                     if (data == DATA_UBRS_DOOR_OPEN && !UBRSDoorOpen)
                     {
                         UBRSDoorOpen = true;
                         SaveToDB();
-                        Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_1, 1);
+                        Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_1, 1ms);
                     }
                     break;
                 case DATA_SOLAKAR_FLAMEWREATH:
@@ -419,7 +414,7 @@ public:
                         case IN_PROGRESS:
                             if (SolakarState == NOT_STARTED)
                             {
-                                Events.ScheduleEvent(EVENT_SOLAKAR_WAVE, 500);
+                                Events.ScheduleEvent(EVENT_SOLAKAR_WAVE, 500ms);
                             }
                             break;
                         case FAIL:
@@ -614,33 +609,33 @@ public:
                 {
                     case EVENT_DARGONSPIRE_ROOM_STORE:
                         Dragonspireroomstore();
-                        Events.ScheduleEvent(EVENT_DARGONSPIRE_ROOM_CHECK, 3000);
+                        Events.ScheduleEvent(EVENT_DARGONSPIRE_ROOM_CHECK, 3s);
                         break;
                     case EVENT_DARGONSPIRE_ROOM_CHECK:
                         Dragonspireroomcheck();
                         if ((GetBossState(DATA_DRAGONSPIRE_ROOM) != DONE))
-                            Events.ScheduleEvent(EVENT_DARGONSPIRE_ROOM_CHECK, 3000);
+                            Events.ScheduleEvent(EVENT_DARGONSPIRE_ROOM_CHECK, 3s);
                         break;
                     case EVENT_UBRS_DOOR_OPEN_STAGE_1:
                         if (GameObject* brazier = instance->GetGameObject(go_ubrsEnterBraziers[0]))
                             brazier->SetGoState(GO_STATE_ACTIVE);
                         if (GameObject* brazier = instance->GetGameObject(go_ubrsEnterBraziers[1]))
                             brazier->SetGoState(GO_STATE_ACTIVE);
-                        Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_2, 1000);
+                        Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_2, 1s);
                         break;
                     case EVENT_UBRS_DOOR_OPEN_STAGE_2:
                         if (GameObject* brazier = instance->GetGameObject(go_ubrsEnterBraziers[2]))
                             brazier->SetGoState(GO_STATE_ACTIVE);
                         if (GameObject* brazier = instance->GetGameObject(go_ubrsEnterBraziers[3]))
                             brazier->SetGoState(GO_STATE_ACTIVE);
-                        Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_3, 1000);
+                        Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_3, 1s);
                         break;
                     case EVENT_UBRS_DOOR_OPEN_STAGE_3:
                         if (GameObject* brazier = instance->GetGameObject(go_ubrsEnterBraziers[4]))
                             brazier->SetGoState(GO_STATE_ACTIVE);
                         if (GameObject* brazier = instance->GetGameObject(go_ubrsEnterBraziers[5]))
                             brazier->SetGoState(GO_STATE_ACTIVE);
-                        Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_4, 1000);
+                        Events.ScheduleEvent(EVENT_UBRS_DOOR_OPEN_STAGE_4, 1s);
                         break;
                     case EVENT_UBRS_DOOR_OPEN_STAGE_4:
                         if (GameObject* doors = instance->GetGameObject(go_ubrsEnterDoors))
@@ -650,7 +645,7 @@ public:
                         SummonSolakarWave(CurrentSolakarWave);
                         if (CurrentSolakarWave < MAX_WAVE_COUNT)
                         {
-                            Events.ScheduleEvent(EVENT_SOLAKAR_WAVE, TIMER_SOLAKAR_WAVE);
+                            Events.ScheduleEvent(EVENT_SOLAKAR_WAVE, 30s);
                             CurrentSolakarWave++;
                         }
                         break;

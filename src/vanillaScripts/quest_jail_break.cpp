@@ -101,10 +101,10 @@ public:
             _instance = creature->GetInstanceScript();
         }
 
-        void SetGUID(ObjectGuid playerGUID, int32 /*id*/) override
+        void SetGUID(ObjectGuid const& playerGUID, int32 /*id*/) override
         {
             _playerGUID = playerGUID;
-            Start(true, false, playerGUID, 0, false, false);
+            Start(true, playerGUID, nullptr, false, false, false);
             me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_NPC | UNIT_FLAG_IMMUNE_TO_PC);
         }
 
@@ -204,7 +204,7 @@ public:
                     break;
                 case 22:
                     SetEscortPaused(true);
-                    _events.ScheduleEvent(EVENT_RESUME_ESCORT, 8000);
+                    _events.ScheduleEvent(EVENT_RESUME_ESCORT, 8s);
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                     {
                         me->GetMotionMaster()->Clear();
@@ -458,7 +458,7 @@ public:
         {
             if (actionId == 0)
             {
-                Start(false, true, ObjectGuid::Empty, 0, false, false);
+                Start(false, ObjectGuid::Empty, nullptr, false, false, false);
             }
         }
     };
