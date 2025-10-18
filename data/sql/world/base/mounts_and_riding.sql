@@ -45,7 +45,7 @@ UPDATE npc_trainer SET ReqLevel = 40 WHERE SpellID = 1710;  -- Summon Felsteed
 UPDATE npc_trainer SET ReqLevel = 68 WHERE SpellID = 33950; -- Flight Form
 
 
--- Hide pre 1.6 epic mounts ater BWL is unlocked
+-- Hide pre 1.6 epic mounts ater BWL is unlocked - Hide WotLK mounts on vanilla vendors
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (384, 1261, 3362, 3685, 4730, 4731, 7952, 7955);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
