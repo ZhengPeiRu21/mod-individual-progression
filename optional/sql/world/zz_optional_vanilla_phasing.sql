@@ -95,6 +95,32 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 31725  -- Sky-Captain LaFontaine, Zep
 );
 
+-- Hide Jewelcrafting recipes on vanilla vendors
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceEntry` IN (20855, 20856, 20970, 20971, 20975, 21941, 21942, 21943, 21948, 21954, 21957);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(23, 3499,  20855, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Ranik - Design: Wicked Moonstone Ring'),
+(23, 3954,  20855, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Dalria - Design: Wicked Moonstone Ring'),
+(23, 1286,  20856, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Edna Mullby - Design: Heavy Golden Necklace of Battle'),
+(23, 3367,  20856, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Felika - Design: Heavy Golden Necklace of Battle'),
+(23, 1448,  20970, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Neal Allen - Design: Pendant of the Agate Shield'),
+(23, 4877,  20970, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Jandia - Design: Pendant of the Agate Shield'),
+(23, 2381,  20971, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Micha Yance - Design: Heavy Iron Knuckles'),
+(23, 2393,  20971, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Christoph Jeffcoat - Design: Heavy Iron Knuckles'),
+(23, 4775,  20975, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Burbik Gearspanner - Design: The Jade Eye'),
+(23, 5163,  20975, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Felika - Design: The Jade Eye'),
+(23, 989,   21941, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Banalash - Design: Black Pearl Panther'),
+(23, 4897,  21941, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Helenia Olden - Design: Black Pearl Panther'),
+(23, 2810,  21942, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Hammon Karwn - Design: Ruby Crown of Restoration'),
+(23, 2821,  21942, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Keena - Design: Ruby Crown of Restoration'),
+(23, 1148,  21943, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Nerrist - Design: Truesilver Crab'),
+(23, 4897,  21943, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Helenia Olden - Design: Truesilver Crab'),
+(23, 5163,  21948, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Burbik Gearspanner - Design: Wicked Moonstone Ring'),
+(23, 8363,  21948, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shadi Mistrunner - Design: Wicked Moonstone Ring'),
+(23, 12941, 21954, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Jase Farlane - Design: Ring of Bitter Shadows'),
+(23, 11189, 21957, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Qia - Design: Necklace of the Diamond Tower');
+
 -- Hide TBC quests
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (9189, 9425);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
