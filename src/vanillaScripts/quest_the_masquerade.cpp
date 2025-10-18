@@ -237,16 +237,16 @@ public:
                 switch (eventId)
                 {
                     case 1:
-                        me->GetMotionMaster()->MovePoint(1, -9053.81f, 442.66f, 93.05f, false);
+                        me->GetMotionMaster()->MovePoint(1, -9053.81f, 442.66f, 93.05f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 2:
-                        me->GetMotionMaster()->MovePoint(2, -9082.63f, 421.29f, 92.55f, false);
+                        me->GetMotionMaster()->MovePoint(2, -9082.63f, 421.29f, 92.55f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 3:
-                        me->GetMotionMaster()->MovePoint(3, -9057.101563f, 439.136200f, 93.050003f, false);
+                        me->GetMotionMaster()->MovePoint(3, -9057.101563f, 439.136200f, 93.050003f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 4:
-                        me->GetMotionMaster()->MovePoint(4, -9043.89f, 434.39f, 93.29f, false);
+                        me->GetMotionMaster()->MovePoint(4, -9043.89f, 434.39f, 93.29f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 5:
                         Talk(SAY_SQUIRE_ROWE);
@@ -554,7 +554,7 @@ public:
                         {
                             me->HandleEmoteCommand(EMOTE_ONESHOT_ATTACK_UNARMED);
                             Talk(SAY_REGINALD_SHOO_HORSE);
-                            mercutio->GetMotionMaster()->MovePoint(1, -9150.777344f, 370.672607f, 90.537186f, false);
+                            mercutio->GetMotionMaster()->MovePoint(1, -9150.777344f, 370.672607f, 90.537186f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                             mercutio->DespawnOrUnsummon(10s);
                         }
                         _events.ScheduleEvent(EVENT_END_INTRO, 3s);
@@ -745,64 +745,64 @@ public:
                         break;
                     case 25:
                         _canGreet = true;
-                        me->GetMotionMaster()->MovePoint(6, -8953.17f, 518.537f, 96.355f, false);
+                        me->GetMotionMaster()->MovePoint(6, -8953.17f, 518.537f, 96.355f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 26:
-                        me->GetMotionMaster()->MovePoint(7, -8936.33f, 501.777f, 94.066f, false);
+                        me->GetMotionMaster()->MovePoint(7, -8936.33f, 501.777f, 94.066f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 27:
-                        me->GetMotionMaster()->MovePoint(8, -8922.52f, 498.45f, 93.869f, false);
+                        me->GetMotionMaster()->MovePoint(8, -8922.52f, 498.45f, 93.869f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 28:
-                        me->GetMotionMaster()->MovePoint(9, -8907.64f, 509.941f, 93.840f, false);
+                        me->GetMotionMaster()->MovePoint(9, -8907.64f, 509.941f, 93.840f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 29:
-                        me->GetMotionMaster()->MovePoint(10, -8925.26f, 542.51f, 94.274f, false);
+                        me->GetMotionMaster()->MovePoint(10, -8925.26f, 542.51f, 94.274f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 30:
-                        me->GetMotionMaster()->MovePoint(11, -8832.28f, 622.285f, 93.686f, false);
+                        me->GetMotionMaster()->MovePoint(11, -8832.28f, 622.285f, 93.686f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 31:
-                        me->GetMotionMaster()->MovePoint(12, -8824.8f, 621.713f, 94.084f, false);
+                        me->GetMotionMaster()->MovePoint(12, -8824.8f, 621.713f, 94.084f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 32:
-                        me->GetMotionMaster()->MovePoint(13, -8796.46f, 590.922f, 97.466f, false);
+                        me->GetMotionMaster()->MovePoint(13, -8796.46f, 590.922f, 97.466f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 33:
-                        me->GetMotionMaster()->MovePoint(14, -8769.85f, 607.883f, 97.118f, false);
+                        me->GetMotionMaster()->MovePoint(14, -8769.85f, 607.883f, 97.118f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 34:
-                        me->GetMotionMaster()->MovePoint(15, -8737.14f, 574.741f, 97.398f, false);
+                        me->GetMotionMaster()->MovePoint(15, -8737.14f, 574.741f, 97.398f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 35:
-                        me->GetMotionMaster()->MovePoint(16, -8746.27f, 563.446f, 97.399f, false);
+                        me->GetMotionMaster()->MovePoint(16, -8746.27f, 563.446f, 97.399f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 36:
-                        me->GetMotionMaster()->MovePoint(17, -8745.5f, 557.877f, 97.704f, false);
+                        me->GetMotionMaster()->MovePoint(17, -8745.5f, 557.877f, 97.704f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 37:
-                        me->GetMotionMaster()->MovePoint(18, -8730.95f, 541.477f, 101.12f, false);
+                        me->GetMotionMaster()->MovePoint(18, -8730.95f, 541.477f, 101.12f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 38:
-                        me->GetMotionMaster()->MovePoint(19, -8713.16f, 520.692f, 97.227f, false);
+                        me->GetMotionMaster()->MovePoint(19, -8713.16f, 520.692f, 97.227f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 39:
-                        me->GetMotionMaster()->MovePoint(20, -8677.09f, 549.614f, 97.438f, false);
+                        me->GetMotionMaster()->MovePoint(20, -8677.09f, 549.614f, 97.438f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 40:
-                        me->GetMotionMaster()->MovePoint(21, -8655.72f, 552.732f, 96.941f, false);
+                        me->GetMotionMaster()->MovePoint(21, -8655.72f, 552.732f, 96.941f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 41:
-                        me->GetMotionMaster()->MovePoint(22, -8641.68f, 540.516f, 98.972f, false);
+                        me->GetMotionMaster()->MovePoint(22, -8641.68f, 540.516f, 98.972f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 42:
-                        me->GetMotionMaster()->MovePoint(23, -8620.08f, 520.120f, 102.812f, false);
+                        me->GetMotionMaster()->MovePoint(23, -8620.08f, 520.120f, 102.812f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 43:
-                        me->GetMotionMaster()->MovePoint(24, -8591.09f, 492.553f, 104.032f, false);
+                        me->GetMotionMaster()->MovePoint(24, -8591.09f, 492.553f, 104.032f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 44:
-                        me->GetMotionMaster()->MovePoint(25, -8562.45f, 463.583f, 104.517f, false);
+                        me->GetMotionMaster()->MovePoint(25, -8562.45f, 463.583f, 104.517f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 45: // Break here, before keep.
                         Summons.DespawnAll();
@@ -815,7 +815,7 @@ public:
                         me->GetMotionMaster()->MovePoint(28, -8455.95f, 351.225f, 120.88f);
                         break;
                     case 48: // Say something
-                        me->GetMotionMaster()->MovePoint(29, -8446.87f, 339.904f, 121.33f, false);
+                        me->GetMotionMaster()->MovePoint(29, -8446.87f, 339.904f, 121.33f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         break;
                     case 49:
                         _events.ScheduleEvent(50, 9s);
@@ -870,7 +870,7 @@ public:
                         {
                             bolvar->SetWalk(true);
                             bolvar->AI()->Talk(EMOTE_BOLVAR_GASP);
-                            bolvar->GetMotionMaster()->MovePoint(1, -8448.690f, 337.074f, 121.330f, false);
+                            bolvar->GetMotionMaster()->MovePoint(1, -8448.690f, 337.074f, 121.330f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                         }
                         _events.ScheduleEvent(58, 2s);
                         _events.ScheduleEvent(60, 6s);
@@ -895,7 +895,7 @@ public:
                         if (Creature* anduinn = me->FindNearestCreature(NPC_ANDUINN, 20.0f))
                         {
                             anduinn->SetWalk(true);
-                            anduinn->GetMotionMaster()->MovePoint(1, -8505.770f, 338.312f, 120.886f, true);
+                            anduinn->GetMotionMaster()->MovePoint(1, -8505.770f, 338.312f, 120.886f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, true);
                             anduinn->DespawnOrUnsummon(5s);
                         }
                         break;
@@ -976,7 +976,7 @@ public:
                         {
                             bolvar->SetUInt32Value(UNIT_NPC_EMOTESTATE, 0);
                             bolvar->GetMotionMaster()->Clear();
-                            bolvar->GetMotionMaster()->MovePoint(1, -8448.279f, 338.398f, 121.329f, false);
+                            bolvar->GetMotionMaster()->MovePoint(1, -8448.279f, 338.398f, 121.329f, FORCED_MOVEMENT_NONE, 0.0f, 0.0f, false);
                             bolvar->SetFacingToObject(me);
                             bolvar->SetStandState(UNIT_STAND_STATE_KNEEL);
                         }
