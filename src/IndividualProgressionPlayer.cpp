@@ -974,7 +974,7 @@ public:
                 }					
                 break;
             case AREA_IRONTREE_WOOD:
-                if ((player->getClass() == CLASS_HUNTER) && (player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_REWARDED))
+                if ((player->getClass() == CLASS_HUNTER) && ((player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_INCOMPLETE) || (player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_REWARDED)))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
