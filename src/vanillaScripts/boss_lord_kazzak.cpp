@@ -86,9 +86,9 @@ public:
         void Reset() override
         {
             _events.Reset();
-            _events.ScheduleEvent(EVENT_SHADOW_VOLLEY, (6s, 10s));
+            _events.ScheduleEvent(EVENT_SHADOW_VOLLEY, 6s, 10s);
             _events.ScheduleEvent(EVENT_CLEAVE, 7s);
-            _events.ScheduleEvent(EVENT_THUNDERCLAP, (14s, 18s));
+            _events.ScheduleEvent(EVENT_THUNDERCLAP, 14s, 18s);
             _events.ScheduleEvent(EVENT_VOID_BOLT, 30s);
             _events.ScheduleEvent(EVENT_MARK_OF_KAZZAK, 25s);
             _events.ScheduleEvent(EVENT_TWISTED_REFLECTION, 33s);
@@ -146,21 +146,21 @@ public:
                     case EVENT_SHADOW_VOLLEY:
                         DoCastVictim(SPELL_SHADOW_VOLLEY);
                         if (!_supremeMode)
-                            _events.ScheduleEvent(EVENT_SHADOW_VOLLEY, (4s, 30s));
+                            _events.ScheduleEvent(EVENT_SHADOW_VOLLEY, 4s, 30s);
                         else
                             _events.ScheduleEvent(EVENT_SHADOW_VOLLEY, 1s);
                         break;
                     case EVENT_CLEAVE:
                         DoCastVictim(SPELL_CLEAVE);
-                        _events.ScheduleEvent(EVENT_CLEAVE, (8s, 12s));
+                        _events.ScheduleEvent(EVENT_CLEAVE, 8s, 12s);
                         break;
                     case EVENT_THUNDERCLAP:
                         DoCastVictim(SPELL_THUNDERCLAP);
-                        _events.ScheduleEvent(EVENT_THUNDERCLAP, (10s, 14s));
+                        _events.ScheduleEvent(EVENT_THUNDERCLAP, 10s, 14s);
                         break;
                     case EVENT_VOID_BOLT:
                         DoCastVictim(SPELL_VOID_BOLT);
-                        _events.ScheduleEvent(EVENT_VOID_BOLT, (15s, 18s));
+                        _events.ScheduleEvent(EVENT_VOID_BOLT, 15s, 18s);
                         break;
                     case EVENT_MARK_OF_KAZZAK:
                         if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, [&](Unit* u) { return u && !u->IsPet() && u->getPowerType() == POWER_MANA; }))
