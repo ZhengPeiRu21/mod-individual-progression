@@ -1118,7 +1118,7 @@ public:
                 {
                     case 5:
                         DoCastVictim(15284); // Cleave
-                        _events.ScheduleEvent(5, (5s, 8s));
+                        _events.ScheduleEvent(5, 5s, 8s);
                         break;
                 }
             }
