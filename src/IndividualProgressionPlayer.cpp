@@ -973,6 +973,15 @@ public:
                     player->CastSpell(player, IPP_PHASE_II, false);
                 }					
                 break;
+            case AREA_IRONTREE_WOOD:
+                if ((player->getClass() == CLASS_HUNTER) && (player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_REWARDED))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
             case AREA_LIGHTS_HOPE:
             case AREA_ARGENT_TOURNAMENT_GROUNDS:
             case AREA_ARGENT_SUNREAVER_PAVILION:
