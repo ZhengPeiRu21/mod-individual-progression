@@ -150,10 +150,10 @@ public:
             switch (ph)
             {
                 case PHASE_GROUNDED:
-                    events.ScheduleEvent(EVENT_SPELL_WINGBUFFET, (10s, 20s));
-                    events.ScheduleEvent(EVENT_SPELL_FLAMEBREATH, (10s, 20s));
-                    events.ScheduleEvent(EVENT_SPELL_TAILSWEEP, (15s, 20s));
-                    events.ScheduleEvent(EVENT_SPELL_CLEAVE, (2s, 5s));
+                    events.ScheduleEvent(EVENT_SPELL_WINGBUFFET, 10s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_FLAMEBREATH, 10s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_TAILSWEEP, 15s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_CLEAVE, 2s, 5s);
                     break;
                 case PHASE_AIRPHASE:
                     events.ScheduleEvent(EVENT_START_PHASE_2, 0ms);
@@ -510,10 +510,10 @@ public:
                     DoCastAOE(SPELL_BELLOWINGROAR);
 
                     events.ScheduleEvent(EVENT_ERUPTION, 0ms);
-                    events.ScheduleEvent(EVENT_SPELL_WINGBUFFET, (10s, 20s));
-                    events.ScheduleEvent(EVENT_SPELL_FLAMEBREATH, (10s, 20s));
-                    events.ScheduleEvent(EVENT_SPELL_TAILSWEEP, (15s, 20s));
-                    events.ScheduleEvent(EVENT_SPELL_CLEAVE, (2s, 5s));
+                    events.ScheduleEvent(EVENT_SPELL_WINGBUFFET, 10s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_FLAMEBREATH, 10s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_TAILSWEEP, 15s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_CLEAVE, 2s, 5s);
                     events.ScheduleEvent(EVENT_SPELL_BELLOWINGROAR, 15s);
                     events.ScheduleEvent(EVENT_SUMMON_WHELP, 10s);
                     break;
