@@ -161,6 +161,7 @@ enum ProgressionAreas
     AREA_HIVE_ASHI                       = 2742,
     AREA_HIVE_ZORA                       = 2743,
     AREA_HIVE_REGAL                      = 2744,
+    AREA_IRONTREE_WOOD                   = 3587,
     AREA_ARGENT_SUNREAVER_PAVILION       = 4666,
     AREA_ARGENT_SILVER_COVENANT_PAVILION = 4667,
     AREA_ARGENT_PAVILION                 = 4674
