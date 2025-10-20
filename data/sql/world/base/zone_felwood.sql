@@ -147,9 +147,9 @@ SET @IPPPHASE := 65536;
 DELETE FROM `creature` WHERE `id1` IN (14524, 14525, 14526);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(1976191, 14524, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6194.55, -1176.35, 369.056, 1.1098,  600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(1976192, 14525, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6197.12, -1135.42, 366.31,  5.28025, 600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(1976193, 14526, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6245.91, -1165.98, 366.325, 2.60598, 600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+(614524, 14524, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6194.55, -1176.35, 369.056, 1.1098,  600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(614525, 14525, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6197.12, -1135.42, 366.31,  5.28025, 600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(614526, 14526, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6245.91, -1165.98, 366.325, 2.60598, 600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 
 -- fix Withered Protector waypoints
