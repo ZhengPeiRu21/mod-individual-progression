@@ -62,14 +62,15 @@ enum BuffSpells
 
 enum ProgressionQuestIDs
 {
-    QUEST_TROLL_NECKLACE  = 2881,
-    QUEST_MORROWGRAIN     = 3803,
-    QUEST_DEADWOOD        = 6221,
-    QUEST_WINTERFALL      = 6241,
-    MIGHT_OF_KALIMDOR     = 8742,
-    INTO_THE_BREACH       = 10259,
-    BANG_A_GONG           = 108743,
-    CHAOS_AND_DESTRUCTION = 108744
+    QUEST_TROLL_NECKLACE      = 2881,
+    QUEST_MORROWGRAIN         = 3803,
+    QUEST_DEADWOOD            = 6221,
+    QUEST_WINTERFALL          = 6241,
+    QUEST_THE_ANCIENT_LEAF    = 7632,
+    MIGHT_OF_KALIMDOR         = 8742,
+    INTO_THE_BREACH           = 10259,
+    BANG_A_GONG               = 108743,
+    CHAOS_AND_DESTRUCTION     = 108744
 };
 
 enum ProgressionQuests
@@ -145,6 +146,7 @@ enum ProgressionAreas
     AREA_DREADMAUL_POST                  = 1439,
     AREA_SERPENTS_COIL                   = 1440,
     AREA_VALLEY_OF_HEROES                = 1611,
+    AREA_IRONTREE_WOOD                   = 1767,
     AREA_BROKEN_PILLAR                   = 1938,
     AREA_ABYSSAL_SANDS                   = 1939,
     AREA_TWILIGHT_VALE                   = 2077,
