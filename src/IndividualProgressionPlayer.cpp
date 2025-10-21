@@ -42,7 +42,7 @@ public:
 
 		if (sIndividualProgression->isExcludedFromProgression(player))
         {
-                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));    
+            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));    
         }
 
         sIndividualProgression->CheckAdjustments(player);
@@ -411,7 +411,6 @@ public:
             return true;
         }
     }
-
 
     bool OnPlayerCanGroupAccept(Player* player, Group* group) override
     {
