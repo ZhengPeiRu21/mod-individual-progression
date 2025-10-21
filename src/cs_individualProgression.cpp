@@ -61,20 +61,6 @@ public:
         return true;
     }
 
-    static bool isAttuned(Player* player)
-    {
-        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || 
-            (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
-            (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, std::string location)
     {	 
         if (location != "naxx40" && location != "onyxia40" && location != "naxx" && location != "onyxia")
@@ -88,7 +74,7 @@ public:
         uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         std::string playername = target->GetName();
 
-        if ((location == "naxx" || location == "naxx40" ) && ((progressionLevel < PROGRESSION_TBC_TIER_5 && isAttuned(target)) || target->IsGameMaster()))
+        if ((location == "naxx" || location == "naxx40" ) && ((progressionLevel < PROGRESSION_TBC_TIER_5 && sIndividualProgression->isAttuned(target)) || target->IsGameMaster()))
         {
             target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
             target->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
