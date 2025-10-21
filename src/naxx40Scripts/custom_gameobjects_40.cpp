@@ -30,7 +30,7 @@ public:
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
 
-			if (sIndividualProgression->isAttuned(player) || isExcludedFromProgression(player))
+			if (sIndividualProgression->isAttuned(player) || sIndividualProgression->isExcludedFromProgression(player))
                 player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
         }
         return true;
