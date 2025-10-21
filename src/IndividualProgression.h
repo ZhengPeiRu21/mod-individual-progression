@@ -267,6 +267,7 @@ public:
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;
     bool hasCustomProgressionValue(uint32 creatureEntry);
+    bool isExcludedFromProgression(Player* player);
     bool isAttuned(Player* player);
     void checkIPProgression(Player* player);	
     void UpdateProgressionQuests(Player* player);
