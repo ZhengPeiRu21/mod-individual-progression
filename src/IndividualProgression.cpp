@@ -3,6 +3,7 @@
  */
 
 #include "IndividualProgression.h"
+#include "naxxramas_40.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
