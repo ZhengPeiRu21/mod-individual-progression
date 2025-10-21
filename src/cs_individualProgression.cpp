@@ -16,10 +16,10 @@ public:
     {
         static ChatCommandTable individualProgressionTable =
         {
+            { "get",    HandleGetIndividualProgressionCommand,  SEC_GAMEMASTER,    Console::Yes },
             { "set",    HandleSetIndividualProgressionCommand,  SEC_GAMEMASTER,    Console::Yes },
             { "tele",   HandleTeleIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
-            { "view",   HandleViewIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
-            { "get",    HandleViewIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
+            { "view",   HandleGetIndividualProgressionCommand,  SEC_GAMEMASTER,    Console::Yes },
         };
 
         static ChatCommandTable commandTable =
@@ -29,6 +29,17 @@ public:
         };
 
         return commandTable;
+    }
+
+    static bool HandleGetIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player)
+    {
+        player = PlayerIdentifier::FromTargetOrSelf(handler);
+        Player* target = player->GetConnectedPlayer();
+        uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        std::string playername = target->GetName();
+
+        handler->PSendSysMessage("Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
+        return true;
     }
 
     static bool HandleSetIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, uint32 progressionLevel)
@@ -42,22 +53,71 @@ public:
         player = PlayerIdentifier::FromTargetOrSelf(handler);
         Player* target = player->GetConnectedPlayer();
         std::string playername = target->GetName();
+        uint8 currentState = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+		
+		if (progressionLevel < currentState)
+        {
+            for (uint8 i = progressionLevel; i < currentState; ++i)
+            {
+                if  (i == 0) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, RAGNAROS_KILL);
+                }
+                else if  (i == 1) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, ONYXIAS_KILL);
+                }
+                else if  (i == 2) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, NEFARIAN_KILL);
+                }
+                else if  (i == 5) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, C_THUN_KILL);
+                }
+                else if  (i == 8) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, MALCHEZAAR_KILL);
+                }
+                else if  (i == 9) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, KAEL_THAS_KILL);
+                }
+                else if  (i == 10) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, ILLIDAN_KILL);
+                }
+                else if  (i == 11) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, ZUL_JIN_KILL);
+                }
+                else if  (i == 12) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, KIL_JAEDEN_KILL);
+                }
+                else if  (i == 13) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, KEL_THUZAD_KILL);
+                }
+                else if  (i == 15) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, ANUB_ARAK_KILL);
+                }
+                else if  (i == 16) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, LICH_KING_KILL);
+                }
+                else if  (i == 17) 
+                {
+                    sIndividualProgression->RemovePlayerAchievement(target, HALION_KILL);
+                }
+            }
+        }
 
         sIndividualProgression->ForceUpdateProgressionState(target, static_cast<ProgressionState>(progressionLevel));
         sIndividualProgression->UpdateProgressionQuests(target);
 
         handler->PSendSysMessage("Updated Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
-        return true;
-    }
-
-    static bool HandleViewIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player)
-    {
-        player = PlayerIdentifier::FromTargetOrSelf(handler);
-        Player* target = player->GetConnectedPlayer();
-        uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
-        std::string playername = target->GetName();
-
-        handler->PSendSysMessage("Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
         return true;
     }
 
