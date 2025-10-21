@@ -1012,6 +1012,49 @@ public:
     }
 };
 
+class npc_ipp_tbc_pre_wotlk : public CreatureScript
+{
+public:
+    npc_ipp_tbc_pre_wotlk() : CreatureScript("npc_ipp_tbc_pre_wotlk") { }
+
+    struct npc_ipp_tbc_pre_wotlkAI: ScriptedAI
+    {
+        explicit npc_ipp_tbc_pre_wotlkAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) && sIndividualProgression->isBeforeProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_5);
+        }
+
+        protected:
+            void MoveInLineOfSight(Unit* who) override
+            {
+                if (!who)
+                    return;
+
+                if (sIndividualProgression->enabled
+                    && who->IsPlayer()
+                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_NAXX40)
+                    && !sIndividualProgression->isBeforeProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_5))
+                {
+                    return;
+                }
+
+                ScriptedAI::MoveInLineOfSight(who);
+            }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_tbc_pre_wotlkAI(creature);
+    }
+};
+
 
 class npc_ipp_tbc_pre_t4 : public CreatureScript
 {
@@ -1475,6 +1518,7 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_naxx40();
     new gobject_ipp_naxx40_pre_wotlk();
     new gobject_ipp_pre_tbc(); // stormwind pvp room
+    new npc_ipp_tbc_pre_wotlk();
     new gobject_ipp_tbc();
     new gobject_ipp_tbc_t4();
     new gobject_ipp_tbc_t5();
