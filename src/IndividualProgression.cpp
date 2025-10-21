@@ -168,6 +168,17 @@ bool IndividualProgression::isAttuned(Player* player)
     }
 }
 
+bool IndividualProgression::isExcludedFromProgression(Player* player)
+{
+    if(!sIndividualProgression->excludeAccounts) {
+        return false;
+    }
+    std::string accountName;
+    bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
+    std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
+    return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
+}
+
 void IndividualProgression::checkIPProgression(Player* killer)
 {
     if (!enabled || disableDefaultProgression)
