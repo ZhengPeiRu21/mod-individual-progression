@@ -53,63 +53,64 @@ public:
         player = PlayerIdentifier::FromTargetOrSelf(handler);
         Player* target = player->GetConnectedPlayer();
         std::string playername = target->GetName();
+        uint16 playerGUID = target->GetGUID().GetCounter();
         uint8 currentState = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 		
 		if (progressionLevel < currentState)
         {
             for (uint8 i = progressionLevel; i < currentState; ++i)
             {
-                if  (i == 0) 
+                if  (i == 0 && target->HasAchieved(RAGNAROS_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, RAGNAROS_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, RAGNAROS_KILL);
                 }
-                else if  (i == 1) 
+                else if  (i == 1 && target->HasAchieved(ONYXIAS_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, ONYXIAS_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, ONYXIAS_KILL);
                 }
-                else if  (i == 2) 
+                else if  (i == 2 && target->HasAchieved(NEFARIAN_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, NEFARIAN_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, NEFARIAN_KILL);
                 }
-                else if  (i == 5) 
+                else if  (i == 5 && target->HasAchieved(C_THUN_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, C_THUN_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, C_THUN_KILL);
                 }
-                else if  (i == 8) 
+                else if  (i == 8 && target->HasAchieved(MALCHEZAAR_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, MALCHEZAAR_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, MALCHEZAAR_KILL);
                 }
-                else if  (i == 9) 
+                else if  (i == 9 && target->HasAchieved(KAEL_THAS_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, KAEL_THAS_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, KAEL_THAS_KILL);
                 }
-                else if  (i == 10) 
+                else if  (i == 10 && target->HasAchieved(ILLIDAN_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, ILLIDAN_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, ILLIDAN_KILL);
                 }
-                else if  (i == 11) 
+                else if  (i == 11 && target->HasAchieved(ZUL_JIN_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, ZUL_JIN_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, ZUL_JIN_KILL);
                 }
-                else if  (i == 12) 
+                else if  (i == 12 && target->HasAchieved(KIL_JAEDEN_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, KIL_JAEDEN_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, KIL_JAEDEN_KILL);
                 }
-                else if  (i == 13) 
+                else if  (i == 13 && target->HasAchieved(KEL_THUZAD_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, KEL_THUZAD_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, KEL_THUZAD_KILL);
                 }
-                else if  (i == 15) 
+                else if  (i == 15 && target->HasAchieved(ANUB_ARAK_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, ANUB_ARAK_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, ANUB_ARAK_KILL);
                 }
-                else if  (i == 16) 
+                else if  (i == 16 && target->HasAchieved(LICH_KING_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, LICH_KING_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, LICH_KING_KILL);
                 }
-                else if  (i == 17) 
+                else if  (i == 17 && target->HasAchieved(HALION_KILL))
                 {
-                    sIndividualProgression->RemovePlayerAchievement(target, HALION_KILL);
+                    sIndividualProgression->RemovePlayerAchievement(playerGUID, HALION_KILL);
                 }
             }
         }
