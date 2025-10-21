@@ -18402,8 +18402,8 @@ UPDATE `creature_template` SET `DamageModifier` = 1.6, `ArmorModifier` = 1.15, `
 UPDATE `creature_template` SET `DamageModifier` = 1.6, `ArmorModifier` = 1.15, `ManaModifier` = 1.0, `RangeAttackTime` = 1529, `unit_class` = 1 WHERE `entry` = 12791;
 
 /*  Lady Palanseer  */
-UPDATE `creature_template` SET `minlevel` = 65, `maxlevel` = 65, `speed_walk` = 1.0, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry` =  12792;
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `speed_walk` = 1.0, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry` =  26397;
+UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `speed_walk` = 1.0, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry` =  12792;
+UPDATE `creature_template` SET `minlevel` = 65, `maxlevel` = 65, `speed_walk` = 1.0, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry` =  26397;
 
 /*  Brave Stonehide  */
 UPDATE `creature_template` SET `DamageModifier` = 2.9 WHERE `entry` = 12793;

@@ -117,7 +117,7 @@ public:
             me->SetInCombatWithZone();
             events.ScheduleEvent(EVENT_MORTAL_WOUND, 10s);
             events.ScheduleEvent(EVENT_ENRAGE, 10s); // VMangos value
-            events.ScheduleEvent(EVENT_DECIMATE, RAID_MODE(110000, 90000, 110000, 90000));
+            events.ScheduleEvent(EVENT_DECIMATE, RAID_MODE(110s, 90s, 110s, 90s));
             events.ScheduleEvent(EVENT_BERSERK, 6min);
             events.ScheduleEvent(EVENT_SUMMON_ZOMBIE, 6s); // VMangos value
             events.ScheduleEvent(EVENT_CAN_EAT_ZOMBIE, 3s);  // VMangos value
@@ -224,7 +224,7 @@ public:
                             }
                         }
                     }
-                    events.RepeatEvent(105000);
+                    events.Repeat(105s);
                     break;
                 case EVENT_SUMMON_ZOMBIE:
                     {
@@ -248,7 +248,7 @@ public:
                         break;
                     }
                 case EVENT_CAN_EAT_ZOMBIE:
-                    events.RepeatEvent(1000);
+                    events.Repeat(1s);
                     if (me->GetVictim()->GetEntry() == NPC_ZOMBIE_CHOW && me->IsWithinMeleeRange(me->GetVictim()))
                     {
                         me->CastCustomSpell(SPELL_CHOW_SEARCHER, SPELLVALUE_RADIUS_MOD, 20000, me, true);

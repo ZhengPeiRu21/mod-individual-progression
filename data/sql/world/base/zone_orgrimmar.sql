@@ -126,8 +126,8 @@ SET @Zarg       := 112794; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Hola       := 112795; -- First Sergeant Hola'mahi, Vanilla
 SET @TH_Classic := 26396;  -- Sergeant Thunderhorn, Vanilla
 SET @TH_TBC     := 14581;  -- Sergeant Thunderhorn, TBC
-SET @LP_Classic := 26397;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
-SET @LP_TBC     := 12792;  -- Lady Palanseer <Armor Quartermaster>, TBC
+SET @LP_Classic := 12792;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+SET @LP_TBC     := 26397;  -- Lady Palanseer <Armor Quartermaster>, TBC
 
 
 DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
@@ -187,12 +187,13 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
+DELETE FROM `creature` WHERE `id1` IN (12799, 12793, 12794, 12795, 12796, 20278, 23447, 23396) AND `map` = 1;
 DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125694, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 620278, 623396, 623447, 626396, 626397);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),        -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
-(626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
-(612792, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
+(612792, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+(626397, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
 (612793, @Stonehide, 1, 1657.6, -4191.97, 56.383, 4.52365, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
 (125690, 12793, 1, 1672.24, -4206.81, 56.3827, 3.30568, 180),       -- Brave Stonehide <Officer Accessories Quartermaster>, TBC
 (612794, @Zarg, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Food and Drink>, Vanilla
@@ -365,7 +366,9 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (@LP_Classic, 22878, 653), (@LP_Classic, 22879, 652), (@LP_Classic, 22880, 653), (@LP_Classic, 22881, 653), (@LP_Classic, 22882, 653), (@LP_Classic, 22883, 653), (@LP_Classic, 22884, 652), 
 (@LP_Classic, 22885, 652), (@LP_Classic, 22886, 652), (@LP_Classic, 22887, 653), (@LP_Classic, 23243, 427), (@LP_Classic, 23244, 444), (@LP_Classic, 23251, 444), (@LP_Classic, 23252, 427), 
 (@LP_Classic, 23253, 444), (@LP_Classic, 23254, 427), (@LP_Classic, 23255, 444), (@LP_Classic, 23256, 427), (@LP_Classic, 23257, 444), (@LP_Classic, 23258, 427), (@LP_Classic, 23259, 444), 
-(@LP_Classic, 23260, 427), (@LP_Classic, 23261, 444), (@LP_Classic, 23262, 427), (@LP_Classic, 23263, 444), (@LP_Classic, 23264, 427);
+(@LP_Classic, 23260, 427), (@LP_Classic, 23261, 444), (@LP_Classic, 23262, 427), (@LP_Classic, 23263, 444), (@LP_Classic, 23264, 427), (@LP_Classic, 29600, 428), (@LP_Classic, 29601, 427), 
+(@LP_Classic, 29602, 652), (@LP_Classic, 29603, 653), (@LP_Classic, 29604, 444), (@LP_Classic, 29605, 427), (@LP_Classic, 29612, 465), (@LP_Classic, 29613, 541), (@LP_Classic, 29614, 542), 
+(@LP_Classic, 29615, 463), (@LP_Classic, 29616, 464), (@LP_Classic, 29617, 465);
 
 -- Lady Palanseer <Armor Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry`= @LP_TBC;
@@ -390,7 +393,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 DELETE FROM `conditions` WHERE `SourceGroup` IN (12796, @LP_Classic, @LP_TBC, @TH_Classic, @TH_TBC);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
--- -- 
+-- 
 -- (23, @LP_Classic, 16533, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Cowl until the player has completed PROGRESSION_ONYXIA'),
 -- (23, @LP_Classic, 16534, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Trousers until the player has completed PROGRESSION_ONYXIA'),
 -- (23, @LP_Classic, 16535, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Raiment until the player has completed PROGRESSION_ONYXIA'),
@@ -439,7 +442,13 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 -- (23, @LP_Classic, 17623, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Cowl until the player has completed PROGRESSION_ONYXIA'),
 -- (23, @LP_Classic, 17624, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Robes until the player has completed PROGRESSION_ONYXIA'),
 -- (23, @LP_Classic, 17625, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Satin Leggings until the player has completed PROGRESSION_ONYXIA'),    
--- --
+-- (23, @LP_Classic, 29612, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Lamellar Boots until the player has completed PROGRESSION_ONYXIA'),
+-- (23, @LP_Classic, 29613, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Lamellar Gloves until the player has completed PROGRESSION_ONYXIA'),
+-- (23, @LP_Classic, 29614, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Lamellar Legplates until the player has completed PROGRESSION_ONYXIA'),
+-- (23, @LP_Classic, 29615, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Lamellar Chestplate until the player has completed PROGRESSION_ONYXIA'),
+-- (23, @LP_Classic, 29616, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Lamellar Faceguard until the player has completed PROGRESSION_ONYXIA'),
+-- (23, @LP_Classic, 29617, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Lamellar Pauldrons until the player has completed PROGRESSION_ONYXIA'),    
+--
 -- (23, @TH_Classic, 16345, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Blade until the player has completed PROGRESSION_ONYXIA'),
 -- (23, @TH_Classic, 18826, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Shield Wall until the player has completed PROGRESSION_ONYXIA'),
 -- (23, @TH_Classic, 18828, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Cleaver until the player has completed PROGRESSION_ONYXIA'),
@@ -461,7 +470,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 -- (23, @TH_Classic, 23467, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Quickblade until the player has completed PROGRESSION_ONYXIA'),
 -- (23, @TH_Classic, 23468, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Tome of Destruction until the player has completed PROGRESSION_ONYXIA'),
 -- (23, @TH_Classic, 23469, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Tome of Mending until the player has completed PROGRESSION_ONYXIA'),
--- --
+--
 (23, 12796, 34129, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Raider Bork will not sell Swift Warstrider until the player has completed PROGRESSION_PRE_TBC');
 
 

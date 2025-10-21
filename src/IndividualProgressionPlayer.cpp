@@ -606,6 +606,15 @@ public:
                     player->CastSpell(player, IPP_PHASE_II, false);
                 }					
                 break;
+            case AREA_IRONTREE_WOOD:
+                if ((player->getClass() == CLASS_HUNTER) && ((player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_INCOMPLETE) || (player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_REWARDED)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
             case AREA_LIGHTS_HOPE:
                 if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)
                     || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() >= IP_LEVEL_VANILLA))

@@ -69,7 +69,7 @@ UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 277
 
 /* Hide guild vaults until TBC (was introduced during 2.3) - disabled by default, because most players will expect these gobject to be there */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` IN 
-(12496, 12497, 20621, 45029, 45030, 45069, 45132, 44706, 44707, 44708, 44709, 44710, 44711, 44715, 44716, 41911, 41912, 41913, 41914, 49804, 49821, 49822, 44713, 44714, 14641, 17352, 17353, 49095, 50356, 50357);
+(12496, 12497, 14641, 17352, 17353, 20621, 41911, 41912, 41913, 41914, 44706, 44707, 44708, 44709, 44710, 44711, 44713, 44714, 44715, 44716, 45029, 45030, 45069, 45132, 49095, 49804, 49821, 49822, 50356, 50357);
 /* if you want to keep one guild vault by faction during vanilla */
 UPDATE `gameobject` SET `ScriptName` = '' WHERE `guid` IN (12496, 44716);
 
@@ -77,6 +77,39 @@ UPDATE `gameobject` SET `ScriptName` = '' WHERE `guid` IN (12496, 44716);
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 29346 -- Apothecary Karlov, Orgrimmar
 );
+
+-- Hide Jewelcrafting recipes on vanilla vendors
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceEntry` IN (20855, 20856, 20970, 20971, 20975, 21941, 21942, 21943, 21948, 21954, 21957);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(23, 3499,  20855, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Ranik - Design: Wicked Moonstone Ring'),
+(23, 3954,  20855, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Dalria - Design: Wicked Moonstone Ring'),
+(23, 1286,  20856, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Edna Mullby - Design: Heavy Golden Necklace of Battle'),
+(23, 3367,  20856, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Felika - Design: Heavy Golden Necklace of Battle'),
+(23, 1448,  20970, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Neal Allen - Design: Pendant of the Agate Shield'),
+(23, 4877,  20970, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Jandia - Design: Pendant of the Agate Shield'),
+(23, 2381,  20971, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Micha Yance - Design: Heavy Iron Knuckles'),
+(23, 2393,  20971, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Christoph Jeffcoat - Design: Heavy Iron Knuckles'),
+(23, 4775,  20975, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Burbik Gearspanner - Design: The Jade Eye'),
+(23, 5163,  20975, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Felika - Design: The Jade Eye'),
+(23, 989,   21941, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Banalash - Design: Black Pearl Panther'),
+(23, 4897,  21941, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Helenia Olden - Design: Black Pearl Panther'),
+(23, 2810,  21942, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Hammon Karwn - Design: Ruby Crown of Restoration'),
+(23, 2821,  21942, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Keena - Design: Ruby Crown of Restoration'),
+(23, 1148,  21943, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Nerrist - Design: Truesilver Crab'),
+(23, 4897,  21943, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Helenia Olden - Design: Truesilver Crab'),
+(23, 5163,  21948, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Burbik Gearspanner - Design: Wicked Moonstone Ring'),
+(23, 8363,  21948, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Shadi Mistrunner - Design: Wicked Moonstone Ring'),
+(23, 12941, 21954, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Jase Farlane - Design: Ring of Bitter Shadows'),
+(23, 11189, 21957, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Qia - Design: Necklace of the Diamond Tower');
+
+-- Hide TBC quests
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (9189, 9425);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(19, 0, 9189, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lor\'Themar - Hide \'Delivery to the Sepulcher\' player reaches WotLK'),
+(19, 0, 9425, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lor\'Themar - Hide \'Report to Tarren Mill\' player reaches WotLK');
 
 /* Hide mailboxes, see: https://www.wowhead.com/classic/object=32349/mailbox */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `guid` = 49832; -- Darnassus
