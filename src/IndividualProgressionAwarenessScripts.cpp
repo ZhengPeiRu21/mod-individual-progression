@@ -1028,7 +1028,7 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) && sIndividualProgression->isBeforeProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_5);
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5);
         }
 
         protected:
