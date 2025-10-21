@@ -129,10 +129,8 @@ uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
     return progressionLevel;
 }
 
-void IndividualProgression::RemovePlayerAchievement(Player* player, uint16 achievementId)
+void IndividualProgression::RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId)
 {
-    uint16 playerGUID = player ? player->GetGUID() : 0;
-
 	if (playerGUID && achievementId)
     {
         CharacterDatabase.Query("DELETE FROM `character_achievement` WHERE `guid` = {} AND `achievement` = {}", playerGUID, achievementId);
