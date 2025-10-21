@@ -267,10 +267,13 @@ public:
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;
     bool hasCustomProgressionValue(uint32 creatureEntry);
+    bool isExcludedFromProgression(Player* player);
+    bool isAttuned(Player* player);
     void checkIPProgression(Player* player);	
     void UpdateProgressionQuests(Player* player);
     void checkKillProgression(Player* player, Creature* killed);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
+    static void RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId);
 	static void AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment);
     static float ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);

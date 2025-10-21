@@ -134,28 +134,17 @@ class onyxia_entrance_trigger : public AreaTriggerScript
 public:
     onyxia_entrance_trigger() : AreaTriggerScript("onyxia_entrance_trigger") { }
 
-    bool isExcludedFromProgression(Player* player)
-    {
-        if(!sIndividualProgression->excludeAccounts) {
-            return false;
-        }
-        std::string accountName;
-        bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
-        std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
-        return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
-    }
-
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {       
         ChatHandler handler(player->GetSession());
 		uint32 progressionLevel = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 	
-        if (player->GetLevel() <= IP_LEVEL_TBC && progressionLevel < PROGRESSION_TBC_TIER_5 && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  isExcludedFromProgression(player)))
+        if (player->GetLevel() <= IP_LEVEL_TBC && progressionLevel < PROGRESSION_TBC_TIER_5 && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  sIndividualProgression->isExcludedFromProgression(player)))
         {
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
             player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
         }
-	    else if (player->GetLevel() == IP_LEVEL_WOTLK && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  isExcludedFromProgression(player)))
+	    else if (player->GetLevel() == IP_LEVEL_WOTLK && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  sIndividualProgression->isExcludedFromProgression(player)))
         {
             player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
         }

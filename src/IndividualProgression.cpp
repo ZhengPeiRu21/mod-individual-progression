@@ -3,6 +3,7 @@
  */
 
 #include "IndividualProgression.h"
+#include "naxxramas_40.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
@@ -128,6 +129,14 @@ uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
     return progressionLevel;
 }
 
+void IndividualProgression::RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId)
+{
+	if (playerGUID && achievementId)
+    {
+        CharacterDatabase.Query("DELETE FROM `character_achievement` WHERE `guid` = {} AND `achievement` = {}", playerGUID, achievementId);
+    }
+}
+
 void IndividualProgression::LoadCustomProgressionEntries(std::string const& customProgressionString)
 {
     std::string delimitedValue;
@@ -154,6 +163,30 @@ bool IndividualProgression::hasCustomProgressionValue(uint32 creatureEntry)
     return (customProgressionMap.find(creatureEntry) != customProgressionMap.end());
 }
 
+bool IndividualProgression::isAttuned(Player* player)
+{
+    if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || 
+        (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
+        (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool IndividualProgression::isExcludedFromProgression(Player* player)
+{
+    if(!sIndividualProgression->excludeAccounts) {
+        return false;
+    }
+    std::string accountName;
+    bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
+    std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
+    return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
+}
 
 void IndividualProgression::checkIPProgression(Player* killer)
 {
@@ -162,69 +195,110 @@ void IndividualProgression::checkIPProgression(Player* killer)
         return;
     }
 
+    uint8 currentState = killer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+
     if (killer->HasAchieved(HALION_KILL)) // 4815
     {
-        UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_5);
+        if (currentState < PROGRESSION_WOTLK_TIER_5)
+        {
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_5);
+        }
         return;
     }
     else if (killer->HasAchieved(LICH_KING_KILL)) // 4597
     {
-        UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_4);
+        if (currentState < PROGRESSION_WOTLK_TIER_4)
+        {
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_4);
+        }
         return;
     }
     else if (killer->HasAchieved(ANUB_ARAK_KILL)) // 3916
     {
-        UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_3);
+        if (currentState < PROGRESSION_WOTLK_TIER_3)
+        {
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_3);
+        }
         return;
     }
     else if (killer->HasAchieved(KEL_THUZAD_KILL)) // 575
     {
-        UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
+        if (currentState < PROGRESSION_WOTLK_TIER_1)
+        {
+            UpdateProgressionState(killer, PROGRESSION_WOTLK_TIER_1);
+        }
         return;
     }
     else if (killer->HasAchieved(KIL_JAEDEN_KILL)) // 698
     {
-        UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
+        if (currentState < PROGRESSION_TBC_TIER_5)
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_5);
+        }
         return;
     }
     else if (killer->HasAchieved(ZUL_JIN_KILL)) // 691
     {
-        UpdateProgressionState(killer, PROGRESSION_TBC_TIER_4);
+        if (currentState < PROGRESSION_TBC_TIER_4)
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_4);
+        }
         return;
     }
     else if (killer->HasAchieved(ILLIDAN_KILL)) // 697
     {
-        UpdateProgressionState(killer, PROGRESSION_TBC_TIER_3);
+        if (currentState < PROGRESSION_TBC_TIER_3)
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_3);
+        }
         return;
     }
     else if (killer->HasAchieved(KAEL_THAS_KILL)) // 696
     {
-        UpdateProgressionState(killer, PROGRESSION_TBC_TIER_2);
+        if (currentState < PROGRESSION_TBC_TIER_2)
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_2);
+        }
         return;
     }
     else if (killer->HasAchieved(MALCHEZAAR_KILL)) //  690
     {
-        UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
+        if (currentState < PROGRESSION_TBC_TIER_1)
+        {
+            UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
+        }
         return;
     }
     else if (killer->HasAchieved(C_THUN_KILL)) // 687
     {
-        UpdateProgressionState(killer, PROGRESSION_AQ);
+        if (currentState < PROGRESSION_AQ)
+        {
+            UpdateProgressionState(killer, PROGRESSION_AQ);
+        }
         return;
     }
     else if (killer->HasAchieved(NEFARIAN_KILL)) // 685
     {
-        UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
+        if (currentState < PROGRESSION_BLACKWING_LAIR)
+        {
+            UpdateProgressionState(killer, PROGRESSION_BLACKWING_LAIR);
+        }
         return;
     }
     else if (killer->HasAchieved(ONYXIAS_KILL)) // 684
     {
-        UpdateProgressionState(killer, PROGRESSION_ONYXIA);
+        if (currentState < PROGRESSION_ONYXIA)
+        {
+            UpdateProgressionState(killer, PROGRESSION_ONYXIA);
+        }
         return;
     }
     else if (killer->HasAchieved(RAGNAROS_KILL)) // 686
     {
-        UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
+        if (currentState < PROGRESSION_MOLTEN_CORE)
+        {
+            UpdateProgressionState(killer, PROGRESSION_MOLTEN_CORE);
+        }
         return;
     }
 }
