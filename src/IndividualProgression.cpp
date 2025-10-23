@@ -342,6 +342,7 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
         case KELTHUZAD_40:
             UpdateProgressionState(killer, PROGRESSION_NAXX40);
             UpdateProgressionQuests(killer);
+            UpdateProgressionAchievement(killer, ACHIEVEMENT_NAXX40);
             break;
         case MALCHEZAAR:
             UpdateProgressionState(killer, PROGRESSION_TBC_TIER_1);
