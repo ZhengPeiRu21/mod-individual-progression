@@ -78,7 +78,7 @@ UPDATE `creature_template` SET `subname` = 'Weapon Crafter'  WHERE `entry` = 723
 -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 UPDATE `creature_template` SET `subname` = NULL, `npcflag` = 0 WHERE `entry` = 12778;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12778;
-
+DELETE FROM `npc_vendor` WHERE `entry`= 12778; -- was placed in battlegrounds during Vanilla and TBC. needs to be hidden until wotlk
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (1430, 2327, 5482, 5493, 5513);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
@@ -87,76 +87,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (5482, -320000), -- Stephen Ryback <Cooking Trainer>
 (5493, -360000), -- Arnold Leland <Fishing Trainer>
 (5513, -390000); -- Gelman Stonehand <Mining Trainer>
-
-
--- the following should perhaps go to vanilla_vendors
--- Elaine Trias <Mistress of Cheese>
-DELETE FROM `npc_vendor` WHERE `entry` = 483 AND `item` IN (27857, 33443, 35952);
-
--- Keldric Boucher <Alchemy Supplies & Reagents>
-DELETE FROM `npc_vendor` WHERE `entry` = 1257 AND `item` IN (22147, 22148, 37201, 40411);
-
--- Kyra Boucher <Reagents>
-DELETE FROM `npc_vendor` WHERE `entry` = 1275 AND `item` IN (22147, 22148, 37201);
-
--- Edna Mullby <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` IN (14341, 18256, 20856);
-DELETE FROM `npc_vendor` WHERE `entry` = 1286 AND `item` IN (2324, 2605, 2928, 6260, 6529);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (1286, 2324), (1286, 2605), (1286, 2928), (1286, 6260), (1286, 6529);
-
--- Frederick Stover <Bow & Arrow Merchant>
-DELETE FROM `npc_vendor` WHERE `entry` = 1298 AND `item` IN (11303, 11306, 11307, 28053);
-
--- Bernard Gump <Florist>
-DELETE FROM `npc_vendor` WHERE `entry` = 1302 AND `item` IN (785, 2449, 2453, 3355, 3356, 3357);
-
--- Charys Yserian <Arcane Trinkets Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1307 AND `item` IN (22147, 22148, 37201);
-
--- Owen Vaughn <Reagent Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1308 AND `item` IN (22147, 22148, 37201);
-
--- Maria Lumere <Alchemy Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1313 AND `item`=40411;
-
--- Jasper Fel <Shady Dealer>
-DELETE FROM `npc_vendor` WHERE `entry` = 1325 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
-
--- Sloan McCoy <Poison Supplier>
-DELETE FROM `npc_vendor` WHERE `entry` = 1326 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
-
--- Alexandra Bolero <Tailoring Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 1347 AND `item`=38426;
-
--- Brother Cassius <Reagent Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 1351 AND `item` IN (22147, 22148, 37201);
-
--- Thomas Miller <Baker>
-DELETE FROM `npc_vendor` WHERE `entry` = 3518 AND `item` IN (27855, 33449, 35950);
-
--- Bren Trias <Apprentice of Cheese>
-DELETE FROM `npc_vendor` WHERE `entry` = 4981 AND `item` IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
-
--- Rebecca Laughlin <Tabard Designer>
-DELETE FROM `npc_vendor` WHERE `entry` = 5193 AND `item` IN (15196, 15198, 19032, 19506, 23999, 31774, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
-
--- Eldraeith <Herbalism Supplier>
-DELETE FROM `npc_vendor` WHERE `entry` = 5503 AND `item` IN (18256, 40411);
-
--- Brooke Stonebraid <Mining Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5514 AND `item` IN (20815, 20824);
-
--- Billibub Cogspinner <Engineering Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5519 AND `item` IN (39684, 40533);
-
--- Jillian Tanner <Leatherworking Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 5565 AND `item`=38426;
-
--- Innkeeper Allison <Innkeeper>
-DELETE FROM `npc_vendor` WHERE `entry` = 6740 AND `item` IN (4536, 4537, 4538, 4539, 4602, 8953, 27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
-
--- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry` = 12778;
 
 
 SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
@@ -226,7 +156,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12783;
 
 
-DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 612783, 612785, 623446, 624671, 624672, 626393, 626394, 720278, 723396);
+DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 720278, 723396);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (612781, @Biggins, 0, -8777.4, 417.124, 103.921, 6.23553, 180), -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
@@ -235,7 +165,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (133929, 12785, 0, -8771.31, 401.973, 109.665, 0.659191, 180),  -- Sergeant Major Clate <Armor Quartermaster>, TBC 
 (626394, 26394, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, Vanilla
 (624671, 24671, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, TBC
-(626393, 26393, 0, -8768.77, 401.647, 109.665, 2.22999, 180),   -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
+(612777, 12777, 0, -8768.77, 401.647, 109.665, 2.22999, 180),   -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
 (624672, 24672, 0, -8773.33, 427.279, 105.233, 3.84677, 180),   -- Captain Dirgehammer <Armor Quartermaster>, TBC
 (133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180),   -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
 (720278, 20278, 0, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC
@@ -338,18 +268,18 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 -- Captain Dirgehammer <Armor Quartermaster> - Vanilla
 DELETE FROM `npc_vendor` WHERE `entry` IN (12777, 26393);
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(26393, 16437, 465), (26393, 16440, 541), (26393, 16441, 464), (26393, 16442, 542), (26393, 16443, 463), (26393, 16444, 465), (26393, 16446, 465), (26393, 16448, 541), (26393, 16449, 465),
-(26393, 16450, 542), (26393, 16451, 464), (26393, 16452, 463), (26393, 16453, 463), (26393, 16454, 541), (26393, 16455, 464), (26393, 16456, 542), (26393, 16457, 465), (26393, 16459, 465),
-(26393, 16462, 465), (26393, 16463, 541), (26393, 16465, 464), (26393, 16466, 463), (26393, 16467, 542), (26393, 16468, 465), (26393, 16471, 541), (26393, 16472, 465), (26393, 16473, 463),
-(26393, 16474, 464), (26393, 16475, 542), (26393, 16476, 465), (26393, 16477, 463), (26393, 16478, 464), (26393, 16479, 542), (26393, 16480, 465), (26393, 16483, 465), (26393, 16484, 541),
-(26393, 17578, 464), (26393, 17579, 542), (26393, 17580, 465), (26393, 17581, 463), (26393, 17583, 465), (26393, 17584, 541), (26393, 17602, 464), (26393, 17603, 542), (26393, 17604, 465),
-(26393, 17605, 463), (26393, 17607, 465), (26393, 17608, 541), (26393, 23272, 652), (26393, 23273, 653), (26393, 23274, 428), (26393, 23275, 427), (26393, 23276, 444), (26393, 23277, 427),
-(26393, 23278, 427), (26393, 23279, 428), (26393, 23280, 428), (26393, 23281, 427), (26393, 23282, 428), (26393, 23283, 427), (26393, 23284, 428), (26393, 23285, 427), (26393, 23286, 428),
-(26393, 23287, 427), (26393, 23288, 428), (26393, 23289, 427), (26393, 23290, 428), (26393, 23291, 427), (26393, 23292, 652), (26393, 23293, 653), (26393, 23294, 652), (26393, 23295, 653),
-(26393, 23296, 653), (26393, 23297, 652), (26393, 23298, 652), (26393, 23299, 653), (26393, 23300, 652), (26393, 23301, 653), (26393, 23302, 653), (26393, 23303, 652), (26393, 23304, 653),
-(26393, 23305, 652), (26393, 23306, 444), (26393, 23307, 427), (26393, 23308, 444), (26393, 23309, 427), (26393, 23310, 444), (26393, 23311, 427), (26393, 23312, 444), (26393, 23313, 427),
-(26393, 23314, 444), (26393, 23315, 427), (26393, 23316, 444), (26393, 23317, 427), (26393, 23318, 444), (26393, 23319, 427), (26393, 29594, 427), (26393, 29595, 428), (26393, 29596, 652),
-(26393, 29597, 653), (26393, 29598, 444), (26393, 29599, 427), (26393, 29606, 465), (26393, 29607, 541), (26393, 29608, 542), (26393, 29609, 463), (26393, 29610, 464), (26393, 29611, 465);
+(12777, 16437, 465), (12777, 16440, 541), (12777, 16441, 464), (12777, 16442, 542), (12777, 16443, 463), (12777, 16444, 465), (12777, 16446, 465), (12777, 16448, 541), (12777, 16449, 465),
+(12777, 16450, 542), (12777, 16451, 464), (12777, 16452, 463), (12777, 16453, 463), (12777, 16454, 541), (12777, 16455, 464), (12777, 16456, 542), (12777, 16457, 465), (12777, 16459, 465),
+(12777, 16462, 465), (12777, 16463, 541), (12777, 16465, 464), (12777, 16466, 463), (12777, 16467, 542), (12777, 16468, 465), (12777, 16471, 541), (12777, 16472, 465), (12777, 16473, 463),
+(12777, 16474, 464), (12777, 16475, 542), (12777, 16476, 465), (12777, 16477, 463), (12777, 16478, 464), (12777, 16479, 542), (12777, 16480, 465), (12777, 16483, 465), (12777, 16484, 541),
+(12777, 17578, 464), (12777, 17579, 542), (12777, 17580, 465), (12777, 17581, 463), (12777, 17583, 465), (12777, 17584, 541), (12777, 17602, 464), (12777, 17603, 542), (12777, 17604, 465),
+(12777, 17605, 463), (12777, 17607, 465), (12777, 17608, 541), (12777, 23272, 652), (12777, 23273, 653), (12777, 23274, 428), (12777, 23275, 427), (12777, 23276, 444), (12777, 23277, 427),
+(12777, 23278, 427), (12777, 23279, 428), (12777, 23280, 428), (12777, 23281, 427), (12777, 23282, 428), (12777, 23283, 427), (12777, 23284, 428), (12777, 23285, 427), (12777, 23286, 428),
+(12777, 23287, 427), (12777, 23288, 428), (12777, 23289, 427), (12777, 23290, 428), (12777, 23291, 427), (12777, 23292, 652), (12777, 23293, 653), (12777, 23294, 652), (12777, 23295, 653),
+(12777, 23296, 653), (12777, 23297, 652), (12777, 23298, 652), (12777, 23299, 653), (12777, 23300, 652), (12777, 23301, 653), (12777, 23302, 653), (12777, 23303, 652), (12777, 23304, 653),
+(12777, 23305, 652), (12777, 23306, 444), (12777, 23307, 427), (12777, 23308, 444), (12777, 23309, 427), (12777, 23310, 444), (12777, 23311, 427), (12777, 23312, 444), (12777, 23313, 427),
+(12777, 23314, 444), (12777, 23315, 427), (12777, 23316, 444), (12777, 23317, 427), (12777, 23318, 444), (12777, 23319, 427), (12777, 29594, 427), (12777, 29595, 428), (12777, 29596, 652),
+(12777, 29597, 653), (12777, 29598, 444), (12777, 29599, 427), (12777, 29606, 465), (12777, 29607, 541), (12777, 29608, 542), (12777, 29609, 463), (12777, 29610, 464), (12777, 29611, 465);
 
 -- Captain Dirgehammer <Armor Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 24672;
@@ -455,11 +385,13 @@ UPDATE `creature`   SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` = 19848; -- Har
 
 -- WotLK pvp vendors
 DELETE FROM `creature` WHERE `id1` IN 
-(12777,  -- Captain Dirgehammer <Armor Quartermaster>
- 12782,  -- Captain O'Neal <Weapons Quartermaster>
+(12782,  -- Captain O'Neal <Weapons Quartermaster>
+ 26393,  -- Captain Dirgehammer <Armor Quartermaster>
  34075,  -- Captain Dirgehammer <Armor Quartermaster>
  34081); -- Captain O'Neal <Jewelcrafting Quartermaster>
 
+/* NPC Rebecca Laughlin - Remove non-Vanilla Tabards */
+DELETE FROM `npc_vendor` WHERE `entry`= 5193 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
 
 -- Summon Felsteed (Warlock)
 DELETE FROM `quest_offer_reward` WHERE `ID` = 4488;
@@ -497,14 +429,3 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (12739, 0, 0, 1, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Onyxias Elite Guard - Between 0-30% Health - Cast Enrage'),
 (12739, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Onyxias Elite Guard - On Enrage - Say Line 0');
-
--- this should probably go to vanilla_vendors
--- Remove non-Vanilla food items from Stormwind vendors
-DELETE FROM npc_vendor WHERE entry = 483   and item IN (27857, 33443, 35952);
-DELETE FROM npc_vendor WHERE entry = 3518  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 3003  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 4255  and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954);
-DELETE FROM npc_vendor WHERE entry = 4981  and item IN (27857, 28399, 33443, 33444, 33445, 35952, 35954);
-DELETE FROM npc_vendor WHERE entry = 5109  and item IN (27855, 33449, 35950);
-DELETE FROM npc_vendor WHERE entry = 6740  and item IN (27855, 27856, 28399, 33444, 33445, 33449, 35948, 35949, 35950, 35954);
-DELETE FROM npc_vendor WHERE entry = 10367 and item IN (27854, 27855, 27856, 27857, 27858, 27860, 28399, 29448, 29449, 29450, 29451, 29452, 33443, 33444, 33445, 33449, 33451, 33454, 35948, 35949, 35950, 35951, 35952, 35953, 35954, 27859, 29453, 33452, 35947);

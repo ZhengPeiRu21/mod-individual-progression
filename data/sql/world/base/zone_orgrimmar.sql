@@ -115,88 +115,10 @@ UPDATE `creature_template` SET `subname` = 'Zeppelin Master'              WHERE 
 -- Legionnaire Teena
 UPDATE `creature_template` SET `subname`= NULL, `npcflag` = 0, `faction` = 85 WHERE `entry` = 12788;
 UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;
+DELETE FROM `npc_vendor` WHERE `entry`= 12788; -- was placed in battlegrounds during Vanilla and TBC. needs to be hidden until wotlk
 
 -- Nazgrel <Advisor to Thrall>
 UPDATE `creature_template` SET `scale`=0.7, `npcflag`=2, `faction`=29, `gossip_menu_id`=0 WHERE `entry`=3230;
-
--- this should probably be moved to vanilla_vendors
--- Olvia <Meat Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3312 AND `item` IN (27854, 33454, 35953);
-
--- Trak'gen <General Goods Merchant>
-DELETE FROM `npc_vendor` WHERE `entry`=3313 AND `item` IN (25861, 25872, 25873, 25875, 25876, 28053, 28060, 28979, 29007, 29008, 29009, 29010, 29013, 29014);
-
--- Kaja <Guns and Ammo Merchant>
-DELETE FROM `npc_vendor` WHERE `entry`=3322 AND `item`=28060;
-
--- Horthus <Reagents Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3323 AND `item` IN (22147, 22148, 37201, 44605, 44614, 44615);
-
--- Kor'jus <Mushroom Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3329 AND `item` IN (27859, 33452, 35947);
-
--- Rekkul <Poison Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3334 AND `item` IN (21835, 21927, 22053, 22054, 22055, 43230, 43231, 43232, 43233, 43234, 43235, 43237);
-
--- Hagrus <Reagents Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3335 AND `item` IN (22147, 22148, 37201);
-
--- Shan'ti <Fruit Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3342 AND `item` IN (27856, 35948, 35949);
-
--- Kithas <Enchanting Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=3346 AND `item`=6342;
-INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (3346, 6342, 1, 7200);
-
--- Kor'geld <Alchemy Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=3348 AND `item`=40411;
-
--- Asoran <General Goods Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3350 AND `item` IN (28053, 28060);
-
--- Magenius <Reagents Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3351 AND `item` IN (22147, 22148, 37201);
-
--- Gorina <Mining Supplier>
-DELETE FROM `npc_vendor` WHERE `entry`=3358 AND `item` IN (20815, 20824);
-
--- Ogunaro Wolfrunner <Kennel Master>
-DELETE FROM `npc_vendor` WHERE `entry`=3362 AND `item`=46099;
-
--- Borya <Tailoring Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=3364 AND `item`=38426;
-
--- Tamar <Leatherworking Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=3366 AND `item`=38426;
-
--- Felika <General Trade Goods Merchant>
-DELETE FROM `npc_vendor` WHERE `entry`=3367 AND `item` IN (14341, 18256, 20856);
-DELETE FROM `npc_vendor` WHERE `entry`=3367 AND `item` IN (2324, 2605, 6260, 6529);
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES (3367, 2324), (3367, 2605), (3367, 6260), (3367, 6529);
-
--- Borstan <Meat Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=3368 AND `item` IN (27854, 33454, 35953);
-
--- Xen'to <Cooking Supplier>
-DELETE FROM `npc_vendor` WHERE `entry`=3400 AND `item`=30817;
-
--- Jin'sora <Bow Merchant>
-DELETE FROM `npc_vendor` WHERE `entry`=3410 AND `item` IN (11303, 11306, 11307, 28053);
-
--- Sovik <Engineering Supplies>
-DELETE FROM `npc_vendor` WHERE `entry`=3413 AND `item` IN (22729, 39684, 40533);
-
--- Garyl <Tabard Vendor>
-DELETE FROM `npc_vendor` WHERE `entry`=5188 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
-
--- Shimra <General Trade Goods Merchant>
-DELETE FROM `npc_vendor` WHERE `entry`=5817 AND `item` IN (10648, 14341, 18256, 30817, 39354);
-
--- Innkeeper Gryshka <Innkeeper>
-DELETE FROM `npc_vendor` WHERE `entry`=6929 AND `item` IN (27854, 28399, 33444, 33445, 33454, 35953, 35954);
-
--- Legionnaire Teena
-DELETE FROM `npc_vendor` WHERE `entry`= 12788;
 
 
 SET @Stonehide  := 112793; -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
@@ -204,8 +126,8 @@ SET @Zarg       := 112794; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Hola       := 112795; -- First Sergeant Hola'mahi, Vanilla
 SET @TH_Classic := 26396;  -- Sergeant Thunderhorn, Vanilla
 SET @TH_TBC     := 14581;  -- Sergeant Thunderhorn, TBC
-SET @LP_Classic := 26397;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
-SET @LP_TBC     := 12792;  -- Lady Palanseer <Armor Quartermaster>, TBC
+SET @LP_Classic := 12792;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+SET @LP_TBC     := 26397;  -- Lady Palanseer <Armor Quartermaster>, TBC
 
 
 DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
@@ -269,8 +191,8 @@ DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125694, 125695, 612792, 
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),        -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
-(626397, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
-(612792, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
+(612792, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+(626397, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
 (612793, @Stonehide, 1, 1657.6, -4191.97, 56.383, 4.52365, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
 (125690, 12793, 1, 1672.24, -4206.81, 56.3827, 3.30568, 180),       -- Brave Stonehide <Officer Accessories Quartermaster>, TBC
 (612794, @Zarg, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Food and Drink>, Vanilla
@@ -443,7 +365,9 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (@LP_Classic, 22878, 653), (@LP_Classic, 22879, 652), (@LP_Classic, 22880, 653), (@LP_Classic, 22881, 653), (@LP_Classic, 22882, 653), (@LP_Classic, 22883, 653), (@LP_Classic, 22884, 652), 
 (@LP_Classic, 22885, 652), (@LP_Classic, 22886, 652), (@LP_Classic, 22887, 653), (@LP_Classic, 23243, 427), (@LP_Classic, 23244, 444), (@LP_Classic, 23251, 444), (@LP_Classic, 23252, 427), 
 (@LP_Classic, 23253, 444), (@LP_Classic, 23254, 427), (@LP_Classic, 23255, 444), (@LP_Classic, 23256, 427), (@LP_Classic, 23257, 444), (@LP_Classic, 23258, 427), (@LP_Classic, 23259, 444), 
-(@LP_Classic, 23260, 427), (@LP_Classic, 23261, 444), (@LP_Classic, 23262, 427), (@LP_Classic, 23263, 444), (@LP_Classic, 23264, 427);
+(@LP_Classic, 23260, 427), (@LP_Classic, 23261, 444), (@LP_Classic, 23262, 427), (@LP_Classic, 23263, 444), (@LP_Classic, 23264, 427), (@LP_Classic, 29600, 428), (@LP_Classic, 29601, 427), 
+(@LP_Classic, 29602, 652), (@LP_Classic, 29603, 653), (@LP_Classic, 29604, 444), (@LP_Classic, 29605, 427), (@LP_Classic, 29612, 465), (@LP_Classic, 29613, 541), (@LP_Classic, 29614, 542), 
+(@LP_Classic, 29615, 463), (@LP_Classic, 29616, 464), (@LP_Classic, 29617, 465);
 
 -- Lady Palanseer <Armor Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry`= @LP_TBC;
@@ -517,6 +441,12 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, @LP_Classic, 17623, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Cowl until the player has completed PROGRESSION_ONYXIA'),
 (23, @LP_Classic, 17624, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Satin Robes until the player has completed PROGRESSION_ONYXIA'),
 (23, @LP_Classic, 17625, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Satin Leggings until the player has completed PROGRESSION_ONYXIA'),    
+(23, @LP_Classic, 29612, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Lamellar Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 29613, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Lamellar Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 29614, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Lamellar Legplates until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 29615, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Lamellar Chestplate until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 29616, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Lamellar Faceguard until the player has completed PROGRESSION_ONYXIA'),
+(23, @LP_Classic, 29617, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Lamellar Pauldrons until the player has completed PROGRESSION_ONYXIA'),    
 --
 (23, @TH_Classic, 16345, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Blade until the player has completed PROGRESSION_ONYXIA'),
 (23, @TH_Classic, 18826, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Sergeant Thunderhorn will not sell High Warlords Shield Wall until the player has completed PROGRESSION_ONYXIA'),
@@ -550,6 +480,9 @@ DELETE FROM `creature` WHERE `id1` IN
  34060,  -- Doris Volanthius <Veteran Armor Quartermaster>
  34063); -- Blood Guard Zar'shi <Northrend Armor Quartermaster>
 
+
+/* NPC Garyl - Remove non-Vanilla Tabards */
+DELETE FROM `npc_vendor` WHERE `entry`= 5188 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);
 
 -- Nogg Quest Flags fix
 UPDATE `creature_template` SET `npcflag` = `npcflag` | 2 WHERE `entry` = 3412;

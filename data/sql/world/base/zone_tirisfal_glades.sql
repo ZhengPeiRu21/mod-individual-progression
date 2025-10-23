@@ -143,10 +143,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (5759, -350000), -- Nurse Neela <First Aid Trainer>
 (6289, -400000); -- Rand Rhobart <Skinner>
 
-DELETE FROM `npc_vendor` WHERE `entry` = 2118 AND `item` IN (10648, 30817, 39354); -- Abigail Shiel <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 3548 AND `item` = 40411;                  -- Selina Weston <Alchemy & Herbalism Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 4731 AND `item` IN (46308, 47101);        -- Zachariah Post <Undead Horse Merchant>
-
 
 /* Quests */
 

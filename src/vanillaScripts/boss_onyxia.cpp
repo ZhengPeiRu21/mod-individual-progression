@@ -150,16 +150,16 @@ public:
             switch (ph)
             {
                 case PHASE_GROUNDED:
-                    events.ScheduleEvent(EVENT_SPELL_WINGBUFFET, urand(10000, 20000));
-                    events.ScheduleEvent(EVENT_SPELL_FLAMEBREATH, urand(10000, 20000));
-                    events.ScheduleEvent(EVENT_SPELL_TAILSWEEP, urand(15000, 20000));
-                    events.ScheduleEvent(EVENT_SPELL_CLEAVE, urand(2000, 5000));
+                    events.ScheduleEvent(EVENT_SPELL_WINGBUFFET, 10s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_FLAMEBREATH, 10s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_TAILSWEEP, 15s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_CLEAVE, 2s, 5s);
                     break;
                 case PHASE_AIRPHASE:
-                    events.ScheduleEvent(EVENT_START_PHASE_2, 0);
+                    events.ScheduleEvent(EVENT_START_PHASE_2, 0ms);
                     break;
                 case PHASE_LANDED:
-                    events.ScheduleEvent(EVENT_START_PHASE_3, 5000);
+                    events.ScheduleEvent(EVENT_START_PHASE_3, 5s);
                     break;
             }
         }
@@ -236,7 +236,7 @@ public:
                     me->SetFacingTo(OnyxiaMoveData[id].o);
                     me->SetSpeed(MOVE_RUN, 1.6f, false);
                     CurrentWP = id;
-                    events.ScheduleEvent(EVENT_SPELL_FIREBALL_FIRST, 1000);
+                    events.ScheduleEvent(EVENT_SPELL_FIREBALL_FIRST, 1s);
                 }
             }
             else
@@ -245,21 +245,21 @@ public:
                 {
                     case 10:
                         me->SetFacingTo(OnyxiaMoveData[0].o);
-                        events.ScheduleEvent(EVENT_LIFTOFF, 0);
+                        events.ScheduleEvent(EVENT_LIFTOFF, 0ms);
                         break;
                     case 11:
                         me->SetFacingTo(OnyxiaMoveData[1].o);
-                        events.ScheduleEvent(EVENT_FLY_S_TO_N, 0);
+                        events.ScheduleEvent(EVENT_FLY_S_TO_N, 0ms);
                         break;
                     case 12:
                         me->SetFacingTo(OnyxiaMoveData[1].o);
-                        events.ScheduleEvent(EVENT_LAND, 0);
+                        events.ScheduleEvent(EVENT_LAND, 0ms);
                         break;
                     case 13:
                         me->SetCanFly(false);
                         me->SetDisableGravity(false);
                         me->SetSpeed(MOVE_RUN, me->GetCreatureTemplate()->speed_run, false);
-                        events.ScheduleEvent(EVENT_PHASE_3_ATTACK, 0);
+                        events.ScheduleEvent(EVENT_PHASE_3_ATTACK, 0ms);
                         break;
                 }
             }
@@ -344,25 +344,25 @@ public:
                 case EVENT_SPELL_WINGBUFFET:
                 {
                     DoCast(SPELL_WINGBUFFET);
-                    events.RepeatEvent(urand(15000, 30000));
+                    events.Repeat(15s, 30s);
                     break;
                 }
                 case EVENT_SPELL_FLAMEBREATH:
                 {
                     DoCast(SPELL_FLAMEBREATH);
-                    events.RepeatEvent(urand(10000, 20000));
+                    events.Repeat(10s, 20s);
                     break;
                 }
                 case EVENT_SPELL_TAILSWEEP:
                 {
                     DoCastAOE(SPELL_TAILSWEEP);
-                    events.RepeatEvent(urand(15000, 20000));
+                    events.Repeat(15s, 20s);
                     break;
                 }
                 case EVENT_SPELL_CLEAVE:
                 {
                     DoCastVictim(SPELL_CLEAVE);
-                    events.RepeatEvent(urand(2000, 5000));
+                    events.Repeat(2s, 5s);
                     break;
                 }
                 case EVENT_START_PHASE_2:
@@ -387,7 +387,7 @@ public:
                     me->GetMotionMaster()->MoveTakeoff(11, OnyxiaMoveData[1].x + 1.0f, OnyxiaMoveData[1].y, OnyxiaMoveData[1].z, 12.0f);
                     bManyWhelpsAvailable = true;
 
-                    events.RescheduleEvent(EVENT_END_MANY_WHELPS_TIME, 10000);
+                    events.RescheduleEvent(EVENT_END_MANY_WHELPS_TIME, 10s);
                     break;
                 }
                 case EVENT_END_MANY_WHELPS_TIME:
@@ -399,20 +399,20 @@ public:
                     me->GetMotionMaster()->MovePoint(5, OnyxiaMoveData[5].x, OnyxiaMoveData[5].y, OnyxiaMoveData[5].z);
 
                     whelpSpam = true;
-                    events.ScheduleEvent(EVENT_WHELP_SPAM, 90000);
-                    //events.ScheduleEvent(EVENT_SUMMON_LAIR_GUARD, 30000);
+                    events.ScheduleEvent(EVENT_WHELP_SPAM, 90s);
+                    //events.ScheduleEvent(EVENT_SUMMON_LAIR_GUARD, 30s);
                     break;
                 }
                 case EVENT_SUMMON_LAIR_GUARD:
                 {
                     me->CastSpell(-101.654f, -214.491f, -80.70f, SPELL_SUMMON_LAIR_GUARD, true);
-                    events.RepeatEvent(30000);
+                    events.Repeat(30s);
                     break;
                 }
                 case EVENT_WHELP_SPAM:
                 {
                     whelpSpam = true;
-                    events.RepeatEvent(90000);
+                    events.Repeat(90s);
                     break;
                 }
                 case EVENT_LAND:
@@ -431,7 +431,7 @@ public:
                         DoCast(v, SPELL_FIREBALL);
                     }
 
-                    events.ScheduleEvent(EVENT_SPELL_FIREBALL_SECOND, 4000);
+                    events.ScheduleEvent(EVENT_SPELL_FIREBALL_SECOND, 4s);
                     break;
                 }
                 case EVENT_SPELL_FIREBALL_SECOND:
@@ -445,15 +445,15 @@ public:
                     uint8 rand = urand(0, 99);
                     if (rand < 33)
                     {
-                        events.ScheduleEvent(EVENT_PHASE_2_STEP_CW, 4000);
+                        events.ScheduleEvent(EVENT_PHASE_2_STEP_CW, 4s);
                     }
                     else if (rand < 66)
                     {
-                        events.ScheduleEvent(EVENT_PHASE_2_STEP_ACW, 4000);
+                        events.ScheduleEvent(EVENT_PHASE_2_STEP_ACW, 4s);
                     }
                     else
                     {
-                        events.ScheduleEvent(EVENT_PHASE_2_STEP_ACROSS, 4000);
+                        events.ScheduleEvent(EVENT_PHASE_2_STEP_ACROSS, 4s);
                     }
                     break;
                 }
@@ -482,7 +482,7 @@ public:
                     Talk(EMOTE_BREATH);
                     me->SetFacingTo(OnyxiaMoveData[CurrentWP].o);
                     DoCastAOE(OnyxiaMoveData[CurrentWP].spellId);
-                    events.ScheduleEvent(EVENT_SPELL_BREATH, 8250);
+                    events.ScheduleEvent(EVENT_SPELL_BREATH, 8250ms);
                     break;
                 }
                 case EVENT_SPELL_BREATH:
@@ -509,20 +509,20 @@ public:
 
                     DoCastAOE(SPELL_BELLOWINGROAR);
 
-                    events.ScheduleEvent(EVENT_ERUPTION, 0);
-                    events.ScheduleEvent(EVENT_SPELL_WINGBUFFET, urand(10000, 20000));
-                    events.ScheduleEvent(EVENT_SPELL_FLAMEBREATH, urand(10000, 20000));
-                    events.ScheduleEvent(EVENT_SPELL_TAILSWEEP, urand(15000, 20000));
-                    events.ScheduleEvent(EVENT_SPELL_CLEAVE, urand(2000, 5000));
-                    events.ScheduleEvent(EVENT_SPELL_BELLOWINGROAR, 15000);
-                    events.ScheduleEvent(EVENT_SUMMON_WHELP, 10000);
+                    events.ScheduleEvent(EVENT_ERUPTION, 0ms);
+                    events.ScheduleEvent(EVENT_SPELL_WINGBUFFET, 10s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_FLAMEBREATH, 10s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_TAILSWEEP, 15s, 20s);
+                    events.ScheduleEvent(EVENT_SPELL_CLEAVE, 2s, 5s);
+                    events.ScheduleEvent(EVENT_SPELL_BELLOWINGROAR, 15s);
+                    events.ScheduleEvent(EVENT_SUMMON_WHELP, 10s);
                     break;
                 }
                 case EVENT_SPELL_BELLOWINGROAR:
                 {
                     DoCastAOE(SPELL_BELLOWINGROAR);
-                    events.RepeatEvent(22000);
-                    events.ScheduleEvent(EVENT_ERUPTION, 0);
+                    events.Repeat(22s);
+                    events.ScheduleEvent(EVENT_ERUPTION, 0ms);
                     break;
                 }
                 case EVENT_ERUPTION:
@@ -539,7 +539,7 @@ public:
                     float dist  = rand_norm() * 4.0f;
                     me->CastSpell(-33.18f + cos(angle) * dist, -258.80f + sin(angle) * dist, -89.0f, SPELL_SUMMON_WHELP, true);
                     me->CastSpell(-32.535f + cos(angle) * dist, -170.190f + sin(angle) * dist, -89.0f, SPELL_SUMMON_WHELP, true);
-                    events.RepeatEvent(30000);
+                    events.Repeat(30s);
                     break;
                 }
             }

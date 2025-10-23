@@ -163,11 +163,6 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (11072, -330001),
 (11072, -330002);
 
--- Antonio Perelli <Traveling Salesman>
-DELETE FROM `npc_vendor` WHERE `entry` = 844 AND `item` = 40411;
-
--- Dawn Brightstar <Arcane Goods>
-DELETE FROM `npc_vendor` WHERE `entry` = 958 AND `item` IN (22147, 22148, 37201, 40411);
 
 -- Wolves Across the Border
 DELETE FROM `quest_offer_reward` WHERE `ID` = 33;

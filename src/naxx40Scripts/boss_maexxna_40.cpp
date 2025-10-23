@@ -347,6 +347,11 @@ public:
 
     void OnPeriodic(AuraEffect const* aurEff)
     {
+        if (GetCaster()->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+        {
+            AuraEffect* eff = const_cast<AuraEffect*>(aurEff);
+            eff->SetAmount(static_cast<int32>(urand(657, 843)));
+        }
         if (aurEff->GetTickNumber() == 2)
         {
             if (GetCaster()->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)

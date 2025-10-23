@@ -122,12 +122,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1424, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Master Digger - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 
--- Gina MacGregor <Trade Supplies>
-DELETE FROM `npc_vendor` WHERE `entry` = 843 AND `item` = 39354;
-
--- Christopher Hewen <General Trade Goods Vendor>
-DELETE FROM `npc_vendor` WHERE `entry` = 8934 AND `item` IN (10648, 14341, 18256, 30817, 39354);
-
 -- Restore Defias Pillager to original Fireball spell (was nerfed in 2.3)
 DELETE FROM `creature_template_spell` WHERE `CreatureID` = 589 AND `Index` = 0;
 INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES (589, 0, 19816, 12340);
+
+-- Quest line 'A Swift Message' should be for humans only.
+UPDATE `quest_template` SET `AllowableRaces` = 1 WHERE `ID` IN (6181, 6261, 6281, 6285);
