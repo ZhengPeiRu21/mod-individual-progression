@@ -271,6 +271,7 @@ public:
     bool isAttuned(Player* player);
     void checkIPProgression(Player* player);	
     void UpdateProgressionQuests(Player* player);
+    void UpdateProgressionAchievements(Player* player, uint16 achievementID);
     void checkKillProgression(Player* player, Creature* killed);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
     static void RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId);
