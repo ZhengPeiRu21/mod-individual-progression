@@ -169,20 +169,11 @@ public:
                     break;
                 case EVENT_SLIME_SPRAY:
                     Talk(EMOTE_SLIME);
-                    if (me->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+                    if (Unit* target = me->GetVictim())
                     {
-                        if (Unit* target = me->GetVictim())
-                        {
-                            uint16 bp0 = 3200;
-                            me->CastCustomSpell(target, SPELL_SLIME_SPRAY_10, &bp0, nullptr, nullptr, false);
-                        }
-                    }
-                    else
-                    {
-                        me->CastSpell(me->GetVictim(),
-                            RAID_MODE(SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25, SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25),
-                            false);
-                    }
+                        uint16 bp0 = 3200;
+                        me->CastCustomSpell(target, SPELL_SLIME_SPRAY_10, &bp0, nullptr, nullptr, false);
+                    }                    
                     events.Repeat(20s);
                     break;
                 case EVENT_MUTATING_INJECTION:
