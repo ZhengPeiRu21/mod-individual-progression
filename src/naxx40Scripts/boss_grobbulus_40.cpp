@@ -167,11 +167,24 @@ public:
                 case EVENT_BERSERK:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
-                case EVENT_SLIME_SPRAY:
+                case EVENT_SLIME_SPRAY:                
                     Talk(EMOTE_SLIME);
-                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25, SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25), false);
+                    if (me->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+                    {
+                        if (Unit* target = me->GetVictim())
+                        {
+                            int32 bp0 = 3200;
+                            me->CastCustomSpell(target, SPELL_SLIME_SPRAY_10, &bp0, nullptr, nullptr, false);
+                        }
+                    }
+                    else
+                    {
+                        me->CastSpell(me->GetVictim(),
+                            RAID_MODE(SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25, SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25),
+                            false);
+                    }
                     events.Repeat(20s);
-                    break;
+                    break;        
                 case EVENT_MUTATING_INJECTION:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, 100.0f, true, true, -SPELL_MUTATING_INJECTION))
                     {
