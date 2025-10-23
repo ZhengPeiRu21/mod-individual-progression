@@ -416,6 +416,16 @@ void IndividualProgression::UpdateProgressionQuests(Player* player)
     }
 }
 
+void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16 achievementID)
+{
+    AchievementEntry const* entry = sAchievementStore.LookupEntry(achievementID);
+    
+    if (entry)
+    {
+        player->CompletedAchievement(entry);
+    }
+}
+
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {
 private:
