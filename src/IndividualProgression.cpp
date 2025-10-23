@@ -269,6 +269,14 @@ void IndividualProgression::checkIPProgression(Player* killer)
         }
         return;
     }
+    else if (killer->HasAchieved(KEL_THUZAD_40_KILL)) // 533
+    {
+        if (currentState < PROGRESSION_NAXX40)
+        {
+            UpdateProgressionState(killer, PROGRESSION_NAXX40);
+        }
+        return;
+    }    
     else if (killer->HasAchieved(C_THUN_KILL)) // 687
     {
         if (currentState < PROGRESSION_AQ)
