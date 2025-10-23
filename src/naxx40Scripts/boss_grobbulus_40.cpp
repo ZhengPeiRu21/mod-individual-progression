@@ -171,7 +171,7 @@ public:
                     Talk(EMOTE_SLIME);
                     if (Unit* target = me->GetVictim())
                     {
-                        uint16 bp0 = 3200;
+                        uint16 bp0 = urand(3200, 4800);
                         me->CastCustomSpell(target, SPELL_SLIME_SPRAY_10, &bp0, nullptr, nullptr, false);
                     }                    
                     events.Repeat(20s);
