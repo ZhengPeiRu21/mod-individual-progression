@@ -3,12 +3,12 @@
 ---------------------------------------------------
 To have the Vanilla login screen:
 ---------------------------------------------------
-Place patch-J.mpq from the dbc.7z file in the client 'data' folder. This is visual only change; no server change required.
+Place patch-J.mpq from the dbc.7z file in the client 'data' folder. This is a visual only change; no server change required.
 
 ---------------------------------------------------
 To have Vanilla loading screens during Vanilla:
 ---------------------------------------------------
-Place patch-U.mpq from the dbc.7z file in the client 'data' folder. This is visual only change; no server change required.
+Place patch-U.mpq from the dbc.7z file in the client 'data' folder. This is a visual only change; no server change required.
 Credit to slendydaddy for HD Vanilla loading screen art.
 
 ---------------------------------------------------
