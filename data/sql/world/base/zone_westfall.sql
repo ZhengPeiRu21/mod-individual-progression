@@ -125,3 +125,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- Restore Defias Pillager to original Fireball spell (was nerfed in 2.3)
 DELETE FROM `creature_template_spell` WHERE `CreatureID` = 589 AND `Index` = 0;
 INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES (589, 0, 19816, 12340);
+
+-- Quest line 'A Swift Message' should be for humans only.
+UPDATE `quest_template` SET `AllowableRaces` = 1 WHERE `ID` IN (6181, 6261, 6281, 6285);
