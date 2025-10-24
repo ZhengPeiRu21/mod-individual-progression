@@ -246,6 +246,16 @@ enum PvPTitles : uint32
     HIGH_WARLORD             = 28
 };
 
+enum WarlockDemonSpells : uint32
+{
+    IMP_FIREBOLT_RANK2       = 7799,
+    IMP_FIREBOLT_RANK3       = 7800,
+    IMP_FIREBOLT_RANK4       = 7801,
+    IMP_FIREBOLT_RANK5       = 7802,
+    IMP_FIREBOLT_RANK6       = 11762,
+    IMP_FIREBOLT_RANK7       = 11763
+};
+
 class IndividualProgression
 {
 public:
