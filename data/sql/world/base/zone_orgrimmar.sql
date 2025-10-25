@@ -487,6 +487,19 @@ DELETE FROM `npc_vendor` WHERE `entry`= 5188 AND `item` IN (15197, 15199, 19031,
 -- Nogg Quest Flags fix
 UPDATE `creature_template` SET `npcflag` = `npcflag` | 2 WHERE `entry` = 3412;
 
+-- Hide dungeon set upgrade quests until PRE-AQ phase
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` BETWEEN 8913 AND 8920;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(19, 0, 8913, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Mokvar - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- druid
+(19, 0, 8914, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Mokvar - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- hunter
+(19, 0, 8915, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Mokvar - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- mage
+(19, 0, 8916, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Mokvar - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- priest
+(19, 0, 8917, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Mokvar - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- rogue
+(19, 0, 8918, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Mokvar - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- shaman
+(19, 0, 8919, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Mokvar - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- warlock
+(19, 0, 8920, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Mokvar - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'); -- warrior
+
 -- Quest: Return to Witch Doctor Uzer'i
 UPDATE `quest_template` SET `LogDescription`   = "Deliver Neeru's Herb Pouch to Witch Doctor Uzer'i in Feralas." WHERE `ID` = 3122;
 UPDATE `creature_queststarter` SET `id` = 3216 WHERE `quest` = 3122;
