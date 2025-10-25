@@ -105,14 +105,19 @@ UPDATE `gameobject_template` SET `ScriptName` = "go_cavernsoftimedoor" WHERE `en
 
 UPDATE `creature` SET `position_x` = -8175.67, `position_y` = -4718.28, `position_z` = 26.3489, `orientation` = 1.88496 WHERE `id1` = 15192;
 
-
 -- update Laden Dew Gland drop rate, was 100%
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 8428;
+
+-- Hide quest: The Lost Tablets of Mosh'aru, until PRE-AQ phase
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` = 5065;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(19, 0, 5065, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Prospector Ironboot - Hide \'The Lost Tablets of Mosh\'aru\' until player reaches Pre-AQ');
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (5465, 5471, 5472, 5473, 5474, 5475);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 --
-(5465, 0, 0, '$s becomes enraged!',                              16, 0, 100, 0, 0, 0, 10677, 0, 'Land Rager enrage at 30%'),
+(5465, 0, 0, '$s becomes enraged!',                               16, 0, 100, 0, 0, 0, 10677, 0, 'Land Rager'),
 (5471, 0, 0, 'I\'ll crush you!',                                  12, 0, 100, 0, 0, 0, 1925, 0, 'Dunemaul Ogre'),
 (5471, 0, 1, 'Me smash! You die!',                                12, 0, 100, 0, 0, 0, 1926, 0, 'Dunemaul Ogre'),
 (5471, 0, 2, 'Raaaaaaaaaaaaaaaaaaaaaaaaaaaaaar!!! Me smash $R!',  12, 0, 100, 0, 0, 0, 1927, 0, 'Dunemaul Ogre'),
