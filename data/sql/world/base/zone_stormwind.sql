@@ -409,19 +409,6 @@ UPDATE `quest_template` SET `LogTitle` = 'Chillwind Point' WHERE `ID` = 8415;
 -- Devourer of Souls (Warlock)
 UPDATE `quest_template_addon` SET `PrevQuestID` = 0 WHERE `ID` = 1716;
 
--- Hide dungeon set upgrade quests until PRE-AQ phase
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` BETWEEN 8905 AND 8912;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
-`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
-(19, 0, 8905, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Deliana - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- druid
-(19, 0, 8906, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Deliana - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- hunter
-(19, 0, 8907, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Deliana - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- mage
-(19, 0, 8908, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Deliana - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- paladin
-(19, 0, 8909, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Deliana - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- priest
-(19, 0, 8910, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Deliana - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- rogue
-(19, 0, 8911, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Deliana - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'), -- warlock
-(19, 0, 8912, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Deliana - Hide \'An Earnest Proposition\' until player reaches Pre-AQ'); -- warrior
-
 DELETE FROM `creature_text` WHERE `CreatureID` IN (12739);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 (12739, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0, 'Onyxias Elite Guard enrage at 30%');
