@@ -393,7 +393,7 @@ public:
 
         if (quest->GetQuestId() == QUEST_JAIL_BREAK)
         {
-            me->AI()->SetGUID(player->GetGUID());
+            // me->AI()->SetGUID(player->GetGUID());
 			me->SetWalk(true);	
 			CAST_AI(npc_marshal_windsor::npc_marshal_windsorAI, me->AI())->Start(false, player->GetGUID());
         }
