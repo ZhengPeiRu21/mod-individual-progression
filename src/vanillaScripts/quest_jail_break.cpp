@@ -159,7 +159,7 @@ public:
                     Talk(SAY_START_ESCORT);
                     me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_PC);
                     break;
-                case 8:
+                case 7:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_POINT);
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                     {
@@ -175,34 +175,34 @@ public:
                     }
                     SetEscortPaused(true);
                     break;
-                case 10:
+                case 9:
                     Talk(SAY_DUGHAL_CELL_2);
                     break;
-                case 15:
+                case 14:
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                         Talk(SAY_EQUIPMENT_1, player);
                     break;
-                case 16:
+                case 15:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_USE_STANDING);
                     break;
-                case 17:
+                case 16:
                     if (GameObject* door = me->FindNearestGameObject(GO_SUPPLY_ROOM_DOOR, 50.0f))
                         _instance->DoUseDoorOrButton(door->GetGUID());
                     break;
-                case 19:
+                case 18:
                     Talk(SAY_EQUIPMENT_2);
                     break;
-                case 20:
+                case 19:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_USE_STANDING);
                     break;
-                case 21:
+                case 20:
                     if (GameObject* crate = me->FindNearestGameObject(GO_SUPPLY_CRATE, 15.0f))
                         crate->SetGoState(GO_STATE_ACTIVE);
                     break;
-                case 22:
+                case 21:
                     me->UpdateEntry(NPC_MARSHAL_REGINALD_WINDSOR);
                     break;
-                case 23:
+                case 22:
                     SetEscortPaused(true);
                     _events.ScheduleEvent(EVENT_RESUME_ESCORT, 8s);
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
@@ -215,14 +215,14 @@ public:
                     DoCast(me, SPELL_WINDSOR_DEVOTION);
                     HandleDevotionAura();
                     break;
-                case 24:
+                case 23:
                     Talk(SAY_EQUIPMENT_4);
                     me->GetMotionMaster()->Clear();
                     me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_PC);
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                         me->SetFacingToObject(player);
                     break;
-                case 31:
+                case 30:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_POINT);
                     Talk(SAY_JAZ_CELL_1);
                     SchedulePrisonerActivation(NPC_OGRABISI);
@@ -245,10 +245,10 @@ public:
                     });
 
                     break;
-                case 33:
+                case 32:
                     Talk(SAY_JAZ_CELL_2);
                     break;
-                case 36:
+                case 35:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_POINT);
                     Talk(SAY_SHILL_CELL_1);
                     SchedulePrisonerActivation(NPC_SHILL_DINGER);
@@ -266,13 +266,13 @@ public:
                         }
                     });
                     break;
-                case 38:
+                case 37:
                     Talk(SAY_SHILL_CELL_2);
                     break;
-                case 39:
+                case 38:
                     Talk(SAY_SHILL_CELL_3);
                     break;
-                case 46:
+                case 45:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_POINT);
                     Talk(SAY_CREST_CELL_1);
                     SchedulePrisonerActivation(NPC_CREST_KILLER);
@@ -290,10 +290,10 @@ public:
                         }
                     });
                     break;
-                case 48:
+                case 47:
                     Talk(SAY_CREST_CELL_2);
                     break;
-                case 50:
+                case 49:
                     if (Creature* tobias = me->FindNearestCreature(NPC_TOBIAS_SEECHER, 200.0f))
                     {
                         if (!tobias->IsAlive())
@@ -306,13 +306,13 @@ public:
                     Talk(SAY_TOBIAS_CELL_1);
                     SetEscortPaused(true);
                     break;
-                case 52:
+                case 51:
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                     {
                         Talk(SAY_TOBIAS_CELL_2, player);
                     }
                     break;
-                case 58:
+                case 57:
                     Talk(SAY_FREE_1);
                     me->GetMotionMaster()->Clear();
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
@@ -320,7 +320,7 @@ public:
                         me->SetFacingToObject(player);
                     }
                     break;
-                case 59:
+                case 58:
                     Talk(SAY_FREE_2);
 
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
