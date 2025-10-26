@@ -94,7 +94,7 @@ private:
         return (entry == NPC_SAPPHIRON_40);
     }
 public:
-    boss_sapphiron_40() : CreatureScript("boss_sapphiron") { }
+    boss_sapphiron_40() : CreatureScript("boss_sapphiron_40") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
@@ -176,9 +176,20 @@ public:
             BossAI::JustEngagedWith(who);
             EnterCombatSelfFunction();
             if (isNaxx40Sapp(me->GetEntry()))
-                me->CastSpell(me, SPELL_FROST_AURA, true);
+			{
+				int32 amount = 0;
+				
+                if (urand(0, 99) != 0) 
+                    amount = 600; // Reduce damage by 50% (1200bp -> 600bp)
+				else
+					amount = 1200; // 1% chance to receive extra Frost Aura tick
+
+				me->CastCustomSpell(me, SPELL_FROST_AURA, &amount, nullptr, 0, true);
+			}
             else
+			{
                 me->CastSpell(me, RAID_MODE(SPELL_FROST_AURA_10, SPELL_FROST_AURA_25), true);
+			}
             events.ScheduleEvent(EVENT_BERSERK, 15min);
             events.ScheduleEvent(EVENT_CLEAVE, 5s);
             events.ScheduleEvent(EVENT_TAIL_SWEEP, 10s);
