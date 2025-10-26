@@ -249,6 +249,27 @@ class spell_sapphiron_icebolt_40 : public SpellScript
     }
 };
 
+// 28531 - Frost Aura
+class spell_sapphiron_frost_aura_40 : public AuraScript
+{
+    PrepareAuraScript(spell_sapphiron_frost_aura_40);
+
+    void CalculateAmount(AuraEffect const* /*aurEff*/, int32& amount, bool& /*canBeRecalculated*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+            return;
+        if (urand(0, 99) == 0) // 1% chance to receive extra Frost Aura tick
+            return;
+        amount *= 0.5; // Reduce damage by 50% (1200bp -> 600bp)
+    }
+
+    void Register() override
+    {
+        DoEffectCalcAmount += AuraEffectCalcAmountFn(spell_sapphiron_frost_aura_40::CalculateAmount, EFFECT_0, SPELL_AURA_PERIODIC_DAMAGE);
+    }
+};
+
 // 60960 - War Stomp - Patchwork Golem
 class spell_patchwork_golem_war_stomp_40 : public SpellScript
 {
@@ -418,6 +439,7 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_kelthuzad_dark_blast_40);
     RegisterSpellScript(spell_kelthuzad_frostbolt_40);
     RegisterSpellScript(spell_sapphiron_icebolt_40);
+    RegisterSpellScript(spell_sapphiron_frost_aura_40);
     RegisterSpellScript(spell_patchwork_golem_war_stomp_40);
     RegisterSpellScript(spell_noth_curse_of_the_plaguebringer_aura_40);
     RegisterSpellScript(spell_razuvious_disrupting_shout_40);
