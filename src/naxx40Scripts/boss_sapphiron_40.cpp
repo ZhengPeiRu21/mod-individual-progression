@@ -177,14 +177,7 @@ public:
             EnterCombatSelfFunction();
             if (isNaxx40Sapp(me->GetEntry()))
 			{
-				int32 amount = 0;
-				
-                if (urand(0, 99) != 0) 
-                    amount = 600; // Reduce damage by 50% (1200bp -> 600bp)
-				else
-					amount = 1200; // 1% chance to receive extra Frost Aura tick
-
-				me->CastCustomSpell(me, SPELL_FROST_AURA, &amount, nullptr, 0, true);
+               me->CastSpell(me, SPELL_FROST_AURA, true);
 			}
             else
 			{
