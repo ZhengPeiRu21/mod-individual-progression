@@ -94,7 +94,7 @@ private:
         return (entry == NPC_SAPPHIRON_40);
     }
 public:
-    boss_sapphiron_40() : CreatureScript("boss_sapphiron") { }
+    boss_sapphiron_40() : CreatureScript("boss_sapphiron_40") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
@@ -175,10 +175,7 @@ public:
         {
             BossAI::JustEngagedWith(who);
             EnterCombatSelfFunction();
-            if (isNaxx40Sapp(me->GetEntry()))
-                me->CastSpell(me, SPELL_FROST_AURA, true);
-            else
-                me->CastSpell(me, RAID_MODE(SPELL_FROST_AURA_10, SPELL_FROST_AURA_25), true);
+            me->CastSpell(me, SPELL_FROST_AURA, true);
             events.ScheduleEvent(EVENT_BERSERK, 15min);
             events.ScheduleEvent(EVENT_CLEAVE, 5s);
             events.ScheduleEvent(EVENT_TAIL_SWEEP, 10s);
