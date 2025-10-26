@@ -126,7 +126,7 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28522, 'spel
 
 -- 28531 Frost Aura 1200->600
 DELETE FROM `spell_script_names` WHERE `spell_id` = 28531;
--- INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28531, 'spell_sapphiron_frost_aura_40');
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28531, 'spell_sapphiron_frost_aura_40');
 
 -- 60960 War Stomp: Increase damage 500 to ~1000
 DELETE FROM `spell_script_names` WHERE `spell_id` = 60960;
