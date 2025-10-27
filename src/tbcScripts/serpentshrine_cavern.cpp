@@ -70,7 +70,7 @@ public:
         switch (spellInfo->Id)
         {
             case 38236: // Caribdis - Spawn Spitfire Totem
-                spellInfo->Effects[EFFECT_0].BasePoints = 70000;
+                spellInfo->Effects[EFFECT_0].BasePoints = 25000;
                 break;
         }
     }
