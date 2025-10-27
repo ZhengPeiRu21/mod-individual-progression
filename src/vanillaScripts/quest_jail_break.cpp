@@ -104,8 +104,6 @@ public:
         void SetGUID(ObjectGuid const& playerGUID, int32 /*id*/) override
         {
             _playerGUID = playerGUID;
-            Start(true, playerGUID, nullptr, false, false, false);
-            me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_NPC | UNIT_FLAG_IMMUNE_TO_PC);
         }
 
         void UpdateAI(uint32 diff) override
@@ -157,7 +155,7 @@ public:
             {
                 case 1:
                     Talk(SAY_START_ESCORT);
-                    me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_PC);
+                    me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_NPC | UNIT_FLAG_IMMUNE_TO_PC);
                     break;
                 case 7:
                     me->HandleEmoteCommand(EMOTE_ONESHOT_POINT);
@@ -218,6 +216,7 @@ public:
                 case 23:
                     Talk(SAY_EQUIPMENT_4);
                     me->GetMotionMaster()->Clear();
+                    me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_IMMUNE_TO_NPC | UNIT_FLAG_IMMUNE_TO_PC);
                     if (Player* player = ObjectAccessor::FindPlayer(_playerGUID))
                         me->SetFacingToObject(player);
                     break;
@@ -393,6 +392,8 @@ public:
         if (quest->GetQuestId() == QUEST_JAIL_BREAK)
         {
             me->AI()->SetGUID(player->GetGUID());
+			me->SetWalk(true);	
+			CAST_AI(npc_marshal_windsor::npc_marshal_windsorAI, me->AI())->Start(false, player->GetGUID());
         }
         else
         {

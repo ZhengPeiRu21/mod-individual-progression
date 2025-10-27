@@ -283,7 +283,7 @@ INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `
 (9023, 5, 283.62, -116.09, -70.21, 0, ''),
 (9023, 6, 296.18, -94.3, -74.08, 0, ''),
 (9023, 7, 294.57, -93.11, -74.08, 0, 'escort paused - SAY_WINDSOR_CELL_DUGHAL_1'),
-(9023, 8, 294.57, -93.11, -74.08, 10000, ''),
+(9023, 8, 294.57, -93.11, -74.08, 5000, ''),
 (9023, 9, 294.57, -93.11, -74.08, 3000, 'SAY_WINDSOR_CELL_DUGHAL_3'),
 (9023, 10, 314.31, -74.31, -76.09, 0, ''),
 (9023, 11, 360.22, -62.93, -66.77, 0, ''),
@@ -325,7 +325,7 @@ INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `
 (9023, 47, 549.2, -252.4, -70.34, 4000, 'SAY_WINDSOR_CELL_CREST_2'),
 (9023, 48, 555.33, -269.16, -74.4, 0, ''),
 (9023, 49, 554.31, -270.88, -74.4, 0, 'escort paused - SAY_WINDSOR_CELL_TOBIAS_1'),
-(9023, 50, 554.31, -270.88, -74.4, 10000, ''),
+(9023, 50, 554.31, -270.88, -74.4, 5000, ''),
 (9023, 51, 554.31, -270.88, -74.4, 4000, 'SAY_WINDSOR_CELL_TOBIAS_2'),
 (9023, 52, 536.1, -249.6, -67.47, 0, ''),
 (9023, 53, 520.94, -216.65, -59.28, 0, ''),
@@ -334,6 +334,11 @@ INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `
 (9023, 56, 470.39, -6.01, -70.1, 0, ''),
 (9023, 57, 452.45, 29.85, -70.37, 1500, 'SAY_WINDSOR_FREE_1'),
 (9023, 58, 452.45, 29.85, -70.37, 15000, 'SAY_WINDSOR_FREE_2');
+
+-- adding this single waypoint avoids a console error - temporary fix
+DELETE FROM `waypoint_data` WHERE `id` IN (9023);
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+(9023, 1,  316.33, -225.52, -77.72, NULL, 0, 0, 0, 100, 0);
 
 DELETE FROM `creature_text` WHERE `CreatureID` = 9023;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
