@@ -274,6 +274,8 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 # INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 # (30, 0, 1748, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Highlord Bolvar Fordring - Visibility - Require quest Dragonkin Menace rewarded.');
 
+UPDATE `creature` SET `MovementType` = 0 WHERE `guid` = 47622; -- Marshal Windsor
+
 DELETE FROM `script_waypoint` WHERE `entry` = 9023;
 INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `location_z`, `waittime`, `point_comment`) VALUES
 (9023, 1, 316.336, -225.528, -77.7258, 2000, 'SAY_WINDSOR_START'),
@@ -334,11 +336,6 @@ INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `
 (9023, 56, 470.39, -6.01, -70.1, 0, ''),
 (9023, 57, 452.45, 29.85, -70.37, 1500, 'SAY_WINDSOR_FREE_1'),
 (9023, 58, 452.45, 29.85, -70.37, 15000, 'SAY_WINDSOR_FREE_2');
-
--- adding this single waypoint avoids a console error - temporary fix
-DELETE FROM `waypoint_data` WHERE `id` IN (9023);
-INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
-(9023, 1,  316.33, -225.52, -77.72, NULL, 0, 0, 0, 100, 0);
 
 DELETE FROM `creature_text` WHERE `CreatureID` = 9023;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
