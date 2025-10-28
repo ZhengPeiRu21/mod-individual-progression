@@ -97,7 +97,8 @@ enum ProgressionQuests
 
 enum ProgressionAchievements
 {
-    KEL_THUZAD_KILL      = 575, // WotLK, naxx40 does not have an achievement
+    KEL_THUZAD_40_KILL   = 533,
+    KEL_THUZAD_KILL      = 575, // WotLK
     ONYXIAS_KILL         = 684,
     NEFARIAN_KILL        = 685,
     RAGNAROS_KILL        = 686,
@@ -279,15 +280,17 @@ public:
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;
     bool hasCustomProgressionValue(uint32 creatureEntry);
+    bool isExcludedFromProgression(Player* player);
+    bool isAttuned(Player* player);
     void checkIPProgression(Player* player);	
     void UpdateProgressionQuests(Player* player);
+    void UpdateProgressionAchievements(Player* player, uint16 achievementID);
     void checkKillProgression(Player* player, Creature* killed);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
+    static void RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId);
 	static void AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment);
     static float ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);
-    static bool isAttunedNaxx(Player* player);
-    bool isExcludedFromProgression(Player* player);
     bool groupHaveLevelDisparity(Player* player);
     void TeleportOutsideRestoredRaid(Player *player);
 };

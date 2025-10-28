@@ -45,8 +45,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15975,0,1,0,0,0,100,4,5000,8000,14000,18000,0,0,11,56032,0,0,0,0,0,2,0,0,0,0,0,0,0,0,'Cast Spell IC'),
 (15975,0,2,0,0,0,100,0,9000,16000,18000,21000,0,0,11,28434,0,0,0,0,0,5,0,0,0,0,0,0,0,0,'Cast Spell IC');
 
-DELETE FROM `waypoint_data` WHERE `id` IN (3620600, 3620630);
-
 -- Scourge Invasion Update
 UPDATE `creature_template` SET `AIName` = ''   WHERE `entry` = 16136;
 UPDATE `creature_template` SET `npcflag` = 1   WHERE `entry` = 16786;

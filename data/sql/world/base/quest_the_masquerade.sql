@@ -274,6 +274,8 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `
 # INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 # (30, 0, 1748, 0, 0, 47, 0, 4182, 64, 0, 0, 0, 0, '', 'Highlord Bolvar Fordring - Visibility - Require quest Dragonkin Menace rewarded.');
 
+UPDATE `creature` SET `MovementType` = 0 WHERE `guid` = 47622; -- Marshal Windsor
+
 DELETE FROM `script_waypoint` WHERE `entry` = 9023;
 INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `location_z`, `waittime`, `point_comment`) VALUES
 (9023, 1, 316.336, -225.528, -77.7258, 2000, 'SAY_WINDSOR_START'),
@@ -283,7 +285,7 @@ INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `
 (9023, 5, 283.62, -116.09, -70.21, 0, ''),
 (9023, 6, 296.18, -94.3, -74.08, 0, ''),
 (9023, 7, 294.57, -93.11, -74.08, 0, 'escort paused - SAY_WINDSOR_CELL_DUGHAL_1'),
-(9023, 8, 294.57, -93.11, -74.08, 10000, ''),
+(9023, 8, 294.57, -93.11, -74.08, 5000, ''),
 (9023, 9, 294.57, -93.11, -74.08, 3000, 'SAY_WINDSOR_CELL_DUGHAL_3'),
 (9023, 10, 314.31, -74.31, -76.09, 0, ''),
 (9023, 11, 360.22, -62.93, -66.77, 0, ''),
@@ -325,7 +327,7 @@ INSERT INTO `script_waypoint` (`entry`, `pointid`, `location_x`, `location_y`, `
 (9023, 47, 549.2, -252.4, -70.34, 4000, 'SAY_WINDSOR_CELL_CREST_2'),
 (9023, 48, 555.33, -269.16, -74.4, 0, ''),
 (9023, 49, 554.31, -270.88, -74.4, 0, 'escort paused - SAY_WINDSOR_CELL_TOBIAS_1'),
-(9023, 50, 554.31, -270.88, -74.4, 10000, ''),
+(9023, 50, 554.31, -270.88, -74.4, 5000, ''),
 (9023, 51, 554.31, -270.88, -74.4, 4000, 'SAY_WINDSOR_CELL_TOBIAS_2'),
 (9023, 52, 536.1, -249.6, -67.47, 0, ''),
 (9023, 53, 520.94, -216.65, -59.28, 0, ''),

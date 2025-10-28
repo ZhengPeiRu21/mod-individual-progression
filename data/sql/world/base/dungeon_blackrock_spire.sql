@@ -320,11 +320,11 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+19, 9692, 0, 0, 229, 0, 0, 1, 1, 1, -49.9808, -482.456, 77.9158, 2.26498, 10800, 0, 0, 8352, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 --
 (@CGUID+31, 9266, 0, 0, 229, 0, 0, 1, 1, 1, -41.3733, -457.899, -18.6442, 0.0197418, 10800, 0, 0, 6477, 2163, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+32, 9241, 0, 0, 229, 0, 0, 1, 1, 1, -49.4928, -446.184, -18.6443, 5.42721,   10800, 0, 0, 8352, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+33, 9269, 0, 0, 229, 0, 0, 1, 1, 1, -71.0648, -476.796, -18.749, 2.13639, 300, 0, 0, 6681, 2241, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+34, 9266, 0, 0, 229, 0, 0, 1, 1, 1, -76.0033, -476.863, -18.7564, 0.467415, 300, 0, 0, 6477, 2163, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+35, 9241, 0, 0, 229, 0, 0, 1, 1, 1, -71.2052, -472.907, -18.7374, 3.80536, 300, 0, 0, 8097, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+36, 9241, 0, 0, 229, 0, 0, 1, 1, 1, -76.1904, -472.999, -18.7473, 6.05552, 300, 0, 0, 8097, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
+(@CGUID+32, 9241, 0, 0, 229, 0, 0, 1, 1, 1, -49.4928, -446.184, -18.6443, 5.42721, 10800, 0, 0, 8352, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+33, 9269, 0, 0, 229, 0, 0, 1, 1, 1, -71.0648, -476.796, -18.749, 2.13639, 10800, 0, 0, 6681, 2241, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+34, 9266, 0, 0, 229, 0, 0, 1, 1, 1, -76.0033, -476.863, -18.7564, 0.467415, 10800, 0, 0, 6477, 2163, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+35, 9241, 0, 0, 229, 0, 0, 1, 1, 1, -71.2052, -472.907, -18.7374, 3.80536, 10800, 0, 0, 8097, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+36, 9241, 0, 0, 229, 0, 0, 1, 1, 1, -76.1904, -472.999, -18.7473, 6.05552, 10800, 0, 0, 8097, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 
 -- sitting / sleeping
@@ -593,6 +593,55 @@ DELETE FROM `creature_loot_template` WHERE `Item` = 12562;
 
 /* gemstones shouldn't have 100% drop rate. should be around 33%. exact rates unknown. wowhead's listed drop rates aren't correct. */
 UPDATE `creature_loot_template` SET `Chance` = 33 WHERE `Item` IN (12335, 12336, 12337);
+
+/* fix rare loot drop rates   */
+UPDATE `creature_loot_template` SET `Chance` = 7.5  WHERE `item` = 12219; -- Unadorned Seal of Ascension
+UPDATE `creature_loot_template` SET `Chance` = 10   WHERE `item` = 14513; -- Firebrand Pyromancer - Pattern: Robe of the Archmage
+
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9097 AND `item` = 16713; -- Scarshield Legionnaire, Shadowcraft Belt
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9097 AND `item` = 16735; -- Scarshield Legionnaire, Bracers of Valor
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9098 AND `item` = 16683; -- Scarshield Spellbinder - Magister's Bindings
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9098 AND `item` = 16696; -- Scarshield Spellbinder - Devout Belt
+UPDATE `creature_loot_template` SET `Chance` = 2.5  WHERE `entry` = 9239 AND `item` = 16685; -- Smolderthorn Mystic - Magister's Belt
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 9240 AND `item` = 16696; -- Smolderthorn Shadow Priest - Devout Belt
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 9241 AND `item` = 16680; -- Smolderthorn Headhunter - Beaststalker's Belt
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9257 AND `item` = 16673; -- Scarshield Warlock - Cord of Elements
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9257 AND `item` = 16703; -- Scarshield Warlock - Dreadmist Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 9258 AND `item` = 16680; -- Scarshield Raider - Beaststalker's Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 9258 AND `item` = 16716; -- Scarshield Raider - Wildheart Belt
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9258 AND `item` = 16717; -- Scarshield Raider - Wildheart Gloves
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 9259 AND `item` = 16680; -- Firebrand Grunt - Beaststalker\'s Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 9259 AND `item` = 16713; -- Firebrand Grunt - Shadowcraft Belt
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9259 AND `item` = 16735; -- Firebrand Grunt - Bracers of Valor
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 9260 AND `item` = 16680; -- Firebrand Legionnaire - Beaststalker's Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 9260 AND `item` = 16713; -- Firebrand Legionnaire - Shadowcraft Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 9260 AND `item` = 16735; -- Firebrand Legionnaire - Bracers of Valor
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9261 AND `item` = 16696; -- Firebrand Darkweaver - Devout Belt
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9261 AND `item` = 16703; -- Firebrand Darkweaver - Dreadmist Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 9262 AND `item` = 16673; -- Firebrand Invoker - Cord of Elements
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9262 AND `item` = 16683; -- Firebrand Invoker - Magister's Bindings
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9262 AND `item` = 16717; -- Firebrand Invoker - Wildheart Gloves
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 9263 AND `item` = 16696; -- Firebrand Dreadweaver - Devout Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 9263 AND `item` = 16703; -- Firebrand Dreadweaver - Dreadmist Bracers
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 9264 AND `item` = 16673; -- Firebrand Pyromancer - Cord of Elements
+UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 9264 AND `item` = 16683; -- Firebrand Pyromancer - Magister's Bindings
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9264 AND `item` = 16717; -- Firebrand Pyromancer - Wildheart Gloves
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 9265 AND `item` = 16710; -- Smolderthorn Shadow Hunter - Shadowcraft Bracers
+UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 9265 AND `item` = 16713; -- Smolderthorn Shadow Hunter - Shadowcraft Belt
+UPDATE `creature_loot_template` SET `Chance` = 2.75 WHERE `entry` = 9266 AND `item` = 16673; -- Smolderthorn Witch Doctor - Cord of Elements
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 9268 AND `item` = 16717; -- Smolderthorn Berserker - Wildheart Gloves
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 9268 AND `item` = 16736; -- Smolderthorn Berserker - Belt of Valor
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 9269 AND `item` = 16703; -- Smolderthorn Seer - Dreadmist Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9269 AND `item` = 16717; -- Smolderthorn Seer - Wildheart Gloves
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9692 AND `item` = 16680; -- Bloodaxe Raider - Beaststalker's Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 9692 AND `item` = 16716; -- Bloodaxe Raider - Wildheart Belt
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9692 AND `item` = 16717; -- Bloodaxe Raider - Wildheart Gloves
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9693 AND `item` = 16673; -- Bloodaxe Evoker - Cord of Elements
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 9693 AND `item` = 16683; -- Bloodaxe Evoker - Magister's Bindings
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9716 AND `item` = 16713; -- Bloodaxe Warmonger - Shadowcraft Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 9716 AND `item` = 16735; -- Bloodaxe Warmonger - Bracers of Valor
+UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 9717 AND `item` = 16696; -- Bloodaxe Summoner - Devout Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 9717 AND `item` = 16703; -- Bloodaxe Summoner - Dreadmist Bracers
 
 /* Npc for seal of ascension quest */
 DELETE FROM `creature` WHERE `id1` = 10296 AND `map` = 229;

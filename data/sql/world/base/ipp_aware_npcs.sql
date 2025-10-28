@@ -6,7 +6,8 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16
                                                                               20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130,
                                                                               19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15282, 15270);
+-- Phasing NPCs related to AllowEarlyDungeonSet2
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15270, 15282, 16012, 16013);
 
 -- Phasing Cenarion Hold NPCs
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_preaq' WHERE `entry` IN (15176, 15180, 15181, 15183, 15188, 15189, 15190, 15191, 15293, 15194, 
@@ -15,7 +16,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_preaq' WHERE `entry` IN (
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` = 15184 AND `guid` IN (42782, 42783, 42768);
 
 -- Phasing ZG quest NPCs on YoJamba Isle
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` IN (14904, 14910, 15070);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` IN (14902, 14903, 14904, 14905, 14910, 15070);
 
 -- Phasing NPCs until after the outdoors AQ war has been completed
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` IN  (15498, 15499, 15500, 15540, 16091);                -- Cenarion Hold

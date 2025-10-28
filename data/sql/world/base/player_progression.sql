@@ -31,13 +31,45 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 (66018, 2, 60, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28006, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 'Progression Quest WotLK T5', NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, '', '', '', '', 12340);
 
 
+/* ACHIEVEMENTS */
+
+DELETE FROM `achievement_dbc` WHERE `ID` = 533;
+INSERT INTO `achievement_dbc` (`ID`, `Faction`, `Instance_Id`, `Supercedes`, 
+`Title_Lang_enUS`, `Title_Lang_enGB`, `Title_Lang_koKR`, `Title_Lang_frFR`, `Title_Lang_deDE`, `Title_Lang_enCN`, `Title_Lang_zhCN`, `Title_Lang_enTW`, 
+`Title_Lang_zhTW`, `Title_Lang_esES`, `Title_Lang_esMX`, `Title_Lang_ruRU`, `Title_Lang_ptPT`, `Title_Lang_ptBR`, `Title_Lang_itIT`, `Title_Lang_Unk`, `Title_Lang_Mask`, 
+`Description_Lang_enUS`, `Description_Lang_enGB`, `Description_Lang_koKR`, `Description_Lang_frFR`, `Description_Lang_deDE`, `Description_Lang_enCN`, `Description_Lang_zhCN`, `Description_Lang_enTW`, 
+`Description_Lang_zhTW`, `Description_Lang_esES`, `Description_Lang_esMX`, `Description_Lang_ruRU`, `Description_Lang_ptPT`, `Description_Lang_ptBR`, `Description_Lang_itIT`, `Description_Lang_Unk`, `Description_Lang_Mask`, 
+`Category`, `Points`, `Ui_Order`, `Flags`, `IconID`, 
+`Reward_Lang_enUS`, `Reward_Lang_enGB`, `Reward_Lang_koKR`, `Reward_Lang_frFR`, `Reward_Lang_deDE`, `Reward_Lang_enCN`, `Reward_Lang_zhCN`, `Reward_Lang_enTW`, `Reward_Lang_zhTW`, `Reward_Lang_esES`, 
+`Reward_Lang_esMX`, `Reward_Lang_ruRU`, `Reward_Lang_ptPT`, `Reward_Lang_ptBR`, `Reward_Lang_itIT`, `Reward_Lang_Unk`, `Reward_Lang_Mask`, `Minimum_Criteria`, `Shares_Criteria`) VALUES
+
+(533,-1,533,0,"Naxxramas (Level 60)","","","","","","","","","","","","","","","",16712190,
+"Defeat the classic, level 60 version of Kel\'Thuzad.","","","","","","","","","","","","","","","",16712190,
+81,0,154,0,1898,"","","","","","","","","","","","","","","","",16712172,1,0); 
+
+
 /* CREATURE DROPS */
 
 -- https://www.azerothcore.org/wiki/conditions
 DELETE FROM `conditions` WHERE `SourceGroup` = 19768 AND `SourceEntry` = 34689; -- Design: Chaotic Skyfire Diamond
-DELETE FROM `conditions` WHERE `SourceEntry` IN (20404, 20406, 20407, 20408, 22525, 22526, 22527, 22528, 22529);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` IN (16716, 16717, 20404, 20406, 20407, 20408, 22525, 22526, 22527, 22528, 22529);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(1, 9258,  16716, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Wildheart Belt will only drop if the player has completed PROGRESSION_AQ_WAR'),
+(1, 9692,  16716, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Wildheart Belt will only drop if the player has completed PROGRESSION_AQ_WAR'), 
+(1, 9736,  16716, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Wildheart Belt will only drop if the player has completed PROGRESSION_AQ_WAR'), 
+(1, 10416, 16716, 0, 0, 8, 0, 66001, 0, 0, 1, 0, 0, '', 'Wildheart Belt will only drop if the player has NOT completed PROGRESSION_MOLTEN_CORE'),
+(1, 10417, 16716, 0, 0, 8, 0, 66001, 0, 0, 1, 0, 0, '', 'Wildheart Belt will only drop if the player has NOT completed PROGRESSION_MOLTEN_CORE'),
+(1, 10499, 16716, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Wildheart Belt will only drop if the player has completed PROGRESSION_AQ_WAR'), 
+--
+(1, 9096, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9258, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9262, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9264, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9268, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9269, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9692, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
 --
 (1, 11804, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'), -- drops in patch 1.8
 (1, 11880, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),

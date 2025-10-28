@@ -1,25 +1,31 @@
+(please backup first in case you want to undo changes! It is safe to leave backups in the dbc folder with different names.)
+
+---------------------------------------------------
+To have the Vanilla login screen:
+---------------------------------------------------
+Place patch-J.mpq from the dbc.7z file in the client 'data' folder. This is a visual only change; no server change required.
+
+---------------------------------------------------
+To have Vanilla loading screens during Vanilla:
+---------------------------------------------------
+Place patch-U.mpq from the dbc.7z file in the client 'data' folder. This is a visual only change; no server change required.
+Credit to slendydaddy for HD Vanilla loading screen art.
+
 ---------------------------------------------------
 To restore Vanilla and TBC crafting, recipes, and reagents:
 ---------------------------------------------------
-SkillLineAbility.dbc and Spell.dbc files are for use by the server. Place them in server dbc dir and overwrite existing files 
-(please backup first if you want to undo changes! It is safe to leave a backup in dbc folder with different names.)
-patch-V.mpq contains the client DBC files. Place them in the Data folder of the client with existing .mpq files.
-To avoid confusion, please ensure that both client and server files are used for this change! Server files will ensure correct logic, client files ensure correct display.
+SkillLine.dbc, SkillLineAbility.dbc and SkillRaceClassInfo.dbc are for use by the server. 
+Place these files in the server 'data/dbc' folder overwriting the existing files.
 
 ---------------------------------------------------
-To have Vanilla login screen:
+To have adjusted mana costs during Vanilla and TBC:
 ---------------------------------------------------
-Place patch-J.mpq in the client data folder. This is visual only change; no server change required.
-
----------------------------------------------------
-To have Vanilla loading screens in Vanilla content:
----------------------------------------------------
-Place patch-U.mpq in the client data folder. This is visual only change; no server change required.
-Credit to slendydaddy for HD Vanilla loading screen art.
+Place patch-V.mpq from the patch-V.7z in the client 'data' folder.
+Place Spell.dbc from the patch-V.7z file in the server 'data/dbc' folder overwriting the existing file.
 
 ---------------------------------------------------
 To keep WotLK mana costs during Vanilla and TBC:
 ---------------------------------------------------
-Place patch-S.mpq in the client data folder instead of patch-V.mpq. Do NOT use both!
-Place Spell.dbc from the patch-S.7p file in the server dbc directory overwriting the existing file.
+Place patch-S.mpq from the patch-S.7z file in the client 'data' folder instead of patch-V.mpq. Do NOT use both!
+Place Spell.dbc from the patch-S.7z file in the server 'data/dbc' folder overwriting the existing file.
 Credit to sihensel and soniquete0

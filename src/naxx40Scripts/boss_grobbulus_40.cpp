@@ -169,7 +169,11 @@ public:
                     break;
                 case EVENT_SLIME_SPRAY:
                     Talk(EMOTE_SLIME);
-                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25, SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25), false);
+                    if (Unit* target = me->GetVictim())
+                    {
+                        int32 bp0 = urand(3200, 4800);
+                        me->CastCustomSpell(target, SPELL_SLIME_SPRAY_10, &bp0, nullptr, nullptr, false);
+                    }                    
                     events.Repeat(20s);
                     break;
                 case EVENT_MUTATING_INJECTION:

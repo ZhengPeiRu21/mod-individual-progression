@@ -9,7 +9,9 @@ REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_ty
 
 /* Because you should also be able to enter with the blessed Medallion of Karabor, the quest is checked instead of the item. It's not possible to do a check for item 1 or 2. 
    This way the requirement_note is still correct, you just don't need the item on you anymore. */
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES 
+
+DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 64;
+INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES 
 (64, 1, 10985, 'You must possess the Medallion of Karabor to enter the Black Temple.', 2, NULL, 0, NULL);
 
 /* Maraudon Portal Requirement Script */

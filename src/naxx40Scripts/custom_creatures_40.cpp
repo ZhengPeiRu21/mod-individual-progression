@@ -28,7 +28,7 @@ public:
                         && player->GetLevel() <= IP_LEVEL_TBC
                         && (sIndividualProgression->isExcludedFromProgression(player)
                             || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
-                            || sIndividualProgression->isAttunedNaxx(player)
+                            || sIndividualProgression->isAttuned(player)
                             || player->IsGameMaster()))
                     {
                         //player->SetRaidDifficulty(RAID_DIFFICULTY_25MAN_HEROIC); // quick hack #ZhengPeiRu21/mod-individual-progression/issues/359
@@ -48,7 +48,7 @@ public:
                         && player->GetLevel() <= IP_LEVEL_TBC
                         && (sIndividualProgression->isExcludedFromProgression(player)
                             || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
-                            || sIndividualProgression->isAttunedNaxx(player)
+                            || sIndividualProgression->isAttuned(player)
                             || player->IsGameMaster())
                     {
                         GameObject* door = me->FindNearestGameObject(GO_STRATH_GATE_40, 100.0f);
