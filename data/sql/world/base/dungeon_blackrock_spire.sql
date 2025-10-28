@@ -596,6 +596,7 @@ UPDATE `creature_loot_template` SET `Chance` = 33 WHERE `Item` IN (12335, 12336,
 
 /* fix rare loot drop rates   */
 UPDATE `creature_loot_template` SET `Chance` = 7.5  WHERE `item` = 12219; -- Unadorned Seal of Ascension
+UPDATE `creature_loot_template` SET `Chance` = 10   WHERE `item` = 14513; -- Firebrand Pyromancer - Pattern: Robe of the Archmage
 
 UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9097 AND `item` = 16713; -- Scarshield Legionnaire, Shadowcraft Belt
 UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 9097 AND `item` = 16735; -- Scarshield Legionnaire, Bracers of Valor
