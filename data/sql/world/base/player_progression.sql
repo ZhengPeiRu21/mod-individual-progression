@@ -70,7 +70,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 9268, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
 (1, 9269, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
 (1, 9692, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
-(1, 9736, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR');
+(1, 9736, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'),
 --
 (1, 11804, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'), -- drops in patch 1.8
 (1, 11880, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
