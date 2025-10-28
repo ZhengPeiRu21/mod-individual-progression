@@ -56,7 +56,7 @@ public:
         uint16 playerGUID = target->GetGUID().GetCounter();
         uint8 currentState = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 		
-		if (progressionLevel < currentState) -- TO DO adapt
+		if (progressionLevel < currentState)
         {
             for (uint8 i = progressionLevel; i < currentState; ++i)
             {
