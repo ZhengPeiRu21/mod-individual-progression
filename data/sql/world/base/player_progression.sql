@@ -52,9 +52,25 @@ INSERT INTO `achievement_dbc` (`ID`, `Faction`, `Instance_Id`, `Supercedes`,
 
 -- https://www.azerothcore.org/wiki/conditions
 DELETE FROM `conditions` WHERE `SourceGroup` = 19768 AND `SourceEntry` = 34689; -- Design: Chaotic Skyfire Diamond
-DELETE FROM `conditions` WHERE `SourceEntry` IN (20404, 20406, 20407, 20408, 22525, 22526, 22527, 22528, 22529);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` IN (16716, 16717, 20404, 20406, 20407, 20408, 22525, 22526, 22527, 22528, 22529);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(1, 9258,  16716, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Wildheart Belt will only drop if the player has completed PROGRESSION_AQ_WAR'),
+(1, 9692,  16716, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Wildheart Belt will only drop if the player has completed PROGRESSION_AQ_WAR'), 
+(1, 9736,  16716, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Wildheart Belt will only drop if the player has completed PROGRESSION_AQ_WAR'), 
+(1, 10416, 16716, 0, 0, 8, 0, 66001, 0, 0, 1, 0, 0, '', 'Wildheart Belt will only drop if the player has NOT completed PROGRESSION_MOLTEN_CORE'),
+(1, 10417, 16716, 0, 0, 8, 0, 66001, 0, 0, 1, 0, 0, '', 'Wildheart Belt will only drop if the player has NOT completed PROGRESSION_MOLTEN_CORE'),
+(1, 10499, 16716, 0, 0, 8, 0, 66005, 0, 0, 0, 0, 0, '', 'Wildheart Belt will only drop if the player has completed PROGRESSION_AQ_WAR'), 
+--
+(1, 9096, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9258, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9262, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9264, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9268, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9269, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9692, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR'), 
+(1, 9736, 16717, 0, 0, 8, 0, 66005, 0, 0, 1, 0, 0, '', 'Wildheart Gloves will only drop if the player has NOT completed PROGRESSION_AQ_WAR');
 --
 (1, 11804, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'), -- drops in patch 1.8
 (1, 11880, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
