@@ -315,3 +315,8 @@ INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `positi
 (8025100,9,  -8870.04, -371.407, 71.997,  'Defias Thug'),
 (8025100,10, -8878.29, -410.994, 65.6802, 'Defias Thug'),
 (8025100,11, -8878.29, -410.994, 65.6802, 'Defias Thug'); -- 25 sec delay and random movement
+
+-- Fix loca: A Threat Within
+UPDATE `quest_template_locale` SET `Details` = 'J''espère que vous avez le coeur bien accroché, jeune recrue, car il y a du travail à faire à Northshire.\n\nEt ce n''est pas du travail de ferme.\n\nLes gardes de Stormwind ont beaucoup à faire afin de maintenir la paix en ces lieux, tandis que nombre d''entre nous sont en des terres lointaines et que tellement de dangers nous menacent. Aussi acceptons-nous l''aide de tous ceux qui souhaitent défendre leur demeure. Et leur alliance également.\n\nSi votre volonté est de répondre à cet appel, allez parler à mon supérieur, le maréchal McBride. Il se trouve dans l''abbaye qui est derrière moi.' WHERE `ID` = 783 AND `locale` = 'frFR';
+-- Fix loca: Hallow's End Treats for Jesper!
+UPDATE `quest_template_locale` SET `Details` = 'J''aimerais bien faire la tournée des bonbons et des blagues, mais je ne peux pas, car je suis malade. Si vous voulez y aller pour moi, je vous échangerai les bonbons que vous gagnerez contre celui que j''ai déjà ! Je pense que vous l''aimerez beaucoup - il vous transforme en des trucs rigolos et effrayants !\n\nTous les aubergistes dans les grandes villes ont des bonbons qu''ils donnent pour la Sanssaint. Parlez-leur et faites les blagues qu''ils vous demanderont ! Ah, et il y a aussi un petit gnome nommé Talvash à Ironforge qui donne des bonbons. Quand vous aurez tous les bonbons, rapportez-les-moi ici !' WHERE `ID` = 8311 AND `locale` = 'frFR';
