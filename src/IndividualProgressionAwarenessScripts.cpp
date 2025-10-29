@@ -982,7 +982,8 @@ public:
                 return true;
             }
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) || target->getRace(true) >= 10;
+            int playerClass = target->getClass();
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) || playerClass == 2 || playerClass == 7; // class 2 = Paladin, class 7 = Shaman
         }
 
         protected:
