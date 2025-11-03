@@ -352,6 +352,16 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 -- Lady Palanseer <Armor Quartermaster> - vanilla
 DELETE FROM `npc_vendor` WHERE `entry`= @LP_Classic;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+-- boot 427, gloves 428, helm 444, pants 653, chest 652, shoulders 427
+(@LP_Classic, 16485, 427), (@LP_Classic, 16487, 428), (@LP_Classic, 16489, 444), (@LP_Classic, 16490, 653), (@LP_Classic, 16491, 652), (@LP_Classic, 16492, 427), -- mages, pre naxx
+(@LP_Classic, 16494, 427), (@LP_Classic, 16496, 428), (@LP_Classic, 16501, 427), (@LP_Classic, 16502, 653), (@LP_Classic, 16503, 444), (@LP_Classic, 16504, 652), -- druid, pre naxx
+(@LP_Classic, 16498, 427), (@LP_Classic, 16499, 428), (@LP_Classic, 16505, 652), (@LP_Classic, 16506, 444), (@LP_Classic, 16507, 427), (@LP_Classic, 16508, 653), -- rogue, pre naxx
+(@LP_Classic, 16509, 427), (@LP_Classic, 16510, 428), (@LP_Classic, 16513, 652), (@LP_Classic, 16514, 444), (@LP_Classic, 16515, 653), (@LP_Classic, 16516, 427), -- warrior, pre naxx
+(@LP_Classic, 16518, 427), (@LP_Classic, 16519, 428), (@LP_Classic, 16521, 444), (@LP_Classic, 16522, 652), (@LP_Classic, 16523, 653), (@LP_Classic, 16524, 427), -- shaman, pre naxx
+(@LP_Classic, 16525, 652), (@LP_Classic, 16526, 444), (@LP_Classic, 16527, 653), (@LP_Classic, 16528, 427), (@LP_Classic, 16530, 428), (@LP_Classic, 16531, 427), -- hunter, pre naxx
+(@LP_Classic, 17570, 444), (@LP_Classic, 17571, 653), (@LP_Classic, 17572, 652), (@LP_Classic, 17573, 427), (@LP_Classic, 17576, 427), (@LP_Classic, 17577, 428), -- warlock, pre naxx
+(@LP_Classic, 17610, 444), (@LP_Classic, 17611, 653), (@LP_Classic, 17612, 652), (@LP_Classic, 17613, 427), (@LP_Classic, 17616, 427), (@LP_Classic, 17617, 428), -- priest, pre naxx
+--
 (@LP_Classic, 16533, 464), (@LP_Classic, 16534, 542), (@LP_Classic, 16535, 463), (@LP_Classic, 16536, 465), (@LP_Classic, 16539, 465), (@LP_Classic, 16540, 541), (@LP_Classic, 16541, 463), 
 (@LP_Classic, 16542, 464), (@LP_Classic, 16543, 542), (@LP_Classic, 16544, 465), (@LP_Classic, 16545, 465), (@LP_Classic, 16548, 541), (@LP_Classic, 16549, 463), (@LP_Classic, 16550, 464), 
 (@LP_Classic, 16551, 465), (@LP_Classic, 16552, 542), (@LP_Classic, 16554, 465), (@LP_Classic, 16555, 541), (@LP_Classic, 16558, 465), (@LP_Classic, 16560, 541), (@LP_Classic, 16561, 464), 
@@ -389,10 +399,67 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 
 
 /* Hide certain vendor items until the player has reached the progression tier for them */
-DELETE FROM `conditions` WHERE `SourceGroup` IN (12796, @LP_Classic, @LP_TBC, @TH_Classic, @TH_TBC);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (12796, @LP_Classic, @LP_TBC, @TH_Classic, @TH_TBC);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
--- 
+--
+(23, @LP_Classic, 16485, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Silk Footwraps if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16487, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Silk Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16489, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Silk Hood if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16490, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Silk Pants if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16491, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Silk Robes if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16492, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Silk Shoulderpads if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16494, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dragonhide Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16496, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dragonhide Gauntlets if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16501, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dragonhide Spaulders if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16502, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dragonhide Trousers if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16503, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dragonhide Helm if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16504, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dragonhide Helm if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16498, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Leather Treads if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16499, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Leather Vices if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16505, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Leather Hauberk if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16506, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Leather Headguard if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16507, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Leather Mantle if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16508, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Leather Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16509, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Plate Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16510, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Plate Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16513, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Plate Armor if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16514, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Plate Headguard if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16515, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Plate Legguards if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16516, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Plate Pauldrons if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16518, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Mail Walkers if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16519, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Mail Grips if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16521, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Mail Helm if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16522, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Mail Chestpiece if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16523, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Mail Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16524, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Mail Shoulders if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16525, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Chain Breastplate if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16526, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Chain Headguard if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16527, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Chain Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16528, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Chain Pauldrons if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16530, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Chain Gauntlets if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16531, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Chain Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17570, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dreadweave Hood if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17571, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dreadweave Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17572, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dreadweave Robe if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17573, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dreadweave Shoulders if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17576, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dreadweave Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17577, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dreadweave Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17610, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Satin Cowl if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17611, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Satin Trousers if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17612, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Satin Vestments if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17613, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Satin Shoulderpads if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17616, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Satin Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17617, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Satin Gloves if the player has NOT completed PROGRESSION_AQ'),
+--
+(23, @LP_Classic, 22860, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Silk Walkers if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22870, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Silk Handwraps if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22883, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Silk Legguards if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22886, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Silk Tunic if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23263, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Silk Cowl if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23264, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Silk Mantle if the player has completed PROGRESSION_AQ'),
+
+--
 (23, @LP_Classic, 16533, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Cowl until the player has completed PROGRESSION_ONYXIA'),
 (23, @LP_Classic, 16534, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Trousers until the player has completed PROGRESSION_ONYXIA'),
 (23, @LP_Classic, 16535, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Raiment until the player has completed PROGRESSION_ONYXIA'),
