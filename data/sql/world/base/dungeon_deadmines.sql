@@ -50,7 +50,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (644, 0, 1, 0, 0, 0, 100, 0, 1000, 8000, 17000, 27000, 0, 0, 11, 6304, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Rhahk Zor - Within 0-5 Range - Cast Rhahk Zor Slam'),
 (644, 0, 2, 3, 6, 0, 100, 514, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 14, 30533, 13965, 0, 0, 0, 0, 0, 0,              'Rhahk Zor - On Just Died - Activate Gameobject (Normal Dungeon)'),
 (644, 0, 3, 0, 61, 0, 100, 514, 0, 0, 0, 0, 0, 0, 34, 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rhahk Zor - On Just Died - Set Instance Data 0 to 3 (Normal Dungeon)'),
---
 (645, 0, 0, 0, 0, 0, 100, 0, 5000, 5000, 27000, 36000, 0, 0, 11, 6306, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Cookie - In Combat - Cast Acid Splash'),
 (645, 0, 1, 0, 2, 0, 100, 0, 0, 50, 10000, 15000, 0, 0, 11, 5174, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Cookie - In Combat - Cast Cookies Cooking'),
 (645, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Cookie - Between 0-15% Health - Flee For Assist'),
