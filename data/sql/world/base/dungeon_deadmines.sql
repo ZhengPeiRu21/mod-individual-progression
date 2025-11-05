@@ -45,7 +45,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (642, 0, 0, 0, 0, 0, 100, 0, 9000, 14000, 15000, 21000, 0, 0, 11, 7399, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Sneeds Shredder - In Combat - Cast Terrify'),
 (642, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 48000, 54000, 0, 0, 11, 3603, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Sneeds Shredder - Within 0-5 Range - Cast Distracting Pain'),
 (642, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 5141, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Sneeds Shredder - On Just Died - Cast Eject Sneed'),
---
 (644, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rhahk Zor - On Aggro - Say Line 0'),
 (644, 0, 1, 0, 0, 0, 100, 0, 1000, 8000, 17000, 27000, 0, 0, 11, 6304, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Rhahk Zor - Within 0-5 Range - Cast Rhahk Zor Slam'),
 (644, 0, 2, 3, 6, 0, 100, 514, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 14, 30533, 13965, 0, 0, 0, 0, 0, 0,              'Rhahk Zor - On Just Died - Activate Gameobject (Normal Dungeon)'),
