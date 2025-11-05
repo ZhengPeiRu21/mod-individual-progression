@@ -96,8 +96,10 @@ SET @IPPPHASE     := 65536;
 SET @IPPPHASE_II  := 131072;
 SET @IPPPHASE_III := 262144;
 
-DELETE FROM `creature` WHERE guid IN (79170, 79171, 79229, 79230, 79233, 79244, 79245, 79373, 79374);
 DELETE FROM `creature` WHERE guid IN (79151, 79188); -- replaced by patrol 79244 and 79245
+DELETE FROM `linked_respawn` WHERE `guid` IN (79151, 79188);
+
+DELETE FROM `creature` WHERE guid IN (79170, 79171, 79229, 79230, 79233, 79244, 79245, 79373, 79374);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
@@ -112,7 +114,6 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (79229, 4418, 0, 0, 36, 0, 0, 1, @IPPPHASE_III, 1, -229.584, -578.362, 51.2588, 1.44671, 86400, 0, 1, 1137, 2236, 2, 0, 0, 0, '', 0, 0, NULL),
 (79230, 4417, 0, 0, 36, 0, 0, 1, @IPPPHASE_III, 1, -239.833, -578.879, 51.1657, 6.24575, 86400, 0, 0, 1251, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (79233, 4417, 0, 0, 36, 0, 0, 1, @IPPPHASE_III, 1, -228.095, -576.564, 51.2145, 2.12069, 86400, 0, 0, 1251, 0, 0, 0, 0, 0, '', 0, 0, NULL);
-
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (79170, 79244, 79373, 79229, 79230);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
