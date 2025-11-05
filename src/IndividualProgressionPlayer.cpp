@@ -454,13 +454,13 @@ public:
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
                     player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
+                    player->CastSpell(killer, IPP_PHASE, false);
                     break;
                 case GILNID:
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
                     player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE_II, false);
+                    player->CastSpell(killer, IPP_PHASE_II, false);
                     break;
             }
 
