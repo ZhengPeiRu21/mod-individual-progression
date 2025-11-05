@@ -49,10 +49,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (644, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Rhahk Zor - On Aggro - Say Line 0'),
 (644, 0, 1, 0, 0, 0, 100, 0, 1000, 8000, 17000, 27000, 0, 0, 11, 6304, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Rhahk Zor - Within 0-5 Range - Cast Rhahk Zor Slam'),
 (644, 0, 2, 3, 6, 0, 100, 514, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 14, 30533, 13965, 0, 0, 0, 0, 0, 0,              'Rhahk Zor - On Just Died - Activate Gameobject (Normal Dungeon)'),
-(644, 0, 3, 4, 61, 0, 100, 514, 0, 0, 0, 0, 0, 0, 34, 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rhahk Zor - On Just Died - Set Instance Data 0 to 3 (Normal Dungeon)'),
-(644, 0, 4, 5, 61, 0, 100, 514, 0, 0, 0, 0, 0, 0, 232, 791700, 1, 0, 0, 0, 0, 10, 79170, 0, 0, 0, 0, 0, 0, 0,          'Rhahk Zor - On Just Died - Start Patrol 791700 (Normal Dungeon)'),
-(644, 0, 5, 6, 61, 0, 100, 514, 0, 0, 0, 0, 0, 0, 232, 792440, 1, 0, 0, 0, 0, 10, 79244, 0, 0, 0, 0, 0, 0, 0,          'Rhahk Zor - On Just Died - Start Patrol 792440 (Normal Dungeon)'),
-(644, 0, 6, 0, 61, 0, 100, 514, 0, 0, 0, 0, 0, 0, 232, 793730, 1, 0, 0, 0, 0, 10, 79373, 0, 0, 0, 0, 0, 0, 0,          'Rhahk Zor - On Just Died - Start Patrol 793730 (Normal Dungeon)'),
+(644, 0, 3, 0, 61, 0, 100, 514, 0, 0, 0, 0, 0, 0, 34, 0, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Rhahk Zor - On Just Died - Set Instance Data 0 to 3 (Normal Dungeon)'),
 --
 (645, 0, 0, 0, 0, 0, 100, 0, 5000, 5000, 27000, 36000, 0, 0, 11, 6306, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Cookie - In Combat - Cast Acid Splash'),
 (645, 0, 1, 0, 2, 0, 100, 0, 0, 50, 10000, 15000, 0, 0, 11, 5174, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Cookie - In Combat - Cast Cookies Cooking'),
@@ -97,34 +94,24 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- fix parols
 SET @IPPPHASE     := 65536;
 SET @IPPPHASE_II  := 131072;
+SET @IPPPHASE_III := 262144;
 
 DELETE FROM `creature` WHERE guid IN (79170, 79171, 79229, 79230, 79233, 79244, 79245, 79373, 79374);
 DELETE FROM `creature` WHERE guid IN (79151, 79188); -- replaced by patrol 79244 and 79245
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
-(79170, 634,  0, 0, 36, 0, 0, 1, @IPPPHASE, 1, -185.334, -481.715, 54.1287, 3.17113,  86400, 0, 1, 1158, 0,   2, 0, 0, 0, '', 0, 0, NULL),
-(79171, 1729, 0, 0, 36, 0, 0, 1, @IPPPHASE, 1, -189.049, -481.524, 54.1313, 5.43224,  86400, 0, 0, 990, 1876, 0, 0, 0, 0, '', 0, 0, NULL),
 (79244, 634,  0, 0, 36, 0, 0, 1, @IPPPHASE, 1, -90.571, -400.149, 58.4755, 3.20291,   86400, 0, 1, 1158, 0,   2, 0, 0, 0, '', 0, 0, NULL),
 (79245, 1729, 0, 0, 36, 0, 0, 1, @IPPPHASE, 1, -93.0234, -400.3, 58.0467, 3.03687,    86400, 0, 0, 990, 1876, 0, 0, 0, 0, '', 0, 0, NULL),
-(79373, 634,  0, 0, 36, 0, 0, 1, @IPPPHASE, 1, -170.144, -403.045, 57.0869, 0.192994, 86400, 0, 1, 1158, 0,   2, 0, 0, 0, '', 0, 0, NULL),
-(79374, 1729, 0, 0, 36, 0, 0, 1, @IPPPHASE, 1, -173.48, -402.487, 57.1029, 0.305933,  86400, 0, 0, 990, 1876, 0, 0, 0, 0, '', 0, 0, NULL),
 --
-(79229, 4418, 0, 0, 36, 0, 0, 1, @IPPPHASE_II, 1, -229.584, -578.362, 51.2588, 1.44671, 86400, 0, 1, 1137, 2236, 2, 0, 0, 0, '', 0, 0, NULL),
-(79230, 4417, 0, 0, 36, 0, 0, 1, @IPPPHASE_II, 1, -239.833, -578.879, 51.1657, 6.24575, 86400, 0, 0, 1251, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(79233, 4417, 0, 0, 36, 0, 0, 1, @IPPPHASE_II, 1, -228.095, -576.564, 51.2145, 2.12069, 86400, 0, 0, 1251, 0, 0, 0, 0, 0, '', 0, 0, NULL);
-
-
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-79170, -79244, -79373, -79229);
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
-`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-
-(-79170, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 234, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'On Respawn - Stop Patrol'),
-(-79244, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 234, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'On Respawn - Stop Patrol'),
-(-79373, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 234, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'On Respawn - Stop Patrol'),
-(-79229, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 234, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'On Respawn - Stop Patrol');
+(79170, 634,  0, 0, 36, 0, 0, 1, @IPPPHASE_II, 1, -185.334, -481.715, 54.1287, 3.17113,  86400, 0, 1, 1158, 0,   2, 0, 0, 0, '', 0, 0, NULL),
+(79171, 1729, 0, 0, 36, 0, 0, 1, @IPPPHASE_II, 1, -189.049, -481.524, 54.1313, 5.43224,  86400, 0, 0, 990, 1876, 0, 0, 0, 0, '', 0, 0, NULL),
+(79373, 634,  0, 0, 36, 0, 0, 1, @IPPPHASE_II, 1, -170.144, -403.045, 57.0869, 0.192994, 86400, 0, 1, 1158, 0,   2, 0, 0, 0, '', 0, 0, NULL),
+(79374, 1729, 0, 0, 36, 0, 0, 1, @IPPPHASE_II, 1, -173.48, -402.487, 57.1029, 0.305933,  86400, 0, 0, 990, 1876, 0, 0, 0, 0, '', 0, 0, NULL),
+--
+(79229, 4418, 0, 0, 36, 0, 0, 1, @IPPPHASE_III, 1, -229.584, -578.362, 51.2588, 1.44671, 86400, 0, 1, 1137, 2236, 2, 0, 0, 0, '', 0, 0, NULL),
+(79230, 4417, 0, 0, 36, 0, 0, 1, @IPPPHASE_III, 1, -239.833, -578.879, 51.1657, 6.24575, 86400, 0, 0, 1251, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(79233, 4417, 0, 0, 36, 0, 0, 1, @IPPPHASE_III, 1, -228.095, -576.564, 51.2145, 2.12069, 86400, 0, 0, 1251, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (79170, 79244, 79373, 79229, 79230);
@@ -144,9 +131,9 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 DELETE FROM `creature_addon` WHERE `guid` IN (79170, 79188, 79230, 79244, 79245, 79299, 79373, 79374);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 --
-(79170, 791700, 0, 0, 1, 0, 0, ''), -- active after Rhahk Zor dies
 (79244, 792440, 0, 0, 1, 0, 0, ''), -- active after Rhahk Zor dies
-(79373, 793730, 0, 0, 1, 0, 0, ''), -- active after Rhahk Zor dies
+(79170, 791700, 0, 0, 1, 0, 0, ''), -- active after Sneed dies
+(79373, 793730, 0, 0, 1, 0, 0, ''), -- active after Sneed dies
 (79299, 792990, 0, 0, 1, 0, 0, ''); -- active after Gilnid dies
 
 DELETE FROM `waypoint_data` WHERE `id` IN (791700, 791880, 792290, 792300, 792440, 792450, 793730, 793740);
