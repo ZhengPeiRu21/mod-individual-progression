@@ -454,11 +454,20 @@ public:
                 killer->RemoveAura(IPP_PHASE_III);
                 killer->CastSpell(killer, IPP_PHASE, false);
                 break;
+            case SNEED:
+                killer->RemoveAura(IPP_PHASE);
+                killer->RemoveAura(IPP_PHASE_II);
+                killer->RemoveAura(IPP_PHASE_III);
+	            killer->CastSpell(killer, IPP_PHASE, false);
+                killer->CastSpell(killer, IPP_PHASE_II, false);
+                break;
             case GILNID:
                 killer->RemoveAura(IPP_PHASE);
                 killer->RemoveAura(IPP_PHASE_II);
                 killer->RemoveAura(IPP_PHASE_III);
+	            killer->CastSpell(killer, IPP_PHASE, false);			
                 killer->CastSpell(killer, IPP_PHASE_II, false);
+                killer->CastSpell(killer, IPP_PHASE_III, false);
                 break;
         }
         
