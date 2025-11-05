@@ -45,7 +45,10 @@ enum ProgressionBossIDs
     YOGGSARON            = 33288,
     ANUBARAK             = 34564,
     LICH_KING            = 36597,
-    HALION               = 39863
+    HALION               = 39863, 
+    RHAHK_ZOR            = 644,
+	SNEED                = 643,
+    GILNID               = 1763
 };
 
 enum BuffSpells
