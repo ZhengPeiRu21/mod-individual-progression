@@ -451,16 +451,16 @@ public:
             switch (killed->GetEntry())
             {
                 case RHAHK_ZOR:
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(killer, IPP_PHASE, false);
+                    killer->RemoveAura(IPP_PHASE);
+                    killer->RemoveAura(IPP_PHASE_II);
+                    killer->RemoveAura(IPP_PHASE_III);
+                    killer->CastSpell(killer, IPP_PHASE, false);
                     break;
                 case GILNID:
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(killer, IPP_PHASE_II, false);
+                    killer->RemoveAura(IPP_PHASE);
+                    killer->RemoveAura(IPP_PHASE_II);
+                    killer->RemoveAura(IPP_PHASE_III);
+                    killer->CastSpell(killer, IPP_PHASE_II, false);
                     break;
             }
 
