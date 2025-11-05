@@ -446,24 +446,24 @@ public:
 
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
+        switch (killed->GetEntry())
+        {
+            case RHAHK_ZOR:
+                killer->RemoveAura(IPP_PHASE);
+                killer->RemoveAura(IPP_PHASE_II);
+                killer->RemoveAura(IPP_PHASE_III);
+                killer->CastSpell(killer, IPP_PHASE, false);
+                break;
+            case GILNID:
+                killer->RemoveAura(IPP_PHASE);
+                killer->RemoveAura(IPP_PHASE_II);
+                killer->RemoveAura(IPP_PHASE_III);
+                killer->CastSpell(killer, IPP_PHASE_II, false);
+                break;
+        }
+        
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
-            switch (killed->GetEntry())
-            {
-                case RHAHK_ZOR:
-                    killer->RemoveAura(IPP_PHASE);
-                    killer->RemoveAura(IPP_PHASE_II);
-                    killer->RemoveAura(IPP_PHASE_III);
-                    killer->CastSpell(killer, IPP_PHASE, false);
-                    break;
-                case GILNID:
-                    killer->RemoveAura(IPP_PHASE);
-                    killer->RemoveAura(IPP_PHASE_II);
-                    killer->RemoveAura(IPP_PHASE_III);
-                    killer->CastSpell(killer, IPP_PHASE_II, false);
-                    break;
-            }
-
             sIndividualProgression->checkKillProgression(killer, killed);
             Group* group = killer->GetGroup();
             if (!group)
