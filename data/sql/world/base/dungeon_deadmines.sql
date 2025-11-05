@@ -127,7 +127,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-79229, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 234, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'On Respawn - Stop Patrol');
 
 
-DELETE FROM `creature_formations` WHERE `leaderGUID` IN (79170, 79244, 79373, 79229);
+DELETE FROM `creature_formations` WHERE `leaderGUID` IN (79170, 79244, 79373, 79229, 79230);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
 --
 (79170, 79170, 0, 0,   515, 0, 0),
