@@ -448,6 +448,22 @@ public:
     {
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
+            switch (killed->GetEntry())
+            {
+                case RHAHK_ZOR:
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE, false);
+                    break;
+                case GILNID:
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE_II, false);
+                    break;
+            }
+
             sIndividualProgression->checkKillProgression(killer, killed);
             Group* group = killer->GetGroup();
             if (!group)
