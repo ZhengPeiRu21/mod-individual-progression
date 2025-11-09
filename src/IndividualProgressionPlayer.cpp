@@ -1214,6 +1214,191 @@ public:
                 player->RemoveAura(IPP_PHASE_III);
         }
     }
+
+    bool OnPlayerCanEquipItem(Player* player, uint8 /*slot*/, uint16& /*dest*/, Item* pItem, bool /*swap*/, bool /*not_loading*/) override
+    {
+        switch (pItem->GetTemplate()->RequiredHonorRank)
+        {
+            case 5:
+                if (!(player->HasTitle(PRIVATE) || player->HasTitle(SCOUT) || 
+                    player->HasTitle(CORPORAL) || player->HasTitle(GRUNT) || 
+                    player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) || 
+                    player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
+                    player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 6:
+                if (!(player->HasTitle(CORPORAL) || player->HasTitle(GRUNT) ||
+                    player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) || 
+                    player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
+                    player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 7:
+                if (!(player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) ||
+                    player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
+                    player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 8:
+                if (!(player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) ||
+                    player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 9:
+                if (!(player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) ||
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 10:
+                if (!(player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) ||
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 11:
+                if (!(player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) ||
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 12:
+                if (!(player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) ||
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 13:
+                if (!(player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) ||
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 14:
+                if (!(player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) ||
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 15:
+                if (!(player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) ||
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 16:
+                if (!(player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) ||
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 17:
+                if (!(player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) ||
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 18:
+                if (!(player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
 };
 
 class IndividualPlayerProgression_AccountScript: public AccountScript
