@@ -13,6 +13,11 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 530 AND `id1`
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 571 AND `id1` IN (
 33938 -- Zom Bocom <Apprentice Arena Vendor>, Dalaran
 );
+/* Block access to Acherus area until WotLK */
+DELETE FROM `gameobject` WHERE `guid` IN (6384278, 6384279);
+INSERT INTO `gameobject` VALUES
+(6384278, 194935, 0, 0, 0, 1, 1, 2554.358, -5553.575, 163.6444, 0, -0, -0, -0, -0, 300, 0, 1, 'gobject_ipp_pre_wotlk', 0, 'IPP Acherus area pre-WotLK'),
+(6384279, 195647, 0, 0, 0, 1, 1, 1697.08, -5672.8, 100.934, 1.58118, -0, -0, -0.710768, -0.703427, 300, 0, 1, 'gobject_ipp_pre_wotlk', 0, 'IPP Acherus area pre-WotLK');
 
 /* 3.1 - Ulduar */
 /* Ulduar raid portal phasing */

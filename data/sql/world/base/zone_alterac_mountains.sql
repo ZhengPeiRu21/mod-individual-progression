@@ -135,3 +135,7 @@ DELETE FROM `pool_template` WHERE `entry` IN (601008, 601009);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
 (601008, 1, ''),
 (601009, 1, '');
+
+-- Garona, Ravenhold - Only visible during the beginning of Vanilla WoW
+DELETE FROM `creature` WHERE `id1` = 6767 and `map` = 0;
+INSERT IGNORE INTO `creature` VALUES (9010596, 6767, 0, 0, 0, 0, 0, 1, 1, 1, -5.20263, -1604.79, 194.987, 5.51874, 300, 0, 0, 4121, 0, 0, 0, 0, 0, 'npc_ipp_pre_naxx40', 0, 0, NULL);
