@@ -78,7 +78,7 @@ DELETE FROM `creature` WHERE `id1` IN (3890, 12788, 14720, 14942, 15006);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (603230, 3230,  1, 1938.55, -4133.22, 41.1424, 4.07636, 300), -- Nazgrel <Advisor to Thrall>
 (10299,  3296,  1, 1620.45, -4252.84, 47.5273, 3.7001,  300), -- Orgrimmar Grunt
-(603890, 3890,  1, 1990.64, -4794.13, 56.0472, 3.22013, 300), -- Brakgul Deathbringer <Warsong Gulch Battlemaster>
+(603890, 3890,  1, 1991.77, -4793.96, 56.0454, 3.22248, 300), -- Brakgul Deathbringer <Warsong Gulch Battlemaster>
 (612788, 12788, 1, 1650.95, -4212.82, 55.439, 0.182965, 300), -- Legionnaire Teena
 (614720, 14720, 1, 1565.79, -4395.27, 6.9866, 3.35103,  600), -- High Overlord Saurfang
 (614942, 14942, 1, 1986.01, -4786.86, 56.0468, 4.491213,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
