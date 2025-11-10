@@ -89,6 +89,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15700, 8792), (15701, 
 
 DELETE FROM `creature` WHERE `id1` IN (15702, 15703, 15704, 15707, 15708, 15709, 21155, 21156);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+51 AND @CGUID+58;
+DELETE FROM `creature` WHERE `guid` = 86424; -- placed by AC - copy of 15707
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+51,15702,0,0,1,0,0,1,1,0,-1209.58, 100.22, 134.661, 3.15905,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),
 (@CGUID+52,15703,0,0,0,0,0,1,1,0,1572.58, 272.707, -43.0193, 5.02655,300,0,0,15260,0,0,0,0,0,'npc_ipp_we_recruiters',0),

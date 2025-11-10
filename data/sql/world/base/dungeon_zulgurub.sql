@@ -30,7 +30,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11350, 0, 3, 0, 9, 0, 100, 0, 0, 0, 4000, 7000, 5, 30, 11, 16075, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Gurubashi Axe Thrower - Within 5-30 Range - Cast Throw'),
 (11350, 0, 4, 5, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 8269, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Gurubashi Axe Thrower - Between 0-25% Health - Cast Frenzy (No Repeat)'),
 (11350, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Gurubashi Axe Thrower - On Frenzy - Say Line 0'),
-(11350, 0, 6, 0, 0, 0, 100, 0, 5000, 5000, 15000, 18000, 0, 0, 11, 24018, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Gurubashi Axe Thrower - In Combat - Cast Axe Flurry'),
+(11350, 0, 6, 0, 106, 0, 100, 0, 0, 0, 15000, 18000, 0, 8, 11, 24018, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Gurubashi Axe Thrower - Within 0-8 Range - Cast Axe Flurry'),
 (11350, 0, 7, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Gurubashi Axe Thrower - On Aggro - Say Line 1'),
 (11351, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Gurubashi Headhunter - Outside 30 Range - Start Combat Movement'),
 (11351, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Gurubashi Headhunter - Within 5-30 Range - Stop Combat Movement'),
