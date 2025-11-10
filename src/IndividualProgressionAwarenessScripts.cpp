@@ -1510,16 +1510,13 @@ public:
 // Add all scripts in one
 void AddSC_mod_individual_progression_awareness()
 {
-    new npc_ipp_bwl();
-    new npc_ipp_pvp_vendor_pre_tbc(); 
-    new gobject_ipp_preaq();     // wanted poster Cenarion Hold
-    new gobject_ipp_we();        // War Effort supplies in cities
-    new gobject_ipp_aqwar();     // AQ war crystals
-    new gobject_ipp_si();        // Scourge Invasion
+    new gobject_ipp_preaq();          // Wanted poster Cenarion Hold
+    new gobject_ipp_we();             // War Effort supplies in cities
+    new gobject_ipp_aqwar();          // AQ war crystals
+    new gobject_ipp_si();             // Scourge Invasion
     new gobject_ipp_naxx40();
     new gobject_ipp_naxx40_pre_wotlk();
-    new gobject_ipp_pre_tbc(); // stormwind pvp room
-    new npc_ipp_tbc_pre_wotlk();
+    new gobject_ipp_pre_tbc();        // Stormwind pvp room
     new gobject_ipp_tbc();
     new gobject_ipp_tbc_t4();
     new gobject_ipp_tbc_t5();
@@ -1529,19 +1526,22 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_wotlk_totc();
     new gobject_ipp_wotlk_icc();
     new gobject_ipp_wotlk_rubysanctum();
-    new npc_ipp_preaq();         // Cenarion Hold NPCs
-    new npc_ipp_we_recruiters(); // War effort recruiters
-    new npc_ipp_we();            // War Effort NPCs in cities
+    new npc_ipp_bwl();
+    new npc_ipp_pvp_vendor_pre_tbc(); // Vanilla pvp vendors only visible after Onyxia and before TBC 
+    new npc_ipp_preaq();              // Cenarion Hold NPCs
+    new npc_ipp_we_recruiters();      // War Effort recruiters
+    new npc_ipp_we();                 // War Effort NPCs in cities
 	new npc_ipp_aq();
-    new npc_ipp_si();            // Scourge Invasion
-    new npc_ipp_pre_naxx40();    // Scourge Invasion
+    new npc_ipp_si();                 // Scourge Invasion
+    new npc_ipp_pre_naxx40();         // Scourge Invasion
     new npc_ipp_naxx40();
-    new npc_ipp_pre_tbc();     // vanilla pvp vendors
+    new npc_ipp_pre_tbc();            // NPCS only visible before TBC
     new npc_ipp_tbc();
     new npc_ipp_tbc_class_trainer();
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();
     new npc_ipp_tbc_t5();
+    new npc_ipp_tbc_pre_wotlk();
     new npc_ipp_wotlk();
     new npc_ipp_wotlk_ulduar();
     new npc_ipp_wotlk_totc();

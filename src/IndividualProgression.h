@@ -226,7 +226,36 @@ enum RandomDungeonIds : uint16
     RDF_WRATH_OF_THE_LICH_KING_HEROIC = 262
 };
 
-enum PvPTitles : uint32
+struct IpPvPTitles
+{
+    uint32 RequiredKills;
+    uint32 TitleId;
+};
+
+struct IpPvPTitleData
+{
+    uint32 TitleId[2];
+};
+
+enum IpRanks
+{                             //    A                           H
+    RANK_ONE            = 0,  // Private                 &    Scout
+    RANK_TWO            = 1,  // Corporal                &    Grunt
+    RANK_THREE          = 2,  // Sergeant                &    Sergeant
+    RANK_FOUR           = 3,  // Master Sergeant         &    Senior Sergeant
+    RANK_FIVE           = 4,  // Sergeant Major          &    First Sergeant
+    RANK_SIX            = 5,  // Knight                  &    Stone Guard
+    RANK_SEVEN          = 6,  // Knight Lieutenant       &    Blood Guard
+    RANK_EIGHT          = 7,  // Knight Captain          &    Legionnaire
+    RANK_NINE           = 8,  // Knight Champion         &    Centurion
+    RANK_TEN            = 9,  // Lieutenant Commander    &    Champion
+    RANK_ELEVEN         = 10, // Commander               &    Lieutenant General
+    RANK_TWELVE         = 11, // Marshal                 &    General
+    RANK_THIRTEEN       = 12, // Field Marshal           &    Warlord
+    RANK_FOURTEEN       = 13  // Grand Marshal           &    High Warlord
+};
+
+enum IpTitles
 {
     // Alliance
     PRIVATE                  = 1,
@@ -261,6 +290,24 @@ enum PvPTitles : uint32
     HIGH_WARLORD             = 28
 };
 
+IpPvPTitleData const TitleData[14] =
+{
+    { PRIVATE,              SCOUT              },
+    { CORPORAL,             GRUNT              },
+    { SERGEANT,             SERGEANT_H         },
+    { MASTER_SERGEANT,      SENIOR_SERGEANT    },
+    { SERGEANT_MAJOR,       FIRST_SERGEANT     },
+    { KNIGHT,               STONE_GUARD        },
+    { KNIGHT_LIEUTENANT,    BLOOD_GUARD        },
+    { KNIGHT_CAPTAIN,       LEGIONNAIRE        },
+    { KNIGHT_CHAMPION,      CENTURION          },
+    { LIEUTENANT_COMMANDER, CHAMPION           },
+    { COMMANDER,            LIEUTENANT_GENERAL },
+    { MARSHAL,              GENERAL            },
+    { FIELD_MARSHAL,        WARLORD            },
+    { GRAND_MARSHAL,        HIGH_WARLORD       }
+};
+
 class IndividualProgression
 {
 public:
@@ -269,8 +316,9 @@ public:
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-    bool enabled, questXpFix, hunterPetLevelFix, moltenCoreOnySamePhase, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, naxxExitViaPortals, naxxSkipToSaphiron, pvpGearRequirements, disableRdf, excludeAccounts;
+    bool enabled, questXpFix, hunterPetLevelFix, moltenCoreOnySamePhase, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, naxxExitViaPortals, naxxSkipToSaphiron, disableRdf, excludeAccounts, VanillaPvpTitlesKeepPostVanilla;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression;
+    uint32 VanillaPvpKillRank1, VanillaPvpKillRank2, VanillaPvpKillRank3, VanillaPvpKillRank4, VanillaPvpKillRank5, VanillaPvpKillRank6, VanillaPvpKillRank7, VanillaPvpKillRank8, VanillaPvpKillRank9, VanillaPvpKillRank10, VanillaPvpKillRank11, VanillaPvpKillRank12, VanillaPvpKillRank13, VanillaPvpKillRank14;
     std::string excludedAccountsRegex;
 
     bool hasPassedProgression(Player* player, ProgressionState state) const;

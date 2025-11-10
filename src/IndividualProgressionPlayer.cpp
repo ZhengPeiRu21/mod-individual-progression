@@ -27,6 +27,9 @@ public:
             return;
         }
 
+        CleanUpVanillaPvpTitles(player);
+        AwardEarnedVanillaPvpTitles(player);
+
 		if (!sIndividualProgression->isExcludedFromProgression(player))
         {
             if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
@@ -64,6 +67,89 @@ public:
     void OnPlayerBeforeLogout(Player *player) override
     {
         sIndividualProgression->TeleportOutsideRestoredRaid(player);
+    }
+
+    void CleanUpVanillaPvpTitles(Player* player)
+    {
+        TeamId teamId = player->GetTeamId(true);
+        uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+
+        IpPvPTitles const pvpTitlesList[14] =
+        {
+            { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank2, TitleData[RANK_TWO].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank3, TitleData[RANK_THREE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank4, TitleData[RANK_FOUR].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank5, TitleData[RANK_FIVE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank6, TitleData[RANK_SIX].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank7, TitleData[RANK_SEVEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank8, TitleData[RANK_EIGHT].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank9, TitleData[RANK_NINE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
+        };
+
+        if (sIndividualProgression->isExcludedFromProgression(player)
+            || (!sIndividualProgression->VanillaPvpTitlesKeepPostVanilla && !sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
+        {
+            for (IpPvPTitles title : pvpTitlesList)
+            {
+                if (player->HasTitle(title.TitleId))
+                {
+                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+                }
+            }
+        }
+        else
+        {
+            for (IpPvPTitles title : pvpTitlesList)
+            {
+                uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+                if (kills < title.RequiredKills && player->HasTitle(title.TitleId))
+                {
+                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+                }
+            }
+        }
+    }
+
+    void AwardEarnedVanillaPvpTitles(Player* player)
+    {
+        if (!sIndividualProgression->isExcludedFromProgression(player)
+            && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40) || sIndividualProgression->VanillaPvpTitlesKeepPostVanilla))
+        {
+            TeamId teamId = player->GetTeamId(true);
+            uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+
+            IpPvPTitles const pvpTitlesList[14] =
+            {
+                { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank2, TitleData[RANK_TWO].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank3, TitleData[RANK_THREE].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank4, TitleData[RANK_FOUR].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank5, TitleData[RANK_FIVE].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank6, TitleData[RANK_SIX].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank7, TitleData[RANK_SEVEN].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank8, TitleData[RANK_EIGHT].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank9, TitleData[RANK_NINE].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
+                { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
+            };
+
+            for (IpPvPTitles title : pvpTitlesList)
+            {
+                if (kills >= title.RequiredKills && !player->HasTitle(title.TitleId))
+                {
+                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
+                }
+            }
+        }
     }
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
@@ -766,160 +852,185 @@ public:
 
     bool OnPlayerCanEquipItem(Player* player, uint8 /*slot*/, uint16& /*dest*/, Item* pItem, bool /*swap*/, bool /*not_loading*/) override
     {
-        if (sIndividualProgression->pvpGearRequirements)
+        switch (pItem->GetTemplate()->RequiredHonorRank)
         {
-            switch (pItem->GetTemplate()->RequiredHonorRank)
-            {
-                case 5:
-                    if (!(player->HasTitle(PRIVATE) || player->HasTitle(SCOUT) || 
-                        player->HasTitle(CORPORAL) || player->HasTitle(GRUNT) || 
-                        player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) || 
-                        player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
-                        player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
-                        player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
-                        player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
-                        player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
-                        player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 6:
-                    if (!(player->HasTitle(CORPORAL) || player->HasTitle(GRUNT) ||
-                        player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) || 
-                        player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
-                        player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
-                        player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
-                        player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
-                        player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
-                        player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 7:
-                    if (!(player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) ||
-                        player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
-                        player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
-                        player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
-                        player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
-                        player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
-                        player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 8:
-                    if (!(player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) ||
-                        player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
-                        player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
-                        player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
-                        player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
-                        player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 9:
-                    if (!(player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) ||
-                        player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
-                        player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
-                        player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
-                        player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 10:
-                    if (!(player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) ||
-                        player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
-                        player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
-                        player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 11:
-                    if (!(player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) ||
-                        player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
-                        player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 12:
-                    if (!(player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) ||
-                        player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 13:
-                    if (!(player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) ||
-                        player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 14:
-                    if (!(player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) ||
-                        player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 15:
-                    if (!(player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) ||
-                        player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 16:
-                    if (!(player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) ||
-                        player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 17:
-                    if (!(player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) ||
-                        player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                case 18:
-                    if (!(player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)))
-                        return false;
-                    break;
-                default:
-                    break;
-            }
+            case 5:
+                if (!(player->HasTitle(PRIVATE) || player->HasTitle(SCOUT) || 
+                    player->HasTitle(CORPORAL) || player->HasTitle(GRUNT) || 
+                    player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) || 
+                    player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
+                    player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 6:
+                if (!(player->HasTitle(CORPORAL) || player->HasTitle(GRUNT) ||
+                    player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) || 
+                    player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
+                    player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 7:
+                if (!(player->HasTitle(SERGEANT) || player->HasTitle(SERGEANT_H) ||
+                    player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) || 
+                    player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 8:
+                if (!(player->HasTitle(MASTER_SERGEANT) || player->HasTitle(SENIOR_SERGEANT) ||
+                    player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) || 
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 9:
+                if (!(player->HasTitle(SERGEANT_MAJOR) || player->HasTitle(FIRST_SERGEANT) ||
+                    player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) || 
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 10:
+                if (!(player->HasTitle(KNIGHT) || player->HasTitle(STONE_GUARD) ||
+                    player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) || 
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 11:
+                if (!(player->HasTitle(KNIGHT_LIEUTENANT) || player->HasTitle(BLOOD_GUARD) ||
+                    player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) || 
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 12:
+                if (!(player->HasTitle(KNIGHT_CAPTAIN) || player->HasTitle(LEGIONNAIRE) ||
+                    player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) || 
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 13:
+                if (!(player->HasTitle(KNIGHT_CHAMPION) || player->HasTitle(CENTURION) ||
+                    player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) || 
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 14:
+                if (!(player->HasTitle(LIEUTENANT_COMMANDER) || player->HasTitle(CHAMPION) ||
+                    player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) || 
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 15:
+                if (!(player->HasTitle(COMMANDER) || player->HasTitle(LIEUTENANT_GENERAL) ||
+                    player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) || 
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 16:
+                if (!(player->HasTitle(MARSHAL) || player->HasTitle(GENERAL) ||
+                    player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) || 
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 17:
+                if (!(player->HasTitle(FIELD_MARSHAL) || player->HasTitle(WARLORD) ||
+                    player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            case 18:
+                if (!(player->HasTitle(GRAND_MARSHAL) || player->HasTitle(HIGH_WARLORD)
+                    || sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)
+                    || sIndividualProgression->isExcludedFromProgression(player)))
+                    return false;
+                break;
+            default:
+                break;
         }
         return true;
     }
