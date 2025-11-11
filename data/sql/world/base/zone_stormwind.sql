@@ -90,27 +90,31 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 
 
 SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
+SET @Karter      := 112783; -- Lieutenant Karter, <Mount Vendor>, Vanilla
 SET @Clate       := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Wrynn       := 629611; -- creating copy with 'npc_king_varian_wrynn' script, to prevent AC worldserver error for not using the script
 
-DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
+
+DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
 `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
 `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
 `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
 --
-(@Biggins, 0, 0, 0, 0, 0, 'Master Sergeant Biggins', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 1078, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, '', 12340),
-(@Clate, 0, 0, 0, 0, 0, 'Sergeant Major Clate', 'Food and Drink', NULL, 0, 55, 55, 0, 123, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.15, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, '', 12340),
-(@Wrynn, 0, 0, 0, 0, 0, 'King Varian Wrynn', 'King of Stormwind', '', 9834, 63, 63, 2, 1733, 3, 1, 1.42857, 1, 1, 20, 1, 3, 0, 35, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 7, 76, 0, 0, 0, 0, 0, 700000, 750000, '', 0, 1, 400, 20, 1, 1, 1, 144, 1, 617299839, 0, 0, 'npc_king_varian_wrynn', 12340);
+(@Biggins,0,0,0,0,0,'Master Sergeant Biggins','Officer Accessories Quartermaster',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
+(@Karter,0,0,0,0,0,'Lieutenant Karter','Mount Vendor',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
+(@Clate,0,0,0,0,0,'Sergeant Major Clate','Food and Drink',NULL,0,55,55,0,123,4224,1,1.14286,1,1,18,1,0,0,2.15,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
+(@Wrynn,0,0,0,0,0,'King Varian Wrynn','King of Stormwind','',9834,63,63,2,1733,3,1,1.42857,1,1,20,1,3,0,35,2000,2000,1,1,1,0,2048,0,0,0,0,0,0,7,76,0,0,0,0,0,700000,750000,'',0,1,400,20,1,1,1,144,1,617299839,0,0,'npc_king_varian_wrynn',0);
 
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (@Biggins, 0, 0, 0, 1, 0, 0, NULL),
+(@Karter, 0, 0, 0, 0, 0, 0, NULL),
 (@Clate, 0, 0, 0, 0, 0, 0, NULL),
 (@Wrynn, 0, 0, 0, 1, 0, 3, NULL);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
 (@Biggins, 'deDE', 'Hauptfeldwebel Biggins', 'Rüstmeister für Zubehör', 18019),
 (@Biggins, 'esES', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
@@ -120,6 +124,15 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Biggins, 'ruRU', 'Старший сержант Биггинс', 'Начальник снабжения аксессуарами', 18019),
 (@Biggins, 'zhCN', '军士长贝金斯', '杂货军需官', 18019),
 (@Biggins, 'zhTW', '上士貝金斯', '雜貨軍需官', 18019),
+--
+(@Karter, 'deDE', 'Leutnant Karter','Rüstmeisterin für Kriegsreittiere', 18019),
+(@Karter, 'esES', 'Teniente Karter','Intendente de monturas de guerra', 18019),
+(@Karter, 'esMX', 'Teniente Karter','Intendente de monturas de guerra', 18019),
+(@Karter, 'frFR', 'Lieutenant Karter','Intendante des montures de guerre', 18019),
+(@Karter, 'koKR', '부관 칼터','전투 탈것 병참장교', 18019),
+(@Karter, 'ruRU', 'Лейтенант Картер','Начальник снабжения верховыми животными', 18019),
+(@Karter, 'zhCN', '卡特尔中尉','战争坐骑军需官', 18019),
+(@Karter, 'zhTW', '卡特爾中尉','戰爭軍需官', 18019),
 --
 (@Clate, 'deDE', 'Stabsfeldwebel Clate', 'Speis & Trank', 18019),
 (@Clate, 'esES', 'Alférez Clate', 'Alimentos y bebidas', 18019),
@@ -139,9 +152,10 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Wrynn, 'zhCN', '瓦里安·乌瑞恩国王', '暴风城国王', 18019),
 (@Wrynn, 'zhTW', '瓦里安·烏瑞恩國王', '暴風之王', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Clate, @Wrynn);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Karter, @Clate, @Wrynn);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@Biggins, 0, 12669, 1, 1, 12340),
+(@Karter, 0, 12922, 1, 1, 12340),
 (@Clate, 0, 12925, 1, 1, 12340),
 (@Wrynn, 0, 28127, 1, 1, 12340);
 
@@ -150,12 +164,13 @@ UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry`
 UPDATE `creature_template` SET `subname` = 'Armor Quartermaster' WHERE `entry` = 12785;
 UPDATE `creature_template` SET `npcflag` = 4224 WHERE `entry` IN (24671, 24672);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12784, 12785, 20278, 23396, 23446, 24671, 24672);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12805, 26393, 26394);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12783, 12784, 12785, 20278, 23396, 23446, 24671, 24672);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12783;
 
 
-DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 133927, 612785, 623446, 624671, 624672, 612777, 626394, 720278, 723396);
+DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 133927, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 720278, 723396);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (612781, @Biggins, 0, 1, 1, -8777.4, 417.124, 103.921, 6.23553, 180), -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
@@ -170,7 +185,8 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `positio
 (720278, 20278, 0, 1, 1, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC
 (723396, 23396, 0, 1, 1, -8786.12, 428.386, 105.233, 5.5871, 180),    -- Krixel Pinchwhistle <Arena Vendor>, TBC
 (623446, 23446, 0, 1, 1, -8785.74, 420.484, 105.233, 0.701937, 180),  -- Lieutenant Tristia <Armor Quartermaster>, TBC
-(133927, 12783, 0, 1, 1, -8779.7, 432.158, 105.233, 5.36374, 180);    -- Lieutenant Karter <Mount Vendor>
+(133927, 12783, 0, 1, 1, -8779.7, 432.158, 105.233, 5.36374, 180),    -- Lieutenant Karter <Mount Vendor>, TBC
+(612783, @Karter, 0, 1, 1, -8779.7, 432.158, 105.233, 5.36374, 180);  -- Lieutenant Karter <Mount Vendor>, Vanilla
 
 
 -- Master Sergeant Biggins <Officer Accessories Quartermaster> - Vanilla
@@ -200,7 +216,12 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (12805, 18455, 931), (12805, 18456, 492), (12805, 18457, 931), (12805, 18854, 634), (12805, 18856, 634), 
 (12805, 18858, 634), (12805, 18859, 634), (12805, 18862, 634), (12805, 18863, 634), (12805, 18864, 634);
 
--- Lieutenant Karter <War Mount Quartermaster>
+-- Lieutenant Karter <War Mount Quartermaster> - Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` = @Karter;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(@Karter, 18241, 423), (@Karter, 18242, 423), (@Karter, 18243, 423), (@Karter, 18244, 423);
+
+-- Lieutenant Karter <War Mount Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 12783;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (12783, 18241, 423), (12783, 18242, 423), (12783, 18243, 423), (12783, 18244, 423), (12783, 35906, 423);
@@ -298,48 +319,87 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 (24672, 31632, 0, 0, 2263), (24672, 31633, 0, 0, 2265), (24672, 31634, 0, 0, 2267), (24672, 31640, 0, 0, 2259), (24672, 31641, 0, 0, 2261), (24672, 31642, 0, 0, 2263),
 (24672, 31643, 0, 0, 2265), (24672, 31644, 0, 0, 2267);
 
+/* Hide certain vendor items until the player has reached the progression tier for them */
+DELETE FROM `conditions` WHERE `SourceGroup` IN (12777, 12782, 12783, 26394);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(23, 12777, 16437, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Silk Footwraps until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16440, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Silk Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16441, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Coronet until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16442, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Silk Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16443, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Silk Vestments until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16444, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Silk Spaulders until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16446, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Leather Footguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16448, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dragonhide Gauntlets until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16449, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dragonhide Spaulders until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16450, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dragonhide Legguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16451, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dragonhide Helmet until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16452, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dragonhide Breastplate until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16453, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Leather Chestpiece until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16454, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Leather Handgrips until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16455, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Leather Mask until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Leather Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16457, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Leather Epaulets until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16459, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dragonhide Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16462, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Chain Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16463, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Chain Grips until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16465, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Chain Helm until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16466, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Chain Breastplate until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16467, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Chain Legguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16468, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Chain Spaulders until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16471, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Lamellar Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16472, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Lamellar Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16473, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Lamellar Chestplate until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16474, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Lamellar Faceguard until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16475, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Lamellar Legplates until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16476, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Lamellar Pauldrons until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16477, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Plate Armor until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16478, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Plate Helm until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16479, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Plate Legguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16480, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Plate Shoulderguards until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16483, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Plate Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 16484, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Plate Gauntlets until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17578, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Coronal until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17579, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dreadweave Leggings until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17580, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dreadweave Shoulders until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17581, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Dreadweave Robe until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17583, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dreadweave Boots until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17584, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Dreadweave Gloves until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17602, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Headdress until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17603, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Satin Pants until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17604, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Satin Mantle until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17605, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Field Marshals Satin Vestments until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17607, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Satin Sandals until the player has completed PROGRESSION_ONYXIA'),
+(23, 12777, 17608, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Satin Gloves until the player has completed PROGRESSION_ONYXIA'),
+--
+(23, 26394, 12584, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Longsword until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18825, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Aegis until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18827, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Handaxe until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18830, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Sunderer until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18833, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Bullseye until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18836, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Repeater until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18838, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Dirk until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18843, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Right Hand Blade until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18847, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Left Hand Blade until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18855, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Hand Cannon until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18865, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Punisher until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18867, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Battle Hammer until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18869, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Glaive until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18873, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Stave until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 18876, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Claymore until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23451, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Mageblade until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23452, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Power until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23453, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Tome of Restoration until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23454, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Warhammer until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23455, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Demolisher until the player has completed PROGRESSION_ONYXIA'),
+(23, 26394, 23456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Swiftblade until the player has completed PROGRESSION_ONYXIA'),
+--
+(23, 12783, 35906, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lieutenant Karter will not sell Reins of the Black War Elekk until the player has completed PROGRESSION_PRE_TBC');
+
+
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
 UPDATE `creature`   SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` = 19848; -- Harbinger Ennarth
-
--- Vanilla PvP Mount Vendor - Lieutenant Karter, <Mount Vendor>
-DELETE FROM `creature_template` WHERE `entry` = 112783;
-INSERT INTO `creature_template` (`entry`,`difficulty_entry_1`,`difficulty_entry_2`,`difficulty_entry_3`,`KillCredit1`,`KillCredit2`,`name`,`subname`,`IconName`,`gossip_menu_id`,`minlevel`,`maxlevel`,
-`exp`,`faction`,`npcflag`,`speed_walk`,`speed_run`,`speed_swim`,`speed_flight`,`detection_range`,`scale`,`rank`,`dmgschool`,`DamageModifier`,`BaseAttackTime`,`RangeAttackTime`,
-`BaseVariance`,`RangeVariance`,`unit_class`,`unit_flags`,`unit_flags2`,`dynamicflags`,`family`,`trainer_type`,`trainer_spell`,`trainer_class`,`trainer_race`,`type`,`type_flags`,
-`lootid`,`pickpocketloot`,`skinloot`,`PetSpellDataId`,`VehicleId`,`mingold`,`maxgold`,`AIName`,`MovementType`,`HoverHeight`,`HealthModifier`,`ManaModifier`,`ArmorModifier`,`ExperienceModifier`,
-`RacialLeader`,`movementId`,`RegenHealth`,`mechanic_immune_mask`,`spell_school_immune_mask`,`flags_extra`,`ScriptName`,`VerifiedBuild`) VALUES
-(112783,0,0,0,0,0,'Lieutenant Karter','Mount Vendor',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pvp_vendor_pre_tbc',0);
-
-DELETE FROM `creature_template_addon` WHERE `entry` = 112783;
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
-(112783, 0, 0, 0, 0, 0, 0, NULL);
-
-DELETE FROM `creature_template_model` WHERE `CreatureID` = 112783;
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
-(112783, 0, 12922, 1, 1, 0);
-
-DELETE FROM `npc_vendor` WHERE `entry` = 112783;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(112783, 18241, 423), (112783, 18242, 423), (112783, 18243, 423), (112783, 18244, 423);
-
-DELETE FROM `creature_template_locale` WHERE `entry` = 112783;
-INSERT INTO `creature_template_locale` (`entry`,`locale`,`Name`,`Title`,`VerifiedBuild`) VALUES
-(112783,'deDE','Leutnant Karter','Rüstmeisterin für Kriegsreittiere',0),
-(112783,'esES','Teniente Karter','Intendente de monturas de guerra',0),
-(112783,'esMX','Teniente Karter','Intendente de monturas de guerra',0),
-(112783,'frFR','Lieutenant Karter','Intendante des montures de guerre',0),
-(112783,'koKR','부관 칼터','전투 탈것 병참장교',0),
-(112783,'ruRU','Лейтенант Картер','Начальник снабжения верховыми животными',0),
-(112783,'zhCN','卡特尔中尉','战争坐骑军需官',0),
-(112783,'zhTW','卡特爾中尉','戰爭軍需官',0);
-
-DELETE FROM `creature` WHERE `guid` = 612783;
-INSERT INTO `creature` (`guid`,`id1`,`id2`,`id3`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`wander_distance`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`,`ScriptName`,`VerifiedBuild`,`CreateObject`,`Comment`) VALUES
-(612783,112783,0,0,0,0,0,1,1,0,-8779.7,432.158,105.233,5.36374,180,0,0,1,0,0,0,0,0,'',NULL,0,NULL);
-
--- Block access to Vanilla PvP vendors until BWL (Stormwind)
-UPDATE `creature_template` SET `ScriptName` = "npc_ipp_tbc" WHERE `entry` IN (12783); -- TBC Lieutenant Karter <Mount Vendor>
-UPDATE `creature_template` SET `ScriptName` = "npc_ipp_pvp_vendor_pre_tbc" WHERE `entry` IN (12777,12805,26393,26394,@Biggins,@Clate,112783); -- Vanilla Officer Areyn + Captain Dirgehammer + Captain O'Neal + Master Sergeant Biggins + Stone Guard Zarg + Lieutenant Karter
 
 -- WotLK pvp vendors
 DELETE FROM `creature` WHERE `id1` IN 
