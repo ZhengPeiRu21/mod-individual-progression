@@ -318,12 +318,20 @@ IndividualProgression.VanillaPvpKillRequirement.Rank14 = 24000
 # IndividualProgression.VanillaPvpTitlesPersistAfterVanilla
 #
 #        Description: Players retain their Vanilla PvP titles even after reaching TBC/WotLK
-#                     and can continue to earn new Vanilla PvP titles even after reaching TBC/WotLK
+#
+#        Default:     1 - Enabled (Default, Blizzlike)
+#                     0 - Disabled 
+#
+IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 1
+
+# IndividualProgression.VanillaPvpEarnTitlesAfterVanilla
+#
+#        Description: Players can continue to earn new Vanilla PvP titles even after reaching TBC/WotLK
 #
 #        Default:     0 - Disabled (Default, Blizzlike)
 #                     1 - Enabled
 #
-IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 0
+IndividualProgression.VanillaPvpEarnTitlesAfterVanilla = 0
 
 # IndividualProgression.DisableRDF
 #
