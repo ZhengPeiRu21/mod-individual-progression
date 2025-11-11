@@ -490,27 +490,35 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
 
         IppPvPTitles const pvpTitlesList[14] =
         {
-            { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank2, TitleData[RANK_TWO].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank3, TitleData[RANK_THREE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank4, TitleData[RANK_FOUR].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank5, TitleData[RANK_FIVE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank6, TitleData[RANK_SIX].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank7, TitleData[RANK_SEVEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank8, TitleData[RANK_EIGHT].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank9, TitleData[RANK_NINE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
             { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
-        };
+            { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank9, TitleData[RANK_NINE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank8, TitleData[RANK_EIGHT].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank7, TitleData[RANK_SEVEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank6, TitleData[RANK_SIX].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank5, TitleData[RANK_FIVE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank4, TitleData[RANK_FOUR].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank3, TitleData[RANK_THREE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank2, TitleData[RANK_TWO].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
+		};
 
+        // remove all titles
+        for (IppPvPTitles title : pvpTitlesList)
+        {
+            player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+        }
+
+        // add highest title
         for (IppPvPTitles title : pvpTitlesList)
         {
             if (kills >= title.RequiredKills && !player->HasTitle(title.TitleId))
             {
                 player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
+				break;
             }
         }
     }
