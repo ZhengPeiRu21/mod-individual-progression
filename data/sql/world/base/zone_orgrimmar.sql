@@ -291,7 +291,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 
 DELETE FROM `npc_vendor` WHERE `entry`= @Bork;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(@Bork 18245, 423), (@Bork, 18246, 423), (@Bork, 18247, 423), (@Bork, 18248, 423);
+(@Bork, 18245, 423), (@Bork, 18246, 423), (@Bork, 18247, 423), (@Bork, 18248, 423);
 
 -- Vixton Pinchwhistle <Arena Vendor> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 20278;
