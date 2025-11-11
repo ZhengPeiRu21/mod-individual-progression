@@ -506,20 +506,23 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
             { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
 		};
 
-        // remove all titles
-        for (IppPvPTitles title : pvpTitlesList)
+	    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || VanillaPvpTitlesEarnPostVanilla)
         {
-            player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
-        }
-
-        // add highest title
-        for (IppPvPTitles title : pvpTitlesList)
-        {
-            if (kills >= title.RequiredKills && !player->HasTitle(title.TitleId))
+            // remove all titles
+            for (IppPvPTitles title : pvpTitlesList)
             {
-                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
-				break;
+                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
             }
+
+            // add highest title
+            for (IppPvPTitles title : pvpTitlesList)
+            {
+                if (kills >= title.RequiredKills && !player->HasTitle(title.TitleId))
+                {
+                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
+				    break;
+                }
+            }             
         }
     }
 }
@@ -567,7 +570,8 @@ private:
         sIndividualProgression->VanillaPvpKillRank12 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank12", 13000);
         sIndividualProgression->VanillaPvpKillRank13 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank13", 18000);
         sIndividualProgression->VanillaPvpKillRank14 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank14", 24000);
-        sIndividualProgression->VanillaPvpTitlesKeepPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpTitlesPersistAfterVanilla", false);
+        sIndividualProgression->VanillaPvpTitlesKeepPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpTitlesPersistAfterVanilla", true);
+        sIndividualProgression->VanillaPvpTitlesEarnPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpEarnTitlesAfterVanilla", false);		
         sIndividualProgression->DisableRDF = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
         sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "^RNDBOT.*");
