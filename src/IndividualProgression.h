@@ -225,7 +225,7 @@ struct IppPvPTitleData
     uint32 TitleId[2];
 };
 
-enum pvpRanks
+enum IppRanks
 {                             //    A                           H
     RANK_ONE            = 0,  // Private                 &    Scout
     RANK_TWO            = 1,  // Corporal                &    Grunt
@@ -243,7 +243,7 @@ enum pvpRanks
     RANK_FOURTEEN       = 13  // Grand Marshal           &    High Warlord
 };
 
-enum pvpTitles
+enum IppTitles
 {
     // Alliance
     PRIVATE                  = 1,
@@ -278,7 +278,7 @@ enum pvpTitles
     HIGH_WARLORD             = 28
 };
 
-pvpTitleData const TitleData[14] =
+IppPVPTitleData const TitleData[14] =
 {
     { PRIVATE,              SCOUT              },
     { CORPORAL,             GRUNT              },
@@ -325,6 +325,8 @@ public:
     void UpdateProgressionQuests(Player* player);
     void UpdateProgressionAchievements(Player* player, uint16 achievementID);
     void checkKillProgression(Player* player, Creature* killed);
+    void CleanUpVanillaPvpTitles(Player* player);
+    void AwardEarnedVanillaPvpTitles(Player* player);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
     static void RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId);
 	static void AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment);
