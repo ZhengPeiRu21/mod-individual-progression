@@ -278,7 +278,7 @@ enum IppTitles
     HIGH_WARLORD             = 28
 };
 
-IppPVPTitleData const TitleData[14] =
+IppPvPTitleData const TitleData[14] =
 {
     { PRIVATE,              SCOUT              },
     { CORPORAL,             GRUNT              },
