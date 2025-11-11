@@ -225,6 +225,11 @@ struct IppPvPTitleData
     uint32 TitleId[2];
 };
 
+struct PvPTitleData
+{
+    uint32 TitleId[2];
+};
+
 enum IppRanks
 {                             //    A                           H
     RANK_ONE            = 0,  // Private                 &    Scout
@@ -329,6 +334,24 @@ IppPvPTitleData const TitleData[14] =
     { MARSHAL,              GENERAL            },
     { FIELD_MARSHAL,        WARLORD            },
     { GRAND_MARSHAL,        HIGH_WARLORD       }
+};
+
+PvPTitleData const AchievementData[14] =
+{
+    { ACHIEVEMENT_PRIVATE,              ACHIEVEMENT_SCOUT              },
+    { ACHIEVEMENT_CORPORAL,             ACHIEVEMENT_GRUNT              },
+    { ACHIEVEMENT_SERGEANT,             ACHIEVEMENT_SERGEANT_H         },
+    { ACHIEVEMENT_MASTER_SERGEANT,      ACHIEVEMENT_SENIOR_SERGEANT    },
+    { ACHIEVEMENT_SERGEANT_MAJOR,       ACHIEVEMENT_FIRST_SERGEANT     },
+    { ACHIEVEMENT_KNIGHT,               ACHIEVEMENT_STONE_GUARD        },
+    { ACHIEVEMENT_KNIGHT_LIEUTENANT,    ACHIEVEMENT_BLOOD_GUARD        },
+    { ACHIEVEMENT_KNIGHT_CAPTAIN,       ACHIEVEMENT_LEGIONNAIRE        },
+    { ACHIEVEMENT_KNIGHT_CHAMPION,      ACHIEVEMENT_CENTURION          },
+    { ACHIEVEMENT_LIEUTENANT_COMMANDER, ACHIEVEMENT_CHAMPION           },
+    { ACHIEVEMENT_COMMANDER,            ACHIEVEMENT_LIEUTENANT_GENERAL },
+    { ACHIEVEMENT_MARSHAL,              ACHIEVEMENT_GENERAL            },
+    { ACHIEVEMENT_FIELD_MARSHAL,        ACHIEVEMENT_WARLORD            },
+    { ACHIEVEMENT_GRAND_MARSHAL,        ACHIEVEMENT_HIGH_WARLORD       }
 };
 
 class IndividualProgression
