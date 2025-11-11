@@ -225,7 +225,7 @@ struct IppPvPTitleData
     uint32 TitleId[2];
 };
 
-enum IppRanks
+enum pvpRanks
 {                             //    A                           H
     RANK_ONE            = 0,  // Private                 &    Scout
     RANK_TWO            = 1,  // Corporal                &    Grunt
@@ -243,7 +243,7 @@ enum IppRanks
     RANK_FOURTEEN       = 13  // Grand Marshal           &    High Warlord
 };
 
-enum IppTitles
+enum pvpTitles
 {
     // Alliance
     PRIVATE                  = 1,
@@ -278,7 +278,7 @@ enum IppTitles
     HIGH_WARLORD             = 28
 };
 
-IppPvPTitleData const TitleData[14] =
+pvpTitleData const TitleData[14] =
 {
     { PRIVATE,              SCOUT              },
     { CORPORAL,             GRUNT              },
