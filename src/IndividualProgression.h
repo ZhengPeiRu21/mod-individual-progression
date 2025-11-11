@@ -243,39 +243,39 @@ enum IppRanks
     RANK_FOURTEEN       = 13  // Grand Marshal           &    High Warlord
 };
 
-enum IppTitles
+enum PvPAchievements
 {
     // Alliance
-    PRIVATE                  = 1,
-    CORPORAL                 = 2,
-    SERGEANT                 = 3,
-    MASTER_SERGEANT          = 4,
-    SERGEANT_MAJOR           = 5,
-    KNIGHT                   = 6,
-    KNIGHT_LIEUTENANT        = 7,
-    KNIGHT_CAPTAIN           = 8,
-    KNIGHT_CHAMPION          = 9,
-    LIEUTENANT_COMMANDER     = 10,
-    COMMANDER                = 11,
-    MARSHAL                  = 12,
-    FIELD_MARSHAL            = 13,
-    GRAND_MARSHAL            = 14,
+    PRIVATE                  = 442,
+    CORPORAL                 = 470,
+    SERGEANT                 = 471,
+    MASTER_SERGEANT          = 441,
+    SERGEANT_MAJOR           = 440,
+    KNIGHT                   = 439,
+    KNIGHT_LIEUTENANT        = 472,
+    KNIGHT_CAPTAIN           = 438,
+    KNIGHT_CHAMPION          = 437,
+    LIEUTENANT_COMMANDER     = 436,
+    COMMANDER                = 435,
+    MARSHAL                  = 473,
+    FIELD_MARSHAL            = 434,
+    GRAND_MARSHAL            = 433,
 
     // Horde
-    SCOUT                    = 15,
-    GRUNT                    = 16,
-    SERGEANT_H               = 17,
-    SENIOR_SERGEANT          = 18,
-    FIRST_SERGEANT           = 19,
-    STONE_GUARD              = 20,
-    BLOOD_GUARD              = 21,
-    LEGIONNAIRE              = 22,
-    CENTURION                = 23,
-    CHAMPION                 = 24,
-    LIEUTENANT_GENERAL       = 25,
-    GENERAL                  = 26,
-    WARLORD                  = 27,
-    HIGH_WARLORD             = 28
+    SCOUT                    = 454,
+    GRUNT                    = 468,
+    SERGEANT_H               = 453,
+    SENIOR_SERGEANT          = 450,
+    FIRST_SERGEANT           = 452,
+    STONE_GUARD              = 451,
+    BLOOD_GUARD              = 449,
+    LEGIONNAIRE              = 469,
+    CENTURION                = 448,
+    CHAMPION                 = 447,
+    LIEUTENANT_GENERAL       = 444,
+    GENERAL                  = 446,
+    WARLORD                  = 445,
+    HIGH_WARLORD             = 443
 };
 
 IppPvPTitleData const TitleData[14] =
