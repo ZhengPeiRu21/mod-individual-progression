@@ -481,226 +481,226 @@ void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
         }
     }
   
-    if (player->HasAchieved(GRAND_MARSHAL) || player->HasAchieved(HIGH_WARLORD))
+    if (player->HasAchieved(ACHIEVEMENT_GRAND_MARSHAL) || player->HasAchieved(ACHIEVEMENT_HIGH_WARLORD))
     {
-        RemovePlayerAchievement(playerGUID, FIELD_MARSHAL);
-        RemovePlayerAchievement(playerGUID, WARLORD);
-        RemovePlayerAchievement(playerGUID, MARSHAL);
-        RemovePlayerAchievement(playerGUID, GENERAL);
-        RemovePlayerAchievement(playerGUID, COMMANDER);
-        RemovePlayerAchievement(playerGUID, LIEUTENANT_GENERAL);
-        RemovePlayerAchievement(playerGUID, LIEUTENANT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, CHAMPION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, CENTURION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, KNIGHT);
-        RemovePlayerAchievement(playerGUID, STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIELD_MARSHAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_WARLORD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MARSHAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GENERAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_COMMANDER);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_GENERAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_COMMANDER);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(FIELD_MARSHAL) || player->HasAchieved(WARLORD))
+    else if (player->HasAchieved(ACHIEVEMENT_FIELD_MARSHAL) || player->HasAchieved(ACHIEVEMENT_WARLORD))
     {
-        RemovePlayerAchievement(playerGUID, MARSHAL);
-        RemovePlayerAchievement(playerGUID, GENERAL);
-        RemovePlayerAchievement(playerGUID, COMMANDER);
-        RemovePlayerAchievement(playerGUID, LIEUTENANT_GENERAL);
-        RemovePlayerAchievement(playerGUID, LIEUTENANT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, CHAMPION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, CENTURION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, KNIGHT);
-        RemovePlayerAchievement(playerGUID, STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MARSHAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GENERAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_COMMANDER);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_GENERAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_COMMANDER);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(MARSHAL) || player->HasAchieved(GENERAL))
+    else if (player->HasAchieved(ACHIEVEMENT_MARSHAL) || player->HasAchieved(ACHIEVEMENT_GENERAL))
     {
-        RemovePlayerAchievement(playerGUID, COMMANDER);
-        RemovePlayerAchievement(playerGUID, LIEUTENANT_GENERAL);
-        RemovePlayerAchievement(playerGUID, LIEUTENANT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, CHAMPION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, CENTURION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, KNIGHT);
-        RemovePlayerAchievement(playerGUID, STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_COMMANDER);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_GENERAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_COMMANDER);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(COMMANDER) || player->HasAchieved(LIEUTENANT_GENERAL))
+    else if (player->HasAchieved(ACHIEVEMENT_COMMANDER) || player->HasAchieved(ACHIEVEMENT_LIEUTENANT_GENERAL))
     {
-        RemovePlayerAchievement(playerGUID, LIEUTENANT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, CHAMPION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, CENTURION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, KNIGHT);
-        RemovePlayerAchievement(playerGUID, STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_COMMANDER);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(LIEUTENANT_COMMANDER) || player->HasAchieved(CHAMPION))
+    else if (player->HasAchieved(ACHIEVEMENT_LIEUTENANT_COMMANDER) || player->HasAchieved(ACHIEVEMENT_CHAMPION))
     {
-        RemovePlayerAchievement(playerGUID, KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, CENTURION);
-        RemovePlayerAchievement(playerGUID, KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, KNIGHT);
-        RemovePlayerAchievement(playerGUID, STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(KNIGHT_CHAMPION) || player->HasAchieved(CENTURION))
+    else if (player->HasAchieved(ACHIEVEMENT_KNIGHT_CHAMPION) || player->HasAchieved(ACHIEVEMENT_CENTURION))
     {
-        RemovePlayerAchievement(playerGUID, KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, KNIGHT);
-        RemovePlayerAchievement(playerGUID, STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(KNIGHT_CAPTAIN) || player->HasAchieved(LEGIONNAIRE))
+    else if (player->HasAchieved(ACHIEVEMENT_KNIGHT_CAPTAIN) || player->HasAchieved(ACHIEVEMENT_LEGIONNAIRE))
     {
-        RemovePlayerAchievement(playerGUID, KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, KNIGHT);
-        RemovePlayerAchievement(playerGUID, STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(KNIGHT_LIEUTENANT) || player->HasAchieved(BLOOD_GUARD))
+    else if (player->HasAchieved(ACHIEVEMENT_KNIGHT_LIEUTENANT) || player->HasAchieved(ACHIEVEMENT_BLOOD_GUARD))
     {
-        RemovePlayerAchievement(playerGUID, KNIGHT);
-        RemovePlayerAchievement(playerGUID, STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(KNIGHT) || player->HasAchieved(STONE_GUARD))
+    else if (player->HasAchieved(ACHIEVEMENT_KNIGHT) || player->HasAchieved(ACHIEVEMENT_STONE_GUARD))
     {
-        RemovePlayerAchievement(playerGUID, SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(SERGEANT_MAJOR) || player->HasAchieved(FIRST_SERGEANT))
+    else if (player->HasAchieved(ACHIEVEMENT_SERGEANT_MAJOR) || player->HasAchieved(ACHIEVEMENT_FIRST_SERGEANT))
     {
-        RemovePlayerAchievement(playerGUID, MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(MASTER_SERGEANT) || player->HasAchieved(SENIOR_SERGEANT))
+    else if (player->HasAchieved(ACHIEVEMENT_MASTER_SERGEANT) || player->HasAchieved(ACHIEVEMENT_SENIOR_SERGEANT))
     {
-        RemovePlayerAchievement(playerGUID, SERGEANT);
-        RemovePlayerAchievement(playerGUID, SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(SERGEANT) || player->HasAchieved(SERGEANT_H))
+    else if (player->HasAchieved(ACHIEVEMENT_SERGEANT) || player->HasAchieved(ACHIEVEMENT_SERGEANT_H))
     {
-        RemovePlayerAchievement(playerGUID, CORPORAL);
-        RemovePlayerAchievement(playerGUID, GRUNT);
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
-    else if (player->HasAchieved(CORPORAL) || player->HasAchieved(GRUNT))
+    else if (player->HasAchieved(ACHIEVEMENT_CORPORAL) || player->HasAchieved(ACHIEVEMENT_GRUNT))
     {
-        RemovePlayerAchievement(playerGUID, PRIVATE);
-        RemovePlayerAchievement(playerGUID, SCOUT);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
+        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
     }
  
 }
@@ -735,10 +735,7 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
             // remove all titles
             for (IppPvPTitles title : pvpTitlesList)
             {
-                if (player->HasTitle(title.TitleId))
-                {
-                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
-                }
+                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
             }
 
             // add highest title
