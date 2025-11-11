@@ -37,14 +37,6 @@ UPDATE `item_template` SET `BuyPrice` = 147331, `SellPrice` = 29466 WHERE `entry
 -- Fix prices for Vanilla PvP mounts (100 golds)
 UPDATE `item_template` SET `BuyPrice` = 1000000 WHERE `entry` IN (18241, 18242, 18243, 18244, 18245, 18246, 18247, 18248);
 
--- Potential missing items for Officer Areyn (Stormwind, Alliance)
-INSERT IGNORE INTO `npc_vendor` VALUES
-(12805, 0, 18442, 0, 0, 0, 0), (12805, 0, 18444, 0, 0, 0, 0), (12805, 0, 18443, 0, 0, 0, 0),
-(12805, 0, 15196, 0, 0, 0, 0), (12805, 0, 18440, 0, 0, 0, 0), (12805, 0, 18441, 0, 0, 0, 0), (12805, 0, 16342, 0, 0, 0, 0), 
-(12805, 0, 18445, 0, 0, 0, 0), (12805, 0, 18447, 0, 0, 0, 0), (12805, 0, 18448, 0, 0, 0, 0), (12805, 0, 18449, 0, 0, 0, 0), (12805, 0, 18454, 0, 0, 0, 0), 
-(12805, 0, 18455, 0, 0, 0, 0), (12805, 0, 18456, 0, 0, 0, 0), (12805, 0, 18457, 0, 0, 0, 0), (12805, 0, 18854, 0, 0, 0, 0), (12805, 0, 18856, 0, 0, 0, 0), 
-(12805, 0, 18858, 0, 0, 0, 0), (12805, 0, 18859, 0, 0, 0, 0), (12805, 0, 18862, 0, 0, 0, 0), (12805, 0, 18863, 0, 0, 0, 0), (12805, 0, 18864, 0, 0, 0, 0);
-
 -- Add PvP Rank (0-14) conditions to Vanilla PvP gear
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 18 AND `SourceGroup` IN (12777, 12781, 12782, 12805, 26393, 26394, 112781, 112783); -- Alliance
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
