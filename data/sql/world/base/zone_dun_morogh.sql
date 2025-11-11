@@ -31,7 +31,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1121, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 467, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostmane Snowstrider - On Aggro - Cast Thorns'),
 (1121, 0, 2, 0, 0, 0, 100, 0, 3000, 3000, 60000, 60000, 0, 0, 11, 6950, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Frostmane Snowstrider - In Combat - Cast Faerie Fire'),
 (1121, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Frostmane Snowstrider - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(1122, 0, 0, 1, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Frostmane Hideskinner - On Aggro - Say Line 0'),
+(1122, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Frostmane Hideskinner - On Aggro - Say Line 0'),
 (1122, 0, 1, 0, 67, 0, 100, 0, 0, 0, 2000, 4000, 0, 5, 11, 7159, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Frostmane Hideskinner - In Combat - Cast Backstab'),
 (1122, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Frostmane Hideskinner - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1123, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Frostmane Headhunter - On Aggro - Say Line 0'),
