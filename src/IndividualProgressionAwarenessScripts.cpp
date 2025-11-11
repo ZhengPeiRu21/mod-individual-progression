@@ -236,52 +236,6 @@ public:
     }
 };
 
-class npc_ipp_pvp_vendor_pre_tbc : public CreatureScript
-{
-public:
-    npc_ipp_pvp_vendor_pre_tbc() : CreatureScript("npc_ipp_pvp_vendor_pre_tbc") { }
-
-    struct npc_ipp_pvp_vendor_pre_tbcAI: ScriptedAI
-    {
-        explicit npc_ipp_pvp_vendor_pre_tbcAI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_ONYXIA) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_TBC);
-        }
-
-        protected:
-            void MoveInLineOfSight(Unit* who) override
-            {
-                if (!who)
-                    return;
-
-                if (!sIndividualProgression->enabled || !who->IsPlayer())
-                {
-                    ScriptedAI::MoveInLineOfSight(who);
-                    return;
-                }
-                
-                Player* player = who->ToPlayer();
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA)
-                    && sIndividualProgression->isBeforeProgression(player, PROGRESSION_PRE_TBC))
-                    ScriptedAI::MoveInLineOfSight(who);
-
-                return;
-            }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_ipp_pvp_vendor_pre_tbcAI(creature);
-    }
-};
-
 class npc_ipp_preaq : public CreatureScript
 {
 public:
@@ -800,14 +754,13 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_pre_tbc();        // Stormwind pvp room
     new gobject_ipp_tbc();
     new gobject_ipp_wotlk();
-    new npc_ipp_pvp_vendor_pre_tbc(); // Vanilla pvp vendors only visible after Onyxia and before TBC
     new npc_ipp_preaq();              // Cenarion Hold NPCs
     new npc_ipp_we();                 // War Effort NPCs in cities
 	new npc_ipp_aq();
     new npc_ipp_si();                 // Scourge Invasion
     new npc_ipp_pre_naxx40();         // Scourge Invasion
     new npc_ipp_naxx40();
-    new npc_ipp_pre_tbc();            // NPCS only visible before TBC
+    new npc_ipp_pre_tbc();            // Vanilla pvp vendors
     new npc_ipp_tbc();
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();
