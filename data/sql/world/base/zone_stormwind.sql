@@ -268,6 +268,16 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 -- Captain Dirgehammer <Armor Quartermaster> - Vanilla
 DELETE FROM `npc_vendor` WHERE `entry` IN (12777, 26393);
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+-- boot 427, gloves 428, helm 444, pants 653, chest 652, shoulders 427
+(12777, 16369, 427), (12777, 16391, 428), (12777, 16413, 652), (12777, 16414, 653), (12777, 16416, 444), (12777, 16415, 427), -- mages, pre naxx
+(12777, 16423, 427), (12777, 16424, 444), (12777, 16422, 653), (12777, 16421, 652), (12777, 16393, 427), (12777, 16397, 428), -- druid, pre naxx
+(12777, 16392, 427), (12777, 16396, 428), (12777, 16417, 652), (12777, 16419, 653), (12777, 16420, 427), (12777, 16418, 444), -- rogue, pre naxx
+(12777, 16405, 427), (12777, 16406, 428), (12777, 16430, 652), (12777, 16431, 653), (12777, 16429, 444), (12777, 16432, 427), -- warrior, pre naxx
+(12777, 16410, 428), (12777, 16409, 427), (12777, 16433, 652), (12777, 16435, 653), (12777, 16434, 444), (12777, 16436, 427), -- paladin, pre naxx
+(12777, 16425, 652), (12777, 16426, 653), (12777, 16401, 427), (12777, 16403, 428), (12777, 16428, 444), (12777, 16427, 427), -- hunter, pre naxx
+(12777, 17562, 427), (12777, 17564, 428), (12777, 17568, 652), (12777, 17567, 653), (12777, 17569, 427), (12777, 17566, 444), -- warlock, pre naxx
+(12777, 17594, 427), (12777, 17596, 428), (12777, 17600, 652), (12777, 17599, 653), (12777, 17598, 444), (12777, 17601, 427), -- priest, pre naxx
+--
 (12777, 16437, 465), (12777, 16440, 541), (12777, 16441, 464), (12777, 16442, 542), (12777, 16443, 463), (12777, 16444, 465), (12777, 16446, 465), (12777, 16448, 541), (12777, 16449, 465),
 (12777, 16450, 542), (12777, 16451, 464), (12777, 16452, 463), (12777, 16453, 463), (12777, 16454, 541), (12777, 16455, 464), (12777, 16456, 542), (12777, 16457, 465), (12777, 16459, 465),
 (12777, 16462, 465), (12777, 16463, 541), (12777, 16465, 464), (12777, 16466, 463), (12777, 16467, 542), (12777, 16468, 465), (12777, 16471, 541), (12777, 16472, 465), (12777, 16473, 463),
@@ -301,9 +311,107 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 
 
 /* Hide certain vendor items until the player has reached the progression tier for them */
-DELETE FROM `conditions` WHERE `SourceGroup` IN (12777, 12782, 12783, 26394);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (12777, 12782, 12783, 26394);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(23, 12777, 16369, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Silk Boots if the player has NOT completed PROGRESSION_AQ'), -- mage
+(23, 12777, 16391, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Silk Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16413, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Silk Raiment if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16414, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Silk Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16416, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Crown if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16415, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Silk Spaulders if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16423, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Dragonhide Epaulets if the player has NOT completed PROGRESSION_AQ'), -- druid
+(23, 12777, 16424, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Dragonhide Shroud if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16422, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Dragonhide Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16421, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Dragonhide Tunic if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16393, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Dragonhide Footwraps if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16397, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Dragonhide Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16392, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Leather Boots if the player has NOT completed PROGRESSION_AQ'), -- rogue
+(23, 12777, 16396, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Leather Gauntlets if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16417, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Leather Armor if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16419, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Leather Legguards if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16420, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Leather Spaulders if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16418, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Leather Veil if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16405, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Plate Boots if the player has NOT completed PROGRESSION_AQ'), -- warrior
+(23, 12777, 16406, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Plate Gauntlets if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16430, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Plate Chestguard if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16431, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Plate Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16429, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Plate Helm if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16432, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Plate Pauldrons if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16410, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Lamellar Gauntlets if the player has NOT completed PROGRESSION_AQ'), -- paladin
+(23, 12777, 16409, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Lamellar Sabatons if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16433, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Lamellar Breastplate if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16435, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Lamellar Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16434, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Lamellar Headguard if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16436, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Lamellar Shoulders if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16425, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Chain Hauberk if the player has NOT completed PROGRESSION_AQ'), -- hunter
+(23, 12777, 16426, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Chain Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16401, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Chain Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16403, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Chain Gauntlets if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16428, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Chain Helmet if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 16427, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Chain Pauldrons if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17562, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Dreadweave Boots if the player has NOT completed PROGRESSION_AQ'), -- warlock
+(23, 12777, 17564, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Dreadweave Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17568, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Dreadweave Robe if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17567, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Dreadweave Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17569, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Dreadweave Mantle if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17566, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Headguard if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17594, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Satin Boots if the player has NOT completed PROGRESSION_AQ'), -- priest
+(23, 12777, 17596, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Satin Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17600, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Satin Robes if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17599, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Satin Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17598, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Diadem if the player has NOT completed PROGRESSION_AQ'),
+(23, 12777, 17601, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Satin Amice if the player has NOT completed PROGRESSION_AQ'),
+--
+(23, 12777, 23304, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Silk Legguards if the player has completed PROGRESSION_AQ'), -- mage
+(23, 12777, 23305, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Silk Tunic if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23290, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Silk Handwraps if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23291, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Silk Walkers if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23318, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Silk Cowl if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23319, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Silk Mantle if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23294, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Dragonhide Chestpiece if the player has completed PROGRESSION_AQ'), -- druid
+(23, 12777, 23295, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Dragonhide Leggings if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23280, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Dragonhide Grips if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23281, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Dragonhide Treads if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23308, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Dragonhide Headguard if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23309, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Dragonhide Shoulders if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23298, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Leather Chestpiece if the player has completed PROGRESSION_AQ'), -- rogue
+(23, 12777, 23299, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Leather Legguards if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23284, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Leather Grips if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23285, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Leather Walkers if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23312, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Leather Helm if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23313, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Leather Shoulders if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23300, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Plate Hauberk if the player has completed PROGRESSION_AQ'), -- warrior
+(23, 12777, 23301, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Plate Leggings if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23286, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Plate Gauntlets if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23287, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Plate Greaves if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23314, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Plate Helm if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23315, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Plate Shoulders if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23272, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Lamellar Breastplate if the player has completed PROGRESSION_AQ'), -- paladin
+(23, 12777, 23273, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Lamellar Leggings if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23274, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Lamellar Gauntlets if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23275, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Lamellar Sabatons if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23276, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Lamellar Headguard if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23277, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Lamellar Shoulders if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23292, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Chain Hauberk if the player has completed PROGRESSION_AQ'), -- hunter
+(23, 12777, 23293, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Chain Legguards if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23278, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Chain Greaves if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23279, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Chain Vices if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23306, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Chain Helm if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23307, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Chain Shoulders if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23296, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Dreadweave Legguards if the player has completed PROGRESSION_AQ'), -- warlock
+(23, 12777, 23297, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Dreadweave Tunic if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23282, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Dreadweave Handwraps if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23283, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Dreadweave Walkers if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23310, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Dreadweave Cowl if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23311, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Dreadweave Spaulders if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23302, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Satin Legguards if the player has completed PROGRESSION_AQ'), -- priest
+(23, 12777, 23303, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Captains Satin Tunic if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23288, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Satin Handwraps if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23289, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Knight-Lieutenants Satin Walkers if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23316, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Satin Hood if the player has completed PROGRESSION_AQ'),
+(23, 12777, 23317, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will only sell Lieutenant Commanders Satin Mantle if the player has completed PROGRESSION_AQ'),
 --
 (23, 12777, 16437, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Silk Footwraps until the player has completed PROGRESSION_ONYXIA'),
 (23, 12777, 16440, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain Dirgehammer will not sell Marshals Silk Gloves until the player has completed PROGRESSION_ONYXIA'),
