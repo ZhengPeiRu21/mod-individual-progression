@@ -35,8 +35,8 @@ public:
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
             }
 
-            sIndividualProgression->CleanUpVanillaPvpTitles(player);
             sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
+            sIndividualProgression->CleanUpVanillaPvpTitles(player);
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
 		}
