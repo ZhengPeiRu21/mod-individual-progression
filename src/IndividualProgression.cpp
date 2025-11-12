@@ -486,7 +486,7 @@ void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
 	for (int8_t i = 13; i > -1; --i)
 	{
 		if (kills >= pvpTitlesList[i].RequiredKills)
-		{		
+		{
 			highestRank = i;
 			break;
 		}
