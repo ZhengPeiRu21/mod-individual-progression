@@ -443,22 +443,22 @@ void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
 
     IppPvPTitles const pvpTitlesList[14] =
     {
-        { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank2, TitleData[RANK_TWO].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank3, TitleData[RANK_THREE].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank4, TitleData[RANK_FOUR].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank5, TitleData[RANK_FIVE].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank6, TitleData[RANK_SIX].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank7, TitleData[RANK_SEVEN].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank8, TitleData[RANK_EIGHT].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank9, TitleData[RANK_NINE].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId] },
+        { sIndividualProgression->VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank2,  TitleData[RANK_TWO].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank3,  TitleData[RANK_THREE].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank4,  TitleData[RANK_FOUR].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank5,  TitleData[RANK_FIVE].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank6,  TitleData[RANK_SIX].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank7,  TitleData[RANK_SEVEN].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank8,  TitleData[RANK_EIGHT].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank9,  TitleData[RANK_NINE].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId]   },
+        { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId]   },
         { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
         { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
     };
- 
+
     if (!sIndividualProgression->VanillaPvpTitlesKeepPostVanilla && sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
     {
         for (IppPvPTitles title : pvpTitlesList)
@@ -473,236 +473,35 @@ void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
     {
         for (IppPvPTitles title : pvpTitlesList)
         {
-            uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
             if (kills < title.RequiredKills && player->HasTitle(title.TitleId))
             {
                 player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
             }
         }
     }
+ 
+	int8_t highestRank = -1;
 
-    if (player->HasAchieved(ACHIEVEMENT_GRAND_MARSHAL) || player->HasAchieved(ACHIEVEMENT_HIGH_WARLORD))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIELD_MARSHAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_WARLORD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MARSHAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GENERAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_GENERAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_FIELD_MARSHAL) || player->HasAchieved(ACHIEVEMENT_WARLORD))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MARSHAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GENERAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_GENERAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_MARSHAL) || player->HasAchieved(ACHIEVEMENT_GENERAL))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_GENERAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_COMMANDER) || player->HasAchieved(ACHIEVEMENT_LIEUTENANT_GENERAL))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LIEUTENANT_COMMANDER);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_LIEUTENANT_COMMANDER) || player->HasAchieved(ACHIEVEMENT_CHAMPION))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CHAMPION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CENTURION);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_KNIGHT_CHAMPION) || player->HasAchieved(ACHIEVEMENT_CENTURION))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_CAPTAIN);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_LEGIONNAIRE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_KNIGHT_CAPTAIN) || player->HasAchieved(ACHIEVEMENT_LEGIONNAIRE))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT_LIEUTENANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_BLOOD_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_KNIGHT_LIEUTENANT) || player->HasAchieved(ACHIEVEMENT_BLOOD_GUARD))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_KNIGHT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_STONE_GUARD);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_KNIGHT) || player->HasAchieved(ACHIEVEMENT_STONE_GUARD))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_MAJOR);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_FIRST_SERGEANT);			
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_SERGEANT_MAJOR) || player->HasAchieved(ACHIEVEMENT_FIRST_SERGEANT))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_MASTER_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SENIOR_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_MASTER_SERGEANT) || player->HasAchieved(ACHIEVEMENT_SENIOR_SERGEANT))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SERGEANT_H);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_SERGEANT) || player->HasAchieved(ACHIEVEMENT_SERGEANT_H))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_CORPORAL);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_GRUNT);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
-    else if (player->HasAchieved(ACHIEVEMENT_CORPORAL) || player->HasAchieved(ACHIEVEMENT_GRUNT))
-    {
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_PRIVATE);
-        RemovePlayerAchievement(playerGUID, ACHIEVEMENT_SCOUT);
-    }
+	for (int8_t i = 13; i > -1; --i)
+	{
+		if (kills >= pvpTitlesList[i].RequiredKills)
+		{
+			highestRank = i;
+			break;
+		}
+	}
 
+	for (int8_t i = 13; i > -1; --i)
+    {
+		uint32_t achievementId = AchievementData[i].TitleId[teamId];
+
+		if (highestRank == i || !player->HasAchieved(achievementId))
+		{
+			continue;
+		}
+   
+		RemovePlayerAchievement(playerGUID, achievementId);
+    }
 }
 
 void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
@@ -716,18 +515,18 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
         {
             { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
             { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank9, TitleData[RANK_NINE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank8, TitleData[RANK_EIGHT].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank7, TitleData[RANK_SEVEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank6, TitleData[RANK_SIX].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank5, TitleData[RANK_FIVE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank4, TitleData[RANK_FOUR].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank3, TitleData[RANK_THREE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank2, TitleData[RANK_TWO].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId]   },
+            { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId]   },
+            { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank9,  TitleData[RANK_NINE].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank8,  TitleData[RANK_EIGHT].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank7,  TitleData[RANK_SEVEN].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank6,  TitleData[RANK_SIX].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank5,  TitleData[RANK_FIVE].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank4,  TitleData[RANK_FOUR].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank3,  TitleData[RANK_THREE].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank2,  TitleData[RANK_TWO].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
 		};
 
 	    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || VanillaPvpTitlesEarnPostVanilla)
@@ -752,11 +551,10 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
 				{
                     player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
 				}
-            }
+            }		
         }
     }
 }
-
 
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {
