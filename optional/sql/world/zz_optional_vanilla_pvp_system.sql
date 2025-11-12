@@ -63,7 +63,7 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 (66114, 2, 60, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28006, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 'PvP Quest Rank 14', NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, '', '', '', '', 12340);
 
 -- Add PvP Rank (0-14) conditions to Vanilla PvP gear
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (12777, 12781, 12782, 12805, 26393, 26394, 112781, 112783); -- Alliance
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `Comment` = "Vanilla PvP Ranked Gear (IPP)"; 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 -- Alliance
@@ -450,11 +450,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 112783, 18241, 0, 0, 8, 0, 66111, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), -- Black War Steed
 (23, 112783, 18242, 0, 0, 8, 0, 66111, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), -- Black War Tiger
 (23, 112783, 18243, 0, 0, 8, 0, 66111, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), -- Black Battlestrider
-(23, 112783, 18244, 0, 0, 8, 0, 66111, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'); -- Black War Ram
+(23, 112783, 18244, 0, 0, 8, 0, 66111, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), -- Black War Ram
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (12792, 12793, 12799, 14581, 26396, 26396, 26397, 112793, 112796); -- Horde
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
-`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 -- Horde
 (23, 12792, 16530, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12792, 16531, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
