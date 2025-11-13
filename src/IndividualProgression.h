@@ -72,7 +72,8 @@ enum ProgressionQuestIDs
     QUEST_THE_ANCIENT_LEAF    = 7632,
     MIGHT_OF_KALIMDOR         = 8742,
     INTO_THE_BREACH           = 10259,
-    BANG_A_GONG               = 108743,
+    BANG_A_GONG               = 8743,
+    SIMPLY_BANG_A_GONG        = 108743,
     CHAOS_AND_DESTRUCTION     = 108744
 };
 
