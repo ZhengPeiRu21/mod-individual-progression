@@ -930,3 +930,15 @@ DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` 
 
 -- Update Vanilla ExtendedCost                             
 UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (12777, 12792, 12799, 12805, 26394, 26396, 112781, 112783, 112785, 112793, 112794, 112795, 112796);
+
+-- officer room doors
+DELETE FROM `gameobject` WHERE `guid` IN (626262, 631660, 631661);
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES 
+--
+(626262, 176576, 0, 1519, 1519, 1, 1, -8765.82, 403.164, 104.162, -0.898844, 0, 0, -0.434445, 0.900698, 900, 100, 1, 'gobject_ipp_pvp_closed', 0, NULL),
+(631660, 176562, 1, 0, 0, 1, 1, 1634.87, -4247.86, 55.8397, 4.19752, 0, 0, -0.863835, 0.503774, 180, 0, 1, 'gobject_ipp_pvp_closed', NULL, NULL),
+(631661, 176562, 1, 0, 0, 1, 1, 1634.87, -4247.86, 55.8397, 4.19752, 0, 0, -0.863835, 0.503774, 180, 0, 0, 'gobject_ipp_pvp_open', NULL, NULL); 
+-- I can't figure out why gate 31660 is not visible in Orgrimmar. something is blocking guid 31660 specifically. until someone figures it out, I created a new door. (631661)
+
+UPDATE `gameobject` SET `state` = 0, `ScriptName` = 'gobject_ipp_pvp_open' WHERE `guid` = 26262;
