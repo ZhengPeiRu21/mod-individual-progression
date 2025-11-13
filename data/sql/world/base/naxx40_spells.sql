@@ -183,3 +183,8 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (29371, 'spel
 -- Wrath of the Plaguebringer, damage if failed to decurse
 DELETE FROM `spell_script_names` WHERE `spell_id` = 29213;
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (29213, 'spell_noth_curse_of_the_plaguebringer_aura_40');
+
+-- Loatheb
+-- Corrupted Mind
+DELETE FROM `spell_script_names` WHERE `spell_id` = 29201;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (29201, 'spell_loatheb_corrupted_mind_40');
