@@ -279,14 +279,14 @@ public:
         }
         switch (quest->GetQuestId())
         {
-            case MIGHT_OF_KALIMDOR:
+            case BANG_A_GONG:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
                     sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
-            case BANG_A_GONG:
+            case SIMPLY_BANG_A_GONG:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);

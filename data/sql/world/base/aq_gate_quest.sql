@@ -66,7 +66,7 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 `TimeAllowed`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `AreaDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, 
 `RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `Unknown0`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `VerifiedBuild`) VALUES 
 
-(108743, 0, 60, 60, 1377, 82, 0, 0, 0, 0, 0, 108744, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Simply Bang a Gong!', '', '', NULL, 'Return to The Scarab Gong in Silithus.', 0, 0, 0, 0, 0, 0, 0, 0, 9240, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, '', '', '', '', 12340),
+(108743, 0, 60, 60, 1377, 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Simply Bang a Gong!', '', '', NULL, 'Return to The Scarab Gong in Silithus.', 0, 0, 0, 0, 0, 0, 0, 0, 9240, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, '', '', '', '', 12340),
 (108744, 2, 60, 60, 1377, 82, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 910, 7, 0, 609, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172800, 0, 'Chaos and Destruction', 'Kill the Colossus of Ashi, Regal and Zora.', '', '', 'Return to Jonathan the Revelator at the Scarab Gong.', 15740, 15741, 15742, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', NULL);
 
 UPDATE `quest_template` SET `RewardNextQuest` = 108744 WHERE `ID` = 8743;
@@ -85,20 +85,28 @@ INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, 
 DELETE FROM `quest_template_addon` WHERE `ID` IN (8743, 108743, 108744);
 INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
 `RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES 
-(8743, 0, 0, 0, 8742, 108744, 0, 0, 0, 0, 0, 910, 0, 0, 0, 0, 0),
-(108743, 0, 0, 0, 0, 108744, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(108744, 0, 0, 0, 108743, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(8743, 0, 0, 0, 8742, 0, 0, 0, 0, 0, 0, 910, 0, 0, 0, 0, 0),
+(108743, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(108744, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (108744);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(19, 0, 108744, 0, 0, 8, 0, 8743, 0, 0, 0, 0, 0, '', 'Quest: Chaos and Destruction is only available after the player completes either 8743 or 108743'),
+(19, 0, 108744, 0, 1, 8, 0, 108743, 0, 0, 0, 0, 0, '', 'Quest: Chaos and Destruction is only available after the player completes either 8743 or 108743');
 
 UPDATE `quest_template` SET `QuestDescription` = '' WHERE `ID` = 108743;    
     
 -- Connect new 'Bang a Gong!' quest to the Scarab Gong in Silithus
-DELETE FROM `gameobject_queststarter` WHERE `id` = 180717;
-INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743), (180717, 108744);
+DELETE FROM `gameobject_queststarter` WHERE `id` = 180717 AND `quest` IN (8743, 108743, 108744);
+INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743);
 
-DELETE FROM `gameobject_questender` WHERE `id` = 180717;
+DELETE FROM `gameobject_questender` WHERE `id` = 180717 AND `quest` IN (8743, 108743);
 INSERT INTO `gameobject_questender` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743);
 
-DELETE FROM `creature_questender` WHERE `id` = 15693;
+DELETE FROM `creature_queststarter` WHERE `id` = 15693 AND `quest` = 108744;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15693, 108744);
+
+DELETE FROM `creature_questender` WHERE `id` = 15693 AND `quest` IN (8745, 108744);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15693, 8745), (15693, 108744);
-
-
