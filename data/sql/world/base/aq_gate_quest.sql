@@ -99,7 +99,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 UPDATE `quest_template` SET `QuestDescription` = '' WHERE `ID` = 108743;    
     
 -- Connect new 'Bang a Gong!' quest to the Scarab Gong in Silithus
-DELETE FROM `gameobject_queststarter` WHERE `id` = 180717 AND `quest` IN (8743, 108743);
+DELETE FROM `gameobject_queststarter` WHERE `id` = 180717 AND `quest` IN (8743, 108743, 108744);
 INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES (180717, 8743), (180717, 108743);
 
 DELETE FROM `gameobject_questender` WHERE `id` = 180717 AND `quest` IN (8743, 108743);
