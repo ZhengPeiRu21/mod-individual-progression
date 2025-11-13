@@ -87,7 +87,14 @@ INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `Sourc
 `RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES 
 (8743, 0, 0, 0, 8742, 108744, 0, 0, 0, 0, 0, 910, 0, 0, 0, 0, 0),
 (108743, 0, 0, 0, 0, 108744, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(108744, 0, 0, 0, 108743, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(108744, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (108744);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(19, 0, 108744, 0, 1, 8, 0, 8743, 0, 0, 0, 0, 0, '', 'Quest: Chaos and Destruction is only available after the player completes either 8743 or 108743'),
+(19, 0, 108744, 0, 1, 8, 0, 108743, 0, 0, 0, 0, 0, '', 'Quest: Chaos and Destruction is only available after the player completes either 8743 or 108743');
 
 UPDATE `quest_template` SET `QuestDescription` = '' WHERE `ID` = 108743;    
     
