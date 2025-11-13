@@ -286,7 +286,7 @@ public:
                     sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
-            case BANG_A_GONG:
+            case SIMPLY_BANG_A_GONG:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
