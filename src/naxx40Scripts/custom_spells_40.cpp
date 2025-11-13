@@ -428,6 +428,43 @@ class spell_feugen_static_field_40 : public SpellScript
     }
 };
 
+class spell_loatheb_corrupted_mind_40 : public SpellScript
+{
+    PrepareSpellScript(spell_loatheb_corrupted_mind_40);
+
+    void HandleEffect(SpellEffIndex /*effIndex*/)
+    {
+        if (Unit* caster = GetCaster())
+        {
+            if (Unit* target = GetHitUnit())
+            {
+                uint32 spell_id = 0;
+				
+                switch (target->getClass())
+                {
+                    case CLASS_PRIEST:
+                        spell_id = 29194;  // priests should be getting 29185, but it triggers on dmg effects as well
+                    case CLASS_DRUID:
+                        spell_id = 29194;
+                    case CLASS_PALADIN:
+                        spell_id = 29196;
+                    case CLASS_SHAMAN:
+                        spell_id = 29198;
+                    default:
+                        return; // ignore for non-healing classes						
+                }
+
+                caster->CastSpell(target, spell_id, true);
+            }
+        }
+    }
+
+    void Register() override
+    {
+        OnEffectHitTarget += SpellEffectFn(spell_loatheb_corrupted_mind_40::HandleEffect, EFFECT_0, SPELL_EFFECT_DUMMY);
+    }
+};
+
 void AddSC_custom_spells_40()
 {
     RegisterSpellScript(spell_anub_locust_swarm_aura_40);
@@ -446,4 +483,5 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_unholy_staff_arcane_explosion_40);
     RegisterSpellScript(spell_disease_cloud_damage_40);
     RegisterSpellScript(spell_feugen_static_field_40);
+    RegisterSpellScript(spell_loatheb_corrupted_mind_40);
 }
