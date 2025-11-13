@@ -236,6 +236,78 @@ public:
     }
 };
 
+class gobject_ipp_pvp_closed : public GameObjectScript
+{
+public:
+    gobject_ipp_pvp_closed() : GameObjectScript("gobject_ipp_pvp_closed") { }
+
+    struct gobject_ipp_pvp_closedAI: GameObjectAI
+    {
+        explicit gobject_ipp_pvp_closedAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+			uint32 PVP_RANK5_QUEST = 66105;
+			
+            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target))
+            {
+                return false;
+            }
+			
+            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_pvp_closedAI(object);
+    }
+};
+
+class gobject_ipp_pvp_open : public GameObjectScript
+{
+public:
+    gobject_ipp_pvp_open() : GameObjectScript("gobject_ipp_pvp_open") { }
+
+    struct gobject_ipp_pvp_openAI: GameObjectAI
+    {
+        explicit gobject_ipp_pvp_openAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+			uint32 PVP_RANK5_QUEST = 66105;
+			
+            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target))
+            {
+                return true;
+            }
+			
+            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_pvp_openAI(object);
+    }
+};
+
 class npc_ipp_preaq : public CreatureScript
 {
 public:
@@ -675,74 +747,6 @@ public:
     }
 };
 
-class npc_training_dummy_ipp_wotlk : public CreatureScript
-{
-public:
-    npc_training_dummy_ipp_wotlk() : CreatureScript("npc_training_dummy_ipp_wotlk") { }
-
-    struct npc_training_dummy_ipp_wotlkAI : ScriptedAI
-    {
-        /*explicit*/ npc_training_dummy_ipp_wotlkAI(Creature* creature) : ScriptedAI(creature)
-        {
-            me->SetCombatMovement(false);
-            me->ApplySpellImmune(0, 0, 98, true); // ApplySpellImmune(0, IMMUNITY_EFFECT, SPELL_EFFECT_KNOCK_BACK, true)
-        }
-
-        uint32 resetTimer;
-
-        void Reset() override
-        {
-            me->CastSpell(me, 61204, true); // CastSpell(me, SPELL_STUN_PERMANENT, true)
-            resetTimer = 5000;
-        }
-
-        void EnterEvadeMode(EvadeReason why) override
-        {
-            if (!_EnterEvadeMode(why))
-                return;
-
-            Reset();
-        }
-
-        void DamageTaken(Unit*, uint32& damage, DamageEffectType, SpellSchoolMask) override
-        {
-            resetTimer = 5000;
-            damage = 0;
-        }
-
-        void UpdateAI(uint32 diff) override
-        {
-            if (!UpdateVictim())
-                return;
-
-            if (resetTimer <= diff)
-            {
-                EnterEvadeMode(EVADE_REASON_NO_HOSTILES);
-                resetTimer = 5000;
-            }
-            else
-                resetTimer -= diff;
-        }
-
-        void MoveInLineOfSight(Unit* /*who*/) override { }
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5);
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_training_dummy_ipp_wotlkAI(creature);
-    }
-};
-
 // Add all scripts in one
 void AddSC_mod_individual_progression_awareness()
 {
@@ -754,6 +758,8 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_pre_tbc();        // Stormwind pvp room
     new gobject_ipp_tbc();
     new gobject_ipp_wotlk();
+    new gobject_ipp_pvp_closed();     // pvp officer doors
+    new gobject_ipp_pvp_open();       // pvp officer doors
     new npc_ipp_preaq();              // Cenarion Hold NPCs
     new npc_ipp_we();                 // War Effort NPCs in cities
 	new npc_ipp_aq();
@@ -770,5 +776,4 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_wotlk_totc();
     new npc_ipp_wotlk_icc();
     new npc_ipp_ds2();
-    // new npc_training_dummy_ipp_wotlk();
 }
