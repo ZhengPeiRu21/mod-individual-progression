@@ -746,21 +746,21 @@ public:
 // Add all scripts in one
 void AddSC_mod_individual_progression_awareness()
 {
-    new gobject_ipp_preaq();   // wanted poster Cenarion Hold
-    new gobject_ipp_we();      // War Effort supplies in cities
-    new gobject_ipp_aqwar();   // AQ war crystals
-    new gobject_ipp_si();      // Scourge Invasion
+    new gobject_ipp_preaq();          // Wanted poster Cenarion Hold
+    new gobject_ipp_we();             // War Effort supplies in cities
+    new gobject_ipp_aqwar();          // AQ war crystals
+    new gobject_ipp_si();             // Scourge Invasion
     new gobject_ipp_naxx40();
-    new gobject_ipp_pre_tbc(); // stormwind pvp room
+    new gobject_ipp_pre_tbc();        // Stormwind pvp room
     new gobject_ipp_tbc();
     new gobject_ipp_wotlk();
-    new npc_ipp_preaq();       // Cenarion Hold NPCs
-    new npc_ipp_we();          // War Effort NPCs in cities
+    new npc_ipp_preaq();              // Cenarion Hold NPCs
+    new npc_ipp_we();                 // War Effort NPCs in cities
 	new npc_ipp_aq();
-    new npc_ipp_si();          // Scourge Invasion
-    new npc_ipp_pre_naxx40();  // Scourge Invasion
+    new npc_ipp_si();                 // Scourge Invasion
+    new npc_ipp_pre_naxx40();         // Scourge Invasion
     new npc_ipp_naxx40();
-    new npc_ipp_pre_tbc();     // vanilla pvp vendors
+    new npc_ipp_pre_tbc();            // Vanilla pvp vendors
     new npc_ipp_tbc();
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();

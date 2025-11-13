@@ -90,27 +90,31 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 
 
 SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
+SET @Karter      := 112783; -- Lieutenant Karter, <Mount Vendor>, Vanilla
 SET @Clate       := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Wrynn       := 629611; -- creating copy with 'npc_king_varian_wrynn' script, to prevent AC worldserver error for not using the script
 
-DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
+
+DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
 `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
 `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
 `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
 --
-(@Biggins, 0, 0, 0, 0, 0, 'Master Sergeant Biggins', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 1078, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
-(@Clate, 0, 0, 0, 0, 0, 'Sergeant Major Clate', 'Food and Drink', NULL, 0, 55, 55, 0, 123, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.15, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
-(@Wrynn, 0, 0, 0, 0, 0, 'King Varian Wrynn', 'King of Stormwind', '', 9834, 63, 63, 2, 1733, 3, 1, 1.42857, 1, 1, 20, 1, 3, 0, 35, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 0, 0, 0, 0, 7, 76, 0, 0, 0, 0, 0, 700000, 750000, '', 0, 1, 400, 20, 1, 1, 1, 144, 1, 617299839, 0, 0, 'npc_king_varian_wrynn', 12340);
+(@Biggins,0,0,0,0,0,'Master Sergeant Biggins','Officer Accessories Quartermaster',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
+(@Karter,0,0,0,0,0,'Lieutenant Karter','Mount Vendor',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
+(@Clate,0,0,0,0,0,'Sergeant Major Clate','Food and Drink',NULL,0,55,55,0,123,4224,1,1.14286,1,1,18,1,0,0,2.15,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
+(@Wrynn,0,0,0,0,0,'King Varian Wrynn','King of Stormwind','',9834,63,63,2,1733,3,1,1.42857,1,1,20,1,3,0,35,2000,2000,1,1,1,0,2048,0,0,0,0,0,0,7,76,0,0,0,0,0,700000,750000,'',0,1,400,20,1,1,1,144,1,617299839,0,0,'npc_king_varian_wrynn',0);
 
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (@Biggins, 0, 0, 0, 1, 0, 0, NULL),
+(@Karter, 0, 0, 0, 0, 0, 0, NULL),
 (@Clate, 0, 0, 0, 0, 0, 0, NULL),
 (@Wrynn, 0, 0, 0, 1, 0, 3, NULL);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Clate, @Wrynn);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
 (@Biggins, 'deDE', 'Hauptfeldwebel Biggins', 'Rüstmeister für Zubehör', 18019),
 (@Biggins, 'esES', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
@@ -120,6 +124,15 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Biggins, 'ruRU', 'Старший сержант Биггинс', 'Начальник снабжения аксессуарами', 18019),
 (@Biggins, 'zhCN', '军士长贝金斯', '杂货军需官', 18019),
 (@Biggins, 'zhTW', '上士貝金斯', '雜貨軍需官', 18019),
+--
+(@Karter, 'deDE', 'Leutnant Karter','Rüstmeisterin für Kriegsreittiere', 18019),
+(@Karter, 'esES', 'Teniente Karter','Intendente de monturas de guerra', 18019),
+(@Karter, 'esMX', 'Teniente Karter','Intendente de monturas de guerra', 18019),
+(@Karter, 'frFR', 'Lieutenant Karter','Intendante des montures de guerre', 18019),
+(@Karter, 'koKR', '부관 칼터','전투 탈것 병참장교', 18019),
+(@Karter, 'ruRU', 'Лейтенант Картер','Начальник снабжения верховыми животными', 18019),
+(@Karter, 'zhCN', '卡特尔中尉','战争坐骑军需官', 18019),
+(@Karter, 'zhTW', '卡特爾中尉','戰爭軍需官', 18019),
 --
 (@Clate, 'deDE', 'Stabsfeldwebel Clate', 'Speis & Trank', 18019),
 (@Clate, 'esES', 'Alférez Clate', 'Alimentos y bebidas', 18019),
@@ -139,9 +152,10 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Wrynn, 'zhCN', '瓦里安·乌瑞恩国王', '暴风城国王', 18019),
 (@Wrynn, 'zhTW', '瓦里安·烏瑞恩國王', '暴風之王', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Clate, @Wrynn);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Karter, @Clate, @Wrynn);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@Biggins, 0, 12669, 1, 1, 12340),
+(@Karter, 0, 12922, 1, 1, 12340),
 (@Clate, 0, 12925, 1, 1, 12340),
 (@Wrynn, 0, 28127, 1, 1, 12340);
 
@@ -151,27 +165,28 @@ UPDATE `creature_template` SET `subname` = 'Armor Quartermaster' WHERE `entry` =
 UPDATE `creature_template` SET `npcflag` = 4224 WHERE `entry` IN (24671, 24672);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12805, 26393, 26394);
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12784, 12785, 20278, 23396, 23446, 24671, 24672);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12783, 12784, 12785, 20278, 23396, 23446, 24671, 24672);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12783;
 
 
-DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 720278, 723396);
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 133927, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 720278, 723396);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
-(612781, @Biggins, 0, -8777.4, 417.124, 103.921, 6.23553, 180), -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
-(133926, 12781, 0, -8777.4, 417.124, 103.921, 6.23553, 180),    -- Master Sergeant Biggins <Officer Accessories Quartermaster>, TBC
-(612785, @Clate, 0, -8771.31, 401.973, 109.665, 0.659191, 180), -- Sergeant Major Clate <Food and Drink>, Vanilla
-(133929, 12785, 0, -8771.31, 401.973, 109.665, 0.659191, 180),  -- Sergeant Major Clate <Armor Quartermaster>, TBC 
-(626394, 26394, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, Vanilla
-(624671, 24671, 0, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, TBC
-(612777, 12777, 0, -8768.77, 401.647, 109.665, 2.22999, 180),   -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
-(624672, 24672, 0, -8773.33, 427.279, 105.233, 3.84677, 180),   -- Captain Dirgehammer <Armor Quartermaster>, TBC
-(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180),   -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
-(720278, 20278, 0, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC
-(723396, 23396, 0, -8786.12, 428.386, 105.233, 5.5871, 180),    -- Krixel Pinchwhistle <Arena Vendor>, TBC
-(623446, 23446, 0, -8785.74, 420.484, 105.233, 0.701937, 180),  -- Lieutenant Tristia <Armor Quartermaster>, TBC
-(612783, 12783, 0, -8779.7, 432.158, 105.233, 5.36374, 180);    -- Lieutenant Karter <Mount Vendor>
+(612781, @Biggins, 0, 1, 1, -8777.4, 417.124, 103.921, 6.23553, 180), -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
+(133926, 12781, 0, 1, 1, -8777.4, 417.124, 103.921, 6.23553, 180),    -- Master Sergeant Biggins <Officer Accessories Quartermaster>, TBC
+(612785, @Clate, 0, 1, 1, -8771.31, 401.973, 109.665, 0.659191, 180), -- Sergeant Major Clate <Food and Drink>, Vanilla
+(133929, 12785, 0, 1, 1, -8771.31, 401.973, 109.665, 0.659191, 180),  -- Sergeant Major Clate <Armor Quartermaster>, TBC 
+(626394, 26394, 0, 1, 1, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, Vanilla
+(624671, 24671, 0, 1, 1, -8778.3, 432.142, 105.309, 4.17386, 180),    -- Captain O'Neal <Weapons Quartermaster>, TBC
+(612777, 12777, 0, 1, 1, -8768.77, 401.647, 109.665, 2.22999, 180),   -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
+(624672, 24672, 0, 1, 1, -8773.33, 427.279, 105.233, 3.84677, 180),   -- Captain Dirgehammer <Armor Quartermaster>, TBC
+(133928, 12784, 0, 1, 1, -8764.6, 413.632, 103.922, 0.693375, 180),   -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
+(720278, 20278, 0, 1, 1, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC
+(723396, 23396, 0, 1, 1, -8786.12, 428.386, 105.233, 5.5871, 180),    -- Krixel Pinchwhistle <Arena Vendor>, TBC
+(623446, 23446, 0, 1, 1, -8785.74, 420.484, 105.233, 0.701937, 180),  -- Lieutenant Tristia <Armor Quartermaster>, TBC
+(133927, 12783, 0, 1, 1, -8779.7, 432.158, 105.233, 5.36374, 180),    -- Lieutenant Karter <Mount Vendor>, TBC
+(612783, @Karter, 0, 1, 1, -8779.7, 432.158, 105.233, 5.36374, 180);  -- Lieutenant Karter <Mount Vendor>, Vanilla
 
 
 -- Master Sergeant Biggins <Officer Accessories Quartermaster> - Vanilla
@@ -197,11 +212,16 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 -- Officer Areyn <Accessories Quartermaster>
 DELETE FROM `npc_vendor` WHERE `entry` = 12805;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
-(12805, 18445, 492), (12805, 18447, 931), (12805, 18448, 492), (12805, 18449, 931), (12805, 18454, 492), 
-(12805, 18455, 931), (12805, 18456, 492), (12805, 18457, 931), (12805, 18854, 634), (12805, 18856, 634), 
-(12805, 18858, 634), (12805, 18859, 634), (12805, 18862, 634), (12805, 18863, 634), (12805, 18864, 634);
+(12805, 18445, 492), (12805, 18447, 931), (12805, 18448, 492), (12805, 18449, 931), (12805, 18454, 492), (12805, 18455, 931), (12805, 18456, 492), (12805, 18457, 931), 
+(12805, 18664, 0), (12805, 18854, 634), (12805, 18856, 634), (12805, 18858, 634), (12805, 18859, 634), (12805, 18862, 634), (12805, 18863, 634), (12805, 18864, 634), 
+(12805, 18442, 838), (12805, 18444, 930), (12805, 18443, 491), (12805, 15196, 1007), (12805, 18440, 1050), (12805, 18441, 986), (12805, 16342, 774); 
 
--- Lieutenant Karter <War Mount Quartermaster>
+-- Lieutenant Karter <War Mount Quartermaster> - Vanilla
+DELETE FROM `npc_vendor` WHERE `entry` = @Karter;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(@Karter, 18241, 423), (@Karter, 18242, 423), (@Karter, 18243, 423), (@Karter, 18244, 423);
+
+-- Lieutenant Karter <War Mount Quartermaster> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 12783;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (12783, 18241, 423), (12783, 18242, 423), (12783, 18243, 423), (12783, 18244, 423), (12783, 35906, 423);
@@ -299,7 +319,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 (24672, 31632, 0, 0, 2263), (24672, 31633, 0, 0, 2265), (24672, 31634, 0, 0, 2267), (24672, 31640, 0, 0, 2259), (24672, 31641, 0, 0, 2261), (24672, 31642, 0, 0, 2263),
 (24672, 31643, 0, 0, 2265), (24672, 31644, 0, 0, 2267);
 
-
 /* Hide certain vendor items until the player has reached the progression tier for them */
 DELETE FROM `conditions` WHERE `SourceGroup` IN (12777, 12782, 12783, 26394);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
@@ -381,7 +400,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
 UPDATE `creature`   SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` = 19848; -- Harbinger Ennarth
-
 
 -- WotLK pvp vendors
 DELETE FROM `creature` WHERE `id1` IN 

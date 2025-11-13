@@ -296,14 +296,42 @@ IndividualProgression.CustomProgression = ""
 #
 IndividualProgression.AllowEarlyDungeonSet2 = 0
 
-# IndividualProgression.PvPGearRequirements
+# IndividualProgression.VanillaPvPRankRequirement
 #
-#        Description: Requires players to have earned relevant PvP Titles before high level PvP gear can be equipped
+#        Description: Required PvP honor kills during Vanilla for each PvP rank to earn relevant titles and get corresponding items
 #
-#        Default:     1 - Enabled
-#                     0 - Disabled
+IndividualProgression.VanillaPvpKillRequirement.Rank1 = 100
+IndividualProgression.VanillaPvpKillRequirement.Rank2 = 200
+IndividualProgression.VanillaPvpKillRequirement.Rank3 = 400
+IndividualProgression.VanillaPvpKillRequirement.Rank4 = 800
+IndividualProgression.VanillaPvpKillRequirement.Rank5 = 1400
+IndividualProgression.VanillaPvpKillRequirement.Rank6 = 2000
+IndividualProgression.VanillaPvpKillRequirement.Rank7 = 3000
+IndividualProgression.VanillaPvpKillRequirement.Rank8 = 4500
+IndividualProgression.VanillaPvpKillRequirement.Rank9 = 6000
+IndividualProgression.VanillaPvpKillRequirement.Rank10 = 8000
+IndividualProgression.VanillaPvpKillRequirement.Rank11 = 10000
+IndividualProgression.VanillaPvpKillRequirement.Rank12 = 13000
+IndividualProgression.VanillaPvpKillRequirement.Rank13 = 18000
+IndividualProgression.VanillaPvpKillRequirement.Rank14 = 24000
+
+# IndividualProgression.VanillaPvpTitlesPersistAfterVanilla
 #
-IndividualProgression.PvPGearRequirements = 1
+#        Description: Players retain their Vanilla PvP titles even after reaching TBC/WotLK
+#
+#        Default:     1 - Enabled (Default, Blizzlike)
+#                     0 - Disabled 
+#
+IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 1
+
+# IndividualProgression.VanillaPvpEarnTitlesAfterVanilla
+#
+#        Description: Players can continue to earn new Vanilla PvP titles even after reaching TBC/WotLK
+#
+#        Default:     0 - Disabled (Default, Blizzlike)
+#                     1 - Enabled
+#
+IndividualProgression.VanillaPvpEarnTitlesAfterVanilla = 0
 
 # IndividualProgression.DisableRDF
 #

@@ -124,24 +124,30 @@ UPDATE `creature_template` SET `scale`=0.7, `npcflag`=2, `faction`=29, `gossip_m
 SET @Stonehide  := 112793; -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
 SET @Zarg       := 112794; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Hola       := 112795; -- First Sergeant Hola'mahi, Vanilla
+SET @Bork       := 112796; -- Raider Bork <Mount Quartermaster>, Vanilla
 SET @TH_Classic := 26396;  -- Sergeant Thunderhorn, Vanilla
 SET @TH_TBC     := 14581;  -- Sergeant Thunderhorn, TBC
 SET @LP_Classic := 12792;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
 SET @LP_TBC     := 26397;  -- Lady Palanseer <Armor Quartermaster>, TBC
 
 
-DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
+DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
 `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
 `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
 `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
 
-(@Stonehide, 0, 0, 0, 0, 0, 'Brave Stonehide', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 125, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.9, 2000, 2000, 1, 1, 1, 256, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
-(@Zarg, 0, 0, 0, 0, 0, 'Stone Guard Zarg', 'Food and Drink', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 1606, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340),
-(@Hola, 0, 0, 0, 0, 0, 'First Sergeant Hola\'mahi', 'Reagent Vendor', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.2, 2000, 1551, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 12340);
+(@Stonehide,0,0,0,0,0,'Brave Stonehide','Officer Accessories Quartermaster',NULL,0,55,55,0,125,128,1,1.14286,1,1,18,1,0,0,2.9,2000,2000,1,1,1,256,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',12340),
+(@Zarg,0,0,0,0,0,'Stone Guard Zarg','Food and Drink',NULL,0,55,55,0,125,130,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',12340),
+(@Hola,0,0,0,0,0,'First Sergeant Hola\'mahi','Reagent Vendor',NULL,0,55,55,0,125,130,1,1.14286,1,1,18,1,0,0,1.2,2000,1551,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',1,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',12340),
+(@Bork,0,0,0,0,0,'Raider Bork','Mount Quartermaster',NULL,0,55,55,0,1074,128,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Bork);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(@Bork, 0, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 --
 (@Stonehide, 'deDE', 'Kriegerheldin Steinfell', 'Rüstmeisterin für Zubehör', 18019),
@@ -169,13 +175,23 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Hola, 'koKR', '선임하사 홀라마히', '마법 재료 상인', 18019),
 (@Hola, 'ruRU', 'Первый сержант Хола\'махи', 'Реагенты', 18019),
 (@Hola, 'zhCN', '一等军士长霍拉麦', '材料商', 18019),
-(@Hola, 'zhTW', '一等士官霍拉麥', '施法材料', 18019);
+(@Hola, 'zhTW', '一等士官霍拉麥', '施法材料', 18019),
+--
+(@Bork, 'deDE', 'Räuber Bork', 'Rüstmeister für Kriegsreittiere', 18019),
+(@Bork, 'esES', 'Asaltante Bork', 'Intendente de monturas de guerra', 18019),
+(@Bork, 'esMX', 'Asaltante Bork', 'Intendente de monturas de guerra', 18019),
+(@Bork, 'frFR', 'Ecumeur Bork', 'Intendant des montures de guerre', 18019),
+(@Bork, 'koKR', '공격대원 보르크', '전투 탈것 병참장교', 18019),
+(@Bork, 'ruRU', 'Налетчик Борк', 'Начальник снабжения верховыми животными', 18019),
+(@Bork, 'zhCN', '狼骑兵波尔克', '战争坐骑军需官', 18019),
+(@Bork, 'zhTW', '狼騎兵波爾克', '戰爭坐騎軍需官', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Stonehide, @Zarg, @Hola);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Stonehide, @Zarg, @Hola, @Bork);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
-(@Stonehide, 0, 12675, 1, 1, 12340),
-(@Zarg, 0, 12676, 1, 1, 12340),
-(@Hola, 0, 12677, 1, 1, 12340);
+(@Stonehide, 0, 12675, 1, 1, 0),
+(@Zarg, 0, 12676, 1, 1, 0),
+(@Hola, 0, 12677, 1, 1, 0),
+(@Bork, 0, 12678, 1, 1, 0);
 
 UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster' WHERE `entry` = 12793;
 UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12794;
@@ -183,28 +199,29 @@ UPDATE `creature_template` SET `subname` = 'Armor Quartermaster'  WHERE `entry` 
 UPDATE `creature_template` SET `subname` = 'Mount Quartermaster' WHERE `entry` = 12796;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12799, @TH_Classic, @LP_Classic);
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12788, 12793, 12794, 12795, 19850, 20278, 23396, 23447, @TH_TBC, @LP_TBC);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12788, 12793, 12794, 12795, 12796, 19850, 20278, 23396, 23447, @TH_TBC, @LP_TBC);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
 DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125694, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 620278, 623396, 623447, 626396, 626397);
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
-(612799, 12799, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),        -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
-(612792, @LP_Classic, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
-(626397, @LP_TBC, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
-(612793, @Stonehide, 1, 1657.6, -4191.97, 56.383, 4.52365, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
-(125690, 12793, 1, 1672.24, -4206.81, 56.3827, 3.30568, 180),       -- Brave Stonehide <Officer Accessories Quartermaster>, TBC
-(612794, @Zarg, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Food and Drink>, Vanilla
-(125688, 12794, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Weapons Quartermaster>, TBC
-(612795, @Hola, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Reagent Vendor>, Vanilla
-(125695, 12795, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Armor Quartermaster>, TBC
-(626396, @TH_Classic, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180), -- Sergeant Thunderhorn <Weapons Quartermaster>, Vanilla
-(614581, @TH_TBC, 1, 1669.09, -4196.78, 56.4831, 4.10416, 180),     -- Sergeant Thunderhorn <Weapons Quartermaster>, TBC
-(612796, 12796, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),       -- Raider Bork <Mount Quartermaster>
-(623447, 23447, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180),       -- Sergeant Kien <Armor Quartermaster>, TBC
-(620278, 20278, 1, 1654.25, -4189.82, 56.3825, 4.71787, 180),       -- Vixton Pinchwhistle <Arena Vendor>, TBC
-(623396, 23396, 1, 1660.37, -4190.74, 56.3817, 4.54116, 180);       -- Krixel Pinchwhistle <Arena Vendor>, TBC
+(612799, 12799, 1, 1, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),        -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
+(612792, @LP_Classic, 1, 1, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),  -- Lady Palanseer <Armor Quartermaster>, Vanilla
+(626397, @LP_TBC, 1, 1, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),      -- Lady Palanseer <Armor Quartermaster>, TBC
+(612793, @Stonehide, 1, 1, 1, 1657.6, -4191.97, 56.383, 4.52365, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
+(125690, 12793, 1, 1, 1, 1672.24, -4206.81, 56.3827, 3.30568, 180),       -- Brave Stonehide <Officer Accessories Quartermaster>, TBC
+(612794, @Zarg, 1, 1, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Food and Drink>, Vanilla
+(125688, 12794, 1, 1, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),       -- Stone Guard Zarg <Weapons Quartermaster>, TBC
+(612795, @Hola, 1, 1, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Reagent Vendor>, Vanilla
+(125695, 12795, 1, 1, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Armor Quartermaster>, TBC
+(626396, @TH_Classic, 1, 1, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180), -- Sergeant Thunderhorn <Weapons Quartermaster>, Vanilla
+(614581, @TH_TBC, 1, 1, 1, 1669.09, -4196.78, 56.4831, 4.10416, 180),     -- Sergeant Thunderhorn <Weapons Quartermaster>, TBC
+(125694, 12796, 1, 1, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),       -- Raider Bork <Mount Quartermaster>, TBC
+(612796, @Bork, 1, 1, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),       -- Raider Bork <Mount Quartermaster>, Vanilla
+(623447, 23447, 1, 1, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180),       -- Sergeant Kien <Armor Quartermaster>, TBC
+(620278, 20278, 1, 1, 1, 1654.25, -4189.82, 56.3825, 4.71787, 180),       -- Vixton Pinchwhistle <Arena Vendor>, TBC
+(623396, 23396, 1, 1, 1, 1660.37, -4190.74, 56.3817, 4.54116, 180);       -- Krixel Pinchwhistle <Arena Vendor>, TBC
 
 
 -- Brave Stonehide <Officer Accessories Quartermaster> - Vanilla
@@ -271,6 +288,10 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 DELETE FROM `npc_vendor` WHERE `entry`= 12796;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423), (12796, 34129, 423);
+
+DELETE FROM `npc_vendor` WHERE `entry`= @Bork;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(@Bork, 18245, 423), (@Bork, 18246, 423), (@Bork, 18247, 423), (@Bork, 18248, 423);
 
 -- Vixton Pinchwhistle <Arena Vendor> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 20278;
@@ -479,7 +500,6 @@ DELETE FROM `creature` WHERE `id1` IN
  34043,  -- Lady Palanseer <Armor Quartermaster>
  34060,  -- Doris Volanthius <Veteran Armor Quartermaster>
  34063); -- Blood Guard Zar'shi <Northrend Armor Quartermaster>
-
 
 /* NPC Garyl - Remove non-Vanilla Tabards */
 DELETE FROM `npc_vendor` WHERE `entry`= 5188 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);

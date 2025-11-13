@@ -435,6 +435,164 @@ void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16
     }
 }
 
+void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
+{
+    TeamId teamId = player->GetTeamId(true);
+    uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+    uint16 playerGUID = player->GetGUID().GetCounter();
+    const uint32 PVP_QUEST = 66100;
+
+    IppPvPTitles const pvpTitlesList[14] =
+    {
+        { sIndividualProgression->VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank2,  TitleData[RANK_TWO].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank3,  TitleData[RANK_THREE].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank4,  TitleData[RANK_FOUR].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank5,  TitleData[RANK_FIVE].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank6,  TitleData[RANK_SIX].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank7,  TitleData[RANK_SEVEN].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank8,  TitleData[RANK_EIGHT].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank9,  TitleData[RANK_NINE].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId]   },
+        { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId]   },
+        { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
+        { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
+    };
+
+    if (!sIndividualProgression->VanillaPvpTitlesKeepPostVanilla && sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
+    {
+        for (IppPvPTitles title : pvpTitlesList)
+        {
+            if (player->HasTitle(title.TitleId))
+            {
+                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+            }
+        }
+    }
+    else
+    {
+        for (IppPvPTitles title : pvpTitlesList)
+        {
+            if (kills < title.RequiredKills && player->HasTitle(title.TitleId))
+            {
+                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+            }
+        }
+    }
+ 
+	int8_t highestRank = -1;
+
+	for (int8_t i = 13; i > -1; --i)
+	{
+		if (kills >= pvpTitlesList[i].RequiredKills)
+		{
+			highestRank = i;
+			break;
+		}
+	}
+
+	for (int8_t i = 13; i > -1; --i)
+    {
+		uint32_t achievementId = AchievementData[i].TitleId[teamId];
+
+		if (highestRank == i || !player->HasAchieved(achievementId))
+		{
+			continue;
+		}
+   
+		RemovePlayerAchievement(playerGUID, achievementId);
+    }
+	
+	// remove all hidden pvp quests
+    for (uint8 i = 1; i <= 14; ++i)
+    {
+        uint32 questId = PVP_QUEST + i;
+		
+        if (player->GetQuestStatus(questId) == QUEST_STATUS_REWARDED)
+		{
+            player->RemoveRewardedQuest(questId);
+        }
+    }
+
+    uint8 i = 1;
+
+    // add hidden pvp quests
+    for (IppPvPTitles title : pvpTitlesList)
+    {
+        if (player->HasTitle(title.TitleId))
+        {
+		    for (uint8 j = 1; j <= i; ++j)
+            {
+                uint32 questId = PVP_QUEST + j;
+                Quest const* quest = sObjectMgr->GetQuestTemplate(questId);
+
+                if (quest)
+                {
+                    player->AddQuest(quest, nullptr);
+                    player->CompleteQuest(questId);
+                    player->RewardQuest(quest, 0, player, false, false);
+                }
+            }
+        }
+		
+		++i;
+    }
+	
+}
+
+void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
+{
+    if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_PRE_TBC) || sIndividualProgression->VanillaPvpTitlesKeepPostVanilla)
+    {
+        TeamId teamId = player->GetTeamId(true);
+        uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+
+        IppPvPTitles const pvpTitlesList[14] =
+        {
+            { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId]   },
+            { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId]   },
+            { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank9,  TitleData[RANK_NINE].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank8,  TitleData[RANK_EIGHT].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank7,  TitleData[RANK_SEVEN].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank6,  TitleData[RANK_SIX].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank5,  TitleData[RANK_FIVE].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank4,  TitleData[RANK_FOUR].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank3,  TitleData[RANK_THREE].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank2,  TitleData[RANK_TWO].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
+		};
+
+	    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) || VanillaPvpTitlesEarnPostVanilla)
+        {		
+            int highestTitle = -1;
+
+            // add highest title
+            for (IppPvPTitles title : pvpTitlesList)
+            {
+                if (kills >= title.RequiredKills)
+                {
+                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
+                    highestTitle = title.TitleId;
+                    break;
+                }
+            }
+
+            // remove all titles except highest
+            for (IppPvPTitles title : pvpTitlesList)
+            {
+                if (highestTitle != title.TitleId)
+				{
+                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+				}
+            }		
+        }
+    }
+}
+
 class IndividualPlayerProgression_WorldScript : public WorldScript
 {
 private:
@@ -463,7 +621,22 @@ private:
         sIndividualProgression->deathKnightStartingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.DeathKnightStartingProgression", 13);
         sIndividualProgression->LoadCustomProgressionEntries(sConfigMgr->GetOption<std::string>("IndividualProgression.CustomProgression", ""));
         sIndividualProgression->earlyDungeonSet2 = sConfigMgr->GetOption<bool>("IndividualProgression.AllowEarlyDungeonSet2", false);
-        sIndividualProgression->pvpGearRequirements = sConfigMgr->GetOption<bool>("IndividualProgression.PvPGearRequirements", true);
+        sIndividualProgression->VanillaPvpKillRank1 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank1", 100);
+        sIndividualProgression->VanillaPvpKillRank2 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank2", 200);
+        sIndividualProgression->VanillaPvpKillRank3 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank3", 400);
+        sIndividualProgression->VanillaPvpKillRank4 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank4", 800);
+        sIndividualProgression->VanillaPvpKillRank5 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank5", 1400);
+        sIndividualProgression->VanillaPvpKillRank6 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank6", 2000);
+        sIndividualProgression->VanillaPvpKillRank7 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank7", 3000);
+        sIndividualProgression->VanillaPvpKillRank8 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank8", 4500);
+        sIndividualProgression->VanillaPvpKillRank9 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank9", 6000);
+        sIndividualProgression->VanillaPvpKillRank10 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank10", 8000);
+        sIndividualProgression->VanillaPvpKillRank11 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank11", 10000);
+        sIndividualProgression->VanillaPvpKillRank12 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank12", 13000);
+        sIndividualProgression->VanillaPvpKillRank13 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank13", 18000);
+        sIndividualProgression->VanillaPvpKillRank14 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank14", 24000);
+        sIndividualProgression->VanillaPvpTitlesKeepPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpTitlesPersistAfterVanilla", true);
+        sIndividualProgression->VanillaPvpTitlesEarnPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpEarnTitlesAfterVanilla", false);		
         sIndividualProgression->DisableRDF = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
         sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "^RNDBOT.*");
@@ -517,7 +690,6 @@ public:
         }        
     }
 };
-
 
 // Add all scripts in one
 void AddSC_mod_individual_progression()
