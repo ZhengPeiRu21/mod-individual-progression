@@ -139,7 +139,6 @@ public:
                 {
  			        if (me->CastSpell(me, SPELL_CORRUPTED_MIND, true) == SPELL_CAST_OK)
 				 	{
-                        // Talk(SAY_NECROTIC_AURA_APPLIED);
                         events.Repeat(10s);
 					}
 					else 
