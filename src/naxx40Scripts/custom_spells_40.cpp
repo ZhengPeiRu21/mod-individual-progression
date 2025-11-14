@@ -477,6 +477,33 @@ class spell_loatheb_corrupted_mind_40 : public SpellScript
     }
 };
 
+class isAllowedToCastSpell : public SpellScript
+{
+    PrepareSpellScript(isAllowedToCastSpell);
+
+    SpellCastResult CheckCorruptedMind()
+    {
+        if (Unit* caster = GetCaster())
+        {
+            Unit::AuraEffectList const& auraClassScripts = caster->GetAuraEffectsByType(SPELL_AURA_OVERRIDE_CLASS_SCRIPTS);
+		
+            for (auto itr = auraClassScripts.begin(); itr != auraClassScripts.end(); ++itr)
+            {
+                if ((*itr)->GetSpellInfo()->Effects[0].MiscValue == 4327)
+                {
+                    return SPELL_FAILED_FIZZLE;
+                }
+            }
+        }
+        return SPELL_CAST_OK;
+    }
+
+    void Register() override
+    {
+        OnCheckCast += SpellCheckCastFn(isAllowedToCastSpell::CheckCorruptedMind);
+    }
+};
+
 void AddSC_custom_spells_40()
 {
     RegisterSpellScript(spell_anub_locust_swarm_aura_40);
@@ -496,4 +523,5 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_disease_cloud_damage_40);
     RegisterSpellScript(spell_feugen_static_field_40);
     RegisterSpellScript(spell_loatheb_corrupted_mind_40);
+    RegisterSpellScript(isAllowedToCastSpell);
 }
