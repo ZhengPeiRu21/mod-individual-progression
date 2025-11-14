@@ -12,8 +12,7 @@ enum SSCMisc
 {
     GO_LADY_VASHJ_BRIDGE_CONSOLE = 184568,
     MAP_SSC                      = 548,
-    DATA_LURKER                  = 1,
-    DATA_VASHJ                   = 6
+    DATA_VASHJ                   = 5
 };
 
 class GlobalSerpentshrineScript : public GlobalScript
@@ -27,15 +26,9 @@ public:
         {
             if (InstanceScript* instance = instanceMap->GetInstanceScript())
             {
-                uint32 bossCount = instance->GetEncounterCount() - 3;
-                for (uint8 id = 0; id <= bossCount; ++id)
+                for (uint8 id = 0; id <= 4; ++id) // check boss data id 0-4
                 {
                     if (id == bossId && newState == DONE)
-                    {
-                        continue;
-                    }
-
-                    if (id == DATA_LURKER)
                     {
                         continue;
                     }
@@ -62,16 +55,6 @@ public:
                     go->SetGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
                 }
             }
-        }
-    }
-
-    void OnLoadSpellCustomAttr(SpellInfo* spellInfo) override
-    {
-        switch (spellInfo->Id)
-        {
-            case 38236: // Tidalvess - Spawn Spitfire Totem
-                spellInfo->Effects[EFFECT_0].BasePoints = 25000;
-                break;
         }
     }
 
