@@ -4,6 +4,7 @@
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
+#include "Player.h"
 
 // 28785 - Locust Swarm
 // Locust Swarm: Reduce damage ~1500 to ~1000, increase radius 25yd to 30yd
@@ -432,36 +433,47 @@ class spell_loatheb_corrupted_mind_40 : public SpellScript
 {
     PrepareSpellScript(spell_loatheb_corrupted_mind_40);
 
-    void HandleEffect(SpellEffIndex /*effIndex*/)
+    void HandleEffect(SpellEffIndex effIndex)
     {
         if (Unit* caster = GetCaster())
         {
-            if (Unit* target = GetHitUnit())
+            if (Unit* unitTarget = GetHitUnit())
             {
+                if (!unitTarget->IsPlayer())
+                    return;
+
+                Player* playerTarget = unitTarget->ToPlayer();
+                if (!playerTarget)
+                    return;
+
                 uint32 spell_id = 0;
-				
-                switch (target->getClass())
+
+                switch (playerTarget->getClass())
                 {
                     case CLASS_PRIEST:
-                        spell_id = 29194;  // priests should be getting 29185, but it triggers on dmg effects as well
+                        spell_id = 29194; // priests should be getting 29185, but it triggers on dmg effects as well
+                        break;			
                     case CLASS_DRUID:
                         spell_id = 29194;
+                        break;
                     case CLASS_PALADIN:
                         spell_id = 29196;
+                        break;
                     case CLASS_SHAMAN:
                         spell_id = 29198;
+                        break;
                     default:
-                        return; // ignore for non-healing classes						
+                        return; // ignore for non-healing classes
                 }
 
-                caster->CastSpell(target, spell_id, true);
+                caster->CastSpell(playerTarget, spell_id, TRIGGERED_FULL_MASK);
             }
         }
     }
 
     void Register() override
     {
-        OnEffectHitTarget += SpellEffectFn(spell_loatheb_corrupted_mind_40::HandleEffect, EFFECT_0, SPELL_EFFECT_DUMMY);
+        OnEffectLaunchTarget += SpellEffectFn(spell_loatheb_corrupted_mind_40::HandleEffect, EFFECT_0, SPELL_EFFECT_DUMMY);
     }
 };
 
