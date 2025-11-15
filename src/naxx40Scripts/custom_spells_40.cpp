@@ -451,8 +451,8 @@ class spell_loatheb_corrupted_mind_40 : public SpellScript
                 switch (playerTarget->getClass())
                 {
                     case CLASS_PRIEST:
-                        spell_id = 29194; // priests should be getting 29185, but it triggers on dmg effects as well
-                        break;			
+                        spell_id = 29185;
+                        break;
                     case CLASS_DRUID:
                         spell_id = 29194;
                         break;
