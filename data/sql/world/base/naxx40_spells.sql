@@ -207,7 +207,7 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 -- Corrupted Mind check - Priest
 DELETE FROM `spell_script_names` WHERE `ScriptName` = 'isAllowedToCastSpell' AND `spell_id` IN 
 (17, 139, 527, 528, 552, 592, 596, 600, 988, 996, 2050, 2052, 2053, 2054, 2055, 2060, 2061, 3747, 6063, 6064, 6065, 6066, 6074, 6075, 6076, 6077, 6078, 9472, 9473, 9474, 
-10898, 10899, 10900, 10901, 10915, 10916, 10917, 10927, 10928, 10929, 10960, 10961, 10963, 10964, 10965, 13908, 15229, 15237, 15286, 15430, 15431, 19236, 19238, 19240, 19241, 19242, 19243, 
+10898, 10899, 10900, 10901, 10915, 10916, 10917, 10927, 10928, 10929, 10960, 10961, 10963, 10964, 10965, 15229, 15237, 15286, 15430, 15431, 19236, 19238, 19240, 19241, 19242, 19243, 
 25210, 25213, 25217, 25218, 25221, 25222, 25233, 25235, 25308, 25314, 25315, 25316, 25331, 25437, 27799, 27800, 27801, 32546, 33076, 34865, 34866);
 
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES 
@@ -218,10 +218,10 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 (6076, 'isAllowedToCastSpell'), (6077, 'isAllowedToCastSpell'), (6078, 'isAllowedToCastSpell'), (9472, 'isAllowedToCastSpell'), (9473, 'isAllowedToCastSpell'), (9474, 'isAllowedToCastSpell'),
 (10898, 'isAllowedToCastSpell'), (10899, 'isAllowedToCastSpell'), (10900, 'isAllowedToCastSpell'), (10901, 'isAllowedToCastSpell'), (10915, 'isAllowedToCastSpell'), (10916, 'isAllowedToCastSpell'),
 (10917, 'isAllowedToCastSpell'), (10927, 'isAllowedToCastSpell'), (10928, 'isAllowedToCastSpell'), (10929, 'isAllowedToCastSpell'), (10960, 'isAllowedToCastSpell'), (10961, 'isAllowedToCastSpell'),
-(10963, 'isAllowedToCastSpell'), (10964, 'isAllowedToCastSpell'), (10965, 'isAllowedToCastSpell'), (13908, 'isAllowedToCastSpell'), (15229, 'isAllowedToCastSpell'), (15237, 'isAllowedToCastSpell'),
-(15286, 'isAllowedToCastSpell'), (15430, 'isAllowedToCastSpell'), (15431, 'isAllowedToCastSpell'), (19236, 'isAllowedToCastSpell'), (19238, 'isAllowedToCastSpell'), (19240, 'isAllowedToCastSpell'),
-(19241, 'isAllowedToCastSpell'), (19242, 'isAllowedToCastSpell'), (19243, 'isAllowedToCastSpell'), (25210, 'isAllowedToCastSpell'), (25213, 'isAllowedToCastSpell'), (25217, 'isAllowedToCastSpell'), 
-(25218, 'isAllowedToCastSpell'), (25221, 'isAllowedToCastSpell'), (25222, 'isAllowedToCastSpell'), (25233, 'isAllowedToCastSpell'), (25235, 'isAllowedToCastSpell'), (25308, 'isAllowedToCastSpell'), 
+(10963, 'isAllowedToCastSpell'), (10964, 'isAllowedToCastSpell'), (10965, 'isAllowedToCastSpell'), (15229, 'isAllowedToCastSpell'), (15237, 'isAllowedToCastSpell'), (15286, 'isAllowedToCastSpell'), 
+(15430, 'isAllowedToCastSpell'), (15431, 'isAllowedToCastSpell'), (19236, 'isAllowedToCastSpell'), (19238, 'isAllowedToCastSpell'), (19240, 'isAllowedToCastSpell'), (19241, 'isAllowedToCastSpell'), 
+(19242, 'isAllowedToCastSpell'), (19243, 'isAllowedToCastSpell'), (25210, 'isAllowedToCastSpell'), (25213, 'isAllowedToCastSpell'), (25217, 'isAllowedToCastSpell'), (25218, 'isAllowedToCastSpell'), 
+(25221, 'isAllowedToCastSpell'), (25222, 'isAllowedToCastSpell'), (25233, 'isAllowedToCastSpell'), (25235, 'isAllowedToCastSpell'), (25308, 'isAllowedToCastSpell'), 
 (25314, 'isAllowedToCastSpell'), (25315, 'isAllowedToCastSpell'), (25316, 'isAllowedToCastSpell'), (25331, 'isAllowedToCastSpell'), (25437, 'isAllowedToCastSpell'), (27799, 'isAllowedToCastSpell'), 
 (27800, 'isAllowedToCastSpell'), (27801, 'isAllowedToCastSpell'), (32546, 'isAllowedToCastSpell'), (33076, 'isAllowedToCastSpell'), (34865, 'isAllowedToCastSpell'), (34866, 'isAllowedToCastSpell');
 
@@ -238,12 +238,12 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
 
 -- Corrupted Mind check - Shaman
 DELETE FROM `spell_script_names` WHERE `ScriptName` = 'isAllowedToCastSpell' AND `spell_id` IN 
-(331, 332, 526, 547, 913, 939, 959, 974, 1064, 2870, 8004, 8005, 8008, 8010, 10395, 10396, 10466, 10467, 10468, 10622, 10623, 25357, 25391, 25396, 25420, 25422, 25423, 32593, 32594); 
+(331, 332, 526, 547, 913, 939, 959, 974, 1064, 8004, 8005, 8008, 8010, 10395, 10396, 10466, 10467, 10468, 10622, 10623, 25357, 25391, 25396, 25420, 25422, 25423, 32593, 32594, 51886); 
 
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES 
 (331, 'isAllowedToCastSpell'), (332, 'isAllowedToCastSpell'), (526, 'isAllowedToCastSpell'), (547, 'isAllowedToCastSpell'), 
 (913, 'isAllowedToCastSpell'), (939, 'isAllowedToCastSpell'), (959, 'isAllowedToCastSpell'), (974, 'isAllowedToCastSpell'), 
-(1064, 'isAllowedToCastSpell'), (2870, 'isAllowedToCastSpell'), (8004, 'isAllowedToCastSpell'), (8005, 'isAllowedToCastSpell'), (8008, 'isAllowedToCastSpell'), (8010, 'isAllowedToCastSpell'), 
+(1064, 'isAllowedToCastSpell'),  (8004, 'isAllowedToCastSpell'), (8005, 'isAllowedToCastSpell'), (8008, 'isAllowedToCastSpell'), (8010, 'isAllowedToCastSpell'), 
 (10395, 'isAllowedToCastSpell'), (10396, 'isAllowedToCastSpell'), (10466, 'isAllowedToCastSpell'), (10467, 'isAllowedToCastSpell'), (10468, 'isAllowedToCastSpell'), 
 (10622, 'isAllowedToCastSpell'), (10623, 'isAllowedToCastSpell'), (25357, 'isAllowedToCastSpell'), (25391, 'isAllowedToCastSpell'), (25396, 'isAllowedToCastSpell'), 
-(25420, 'isAllowedToCastSpell'), (25422, 'isAllowedToCastSpell'), (25423, 'isAllowedToCastSpell'), (32593, 'isAllowedToCastSpell'), (32594, 'isAllowedToCastSpell');
+(25420, 'isAllowedToCastSpell'), (25422, 'isAllowedToCastSpell'), (25423, 'isAllowedToCastSpell'), (32593, 'isAllowedToCastSpell'), (32594, 'isAllowedToCastSpell'), (51886, 'isAllowedToCastSpell');
