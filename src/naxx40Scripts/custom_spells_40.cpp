@@ -4,6 +4,7 @@
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
+#include "Player.h"
 
 // 28785 - Locust Swarm
 // Locust Swarm: Reduce damage ~1500 to ~1000, increase radius 25yd to 30yd
@@ -428,6 +429,89 @@ class spell_feugen_static_field_40 : public SpellScript
     }
 };
 
+class spell_loatheb_corrupted_mind_40 : public SpellScript
+{
+    PrepareSpellScript(spell_loatheb_corrupted_mind_40);
+
+    void HandleEffect(SpellEffIndex effIndex)
+    {
+        if (Unit* caster = GetCaster())
+        {
+            if (Unit* unitTarget = GetHitUnit())
+            {
+                if (!unitTarget->IsPlayer())
+                    return;
+
+                Player* playerTarget = unitTarget->ToPlayer();
+                if (!playerTarget)
+                    return;
+
+                uint32 spell_id = 0;
+
+                switch (playerTarget->getClass())
+                {
+                    case CLASS_PRIEST:
+                        spell_id = 29185;
+                        break;
+                    case CLASS_DRUID:
+                        spell_id = 29194;
+                        break;
+                    case CLASS_PALADIN:
+                        spell_id = 29196;
+                        break;
+                    case CLASS_SHAMAN:
+                        spell_id = 29198;
+                        break;
+                    default:
+                        return; // ignore for non-healing classes
+                }
+
+                caster->CastSpell(playerTarget, spell_id, TRIGGERED_FULL_MASK);
+            }
+        }
+    }
+
+    void Register() override
+    {
+        OnEffectLaunchTarget += SpellEffectFn(spell_loatheb_corrupted_mind_40::HandleEffect, EFFECT_0, SPELL_EFFECT_DUMMY);
+    }
+};
+
+class isAllowedToCastSpell : public SpellScript
+{
+    PrepareSpellScript(isAllowedToCastSpell);
+
+    SpellCastResult CheckCorruptedMind()
+    {
+        if (Unit* caster = GetCaster())
+        {
+            Player* player = caster->ToPlayer();
+            int mapId = player->GetMapId();
+            if ((player->GetRaidDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC) || (mapId != 533))
+            {
+                return SPELL_CAST_OK;
+            }
+
+            Unit::AuraEffectList const& auraClassScripts = caster->GetAuraEffectsByType(SPELL_AURA_OVERRIDE_CLASS_SCRIPTS);
+		
+            for (auto itr = auraClassScripts.begin(); itr != auraClassScripts.end(); ++itr)
+            {
+                if ((*itr)->GetSpellInfo()->Effects[0].MiscValue == 4327)
+                {
+                    return SPELL_FAILED_FIZZLE;
+                }
+            }
+        }
+        return SPELL_CAST_OK;
+    }
+
+    void Register() override
+    {
+        OnCheckCast += SpellCheckCastFn(isAllowedToCastSpell::CheckCorruptedMind);
+    }
+};
+
+
 void AddSC_custom_spells_40()
 {
     RegisterSpellScript(spell_anub_locust_swarm_aura_40);
@@ -446,4 +530,6 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_unholy_staff_arcane_explosion_40);
     RegisterSpellScript(spell_disease_cloud_damage_40);
     RegisterSpellScript(spell_feugen_static_field_40);
+    RegisterSpellScript(spell_loatheb_corrupted_mind_40);
+    RegisterSpellScript(isAllowedToCastSpell);
 }
