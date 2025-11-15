@@ -485,6 +485,13 @@ class isAllowedToCastSpell : public SpellScript
     {
         if (Unit* caster = GetCaster())
         {
+            Player* player = caster->ToPlayer();
+            int mapId = player->GetMapId();
+            if ((player->GetRaidDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC) || (mapId != 533))
+            {
+                return SPELL_CAST_OK;
+            }
+
             Unit::AuraEffectList const& auraClassScripts = caster->GetAuraEffectsByType(SPELL_AURA_OVERRIDE_CLASS_SCRIPTS);
 		
             for (auto itr = auraClassScripts.begin(); itr != auraClassScripts.end(); ++itr)
@@ -503,6 +510,7 @@ class isAllowedToCastSpell : public SpellScript
         OnCheckCast += SpellCheckCastFn(isAllowedToCastSpell::CheckCorruptedMind);
     }
 };
+
 
 void AddSC_custom_spells_40()
 {
