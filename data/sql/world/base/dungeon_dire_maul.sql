@@ -391,6 +391,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 -- Cadaverous Worm
 DELETE FROM `creature_loot_template` WHERE `entry` = 14370;
+UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` = 14370;
 UPDATE `creature_template_model` SET `DisplayScale` = 0.25  WHERE `CreatureID` = 14370;
 
 -- fix waypoints
