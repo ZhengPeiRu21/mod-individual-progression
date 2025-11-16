@@ -451,8 +451,8 @@ class spell_loatheb_corrupted_mind_40 : public SpellScript
                 switch (playerTarget->getClass())
                 {
                     case CLASS_PRIEST:
-                        spell_id = 29185;
-                        break;
+                        spell_id = 29194; // priests should be getting 29185, but it triggers on dmg effects as well
+                        break;			
                     case CLASS_DRUID:
                         spell_id = 29194;
                         break;
@@ -483,29 +483,40 @@ class isAllowedToCastSpell : public SpellScript
 
     SpellCastResult CheckCorruptedMind()
     {
-        if (Unit* caster = GetCaster())
+        Unit* caster = GetCaster();
+        if (!caster)
+            return SPELL_CAST_OK;
+
+        Player* player = caster->ToPlayer();
+        if (!player)
+            return SPELL_CAST_OK;
+
+        Map* map = player->GetMap();
+        if (!map)
+            return SPELL_CAST_OK;
+
+        // Only enforce the check in Naxxramas 10HC (map 533, 10-man heroic).
+        if (map->GetId() != 533 || map->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC)
+            return SPELL_CAST_OK;
+
+        // Check class override auras (Corrupted Mind) on the player.
+        Unit::AuraEffectList const& auraClassScripts =
+            player->GetAuraEffectsByType(SPELL_AURA_OVERRIDE_CLASS_SCRIPTS);
+
+        for (AuraEffect const* auraEff : auraClassScripts)
         {
-            Player* player = caster->ToPlayer();
+            if (!auraEff)
+                continue;
 
-            if (!player)
-                return SPELL_CAST_OK;
+            SpellInfo const* auraInfo = auraEff->GetSpellInfo();
+            if (!auraInfo)
+                continue;
 
-            int mapId = player->GetMapId();
-            
-            if ((player->GetRaidDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC) || (mapId != 533))
-                return SPELL_CAST_OK;
-
-            Unit::AuraEffectList const& auraClassScripts = player->GetAuraEffectsByType(SPELL_AURA_OVERRIDE_CLASS_SCRIPTS);
-		
-            for (auto itr = auraClassScripts.begin(); itr != auraClassScripts.end(); ++itr)
-            {
-                if ((*itr)->GetSpellInfo())
-                {
-                    if ((*itr)->GetSpellInfo()->Effects[0].MiscValue == 4327)
-                        return SPELL_FAILED_FIZZLE;
-                }
-            }
+            // Corrupted Mind override (class script) – block the cast.
+            if (auraInfo->Effects[EFFECT_0].MiscValue == 4327)
+                return SPELL_FAILED_FIZZLE;
         }
+
         return SPELL_CAST_OK;
     }
 
