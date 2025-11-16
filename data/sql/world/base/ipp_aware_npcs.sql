@@ -69,7 +69,9 @@ UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (24932, 25115, 2514
 -- TBC, Terrace of Light, phasing T5 game objects
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entry` IN 
 (187056,  -- Shattrath portal to Isle of Quel'Danas
- 187345); -- Sunwell Plateau model
+ 187345,  -- Sunwell Plateau model
+ 187356,  -- Shattered Sun Banner
+ 187357); -- Shattered Sun Banner
 
 -- Phasing for General Tiras'alan and Dathris Sunstriker - prevent early access to Isle of Quel'Danas
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
