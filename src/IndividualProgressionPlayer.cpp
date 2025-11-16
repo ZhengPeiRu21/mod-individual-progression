@@ -1017,7 +1017,15 @@ public:
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
-            case AREA_LIGHTS_HOPE:
+            case AREA_TERRACE_OF_LIGHT:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
             case AREA_ARGENT_TOURNAMENT_GROUNDS:
             case AREA_ARGENT_SUNREAVER_PAVILION:
             case AREA_ARGENT_SILVER_COVENANT_PAVILION:
