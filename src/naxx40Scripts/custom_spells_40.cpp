@@ -452,7 +452,7 @@ class spell_loatheb_corrupted_mind_40 : public SpellScript
                 {
                     case CLASS_PRIEST:
                         spell_id = 29194; // priests should be getting 29185, but it triggers on dmg effects as well
-                        break;			
+                        break;
                     case CLASS_DRUID:
                         spell_id = 29194;
                         break;
