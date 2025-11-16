@@ -210,6 +210,32 @@ public:
     }
 };
 
+class gobject_ipp_tbc_t4 : public GameObjectScript
+{
+public:
+    gobject_ipp_tbc_t4() : GameObjectScript("gobject_ipp_tbc_t4") { }
+
+    struct gobject_ipp_tbc_t4AI: GameObjectAI
+    {
+        explicit gobject_ipp_tbc_t4AI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_4);
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_tbc_t4AI(object);
+    }
+};
+
 class gobject_ipp_wotlk : public GameObjectScript
 {
 public:
@@ -757,6 +783,7 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_naxx40();
     new gobject_ipp_pre_tbc();        // Stormwind pvp room
     new gobject_ipp_tbc();
+    new gobject_ipp_tbc_t4();         // Shattered Sun
     new gobject_ipp_wotlk();
     new gobject_ipp_pvp_closed();     // pvp officer doors
     new gobject_ipp_pvp_open();       // pvp officer doors
