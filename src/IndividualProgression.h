@@ -139,6 +139,7 @@ enum ProgressionAreas
     AREA_ICE_THISTLE_HILLS               = 2247,
     AREA_THE_MARRIS_STEAD                = 2260,
     AREA_LIGHTS_HOPE                     = 2268,
+    AREA_FOREST_SONG                     = 2358,
     AREA_DRACO_DAR                       = 2421,
     AREA_RISE_OF_THE_DEFILER             = 2517,
     AREA_PESTILENT_SCAR                  = 2622,
