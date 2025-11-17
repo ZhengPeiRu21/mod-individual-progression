@@ -1027,7 +1027,7 @@ public:
                 }
                 break;
             case AREA_FOREST_SONG:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
