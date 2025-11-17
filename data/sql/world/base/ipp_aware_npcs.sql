@@ -74,7 +74,8 @@ UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entr
  187357); -- Shattered Sun Banner
 
 -- Phasing for General Tiras'alan and Dathris Sunstriker - prevent early access to Isle of Quel'Danas
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (18594, 25167, 27666, 27667);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `guid` IN (3413); -- Lady Liadrin (entry 17076)
 
 -- Dragons of Nightmare
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (14887, 14888, 14889, 14890);
