@@ -73,6 +73,11 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 37915  -- Timothy Cunningham, The Bulwark, Flight Master
 );
 
+SET @IPPPHASE     := 65536;
+
+-- Forest Song - Ashenvale - Draenei camp
+UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (17291, 17406, 17409, 17412, 17541, 22935, 22936);
+
 /* Remove interactions between Cersei, Lorrin and the orcs in Stonard */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 27705);
 
