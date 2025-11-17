@@ -38,7 +38,7 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            if (player->IsGameMaster())
             {
                 return true;
             }
@@ -47,7 +47,7 @@ public:
             
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
             {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
+                return false);
             }
             else
             {
@@ -73,7 +73,7 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            if (player->IsGameMaster())
             {
                 return true;
             }
