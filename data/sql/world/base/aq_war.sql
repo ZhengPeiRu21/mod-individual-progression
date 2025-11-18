@@ -107,14 +107,14 @@ INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALU
 (@CGUID+133, 15813, 0, 'AQ War Event Silithus Boss');
 
 -- add Resonating Crystal Formations to Silithus and Darkshore
-DELETE FROM `gameobject` WHERE `guid` IN (@OGUID+11, @OGUID+12, @OGUID+13, @OGUID+14, @OGUID+15, @OGUID+16);
+DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+101 AND @OGUID+106;
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`) VALUES
-(@OGUID+11, 180810, 1, 0, 0, 1, 1, 6431.208496, 7.873897, 25.929821, 6.005887, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
-(@OGUID+12, 180810, 1, 0, 0, 1, 1, 5070.317383, 106.293625, 42.326523, 3.869612, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
-(@OGUID+13, 180810, 1, 0, 0, 1, 1, 4370.228027, 540.763245, 59.281170, 6.165329, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
-(@OGUID+14, 180810, 1, 0, 0, 1, 1, -7648.079590, 1426.084717, 2.876715, 3.538846, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
-(@OGUID+15, 180810, 1, 0, 0, 1, 1, -7831.400879, 857.148376, -4.281037, 1.477178, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
-(@OGUID+16, 180810, 1, 0, 0, 1, 1, -6317.880371, 738.097473, 9.361129, 2.939591, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0);
+(@OGUID+101, 180810, 1, 0, 0, 1, 1, 6431.208496, 7.873897, 25.929821, 6.005887, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
+(@OGUID+102, 180810, 1, 0, 0, 1, 1, 5070.317383, 106.293625, 42.326523, 3.869612, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
+(@OGUID+103, 180810, 1, 0, 0, 1, 1, 4370.228027, 540.763245, 59.281170, 6.165329, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
+(@OGUID+104, 180810, 1, 0, 0, 1, 1, -7648.079590, 1426.084717, 2.876715, 3.538846, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
+(@OGUID+105, 180810, 1, 0, 0, 1, 1, -7831.400879, 857.148376, -4.281037, 1.477178, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0),
+(@OGUID+106, 180810, 1, 0, 0, 1, 1, -6317.880371, 738.097473, 9.361129, 2.939591, 0, 0, 0, 0, 3600, 255, 1, 'gobject_ipp_aqwar', 0);
 
 -- set Resonating Crystal Formations to 'Not selectable'
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` = 180810;

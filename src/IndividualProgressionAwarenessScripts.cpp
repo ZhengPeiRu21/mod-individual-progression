@@ -27,41 +27,6 @@ public:
     }
 };
 
-class gobject_ipp_we : public GameObjectScript
-{
-public:
-    gobject_ipp_we() : GameObjectScript("gobject_ipp_we") { }
-
-    struct gobject_ipp_weAI: GameObjectAI
-    {
-        explicit gobject_ipp_weAI(GameObject* object) : GameObjectAI(object) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-            {
-                return true;
-            }
-            
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
-            {
-                return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ);
-            }
-            else
-            {
-                return sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR);
-            }
-        }
-    };
-
-    GameObjectAI* GetAI(GameObject* object) const override
-    {
-        return new gobject_ipp_weAI(object);
-    }
-};
-
 class gobject_ipp_aqwar : public GameObjectScript
 {
 public:
@@ -73,7 +38,7 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            if (player->IsGameMaster())
             {
                 return true;
             }
@@ -777,7 +742,6 @@ public:
 void AddSC_mod_individual_progression_awareness()
 {
     new gobject_ipp_preaq();          // Wanted poster Cenarion Hold
-    new gobject_ipp_we();             // War Effort supplies in cities
     new gobject_ipp_aqwar();          // AQ war crystals
     new gobject_ipp_si();             // Scourge Invasion
     new gobject_ipp_naxx40();
