@@ -47,7 +47,7 @@ enum ProgressionBossIDs
     LICH_KING            = 36597,
     HALION               = 39863, 
     RHAHK_ZOR            = 644,
-	SNEED                = 643,
+    SNEED                = 643,
     GILNID               = 1763
 };
 
@@ -75,6 +75,40 @@ enum ProgressionQuestIDs
     INTO_THE_BREACH           = 10259,
     SIMPLY_BANG_A_GONG        = 108743,
     CHAOS_AND_DESTRUCTION     = 108744
+};
+
+enum WarEffortQuestIDs
+{
+    QUEST_COPPER_BARS             = 8532,
+    QUEST_MORE_COPPER_BARS        = 8533,
+    QUEST_TIN_BARS                = 8542,
+    QUEST_MORE_TIN_BARS           = 8543,
+    QUEST_MITHRIL_BARS            = 8545,
+    QUEST_MORE_MITHRIL_BARS       = 8546,
+	QUEST_PEACEBLOOM              = 8549,
+    QUEST_MORE_PEACEBLOOM         = 8550,
+    QUEST_FIREBLOOM               = 8580,
+    QUEST_MORE_FIREBLOOM          = 8581,
+    QUEST_PURPLE_LOTUS            = 8582,
+    QUEST_MORE_PURPLE_LOTUS       = 8583,
+    QUEST_HEAVY_LEATHER           = 8588,
+    QUEST_MORE_HEAVY_LEATHER      = 8589,
+    QUEST_THICK_LEATHER           = 8590,
+    QUEST_MORE_THICK_LEATHER      = 8591,
+    QUEST_RUGGED_LEATHER          = 8600,
+    QUEST_MORE_RUGGED_LEATHER     = 8601,
+    QUEST_WOOL_BANDAGES           = 8604,
+    QUEST_MORE_WOOL_BANDAGES      = 8605,
+    QUEST_MAGEWEAVE_BANDAGES      = 8607,
+    QUEST_MORE_MAGEWEAVE_BANDAGES = 8608,	
+    QUEST_RUNECLOTH_BANDAGES      = 8609,
+    QUEST_MORE_RUNECLOTH_BANDAGES = 8610,
+    QUEST_LEAN_WOLF_STEAK         = 8611,
+    QUEST_MORE_LEAN_WOLF_STEAK    = 8612,
+    QUEST_SPOTTED_YELLOWTAIL      = 8613,
+    QUEST_MORE_SPOTTED_YELLOWTAIL = 8614,	
+    QUEST_BAKED_SALMON            = 8615,
+    QUEST_MORE_BAKED_SALMON       = 8616
 };
 
 enum ProgressionAchievements
@@ -368,7 +402,7 @@ public:
     void AwardEarnedVanillaPvpTitles(Player* player);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
     static void RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId);
-	static void AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment);
+    static void AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment);
     static float ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);
 };
