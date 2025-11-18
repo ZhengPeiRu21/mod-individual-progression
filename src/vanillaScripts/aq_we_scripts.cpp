@@ -1,6 +1,7 @@
 #include "IndividualProgression.h"
 #include "WorldState.h"
 
+
 class gobject_ipp_leather_stage_0 : public GameObjectScript
 {
 public:
@@ -53,10 +54,14 @@ public:
             else if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR))
             {
                 uint8 leatherQuests = 0;
-                
-                if ((player->GetQuestStatus(QUEST_THICK_LEATHER) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_RUGGED_LEATHER) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_HEAVY_LEATHER) == QUEST_STATUS_REWARDED))
+
+                if (((player->GetQuestStatus(QUEST_LIGHT_LEATHER) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_MEDIUM_LEATHER) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_THICK_LEATHER_A) == QUEST_STATUS_REWARDED)) ||
+                    ((player->GetQuestStatus(QUEST_THICK_LEATHER_H) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_RUGGED_LEATHER) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_HEAVY_LEATHER) == QUEST_STATUS_REWARDED)))
+
                 {
                     leatherQuests = 1;
                 }
@@ -128,10 +133,13 @@ public:
             else if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR))
             {
                 uint8 herbQuests = 0;
-                
-                if ((player->GetQuestStatus(QUEST_PEACEBLOOM) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_FIREBLOOM) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_PURPLE_LOTUS) == QUEST_STATUS_REWARDED))
+
+                if (((player->GetQuestStatus(QUEST_STRANGLEKELP) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_ARTHAS_TEARS) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_PURPLE_LOTUS_A) == QUEST_STATUS_REWARDED)) ||
+                    ((player->GetQuestStatus(QUEST_PEACEBLOOM) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_FIREBLOOM) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_PURPLE_LOTUS_H) == QUEST_STATUS_REWARDED)))
                 {
                     herbQuests = 1;
                 }
@@ -202,10 +210,13 @@ public:
             else if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR))
             {
                 uint8 barQuests = 0;
-                
-                if ((player->GetQuestStatus(QUEST_COPPER_BARS) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_TIN_BARS) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_MITHRIL_BARS) == QUEST_STATUS_REWARDED))
+
+                if (((player->GetQuestStatus(QUEST_COPPER_BARS_A) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_IRON_BARS) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_THORIUM_BARS) == QUEST_STATUS_REWARDED)) ||
+                    ((player->GetQuestStatus(QUEST_COPPER_BARS_H) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_TIN_BARS) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_MITHRIL_BARS) == QUEST_STATUS_REWARDED)))
                 {
                     barQuests = 1;
                 }
@@ -276,10 +287,13 @@ public:
             else if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR))
             {
                 uint8 foodQuests = 0;
-                
-                if ((player->GetQuestStatus(QUEST_LEAN_WOLF_STEAK) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_SPOTTED_YELLOWTAIL) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_BAKED_SALMON) == QUEST_STATUS_REWARDED))
+
+                if (((player->GetQuestStatus(QUEST_RAINBOW_FIN) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_ROAST_RAPTOR) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_SPOTTED_YELLOWTAIL_A) == QUEST_STATUS_REWARDED)) ||
+                    ((player->GetQuestStatus(QUEST_LEAN_WOLF_STEAK) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_SPOTTED_YELLOWTAIL_H) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_BAKED_SALMON) == QUEST_STATUS_REWARDED)))
                 {
                     foodQuests = 1;
                 }
@@ -350,10 +364,13 @@ public:
             else if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR))
             {
                 uint8 bandagesQuests = 0;
-                
-                if ((player->GetQuestStatus(QUEST_WOOL_BANDAGES) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_MAGEWEAVE_BANDAGES) == QUEST_STATUS_REWARDED) &&
-                    (player->GetQuestStatus(QUEST_RUNECLOTH_BANDAGES) == QUEST_STATUS_REWARDED))
+
+                if (((player->GetQuestStatus(QUEST_LINEN_BANDAGES) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_SILK_BANDAGES) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_RUNECLOTH_BANDAGES_A) == QUEST_STATUS_REWARDED)) ||
+                    ((player->GetQuestStatus(QUEST_WOOL_BANDAGES) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_MAGEWEAVE_BANDAGES) == QUEST_STATUS_REWARDED) &&
+                     (player->GetQuestStatus(QUEST_RUNECLOTH_BANDAGES_H) == QUEST_STATUS_REWARDED)))
                 {
                     bandagesQuests = 1;
                 }
