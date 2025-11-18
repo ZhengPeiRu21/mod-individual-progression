@@ -47,7 +47,7 @@ public:
             
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
             {
-                return false);
+                return false;
             }
             else
             {
