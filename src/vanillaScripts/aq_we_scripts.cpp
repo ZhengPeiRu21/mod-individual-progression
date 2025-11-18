@@ -61,7 +61,6 @@ public:
                     ((player->GetQuestStatus(QUEST_THICK_LEATHER_H) == QUEST_STATUS_REWARDED) &&
                      (player->GetQuestStatus(QUEST_RUGGED_LEATHER) == QUEST_STATUS_REWARDED) &&
                      (player->GetQuestStatus(QUEST_HEAVY_LEATHER) == QUEST_STATUS_REWARDED)))
-
                 {
                     leatherQuests = 1;
                 }
