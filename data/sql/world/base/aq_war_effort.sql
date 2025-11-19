@@ -51,7 +51,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+37,15737,0,0,1,0,0,1,1,0,1595.6,-4091.94,35.8097,5.20323,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
 (@CGUID+38,15738,0,0,1,0,0,1,1,0,1598.27,-4090.5,35.8736,5.13568,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
 (@CGUID+39,15739,0,0,1,0,0,1,1,0,1592.84,-4094.01,35.6404,5.82527,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
-(@CGUID+40,21968,0,0,1,0,0,1,1,0,1601.01,-4091.87,35.5195,4.52778,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0), -- Silvermoon City Commendation Officer
+-- (@CGUID+40,21968,0,0,1,0,0,1,1,0,1601.01,-4091.87,35.5195,4.52778,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0), -- Silvermoon City Commendation Officer
 -- After AQ phase, the commendation Npcs move to their respective cities until the end of WotLK expansion, allows players to use up their marks if they have any after AQ
 -- Post AQ Alliance Commendation Npcs
 (@CGUID+41,15731,0,0,1,0,0,1,1,0,9949.44,2497.12,1317.629,4.7139,300,0,0,2614,0,0,0,0,0,'npc_ipp_naxx40',0),
