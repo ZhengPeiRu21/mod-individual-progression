@@ -97,10 +97,6 @@ public:
         }
         return false;
     }
-
-private:
-	bool _summonedKeeper = false;
-
 };
 
 void AddSC_instance_blackrock_depths_50_59_B()
