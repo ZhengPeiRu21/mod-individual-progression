@@ -509,7 +509,7 @@ public:
                 return false;
             }
             
-            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED)
+            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED || target->GetLevel() > IP_LEVEL_VANILLA)
             {
                 return false;
             }
@@ -545,7 +545,7 @@ public:
                 return true;
             }
             
-            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED)
+            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED || target->GetLevel() > IP_LEVEL_VANILLA)
             {
                 return true;
             }
