@@ -946,11 +946,14 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 -- Shadowforge Torch drop rate
 UPDATE `creature_loot_template` SET `Chance` = 80 WHERE `Entry` = 9956 AND `Item` = 11885;
 
---  Rockfist was removed from Phalanx's drop table in TBC - placing it back
+-- Rockfist was removed from Phalanx's drop table in TBC - placing it back
 DELETE FROM `creature_loot_template` WHERE `Entry` = 9502 AND `Item` = 11743;
 INSERT INTO `creature_loot_template` (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
 (9502, 11743, 0, 0, 0, 1, 1, 1, 1, 'Phalanx - Rockfist');
 
+-- fix Dark Keeper portrait event
+UPDATE `gameobject_template` SET `ScriptName` = 'gobject_dark_keeper_portrait' WHERE `entry` = 164819;
+DELETE FROM `gameobject` WHERE `guid` = 43131;
 
 /*  Fix Dark Coffer event */
 SET @GUID         := 640001;
