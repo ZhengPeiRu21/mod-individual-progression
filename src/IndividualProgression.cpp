@@ -18,7 +18,7 @@ bool IndividualProgression::hasPassedProgression(Player* player, ProgressionStat
 	{
         return false;
 	}
-	
+
     return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
 }
 
@@ -33,7 +33,7 @@ void IndividualProgression::UpdateProgressionState(Player* player, ProgressionSt
 	{
         return;
 	}
-	
+
     uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
     if (newState > currentState)
     {
@@ -61,6 +61,7 @@ void IndividualProgression::CheckAdjustments(Player* player) const
 	{
         return;
     }
+
     if (player->GetLevel() <= IP_LEVEL_VANILLA && player->getClass() != CLASS_DEATH_KNIGHT)
     {
         float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
@@ -79,13 +80,13 @@ void IndividualProgression::CheckAdjustments(Player* player) const
 
 	    AdjustStats(player, computedPowerAdjustment, tbcHealthAdjustment);
     }
-	
+
     if (player->getClass() == CLASS_HUNTER)
     {
         // Remove the 15% built-in ranged haste that was added to hunters in WotLK - This lets us add haste spells back to quivers
         player->RemoveAura(RANGED_HASTE_SPELL);
         player->CastSpell(player, RANGED_HASTE_SPELL, false);
-    }	
+    }
 }
 
 void IndividualProgression::AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment)
@@ -95,7 +96,7 @@ void IndividualProgression::AdjustStats(Player* player, float computedPowerAdjus
 
     player->RemoveAura(ABSORB_SPELL);
     player->CastCustomSpell(player, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
-	
+
 	player->RemoveAura(HP_AURA_SPELL);
     player->CastCustomSpell(player, HP_AURA_SPELL, &bp2, nullptr, nullptr, false);
 }
@@ -223,10 +224,11 @@ bool IndividualProgression::hasCustomProgressionValue(uint32 creatureEntry)
 
 bool IndividualProgression::isAttuned(Player* player)
 {
-    if (player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED
-        || player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED
-        || player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED
-        || player->IsGameMaster() || sIndividualProgression->isExcludedFromProgression(player))
+    if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) ||
+        (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
+        (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED) ||
+        player->IsGameMaster() ||
+        sIndividualProgression->isExcludedFromProgression(player))
     {
         return true;
     }
@@ -335,7 +337,7 @@ void IndividualProgression::checkIPProgression(Player* killer)
             UpdateProgressionState(killer, PROGRESSION_NAXX40);
         }
         return;
-    }    
+    }
     else if (killer->HasAchieved(C_THUN_KILL)) // 687
     {
         if (currentState < PROGRESSION_AQ)
@@ -475,27 +477,27 @@ void IndividualProgression::UpdateProgressionQuests(Player* player)
     {
         uint32 PROGRESSION_QUEST = 66000;
         PROGRESSION_QUEST = PROGRESSION_QUEST + i;
-		
+
         if (player->GetQuestStatus(PROGRESSION_QUEST) == QUEST_STATUS_REWARDED)
-            player->RemoveRewardedQuest(PROGRESSION_QUEST);		
+            player->RemoveRewardedQuest(PROGRESSION_QUEST);
     }
 
     // add hidden progression quests
-    // for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
-    // {
-	// 	ProgressionState PROGRESSION_STATE = static_cast<ProgressionState>(i);
-    //     uint32 PROGRESSION_QUEST = 66000;
-    //     PROGRESSION_QUEST = PROGRESSION_QUEST + i;
-		
-    //     if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_STATE)) && (player->GetQuestStatus(PROGRESSION_QUEST) != QUEST_STATUS_REWARDED))
-    //     {
-    //         Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
-
-    //         player->AddQuest(quest, nullptr);
-    //         player->CompleteQuest(PROGRESSION_QUEST);
-    //         player->RewardQuest(quest, 0, player, false, false);
-    //     }
-    // }
+    //for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
+    //{
+	//	ProgressionState PROGRESSION_STATE = static_cast<ProgressionState>(i);
+    //    uint32 PROGRESSION_QUEST = 66000;
+    //    PROGRESSION_QUEST = PROGRESSION_QUEST + i;
+    //
+    //    if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_STATE)) && (player->GetQuestStatus(PROGRESSION_QUEST) != QUEST_STATUS_REWARDED))
+    //    {
+    //        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
+    //
+    //        player->AddQuest(quest, nullptr);
+    //        player->CompleteQuest(PROGRESSION_QUEST);
+    //        player->RewardQuest(quest, 0, player, false, false);
+    //    }
+    //}
 
     if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE)) && (player->GetQuestStatus(PROGRESSION_FLAG_MC) != QUEST_STATUS_REWARDED))
     {
@@ -663,10 +665,173 @@ void IndividualProgression::UpdateProgressionQuests(Player* player)
 void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16 achievementID)
 {
     AchievementEntry const* entry = sAchievementStore.LookupEntry(achievementID);
-    
+
     if (entry)
     {
         player->CompletedAchievement(entry);
+    }
+}
+
+void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
+{
+    TeamId teamId = player->GetTeamId(true);
+    uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+    uint16 playerGUID = player->GetGUID().GetCounter();
+    const uint32 PVP_QUEST = 66100;
+
+    IppPvPTitles const pvpTitlesList[14] =
+    {
+        { sIndividualProgression->VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank2,  TitleData[RANK_TWO].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank3,  TitleData[RANK_THREE].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank4,  TitleData[RANK_FOUR].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank5,  TitleData[RANK_FIVE].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank6,  TitleData[RANK_SIX].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank7,  TitleData[RANK_SEVEN].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank8,  TitleData[RANK_EIGHT].TitleId[teamId]    },
+        { sIndividualProgression->VanillaPvpKillRank9,  TitleData[RANK_NINE].TitleId[teamId]     },
+        { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId]      },
+        { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId]   },
+        { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId]   },
+        { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
+        { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
+    };
+
+    if (!sIndividualProgression->VanillaPvpTitlesKeepPostVanilla && sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+    {
+        for (IppPvPTitles title : pvpTitlesList)
+        {
+            if (player->HasTitle(title.TitleId))
+            {
+                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+            }
+        }
+    }
+    else
+    {
+        for (IppPvPTitles title : pvpTitlesList)
+        {
+            if (kills < title.RequiredKills && player->HasTitle(title.TitleId))
+            {
+                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+            }
+        }
+    }
+
+	int8_t highestRank = -1;
+
+	for (int8_t i = 13; i > -1; --i)
+	{
+		if (kills >= pvpTitlesList[i].RequiredKills)
+		{
+			highestRank = i;
+			break;
+		}
+	}
+
+	for (int8_t i = 13; i > -1; --i)
+    {
+		uint32_t achievementId = AchievementData[i].TitleId[teamId];
+
+		if (highestRank == i || !player->HasAchieved(achievementId))
+		{
+			continue;
+		}
+
+		RemovePlayerAchievement(playerGUID, achievementId);
+    }
+
+	// remove all hidden pvp quests
+    for (uint8 i = 1; i <= 14; ++i)
+    {
+        uint32 questId = PVP_QUEST + i;
+
+        if (player->GetQuestStatus(questId) == QUEST_STATUS_REWARDED)
+		{
+            player->RemoveRewardedQuest(questId);
+        }
+    }
+
+    uint8 i = 1;
+
+    // add hidden pvp quests
+    for (IppPvPTitles title : pvpTitlesList)
+    {
+        if (player->HasTitle(title.TitleId))
+        {
+		    for (uint8 j = 1; j <= i; ++j)
+            {
+                uint32 questId = PVP_QUEST + j;
+                Quest const* quest = sObjectMgr->GetQuestTemplate(questId);
+
+                if (quest)
+                {
+                    player->AddQuest(quest, nullptr);
+                    player->CompleteQuest(questId);
+                    player->RewardQuest(quest, 0, player, false, false);
+                }
+            }
+        }
+
+		++i;
+    }
+
+}
+
+void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
+{
+    if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40) || sIndividualProgression->VanillaPvpTitlesKeepPostVanilla)
+    {
+        TeamId teamId = player->GetTeamId(true);
+        uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+
+        IppPvPTitles const pvpTitlesList[14] =
+        {
+            { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
+            { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId]   },
+            { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId]   },
+            { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank9,  TitleData[RANK_NINE].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank8,  TitleData[RANK_EIGHT].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank7,  TitleData[RANK_SEVEN].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank6,  TitleData[RANK_SIX].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank5,  TitleData[RANK_FIVE].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank4,  TitleData[RANK_FOUR].TitleId[teamId]     },
+            { sIndividualProgression->VanillaPvpKillRank3,  TitleData[RANK_THREE].TitleId[teamId]    },
+            { sIndividualProgression->VanillaPvpKillRank2,  TitleData[RANK_TWO].TitleId[teamId]      },
+            { sIndividualProgression->VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
+		};
+
+	    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) || VanillaPvpTitlesEarnPostVanilla)
+        {
+            int highestTitle = -1;
+
+            // add highest title
+            for (IppPvPTitles title : pvpTitlesList)
+            {
+                if (kills >= title.RequiredKills)
+                {
+                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
+                    highestTitle = title.TitleId;
+                    break;
+                }
+            }
+
+            // remove all titles except highest
+            for (IppPvPTitles title : pvpTitlesList)
+            {
+                if (highestTitle != title.TitleId)
+				{
+                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+				}
+            }
+
+			if (highestTitle != -1)
+			{
+				player->SetCurrentTitle(sCharTitlesStore.LookupEntry(highestTitle));
+			}
+        }
     }
 }
 
@@ -703,7 +868,6 @@ private:
         sIndividualProgression->deathKnightStartingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.DeathKnightStartingProgression", 11);
         sIndividualProgression->LoadCustomProgressionEntries(sConfigMgr->GetOption<std::string>("IndividualProgression.CustomProgression", ""));
         sIndividualProgression->earlyDungeonSet2 = sConfigMgr->GetOption<bool>("IndividualProgression.AllowEarlyDungeonSet2", false);
-        sIndividualProgression->disableRdf = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", true);
         sIndividualProgression->VanillaPvpKillRank1 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank1", 100);
         sIndividualProgression->VanillaPvpKillRank2 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank2", 200);
         sIndividualProgression->VanillaPvpKillRank3 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank3", 400);
@@ -718,7 +882,9 @@ private:
         sIndividualProgression->VanillaPvpKillRank12 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank12", 13000);
         sIndividualProgression->VanillaPvpKillRank13 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank13", 18000);
         sIndividualProgression->VanillaPvpKillRank14 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank14", 24000);
-        sIndividualProgression->VanillaPvpTitlesKeepPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpTitlesPersistAfterVanilla", false);
+        sIndividualProgression->VanillaPvpTitlesKeepPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpTitlesPersistAfterVanilla", true);
+        sIndividualProgression->VanillaPvpTitlesEarnPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpEarnTitlesAfterVanilla", false);
+        sIndividualProgression->disableRdf = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", true);
         sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "^RNDBOT.*");
     }
@@ -768,7 +934,7 @@ public:
         if (sIndividualProgression->disableRdf)
         {
             sWorld->setIntConfig(CONFIG_LFG_OPTIONSMASK, 4);
-        }        
+        }
     }
 };
 

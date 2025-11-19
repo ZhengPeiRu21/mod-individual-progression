@@ -389,6 +389,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14400, 0, 1, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 12550, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Arcane Feedback - In Combat - Cast Lightning Shield');
 
 
+-- Cadaverous Worm
+DELETE FROM `creature_loot_template` WHERE `entry` = 14370;
+UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` = 14370;
+UPDATE `creature_template_model` SET `DisplayScale` = 0.25  WHERE `CreatureID` = 14370;
+
 -- fix waypoints
 DELETE FROM `creature` WHERE `id1` IN (11459, 11484, 11488, 14308);
 DELETE FROM `creature` WHERE `guid` IN (247932, 247933); -- unused Eldreth Phantasm guids

@@ -27,9 +27,6 @@ public:
             return;
         }
 
-        CleanUpVanillaPvpTitles(player);
-        AwardEarnedVanillaPvpTitles(player);
-
 		if (!sIndividualProgression->isExcludedFromProgression(player))
         {
             if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
@@ -41,6 +38,8 @@ public:
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
             }
 
+            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
+            sIndividualProgression->CleanUpVanillaPvpTitles(player);
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
 		}
@@ -67,89 +66,6 @@ public:
     void OnPlayerBeforeLogout(Player *player) override
     {
         sIndividualProgression->TeleportOutsideRestoredRaid(player);
-    }
-
-    void CleanUpVanillaPvpTitles(Player* player)
-    {
-        TeamId teamId = player->GetTeamId(true);
-        uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
-
-        IpPvPTitles const pvpTitlesList[14] =
-        {
-            { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank2, TitleData[RANK_TWO].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank3, TitleData[RANK_THREE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank4, TitleData[RANK_FOUR].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank5, TitleData[RANK_FIVE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank6, TitleData[RANK_SIX].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank7, TitleData[RANK_SEVEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank8, TitleData[RANK_EIGHT].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank9, TitleData[RANK_NINE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
-            { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
-        };
-
-        if (sIndividualProgression->isExcludedFromProgression(player)
-            || (!sIndividualProgression->VanillaPvpTitlesKeepPostVanilla && !sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
-        {
-            for (IpPvPTitles title : pvpTitlesList)
-            {
-                if (player->HasTitle(title.TitleId))
-                {
-                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
-                }
-            }
-        }
-        else
-        {
-            for (IpPvPTitles title : pvpTitlesList)
-            {
-                uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
-                if (kills < title.RequiredKills && player->HasTitle(title.TitleId))
-                {
-                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
-                }
-            }
-        }
-    }
-
-    void AwardEarnedVanillaPvpTitles(Player* player)
-    {
-        if (!sIndividualProgression->isExcludedFromProgression(player)
-            && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40) || sIndividualProgression->VanillaPvpTitlesKeepPostVanilla))
-        {
-            TeamId teamId = player->GetTeamId(true);
-            uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
-
-            IpPvPTitles const pvpTitlesList[14] =
-            {
-                { sIndividualProgression->VanillaPvpKillRank1, TitleData[RANK_ONE].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank2, TitleData[RANK_TWO].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank3, TitleData[RANK_THREE].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank4, TitleData[RANK_FOUR].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank5, TitleData[RANK_FIVE].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank6, TitleData[RANK_SIX].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank7, TitleData[RANK_SEVEN].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank8, TitleData[RANK_EIGHT].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank9, TitleData[RANK_NINE].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
-                { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
-            };
-
-            for (IpPvPTitles title : pvpTitlesList)
-            {
-                if (kills >= title.RequiredKills && !player->HasTitle(title.TitleId))
-                {
-                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
-                }
-            }
-        }
     }
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
@@ -366,14 +282,14 @@ public:
         }
         switch (quest->GetQuestId())
         {
-            case MIGHT_OF_KALIMDOR:
+            case BANG_A_GONG:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
                     sIndividualProgression->UpdateProgressionQuests(player);
                 }
                 break;
-            case BANG_A_GONG:
+            case SIMPLY_BANG_A_GONG:
                 if (!sIndividualProgression->disableDefaultProgression)
                 {
                     sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
@@ -389,12 +305,12 @@ public:
                 }
                 break;
             case INTO_THE_BREACH:
-                //if (!sIndividualProgression->disableDefaultProgression)
-                //{
-                //    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_NAXX40);
-                //    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
-                //    sIndividualProgression->UpdateProgressionQuests(player);
-                //}
+                if (!sIndividualProgression->disableDefaultProgression)
+                {
+                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_NAXX40);
+                    //sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
+                    sIndividualProgression->UpdateProgressionQuests(player);
+                }
                 break;
             case QUEST_MORROWGRAIN:
             case QUEST_TROLL_NECKLACE:
@@ -755,6 +671,25 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_TERRACE_OF_LIGHT:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_FOREST_SONG:
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;
@@ -784,6 +719,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE_II, false);
                 }
                 break;
@@ -806,6 +742,7 @@ public:
                 {
                     player->RemoveAura(IPP_PHASE);
                     player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE, false);
                 }
                 break;

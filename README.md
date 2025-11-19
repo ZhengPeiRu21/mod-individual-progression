@@ -44,7 +44,8 @@ This is handled by the client, so I have created an addon that will restore this
 Special thanks to all contributors of the following projects who made this module possible:
 * AzerothCore and TrinityCore, along with ancestors Mangos, etc.
 * AzerothCore Progression Module for Vanilla content and scripts
-* AzerothCore War Effort Module
+* AzerothCore mod-war-effort
+* AzerothCore mod-pvp-titles
 * Wrath of the Vanilla Module for more Vanilla world adjustments
 * Vmangos for Vanilla game and patch progression data
 * Sogladev for many Naxx 40 scripts and data

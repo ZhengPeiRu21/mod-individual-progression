@@ -115,7 +115,7 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            if (player->IsGameMaster())
             {
                 return true;
             }
@@ -360,7 +360,6 @@ public:
     }
 };
 
-
 class gobject_ipp_wotlk : public GameObjectScript
 {
 public:
@@ -488,6 +487,78 @@ public:
     GameObjectAI* GetAI(GameObject* object) const override
     {
         return new gobject_ipp_wotlk_rubysanctumAI(object);
+    }
+};
+
+class gobject_ipp_pvp_closed : public GameObjectScript
+{
+public:
+    gobject_ipp_pvp_closed() : GameObjectScript("gobject_ipp_pvp_closed") { }
+
+    struct gobject_ipp_pvp_closedAI: GameObjectAI
+    {
+        explicit gobject_ipp_pvp_closedAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            uint32 PVP_RANK5_QUEST = 66105;
+            
+            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target))
+            {
+                return false;
+            }
+            
+            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_pvp_closedAI(object);
+    }
+};
+
+class gobject_ipp_pvp_open : public GameObjectScript
+{
+public:
+    gobject_ipp_pvp_open() : GameObjectScript("gobject_ipp_pvp_open") { }
+
+    struct gobject_ipp_pvp_openAI: GameObjectAI
+    {
+        explicit gobject_ipp_pvp_openAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            uint32 PVP_RANK5_QUEST = 66105;
+            
+            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target))
+            {
+                return true;
+            }
+            
+            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ipp_pvp_openAI(object);
     }
 };
 
@@ -1526,6 +1597,8 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_wotlk_totc();
     new gobject_ipp_wotlk_icc();
     new gobject_ipp_wotlk_rubysanctum();
+    new gobject_ipp_pvp_closed();     // pvp officer doors
+    new gobject_ipp_pvp_open();       // pvp officer doors
     new npc_ipp_bwl();
     new npc_ipp_pvp_vendor_pre_tbc(); // Vanilla pvp vendors only visible after Onyxia and before TBC 
     new npc_ipp_preaq();              // Cenarion Hold NPCs

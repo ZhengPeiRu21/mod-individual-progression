@@ -124,24 +124,30 @@ UPDATE `creature_template` SET `scale`=0.7, `npcflag`=2, `faction`=29, `gossip_m
 SET @Stonehide  := 112793; -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
 SET @Zarg       := 112794; -- Stone Guard Zarg <Food and Drink>, Vanilla
 SET @Hola       := 112795; -- First Sergeant Hola'mahi, Vanilla
+SET @Bork       := 112796; -- Raider Bork <Mount Quartermaster>, Vanilla
 SET @TH_Classic := 26396;  -- Sergeant Thunderhorn, Vanilla
 SET @TH_TBC     := 14581;  -- Sergeant Thunderhorn, TBC
 SET @LP_Classic := 12792;  -- Lady Palanseer <Armor Quartermaster>, Vanilla
 SET @LP_TBC     := 26397;  -- Lady Palanseer <Armor Quartermaster>, TBC
 
 
-DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
+DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
 `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
 `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
 `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
 
-(@Stonehide, 0, 0, 0, 0, 0, 'Brave Stonehide', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 125, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.9, 2000, 2000, 1, 1, 1, 256, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, '', 12340),
-(@Zarg, 0, 0, 0, 0, 0, 'Stone Guard Zarg', 'Food and Drink', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 1606, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, '', 12340),
-(@Hola, 0, 0, 0, 0, 0, 'First Sergeant Hola''mahi', 'Reagent Vendor', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.2, 2000, 1551, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, '', 12340);
+(@Stonehide,0,0,0,0,0,'Brave Stonehide','Officer Accessories Quartermaster',NULL,0,55,55,0,125,128,1,1.14286,1,1,18,1,0,0,2.9,2000,2000,1,1,1,256,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pvp_vendor_pre_tbc',12340),
+(@Zarg,0,0,0,0,0,'Stone Guard Zarg','Food and Drink',NULL,0,55,55,0,125,130,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pvp_vendor_pre_tbc',12340),
+(@Hola,0,0,0,0,0,'First Sergeant Hola\'mahi','Reagent Vendor',NULL,0,55,55,0,125,130,1,1.14286,1,1,18,1,0,0,1.2,2000,1551,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',1,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pvp_vendor_pre_tbc',12340),
+(@Bork,0,0,0,0,0,'Raider Bork','Mount Quartermaster',NULL,0,55,55,0,1074,128,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pvp_vendor_pre_tbc',0);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Bork);
+INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
+(@Bork, 0, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 --
 (@Stonehide, 'deDE', 'Kriegerheldin Steinfell', 'Rüstmeisterin für Zubehör', 18019),
@@ -169,20 +175,31 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Hola, 'koKR', '선임하사 홀라마히', '마법 재료 상인', 18019),
 (@Hola, 'ruRU', 'Первый сержант Хола''махи', 'Реагенты', 18019),
 (@Hola, 'zhCN', '一等军士长霍拉麦', '材料商', 18019),
-(@Hola, 'zhTW', '一等士官霍拉麥', '施法材料', 18019);
+(@Hola, 'zhTW', '一等士官霍拉麥', '施法材料', 18019),
+--
+(@Bork, 'deDE', 'Räuber Bork', 'Rüstmeister für Kriegsreittiere', 18019),
+(@Bork, 'esES', 'Asaltante Bork', 'Intendente de monturas de guerra', 18019),
+(@Bork, 'esMX', 'Asaltante Bork', 'Intendente de monturas de guerra', 18019),
+(@Bork, 'frFR', 'Ecumeur Bork', 'Intendant des montures de guerre', 18019),
+(@Bork, 'koKR', '공격대원 보르크', '전투 탈것 병참장교', 18019),
+(@Bork, 'ruRU', 'Налетчик Борк', 'Начальник снабжения верховыми животными', 18019),
+(@Bork, 'zhCN', '狼骑兵波尔克', '战争坐骑军需官', 18019),
+(@Bork, 'zhTW', '狼騎兵波爾克', '戰爭坐騎軍需官', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Stonehide, @Zarg, @Hola);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Stonehide, @Zarg, @Hola, @Bork);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
-(@Stonehide, 0, 12675, 1, 1, 12340),
-(@Zarg, 0, 12676, 1, 1, 12340),
-(@Hola, 0, 12677, 1, 1, 12340);
+(@Stonehide, 0, 12675, 1, 1, 0),
+(@Zarg, 0, 12676, 1, 1, 0),
+(@Hola, 0, 12677, 1, 1, 0),
+(@Bork, 0, 12678, 1, 1, 0);
 
 UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster' WHERE `entry` = 12793;
 UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12794;
 UPDATE `creature_template` SET `subname` = 'Armor Quartermaster'  WHERE `entry` = 12795;
 UPDATE `creature_template` SET `subname` = 'Mount Quartermaster' WHERE `entry` = 12796;
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12788, 12793, 12794, 12795, 19850, 20278, 23396, 23447, @TH_TBC, @LP_TBC);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pvp_vendor_pre_tbc' WHERE `entry` IN (12799, @TH_Classic, @LP_Classic);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12788, 12793, 12794, 12795, 12796, 19850, 20278, 23396, 23447, @TH_TBC, @LP_TBC);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
@@ -200,7 +217,8 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `positio
 (125695, 12795, 1, 1, 1, 1673.9, -4216, 56.3826, 2.93578, 180),           -- First Sergeant Hola'mahi <Armor Quartermaster>, TBC
 (626396, @TH_Classic, 1, 1, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180), -- Sergeant Thunderhorn <Weapons Quartermaster>, Vanilla
 (614581, @TH_TBC, 1, 1, 1, 1669.09, -4196.78, 56.4831, 4.10416, 180),     -- Sergeant Thunderhorn <Weapons Quartermaster>, TBC
-(612796, 12796, 1, 1, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),       -- Raider Bork <Mount Quartermaster>
+(125694, 12796, 1, 1, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),       -- Raider Bork <Mount Quartermaster>, TBC
+(612796, @Bork, 1, 1, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),       -- Raider Bork <Mount Quartermaster>, Vanilla
 (623447, 23447, 1, 1, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180),       -- Sergeant Kien <Armor Quartermaster>, TBC
 (620278, 20278, 1, 1, 1, 1654.25, -4189.82, 56.3825, 4.71787, 180),       -- Vixton Pinchwhistle <Arena Vendor>, TBC
 (623396, 23396, 1, 1, 1, 1660.37, -4190.74, 56.3817, 4.54116, 180);       -- Krixel Pinchwhistle <Arena Vendor>, TBC
@@ -270,6 +288,10 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 DELETE FROM `npc_vendor` WHERE `entry`= 12796;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (12796, 18245, 423), (12796, 18246, 423), (12796, 18247, 423), (12796, 18248, 423), (12796, 34129, 423);
+
+DELETE FROM `npc_vendor` WHERE `entry`= @Bork;
+INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+(@Bork, 18245, 423), (@Bork, 18246, 423), (@Bork, 18247, 423), (@Bork, 18248, 423);
 
 -- Vixton Pinchwhistle <Arena Vendor> - TBC
 DELETE FROM `npc_vendor` WHERE `entry` = 20278;
@@ -351,6 +373,16 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 -- Lady Palanseer <Armor Quartermaster> - vanilla
 DELETE FROM `npc_vendor` WHERE `entry`= @LP_Classic;
 INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
+-- boot 427, gloves 428, helm 444, pants 653, chest 652, shoulders 427
+(@LP_Classic, 16485, 427), (@LP_Classic, 16487, 428), (@LP_Classic, 16489, 444), (@LP_Classic, 16490, 653), (@LP_Classic, 16491, 652), (@LP_Classic, 16492, 427), -- mages, pre naxx
+(@LP_Classic, 16494, 427), (@LP_Classic, 16496, 428), (@LP_Classic, 16501, 427), (@LP_Classic, 16502, 653), (@LP_Classic, 16503, 444), (@LP_Classic, 16504, 652), -- druid, pre naxx
+(@LP_Classic, 16498, 427), (@LP_Classic, 16499, 428), (@LP_Classic, 16505, 652), (@LP_Classic, 16506, 444), (@LP_Classic, 16507, 427), (@LP_Classic, 16508, 653), -- rogue, pre naxx
+(@LP_Classic, 16509, 427), (@LP_Classic, 16510, 428), (@LP_Classic, 16513, 652), (@LP_Classic, 16514, 444), (@LP_Classic, 16515, 653), (@LP_Classic, 16516, 427), -- warrior, pre naxx
+(@LP_Classic, 16518, 427), (@LP_Classic, 16519, 428), (@LP_Classic, 16521, 444), (@LP_Classic, 16522, 652), (@LP_Classic, 16523, 653), (@LP_Classic, 16524, 427), -- shaman, pre naxx
+(@LP_Classic, 16525, 652), (@LP_Classic, 16526, 444), (@LP_Classic, 16527, 653), (@LP_Classic, 16528, 427), (@LP_Classic, 16530, 428), (@LP_Classic, 16531, 427), -- hunter, pre naxx
+(@LP_Classic, 17570, 444), (@LP_Classic, 17571, 653), (@LP_Classic, 17572, 652), (@LP_Classic, 17573, 427), (@LP_Classic, 17576, 427), (@LP_Classic, 17577, 428), -- warlock, pre naxx
+(@LP_Classic, 17610, 444), (@LP_Classic, 17611, 653), (@LP_Classic, 17612, 652), (@LP_Classic, 17613, 427), (@LP_Classic, 17616, 427), (@LP_Classic, 17617, 428), -- priest, pre naxx
+--
 (@LP_Classic, 16533, 464), (@LP_Classic, 16534, 542), (@LP_Classic, 16535, 463), (@LP_Classic, 16536, 465), (@LP_Classic, 16539, 465), (@LP_Classic, 16540, 541), (@LP_Classic, 16541, 463), 
 (@LP_Classic, 16542, 464), (@LP_Classic, 16543, 542), (@LP_Classic, 16544, 465), (@LP_Classic, 16545, 465), (@LP_Classic, 16548, 541), (@LP_Classic, 16549, 463), (@LP_Classic, 16550, 464), 
 (@LP_Classic, 16551, 465), (@LP_Classic, 16552, 542), (@LP_Classic, 16554, 465), (@LP_Classic, 16555, 541), (@LP_Classic, 16558, 465), (@LP_Classic, 16560, 541), (@LP_Classic, 16561, 464), 
@@ -386,51 +418,110 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`, `ExtendedCost
 (@LP_TBC, 31637, 0, 0, 2263), (@LP_TBC, 31638, 0, 0, 2265), (@LP_TBC, 31639, 0, 0, 2267), (@LP_TBC, 31646, 0, 0, 2259), (@LP_TBC, 31647, 0, 0, 2261), (@LP_TBC, 31648, 0, 0, 2263),
 (@LP_TBC, 31649, 0, 0, 2265), (@LP_TBC, 31650, 0, 0, 2267);
 
--- Vanilla PvP Mount Vendor - Raider Bork, <Mount Quartermaster>
-DELETE FROM `creature_template` WHERE `entry` = 112796;
-INSERT INTO `creature_template` (`entry`,`difficulty_entry_1`,`difficulty_entry_2`,`difficulty_entry_3`,`KillCredit1`,`KillCredit2`,`name`,`subname`,`IconName`,`gossip_menu_id`,`minlevel`,`maxlevel`,
-`exp`,`faction`,`npcflag`,`speed_walk`,`speed_run`,`speed_swim`,`speed_flight`,`detection_range`,`scale`,`rank`,`dmgschool`,`DamageModifier`,`BaseAttackTime`,`RangeAttackTime`,
-`BaseVariance`,`RangeVariance`,`unit_class`,`unit_flags`,`unit_flags2`,`dynamicflags`,`family`,`trainer_type`,`trainer_spell`,`trainer_class`,`trainer_race`,`type`,`type_flags`,
-`lootid`,`pickpocketloot`,`skinloot`,`PetSpellDataId`,`VehicleId`,`mingold`,`maxgold`,`AIName`,`MovementType`,`HoverHeight`,`HealthModifier`,`ManaModifier`,`ArmorModifier`,`ExperienceModifier`,
-`RacialLeader`,`movementId`,`RegenHealth`,`mechanic_immune_mask`,`spell_school_immune_mask`,`flags_extra`,`ScriptName`,`VerifiedBuild`) VALUES
-(112796,0,0,0,0,0,'Raider Bork','Mount Quartermaster',NULL,0,55,55,0,1074,128,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pvp_vendor_pre_tbc',0);
-
-DELETE FROM `creature_template_addon` WHERE `entry` = 112796;
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
-(112796, 0, 0, 0, 0, 0, 0, NULL);
-
-DELETE FROM `creature_template_model` WHERE `CreatureID` = 112796;
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
-(112796, 0, 12678, 1, 1, 0);
-
-DELETE FROM `npc_vendor` WHERE `entry`= 112796;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(112796, 18245, 423), (112796, 18246, 423), (112796, 18247, 423), (112796, 18248, 423);
-
-DELETE FROM `creature_template_locale` WHERE `entry` = 112796;
-INSERT INTO `creature_template_locale` (`entry`,`locale`,`Name`,`Title`,`VerifiedBuild`) VALUES
-(112796,'deDE','Räuber Bork','Rüstmeister für Kriegsreittiere',0),
-(112796,'esES','Asaltante Bork','Intendente de monturas de guerra',0),
-(112796,'esMX','Asaltante Bork','Intendente de monturas de guerra',0),
-(112796,'frFR','Ecumeur Bork','Intendant des montures de guerre',0),
-(112796,'koKR','공격대원 보르크','전투 탈것 병참장교',0),
-(112796,'ruRU','Налетчик Борк','Начальник снабжения верховыми животными',0),
-(112796,'zhCN','狼骑兵波尔克','战争坐骑军需官',0),
-(112796,'zhTW','狼騎兵波爾克','戰爭坐騎軍需官',0);
-
-DELETE FROM `creature` WHERE `guid` = 912796;
-INSERT INTO `creature` (`guid`,`id1`,`id2`,`id3`,`map`,`zoneId`,`areaId`,`spawnMask`,`phaseMask`,`equipment_id`,`position_x`,`position_y`,`position_z`,`orientation`,`spawntimesecs`,`wander_distance`,`currentwaypoint`,`curhealth`,`curmana`,`MovementType`,`npcflag`,`unit_flags`,`dynamicflags`,`ScriptName`,`VerifiedBuild`,`CreateObject`,`Comment`) VALUES
-(912796,112796,0,0,1,0,0,1,1,0,1674.43,-4212.55,56.3829,3.00254,180,0,0,1,0,0,0,0,0,'',NULL,0,NULL);
-
--- Block access to Vanilla PvP vendors until BWL (Orgrimmar)
-UPDATE `creature_template` SET `ScriptName` = "npc_ipp_tbc" WHERE `entry` IN (12796); -- TBC Raider Bork <Mount Quartermaster>
-UPDATE `creature_template` SET `ScriptName` = "npc_ipp_pvp_vendor_pre_tbc" WHERE `entry` IN (12799,@TH_Classic,@LP_Classic,@Stonehide,@Zarg,@Hola,112796); -- Vanilla Sergeant Ba'sha + Sergeant Thunderhorn + Lady Palanseer + Brave Stonehide + Stone Guard Zarg + First Sergeant Hola'mahi + Raider Bork
 
 /* Hide certain vendor items until the player has reached the progression tier for them */
-DELETE FROM `conditions` WHERE `SourceGroup` IN (12796, @LP_Classic, @LP_TBC, @TH_Classic, @TH_TBC);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (12796, @LP_Classic, @LP_TBC, @TH_Classic, @TH_TBC);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
--- 
+--
+(23, @LP_Classic, 16485, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Silk Footwraps if the player has NOT completed PROGRESSION_AQ'), -- mage
+(23, @LP_Classic, 16487, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Silk Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16489, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Silk Hood if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16490, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Silk Pants if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16491, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Silk Robes if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16492, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Silk Shoulderpads if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16494, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dragonhide Boots if the player has NOT completed PROGRESSION_AQ'), -- druid
+(23, @LP_Classic, 16496, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dragonhide Gauntlets if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16501, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dragonhide Spaulders if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16502, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dragonhide Trousers if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16503, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dragonhide Helm if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16504, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dragonhide Helm if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16498, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Leather Treads if the player has NOT completed PROGRESSION_AQ'), -- rogue
+(23, @LP_Classic, 16499, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Leather Vices if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16505, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Leather Hauberk if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16506, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Leather Headguard if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16507, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Leather Mantle if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16508, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Leather Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16509, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Plate Boots if the player has NOT completed PROGRESSION_AQ'), -- warrior
+(23, @LP_Classic, 16510, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Plate Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16513, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Plate Armor if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16514, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Plate Headguard if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16515, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Plate Legguards if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16516, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Plate Pauldrons if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16518, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Mail Walkers if the player has NOT completed PROGRESSION_AQ'), -- shaman
+(23, @LP_Classic, 16519, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Mail Grips if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16521, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Mail Helm if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16522, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Mail Chestpiece if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16523, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Mail Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16524, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Mail Shoulders if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16525, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Chain Breastplate if the player has NOT completed PROGRESSION_AQ'), -- hunter
+(23, @LP_Classic, 16526, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Chain Headguard if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16527, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Chain Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16528, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Chain Pauldrons if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16530, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Chain Gauntlets if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 16531, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Chain Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17570, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dreadweave Hood if the player has NOT completed PROGRESSION_AQ'), -- warlock
+(23, @LP_Classic, 17571, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dreadweave Leggings if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17572, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dreadweave Robe if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17573, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Dreadweave Shoulders if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17576, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dreadweave Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17577, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dreadweave Gloves if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17610, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Satin Cowl if the player has NOT completed PROGRESSION_AQ'), -- priest
+(23, @LP_Classic, 17611, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Satin Trousers if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17612, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Satin Vestments if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17613, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Champions Satin Shoulderpads if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17616, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Satin Boots if the player has NOT completed PROGRESSION_AQ'),
+(23, @LP_Classic, 17617, 0, 0, 8, 0, 66006, 0, 0, 1, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Satin Gloves if the player has NOT completed PROGRESSION_AQ'),
+--
+(23, @LP_Classic, 22860, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Silk Walkers if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22870, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Silk Handwraps if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22883, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Silk Legguards if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22886, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Silk Tunic if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23263, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Silk Cowl if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23264, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Silk Mantle if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22843, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Chain Greaves if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22862, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Chain Vices if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22874, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Chain Hauberk if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22875, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Chain Legguards if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23251, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Chain Helm if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23252, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Chain Shoulders if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22852, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dragonhide Treads if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22863, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dragonhide Grips if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22877, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dragonhide Chestpiece if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22878, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dragonhide Leggings if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23253, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Dragonhide Headguard if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23254, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Dragonhide Shoulders if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22855, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dreadweave Walkers if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22865, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Dreadweave Handwraps if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22881, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dreadweave Legguards if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22884, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Dreadweave Tunic if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23255, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Dreadweave Cowl if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23256, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Dreadweave Spaulders if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22856, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Leather Walkers if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22864, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Leather Grips if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22879, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Leather Chestpiece if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22880, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Leather Legguards if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23257, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Leather Helm if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23258, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Leather Shoulders if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22857, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Mail Greaves if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22867, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Mail Vices if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22876, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Mail Hauberk if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22887, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Mail Legguards if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23259, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Mail Headguard if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23260, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Mail Pauldrons if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22858, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Plate Greaves if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22868, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Plate Gauntlets if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22872, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Plate Hauberk if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22873, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Plate Leggings if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23243, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Plate Shoulders if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23244, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Plate Helm if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22859, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Satin Walkers if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22869, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Blood Guards Satin Handwraps if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22882, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Satin Legguards if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 22885, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Legionnaires Satin Tunic if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23261, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Satin Hood if the player has completed PROGRESSION_AQ'),
+(23, @LP_Classic, 23262, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Lady Palanseer will only sell Champions Satin Mantle if the player has completed PROGRESSION_AQ'),
+--
 (23, @LP_Classic, 16533, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Cowl until the player has completed PROGRESSION_ONYXIA'),
 (23, @LP_Classic, 16534, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Generals Silk Trousers until the player has completed PROGRESSION_ONYXIA'),
 (23, @LP_Classic, 16535, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Lady Palanseer will not sell Warlords Silk Raiment until the player has completed PROGRESSION_ONYXIA'),
@@ -517,7 +608,6 @@ DELETE FROM `creature` WHERE `id1` IN
  34043,  -- Lady Palanseer <Armor Quartermaster>
  34060,  -- Doris Volanthius <Veteran Armor Quartermaster>
  34063); -- Blood Guard Zar'shi <Northrend Armor Quartermaster>
-
 
 /* NPC Garyl - Remove non-Vanilla Tabards */
 DELETE FROM `npc_vendor` WHERE `entry`= 5188 AND `item` IN (15197, 15199, 19031, 19505, 24004, 31773, 31775, 31776, 31777, 31778, 31779, 31780, 31781, 31804, 32445, 32828, 35221);

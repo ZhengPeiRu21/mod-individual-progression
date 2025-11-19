@@ -68,8 +68,16 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN 
 -- Phasing TBC vendors and trainers - Copies are added to replace them until TBC T4.
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (18754, 18771, 19187, 21087);
 
--- Phasing for General Tiras'alan and Dathris Sunstriker - prevent early access to Isle of Quel'Danas
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (25167, 18594);
+-- TBC, phasing Shattered Sun offensive NPCs in Shattrath
+UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (17076, 19475, 24932, 24938, 25115, 25134, 25135, 25136, 25137, 25138, 25141, 25142, 25143, 25153, 25155);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `entry` IN (18594, 25167, 27666, 27667); 
+
+-- TBC, Terrace of Light, phasing T5 game objects
+UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entry` IN 
+(187056,  -- Shattrath portal to Isle of Quel'Danas
+ 187345,  -- Sunwell Plateau model
+ 187356,  -- Shattered Sun Banner
+ 187357); -- Shattered Sun Banner
 
 -- Dragons of Nightmare
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (14887, 14888, 14889, 14890);

@@ -47,7 +47,7 @@ enum ProgressionBossIDs
     LICH_KING            = 36597,
     HALION               = 39863, 
     RHAHK_ZOR            = 644,
-	SNEED                = 643,
+    SNEED                = 643,
     GILNID               = 1763
 };
 
@@ -71,31 +71,46 @@ enum ProgressionQuestIDs
     QUEST_WINTERFALL          = 6241,
     QUEST_THE_ANCIENT_LEAF    = 7632,
     MIGHT_OF_KALIMDOR         = 8742,
+    BANG_A_GONG               = 8743,
     INTO_THE_BREACH           = 10259,
-    BANG_A_GONG               = 108743,
+    SIMPLY_BANG_A_GONG        = 108743,
     CHAOS_AND_DESTRUCTION     = 108744
 };
 
-enum ProgressionQuests
+enum WarEffortQuestIDs
 {
-    PROGRESSION_FLAG_MC       = 66001,
-    PROGRESSION_FLAG_ONYXIA   = 66002,
-    PROGRESSION_FLAG_BWL      = 66003,
-    PROGRESSION_FLAG_PRE_AQ   = 66004,
-    PROGRESSION_FLAG_AQ_WAR   = 66005,
-    PROGRESSION_FLAG_AQ       = 66006,
-    PROGRESSION_FLAG_NAXX40   = 66007,
-    PROGRESSION_FLAG_PRE_TBC  = 66008,
-    PROGRESSION_FLAG_TBC_T1   = 66009,
-    PROGRESSION_FLAG_TBC_T2   = 66010,
-    PROGRESSION_FLAG_TBC_T3   = 66011,
-    PROGRESSION_FLAG_TBC_T4   = 66012,
-    PROGRESSION_FLAG_TBC_T5   = 66013,
-    PROGRESSION_FLAG_WOTLK_T1 = 66014,
-    PROGRESSION_FLAG_WOTLK_T2 = 66015,
-    PROGRESSION_FLAG_WOTLK_T3 = 66016,
-    PROGRESSION_FLAG_WOTLK_T4 = 66017,
-    PROGRESSION_FLAG_WOTLK_T5 = 66018
+    // alliance
+    QUEST_COPPER_BARS_A           = 8492,
+    QUEST_IRON_BARS               = 8494,
+    QUEST_THORIUM_BARS            = 8499,
+    QUEST_STRANGLEKELP            = 8503,
+    QUEST_PURPLE_LOTUS_A          = 8505,
+    QUEST_ARTHAS_TEARS            = 8509,
+    QUEST_LIGHT_LEATHER           = 8511,
+    QUEST_MEDIUM_LEATHER          = 8513,
+    QUEST_THICK_LEATHER_A         = 8515,
+    QUEST_LINEN_BANDAGES          = 8517,
+    QUEST_SILK_BANDAGES           = 8520,
+    QUEST_RUNECLOTH_BANDAGES_A    = 8522,
+    QUEST_RAINBOW_FIN             = 8524,
+    QUEST_ROAST_RAPTOR            = 8526,
+    QUEST_SPOTTED_YELLOWTAIL_A    = 8528,
+    // horde
+    QUEST_COPPER_BARS_H           = 8532,
+    QUEST_TIN_BARS                = 8542,
+    QUEST_MITHRIL_BARS            = 8545,
+	QUEST_PEACEBLOOM              = 8549,
+    QUEST_FIREBLOOM               = 8580,
+    QUEST_PURPLE_LOTUS_H          = 8582,
+    QUEST_HEAVY_LEATHER           = 8588,
+    QUEST_THICK_LEATHER_H         = 8590,
+    QUEST_RUGGED_LEATHER          = 8600,
+    QUEST_WOOL_BANDAGES           = 8604,
+    QUEST_MAGEWEAVE_BANDAGES      = 8607,
+    QUEST_RUNECLOTH_BANDAGES_H    = 8609,
+    QUEST_LEAN_WOLF_STEAK         = 8611,
+    QUEST_SPOTTED_YELLOWTAIL_H    = 8613,
+    QUEST_BAKED_SALMON            = 8615
 };
 
 enum ProgressionAchievements
@@ -162,6 +177,7 @@ enum ProgressionAreas
     AREA_ICE_THISTLE_HILLS               = 2247,
     AREA_THE_MARRIS_STEAD                = 2260,
     AREA_LIGHTS_HOPE                     = 2268,
+    AREA_FOREST_SONG                     = 2358,
     AREA_DRACO_DAR                       = 2421,
     AREA_RISE_OF_THE_DEFILER             = 2517,
     AREA_PESTILENT_SCAR                  = 2622,
@@ -170,6 +186,7 @@ enum ProgressionAreas
     AREA_HIVE_REGAL                      = 2744,
     AREA_HATCHET_HILLS                   = 3507,
     AREA_AMANI_PASS                      = 3508,
+    AREA_TERRACE_OF_LIGHT                = 3897,
     AREA_SILVERMOON_S_PRIDE              = 4083,
     AREA_SHATTERED_SUN_STAGING           = 4085,
     AREA_SUN_S_REACH_SANCTUM             = 4086,
@@ -226,18 +243,23 @@ enum RandomDungeonIds : uint16
     RDF_WRATH_OF_THE_LICH_KING_HEROIC = 262
 };
 
-struct IpPvPTitles
+struct IppPvPTitles
 {
     uint32 RequiredKills;
     uint32 TitleId;
 };
 
-struct IpPvPTitleData
+struct IppPvPTitleData
 {
     uint32 TitleId[2];
 };
 
-enum IpRanks
+struct PvPTitleData
+{
+    uint32 TitleId[2];
+};
+
+enum IppRanks
 {                             //    A                           H
     RANK_ONE            = 0,  // Private                 &    Scout
     RANK_TWO            = 1,  // Corporal                &    Grunt
@@ -255,7 +277,42 @@ enum IpRanks
     RANK_FOURTEEN       = 13  // Grand Marshal           &    High Warlord
 };
 
-enum IpTitles
+enum PvPAchievements
+{
+    // Alliance
+    ACHIEVEMENT_PRIVATE                  = 442,
+    ACHIEVEMENT_CORPORAL                 = 470,
+    ACHIEVEMENT_SERGEANT                 = 471,
+    ACHIEVEMENT_MASTER_SERGEANT          = 441,
+    ACHIEVEMENT_SERGEANT_MAJOR           = 440,
+    ACHIEVEMENT_KNIGHT                   = 439,
+    ACHIEVEMENT_KNIGHT_LIEUTENANT        = 472,
+    ACHIEVEMENT_KNIGHT_CAPTAIN           = 438,
+    ACHIEVEMENT_KNIGHT_CHAMPION          = 437,
+    ACHIEVEMENT_LIEUTENANT_COMMANDER     = 436,
+    ACHIEVEMENT_COMMANDER                = 435,
+    ACHIEVEMENT_MARSHAL                  = 473,
+    ACHIEVEMENT_FIELD_MARSHAL            = 434,
+    ACHIEVEMENT_GRAND_MARSHAL            = 433,
+
+    // Horde
+    ACHIEVEMENT_SCOUT                    = 454,
+    ACHIEVEMENT_GRUNT                    = 468,
+    ACHIEVEMENT_SERGEANT_H               = 453,
+    ACHIEVEMENT_SENIOR_SERGEANT          = 450,
+    ACHIEVEMENT_FIRST_SERGEANT           = 452,
+    ACHIEVEMENT_STONE_GUARD              = 451,
+    ACHIEVEMENT_BLOOD_GUARD              = 449,
+    ACHIEVEMENT_LEGIONNAIRE              = 469,
+    ACHIEVEMENT_CENTURION                = 448,
+    ACHIEVEMENT_CHAMPION                 = 447,
+    ACHIEVEMENT_LIEUTENANT_GENERAL       = 444,
+    ACHIEVEMENT_GENERAL                  = 446,
+    ACHIEVEMENT_WARLORD                  = 445,
+    ACHIEVEMENT_HIGH_WARLORD             = 443
+};
+
+enum IppTitles
 {
     // Alliance
     PRIVATE                  = 1,
@@ -290,7 +347,7 @@ enum IpTitles
     HIGH_WARLORD             = 28
 };
 
-IpPvPTitleData const TitleData[14] =
+IppPvPTitleData const TitleData[14] =
 {
     { PRIVATE,              SCOUT              },
     { CORPORAL,             GRUNT              },
@@ -308,6 +365,24 @@ IpPvPTitleData const TitleData[14] =
     { GRAND_MARSHAL,        HIGH_WARLORD       }
 };
 
+PvPTitleData const AchievementData[14] =
+{
+    { ACHIEVEMENT_PRIVATE,              ACHIEVEMENT_SCOUT              },
+    { ACHIEVEMENT_CORPORAL,             ACHIEVEMENT_GRUNT              },
+    { ACHIEVEMENT_SERGEANT,             ACHIEVEMENT_SERGEANT_H         },
+    { ACHIEVEMENT_MASTER_SERGEANT,      ACHIEVEMENT_SENIOR_SERGEANT    },
+    { ACHIEVEMENT_SERGEANT_MAJOR,       ACHIEVEMENT_FIRST_SERGEANT     },
+    { ACHIEVEMENT_KNIGHT,               ACHIEVEMENT_STONE_GUARD        },
+    { ACHIEVEMENT_KNIGHT_LIEUTENANT,    ACHIEVEMENT_BLOOD_GUARD        },
+    { ACHIEVEMENT_KNIGHT_CAPTAIN,       ACHIEVEMENT_LEGIONNAIRE        },
+    { ACHIEVEMENT_KNIGHT_CHAMPION,      ACHIEVEMENT_CENTURION          },
+    { ACHIEVEMENT_LIEUTENANT_COMMANDER, ACHIEVEMENT_CHAMPION           },
+    { ACHIEVEMENT_COMMANDER,            ACHIEVEMENT_LIEUTENANT_GENERAL },
+    { ACHIEVEMENT_MARSHAL,              ACHIEVEMENT_GENERAL            },
+    { ACHIEVEMENT_FIELD_MARSHAL,        ACHIEVEMENT_WARLORD            },
+    { ACHIEVEMENT_GRAND_MARSHAL,        ACHIEVEMENT_HIGH_WARLORD       }
+};
+
 class IndividualProgression
 {
 public:
@@ -316,7 +391,7 @@ public:
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment, previousGearTuning;
-    bool enabled, questXpFix, hunterPetLevelFix, moltenCoreOnySamePhase, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, naxxExitViaPortals, naxxSkipToSaphiron, disableRdf, excludeAccounts, VanillaPvpTitlesKeepPostVanilla;
+    bool enabled, questXpFix, hunterPetLevelFix, moltenCoreOnySamePhase, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, naxxExitViaPortals, naxxSkipToSaphiron, disableRdf, excludeAccounts, VanillaPvpTitlesKeepPostVanilla, VanillaPvpTitlesEarnPostVanilla;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression;
     uint32 VanillaPvpKillRank1, VanillaPvpKillRank2, VanillaPvpKillRank3, VanillaPvpKillRank4, VanillaPvpKillRank5, VanillaPvpKillRank6, VanillaPvpKillRank7, VanillaPvpKillRank8, VanillaPvpKillRank9, VanillaPvpKillRank10, VanillaPvpKillRank11, VanillaPvpKillRank12, VanillaPvpKillRank13, VanillaPvpKillRank14;
     std::string excludedAccountsRegex;
@@ -337,9 +412,11 @@ public:
     void UpdateProgressionQuests(Player* player);
     void UpdateProgressionAchievements(Player* player, uint16 achievementID);
     void checkKillProgression(Player* player, Creature* killed);
+    void CleanUpVanillaPvpTitles(Player* player);
+    void AwardEarnedVanillaPvpTitles(Player* player);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
     static void RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId);
-	static void AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment);
+    static void AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment);
     static float ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue);
     static uint8 GetAccountProgression(uint32 accountId);
     bool groupHaveLevelDisparity(Player* player);
