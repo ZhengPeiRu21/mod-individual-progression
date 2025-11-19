@@ -40,42 +40,67 @@ class gobject_dark_keeper_portrait : public GameObjectScript
 public:
     gobject_dark_keeper_portrait() : GameObjectScript("gobject_dark_keeper_portrait") { }
 
+    uint8_t DATA_TYPE_VAULT = 0;
+
     bool OnGossipHello(Player* player, GameObject* go) override
     {
-        InstanceScript* instance = player->GetInstanceScript();
-
-        if (!instance)
-            return true;
-
         switch (urand(0, 5))
         {
             case 0:
-                player->SummonCreature(NPC_DARK_KEEPER_VORFALK, 815.60f, -168.54f, -49.75f, 5.97f, TEMPSUMMON_DEAD_DESPAWN, 0);
-                player->SummonGameObject(GO_VORFALK, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                if (DATA_TYPE_VAULT == 0)
+                {
+                    DATA_TYPE_VAULT = 1;
+                    player->SummonCreature(NPC_DARK_KEEPER_VORFALK, 815.60f, -168.54f, -49.75f, 5.97f, TEMPSUMMON_DEAD_DESPAWN, 0);
+                    player->SummonGameObject(GO_VORFALK, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                }
                 break;
             case 1:
-                player->SummonCreature(NPC_DARK_KEEPER_BETHEK, 846.66f, -317.18f, -50.29f, 3.90f, TEMPSUMMON_DEAD_DESPAWN, 0);
-                player->SummonGameObject(GO_BETHEK, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                if (DATA_TYPE_VAULT == 0)
+                {
+                    DATA_TYPE_VAULT = 1;
+                    player->SummonCreature(NPC_DARK_KEEPER_BETHEK, 846.66f, -317.18f, -50.29f, 3.90f, TEMPSUMMON_DEAD_DESPAWN, 0);
+                    player->SummonGameObject(GO_BETHEK, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                }
                 break;
             case 2:
-                player->SummonCreature(NPC_DARK_KEEPER_UGGEL, 963.27f, -343.73f, -71.74f, 2.22f, TEMPSUMMON_DEAD_DESPAWN, 0);
-                player->SummonGameObject(GO_UGGEL, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                if (DATA_TYPE_VAULT == 0)
+                {
+                    DATA_TYPE_VAULT = 1;
+                    player->SummonCreature(NPC_DARK_KEEPER_UGGEL, 963.27f, -343.73f, -71.74f, 2.22f, TEMPSUMMON_DEAD_DESPAWN, 0);
+                    player->SummonGameObject(GO_UGGEL, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                }
                 break;
             case 3:					
-                player->SummonCreature(NPC_DARK_KEEPER_ZIMREL, 545.49f, -162.49f, -35.46f, 5.86f, TEMPSUMMON_DEAD_DESPAWN, 0);
-                player->SummonGameObject(GO_ZIMREL, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                if (DATA_TYPE_VAULT == 0)
+                {
+                    DATA_TYPE_VAULT = 1;
+                    player->SummonCreature(NPC_DARK_KEEPER_ZIMREL, 545.49f, -162.49f, -35.46f, 5.86f, TEMPSUMMON_DEAD_DESPAWN, 0);
+                    player->SummonGameObject(GO_ZIMREL, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                }
                 break;
             case 4:
-                player->SummonCreature(NPC_DARK_KEEPER_OFGUT, 681.52f, -11.55f, -60.06f, 1.98f, TEMPSUMMON_DEAD_DESPAWN, 0);
-                player->SummonGameObject(GO_OFGUT, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                if (DATA_TYPE_VAULT == 0)
+                {
+                    DATA_TYPE_VAULT = 1;
+                    player->SummonCreature(NPC_DARK_KEEPER_OFGUT, 681.52f, -11.55f, -60.06f, 1.98f, TEMPSUMMON_DEAD_DESPAWN, 0);
+                    player->SummonGameObject(GO_OFGUT, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                }
                 break;
             case 5:
-                player->SummonCreature(NPC_DARK_KEEPER_PELVER, 803.64f, -248.00f, -43.30f, 2.60f, TEMPSUMMON_DEAD_DESPAWN, 0);
-                player->SummonGameObject(GO_PELVER, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                if (DATA_TYPE_VAULT == 0)
+                {
+                    DATA_TYPE_VAULT = 1;
+                    player->SummonCreature(NPC_DARK_KEEPER_PELVER, 803.64f, -248.00f, -43.30f, 2.60f, TEMPSUMMON_DEAD_DESPAWN, 0);
+                    player->SummonGameObject(GO_PELVER, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
+                }
                 break;
         }
         return false;
     }
+
+private:
+	bool _summonedKeeper = false;
+
 };
 
 void AddSC_instance_blackrock_depths_50_59_B()
