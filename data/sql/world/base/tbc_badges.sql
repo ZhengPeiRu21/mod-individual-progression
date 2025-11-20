@@ -62,6 +62,14 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` = 18525;
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_pre_t4', `flags_extra` = 2, `MovementType` = 1, `unit_flags` = 256, `npcflag` = 128, `name` = "G'eras" WHERE `entry` = 30201;
+UPDATE `creature_template_locale` SET `Name` = "G'eras", `VerifiedBuild` = 0 WHERE `entry` = 30201 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Name` = "G'eras", `VerifiedBuild` = 0 WHERE `entry` = 30201 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Name` = "G'eras", `VerifiedBuild` = 0 WHERE `entry` = 30201 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Name` = "G'eras", `VerifiedBuild` = 0 WHERE `entry` = 30201 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Name` = "게라스", `VerifiedBuild` = 0 WHERE `entry` = 30201 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Name` = "Г'ирас", `VerifiedBuild` = 0 WHERE `entry` = 30201 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Name` = "基厄拉斯", `VerifiedBuild` = 0 WHERE `entry` = 30201 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Name` = "吉爾拉斯", `VerifiedBuild` = 0 WHERE `entry` = 30201 AND `locale` = 'zhTW';
 
 DELETE FROM `creature` WHERE `guid`=350994;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES

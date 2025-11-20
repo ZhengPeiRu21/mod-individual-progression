@@ -66,8 +66,7 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t5' WHERE `ScriptName` != 'npc
 25885, -- Whirligig Wafflefry, Shattrath
 26560, -- Ohura, Isle of Quel Danas
 27666, -- Ontuvo, Shattrath
-27667, -- Anwehu, Shattrath
-37527 -- Halduron Brightwing, Isle of Quel Danas
+27667 -- Anwehu, Shattrath
 );
 /* NPCs with special behaviours as @IPPPHASE 65536 */
 UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
@@ -97,4 +96,12 @@ UPDATE `creature` SET `phaseMask` = 65536 WHERE `map` = 530 AND `id1` IN (
 /* Open world Sunwell gobjects, including meeting stone */
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t5' WHERE `map` = 530 AND `id` IN (187056, 187116, 187345, 187356, 187357, 188171, 188172);
 /* Sunwell decorative gobjects in Shattrath */
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t5' WHERE `map` = 530 AND `id` IN (183318, 187057, 187058) AND `guid` IN (24152, 24154, 24155, 47197, 47198, 47199, 47200, 47201, 47202, 47203);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t5' WHERE `map` = 530 AND `id` IN (183318, 183435, 187057, 187058) AND `guid` IN (24152, 24154, 24155, 24341, 47197, 47198, 47199, 47200, 47201, 47202, 47203);
+
+/* 3.0 - Phasing WotLK NPCs in TBC areas */
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `ScriptName` != 'npc_suns_reach_reclamation' AND `map` = 530 AND `id1` IN (
+34999, -- Jonru <Battlemaster>, Shattrath
+35000, -- Mijiri <Battlemaster>, Shattrath
+37523, -- Warden of the Sunwell, Isle of Quel Danas
+37527 -- Halduron Brightwing <Ranger General>, Isle of Quel Danas
+);
