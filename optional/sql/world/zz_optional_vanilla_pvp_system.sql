@@ -944,3 +944,15 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 -- I can't figure out why gate 31660 is not visible in Orgrimmar. something is blocking guid 31660 specifically. until someone figures it out, I created a new door. (631661)
 
 UPDATE `gameobject` SET `state` = 0, `ScriptName` = 'gobject_ipp_pvp_open' WHERE `guid` = 26262;
+
+-- Also update Vanilla ExtendedCost for Warsong/Arathi/Alterac PvP vendors
+UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (
+14753,14754, -- Warsong
+15126,15127, -- Arathi
+13216,13217,13218,13219 -- Alterac
+);
+
+-- Update Alterac mount prices
+UPDATE `item_template` SET `BuyPrice` = 1000000 WHERE `entry` IN (19029,19030);
+-- Update Arathi stuff prices when price is missing
+UPDATE `item_template` SET `BuyPrice` = 13960 WHERE `entry` IN (20126,20129,20207,20210) AND `BuyPrice` = 0;

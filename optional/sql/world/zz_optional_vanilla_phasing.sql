@@ -196,3 +196,15 @@ UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `type`
 
 /* Hide training dummy in Kalimdor/Eastern Kingdom/Outland until WotLK - disabled by default, because most players will expect dummy to be there */
 UPDATE `creature` SET `ScriptName` = 'npc_training_dummy_ipp_wotlk' WHERE `map` IN (0, 1, 530) AND `id1` IN (31144, 31146, 32666, 32667);
+
+/* Vanilla battlemasters phasing in major cities */
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_bwl'
+WHERE `entry` IN (
+3890,14942,15006, -- Orgrimmar
+347,2804,15007, -- Undercity (NPCs are missing ?)
+7427,10360,12198, -- Thunderbluff
+7410,14981,15008, -- Stormwind
+857,12197,14982, -- Ironforge
+907,2302,5118, -- Darnassus
+15350,15351 -- Honor mark exchange
+);

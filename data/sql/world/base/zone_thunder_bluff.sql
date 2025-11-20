@@ -94,3 +94,13 @@ INSERT INTO `item_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Quest
 (11024, 8839,  0, 5, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Blindweed'),
 (11024, 8846,  0, 5, 0, 1, 1, 1, 3,  'Evergreen Herb Casing - Gromsblood'),
 (11024, 11040, 0, 37, 0, 1, 1, 1, 5, 'Evergreen Herb Casing - Morrowgrain');
+
+-- Fix Saern Priderunner loca
+UPDATE `creature_template_locale` SET `Name` = 'Saern Priderunner', `Title` = '' WHERE `entry` = 8664 AND `locale` = 'deDE';
+UPDATE `creature_template_locale` SET `Name` = 'Saern Correorgullo', `Title` = '' WHERE `entry` = 8664 AND `locale` = 'esES';
+UPDATE `creature_template_locale` SET `Name` = 'Saern Correorgullo', `Title` = '' WHERE `entry` = 8664 AND `locale` = 'esMX';
+UPDATE `creature_template_locale` SET `Name` = 'Saern Priderunner', `Title` = '' WHERE `entry` = 8664 AND `locale` = 'frFR';
+UPDATE `creature_template_locale` SET `Name` = '살옌 프라이드러너', `Title` = '' WHERE `entry` = 8664 AND `locale` = 'koKR';
+UPDATE `creature_template_locale` SET `Name` = 'Саерн Гордая Поступь', `Title` = '' WHERE `entry` = 8664 AND `locale` = 'ruRU';
+UPDATE `creature_template_locale` SET `Name` = '赛恩', `Title` = '' WHERE `entry` = 8664 AND `locale` = 'zhCN';
+UPDATE `creature_template_locale` SET `Name` = '賽恩', `Title` = '' WHERE `entry` = 8664 AND `locale` = 'zhTW';

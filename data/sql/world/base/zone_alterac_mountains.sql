@@ -136,6 +136,43 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (601008, 1, ''),
 (601009, 1, '');
 
+-- Add missing loca for alterac insignia quests
+INSERT IGNORE INTO `quest_request_items_locale` VALUES
+(7161, 'frFR', ' ', 0),(7165, 'frFR', ' ', 0),(7167, 'frFR', ' ', 0),(7164, 'frFR', ' ', 0),(7166, 'frFR', ' ', 0),(7163, 'frFR', ' ', 0),
+(7162, 'frFR', ' ', 0),(7170, 'frFR', ' ', 0),(7172, 'frFR', ' ', 0),(7169, 'frFR', ' ', 0),(7171, 'frFR', ' ', 0),(7168, 'frFR', ' ', 0);
+-- Horde
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Allez, on se réveille ! Ce n''est pas un rêve. Vous êtes vraiment au beau milieu d''une bataille !', `VerifiedBuild` = 0 WHERE `ID` = 7161 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Tant de morts. Un champ saturé de sang. Mais vous êtes en vie. Vous avez persévéré. Vous avez mené nos armées à la victoire. Et pour cela, soldat, vous avez mérité de monter en grade. Présentez votre insigne.', `VerifiedBuild` = 0 WHERE `ID` = 7165 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Drek''Thar chante vos louanges. Kalimdor résonne du bruit de vos exploits. Le chef de guerre sourit - votre héroïque défense de notre clan l''a grandement satisfait. Vous avez mérité l''Oeil du Commandement. Présentez votre insigne.', `VerifiedBuild` = 0 WHERE `ID` = 7167 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Vous avez prouvé votre bravoure. Présentez votre insigne.', `VerifiedBuild` = 0 WHERE `ID` = 7164 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Puissance et autorité émanent de vous. Vous êtes exalté aux yeux des Frostwolf - l''ennemi se cache à la seule mention de votre nom. Debout, Héros des Frostwolf. Debout et soyez honoré ! Présentez votre insigne.', `VerifiedBuild` = 0 WHERE `ID` = 7166 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = '<Le Maître de guerre Laggrond vous salue.> Votre heure a sonné. Vous avez rendu service au clan Frostwolf. Ce faisant, vous avez mérité une place parmi nous, non seulement comme soldat, mais aussi comme ami. Bien joué ! Présentez votre insigne d''initié.', `VerifiedBuild` = 0 WHERE `ID` = 7163 and `locale` = 'frFR';
+-- Alliance
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Faites attention aux harpies. Elles n''hésiteront pas une seconde à vous égorger !', `VerifiedBuild` = 0 WHERE `ID` = 7162 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Je m''interroge. Lorsque vous regardez dans les yeux de l''ennemi, y voyez-vous la peur ? Se cachent-ils plutôt que de vous faire face ? Ils doivent bien se rendre compte qu''ils sont vaincus ! Vous avez mérité que la Garde vous traite avec révérence. Présentez votre insigne !', `VerifiedBuild` = 0 WHERE `ID` = 7170 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Laissez-les entendre votre voix, commandant ! Ils connaîtront la peur. Montrez-leur le pouvoir des Stormpike ! Présentez votre insigne.', `VerifiedBuild` = 0 WHERE `ID` = 7172 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Toute la base parle de vos exploits sur le Champ sanglant ! Vous avez porté des coups sévères à l''ennemi - et à son moral ! Pour cela, vous avez mérité de progresser au sein des Stormpike. Présentez votre insigne.', `VerifiedBuild` = 0 WHERE `ID` = 7169 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'Devant moi se tient un héros de l''Alliance. <Le Lieutenant Haggerdin salue.> Rares sont ceux qui ont obtenu un tel grade parmi les Stormpike. J''ai vu l''ennemi tomber devant vous. J''ai vu leur résolution s''effondrer devant votre présence. Lorsque vous entrez dans la mêlée, vous devenez un point de ralliement pour nos forces ! Présentez votre insigne.', `VerifiedBuild` = 0 WHERE `ID` = 7171 and `locale` = 'frFR';
+UPDATE `quest_request_items_locale` SET `CompletionText` = 'La plupart des gens ne vivent pas assez longtemps pour s''élever au-dessus de leur propre médiocrité. Vous avez montré que vous êtes un soldat exemplaire. L''heure est venue. Présentez votre insigne.', `VerifiedBuild` = 0 WHERE `ID` = 7168 and `locale` = 'frFR';
+
+INSERT IGNORE INTO `quest_offer_reward_locale` VALUES
+(7161, 'frFR', ' ', 0),(7165, 'frFR', ' ', 0),(7167, 'frFR', ' ', 0),(7164, 'frFR', ' ', 0),(7166, 'frFR', ' ', 0),(7163, 'frFR', ' ', 0),
+(7162, 'frFR', ' ', 0),(7170, 'frFR', ' ', 0),(7172, 'frFR', ' ', 0),(7169, 'frFR', ' ', 0),(7171, 'frFR', ' ', 0),(7168, 'frFR', ' ', 0);
+-- Horde
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'Vous ressentez comme une brûlure, pas vrai ? C''est votre âme qui s''éveille. Votre esprit a accepté l''appel de la bataille. Vous êtes maintenant un Frostwolf. Félicitations. Portez cet insigne avec vous en toutes circonstances. Au fur et à mesure de votre montée en grade, je le remplacerai par d''autres insignes, plus puissants. Et qui sait ? Un jour peut-être, vous serez Exalté parmi le clan Frostwolf. Si ce jour arrive, vous recevrez l''Oeil du Commandement.', `VerifiedBuild` = 0 WHERE `ID` = 7161 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = '<Le maître de guerre Laggrond rugit.> Ils commencent à raconter vos exploits, soldats. Les Stormpike tremblent de peur lorsqu''ils entendent votre nom. Continuez !', `VerifiedBuild` = 0 WHERE `ID` = 7165 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'Canalisez le pouvoir de l''insigne. Laissez l''ennemi entendre vos paroles. La puissance de la Horde est incontestable !', `VerifiedBuild` = 0 WHERE `ID` = 7167 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'Allez ! Poursuivez la défense des Frostwolf. Cette guerre doit être gagnée ! Pour Drek''Thar ! Pour le Chef de guerre !', `VerifiedBuild` = 0 WHERE `ID` = 7164 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'Bientôt, tout le champ de bataille sera sous vos yeux vigilants. Vous aurez le commandement de la Vallée et de ses troupes.', `VerifiedBuild` = 0 WHERE `ID` = 7166 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'Ce nouvel insigne reflète votre grade parmi les Frostwolf. Gardez-le sur vous en permanence. Tâchez de mourir avec honneur !', `VerifiedBuild` = 0 WHERE `ID` = 7163 and `locale` = 'frFR';
+-- Alliance
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'Prenez cet insigne et portez-le avec fierté. Il évoluera au fur et à mesure de votre montée en grade parmi les Stormpike. Revenez me voir lorsque vous gagnerez de l''honneur et je remplacerai votre insigne par un autre, plus puissant. Peut-être deviendrez-vous un jour une légende sur ce champ de bataille. Si ce jour arrive, vous recevrez l''Oeil du Commandement.', `VerifiedBuild` = 0 WHERE `ID` = 7162 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'A notre première rencontre, je ne me serais jamais douté que vous étiez un héros en herbe. Continuez, soldat !', `VerifiedBuild` = 0 WHERE `ID` = 7170 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'C''est vous qui devez mener nos troupes à la victoire, commandant ! Les soldats sont à vos ordres. Ils vous obéiront. Conduisez-les, et écrasez les Frostwolf !', `VerifiedBuild` = 0 WHERE `ID` = 7172 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'Le roi a été informé de vos exploits sur le champ de bataille. Continuez votre vaillante défense de la Garde Stormpike !', `VerifiedBuild` = 0 WHERE `ID` = 7169 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'C''est sûrement vous qui porterez l''Oeil du Commandement !', `VerifiedBuild` = 0 WHERE `ID` = 7171 and `locale` = 'frFR';
+UPDATE `quest_offer_reward_locale` SET `RewardText` = 'Que nos ennemis voient qu''un soldat d''élite les a tués ! Battez-vous ! Battez-vous pour la gloire des Stormpike !', `VerifiedBuild` = 0 WHERE `ID` = 7168 and `locale` = 'frFR';
+
 -- Garona, Ravenhold - Only visible during the beginning of Vanilla WoW
 DELETE FROM `creature` WHERE `id1` = 6767 and `map` = 0;
 INSERT IGNORE INTO `creature` VALUES (9010596, 6767, 0, 0, 0, 0, 0, 1, 1, 1, -5.20263, -1604.79, 194.987, 5.51874, 300, 0, 0, 4121, 0, 0, 0, 0, 0, 'npc_ipp_pre_naxx40', 0, 0, NULL);
