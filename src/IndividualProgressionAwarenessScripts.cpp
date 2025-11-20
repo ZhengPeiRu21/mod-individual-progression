@@ -239,14 +239,14 @@ public:
         bool CanBeSeen(Player const* player) override
         {
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-			uint32 PVP_RANK5_QUEST = 66105;
+			uint32 PVP_RANK6_QUEST = 66106;
 			
             if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target))
             {
                 return false;
             }
 			
-            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED)
+            if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED)
             {
                 return false;
             }
@@ -275,14 +275,14 @@ public:
         bool CanBeSeen(Player const* player) override
         {
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-			uint32 PVP_RANK5_QUEST = 66105;
+			uint32 PVP_RANK6_QUEST = 66106;
 			
             if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target))
             {
                 return true;
             }
 			
-            if (target->GetQuestStatus(PVP_RANK5_QUEST) == QUEST_STATUS_REWARDED)
+            if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED)
             {
                 return true;
             }
