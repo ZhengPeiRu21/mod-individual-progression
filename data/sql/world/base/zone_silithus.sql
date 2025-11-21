@@ -184,7 +184,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+8, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6887.17, 1634.11, 3.02476, 0.618115, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (11880, 15308);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (11880);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-651001, -651002, -651003, -651004, -651005, -651006, -651007, -651008);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
