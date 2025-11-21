@@ -108,7 +108,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15308, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 10000, 15000, 0, 0, 11, 15305, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Twilight Prophet - In Combat - Cast Chain Lightning'),
 (15308, 0, 1, 0, 9, 0, 100, 0, 0, 0, 15000, 20000, 0, 5, 11, 22884, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Twilight Prophet - Within 0-5 Range - Cast Psychic Scream'),
 (15308, 0, 2, 0, 106, 0, 100, 0, 0, 0, 16000, 22000, 0, 8, 11, 17366, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Twilight Prophet - Within 0-8 Range - Cast Fire Nova'),
-(15308, 0, 3, 0, 106, 0, 100, 0, 0, 0, 20000, 25000, 0, 8, 11, 15531, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Twilight Prophet - Within 0-8 Range - Cast Frost Nova'),   
+(15308, 0, 3, 0, 106, 0, 100, 0, 0, 0, 20000, 25000, 0, 8, 11, 15531, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Twilight Prophet - Within 0-8 Range - Cast Frost Nova'),
 (15541, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 9000, 13000, 0, 0, 11, 16856, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Twilight Marauder Morna - Within 0-5 Range - Cast Mortal Strike'),
 (15541, 0, 1, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 15572, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Twilight Marauder Morna - Within 0-5 Range - Cast Sunder Armor'),
 (15541, 0, 2, 0, 0, 0, 100, 0, 9000, 15000, 14000, 18000, 0, 0, 11, 23600, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Twilight Marauder Morna - In Combat - Cast Piercing Howl'),
