@@ -292,7 +292,35 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10043, 0, 0, 0, 0, 0, 100, 0, 10000, 20000, 10000, 20000, 0, 0, 11, 15692, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0, 'Ribbly\'s Crony - Within 0-5 Range - Cast Eviscerate'),
 (10043, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 6000, 9000, 0, 0, 11, 15581, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Ribbly\'s Crony - Within 0-5 Range - Cast Sinister Strike');
 
-    
+-- fix bridge ambush
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-91106, -91107, -608891);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(-91106, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Respawn - Set Invisible'),
+(-91106, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Respawn - Set Faction'),
+(-91106, 0, 0, 0, 60, 0, 100, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Update - Set in Combat with Zone'),
+(-91107, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Respawn - Set Invisible'),
+(-91107, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Respawn - Set Faction'),
+(-91107, 0, 0, 0, 60, 0, 100, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Update - Set in Combat with Zone'),
+--
+(-608891, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'BRD Bridge Trigger - On Respawn - Set Invisible'),
+(-608891, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'BRD Bridge Trigger - On Respawn - Set Faction'),
+(-608891, 0, 2, 3, 101, 0, 100, 0, 1, 10, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 91106, 0, 0, 0, 0, 0, 0, 0, 'BRD Bridge Trigger - On Near Player - Set visible Anvilrage Guardsman 91106'),
+(-608891, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 91106, 0, 0, 0, 0, 0, 0, 0,   'BRD Bridge Trigger - On Near Player - Set Faction Anvilrage Guardsman 91106'),
+(-608891, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,   'BRD Bridge Trigger - On Near Player - Set visible Anvilrage Guardsman 91107'),
+(-608891, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,   'BRD Bridge Trigger - On Near Player - Set Faction Anvilrage Guardsman 91107');
+
+DELETE FROM `creature` WHERE `guid` IN (91106, 91107, 608891);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+--
+(91106,  8891, 0, 0, 230, 0, 0, 1, 1, 1, 642.366, -274.516, -43.1092, 0.471239, 7200, 0, 0, 6645, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(91107,  8891, 0, 0, 230, 0, 0, 1, 1, 1, 740.114, -283.345, -42.7508, 2.86234, 7200, 0, 0, 6645, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(608891, 8891, 0, 0, 230, 0, 0, 1, 1, 1, 686.649, -280.075, -43.1966, 0.0844455, 300, 0, 0, 6876, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 47738; -- Fireguard Destroyer(8911)
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 90828; -- Blazing Fireguard(8910)
 
