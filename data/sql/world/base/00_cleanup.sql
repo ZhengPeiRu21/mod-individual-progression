@@ -15,6 +15,9 @@ DELETE FROM `game_event_creature` WHERE `guid` IN (208207, 208240, 208251, 20835
 -- remove AzerothCore area triggers used by WotLK Scourge Invasion Event
 DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096, 4098, 4099, 4100, 4101, 4103, 4104, 4105, 5151, 5152, 5153, 5154, 5158, 5159, 5160, 5161);
 
+-- undo Shattrath phasing, now done with phasemask
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (18594, 25167, 27666, 27667);
+
 -- pvp rank requirements no longer needed
 UPDATE `item_template` SET `requiredhonorrank` = 0 WHERE `entry` IN 
 (18241, 18242, 18243, 18244, 18245, 18246, 18247, 18248, 18834, 18845, 18846, 18849, 18850, 18851, 18852, 18853, 18854, 18856, 18857, 18858, 18859, 18862, 18863, 18864, 29592, 29593);
