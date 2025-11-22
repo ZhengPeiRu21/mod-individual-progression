@@ -173,15 +173,15 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (43322, 15308, 0, 0, 1, 0, 0, 1, 1, 1, -7612.16, 1619.85, 2.5204, -1.45604, 3600, 0, 1, 7369, 11502, 2, 0, 0, 0, '', 0, 0, NULL),
 (43323, 15308, 0, 0, 1, 0, 0, 1, 1, 1, -6888.79, 1636.61, 2.8743, 0.795651, 3600, 0, 1, 7369, 11502, 2, 0, 0, 0, '', 0, 0, NULL),
 --
-(@CGUID+1, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7612.38, 1616.86, 2.49802, 4.73518, 3540, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 43322
-(@CGUID+2, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7609.12, 1619.94, 1.11992, 4.57025, 3540, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+3, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7611.79, 1623.39, 2.2698, 4.66057, 3540, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+4, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7615.12, 1620.55, 4.36953, 4.7077, 3540, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+1, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7612.38, 1616.86, 2.49802, 4.73518, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 43322
+(@CGUID+2, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7609.12, 1619.94, 1.11992, 4.57025, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+3, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7611.79, 1623.39, 2.2698, 4.66057, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+4, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7615.12, 1620.55, 4.36953, 4.7077, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 --
-(@CGUID+5, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6886.17, 1638.31, 3.01842, 0.563139, 3540, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 43323
-(@CGUID+6, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6890.34, 1638.63, 2.71004, 0.567064, 3540, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+7, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6890.95, 1635.1, 2.7273, 0.535647, 3540, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+8, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6887.17, 1634.11, 3.02476, 0.618115, 3540, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
+(@CGUID+5, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6886.17, 1638.31, 3.01842, 0.563139, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 43323
+(@CGUID+6, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6890.34, 1638.63, 2.71004, 0.567064, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+7, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6890.95, 1635.1, 2.7273, 0.535647, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+8, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6887.17, 1634.11, 3.02476, 0.618115, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (11880);
@@ -190,14 +190,48 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-(-651001, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'), -- needed to keep formation together
-(-651002, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
-(-651003, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
-(-651004, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
-(-651005, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
-(-651006, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
-(-651007, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active'),
-(-651008, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Respawn - Set Active');
+-- south patrol, leader guid 43322
+(-651001, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Active'), -- needed to keep formation together
+(-651001, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Invisible'),
+(-651001, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Faction'),
+(-651001, 0, 3, 4, 75, 0, 100, 0, 43322, 0, 10, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Near Prophet - Set visible'),
+(-651001, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Near Prophet - Set Faction'),
+(-651002, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Active'),
+(-651002, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Invisible'),
+(-651002, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Faction'),
+(-651002, 0, 3, 4, 75, 0, 100, 0, 43322, 0, 10, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Near Prophet - Set visible'),
+(-651002, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Near Prophet - Set Faction'),
+(-651003, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Active'),
+(-651003, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Invisible'),
+(-651003, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Faction'),
+(-651003, 0, 3, 4, 75, 0, 100, 0, 43322, 0, 10, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Near Prophet - Set visible'),
+(-651003, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Near Prophet - Set Faction'),
+(-651004, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Active'),
+(-651004, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Invisible'),
+(-651004, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Faction'),
+(-651004, 0, 3, 4, 75, 0, 100, 0, 43322, 0, 10, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Near Prophet - Set visible'),
+(-651004, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Near Prophet - Set Faction'),
+-- north patrol, leader guid 43323
+(-651005, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Active'),
+(-651005, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Invisible'),
+(-651005, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Faction'),
+(-651005, 0, 3, 4, 75, 0, 100, 0, 43323, 0, 10, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Near Prophet - Set visible'),
+(-651005, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Near Prophet - Set Faction'),
+(-651006, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Active'),
+(-651006, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Invisible'),
+(-651006, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Faction'),
+(-651006, 0, 3, 4, 75, 0, 100, 0, 43323, 0, 10, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Near Prophet - Set visible'),
+(-651006, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Near Prophet - Set Faction'),
+(-651007, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Active'),
+(-651007, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Invisible'),
+(-651007, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Faction'),
+(-651007, 0, 3, 4, 75, 0, 100, 0, 43323, 0, 10, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Near Prophet - Set visible'),
+(-651007, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Near Prophet - Set Faction'),
+(-651008, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Active'),
+(-651008, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Invisible'),
+(-651008, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Respawn - Set Faction'),
+(-651008, 0, 3, 4, 75, 0, 100, 0, 43323, 0, 10, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Twilight Avenger - On Near Prophet - Set visible'),
+(-651008, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Twilight Avenger - On Near Prophet - Set Faction');
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (43322, 43323);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
