@@ -333,6 +333,15 @@ IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 1
 #
 IndividualProgression.VanillaPvpEarnTitlesAfterVanilla = 0
 
+# IndividualProgression.ExcludedAccountsEarnPvPTitles
+#
+#        Description: Enable / Disable excluded accounts earning pvp titles. This includes playerbots.
+#
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.ExcludedAccountsEarnPvPTitles = 0
+
 # IndividualProgression.DisableRDF
 #
 #        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
