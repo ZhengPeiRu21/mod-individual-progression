@@ -263,6 +263,15 @@ IndividualProgression.DeathKnightUnlockProgression = 13
 #
 IndividualProgression.DeathKnightStartingProgression = 13
 
+# IndividualProgression.RequiredZulGurubProgression
+#
+#        Description: The progression stage at which Zul'Gurub will be available
+#
+#        Default:     3 - Zul'Gurub unlocks after BWL (Default, Blizzlike)
+#                     0-12, 14-18 - Set a different required progression stage for Zul'Gurub
+#
+IndividualProgression.RequiredZulGurubProgression = 3
+
 # IndividualProgression.DisableDefaultProgression
 #
 #        Description: Disable the regular progression flow, so progression must be advanced through custom creature progression entries
