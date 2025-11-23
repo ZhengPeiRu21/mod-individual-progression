@@ -24,7 +24,7 @@ public:
             return;
         }
 
-		if (!sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->isExcludedFromProgression(player))
         {
             if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
             {
@@ -37,8 +37,8 @@ public:
 
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
-		}
-
+        }
+		
         if (sIndividualProgression->ExcludedAccountsEarnPvPTitles || !sIndividualProgression->isExcludedFromProgression(player))
         {
             sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
@@ -193,10 +193,15 @@ public:
                 return false;
             }
         }
-        if (mapid == MAP_ZUL_GURUB && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR))
-        {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_BLACKWING_LAIR);
-            return false;
+        if (mapid == MAP_ZUL_GURUB)
+        {   
+            ProgressionState REQUIRED_ZG_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
+            
+            if (!sIndividualProgression->hasPassedProgression(player, REQUIRED_ZG_PROGRESSION))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZG_PROGRESSION);
+                return false;
+            }
         }
         if (mapid == MAP_AHN_QIRAJ_TEMPLE && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
         {
@@ -1156,8 +1161,7 @@ public:
 class IndividualPlayerProgression_AccountScript: public AccountScript
 {
 public:
-    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript")
-    {}
+    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript") { }
 
     bool CanAccountCreateCharacter(uint32 accountId, uint8 charRace, uint8 charClass) override
     {
