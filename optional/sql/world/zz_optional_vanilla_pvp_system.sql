@@ -67,7 +67,7 @@ DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionType
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 -- Alliance
-(23, 12777, 16369, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16369, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), -- boots and gloves
 (23, 12777, 16391, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16392, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), 
 (23, 12777, 16393, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
@@ -77,6 +77,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 12777, 16403, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16405, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16406, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16409, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16410, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 17562, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 17564, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 17594, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
@@ -99,9 +101,11 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 12777, 23291, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 29594, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 29595, 0, 0, 8, 0, 66107, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
-(23, 12777, 16425, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
-(23, 12777, 23292, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16425, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), -- chest and legs
 (23, 12777, 16426, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16433, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16435, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 23292, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 23293, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 23294, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16422, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
@@ -131,9 +135,11 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 12777, 23304, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16413, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 23305, 0, 0, 8, 0, 66108, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
-(23, 12777, 16416, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16416, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), -- head and shoulders
 (23, 12777, 16427, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16428, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16434, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16436, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 23306, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 23307, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16423, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
@@ -163,7 +169,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 12777, 23318, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 23319, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16415, 0, 0, 8, 0, 66110, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
-(23, 12777, 16462, 0, 0, 8, 0, 66112, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+--
+(23, 12777, 16462, 0, 0, 8, 0, 66112, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), -- epic boots, gloves and legs
 (23, 12777, 16463, 0, 0, 8, 0, 66112, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16467, 0, 0, 8, 0, 66112, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16459, 0, 0, 8, 0, 66112, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
@@ -190,7 +197,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 12777, 16437, 0, 0, 8, 0, 66112, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'), 
 (23, 12777, 16440, 0, 0, 8, 0, 66112, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16442, 0, 0, 8, 0, 66112, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
-(23, 12777, 16465, 0, 0, 8, 0, 66113, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
+(23, 12777, 16465, 0, 0, 8, 0, 66113, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),  -- epic head, shoulders and chest
 (23, 12777, 16466, 0, 0, 8, 0, 66113, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 16468, 0, 0, 8, 0, 66113, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
 (23, 12777, 17578, 0, 0, 8, 0, 66113, 0, 0, 0, 0, 0, '', 'Vanilla PvP Ranked Gear (IPP)'),
