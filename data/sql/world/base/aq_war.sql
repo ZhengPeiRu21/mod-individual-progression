@@ -35,7 +35,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 DELETE FROM `creature_text` WHERE `CreatureID` IN (15813, 15818);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 (15813, 0, 0, 'Kneel before me, mortal! Kneel before Zod!', 12, 7, 100, 0, 0, 0, 11471, 0, 'Qiraji Officer Zod'),
-(15818, 0, 0, 'Burn in hate, $r.', 12, 7, 100, 0, 0, 0, 11475, 0, 'Lieutenant General Nokhor');
+(15818, 0, 0, 'Burn in hate, $r.', 12, 7, 100, 0, 0, 0, 11475, 0, 'Lieutenant General Nokhor'); -- need to check language, set to common, currently can't understand it. 
 
 DELETE FROM `creature_text` WHERE `CreatureID`= 15693;
 INSERT INTO `creature_text` (`CreatureID`,`GroupID`,`ID`,`Text`,`Type`,`Language`,`Probability`,`Emote`,`Duration`,`Sound`,`BroadcastTextId`, `TextRange`, `comment`) VALUES
@@ -89,22 +89,28 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+132,15758,0,0,1,0,0,1,@IPPPHASE,0, -6346.292969, 777.375793, 1.782544, 1.899878,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+133,15818,0,0,1,0,0,1,@IPPPHASE,1, -6322.091797, 738.599060, 8.332182, 2.500710,1800,0,0,0,0,0,0,0,0,'',0); -- boss Silithus 3
 
--- remove flags_extra = 1 for Lieutenant General Nokhor
+-- remove flags_extra = 1 (CREATURE_FLAG_EXTRA_INSTANCE_BIND) for Lieutenant General Nokhor
 UPDATE `creature_template` SET `flags_extra` = 0 WHERE `entry` = 15818;
 
-DELETE FROM `pool_template` WHERE `entry` IN (15813, 15818);
-INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
-(15813, 1, "AQ War Event Darkshore Boss"),
-(15818, 1, "AQ War Event Silithus Boss");
+-- Supreme Anubisath Warbringer
+UPDATE `creature_template` SET `maxgold` = 23909 WHERE `entry` = 15758; -- previously 83909
 
-DELETE FROM `pool_creature` WHERE `pool_entry` = 15813;
+-- General Rajaxx
+UPDATE `creature_text` SET `TextRange` = 4 WHERE `CreatureID` = 15341 AND `GroupID` = 12;
+
+DELETE FROM `pool_template` WHERE `entry` IN (15813, 15818, 601053, 601054); -- 15813, 15818 need to be removed later on
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+(601053, 1, "AQ War Event Darkshore Boss"),
+(601054, 1, "AQ War Event Silithus Boss");
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (15813, 15818, 601053, 601054); -- 15813, 15818 need to be removed later on
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@CGUID+105, 15813, 0, 'AQ War Event Darkshore Boss'),
-(@CGUID+110, 15813, 0, 'AQ War Event Darkshore Boss'),
-(@CGUID+115, 15813, 0, 'AQ War Event Darkshore Boss'),
-(@CGUID+123, 15813, 0, 'AQ War Event Silithus Boss'),
-(@CGUID+128, 15813, 0, 'AQ War Event Slithus Boss'),
-(@CGUID+133, 15813, 0, 'AQ War Event Silithus Boss');
+(@CGUID+105, 601053, 0, 'AQ War Event Darkshore Boss'),
+(@CGUID+110, 601053, 0, 'AQ War Event Darkshore Boss'),
+(@CGUID+115, 601053, 0, 'AQ War Event Darkshore Boss'),
+(@CGUID+123, 601054, 0, 'AQ War Event Silithus Boss'),
+(@CGUID+128, 601054, 0, 'AQ War Event Silithus Boss'),
+(@CGUID+133, 601054, 0, 'AQ War Event Silithus Boss');
 
 -- add Resonating Crystal Formations to Silithus and Darkshore
 DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+101 AND @OGUID+106;
@@ -118,10 +124,6 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 
 -- set Resonating Crystal Formations to 'Not selectable'
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` = 180810;
-
--- Remove Colossus pathing
-DELETE FROM `waypoint_data` WHERE `id` IN (157400, 157410, 157420);
-DELETE FROM `creature_template_addon` WHERE `entry` IN (15740, 15741, 15742);
 
 -- add loot to Colossus of Zora, Regal and Ashi
 DELETE FROM `creature_loot_template` WHERE `entry` = 15740;
@@ -195,9 +197,3 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 -- same lootID for all 3 Colossus bosses
 DELETE FROM `creature_loot_template` WHERE `entry` IN (15741, 15742);
 UPDATE `creature_template` SET `LootId` = 15740 WHERE `entry` IN (15740, 15741, 15742);
-
--- General Rajaxx
-UPDATE `creature_text` SET `TextRange` = 4 WHERE `CreatureID` = 15341 AND `GroupID` = 12;
-
--- Supreme Anubisath Warbringer
-UPDATE `creature_template` SET `maxgold` = 23909 WHERE `entry` = 15758; -- previously 83909
