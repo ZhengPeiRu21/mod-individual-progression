@@ -379,7 +379,7 @@ public:
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment;
-    bool enabled, questXpFix, hunterPetLevelFix, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, DisableRDF, excludeAccounts, VanillaPvpTitlesKeepPostVanilla, VanillaPvpTitlesEarnPostVanilla;
+    bool enabled, questXpFix, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, DisableRDF, excludeAccounts, VanillaPvpTitlesKeepPostVanilla, VanillaPvpTitlesEarnPostVanilla, ExcludedAccountsEarnPvPTitles;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression, RequiredZulGurubProgression;
     uint32 VanillaPvpKillRank1, VanillaPvpKillRank2, VanillaPvpKillRank3, VanillaPvpKillRank4, VanillaPvpKillRank5, VanillaPvpKillRank6, VanillaPvpKillRank7, VanillaPvpKillRank8, VanillaPvpKillRank9, VanillaPvpKillRank10, VanillaPvpKillRank11, VanillaPvpKillRank12, VanillaPvpKillRank13, VanillaPvpKillRank14;
     std::string excludedAccountsRegex;
@@ -389,7 +389,6 @@ public:
     void UpdateProgressionState(Player* player, ProgressionState newState) const;
     static void ForceUpdateProgressionState(Player* player, ProgressionState newState);
     void CheckAdjustments(Player* player) const;
-    void ApplyGearStatsTuning(Player* player, float& computedAdjustment, ItemTemplate const* item) const;
     void AdjustVanillaStats(Player* player) const;
     void AdjustTBCStats(Player* player) const;
     void AdjustWotLKStats(Player* player) const;

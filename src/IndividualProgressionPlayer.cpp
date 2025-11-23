@@ -24,7 +24,7 @@ public:
             return;
         }
 
-		if (!sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->isExcludedFromProgression(player))
         {
             if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
             {
@@ -35,12 +35,16 @@ public:
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
             }
 
-            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
-            sIndividualProgression->CleanUpVanillaPvpTitles(player);
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
-		}
+        }
 		
+        if (sIndividualProgression->ExcludedAccountsEarnPvPTitles || !sIndividualProgression->isExcludedFromProgression(player))
+        {
+            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
+            sIndividualProgression->CleanUpVanillaPvpTitles(player);
+        }
+
 		if (sIndividualProgression->isExcludedFromProgression(player))
         {
             sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));    
