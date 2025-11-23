@@ -35,12 +35,15 @@ public:
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
             }
 
-            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
-            sIndividualProgression->CleanUpVanillaPvpTitles(player);
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
 		}
 		
+        if (sIndividualProgression->ExcludedAccountsEarnPvPTitles || !sIndividualProgression->isExcludedFromProgression(player))
+        {
+            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
+            sIndividualProgression->CleanUpVanillaPvpTitles(player);
+        }
 
 		if (sIndividualProgression->isExcludedFromProgression(player))
         {
@@ -194,7 +197,7 @@ public:
         {   
             ProgressionState REQUIRED_ZG_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
             
-            if (sIndividualProgression->hasPassedProgression(player, REQUIRED_ZG_PROGRESSION))
+            if (!sIndividualProgression->hasPassedProgression(player, REQUIRED_ZG_PROGRESSION))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZG_PROGRESSION);
                 return false;
@@ -1158,8 +1161,7 @@ public:
 class IndividualPlayerProgression_AccountScript: public AccountScript
 {
 public:
-    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript")
-    {}
+    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript") { }
 
     bool CanAccountCreateCharacter(uint32 accountId, uint8 charRace, uint8 charClass) override
     {
