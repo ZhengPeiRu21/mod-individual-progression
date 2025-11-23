@@ -15,6 +15,16 @@ DELETE FROM `game_event_creature` WHERE `guid` IN (208207, 208240, 208251, 20835
 -- remove AzerothCore area triggers used by WotLK Scourge Invasion Event
 DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096, 4098, 4099, 4100, 4101, 4103, 4104, 4105, 5151, 5152, 5153, 5154, 5158, 5159, 5160, 5161);
 
+
+/* the following edits are temporary */
+
+
+-- restore AC entries that were wrongly overwritten by AQ war bosses
+DELETE FROM `pool_template` WHERE `entry` IN (15813, 15818);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+(15813,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein'),
+(15818,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein');
+
 -- undo Shattrath phasing, now done with phasemask
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (18594, 25167, 27666, 27667);
 
