@@ -98,7 +98,7 @@ UPDATE `creature_template` SET `maxgold` = 23909 WHERE `entry` = 15758; -- previ
 -- General Rajaxx
 UPDATE `creature_text` SET `TextRange` = 4 WHERE `CreatureID` = 15341 AND `GroupID` = 12;
 
-DELETE FROM `pool_template` WHERE `entry` IN (15813, 15818, 601053, 601054); -- 15813, 15818 need to be removed later on
+DELETE FROM `pool_template` WHERE `entry` IN (601053, 601054); 
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (601053, 1, "AQ War Event Darkshore Boss"),
 (601054, 1, "AQ War Event Silithus Boss");
