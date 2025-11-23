@@ -180,6 +180,16 @@ IndividualProgression.FishingFix = 1
 #
 IndividualProgression.SimpleConfigOverride = 1
 
+# IndividualProgression.DisableRDF
+#
+#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
+#                     Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
+#
+#        Default:     0 - RDF Enabled
+#                     1 - RDF Disabled
+#
+IndividualProgression.DisableRDF = 0
+
 # IndividualProgression.ProgressionLimit
 #
 #        Description: If enabled, players will not be able to proceed beyond this progression stage.
@@ -350,16 +360,6 @@ IndividualProgression.VanillaPvpEarnTitlesAfterVanilla = 0
 #                     1 - Enabled
 #
 IndividualProgression.ExcludedAccountsEarnPvPTitles = 0
-
-# IndividualProgression.DisableRDF
-#
-#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
-#                     Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
-#
-#        Default:     0 - RDF Enabled
-#                     1 - RDF Disabled
-#
-IndividualProgression.DisableRDF = 0
 
 # IndividualProgression.ExcludeAccounts
 #
