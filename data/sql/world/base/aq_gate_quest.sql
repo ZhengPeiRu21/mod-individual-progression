@@ -62,6 +62,17 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 (108743, 0, 60, 60, 1377, 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Simply Bang a Gong!', '', '', NULL, 'Return to The Scarab Gong in Silithus.', 0, 0, 0, 0, 0, 0, 0, 0, 9240, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, '', '', '', '', 12340),
 (108744, 2, 60, 60, 1377, 82, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 910, 7, 0, 609, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 172800, 0, 'Chaos and Destruction', 'Kill the Colossus of Ashi, Regal and Zora.', '', '', 'Return to Jonathan the Revelator at the Scarab Gong.', 15740, 15741, 15742, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', '', NULL);
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (8286, 108743);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(19, 0, 8286, 0, 0, 8, 0, 108850, 0, 0, 0, 0, 0, '',   'Quest \'What Tomorrow Brings\' requires the \'Complete the War Effort\' quest to be completed'),
+(19, 0, 8286, 0, 1, 8, 0, 108855, 0, 0, 0, 0, 0, '',   'Quest \'What Tomorrow Brings\' requires the \'Complete the War Effort\' quest to be completed'),
+(19, 0, 108743, 0, 0, 8, 0, 8743, 0, 0, 1, 0, 0, '',   'Quest \'Simply Bang a Gong!\' requires the \'Bang a Gong!\' quest to NOT be completed'),
+(19, 0, 108743, 0, 0, 8, 0, 108850, 0, 0, 0, 0, 0, '', 'Quest \'Simply Bang a Gong!\' requires the \'Complete the War Effort\' quest to be completed'),
+(19, 0, 108743, 0, 1, 8, 0, 8743, 0, 0, 1, 0, 0, '',   'Quest \'Simply Bang a Gong!\' requires the \'Bang a Gong!\' quest to NOT be completed'),
+(19, 0, 108743, 0, 1, 8, 0, 108855, 0, 0, 0, 0, 0, '', 'Quest \'Simply Bang a Gong!\' requires the \'Complete the War Effort\' quest to be completed');
+
 UPDATE `quest_template` SET `RewardNextQuest` = 108744 WHERE `ID` = 8743;
 
 -- update quest texts for the new 'Bang a Gong!' quest
