@@ -449,7 +449,7 @@ public:
                 return false;
             }
 
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ); // gate can be opened during the AQ WAR by interacting with the Scarab Gong
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ); // gate can be opened during the AQ WAR by interacting with the Scarab Gong
         }
     };
 
