@@ -27,7 +27,7 @@ public:
             return;
         }
 
-		if (!sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->isExcludedFromProgression(player))
         {
             if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
             {
@@ -38,12 +38,15 @@ public:
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
             }
 
-            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
-            sIndividualProgression->CleanUpVanillaPvpTitles(player);
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
-		}
+        }
 		
+        if (sIndividualProgression->ExcludedAccountsEarnPvPTitles || !sIndividualProgression->isExcludedFromProgression(player))
+        {
+            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
+            sIndividualProgression->CleanUpVanillaPvpTitles(player);
+        }
 
 		if (sIndividualProgression->isExcludedFromProgression(player))
         {
@@ -193,10 +196,15 @@ public:
                 return false;
             }
         }
-        if (mapid == MAP_ZUL_GURUB && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR))
-        {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_BLACKWING_LAIR);
-            return false;
+        if (mapid == MAP_ZUL_GURUB)
+        {   
+            ProgressionState REQUIRED_ZG_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
+            
+            if (!sIndividualProgression->hasPassedProgression(player, REQUIRED_ZG_PROGRESSION))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZG_PROGRESSION);
+                return false;
+            }
         }
         if (mapid == MAP_AHN_QIRAJ_TEMPLE && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_BLACKWING_LAIR))
         {
@@ -520,271 +528,7 @@ public:
 
     void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
     {
-        switch (newArea) {
-            case AREA_DARKSHORE:
-            case AREA_GROVE_OF_THE_ANCIENTS:    
-            case AREA_WILDBEND_RIVER:
-            case AREA_TWILIGHT_VALE:
-                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ)))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_SILITHUS:
-            case AREA_HIVE_ASHI:
-            case AREA_HIVE_ZORA:
-            case AREA_HIVE_REGAL:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) 
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE_II, false);
-                }
-                break;  
-            case AREA_BOUGH_SHADOW:
-            case AREA_SERADANE:
-            case AREA_DREAM_BOUGH:
-            case AREA_JADEMIR_LAKE:
-            case AREA_TWILIGHT_GROVE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA)
-                    || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() >= IP_LEVEL_VANILLA))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_DUROTAR:
-            case AREA_JAGGEDSWINE_FARM:
-            case AREA_ROCKTUSK_FARM:
-            case AREA_TIRISFAL_GLADES:
-            case AREA_TIRISFAL_RUINS:
-            case AREA_RUINS_OF_LORDAERON:
-            case AREA_MULGORE:
-            case AREA_VALLEY_OF_HEROES:
-            case AREA_ELWYNN_FOREST:
-            case AREA_DUN_MOROGH:
-            case AREA_TELDRASSIL:
-            case AREA_EASTERN_PLAGUELANDS:
-            case AREA_PESTILENT_SCAR:
-            case AREA_THE_MARRIS_STEAD:
-            case AREA_DREADMAUL_HOLD:
-            case AREA_DREADMAUL_POST:
-            case AREA_SERPENTS_COIL:
-            case AREA_TANARIS:
-            case AREA_GADGETZAN:
-            case AREA_ABYSSAL_SANDS:
-            case AREA_BROKEN_PILLAR:
-            case AREA_WINTERSPRING:
-            case AREA_TIMBERMAW_POST:
-            case AREA_FROSTSABER_ROCK:
-            case AREA_ICE_THISTLE_HILLS:
-            case AREA_MAZTHORIL:
-            case AREA_AZSHARA:
-            case AREA_HALDARR_ENCAMPMENT:
-            case AREA_THE_SHATTERED_STRAND:
-            case AREA_SOUTHRIDGE_BEACH:
-            case AREA_BURNING_STEPPES:
-            case AREA_DRACO_DAR:
-            case AREA_BLACKROCK_MOUNTAIN:
-            case AREA_DREADMAUL_ROCK:
-            case AREA_RUINS_OF_THAURISSAN:
-            if (((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC))
-                || (sIndividualProgression->isExcludedFromProgression(player) && (player->GetLevel() == IP_LEVEL_VANILLA || player->GetLevel() == IP_LEVEL_TBC)))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_BLASTED_LANDS:
-            case AREA_RISE_OF_THE_DEFILER:
-            case AREA_THE_DARK_PORTAL:
-                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() <= IP_LEVEL_VANILLA)
-                    || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() == IP_LEVEL_VANILLA))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE_II, false);
-                }
-                else if (((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC))
-                    || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() == IP_LEVEL_TBC))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case  AREA_STORMWIND_CITY:
-                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC)
-                    || (sIndividualProgression->isExcludedFromProgression(player) && (player->GetLevel() == IP_LEVEL_TBC)))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_PURGATION_ISLE:
-                if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) 
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE_II, false);
-                }					
-                break;
-            case AREA_IRONTREE_WOOD:
-                if ((player->getClass() == CLASS_HUNTER) && ((player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_INCOMPLETE) || (player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_REWARDED)))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_LIGHTS_HOPE:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)
-                    || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() >= IP_LEVEL_VANILLA))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_TERRACE_OF_LIGHT:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_FOREST_SONG:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_ARGENT_TOURNAMENT_GROUNDS:
-            case AREA_ARGENT_SUNREAVER_PAVILION:
-            case AREA_ARGENT_SILVER_COVENANT_PAVILION:
-            case AREA_THE_RING_OF_CHAMPIONS:
-            case AREA_THE_ASPIRANTS_RING:
-            case AREA_THE_ARGENT_VALIANTS_RING:
-            case AREA_THE_ALLIANCE_VALIANTS_RING:
-            case AREA_THE_HORDE_VALIANTS_RING:
-            case AREA_ARGENT_PAVILION:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2)
-                    || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() >= IP_LEVEL_WOTLK))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            case AREA_GHOSTLANDS:
-            case AREA_HATCHET_HILLS:
-            case AREA_AMANI_PASS:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_3)
-                    || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() >= IP_LEVEL_TBC))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE_II, false);
-                }
-                break;
-            case AREA_SHATTRATH_CITY:
-            case AREA_ISLE_OF_QUEL_DANAS:
-            case AREA_SILVERMOON_S_PRIDE:
-            case AREA_SHATTERED_SUN_STAGING:
-            case AREA_SUN_S_REACH_SANCTUM:
-            case AREA_SUN_S_REACH_HARBOR:
-            case AREA_SUN_S_REACH_ARMORY:
-            case AREA_DAWNSTAR_VILLAGE:
-            case AREA_DAWNING_SQUARE:
-            case AREA_GREENGILL_COAST:
-            case AREA_SUNWELL_PLATEAU:
-            case AREA_SUNWELL_PLATEAU_EXTERIOR:
-            case AREA_MAGISTERS_TERRACE:
-            case AREA_MAGISTERS_TERRACE_EXTERIOR:
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4)
-                    || (sIndividualProgression->isExcludedFromProgression(player) && player->GetLevel() >= IP_LEVEL_TBC))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                }
-                break;
-            default:
-                uint32 mapid = player->GetMapId();
-                if (mapid == MAP_VAULT_OF_ARCHAVON)
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_2))
-                    {
-                        player->CastSpell(player, IPP_PHASE, false);
-                    }
-                    else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_WOTLK_TIER_3))
-                    {
-                        player->CastSpell(player, IPP_PHASE, false);
-                        player->CastSpell(player, IPP_PHASE_II, false);
-                    }
-                    else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_3) || sIndividualProgression->isExcludedFromProgression(player))
-                    {
-                        player->CastSpell(player, IPP_PHASE, false);
-                        player->CastSpell(player, IPP_PHASE_II, false);
-                        player->CastSpell(player, IPP_PHASE_III, false);
-                    }
-                    break;
-                } else if (((mapid == MAP_SHADOWFANG_KEEP || mapid == MAP_RAZORFEN_DOWNS || mapid == MAP_SCARLET_MONASTERY || mapid == MAP_STRATHOLME || mapid == MAP_DIRE_MAUL || mapid == MAP_KARAZHAN) &&
-                    ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)) || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC)))
-                    || (sIndividualProgression->isExcludedFromProgression(player) && (player->GetLevel() == IP_LEVEL_VANILLA || player->GetLevel() == IP_LEVEL_TBC)))
-                {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    player->CastSpell(player, IPP_PHASE, false);
-                    break;
-                } else {
-                    player->RemoveAura(IPP_PHASE);
-                    player->RemoveAura(IPP_PHASE_II);
-                    player->RemoveAura(IPP_PHASE_III);
-                    break;
-                }
-        }
+        sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
     bool OnPlayerCanEquipItem(Player* player, uint8 /*slot*/, uint16& /*dest*/, Item* pItem, bool /*swap*/, bool /*not_loading*/) override
@@ -976,8 +720,7 @@ public:
 class IndividualPlayerProgression_AccountScript: public AccountScript
 {
 public:
-    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript")
-    {}
+    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript") { }
 
     bool CanAccountCreateCharacter(uint32 accountId, uint8 charRace, uint8 charClass) override
     {

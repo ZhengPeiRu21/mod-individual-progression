@@ -219,6 +219,16 @@ IndividualProgression.FishingFix = 1
 #
 IndividualProgression.SimpleConfigOverride = 1
 
+# IndividualProgression.DisableRDF
+#
+#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
+#                     Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
+#
+#        Default:     0 - RDF Enabled
+#                     1 - RDF Disabled
+#
+IndividualProgression.DisableRDF = 0
+
 # IndividualProgression.ProgressionLimit
 #
 #        Description: If enabled, players will not be able to proceed beyond this progression stage.
@@ -302,6 +312,15 @@ IndividualProgression.DeathKnightUnlockProgression = 11
 #
 IndividualProgression.DeathKnightStartingProgression = 11
 
+# IndividualProgression.RequiredZulGurubProgression
+#
+#        Description: The progression stage at which Zul'Gurub will be available
+#
+#        Default:     3 - Zul'Gurub unlocks after BWL (Default, Blizzlike)
+#                     0-12, 14-18 - Set a different required progression stage for Zul'Gurub
+#
+IndividualProgression.RequiredZulGurubProgression = 3
+
 # IndividualProgression.DisableDefaultProgression
 #
 #        Description: Disable the regular progression flow, so progression must be advanced through custom creature progression entries
@@ -372,15 +391,14 @@ IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 1
 #
 IndividualProgression.VanillaPvpEarnTitlesAfterVanilla = 0
 
-# IndividualProgression.DisableRDF
+# IndividualProgression.ExcludedAccountsEarnPvPTitles
 #
-#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
-#                     Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
+#        Description: Enable / Disable excluded accounts earning pvp titles. This includes playerbots.
 #
-#        Default:     0 - RDF Enabled
-#                     1 - RDF Disabled
+#        Default:     0 - Disabled
+#                     1 - Enabled
 #
-IndividualProgression.DisableRDF = 0
+IndividualProgression.ExcludedAccountsEarnPvPTitles = 0
 
 # IndividualProgression.ExcludeAccounts
 #
