@@ -13,7 +13,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(15634, 0, 0, 0, 14, 0, 100, 0, 1000, 200, 50000, 60000, 0, 0, 11, 25839, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Priestess of the Moon - On Friendly Health - Cast Mass Healing'),
+(15634, 0, 0, 0, 101, 0, 100, 0, 1, 20, 0, 50000, 60000, 0, 11, 25839, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Priestess of the Moon - On Near Player - Cast Mass Healing'),
 --
 (15740, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Colossus of Zora - In Combat - Cast Colossal Smash'),
 (15741, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Colossus of Regal - In Combat - Cast Colossal Smash'), -- https://www.youtube.com/watch?v=F4aAAo_GSrw
@@ -35,7 +35,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 DELETE FROM `creature_text` WHERE `CreatureID` IN (15813, 15818);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 (15813, 0, 0, 'Kneel before me, mortal! Kneel before Zod!', 12, 7, 100, 0, 0, 0, 11471, 0, 'Qiraji Officer Zod'),
-(15818, 0, 0, 'Burn in hate, $r.', 12, 7, 100, 0, 0, 0, 11475, 0, 'Lieutenant General Nokhor');
+(15818, 0, 0, 'Burn in hate, $r.', 12, 7, 100, 0, 0, 0, 11475, 0, 'Lieutenant General Nokhor'); -- need to check language, set to common, currently can't understand it. 
 
 DELETE FROM `creature_text` WHERE `CreatureID`= 15693;
 INSERT INTO `creature_text` (`CreatureID`,`GroupID`,`ID`,`Text`,`Type`,`Language`,`Probability`,`Emote`,`Duration`,`Sound`,`BroadcastTextId`, `TextRange`, `comment`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `creature_text` (`CreatureID`,`GroupID`,`ID`,`Text`,`Type`,`Language
 (15693, 4, 0, 'Colossus of Regal hears the call to battle and rises to serve its master.', 16, 0, 100, 1, 0, 0, 0, 4, 'EMOTE_AQ_GONG_5');
 
 -- add bosses to Silithus and Darkshore 
-DELETE FROM `creature` WHERE `id1` IN (15740, 15741, 15742, 15758, 15810, 15813, 15818);
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+101 AND @CGUID+140;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+101,15810,0,0,1,0,0,1,@IPPPHASE,0,4386.996582, 550.179260, 54.762119, 0.581150,1800,5,0,0,0,1,0,0,0,'',0),
@@ -71,40 +71,58 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+117,15741,0,0,1,0,0,1,@IPPPHASE,0, -7824.52, 663.901, -34.1379, 2.20763,3600,5,0,0,0,1,0,0,0,'',0),   -- Colossus of Regal
 (@CGUID+118,15740,0,0,1,0,0,1,@IPPPHASE,0, -7340.2, 1643.75, -34.0787, 4.01405,3600,5,0,0,0,1,0,0,0,'',0),    -- Colossus of Zora
 --
-(@CGUID+119,15758,0,0,1,0,0,1,@IPPPHASE,0,-7623.261719, 1416.035767, 4.126772,  4.945646,1800,5,0,0,0,1,0,0,0,'',0),
-(@CGUID+120,15758,0,0,1,0,0,1,@IPPPHASE,0,-7659.168457, 1392.619751, 3.995544, 3.687438,1800,5,0,0,0,1,0,0,0,'',0),
-(@CGUID+121,15758,0,0,1,0,0,1,@IPPPHASE,0,-7688.503418, 1428.886963, 3.855407, 2.550966,1800,5,0,0,0,1,0,0,0,'',0),
+(@CGUID+119,15758,0,0,1,0,0,1,@IPPPHASE,0, -7623.261719, 1416.035767, 4.126772,  4.945646,1800,5,0,0,0,1,0,0,0,'',0),
+(@CGUID+120,15758,0,0,1,0,0,1,@IPPPHASE,0, -7659.168457, 1392.619751, 3.995544, 3.687438,1800,5,0,0,0,1,0,0,0,'',0),
+(@CGUID+121,15758,0,0,1,0,0,1,@IPPPHASE,0, -7688.503418, 1428.886963, 3.855407, 2.550966,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+122,15758,0,0,1,0,0,1,@IPPPHASE,0, -7652.402344, 1464.758667, 4.526736, 0.600033,1800,5,0,0,0,1,0,0,0,'',0),
-(@CGUID+123,15818,0,0,1,0,0,1,@IPPPHASE,1, -7644.985840, 1422.093628, 3.326948, 5.378395,1800,0,0,0,0,0,0,0,0,'',0), -- boss Silithus 1
+(@CGUID+123,15818,0,0,1,0,0,1,@IPPPHASE,1, -7644.985840, 1422.093628, 3.326948, 5.378395,1800,15,0,0,0,1,0,0,0,'',0), -- boss Silithus 1
 --
 (@CGUID+124,15758,0,0,1,0,0,1,@IPPPHASE,0, -7806.652832, 855.699951, -4.778733, 0.353429,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+125,15758,0,0,1,0,0,1,@IPPPHASE,0, -7831.444336, 808.078979, -9.832852, 4.501119,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+126,15758,0,0,1,0,0,1,@IPPPHASE,0, -7881.184082, 864.466614, -1.765002, 2.737900,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+127,15758,0,0,1,0,0,1,@IPPPHASE,0, -7832.478027, 912.945801, -2.498297, 0.817600,1800,5,0,0,0,1,0,0,0,'',0),
-(@CGUID+128,15818,0,0,1,0,0,1,@IPPPHASE,1, -7830.405273, 851.316223, -4.844313, 4.929938,1800,0,0,0,0,0,0,0,0,'',0), -- boss Silithus 2
+(@CGUID+128,15818,0,0,1,0,0,1,@IPPPHASE,1, -7830.405273, 851.316223, -4.844313, 4.929938,1800,15,0,0,0,1,0,0,0,'',0), -- boss Silithus 2
 --
-(@CGUID+129,15758,0,0,1,0,0,1,@IPPPHASE,0,-6290.943848, 736.276489, 11.109619, 5.837865,1800,5,0,0,0,1,0,0,0,'',0),
-(@CGUID+130,15758,0,0,1,0,0,1,@IPPPHASE,0,-6303.743652, 703.045105, 11.219690, 4.562379,1800,5,0,0,0,1,0,0,0,'',0),
+(@CGUID+129,15758,0,0,1,0,0,1,@IPPPHASE,0, -6290.943848, 736.276489, 11.109619, 5.837865,1800,5,0,0,0,1,0,0,0,'',0),
+(@CGUID+130,15758,0,0,1,0,0,1,@IPPPHASE,0, -6303.743652, 703.045105, 11.219690, 4.562379,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+131,15758,0,0,1,0,0,1,@IPPPHASE,0, -6349.953613, 715.365662, 2.037906, 3.263330,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+132,15758,0,0,1,0,0,1,@IPPPHASE,0, -6346.292969, 777.375793, 1.782544, 1.899878,1800,5,0,0,0,1,0,0,0,'',0),
-(@CGUID+133,15818,0,0,1,0,0,1,@IPPPHASE,1, -6322.091797, 738.599060, 8.332182, 2.500710,1800,0,0,0,0,0,0,0,0,'',0); -- boss Silithus 3
+(@CGUID+133,15818,0,0,1,0,0,1,@IPPPHASE,1, -6322.091797, 738.599060, 8.332182, 2.500710,1800,15,0,0,0,1,0,0,0,'',0), -- boss Silithus 3
+--
+(@CGUID+134,15743,0,0,1,0,0,1,@IPPPHASE,0, -7953.03, 1588.4, -2.4214, 0.0139782, 1800, 0, 0, 345840, 0, 0, 0, 0, 0, '', 0),
+(@CGUID+135,15743,0,0,1,0,0,1,@IPPPHASE,0, -7947.04, 1538.89, 0.298302, 6.05763, 1800, 0, 0, 345840, 0, 0, 0, 0, 0, '', 0),
+(@CGUID+136,15743,0,0,1,0,0,1,@IPPPHASE,0, -8107.13, 1522.33, 2.60935, 6.03569,  1800, 0, 0, 345840, 0, 0, 0, 0, 0, '', 0),
+(@CGUID+137,15744,0,0,1,0,0,1,@IPPPHASE,0, -8107.33, 1536.68, 3.37718, 0.315558, 1800, 5, 0, 194250, 51360, 1, 0, 0, 0, '', 0),
+--
+(@CGUID+138, 15797,0,0,1,0,0,1,1,0, -6826.11, 813.571, 51.6444, 5.49779, 300, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_ipp_aqwar', 0), -- Colossus Researcher Sophia
+(@CGUID+139, 15798,0,0,1,0,0,1,1,0, -6824.03, 813.17, 51.4418, 3.52557, 300, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_ipp_aqwar', 0),  -- Colossus Researcher Nestor
+(@CGUID+140, 15799,0,0,1,0,0,1,1,0, -6825.01, 811.389, 51.8466, 1.67552, 300, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_ipp_aqwar', 0); -- Colossus Researcher Eazel
 
--- remove flags_extra = 1 for Lieutenant General Nokhor
+-- nerf hive boss HP so they're doable for a raid of 40
+UPDATE `creature_template` SET `HealthModifier` = 600 WHERE entry IN (15740, 15741, 15742);
+
+-- remove flags_extra = 1 (CREATURE_FLAG_EXTRA_INSTANCE_BIND) for Lieutenant General Nokhor
 UPDATE `creature_template` SET `flags_extra` = 0 WHERE `entry` = 15818;
 
-DELETE FROM `pool_template` WHERE `entry` IN (15813, 15818);
-INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
-(15813, 1, "AQ War Event Darkshore Boss"),
-(15818, 1, "AQ War Event Silithus Boss");
+-- Supreme Anubisath Warbringer
+UPDATE `creature_template` SET `maxgold` = 23909 WHERE `entry` = 15758; -- previously 83909
 
-DELETE FROM `pool_creature` WHERE `pool_entry` = 15813;
+-- General Rajaxx
+UPDATE `creature_text` SET `TextRange` = 4 WHERE `CreatureID` = 15341 AND `GroupID` = 12;
+
+DELETE FROM `pool_template` WHERE `entry` IN (601053, 601054); 
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+(601053, 1, "AQ War Event Darkshore Boss"),
+(601054, 1, "AQ War Event Silithus Boss");
+
+DELETE FROM `pool_creature` WHERE `pool_entry` IN (15813, 15818, 601053, 601054); -- 15813, 15818 need to be removed later on
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES
-(@CGUID+105, 15813, 0, 'AQ War Event Darkshore Boss'),
-(@CGUID+110, 15813, 0, 'AQ War Event Darkshore Boss'),
-(@CGUID+115, 15813, 0, 'AQ War Event Darkshore Boss'),
-(@CGUID+123, 15813, 0, 'AQ War Event Silithus Boss'),
-(@CGUID+128, 15813, 0, 'AQ War Event Slithus Boss'),
-(@CGUID+133, 15813, 0, 'AQ War Event Silithus Boss');
+(@CGUID+105, 601053, 0, 'AQ War Event Darkshore Boss'),
+(@CGUID+110, 601053, 0, 'AQ War Event Darkshore Boss'),
+(@CGUID+115, 601053, 0, 'AQ War Event Darkshore Boss'),
+(@CGUID+123, 601054, 0, 'AQ War Event Silithus Boss'),
+(@CGUID+128, 601054, 0, 'AQ War Event Silithus Boss'),
+(@CGUID+133, 601054, 0, 'AQ War Event Silithus Boss');
 
 -- add Resonating Crystal Formations to Silithus and Darkshore
 DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+101 AND @OGUID+106;
@@ -118,10 +136,6 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 
 -- set Resonating Crystal Formations to 'Not selectable'
 UPDATE `gameobject_template_addon` SET `flags` = 16 WHERE `entry` = 180810;
-
--- Remove Colossus pathing
-DELETE FROM `waypoint_data` WHERE `id` IN (157400, 157410, 157420);
-DELETE FROM `creature_template_addon` WHERE `entry` IN (15740, 15741, 15742);
 
 -- add loot to Colossus of Zora, Regal and Ashi
 DELETE FROM `creature_loot_template` WHERE `entry` = 15740;
@@ -195,9 +209,3 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 -- same lootID for all 3 Colossus bosses
 DELETE FROM `creature_loot_template` WHERE `entry` IN (15741, 15742);
 UPDATE `creature_template` SET `LootId` = 15740 WHERE `entry` IN (15740, 15741, 15742);
-
--- General Rajaxx
-UPDATE `creature_text` SET `TextRange` = 4 WHERE `CreatureID` = 15341 AND `GroupID` = 12;
-
--- Supreme Anubisath Warbringer
-UPDATE `creature_template` SET `maxgold` = 23909 WHERE `entry` = 15758; -- previously 83909

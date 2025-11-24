@@ -179,6 +179,8 @@ enum ProgressionAreas
     AREA_DRACO_DAR                       = 2421,
     AREA_RISE_OF_THE_DEFILER             = 2517,
     AREA_PESTILENT_SCAR                  = 2622,
+    AREA_SCARAB_WALL                     = 2737,
+    AREA_SCARAB_DAIS                     = 2741,
     AREA_HIVE_ASHI                       = 2742,
     AREA_HIVE_ZORA                       = 2743,
     AREA_HIVE_REGAL                      = 2744,
@@ -395,6 +397,7 @@ public:
     bool hasCustomProgressionValue(uint32 creatureEntry);
     bool isExcludedFromProgression(Player* player);
     bool isAttuned(Player* player);
+	void checkIPPhasing(Player* player, uint32 newArea);
     void checkIPProgression(Player* player);	
     void UpdateProgressionQuests(Player* player);
     void UpdateProgressionAchievements(Player* player, uint16 achievementID);
