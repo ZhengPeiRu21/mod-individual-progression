@@ -386,6 +386,43 @@ public:
     }
 };
 
+class npc_ipp_aqwar : public CreatureScript
+{
+public:
+    npc_ipp_aqwar() : CreatureScript("npc_ipp_aqwar") { }
+
+    struct npc_ipp_aqwarAI: ScriptedAI
+    {
+        explicit npc_ipp_aqwarAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster())
+            {
+                return true;
+            }
+            
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
+            {
+                return false;
+            }
+            else if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
+            {
+                return true;
+            }
+
+            return false;
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_aqwarAI(creature);
+    }
+};
+
 class npc_ipp_si : public CreatureScript
 {
 public:
@@ -754,6 +791,7 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_preaq();              // Cenarion Hold NPCs
     new npc_ipp_we();                 // War Effort NPCs in cities
 	new npc_ipp_aq();
+    new npc_ipp_aqwar();              // only visible during AQ war
     new npc_ipp_si();                 // Scourge Invasion
     new npc_ipp_pre_naxx40();         // Scourge Invasion
     new npc_ipp_naxx40();
