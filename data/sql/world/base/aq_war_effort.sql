@@ -211,14 +211,9 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (15701, 108850);
 
 -- Hide 'Complete the War Effort' quests until the player has completed all collection quests at least once
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (8286, 108743, 108850, 108855);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (108850, 108855);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
---
-(19, 0, 108743, 0, 0, 8, 0, 108850, 0, 0, 0, 0, 0, '', 'Quest \'Simply Bang a Gong!\' requires the \'Complete the War Effort\' quest to be completed'),
-(19, 0, 108743, 0, 1, 8, 0, 108855, 0, 0, 0, 0, 0, '', 'Quest \'Simply Bang a Gong!\' requires the \'Complete the War Effort\' quest to be completed'),
-(19, 0, 8286, 0, 0, 8, 0, 108850, 0, 0, 0, 0, 0, '', 'Quest \'What Tomorrow Brings\' requires the \'Complete the War Effort\' quest to be completed'),
-(19, 0, 8286, 0, 1, 8, 0, 108855, 0, 0, 0, 0, 0, '', 'Quest \'What Tomorrow Brings\' requires the \'Complete the War Effort\' quest to be completed'),
 -- Alliance
 (19, 0, 108850, 0, 0, 8, 0, 8492, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_COPPER_BARS_A'),
 (19, 0, 108850, 0, 0, 8, 0, 8494, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_IRON_BARS'),
