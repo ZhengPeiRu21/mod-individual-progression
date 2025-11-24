@@ -317,7 +317,7 @@ public:
             }
 
             /* The Scarab Gong can still be seen during the outdoor AQ war.  */        
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ);
         }
 
         void NextStage(uint32 timeUntil = 100)
@@ -449,7 +449,7 @@ public:
                 return false;
             }
 
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_AQ_WAR); // gate can be opened during the AQ WAR by interacting with the Scarab Gong
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_AQ); // gate can be opened during the AQ WAR by interacting with the Scarab Gong
         }
     };
 

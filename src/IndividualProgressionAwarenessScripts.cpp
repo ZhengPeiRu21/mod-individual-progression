@@ -774,7 +774,7 @@ public:
             
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
             {
                 return false;
             }
