@@ -575,7 +575,25 @@ public:
                     player->RemoveAura(IPP_PHASE_III);
                     player->CastSpell(player, IPP_PHASE_II, false);
                 }
-                break;	
+                break;
+            case AREA_SCARAB_WALL:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ_WAR)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
+            case AREA_SCARAB_DAIS:
+                if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ_WAR)))
+                {
+                    player->RemoveAura(IPP_PHASE);
+                    player->RemoveAura(IPP_PHASE_II);
+                    player->RemoveAura(IPP_PHASE_III);
+                    player->CastSpell(player, IPP_PHASE, false);
+                }
+                break;
             case AREA_HIVE_ASHI:
                 if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ_WAR)))
                 {
