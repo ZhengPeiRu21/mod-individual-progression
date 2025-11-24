@@ -509,7 +509,7 @@ public:
                 return false;
             }
 			
-            if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED || target->GetLevel() > IP_LEVEL_VANILLA)
+            if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED || target->GetLevel() > IP_LEVEL_VANILLA || player->getClass() == CLASS_DEATH_KNIGHT)
             {
                 return false;
             }
@@ -545,7 +545,7 @@ public:
                 return true;
             }
 			
-            if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED || target->GetLevel() > IP_LEVEL_VANILLA)
+            if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED || target->GetLevel() > IP_LEVEL_VANILLA || player->getClass() == CLASS_DEATH_KNIGHT)
             {
                 return true;
             }
