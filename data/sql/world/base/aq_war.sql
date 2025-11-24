@@ -13,7 +13,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(15634, 0, 0, 0, 14, 0, 100, 0, 1000, 200, 50000, 60000, 0, 0, 11, 25839, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Priestess of the Moon - On Friendly Health - Cast Mass Healing'),
+(15634, 0, 0, 0, 101, 0, 100, 0, 1, 20, 0, 50000, 60000, 0, 11, 25839, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Priestess of the Moon - On Near Player - Cast Mass Healing'),
 --
 (15740, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Colossus of Zora - In Combat - Cast Colossal Smash'),
 (15741, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Colossus of Regal - In Combat - Cast Colossal Smash'), -- https://www.youtube.com/watch?v=F4aAAo_GSrw
@@ -46,7 +46,7 @@ INSERT INTO `creature_text` (`CreatureID`,`GroupID`,`ID`,`Text`,`Type`,`Language
 (15693, 4, 0, 'Colossus of Regal hears the call to battle and rises to serve its master.', 16, 0, 100, 1, 0, 0, 0, 4, 'EMOTE_AQ_GONG_5');
 
 -- add bosses to Silithus and Darkshore 
-DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+101 AND @CGUID+137;
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+101 AND @CGUID+140;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+101,15810,0,0,1,0,0,1,@IPPPHASE,0,4386.996582, 550.179260, 54.762119, 0.581150,1800,5,0,0,0,1,0,0,0,'',0),
@@ -92,7 +92,11 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+134,15743,0,0,1,0,0,1,@IPPPHASE,0, -7953.03, 1588.4, -2.4214, 0.0139782, 1800, 0, 0, 345840, 0, 0, 0, 0, 0, '', 0),
 (@CGUID+135,15743,0,0,1,0,0,1,@IPPPHASE,0, -7947.04, 1538.89, 0.298302, 6.05763, 1800, 0, 0, 345840, 0, 0, 0, 0, 0, '', 0),
 (@CGUID+136,15743,0,0,1,0,0,1,@IPPPHASE,0, -8107.13, 1522.33, 2.60935, 6.03569,  1800, 0, 0, 345840, 0, 0, 0, 0, 0, '', 0),
-(@CGUID+137,15744,0,0,1,0,0,1,@IPPPHASE,0, -8107.33, 1536.68, 3.37718, 0.315558, 1800, 5, 0, 194250, 51360, 1, 0, 0, 0, '', 0);
+(@CGUID+137,15744,0,0,1,0,0,1,@IPPPHASE,0, -8107.33, 1536.68, 3.37718, 0.315558, 1800, 5, 0, 194250, 51360, 1, 0, 0, 0, '', 0),
+--
+(@CGUID+138, 15797,0,0,1,0,0,1,1,0, -6826.11, 813.571, 51.6444, 5.49779, 300, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_ipp_aqwar', 0), -- Colossus Researcher Sophia
+(@CGUID+139, 15798,0,0,1,0,0,1,1,0, -6824.03, 813.17, 51.4418, 3.52557, 300, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_ipp_aqwar', 0),  -- Colossus Researcher Nestor
+(@CGUID+140, 15799,0,0,1,0,0,1,1,0, -6825.01, 811.389, 51.8466, 1.67552, 300, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_ipp_aqwar', 0); -- Colossus Researcher Eazel
 
 -- remove flags_extra = 1 (CREATURE_FLAG_EXTRA_INSTANCE_BIND) for Lieutenant General Nokhor
 UPDATE `creature_template` SET `flags_extra` = 0 WHERE `entry` = 15818;
