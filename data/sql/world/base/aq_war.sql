@@ -98,6 +98,9 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+139, 15798,0,0,1,0,0,1,1,0, -6824.03, 813.17, 51.4418, 3.52557, 300, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_ipp_aqwar', 0),  -- Colossus Researcher Nestor
 (@CGUID+140, 15799,0,0,1,0,0,1,1,0, -6825.01, 811.389, 51.8466, 1.67552, 300, 0, 0, 0, 0, 0, 0, 0, 0, 'npc_ipp_aqwar', 0); -- Colossus Researcher Eazel
 
+-- nerf hive boss HP so they're doable for a raid of 40
+UPDATE `creature_template` SET `HealthModifier` = 600 WHERE entry IN (15740, 15741, 15742);
+
 -- remove flags_extra = 1 (CREATURE_FLAG_EXTRA_INSTANCE_BIND) for Lieutenant General Nokhor
 UPDATE `creature_template` SET `flags_extra` = 0 WHERE `entry` = 15818;
 
