@@ -204,6 +204,31 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11043, 0, 3, 0, 105, 0, 100, 0, 0, 0, 8000, 10000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Monk - Victim Casting - Cast Kick'),
 (11043, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Monk - Between 0-15% Health - Flee For Assist (No Repeat)');
 
+/* fix rare loot drop rates  */
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10398 AND `item` = 16697; -- Thuzadin Shadowcaster - Dreadmist Belt
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10398 AND `item` = 16702; -- Thuzadin Necromancer - Devout Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10400 AND `item` = 16697; -- Thuzadin Necromancer - Devout Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10400 AND `item` = 16702; -- Thuzadin Necromancer - Dreadmist Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10406 AND `item` = 16681; -- Ghoul Ravener - Beaststalker's Bindings
+UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 10407 AND `item` = 16681; -- Fleshflayer Ghoul - Beaststalker's Bindings
+UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 10408 AND `item` = 16723; -- Rockwing Gargoyle - Lightforge Belt
+UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 10409 AND `item` = 16723; -- Rockwing Gargoyle - Lightforge Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 10412 AND `item` = 16671; -- Crypt Crawler - Bindings of Elements
+UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 10413 AND `item` = 16671; -- Crypt Beast - Bindings of Elements
+UPDATE `creature_loot_template` SET `Chance` = 3    WHERE `entry` = 10414 AND `item` = 16736; -- Patchwork Horror - Belt of Valor
+UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 10416 AND `item` = 16736; -- Bile Spewer - Belt of Valor
+UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 10417 AND `item` = 16736; -- Venom Belcher - Belt of Valor
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10418 AND `item` = 16723; -- Crimson Guardsman - Lightforge Belt
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 10420 AND `item` = 16697; -- Crimson Initiate - Devout Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10421 AND `item` = 16681; -- Crimson Defender - Beaststalker's Bindings
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 10422 AND `item` = 16685; -- Crimson Sorcerer - Magister's Belt
+UPDATE `creature_loot_template` SET `Chance` = 4    WHERE `entry` = 10423 AND `item` = 16697; -- Crimson Priest - Devout Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10424 AND `item` = 16723; -- Crimson Gallant - Lightforge Belt
+UPDATE `creature_loot_template` SET `Chance` = 3    WHERE `entry` = 10425 AND `item` = 16685; -- Crimson Battle Mage - Magister's Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10426 AND `item` = 16714; -- Crimson Inquisitor - Wildheart Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 10463 AND `item` = 16714; -- Shrieking Banshee - Wildheart Bracers
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10464 AND `item` = 16714; -- Wailing Banshee - Wildheart Bracers
+UPDATE `creature_loot_template` SET `Chance` = 3    WHERE `entry` = 11043 AND `item` = 16671; -- Crimson Monk - Bindings of Elements
 
 -- stratholme living side, 3 doors not locked that should require the scarlet key
 UPDATE gameobject_template SET `Data1` = 299 WHERE `entry` IN (175967, 175968, 176194);
@@ -211,7 +236,6 @@ UPDATE gameobject_template_addon SET `flags` = 34 WHERE `entry` IN (175967, 1759
 
 -- service gate should open and close, but not lock itself again. I can't get this to work, so I'm keeping the gate open. (old Data2 value was 3000)
 UPDATE `gameobject_template` SET `Data2` = 0 WHERE `entry` = 175368; 
-
 
 -- Gargoyles
 SET @CGUID    := 329000;  -- creature guid
