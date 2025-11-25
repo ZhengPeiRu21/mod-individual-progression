@@ -55,7 +55,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (11357, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12787, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Son of Hakkar - On Respawn - Cast Thrash Proc'),
 (11357, 0, 1, 0, 0, 0, 100, 0, 4000, 10000, 4000, 10000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Son of Hakkar - In Combat - Cast Knockdown'),
-(11357, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 24320, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Son of Hakkar - On Just Died - Cast Poisonous Blood'), -- doesn't work!
+(11357, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 14989, 3, 10000, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Son of Hakkar - On Just Died - Summon Poisonous Cloud'),
 (11359, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Soulflayer - On Respawn - Cast Thrash Proc'),
 (11359, 0, 1, 0, 0, 0, 100, 0, 7000, 7000, 7000, 8000, 0, 0, 11, 22678, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,      'Soulflayer - Within 0-10 Range - Cast Fear'),
 (11359, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 3000, 0, 0, 11, 24619, 256, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Soulflayer - In Combat - Cast Soul Tap'),
