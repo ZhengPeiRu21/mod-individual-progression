@@ -133,7 +133,25 @@ DELETE FROM `creature`       WHERE `id1` = 23589;  -- Defias Rummager
 DELETE FROM `creature`       WHERE `id1` = 23841;  -- Razorspine
 DELETE FROM `creature_addon` WHERE `guid` = 39309; -- Razorspine
 
+/* Fiora Longears - restore her location to Theramore and restore quests that involve her */
+DELETE FROM `creature` WHERE `id1` = 4456;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES
+(37087, 4456, 0, 0, 1, 0, 0, 1, 1, 1, -3613.47, -4464.02, 13.7054, 2.61799, 275, 0, 0, 787, 0, 0, 0, 0, 0, '', 0, NULL);
+
+DELETE FROM `creature_queststarter` WHERE `id` = 4455 AND `quest` IN (1132);
+DELETE FROM `creature_queststarter` WHERE `id` = 4456 AND `quest` IN (1133, 1135);
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (4455, 1132), (4456, 1133), (4456, 1135);
+
+DELETE FROM `creature_questender` WHERE `id` = 3845 AND `quest` IN (1133);
+DELETE FROM `creature_questender` WHERE `id` = 4456 AND `quest` IN (1132, 1135);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (3845, 1133), (4456, 1132), (4456, 1135);
+
+UPDATE `quest_template` SET `LogDescription` = "Speak with Fiora Longears in Theramore." WHERE `ID` = 1132;
+
+
 /* Old Vanilla Varian Wrynn Npc in Alcaz during Vanilla phases */
 DELETE FROM `creature` WHERE `id1` = 11699 AND `map` = 1;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES
 (611699, 11699, 0, 0, 1, 0, 0, 1, 1, 1, -2744.03, -4994.2, 8.26564, 0.0392587, 300, 0, 0, 4121, 0, 0, 0, 0, 0, 'npc_ipp_pre_naxx40', 0, 'Varian Wrynn in Alcaz (Vanilla)');
