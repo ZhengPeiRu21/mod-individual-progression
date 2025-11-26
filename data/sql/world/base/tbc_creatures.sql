@@ -204,7 +204,7 @@ UPDATE `creature_template` SET `speed_walk` = 1.125, `speed_run` = 1.14286 WHERE
 UPDATE `creature_template` SET `speed_walk` = 1.125, `speed_run` = 1.14286 WHERE `entry` = 15669;
 
 /*  Grimscale Forager  */
-UPDATE `creature_template` SET `speed_walk` = 1.125, `speed_run` = 1.14286 WHERE `entry` = 15;
+UPDATE `creature_template` SET `speed_walk` = 1.125, `speed_run` = 1.14286 WHERE `entry` = 15670;
 
 /*  Jade Owl  */
 UPDATE `creature_template` SET `minlevel` = 35, `maxlevel` = 40 WHERE `entry` = 15919;
