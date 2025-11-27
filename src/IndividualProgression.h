@@ -45,7 +45,7 @@ enum ProgressionBossIDs
     YOGGSARON            = 33288,
     ANUBARAK             = 34564,
     LICH_KING            = 36597,
-    HALION               = 39863, 
+    HALION               = 39863,
     RHAHK_ZOR            = 644,
     SNEED                = 643,
     GILNID               = 1763
@@ -204,7 +204,7 @@ enum ProgressionState : uint8         // Progression stands for what has been co
 {
     PROGRESSION_START           = 0,
     PROGRESSION_MOLTEN_CORE     = 1,  // BWL available
-    PROGRESSION_ONYXIA          = 2, 
+    PROGRESSION_ONYXIA          = 2,
     PROGRESSION_BLACKWING_LAIR  = 3,  // ZG, AQ War effort, AQ quest line
     PROGRESSION_PRE_AQ          = 4,  // AQ gates open, raids available, AQ outdoors war 
     PROGRESSION_AQ_WAR          = 5,  // AQ gates open, raids, Field Duty quests and all Cenarion Hold npcs available
@@ -220,7 +220,7 @@ enum ProgressionState : uint8         // Progression stands for what has been co
     PROGRESSION_WOTLK_TIER_2    = 15, // TotC
     PROGRESSION_WOTLK_TIER_3    = 16, // ICC
     PROGRESSION_WOTLK_TIER_4    = 17, // Ruby Sanctum
-    PROGRESSION_WOTLK_TIER_5    = 18 
+    PROGRESSION_WOTLK_TIER_5    = 18
 };
 
 enum RandomDungeonIds : uint16
@@ -397,7 +397,7 @@ public:
     bool hasCustomProgressionValue(uint32 creatureEntry);
     bool isExcludedFromProgression(Player* player);
     bool isAttuned(Player* player);
-	void checkIPPhasing(Player* player, uint32 newArea);
+    void checkIPPhasing(Player* player, uint32 newArea);
     void checkIPProgression(Player* player);	
     void UpdateProgressionQuests(Player* player);
     void UpdateProgressionAchievements(Player* player, uint16 achievementID);
