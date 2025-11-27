@@ -117,7 +117,7 @@ public:
         }
 
         sIndividualProgression->ForceUpdateProgressionState(target, static_cast<ProgressionState>(progressionLevel));
-        sIndividualProgression->UpdateProgressionQuests(target);	
+        sIndividualProgression->UpdateProgressionQuests(target);
         sIndividualProgression->checkIPPhasing(target, currentArea);
 
         handler->PSendSysMessage("Updated Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
@@ -125,7 +125,7 @@ public:
     }
 
     static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, std::string location)
-    {	 
+    {
         if (location != "naxx40" && location != "onyxia40" && location != "naxx" && location != "onyxia")
         {
             handler->PSendSysMessage("|cff00ffff{}|r is not a valid teleport location.", location);
