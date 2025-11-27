@@ -217,6 +217,25 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (601014, 1, 'Warlord Thresh\'jin - EPL'),
 (601015, 1, 'Zul\'Brin Warpbranch - EPL');
     
-    
 -- Marris, not Morris.
 UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Nathanos Blightcaller at Marris Stead in Eastern Plaguelands.' WHERE `ID` IN (6022, 6042, 6133, 6135, 6145, 6148, 6163, 14350);
+
+-- Hide Argent Dawn token quests until Naxx40
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 3461 AND `ConditionValue1` = 66006;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceGroup` = 0 AND `ConditionValue1` = 66006 AND `SourceEntry` BETWEEN 9221 AND 9228;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(15, 3461, 2, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Miranda Breechlock - only show Gossip Menu Insignia Cost after player reaches Naxx40'),
+(15, 3461, 2, 0, 1, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Miranda Breechlock - only show Gossip Menu Insignia Cost after player reaches Naxx40'),
+(15, 3461, 2, 0, 2, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Miranda Breechlock - only show Gossip Menu Insignia Cost after player reaches Naxx40'),
+--
+(19, 0, 9221, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Superior Armaments of Battle - Friend of the Dawn\' until Naxx40'),
+(19, 0, 9223, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Superior Armaments of Battle - Honored Amongst the Dawn\' until Naxx40'),
+(19, 0, 9226, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Superior Armaments of Battle - Revered Amongst the Dawn\' until Naxx40'),
+(19, 0, 9227, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Superior Armaments of Battle - Exalted Amongst the Dawn\' until Naxx40'),
+--
+(19, 0, 9222, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Epic Armaments of Battle - Friend of the Dawn\' until Naxx40'),
+(19, 0, 9224, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Epic Armaments of Battle - Honored Amongst the Dawn\' until Naxx40'),
+(19, 0, 9225, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Epic Armaments of Battle - Revered Amongst the Dawn\' until Naxx40'),
+(19, 0, 9228, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Epic Armaments of Battle - Exalted Amongst the Dawn\' until Naxx40');
