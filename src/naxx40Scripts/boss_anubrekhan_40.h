@@ -1,5 +1,5 @@
-#ifndef BOSS_ANUBREKHAN_H_
-#define BOSS_ANUBREKHAN_H_
+#ifndef BOSS_ANUBREKHAN_40_H_
+#define BOSS_ANUBREKHAN_40_H_
 
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
