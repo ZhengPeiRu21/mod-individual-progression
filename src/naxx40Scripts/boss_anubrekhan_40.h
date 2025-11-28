@@ -6,7 +6,7 @@
 #include "SpellInfo.h"
 #include "naxxramas.h"
 
-namespace Anubrekhan {
+namespace Anubrekhan_40 {
 
 enum Says
 {
