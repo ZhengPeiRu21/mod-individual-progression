@@ -197,14 +197,14 @@ UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel`
 UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 10000000, `RequiredLevel` = 60, `Name` = 'Winterspring Frostsaber'          WHERE `entry` = 13086;
 UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 10000000, `RequiredLevel` = 60, `Name` = 'Deathcharger'                     WHERE `entry` = 13335;
 
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Black War Steed'                  WHERE `entry` = 18241;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Black War Tiger'                  WHERE `entry` = 18242;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Black Battlestrider'              WHERE `entry` = 18243;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Black War Ram'                    WHERE `entry` = 18244;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Black War Wolf'                   WHERE `entry` = 18245;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Black War Raptor'                 WHERE `entry` = 18246;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Black War Kodo'                   WHERE `entry` = 18247;
-UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Red Skeletal Warhorse'            WHERE `entry` = 18248;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black War Steed'                  WHERE `entry` = 18241;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black War Tiger'                  WHERE `entry` = 18242;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black Battlestrider'              WHERE `entry` = 18243;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black War Ram'                    WHERE `entry` = 18244;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black War Wolf'                   WHERE `entry` = 18245;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black War Raptor'                 WHERE `entry` = 18246;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black War Kodo'                   WHERE `entry` = 18247;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Red Skeletal Warhorse'            WHERE `entry` = 18248;
 
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Frostwolf Howler'                 WHERE `entry` = 19029;
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 100000,   `RequiredLevel` = 60, `Name` = 'Stormpike Battle Charger'         WHERE `entry` = 19030;
