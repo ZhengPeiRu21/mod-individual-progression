@@ -18,12 +18,16 @@ UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skar\'this the Her
 /* fix recipe loot drops */
 
 -- remove T5 recipes reference loot table from bosses that shouldn't have it.
-DELETE FROM `creature_loot_template` WHERE `Reference` = 34052 AND `Entry` IN
-(18805, 19516, 19622, 21212, 21213, 21214, 21215, 21216, 21217);
+DELETE FROM `creature_loot_template` WHERE `Reference` = 34052 AND `Entry` IN (18805, 19516, 19622, 21212, 21213, 21214, 21215, 21216, 21217);
 
--- remove T5 recipes from trash creatures, this is now done with a reference loot table.
-DELETE FROM `creature_loot_template` WHERE `item` IN
-(30282, 30283, 30305, 30306, 30307, 30308, 30323, 30324, 30321, 30322, 30301, 30302, 30303, 30304, 30280, 30281);
+-- remove unused reference loot tables
+DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 34054 AND 34062;
+
+-- remove unused conditions
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` IN (30282, 30283, 30305, 30306, 30307, 30308, 30323, 30324, 30321, 30322, 30301, 30302, 30303, 30304, 30280, 30281);
+
+-- remove all T5 recipes from trash creatures, this is now done with a reference loot table.
+DELETE FROM `creature_loot_template` WHERE `item` IN (30282, 30283, 30305, 30306, 30307, 30308, 30323, 30324, 30321, 30322, 30301, 30302, 30303, 30304, 30280, 30281);
 
 -- add reference loot table to trash creatures
 DELETE FROM `creature_loot_template` WHERE `Item` = 34052;
