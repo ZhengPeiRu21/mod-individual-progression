@@ -1,7 +1,7 @@
 /* Correct quest log text for SSC attunement quest "The Cudgel of Kar'desh" */
 UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skar\'this the Heretic in the heroic Slave Pens of Coilfang Reservoir.' WHERE `ID` = 10901;
 
-    
+
 /* fix recipe loot drops */
 
 -- remove unused reference loot tables
