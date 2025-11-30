@@ -32,7 +32,7 @@ DELETE FROM `creature_loot_template` WHERE `item` IN (30282, 30283, 30305, 30306
 -- add reference loot table to trash creatures
 DELETE FROM `creature_loot_template` WHERE `Item` = 34052;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
-(20047, 34052, 34052, 1.882, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+-- (20047, 34052, 34052, 1.882, 0, 1, 1, 1, 1, 'T5 - Recipes'), -- creature 20047 uses 20032 instead of having it's own loot template
 (21228, 34052, 34052, 1.346, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20031, 34052, 34052, 1.768, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20032, 34052, 34052, 1.822, 0, 1, 1, 1, 1, 'T5 - Recipes'),
