@@ -65,16 +65,19 @@ DELETE FROM `creature_loot_template` WHERE `Entry` IN (18805, 19516, 19622, 2121
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 --
 (18805, 21877, 0, 18, 0, 1, 1, 3, 3,      'High Astromancer Solarian - Netherweave Cloth'),
+(18805, 29434, 0, 100, 0, 1, 0, 2, 2,     'High Astromancer Solarian - Badge of Justice'),
 (18805, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Formula, Plans, Schematics'),
 (18805, 36005, 36005, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 1)'),
 (18805, 36006, 36006, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 2)'),
 (18805, 36007, 36007, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 3)'),
 --
+(19516, 29434, 0, 100, 0, 1, 0, 2, 2,     'Void Reaver - Badge of Justice'),
 (19516, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Formula, Plans, Schematics'),
 (19516, 36003, 36003, 100, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Epic Items (Group 1)'),
 (19516, 36004, 36004, 100, 0, 1, 1, 2, 2, 'Void Reaver - ReferenceTable - Epic Items (Tokens)'),
 --
 (19622, 21877, 0, 18, 0, 1, 1, 3, 3,      'Kael\'thas Sunstrider - Netherweave Cloth'),
+(19622, 29434, 0, 100, 0, 1, 0, 3, 3,     'Kael\'thas Sunstrider - Badge of Justice'),
 (19622, 29905, 0, 100, 1, 1, 0, 1, 1,     'Kael\'thas Sunstrider - Kael\'s Vial Remnant'),
 (19622, 30183, 0, 100, 0, 1, 0, 2, 2,     'Kael\'thas Sunstrider - Nether Vortex'),
 (19622, 32405, 0, 100, 0, 1, 0, 1, 1,     'Kael\'thas Sunstrider - Verdant Sphere'),
@@ -85,6 +88,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19622, 36010, 36010, 100, 0, 1, 1, 2, 2, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Tokens)'),
 --
 (21212, 21877, 0, 18, 0, 1, 1, 3, 3,      'Lady Vashj - Netherweave Cloth'),
+(21212, 29434, 0, 100, 0, 1, 0, 3, 3,     'Lady Vashj - Badge of Justice'),
 (21212, 29906, 0, 100, 1, 1, 0, 1, 1,     'Lady Vashj - Vashj\'s Vial Remnant'),
 (21212, 30183, 0, 100, 0, 1, 0, 2, 2,     'Lady Vashj - Nether Vortex'),
 (21212, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Formula, Plans, Schematics'),
@@ -93,26 +97,31 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (21212, 36026, 36026, 100, 0, 1, 1, 2, 2, 'Lady Vashj - ReferenceTable - Epic Items (Tokens)'),
 --
 (21213, 21877, 0, 18, 0, 1, 1, 3, 3,      'Morogrim Tidewalker - Netherweave Cloth'),
+(21213, 29434, 0, 100, 0, 1, 0, 2, 2,     'Morogrim Tidewalker - Badge of Justice'),
 (21213, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Formula, Plans, Schematics'),
 (21213, 36017, 36017, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 1)'),
 (21213, 36018, 36018, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 2)'),
 (21213, 36019, 36019, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 3)'),
 --
 (21214, 21877, 0, 18, 0, 1, 1, 3, 3,      'Fathom-Lord Karathress - Netherweave Cloth'),
+(21214, 29434, 0, 100, 0, 1, 0, 2, 2,     'Fathom-Lord Karathress - Badge of Justice'),
 (21214, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Formula, Plans, Schematics'),
 (21214, 36022, 36022, 100, 0, 1, 1, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Epic Items (Group 1)'),
 (21214, 36023, 36023, 100, 0, 1, 1, 2, 2, 'Fathom-Lord Karathress - ReferenceTable - Epic Items (Tokens)'),
 --
 (21215, 21877, 0, 18, 0, 1, 1, 3, 3,      'Leotheras the Blind - Netherweave Cloth'),
+(21215, 29434, 0, 100, 0, 1, 0, 2, 2,     'Leotheras the Blind - Badge of Justice'),
 (21215, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Leotheras the Blind - ReferenceTable - Formula, Plans, Schematics'),
 (21215, 36020, 36020, 100, 0, 1, 1, 1, 1, 'Leotheras the Blind - ReferenceTable - Epic Items (Group 1)'),
 (21215, 36021, 36021, 100, 0, 1, 1, 2, 2, 'Leotheras the Blind - ReferenceTable - Epic Items (Tokens)'),
 --
+(21216, 29434, 0, 100, 0, 1, 0, 2, 2,     'Hydross the Unstable - Badge of Justice'),
 (21216, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Formula, Plans, Schematics'),
 (21216, 36011, 36011, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 1)'),
 (21216, 36012, 36012, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 2)'),
 (21216, 36013, 36013, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 3)'),
 --
+(21217, 29434, 0, 100, 0, 1, 0, 2, 2,     'The Lurker Below - Badge of Justice'),
 (21217, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Formula, Plans, Schematics'),
 (21217, 36014, 36014, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 1)'),
 (21217, 36015, 36015, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 2)'),
