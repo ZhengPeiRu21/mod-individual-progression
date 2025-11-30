@@ -72,7 +72,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 --
 (19516, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Formula, Plans, Schematics'),
 (19516, 36003, 36003, 100, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Epic Items (Group 1)'),
-(19516, 36004, 36004, 100, 0, 1, 1, 3, 3, 'Void Reaver - ReferenceTable - Epic Items (Tokens)'),
+(19516, 36004, 36004, 100, 0, 1, 1, 2, 2, 'Void Reaver - ReferenceTable - Epic Items (Tokens)'),
 --
 (19622, 21877, 0, 18, 0, 1, 1, 3, 3,      'Kael\'thas Sunstrider - Netherweave Cloth'),
 (19622, 29905, 0, 100, 1, 1, 0, 1, 1,     'Kael\'thas Sunstrider - Kael\'s Vial Remnant'),
@@ -82,7 +82,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19622, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Formula, Plans, Schematics'),
 (19622, 36008, 36008, 100, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Group 1)'),
 (19622, 36009, 36009, 100, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Group 2)'),
-(19622, 36010, 36010, 100, 0, 1, 1, 3, 3, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Tokens)'),
+(19622, 36010, 36010, 100, 0, 1, 1, 2, 2, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Tokens)'),
 --
 (21212, 21877, 0, 18, 0, 1, 1, 3, 3,      'Lady Vashj - Netherweave Cloth'),
 (21212, 29906, 0, 100, 1, 1, 0, 1, 1,     'Lady Vashj - Vashj\'s Vial Remnant'),
