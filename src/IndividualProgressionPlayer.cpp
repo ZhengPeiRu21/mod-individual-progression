@@ -41,7 +41,7 @@ public:
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
         }
-		
+
         if (sIndividualProgression->ExcludedAccountsEarnPvPTitles || !sIndividualProgression->isExcludedFromProgression(player))
         {
             sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
@@ -50,7 +50,7 @@ public:
 
 		if (sIndividualProgression->isExcludedFromProgression(player))
         {
-            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));    
+            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));
         }
 
         sIndividualProgression->CheckAdjustments(player);
@@ -120,7 +120,7 @@ public:
         {
             return false;
         }
-		
+
         // Player is still in Vanilla content - give money at 60 level cap
         return ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() == IP_LEVEL_VANILLA) ||
                 // Player is in TBC content - give money at 70 level cap
@@ -176,10 +176,6 @@ public:
         {
             return true;
         }
-        if (mapid == MAP_ONYXIAS_LAIR && player->GetLevel() <= IP_LEVEL_TBC && !player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
-        {
-            return false;
-        }
         if (mapid == MAP_BLACKWING_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE))
         {
             ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_MOLTEN_CORE);
@@ -187,7 +183,7 @@ public:
         }
         if (mapid == MAP_ONYXIAS_LAIR) // needed to prevent summoning invalid characters from inside the instance
         {
-			if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && !player->HasItemCount(ITEM_DRAKEFIRE_AMULET)) // Vanilla
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && !player->HasItemCount(ITEM_DRAKEFIRE_AMULET)) // Vanilla
             {
                 return false;
             }
@@ -197,9 +193,9 @@ public:
             }
         }
         if (mapid == MAP_ZUL_GURUB)
-        {   
+        {
             ProgressionState REQUIRED_ZG_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
-            
+
             if (!sIndividualProgression->hasPassedProgression(player, REQUIRED_ZG_PROGRESSION))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZG_PROGRESSION);
@@ -274,7 +270,7 @@ public:
             {
                 return false;
             }
-            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && !sIndividualProgression->isAttuned(player))  
+            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && (sIndividualProgression->!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
             {
                 return false;
             }
@@ -343,7 +339,7 @@ public:
         {
             return true;
         }
-				
+
         if (sIndividualProgression->enforceGroupRules) // enforceGroupRules enabled
         {
             if (!sIndividualProgression->isExcludedFromProgression(player)) // player has a normal account
@@ -458,7 +454,7 @@ public:
             if (currentState != otherPlayerState)
             {
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(otherPlayerState));
-            }    
+            }
             return true;
         }
 
@@ -491,12 +487,12 @@ public:
                 killer->RemoveAura(IPP_PHASE);
                 killer->RemoveAura(IPP_PHASE_II);
                 killer->RemoveAura(IPP_PHASE_III);
-	            killer->CastSpell(killer, IPP_PHASE, false);			
+	            killer->CastSpell(killer, IPP_PHASE, false);
                 killer->CastSpell(killer, IPP_PHASE_II, false);
                 killer->CastSpell(killer, IPP_PHASE_III, false);
                 break;
         }
-        
+
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
             sIndividualProgression->checkKillProgression(killer, killed);
@@ -888,7 +884,7 @@ public:
     {
         if (!sIndividualProgression->enabled || !attacker)
             return;
-		
+
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
         {

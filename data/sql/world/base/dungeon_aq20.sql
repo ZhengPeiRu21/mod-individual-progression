@@ -64,7 +64,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15387, 0, 0, 1, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Qiraji Warrior - Between 0-25% Health - Cast Enrage (No Repeat)'),
 (15387, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Qiraji Warrior - On Enrage - Say Line 0'),
 (15387, 0, 2, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 8, 11, 10966, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Qiraji Warrior - Within 0-8 Range - Cast Uppercut'),
-(15387, 0, 3, 0, 0, 0, 100, 0, 7000, 11000, 14000, 17000, 0, 0, 11, 15588, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Qiraji Warrior - In Combat - Cast Thunderclap'),
+(15387, 0, 3, 0, 9, 0, 100, 0, 0, 0, 14000, 17000, 0, 8, 11, 15588, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Qiraji Warrior - Within 0-8 Range - Cast Thunderclap'),
 --
 (15388, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 24317, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Major Pakkon - Within 0-5 Range - Cast Sunder Armor'),
 (15388, 0, 1, 0, 0, 0, 100, 0, 12000, 13000, 14000, 15000, 0, 0, 11, 25322, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Major Pakkon - In Combat - Cast Sweeping Slam'),

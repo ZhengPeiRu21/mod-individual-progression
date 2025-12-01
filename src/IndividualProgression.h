@@ -45,7 +45,7 @@ enum ProgressionBossIDs
     YOGGSARON            = 33288,
     ANUBARAK             = 34564,
     LICH_KING            = 36597,
-    HALION               = 39863, 
+    HALION               = 39863,
     RHAHK_ZOR            = 644,
     SNEED                = 643,
     GILNID               = 1763
@@ -431,7 +431,7 @@ public:
     bool hasCustomProgressionValue(uint32 creatureEntry);
     bool isExcludedFromProgression(Player* player);
     bool isAttuned(Player* player);
-	void checkIPPhasing(Player* player, uint32 newArea);
+    void checkIPPhasing(Player* player, uint32 newArea);
     void checkIPProgression(Player* player);	
     void UpdateProgressionQuests(Player* player);
     void UpdateProgressionAchievements(Player* player, uint16 achievementID);
