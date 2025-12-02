@@ -38,7 +38,7 @@ For a more authentic experience, some players may prefer to have pre-3.2 behavio
 This is handled by the client, so I have created an addon that will restore this behavior. The addon can be found here: https://github.com/ZhengPeiRu21/hide-vendor-price
 
 ## Discord (new!)
-[https://discord.gg/dPwQG49q](https://discord.gg/PTXxh3KSgQ)
+[https://discord.gg/PTXxh3KSgQ](https://discord.gg/PTXxh3KSgQ)
 
 ## Thank You
 Special thanks to all contributors of the following projects who made this module possible:
