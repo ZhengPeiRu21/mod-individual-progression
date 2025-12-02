@@ -16,12 +16,14 @@ DELETE FROM `creature_loot_template` WHERE `Reference` = 34052 AND `Entry` IN (1
 -- remove T5 recipes from trash creatures, this is now done with a reference loot table.
 DELETE FROM `creature_loot_template` WHERE `item` IN (30282, 30283, 30305, 30306, 30307, 30308, 30323, 30324, 30321, 30322, 30301, 30302, 30303, 30304, 30280, 30281);
 
+-- remove epic loot from trash mobs in SSC, this is now done with a reference loot table.
+DELETE FROM `creature_loot_template` WHERE `item` IN (30021, 30022, 30023, 30025, 30027, 30620);
+
 -- add reference loot table to trash creatures
-DELETE FROM `creature_loot_template` WHERE `Item` = 34052;
+DELETE FROM `creature_loot_template` WHERE `Item` IN (34052, 36098);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
--- (20047, 34052, 34052, 1.882, 0, 1, 1, 1, 1, 'T5 - Recipes'), -- creature 20047 uses 20032 instead of having it's own loot template
-(21228, 34052, 34052, 1.346, 0, 1, 1, 1, 1, 'T5 - Recipes'),
-(20031, 34052, 34052, 1.768, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+--
+(20031, 34052, 34052, 1.768, 0, 1, 1, 1, 1, 'T5 - Recipes'), --  The Eye
 (20032, 34052, 34052, 1.822, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20033, 34052, 34052, 1.83, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20034, 34052, 34052, 1.802, 0, 1, 1, 1, 1, 'T5 - Recipes'),
@@ -36,17 +38,20 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (20044, 34052, 34052, 0.788, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20045, 34052, 34052, 1.382, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20046, 34052, 34052, 1.603, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+-- (20047, 34052, 34052, 1.882, 0, 1, 1, 1, 1, 'T5 - Recipes'), -- creature 20047 uses 20032 instead of having it's own loot template
 (20048, 34052, 34052, 1.877, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20049, 34052, 34052, 1.881, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20050, 34052, 34052, 1.833, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (20052, 34052, 34052, 1.784, 0, 1, 1, 1, 1, 'T5 - Recipes'),
-(21218, 34052, 34052, 1.46, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+--
+(21218, 34052, 34052, 1.46, 0, 1, 1, 1, 1, 'T5 - Recipes'), -- SSC
 (21220, 34052, 34052, 1.695, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21221, 34052, 34052, 1.338, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21224, 34052, 34052, 1.733, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21225, 34052, 34052, 1.387, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21226, 34052, 34052, 1.358, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21227, 34052, 34052, 1.1, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21228, 34052, 34052, 1.346, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21229, 34052, 34052, 1.96, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21230, 34052, 34052, 2.219, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21231, 34052, 34052, 1.84, 0, 1, 1, 1, 1, 'T5 - Recipes'),
@@ -58,7 +63,50 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (21299, 34052, 34052, 1.489, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21301, 34052, 34052, 1.69, 0, 1, 1, 1, 1, 'T5 - Recipes'),
 (21339, 34052, 34052, 1.533, 0, 1, 1, 1, 1, 'T5 - Recipes'),
-(21863, 34052, 34052, 0.532, 0, 1, 1, 1, 1, 'T5 - Recipes');
+(21863, 34052, 34052, 0.532, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+--
+(21218, 36098, 36098, 2.224, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21220, 36098, 36098, 2.205, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21221, 36098, 36098, 2.483, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21224, 36098, 36098, 1.691, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21225, 36098, 36098, 1.945, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21226, 36098, 36098, 2.094, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21227, 36098, 36098, 1.767, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21228, 36098, 36098, 2.178, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21229, 36098, 36098, 2.839, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21230, 36098, 36098, 2.889, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21231, 36098, 36098, 2.971, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21232, 36098, 36098, 2.707, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21246, 36098, 36098, 9.105, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21251, 36098, 36098, 8.705, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21263, 36098, 36098, 0.212, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21298, 36098, 36098, 2.242, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21299, 36098, 36098, 2.6, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21301, 36098, 36098, 2.196, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21339, 36098, 36098, 2.47, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21863, 36098, 36098, 1.148, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items');
+
+-- fix epic loot table chance for Tempest Keep: The Eye, was incorrectly set to 10% for ALL trash mobs
+UPDATE `creature_loot_template` SET `Chance` = 2.656 WHERE `Reference` = 55500 AND `Entry` = 20031;
+UPDATE `creature_loot_template` SET `Chance` = 2.838 WHERE `Reference` = 55500 AND `Entry` = 20032;
+UPDATE `creature_loot_template` SET `Chance` = 2.767 WHERE `Reference` = 55500 AND `Entry` = 20033;
+UPDATE `creature_loot_template` SET `Chance` = 2.781 WHERE `Reference` = 55500 AND `Entry` = 20034;
+UPDATE `creature_loot_template` SET `Chance` = 2.901 WHERE `Reference` = 55500 AND `Entry` = 20035;
+UPDATE `creature_loot_template` SET `Chance` = 2.538 WHERE `Reference` = 55500 AND `Entry` = 20036;
+UPDATE `creature_loot_template` SET `Chance` = 2.61  WHERE `Reference` = 55500 AND `Entry` = 20037;
+UPDATE `creature_loot_template` SET `Chance` = 1.793 WHERE `Reference` = 55500 AND `Entry` = 20039;
+UPDATE `creature_loot_template` SET `Chance` = 4.037 WHERE `Reference` = 55500 AND `Entry` = 20040;
+UPDATE `creature_loot_template` SET `Chance` = 4.11  WHERE `Reference` = 55500 AND `Entry` = 20041;
+UPDATE `creature_loot_template` SET `Chance` = 2.555 WHERE `Reference` = 55500 AND `Entry` = 20042;
+UPDATE `creature_loot_template` SET `Chance` = 1.227 WHERE `Reference` = 55500 AND `Entry` = 20043;
+UPDATE `creature_loot_template` SET `Chance` = 1.222 WHERE `Reference` = 55500 AND `Entry` = 20044;
+UPDATE `creature_loot_template` SET `Chance` = 2.607 WHERE `Reference` = 55500 AND `Entry` = 20045;
+UPDATE `creature_loot_template` SET `Chance` = 2.916 WHERE `Reference` = 55500 AND `Entry` = 20046;
+-- UPDATE `creature_loot_template` SET `Chance` = 2.756 WHERE `Reference` = 55500 AND `Entry` = 20047; -- creature 20047 uses 20032 instead of having it's own loot template
+UPDATE `creature_loot_template` SET `Chance` = 2.848 WHERE `Reference` = 55500 AND `Entry` = 20048;
+UPDATE `creature_loot_template` SET `Chance` = 2.929 WHERE `Reference` = 55500 AND `Entry` = 20049;
+UPDATE `creature_loot_template` SET `Chance` = 2.801 WHERE `Reference` = 55500 AND `Entry` = 20050;
+UPDATE `creature_loot_template` SET `Chance` = 2.913 WHERE `Reference` = 55500 AND `Entry` = 20052;
 
 -- fix boss loot tables
 DELETE FROM `creature_loot_template` WHERE `Entry` IN (18805, 19516, 19622, 21212, 21213, 21214, 21215, 21216, 21217);
@@ -127,7 +175,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (21217, 36015, 36015, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 2)'),
 (21217, 36016, 36016, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 3)');
 
--- hide Badge of Justice drops until TBC tier 5
+
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (18805, 19516, 19622, 21212, 21213, 21214, 21215, 21216, 21217);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
@@ -143,7 +191,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 21217, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4');
 
 -- fix reference loot tables
-DELETE FROM `reference_loot_template` WHERE `Entry` IN (34052, 50501);
+DELETE FROM `reference_loot_template` WHERE `Entry` IN (34052, 36098, 50501);
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36003 AND 36026;
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 --
@@ -298,6 +346,13 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (36026, 30242, 0, 0, 0, 1, 1, 1, 1, 'Helm of the Vanquished Champion'),
 (36026, 30243, 0, 0, 0, 1, 1, 1, 1, 'Helm of the Vanquished Defender'),
 (36026, 30244, 0, 0, 0, 1, 1, 1, 1, 'Helm of the Vanquished Hero'),
+--
+(36098, 30021, 0, 0, 0, 1, 1, 1, 1, 'Wildfury Greatstaff'),
+(36098, 30022, 0, 0, 0, 1, 1, 1, 1, 'Pendant of the Perilous'),
+(36098, 30023, 0, 0, 0, 1, 1, 1, 1, 'Totem of the Maelstrom'),
+(36098, 30025, 0, 0, 0, 1, 1, 1, 1, 'Serpentshrine Shuriken'),
+(36098, 30027, 0, 0, 0, 1, 1, 1, 1, 'Boots of Courage Unending'),
+(36098, 30620, 0, 0, 0, 1, 1, 1, 1, 'Spyglass of the Hidden Fleet'),
 --
 (50501, 16253, 0, 0, 0, 1, 1, 1, 1, 'Formula: Enchant Chest - Greater Stats'),
 (50501, 22532, 0, 0, 0, 1, 1, 1, 1, 'Formula: Enchant Bracer - Restore Mana Prime'),
