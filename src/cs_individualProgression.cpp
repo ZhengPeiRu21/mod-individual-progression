@@ -14,7 +14,7 @@ public:
 
     ChatCommandTable GetCommands() const override
     {
-        static ChatCommandTable individualProgressionTable =
+        static ChatCommandTable ipTable =
         {
             { "get",    HandleGetIndividualProgressionCommand,    SEC_GAMEMASTER,    Console::Yes },
             { "set",    HandleSetIndividualProgressionCommand,    SEC_GAMEMASTER,    Console::Yes },
@@ -25,8 +25,7 @@ public:
 
         static ChatCommandTable commandTable =
         {
-            { "individualprogression", individualProgressionTable },
-            { "ip", individualProgressionTable },
+            { "ip", ipTable },
         };
 
         return commandTable;
