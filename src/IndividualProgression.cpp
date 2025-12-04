@@ -53,7 +53,14 @@ void IndividualProgression::CheckAdjustments(Player* player) const
         return;
 	}
 
-    if (!hasPassedProgression(player, PROGRESSION_PRE_TBC) || (!hasPassedProgression(player, PROGRESSION_PRE_TBC) && (player->GetLevel() <= IP_LEVEL_VANILLA)))
+    if (player->getClass() == CLASS_HUNTER)
+    {
+        // Remove the 15% built-in ranged haste that was added to hunters in WotLK - This lets us add haste spells back to quivers
+        player->RemoveAura(RANGED_HASTE_SPELL);
+        player->CastSpell(player, RANGED_HASTE_SPELL, false);
+    }
+
+    if (!hasPassedProgression(player, PROGRESSION_PRE_TBC))
     {
         float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
 
@@ -65,18 +72,15 @@ void IndividualProgression::CheckAdjustments(Player* player) const
 
 	    AdjustStats(player, computedPowerAdjustment, computedHealthAdjustment);
     }
-    else if (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || (!hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && (player->GetLevel() <= IP_LEVEL_TBC)))
+    else if (hasPassedProgression(player, PROGRESSION_PRE_TBC) && !hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
     {
         float computedPowerAdjustment = -100.0f * (1.0f - tbcPowerAdjustment);
 
 	    AdjustStats(player, computedPowerAdjustment, tbcHealthAdjustment);
     }
-
-    if (player->getClass() == CLASS_HUNTER)
+    else
     {
-        // Remove the 15% built-in ranged haste that was added to hunters in WotLK - This lets us add haste spells back to quivers
-        player->RemoveAura(RANGED_HASTE_SPELL);
-        player->CastSpell(player, RANGED_HASTE_SPELL, false);
+        return;
     }
 }
 
