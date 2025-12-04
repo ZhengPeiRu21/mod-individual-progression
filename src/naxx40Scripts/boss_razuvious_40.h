@@ -5,6 +5,7 @@
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
 #include "SpellInfo.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_razuvious.h"
 
 namespace Razuvious_40 {
 
@@ -25,8 +26,8 @@ enum Spells
     // SPELL_DISRUPTING_SHOUT       = 29107, // 55543
     SPELL_MANA_BURN                 = 26046, // Alternative for Disrupting shout.
     SPELL_JAGGED_KNIFE              = 55550,
-    SPELL_HOPELESS                  = 29125,
-    SPELL_TAUNT                     = 29060
+    // SPELL_HOPELESS               = 29125,
+    // SPELL_TAUNT                  = 29060
 };
 
 enum Events
@@ -38,7 +39,7 @@ enum Events
 
 enum NPCs
 {
-    // NPC_DEATH_KNIGHT_UNDERSTUDY     = 351084,
+    // NPC_DEATH_KNIGHT_UNDERSTUDY  = 351084,
     NPC_TARGET_DUMMY                = 16211,
 };
 
@@ -67,27 +68,16 @@ public:
         return GetNaxxramasAI<boss_razuvious_40AI>(pCreature);
     }
 
-    struct boss_razuvious_40AI : public BossAI
+    struct boss_razuvious_40AI : public Razuvious::boss_razuvious::boss_razuviousAI
     {
-        explicit boss_razuvious_40AI(Creature* c) : BossAI(c, BOSS_RAZUVIOUS), summons(me)
-        {}
+        explicit boss_razuvious_40AI(Creature* c) : Razuvious::boss_razuvious::boss_razuviousAI(c) {}
 
-        EventMap events;
-        SummonList summons;
-
-        void SpawnHelpers()
+        void SpawnHelpers_40()
         {
-            // 10man
             me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY, 2762.23f, -3085.07f, 267.685f, 1.95f);
             me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY, 2758.24f, -3110.97f, 267.685f, 3.94f);
-            // 25man
             me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY, 2782.45f, -3088.03f, 267.685f, 0.75f);
             me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY, 2778.56f, -3113.74f, 267.685f, 5.28f);
-        }
-
-        void JustSummoned(Creature* cr) override
-        {
-            summons.Summon(cr);
         }
 
         void Reset() override
@@ -95,133 +85,8 @@ public:
             BossAI::Reset();
             summons.DespawnAll();
             events.Reset();
-            SpawnHelpers();
+            SpawnHelpers_40();
             ScheduleRP();
-        }
-
-        void ScheduleInteractWithDeathKnight()
-        {
-            if (_rpBuddyGUID)
-                if (Creature* understudy = ObjectAccessor::GetCreature(*me, _rpBuddyGUID))
-                    me->SetFacingToObject(understudy);
-
-            scheduler.Schedule(2s, GROUP_OOC_RP, [this](TaskContext /*context*/)
-            {
-                if (roll_chance_i(75))
-                {
-                    bool longText = roll_chance_i(50);
-                    Talk(longText ? SAY_TARGET_DUMMY : SAY_PATHETIC);
-                    scheduler.Schedule(4s, GROUP_OOC_RP, [this](TaskContext /*context*/)
-                    {
-                        if (_rpBuddyGUID)
-                            if (Creature* understudy = ObjectAccessor::GetCreature(*me, _rpBuddyGUID))
-                                understudy->AI()->DoAction(ACTION_TALK);
-                    });
-                    if (longText)
-                        scheduler.DelayGroup(GROUP_OOC_RP, 5s);
-                }
-                else
-                {
-                    me->HandleEmoteCommand(EMOTE_ONESHOT_EXCLAMATION);
-                    scheduler.Schedule(4s, GROUP_OOC_RP, [this](TaskContext /*context*/)
-                    {
-                        if (_rpBuddyGUID)
-                            if (Creature* understudy = ObjectAccessor::GetCreature(*me, _rpBuddyGUID))
-                            {
-                                if (roll_chance_i(25))
-                                    understudy->AI()->DoAction(ACTION_EMOTE);
-                                else
-                                    understudy->AI()->DoAction(ACTION_TALK);
-                            }
-                    });
-                }
-            }).Schedule(4s, GROUP_OOC_RP, [this](TaskContext /*context*/)
-            {
-                if (_rpBuddyGUID)
-                    if (Creature* understudy = ObjectAccessor::GetCreature(*me, _rpBuddyGUID))
-                        understudy->AI()->DoAction(ACTION_FACE_ME);
-            }).Schedule(10s, GROUP_OOC_RP, [this](TaskContext /*context*/)
-            {
-                if (_rpBuddyGUID)
-                    if (Creature* understudy = ObjectAccessor::GetCreature(*me, _rpBuddyGUID))
-                        understudy->AI()->DoAction(ACTION_SALUTE);
-            }).Schedule(13s, GROUP_OOC_RP, [this](TaskContext /*context*/)
-            {
-                me->ResumeMovement();
-            }).Schedule(16s, GROUP_OOC_RP, [this](TaskContext /*context*/)
-            {
-                if (_rpBuddyGUID)
-                    if (Creature* understudy = ObjectAccessor::GetCreature(*me, _rpBuddyGUID))
-                        understudy->AI()->DoAction(ACTION_BACK_TO_TRAINING);
-                ScheduleRP();
-            });
-        }
-
-        void MovementInform(uint32 type, uint32 id) override
-        {
-            if (type == POINT_MOTION_TYPE && id == POINT_DEATH_KNIGHT)
-            {
-                ScheduleInteractWithDeathKnight();
-            }
-        }
-
-        void ScheduleRP()
-        {
-            _rpBuddyGUID = Acore::Containers::SelectRandomContainerElement(summons);
-            scheduler.Schedule(60s, 80s, GROUP_OOC_RP, [this](TaskContext context)
-            {
-                if (_rpBuddyGUID)
-                {
-                    if (Creature* understudy = ObjectAccessor::GetCreature(*me, _rpBuddyGUID))
-                    {
-                        if (me->GetDistance2d(understudy) <= 6.0f)
-                        {
-                            me->PauseMovement();
-                            scheduler.Schedule(500ms, GROUP_OOC_RP, [this](TaskContext /*context*/)
-                            {
-                                if (_rpBuddyGUID)
-                                    if (Creature* understudy = ObjectAccessor::GetCreature(*me, _rpBuddyGUID))
-                                        me->GetMotionMaster()->MovePoint(POINT_DEATH_KNIGHT, understudy->GetNearPosition(3.2f, understudy->GetRelativeAngle(me)));
-                            });
-                            return;
-                        }
-                    }
-                }
-                context.Repeat(2s);
-            });
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (roll_chance_i(30))
-                Talk(SAY_SLAY);
-
-            if (who->IsPlayer())
-                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
-        void DamageTaken(Unit* who, uint32& damage, DamageEffectType, SpellSchoolMask) override
-        {
-            // Damage done by the controlled Death Knight understudies should also count toward damage done by players
-            if (who && who->IsCreature() && who->GetEntry() == NPC_DEATH_KNIGHT_UNDERSTUDY)
-            {
-                me->LowerPlayerDamageReq(damage);
-            }
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            BossAI::JustDied(killer);
-            Talk(SAY_DEATH);
-            me->CastSpell(me, SPELL_HOPELESS, true);
-        }
-
-        void SpellHit(Unit* caster, SpellInfo const* spell) override
-        {
-            if (spell->Id == SPELL_TAUNT)
-            {
-                Talk(SAY_TAUNTED, caster);
-            }
         }
 
         void JustEngagedWith(Unit* who) override
