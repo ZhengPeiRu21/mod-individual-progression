@@ -10,6 +10,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_heigan.h"
 
 namespace Heigan_40 {
 
@@ -26,9 +27,8 @@ enum Says
 
 enum Spells
 {
-    // SPELL_DISRUPTION                = 29310,
+    // SPELL_DISRUPTION             = 29310,
     SPELL_DECREPIT_FEVER_10         = 29998,
-    SPELL_DECREPIT_FEVER_25         = 55011,
     SPELL_PLAGUE_CLOUD              = 29350,
     SPELL_TELEPORT_SELF             = 30211,
 
@@ -87,15 +87,9 @@ public:
         return GetNaxxramasAI<boss_heigan_40AI>(creature);
     }
 
-    struct boss_heigan_40AI : public BossAI
+    struct boss_heigan_40AI : public Heigan::boss_heigan::boss_heiganAI
     {
-        explicit boss_heigan_40AI(Creature* c) : BossAI(c, BOSS_HEIGAN)
-        {}
-
-        EventMap events;
-        uint8 currentPhase{};
-        uint8 currentSection{};
-        bool moveRight{};
+        explicit boss_heigan_40AI(Creature* c) : Heigan::boss_heigan::boss_heiganAI(c) {}
 
         GuidList portedPlayersThisPhase;
 
@@ -108,29 +102,6 @@ public:
             portedPlayersThisPhase.clear();
             KillPlayersInTheTunnel();
             moveRight = true;
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (!who->IsPlayer())
-                return;
-
-            Talk(SAY_SLAY);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            BossAI::JustDied(killer);
-            Talk(EMOTE_DEATH);
-        }
-
-        void JustEngagedWith(Unit* who) override
-        {
-            BossAI::JustEngagedWith(who);
-            me->SetInCombatWithZone();
-            Talk(SAY_AGGRO);
-            StartFightPhase(PHASE_SLOW_DANCE);
         }
 
         void StartFightPhase(uint8 phase)
@@ -164,18 +135,6 @@ public:
                 events.ScheduleEvent(EVENT_SWITCH_PHASE, 45s);
             }
             events.ScheduleEvent(EVENT_SAFETY_DANCE, 5s);
-        }
-
-        bool IsInRoom(Unit* who)
-        {
-            if (who->GetPositionX() > 2826 || who->GetPositionX() < 2723 || who->GetPositionY() > -3641 || who->GetPositionY() < -3736)
-            {
-                if (who->GetGUID() == me->GetGUID())
-                    EnterEvadeMode();
-
-                return false;
-            }
-            return true;
         }
 
         void KillPlayersInTheTunnel()
