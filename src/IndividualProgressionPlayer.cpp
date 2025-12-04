@@ -51,7 +51,7 @@ public:
             {
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));
             }
-            else if (player->GetLevel() <= IP_LEVEL_TBC)
+            else if ((player->GetLevel() > IP_LEVEL_VANILLA) && (player->GetLevel() <= IP_LEVEL_TBC))
             {
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(8));
             }
