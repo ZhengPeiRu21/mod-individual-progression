@@ -15,6 +15,10 @@ namespace Maexxna_40 {
 
 enum Spells
 {
+    SPELL_POISON_SHOCK                  = 28732,
+    SPELL_NECROTIC_POISON               = 54121,
+    SPELL_FRENZY                        = 54123,
+    SPELL_WEB_SPRAY                     = 29484,
     SPELL_WEB_WRAP_STUN                 = 28622,
     SPELL_WEB_WRAP_SUMMON               = 28627,
     SPELL_WEB_WRAP_KILL_WEBS            = 52512,
@@ -23,13 +27,20 @@ enum Spells
 
 enum Events
 {
-    // EVENT_WEB_SPRAY                  = 1,
-    // EVENT_POISON_SHOCK               = 2,
-    // EVENT_NECROTIC_POISON            = 3,
-    // EVENT_WEB_WRAP                   = 4,
-    // EVENT_HEALTH_CHECK               = 5,
-    // EVENT_SUMMON_SPIDERLINGS         = 6,
+    EVENT_WEB_SPRAY                     = 1,
+    EVENT_POISON_SHOCK                  = 2,
+    EVENT_NECROTIC_POISON               = 3,
+    EVENT_WEB_WRAP                      = 4,
+    EVENT_HEALTH_CHECK                  = 5,
+    EVENT_SUMMON_SPIDERLINGS            = 6,
     EVENT_WEB_WRAP_APPLY_STUN           = 7
+};
+
+enum Emotes
+{
+    EMOTE_SPIDERS                       = 0,
+    EMOTE_WEB_WRAP                      = 1,
+    EMOTE_WEB_SPRAY                     = 2
 };
 
 const Position PosWrap[7] =
@@ -77,7 +88,7 @@ public:
 
         GuidList wraps;
 
-        void DoCastWebWrap()
+        void DoCastWebWrap_40()
         {
             std::list<Unit*> candidates;
             SelectTargetList(candidates, RAID_MODE(1, 2, 2, 2), SelectTargetMethod::Random, 0, WebTargetSelector(me));
@@ -126,6 +137,69 @@ public:
             events.ScheduleEvent(EVENT_WEB_WRAP_APPLY_STUN, 2s);
         }
 
+        void UpdateAI(uint32 diff) override
+        {
+            if (!IsInRoom())
+                return;
+
+            if (!UpdateVictim())
+                return;
+
+            events.Update(diff);
+            if (me->HasUnitState(UNIT_STATE_CASTING))
+                return;
+
+            switch (events.ExecuteEvent())
+            {
+                case EVENT_WEB_SPRAY:
+                    Talk(EMOTE_WEB_SPRAY);
+                    me->CastSpell(me, SPELL_WEB_SPRAY, true);
+                    events.Repeat(40s);
+                    break;
+                case EVENT_POISON_SHOCK:
+                    me->CastSpell(me->GetVictim(), SPELL_POISON_SHOCK, false);
+                    events.Repeat(10s);
+                    break;
+                case EVENT_NECROTIC_POISON:
+                    me->CastSpell(me->GetVictim(), SPELL_NECROTIC_POISON, false);
+                    events.Repeat(30s);
+                    break;
+                case EVENT_SUMMON_SPIDERLINGS:
+                    Talk(EMOTE_SPIDERS);
+                    for (uint8 i = 0; i < 8; ++i)
+                    {
+                        me->SummonCreature(NPC_MAEXXNA_SPIDERLING, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), me->GetOrientation());
+                    }
+                    events.Repeat(40s);
+                    break;
+                case EVENT_HEALTH_CHECK:
+                    if (me->GetHealthPct() < 30)
+                    {
+                        me->CastSpell(me, SPELL_FRENZY, true);
+                        break;
+                    }
+                    events.Repeat(1s);
+                    break;
+                case EVENT_WEB_WRAP:
+                    Talk(EMOTE_WEB_WRAP);
+                    DoCastWebWrap_40();
+                    events.Repeat(40s);
+                    break;
+                case EVENT_WEB_WRAP_APPLY_STUN:
+                {
+                    for (auto& p : wraps)
+                    {
+                        if (Player* player = ObjectAccessor::GetPlayer(*me, p))
+                        {
+                            player->CastSpell(player, SPELL_WEB_WRAP_STUN, true);
+                        }
+                    }
+                    wraps.clear();
+                    break;
+                }
+            }
+            DoMeleeAttackIfReady();
+        };
     };
 };
 
