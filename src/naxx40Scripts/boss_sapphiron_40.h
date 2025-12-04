@@ -6,6 +6,7 @@
 #include "ScriptedCreature.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_sapphiron.h"
 
 namespace Sapphiron_40 {
 
@@ -37,8 +38,6 @@ enum Spells
     SPELL_SAPPHIRON_DIES            = 29357,
 
     // 10 and 25 Man Spells
-    SPELL_FROST_AURA_10             = 28531,
-    SPELL_FROST_AURA_25             = 55799,
     SPELL_TAIL_SWEEP_10             = 55697,
     SPELL_TAIL_SWEEP_25             = 55696,
     SPELL_LIFE_DRAIN_10             = 28542,
@@ -89,16 +88,9 @@ public:
         return GetNaxxramasAI<boss_sapphiron_40AI>(pCreature);
     }
 
-    struct boss_sapphiron_40AI : public BossAI
+    struct boss_sapphiron_40AI : public Sapphiron::boss_sapphiron::boss_sapphironAI
     {
-        explicit boss_sapphiron_40AI(Creature* c) : BossAI(c, BOSS_SAPPHIRON)
-        {}
-
-        EventMap events;
-        uint8 iceboltCount{};
-        uint32 spawnTimer{};
-        GuidList blockList;
-        ObjectGuid currentTarget;
+        explicit boss_sapphiron_40AI(Creature* c) : Sapphiron::boss_sapphiron::boss_sapphironAI(c) {}
 
         void InitializeAI() override
         {
@@ -110,119 +102,6 @@ public:
                 me->SetReactState(REACT_PASSIVE);
                 ScriptedAI::InitializeAI();
             }
-        }
-
-        bool IsInRoom()
-        {
-            if (me->GetExactDist(3523.5f, -5235.3f, 137.6f) > 100.0f)
-            {
-                EnterEvadeMode();
-                return false;
-            }
-            return true;
-        }
-
-        void Reset() override
-        {
-            BossAI::Reset();
-            if (me->IsVisible())
-            {
-                me->SetReactState(REACT_AGGRESSIVE);
-            }
-            events.Reset();
-            iceboltCount = 0;
-            spawnTimer = 0;
-            currentTarget.Clear();
-            blockList.clear();
-        }
-
-        void EnterCombatSelfFunction()
-        {
-            Map::PlayerList const& PlList = me->GetMap()->GetPlayers();
-            if (PlList.IsEmpty())
-                return;
-
-            for (auto const& i : PlList)
-            {
-                if (Player* player = i.GetSource())
-                {
-                    if (player->IsGameMaster())
-                        continue;
-
-                    if (player->IsAlive() && me->GetDistance(player) < 80.0f)
-                    {
-                        me->SetInCombatWith(player);
-                        player->SetInCombatWith(me);
-                        me->AddThreat(player, 0.0f);
-                    }
-                }
-            }
-        }
-
-        void JustEngagedWith(Unit* who) override
-        {
-            BossAI::JustEngagedWith(who);
-            EnterCombatSelfFunction();
-            me->CastSpell(me, SPELL_FROST_AURA, true);
-            events.ScheduleEvent(EVENT_BERSERK, 15min);
-            events.ScheduleEvent(EVENT_CLEAVE, 5s);
-            events.ScheduleEvent(EVENT_TAIL_SWEEP, 10s);
-            events.ScheduleEvent(EVENT_LIFE_DRAIN, 17s);
-            events.ScheduleEvent(EVENT_BLIZZARD, 17s);
-            events.ScheduleEvent(EVENT_FLIGHT_START, 45s);
-            events.ScheduleEvent(EVENT_HUNDRED_CLUB, 5s);
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            BossAI::JustDied(killer);
-            me->CastSpell(me, SPELL_SAPPHIRON_DIES, true);
-        }
-
-        void DoAction(int32 param) override
-        {
-            if (param == ACTION_SAPPHIRON_BIRTH)
-            {
-                spawnTimer = 1;
-            }
-        }
-
-        void MovementInform(uint32 type, uint32 id) override
-        {
-            if (type == POINT_MOTION_TYPE && id == POINT_CENTER)
-            {
-                events.ScheduleEvent(EVENT_FLIGHT_LIFTOFF, 500ms);
-            }
-        }
-
-        void SpellHitTarget(Unit* target, SpellInfo const* spellInfo) override
-        {
-            if (spellInfo->Id == SPELL_ICEBOLT_CAST)
-            {
-                me->CastSpell(target, SPELL_ICEBOLT_TRIGGER, true);
-            }
-        }
-
-        bool IsValidExplosionTarget(WorldObject* target)
-        {
-            for (ObjectGuid const& guid : blockList)
-            {
-                if (target->GetGUID() == guid)
-                    return false;
-
-                if (Unit* block = ObjectAccessor::GetUnit(*me, guid))
-                {
-                    if (block->IsInBetween(me, target, 2.0f) && block->IsWithinDist(target, 10.0f))
-                        return false;
-                }
-            }
-            return true;
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (who->IsPlayer())
-                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void UpdateAI(uint32 diff) override
