@@ -8,6 +8,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_gothik.h"
 
 namespace Gothik_40 {
 
@@ -29,8 +30,7 @@ enum Spells
 {
     // Gothik
     SPELL_HARVEST_SOUL              = 28679,
-    SPELL_SHADOW_BOLT_10            = 29317,
-    SPELL_SHADOW_BOLT_25            = 56405,
+    SPELL_SHADOW_BOLT               = 29317,
     // Teleport spells
     SPELL_TELEPORT_DEAD             = 28025,
     SPELL_TELEPORT_LIVE             = 28026,
@@ -61,27 +61,16 @@ enum Spells
     SPELL_STOMP                     = 27993
 };
 
-enum Misc
-{
-    // NPC_LIVING_TRAINEE              = 16124,
-    // NPC_LIVING_KNIGHT               = 16125,
-    // NPC_LIVING_RIDER                = 16126,
-    // NPC_DEAD_TRAINEE                = 16127,
-    // NPC_DEAD_KNIGHT                 = 16148,
-    // NPC_DEAD_HORSE                  = 16149,
-    // NPC_DEAD_RIDER                  = 16150,
-    // NPC_TRIGGER                     = 16137
-};
-
 enum Events
 {
     // Gothik
-    EVENT_SUMMON_ADDS               = 1,
-    EVENT_HARVEST_SOUL              = 2,
-    EVENT_SHADOW_BOLT               = 3,
-    EVENT_TELEPORT                  = 4,
-    EVENT_CHECK_HEALTH              = 5,
-    EVENT_CHECK_PLAYERS             = 6,
+    // EVENT_SUMMON_ADDS               = 1,
+    // EVENT_HARVEST_SOUL              = 2,
+    // EVENT_SHADOW_BOLT               = 3,
+    // EVENT_TELEPORT                  = 4,
+    // EVENT_CHECK_HEALTH              = 5,
+    // EVENT_CHECK_PLAYERS             = 6,
+
     // Living trainee
     EVENT_DEATH_PLAGUE              = 7,
     // Dead trainee
@@ -98,9 +87,9 @@ enum Events
     // HORSE
     EVENT_STOMP                     = 14,
     // Intro
-    EVENT_INTRO_2                   = 15,
-    EVENT_INTRO_3                   = 16,
-    EVENT_INTRO_4                   = 17
+    // EVENT_INTRO_2                   = 15,
+    // EVENT_INTRO_3                   = 16,
+    // EVENT_INTRO_4                   = 17
 };
 
 const uint32 gothikWaves[24][2] =
@@ -161,7 +150,6 @@ const Position PosSummonDead[5] =
 #define POS_X_SOUTH  2633.84f
 #define IN_LIVE_SIDE(who) (who->GetPositionY() < POS_Y_GATE)
 
-// Predicate function to check that the r   efzr unit is NOT on the same side as the source.
 struct NotOnSameSide
 {
 public:
@@ -186,280 +174,9 @@ public:
         return GetNaxxramasAI<boss_gothik_40AI>(pCreature);
     }
 
-    struct boss_gothik_40AI : public BossAI
+    struct boss_gothik_40AI : public Gothik::boss_gothik::boss_gothikAI
     {
-        explicit boss_gothik_40AI(Creature* c) : BossAI(c, BOSS_GOTHIK), summons(me)
-        {}
-
-        EventMap events;
-        SummonList summons;
-        bool secondPhase{};
-        bool gateOpened{};
-        uint8 waveCount{};
-
-        bool IsInRoom()
-        {
-            if (me->GetPositionX() > 2767 || me->GetPositionX() < 2618 || me->GetPositionY() > -3285 || me->GetPositionY() < -3435)
-            {
-                EnterEvadeMode();
-                return false;
-            }
-            return true;
-        }
-
-        void Reset() override
-        {
-            BossAI::Reset();
-            events.Reset();
-            summons.DespawnAll();
-            me->RemoveUnitFlag(UNIT_FLAG_DISABLE_MOVE);
-            me->SetImmuneToPC(false);
-            me->SetReactState(REACT_PASSIVE);
-            secondPhase = false;
-            gateOpened = false;
-            waveCount = 0;
-            me->NearTeleportTo(2642.139f, -3386.959f, 285.492f, 6.265f);
-        }
-
-        void JustEngagedWith(Unit* who) override
-        {
-            BossAI::JustEngagedWith(who);
-            me->SetInCombatWithZone();
-            Talk(SAY_INTRO_1);
-            events.ScheduleEvent(EVENT_INTRO_2, 4s);
-            events.ScheduleEvent(EVENT_INTRO_3, 9s);
-            events.ScheduleEvent(EVENT_INTRO_4, 14s);
-            me->SetUnitFlag(UNIT_FLAG_DISABLE_MOVE);
-            events.ScheduleEvent(EVENT_SUMMON_ADDS, 30s);
-            events.ScheduleEvent(EVENT_CHECK_PLAYERS, 2min);
-        }
-
-        void JustSummoned(Creature* summon) override
-        {
-            summons.Summon(summon);
-            // If central gate is open, attack any one
-            if (gateOpened)
-            {
-                if (Unit* target = SelectTarget(SelectTargetMethod::MinDistance, 0, 200.0f))
-                {
-                    summon->AI()->AttackStart(target);
-                    summon->SetInCombatWithZone();
-                    summon->SetReactState(REACT_AGGRESSIVE);
-                    summon->CallForHelp(150.0f);
-                }
-            }
-            // Else look for a random target on the side the summoned NPC is
-            else
-            {
-                Map::PlayerList const& pList = me->GetMap()->GetPlayers();
-                std::vector<Player*> tList;
-                for(Map::PlayerList::const_iterator itr = pList.begin(); itr != pList.end(); ++itr)
-                {
-                    if (!me->IsWithinDistInMap(itr->GetSource(), 200.0f, true, false) || !itr->GetSource()->IsAlive() || itr->GetSource()->IsGameMaster())
-                    {
-                        continue;
-                    }
-                    if (IN_LIVE_SIDE(itr->GetSource()) != IN_LIVE_SIDE(summon))
-                    {
-                        continue;
-                    }
-                    tList.push_back(itr->GetSource());
-                }
-                if (!tList.empty())
-                {
-                    Player* target = tList[urand(0, tList.size() - 1)];
-                    summon->AI()->AttackStart(target);
-                    summon->SetInCombatWithZone();
-                    summon->SetReactState(REACT_AGGRESSIVE);
-                    summon->CallForHelp(150.0f);
-                }
-            }
-        }
-
-        void SummonedCreatureDespawn(Creature* cr) override
-        {
-            summons.Despawn(cr);
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (!who->IsPlayer())
-                return;
-
-            Talk(SAY_KILL);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            BossAI::JustDied(killer);
-            Talk(SAY_DEATH);
-            summons.DespawnAll();
-        }
-
-        void SummonHelpers(uint32 entry)
-        {
-            switch (entry)
-            {
-                case NPC_LIVING_TRAINEE:
-                    me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[0].GetPositionX(), PosSummonLiving[0].GetPositionY(), PosSummonLiving[0].GetPositionZ(), PosSummonLiving[0].GetOrientation());
-                    me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[1].GetPositionX(), PosSummonLiving[1].GetPositionY(), PosSummonLiving[1].GetPositionZ(), PosSummonLiving[1].GetOrientation());
-                    if (Is25ManRaid())
-                    {
-                        me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[2].GetPositionX(), PosSummonLiving[2].GetPositionY(), PosSummonLiving[2].GetPositionZ(), PosSummonLiving[2].GetOrientation());
-                    }
-                    break;
-                case NPC_LIVING_KNIGHT:
-                    me->SummonCreature(NPC_LIVING_KNIGHT, PosSummonLiving[3].GetPositionX(), PosSummonLiving[3].GetPositionY(), PosSummonLiving[3].GetPositionZ(), PosSummonLiving[3].GetOrientation());
-                    if (Is25ManRaid())
-                    {
-                        me->SummonCreature(NPC_LIVING_KNIGHT, PosSummonLiving[5].GetPositionX(), PosSummonLiving[5].GetPositionY(), PosSummonLiving[5].GetPositionZ(), PosSummonLiving[5].GetOrientation());
-                    }
-                    break;
-                case NPC_LIVING_RIDER:
-                    me->SummonCreature(NPC_LIVING_RIDER, PosSummonLiving[4].GetPositionX(), PosSummonLiving[4].GetPositionY(), PosSummonLiving[4].GetPositionZ(), PosSummonLiving[4].GetOrientation());
-                    break;
-            }
-        }
-
-        bool CheckGroupSplitted()
-        {
-            Map::PlayerList const& PlayerList = me->GetMap()->GetPlayers();
-            if (!PlayerList.IsEmpty())
-            {
-                bool checklife = false;
-                bool checkdead = false;
-                for (auto const& i : PlayerList)
-                {
-                    Player* player = i.GetSource();
-                    if (player->IsAlive() &&
-                        player->GetPositionX() <= POS_X_NORTH &&
-                        player->GetPositionX() >= POS_X_SOUTH &&
-                        player->GetPositionY() <= POS_Y_GATE &&
-                        player->GetPositionY() >= POS_Y_EAST)
-                        {
-                            checklife = true;
-                        }
-                    else if (player->IsAlive() &&
-                             player->GetPositionX() <= POS_X_NORTH &&
-                             player->GetPositionX() >= POS_X_SOUTH &&
-                             player->GetPositionY() >= POS_Y_GATE &&
-                             player->GetPositionY() <= POS_Y_WEST)
-                             {
-                                 checkdead = true;
-                             }
-
-                    if (checklife && checkdead)
-                        return true;
-                }
-            }
-            return false;
-        }
-
-        void DamageTaken(Unit*, uint32& damage, DamageEffectType, SpellSchoolMask) override
-        {
-            if (!secondPhase)
-            {
-                damage = 0;
-            }
-        }
-
-        void UpdateAI(uint32 diff) override
-        {
-            if (!IsInRoom())
-                return;
-
-            if (!UpdateVictim())
-                return;
-
-            events.Update(diff);
-            if (me->HasUnitState(UNIT_STATE_CASTING))
-                return;
-
-            switch (events.ExecuteEvent())
-            {
-                case EVENT_INTRO_2:
-                    Talk(SAY_INTRO_2);
-                    break;
-                case EVENT_INTRO_3:
-                    Talk(SAY_INTRO_3);
-                    break;
-                case EVENT_INTRO_4:
-                    Talk(SAY_INTRO_4);
-                    break;
-                case EVENT_SHADOW_BOLT:
-                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_SHADOW_BOLT_10, SPELL_SHADOW_BOLT_25, SPELL_SHADOW_BOLT_10, SPELL_SHADOW_BOLT_25), false);
-                    events.Repeat(1s);
-                    break;
-                case EVENT_HARVEST_SOUL:
-                    me->CastSpell(me, SPELL_HARVEST_SOUL, false);
-                    events.Repeat(15s);
-                    break;
-                case EVENT_TELEPORT:
-                    me->AttackStop();
-                    if (IN_LIVE_SIDE(me))
-                    {
-                        me->CastSpell(me, SPELL_TELEPORT_DEAD, false);
-                    }
-                    else
-                    {
-                        me->CastSpell(me, SPELL_TELEPORT_LIVE, false);
-                    }
-                    me->GetThreatMgr().resetAggro(NotOnSameSide(me));
-                    if (Unit* pTarget = SelectTarget(SelectTargetMethod::MaxDistance, 0))
-                    {
-                        me->GetThreatMgr().AddThreat(pTarget, 100.0f);
-                        AttackStart(pTarget);
-                    }
-                    events.Repeat(20s);
-                    break;
-                case EVENT_CHECK_HEALTH:
-                    if (me->HealthBelowPct(30))
-                    {
-                        if (GameObject* go = instance->GetGameObject(DATA_GOTHIK_INNER_GATE))
-                            go->SetGoState(GO_STATE_ACTIVE);
-
-                        events.CancelEvent(EVENT_TELEPORT);
-                        break;
-                    }
-                    events.Repeat(1s);
-                    break;
-                case EVENT_SUMMON_ADDS:
-                    if (gothikWaves[waveCount][0])
-                    {
-                        SummonHelpers(gothikWaves[waveCount][0]);
-                        events.Repeat(Milliseconds(gothikWaves[waveCount][1]));
-                    }
-                    else
-                    {
-                        secondPhase = true;
-                        Talk(SAY_PHASE_TWO);
-                        Talk(EMOTE_PHASE_TWO);
-                        me->CastSpell(me, SPELL_TELEPORT_LIVE, false);
-                        me->SetReactState(REACT_AGGRESSIVE);
-                        me->RemoveUnitFlag(UNIT_FLAG_DISABLE_MOVE);
-                        me->SetImmuneToPC(false);
-                        me->RemoveAllAuras();
-                        events.ScheduleEvent(EVENT_SHADOW_BOLT, 1s);
-                        events.ScheduleEvent(EVENT_HARVEST_SOUL, 5s, 15s);
-                        events.ScheduleEvent(EVENT_TELEPORT, 20s);
-                        events.ScheduleEvent(EVENT_CHECK_HEALTH, 1s);
-                    }
-                    waveCount++;
-                    break;
-                case EVENT_CHECK_PLAYERS:
-                    if (!CheckGroupSplitted())
-                    {
-                        if (GameObject* go = instance->GetGameObject(DATA_GOTHIK_INNER_GATE))
-                            go->SetGoState(GO_STATE_ACTIVE);
-
-                        gateOpened = true;
-                        Talk(EMOTE_GATE_OPENED);
-                    }
-                    break;
-            }
-            DoMeleeAttackIfReady();
-        }
+        explicit boss_gothik_40AI(Creature* c) : Gothik::boss_gothik::boss_gothikAI(c) {}
     };
 };
 
@@ -479,6 +196,7 @@ public:
         {
             livingSide = IN_LIVE_SIDE(me);
         }
+
         EventMap events;
         bool livingSide;
         bool IsOnSameSide(Unit const* who) const { return livingSide == IN_LIVE_SIDE(who); }
