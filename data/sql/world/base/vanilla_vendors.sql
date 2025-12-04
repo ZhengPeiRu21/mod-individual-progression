@@ -795,7 +795,7 @@ DELETE FROM `npc_vendor` WHERE `item` = 3777  AND `entry` IN (989, 1148, 1286, 1
                                                               3779, 3954, 3955, 3969, 4229, 4561, 4585, 4897, 5135, 5139, 5169, 5817, 6301, 6779, 7947, 8145, 8363, 8934,  
 															  10364, 11189, 12022, 12028, 12245, 12941, 12957, 12958, 15175, 15179);
 DELETE FROM `npc_vendor` WHERE `item` = 4471  AND `entry` IN (151, 227, 491, 734, 791, 1149, 1250, 1285, 1448, 1452, 1682, 1685, 1691, 2084, 2134, 2140, 2401, 2803, 2806, 2808, 2820, 2908, 
-                                                              3076, 3164, 3186, 3313, 3350, 3481, 3498, 3541, 3608, 3625, 3962, 4082, 4084, 4170, 4182, 4241, 4876, 4896, 5101, 5134, 
+                                                              3076, 3164, 3186, 3313, 3350, 3481, 3498, 3541, 3608, 3625, 3962, 4082, 4084, 4170, 4182, 4241, 4555, 4876, 4896, 5101, 5134, 
 															  7942, 8139, 8362, 11038, 11555, 12021, 12027, 12246, 12959, 12960, 14624, 15174);
 DELETE FROM `npc_vendor` WHERE `item` = 4833  AND `entry` IN (4890);
 DELETE FROM `npc_vendor` WHERE `item` = 4835  AND `entry` IN (4890);
@@ -1182,6 +1182,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (4265, 3713, 0, 0),       -- Nyoma, Soothing Spices
 (4553, 2692, 0, 0),       -- Ronald Burch, Hot Spices
 (4553, 3713, 0, 0),       -- Ronald Burch, Soothing Spices
+(4555, 4471, 0, 0),       -- Eleanor Rusk, Flint and Tinder
 (4561, 2324, 0, 0),       -- Daniel Bartlett, Bleach
 (4561, 2605, 0, 0),       -- Daniel Bartlett, Green Dye
 (4561, 2692, 0, 0),       -- Daniel Bartlett, Hot Spices
