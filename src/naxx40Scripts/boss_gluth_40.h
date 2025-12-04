@@ -7,6 +7,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_gluth.h"
 
 namespace Gluth_40 {
 
@@ -35,11 +36,6 @@ enum Events
 	EVENT_TERRIFYING_ROAR               = 7
 };
 
-enum Misc
-{
-    // NPC_ZOMBIE_CHOW                     = 16360
-};
-
 enum Emotes
 {
     EMOTE_SPOTS_ONE                     = 0,
@@ -66,38 +62,9 @@ public:
         return GetNaxxramasAI<boss_gluth_40AI>(pCreature);
     }
 
-    struct boss_gluth_40AI : public BossAI
+    struct boss_gluth_40AI : public Gluth::boss_gluth::boss_gluthAI
     {
-        explicit boss_gluth_40AI(Creature* c) : BossAI(c, BOSS_GLUTH), summons(me)
-        {}
-
-        EventMap events;
-        SummonList summons;
-
-        void Reset() override
-        {
-            BossAI::Reset();
-            me->ApplySpellImmune(SPELL_INFECTED_WOUND, IMMUNITY_ID, SPELL_INFECTED_WOUND, true);
-            events.Reset();
-            summons.DespawnAll();
-            me->SetReactState(REACT_AGGRESSIVE);
-        }
-
-        void MoveInLineOfSight(Unit* who) override
-        {
-            if (!me->GetVictim() || me->GetVictim()->GetEntry() != NPC_ZOMBIE_CHOW)
-            {
-                if (who->GetEntry() == NPC_ZOMBIE_CHOW && me->IsWithinDistInMap(who, 6.5f))
-                {
-                    SetGazeOn(who);
-                    Talk(EMOTE_SPOTS_ONE);
-                }
-                else
-                {
-                    ScriptedAI::MoveInLineOfSight(who);
-                }
-            }
-        }
+        explicit boss_gluth_40AI(Creature* c) : Gluth::boss_gluth::boss_gluthAI(c) {}
 
         void JustEngagedWith(Unit* who) override
         {
@@ -110,53 +77,6 @@ public:
             events.ScheduleEvent(EVENT_SUMMON_ZOMBIE, 6s); // VMangos value
             events.ScheduleEvent(EVENT_CAN_EAT_ZOMBIE, 3s);  // VMangos value
             events.ScheduleEvent(EVENT_TERRIFYING_ROAR, 20s); // VMangos value
-        }
-
-        void JustSummoned(Creature* summon) override
-        {
-            if (summon->GetEntry() == NPC_ZOMBIE_CHOW)
-            {
-                summon->AI()->AttackStart(me);
-            }
-            summons.Summon(summon);
-        }
-
-        void SummonedCreatureDies(Creature* cr, Unit*) override { summons.Despawn(cr); }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (me->IsAlive() && who->GetEntry() == NPC_ZOMBIE_CHOW)
-                me->ModifyHealth(int32(me->GetMaxHealth() * 0.05f));
-
-            if (who->IsPlayer())
-                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            BossAI::JustDied(killer);
-            summons.DespawnAll();
-        }
-
-        bool SelectPlayerInRoom()
-        {
-            if (me->IsInCombat())
-                return false;
-
-            Map::PlayerList const& pList = me->GetMap()->GetPlayers();
-            for (auto const& itr : pList)
-            {
-                Player* player = itr.GetSource();
-                if (!player || !player->IsAlive())
-                    continue;
-
-                if (player->GetPositionZ() > 300.0f || me->GetExactDist(player) > 50.0f)
-                    continue;
-
-                AttackStart(player);
-                return true;
-            }
-            return false;
         }
 
         void UpdateAI(uint32 diff) override
