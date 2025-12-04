@@ -104,7 +104,15 @@ public:
             moveRight = true;
         }
 
-        void StartFightPhase(uint8 phase)
+        void JustEngagedWith(Unit* who) override
+        {
+            BossAI::JustEngagedWith(who);
+            me->SetInCombatWithZone();
+            Talk(SAY_AGGRO);
+            StartFightPhase_40(PHASE_SLOW_DANCE);
+        }
+
+        void StartFightPhase_40(uint8 phase)
         {
             currentSection = 3;
             currentPhase = phase;
