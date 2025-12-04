@@ -8,6 +8,7 @@
 #include "ScriptedCreature.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_thaddius.h"
 
 namespace Thaddius_40 {
 
@@ -105,104 +106,9 @@ public:
         return GetNaxxramasAI<boss_thaddius_40AI>(pCreature);
     }
 
-    struct boss_thaddius_40AI : public BossAI
+    struct boss_thaddius_40AI : public Thaddius::boss_thaddius::boss_thaddiusAI
     {
-        explicit boss_thaddius_40AI(Creature* c) : BossAI(c, BOSS_THADDIUS), summons(me), ballLightningEnabled(false)
-        {}
-
-        EventMap events;
-        SummonList summons;
-        uint32 summonTimer{};
-        uint32 reviveTimer{};
-        uint32 resetTimer{};
-        bool ballLightningEnabled;
-
-        void DoAction(int32 param) override
-        {
-            if (param == ACTION_SUMMON_DIED)
-            {
-                if (summonTimer)
-                {
-                    summonTimer = 0;
-                    reviveTimer = 1;
-                    return;
-                }
-                summonTimer = 1;
-            }
-        }
-
-        void Reset() override
-        {
-            BossAI::Reset();
-            events.Reset();
-            summons.DespawnAll();
-            me->SetUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
-            me->SetControlled(true, UNIT_STATE_ROOT);
-            summonTimer = 0;
-            reviveTimer = 0;
-            resetTimer = 1;
-            me->SetPosition(me->GetHomePosition());
-            ballLightningEnabled = false;
-
-            me->SummonCreature(NPC_STALAGG_40, 3450.45f, -2931.42f, 312.091f, 5.49779f);
-            me->SummonCreature(NPC_FEUGEN_40, 3508.14f, -2988.65f, 312.092f, 2.37365f);
-            if (Creature* cr = me->SummonCreature(NPC_TESLA_COIL, 3527.34f, -2951.56f, 318.75f, 0.0f))
-            {
-                cr->RemoveAllAuras();
-                cr->InterruptNonMeleeSpells(true);
-                cr->CastSpell(cr, SPELL_FEUGEN_CHAIN, false);
-                cr->SetDisableGravity(true);
-                cr->SetImmuneToPC(false);
-                cr->SetControlled(true, UNIT_STATE_ROOT);
-            }
-            if (Creature* cr = me->SummonCreature(NPC_TESLA_COIL, 3487.04f, -2911.68f, 318.75f, 0.0f))
-            {
-                cr->RemoveAllAuras();
-                cr->InterruptNonMeleeSpells(true);
-                cr->CastSpell(cr, SPELL_STALAGG_CHAIN, false);
-                cr->SetDisableGravity(true);
-                cr->SetImmuneToPC(false);
-                cr->SetControlled(true, UNIT_STATE_ROOT);
-            }
-
-            if (GameObject* go = me->FindNearestGameObject(GO_TESLA_COIL_LEFT, 100.0f))
-            {
-                go->SetGoState(GO_STATE_ACTIVE);
-            }
-            if (GameObject* go = me->FindNearestGameObject(GO_TESLA_COIL_RIGHT, 100.0f))
-            {
-                go->SetGoState(GO_STATE_ACTIVE);
-            }
-
-            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_POSITIVE_POLARITY);
-            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_POSITIVE_CHARGE_STACK);
-            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_NEGATIVE_POLARITY);
-            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_NEGATIVE_CHARGE_STACK);
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (!who->IsPlayer())
-                return;
-
-            Talk(SAY_SLAY);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            BossAI::JustDied(killer);
-            Talk(SAY_DEATH);
-            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_POSITIVE_POLARITY);
-            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_POSITIVE_CHARGE_STACK);
-            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_NEGATIVE_POLARITY);
-            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_NEGATIVE_CHARGE_STACK);
-        }
-
-        void JustSummoned(Creature* cr) override
-        {
-            summons.Summon(cr);
-        }
+        explicit boss_thaddius_40AI(Creature* c) : Thaddius::boss_thaddius::boss_thaddiusAI(c) {}
 
         void JustEngagedWith(Unit* who) override
         {
