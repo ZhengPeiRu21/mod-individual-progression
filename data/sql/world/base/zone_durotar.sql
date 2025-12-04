@@ -286,6 +286,16 @@ UPDATE `quest_template` SET `Flags` = 8,
 UPDATE `quest_template` SET `Flags` = 8, 
 `LogDescription` = 'Kill 12 Vile Familiars.$b$bReturn to Zureetha Fargaze outside the Den.', `RequiredNpcOrGoCount1` = 12 WHERE `ID` = 792;
 
+UPDATE `quest_template_addon` SET `AllowableClasses` = 1279 WHERE `ID` = 792;
+UPDATE `quest_template_addon` SET `NextQuestID` = 1499 WHERE `ID` = 1485;
+
+DELETE FROM `creature_queststarter` WHERE `id` = 5765 AND `quest` = 1485;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5765, 1485);
+
+DELETE FROM `creature_questender` WHERE `id` = 5765 AND `quest` = 1485;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (5765, 1485);
+
+
 -- Galgar's Cactus Apple Surprise
 UPDATE `quest_template` SET `Flags` = 8, 
 `LogDescription` = 'Bring Galgar 10 Cactus Apples. You remember him saying that they could be found near cactuses.', `RequiredItemCount1` = 10 WHERE `ID` = 4402;
