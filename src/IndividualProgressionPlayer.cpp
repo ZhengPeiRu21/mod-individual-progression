@@ -47,7 +47,18 @@ public:
 
 		if (sIndividualProgression->isExcludedFromProgression(player))
         {
-            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));
+            if (player->GetLevel() <= IP_LEVEL_VANILLA)
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));
+            }
+            else if (player->GetLevel() <= IP_LEVEL_TBC)
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(8));
+            }
+            else // (player->GetLevel() <= IP_LEVEL_WOTLK)
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(13));
+            }
         }
 
         sIndividualProgression->CheckAdjustments(player);
