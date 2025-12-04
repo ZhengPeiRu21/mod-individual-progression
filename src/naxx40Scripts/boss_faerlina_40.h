@@ -5,6 +5,7 @@
 #include "ScriptedCreature.h"
 #include "SpellInfo.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_faerlina.h"
 
 namespace Faerlina_40 {
 
@@ -43,44 +44,35 @@ enum Groups
     GROUP_FRENZY                        = 1
 };
 
-enum Misc
-{
-    // NPC_NAXXRAMAS_WORSHIPPER            = 16506,
-    // NPC_NAXXRAMAS_FOLLOWER              = 16505
-};
-
 class boss_faerlina_40 : public CreatureScript
 {
 public:
-    boss_faerlina_40() : CreatureScript("boss_faerlina_40") { }
+    boss_faerlina_40() : CreatureScript("boss_faerlina_40") {}
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
         return GetNaxxramasAI<boss_faerlina_40AI>(pCreature);
     }
 
-    struct boss_faerlina_40AI : public BossAI
+    struct boss_faerlina_40AI : public Faerlina::boss_faerlina::boss_faerlinaAI
     {
-        boss_faerlina_40AI(Creature* c) : BossAI(c, BOSS_FAERLINA), _introDone(false) { }
+        boss_faerlina_40AI(Creature* c) : boss_faerlinaAI(c), _introDone(false) {}
 
-        void SummonHelpers()
+        void SummonHelpers_40()
         {
             me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER, 3362.66f, -3620.97f, 261.08f, 4.57276f);
             me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER, 3344.3f, -3618.31f, 261.08f, 4.69494f);
             me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER, 3356.71f, -3620.05f, 261.08f, 4.57276f);
             me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER, 3350.26f, -3619.11f, 261.08f, 4.67748f);
-            // if (Is25ManRaid())
-            {
-                me->SummonCreature(NPC_NAXXRAMAS_FOLLOWER, 3347.49f, -3617.59f, 261.0f, 4.49f);
-                me->SummonCreature(NPC_NAXXRAMAS_FOLLOWER, 3359.64f, -3619.16f, 261.0f, 4.56f);
-            }
+            me->SummonCreature(NPC_NAXXRAMAS_FOLLOWER, 3347.49f, -3617.59f, 261.0f, 4.49f);
+            me->SummonCreature(NPC_NAXXRAMAS_FOLLOWER, 3359.64f, -3619.16f, 261.0f, 4.56f);
         }
 
         void Reset() override
         {
             BossAI::Reset();
             summons.DespawnAll();
-            SummonHelpers();
+            SummonHelpers_40();
         }
 
         void JustEngagedWith(Unit* who) override
@@ -125,33 +117,6 @@ public:
                 else
                     context.Repeat(30s);
             });
-        }
-
-        void MoveInLineOfSight(Unit* who) override
-        {
-            if (!_introDone && who->IsPlayer())
-            {
-                Talk(SAY_GREET);
-                _introDone = true;
-            }
-            ScriptedAI::MoveInLineOfSight(who);
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (!who->IsPlayer())
-                return;
-
-            if (!urand(0, 3))
-                Talk(SAY_SLAY);
-
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            BossAI::JustDied(killer);
-            Talk(SAY_DEATH);
         }
 
         void SpellHit(Unit* caster, SpellInfo const* spell) override
