@@ -4,6 +4,7 @@
 #include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_patchwerk.h"
 
 namespace PatchWerk_40 {
 
@@ -19,7 +20,7 @@ enum Yells
 enum Spells
 {
     SPELL_HATEFUL_STRIKE_10         = 41926,
-    SPELL_HATEFUL_STRIKE_25         = 59192,
+    // SPELL_HATEFUL_STRIKE_25      = 59192,
     SPELL_FRENZY                    = 28131,
     SPELL_BERSERK                   = 26662,
     SPELL_SLIME_BOLT                = 32309
@@ -48,35 +49,9 @@ public:
         return GetNaxxramasAI<boss_patchwerk_40AI>(pCreature);
     }
 
-    struct boss_patchwerk_40AI : public BossAI
+    struct boss_patchwerk_40AI : public PatchWerk::boss_patchwerk::boss_patchwerkAI
     {
-        explicit boss_patchwerk_40AI(Creature* c) : BossAI(c, BOSS_PATCHWERK)
-        {}
-
-        EventMap events;
-
-        void Reset() override
-        {
-            BossAI::Reset();
-            events.Reset();
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (!who->IsPlayer())
-                return;
-
-            if (!urand(0, 3))
-                Talk(SAY_SLAY);
-
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            BossAI::JustDied(killer);
-            Talk(SAY_DEATH);
-        }
+        explicit boss_patchwerk_40AI(Creature* c) : PatchWerk::boss_patchwerk::boss_patchwerkAI(c) {}
 
         void JustEngagedWith(Unit* who) override
         {
