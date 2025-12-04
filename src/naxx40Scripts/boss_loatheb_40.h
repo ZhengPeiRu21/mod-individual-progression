@@ -4,6 +4,7 @@
 #include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_loatheb.h"
 
 namespace Loatheb_40 {
 
@@ -46,40 +47,11 @@ public:
         return GetNaxxramasAI<boss_loatheb_40AI>(pCreature);
     }
 
-    struct boss_loatheb_40AI : public BossAI
+    struct boss_loatheb_40AI : public Loatheb::boss_loatheb::boss_loathebAI
     {
-        explicit boss_loatheb_40AI(Creature* c) : BossAI(c, BOSS_LOATHEB), summons(me)
+        explicit boss_loatheb_40AI(Creature* c) : Loatheb::boss_loatheb::boss_loathebAI(c)
         {
             me->SetHomePosition(me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), me->GetOrientation());
-        }
-
-        uint8 doomCounter;
-        EventMap events;
-        SummonList summons;
-
-        void Reset() override
-        {
-            BossAI::Reset();
-            events.Reset();
-            summons.DespawnAll();
-            doomCounter = 0;
-        }
-
-        void JustSummoned(Creature* cr) override
-        {
-            cr->SetInCombatWithZone();
-            summons.Summon(cr);
-        }
-
-        void SummonedCreatureDies(Creature*  /*cr*/, Unit*) override
-        {
-            instance->SetData(DATA_SPORE_KILLED, 0);
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (who->IsPlayer())
-                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustEngagedWith(Unit* who) override
@@ -91,12 +63,6 @@ public:
             events.ScheduleEvent(EVENT_INEVITABLE_DOOM, 2min);
             events.ScheduleEvent(EVENT_SUMMON_SPORE, 15s);
             events.ScheduleEvent(EVENT_REMOVE_CURSE, 5s);
-        }
-
-        void JustDied(Unit* killer) override
-        {
-            BossAI::JustDied(killer);
-            summons.DespawnAll();
         }
 
         void UpdateAI(uint32 diff) override
@@ -159,18 +125,6 @@ public:
             DoMeleeAttackIfReady();
         }
 
-        bool IsInRoom()
-        {
-            // Calculate the distance between his home position to the gate
-            if (me->GetExactDist(me->GetHomePosition().GetPositionX(),
-                                 me->GetHomePosition().GetPositionY(),
-                                 me->GetHomePosition().GetPositionZ()) > 50.0f)
-            {
-                EnterEvadeMode();
-                return false;
-            }
-            return true;
-        }
     };
 };
 
