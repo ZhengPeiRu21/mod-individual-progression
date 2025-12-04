@@ -4,15 +4,16 @@
 #include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
+#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_noth.h"
 
 namespace Noth_40 {
 
 enum Says
 {
-    SAY_AGGRO                               = 0,
+    // SAY_AGGRO                            = 0,
     SAY_SUMMON                              = 1,
-    SAY_SLAY                                = 2,
-    SAY_DEATH                               = 3,
+    // SAY_SLAY                             = 2,
+    // SAY_DEATH                            = 3,
     EMOTE_SUMMON                            = 4,
     EMOTE_SUMMON_WAVE                       = 5,
     EMOTE_TELEPORT_BALCONY                  = 6,
@@ -46,13 +47,6 @@ enum Events
     EVENT_BALCONY_SUMMON_REAL               = 9
 };
 
-enum Misc
-{
-    // NPC_PLAGUED_WARRIOR                     = 16984,
-    // NPC_PLAGUED_CHAMPION                    = 16983,
-    // NPC_PLAGUED_GUARDIAN                    = 16981
-};
-
 const Position summoningPosition[5] =
 {
     {2728.06f, -3535.38f, 263.21f, 2.75f},
@@ -74,108 +68,9 @@ public:
         return GetNaxxramasAI<boss_noth_40AI>(pCreature);
     }
 
-    struct boss_noth_40AI : public BossAI
+    struct boss_noth_40AI : public Noth::boss_noth::boss_nothAI
     {
-        explicit boss_noth_40AI(Creature* c) : BossAI(c, BOSS_NOTH), summons(me)
-        {}
-
-        uint8 timesInBalcony;
-        EventMap events;
-        SummonList summons;
-
-        void StartGroundPhase()
-        {
-            me->SetReactState(REACT_AGGRESSIVE);
-            me->RemoveUnitFlag(UNIT_FLAG_NOT_SELECTABLE | UNIT_FLAG_DISABLE_MOVE);
-            me->SetControlled(false, UNIT_STATE_ROOT);
-            events.Reset();
-            events.ScheduleEvent(EVENT_MOVE_TO_BALCONY, 110s);
-            events.ScheduleEvent(EVENT_CURSE, 15s);
-            events.ScheduleEvent(EVENT_SUMMON_PLAGUED_WARRIOR_ANNOUNCE, 10s);
-            if (Is25ManRaid())
-            {
-                events.ScheduleEvent(EVENT_BLINK, 26s);
-            }
-        }
-
-        void StartBalconyPhase()
-        {
-            me->SetReactState(REACT_PASSIVE);
-            me->AttackStop();
-            me->SetUnitFlag(UNIT_FLAG_NOT_SELECTABLE | UNIT_FLAG_DISABLE_MOVE);
-            me->SetControlled(true, UNIT_STATE_ROOT);
-            events.Reset();
-            events.ScheduleEvent(EVENT_BALCONY_SUMMON_ANNOUNCE, 4s);
-            events.ScheduleEvent(EVENT_MOVE_TO_GROUND, 70s);
-        }
-
-        void SummonHelper(uint32 entry, uint32 count)
-        {
-            for (uint8 i = 0; i < count; ++i)
-            {
-                me->SummonCreature(entry, summoningPosition[urand(0, 4)]);
-            }
-        }
-
-        bool IsInRoom()
-        {
-            if (me->GetExactDist(2684.8f, -3502.5f, 261.3f) > 80.0f)
-            {
-                EnterEvadeMode(EVADE_REASON_OTHER);
-                return false;
-            }
-            return true;
-        }
-
-        void Reset() override
-        {
-            BossAI::Reset();
-            events.Reset();
-            summons.DespawnAll();
-            me->CastSpell(me, SPELL_TELEPORT_BACK, true);
-            me->SetControlled(false, UNIT_STATE_ROOT);
-            me->SetReactState(REACT_AGGRESSIVE);
-            timesInBalcony = 0;
-        }
-
-        void EnterEvadeMode(EvadeReason why) override
-        {
-            me->SetControlled(false, UNIT_STATE_ROOT);
-            ScriptedAI::EnterEvadeMode(why);
-        }
-
-        void JustEngagedWith(Unit* who) override
-        {
-            BossAI::JustEngagedWith(who);
-            Talk(SAY_AGGRO);
-            StartGroundPhase();
-        }
-
-        void JustSummoned(Creature* summon) override
-        {
-            summons.Summon(summon);
-            summon->SetInCombatWithZone();
-        }
-
-        void JustDied(Unit*  killer) override
-        {
-            if (me->GetPositionZ() > 270.27f)
-            {
-                me->RemoveUnitFlag(UNIT_FLAG_NOT_SELECTABLE | UNIT_FLAG_DISABLE_MOVE);
-                me->NearTeleportTo(nothPosition.GetPositionX(), nothPosition.GetPositionY(), nothPosition.GetPositionZ(), nothPosition.GetOrientation(), true);
-            }
-            BossAI::JustDied(killer);
-            Talk(SAY_DEATH);
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (!who->IsPlayer())
-                return;
-
-            Talk(SAY_SLAY);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
+        explicit boss_noth_40AI(Creature* c) : Noth::boss_noth::boss_nothAI(c) {}
 
         void UpdateAI(uint32 diff) override
         {
