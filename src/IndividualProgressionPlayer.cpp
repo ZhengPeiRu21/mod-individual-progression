@@ -666,7 +666,7 @@ public:
                 return;
             }
         }
-        if (spellInfo->Id == SPELL_RUNE_TAP || spellInfo->Id == SPELL_LIFE_STEAL)
+        if (spellInfo->Id == SPELL_RUNE_TAP || spellInfo->Id == SPELL_LIFE_STEAL || spellInfo->Id == SPELL_CANNIBALISE)
         {
             return;
         }
@@ -759,6 +759,12 @@ public:
             {
                 return;
             }
+        }
+
+        // Also manually filter cannibalise (forsaken racial). It isn't covered by SPELL_AURA_PERIODIC_HEAL
+        if (spellInfo->Id == SPELL_CANNIBALISE)
+        {
+            return;
         }
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
