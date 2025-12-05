@@ -5,3 +5,7 @@ UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` IN (22559, 22561, 
 UPDATE `item_template` SET `Quality` = 1, `SellPrice` = 0, `description` = 'Used to summon Nightbane in Karazhan' WHERE (`entry` = 24140);
 UPDATE `quest_template` SET `StartItem` = 24140 WHERE `ID` = 9644;
 UPDATE `quest_template_addon` SET `ProvidedItemCount` = 1 WHERE (`ID` = 9644);
+
+-- Poison Cloud, increase radius
+DELETE FROM `spell_script_names` WHERE `spell_id` = 37469;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (37469, 'spell_orc_warlock_poison_cloud');
