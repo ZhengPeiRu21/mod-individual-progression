@@ -21,10 +21,8 @@ enum Yells
 enum Spells
 {
     // Fight
-    SPELL_FROST_AURA                = 28531,
     SPELL_CLEAVE                    = 19983,
     SPELL_TAIL_SWEEP                = 15847,
-    SPELL_SUMMON_BLIZZARD           = 28560,
     SPELL_LIFE_DRAIN                = 28542,
     SPELL_BERSERK                   = 26662,
 
@@ -33,9 +31,6 @@ enum Spells
     SPELL_ICEBOLT_TRIGGER           = 28522,
     SPELL_FROST_MISSILE             = 30101,
     SPELL_FROST_EXPLOSION           = 28524,
-
-    // Visuals
-    SPELL_SAPPHIRON_DIES            = 29357,
 
     // 10 and 25 Man Spells
     SPELL_TAIL_SWEEP_10             = 55697,
