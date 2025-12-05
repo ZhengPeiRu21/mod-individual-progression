@@ -95,6 +95,5 @@ void Addmod_individual_progressionScripts()
     AddSC_npc_archmage_timear();
     AddSC_karazhan_70();
     AddSC_the_eye_70();
-    AddSC_karazhan_70();
     AddSC_serpentshrine_cavern_70();
 }
