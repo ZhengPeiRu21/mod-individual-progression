@@ -113,12 +113,11 @@ enum NX40NPCs
     NPC_SAPPHIRON_40                   = 351018,
 
     // Kel'Thuzad
-    NPC_KELTHUZAD_40                   = 351019,
-    // NPC_LICH_KING_40                   = 16980,
-    NPC_SOLDIER_OF_THE_FROZEN_WASTES   = 351073,
-    NPC_UNSTOPPABLE_ABOMINATION        = 351074,
-    NPC_SOUL_WEAVER                    = 351075,
-    NPC_GUARDIAN_OF_ICECROWN           = 351076,
+    NPC_KELTHUZAD_40                      = 351019,
+    NPC_SOLDIER_OF_THE_FROZEN_WASTES_40   = 351073,
+    NPC_UNSTOPPABLE_ABOMINATION_40        = 351074,
+    NPC_SOUL_WEAVER_40                    = 351075,
+    NPC_GUARDIAN_OF_ICECROWN_40           = 351076,
 
     // Frogger
     // NPC_LIVING_POISON_40               = 16027,
