@@ -34,7 +34,7 @@ class spell_orc_warlock_poison_cloud : public AuraScript
     }
 };
 
-void AddSC_custom_spells_40()
+void AddSC_karazhan_70()
 {
     RegisterSpellScript(spell_orc_warlock_poison_cloud);
 }
