@@ -1,4 +1,4 @@
-DELETE FROM `command` WHERE `name` IN ('ip set', 'ip setbot', 'ip get', 'ip view', 'ip tele');
+DELETE FROM `command` WHERE `name` IN ('individualProgression set', 'ip set', 'ip setbot', 'ip get', 'ip view', 'ip tele');
 INSERT INTO `command` (`name`, `security`, `help`) VALUES
 ('ip set', 2, 'Syntax: .ip set $progressionLevel\nSets the player to the given progression level.'),
 ('ip setbot', 0, 'Syntax: .ip setbot $progressionLevel\nSets the bot to the given progression level.'),
