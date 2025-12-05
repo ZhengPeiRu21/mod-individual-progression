@@ -48,7 +48,7 @@ void AddSC_npc_archmage_timear();
 void AddSC_karazhan_70();
 void AddSC_the_eye_70();
 void AddSC_serpentshrine_cavern_70();
-
+void AddSC_karazhan_70();
 void Addmod_individual_progressionScripts()
 {
     AddSC_mod_individual_progression();
@@ -95,5 +95,6 @@ void Addmod_individual_progressionScripts()
     AddSC_npc_archmage_timear();
     AddSC_karazhan_70();
     AddSC_the_eye_70();
+    AddSC_karazhan_70();
     AddSC_serpentshrine_cavern_70();
 }
