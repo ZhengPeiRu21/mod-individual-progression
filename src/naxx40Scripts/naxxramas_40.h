@@ -90,14 +90,14 @@ enum NX40NPCs
 
     // Gothik
     NPC_GOTHIK_40                      = 351035,
-    NPC_LIVING_TRAINEE                 = 351043,
-    NPC_LIVING_KNIGHT                  = 351044,
-    NPC_LIVING_RIDER                   = 351045,
-    NPC_DEAD_TRAINEE                   = 351046,
-    NPC_DEAD_KNIGHT                    = 351050,
-    NPC_DEAD_HORSE                     = 351051,
-    NPC_DEAD_RIDER                     = 351052,
-    NPC_TRIGGER                        = 351047,
+    NPC_LIVING_TRAINEE_40              = 351043,
+    NPC_LIVING_KNIGHT_40               = 351044,
+    NPC_LIVING_RIDER_40                = 351045,
+    NPC_DEAD_TRAINEE_40                = 351046,
+    NPC_DEAD_KNIGHT_40                 = 351050,
+    NPC_DEAD_HORSE_40                  = 351051,
+    NPC_DEAD_RIDER_40                  = 351052,
+    NPC_TRIGGER_40                     = 351047,
 
     // Maexxna
     NPC_WEB_WRAP = 351079,
