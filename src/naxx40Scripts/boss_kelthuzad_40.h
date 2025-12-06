@@ -31,10 +31,10 @@ enum Yells
 
 enum Spells
 {
-    // Kel'Thzuad
+    // Kel'Thuzad
     SPELL_FROST_BOLT_SINGLE                 = 28478,
     SPELL_FROST_BOLT_MULTI                  = 28479,
-    SPELL_SHADOW_FISURE                     = 27810,
+    SPELL_SHADOW_FISSURE                    = 27810,
     SPELL_VOID_BLAST                        = 27812,
     SPELL_DETONATE_MANA                     = 27819,
     SPELL_MANA_DETONATION_DAMAGE            = 27820,
@@ -241,7 +241,7 @@ public:
                 case EVENT_SHADOW_FISSURE:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0, 100.0f, true))
                     {
-                        me->CastSpell(target, SPELL_SHADOW_FISURE, false);
+                        me->CastSpell(target, SPELL_SHADOW_FISSURE, false);
                     }
                     events.Repeat(25s);
                     break;
