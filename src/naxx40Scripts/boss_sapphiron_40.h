@@ -6,7 +6,7 @@
 #include "ScriptedCreature.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_sapphiron.h"
+#include "boss_sapphiron.h"
 
 namespace Sapphiron_40 {
 
