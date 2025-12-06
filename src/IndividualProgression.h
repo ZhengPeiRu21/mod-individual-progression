@@ -397,6 +397,7 @@ public:
     void AdjustWotLKStats(Player* player) const;
     bool hasCustomProgressionValue(uint32 creatureEntry);
     bool isExcludedFromProgression(Player* player);
+    void SyncBotsProgressionToLeader(Group* group);
     bool isAttuned(Player* player);
     void checkIPPhasing(Player* player, uint32 newArea);
     void checkIPProgression(Player* player);	
