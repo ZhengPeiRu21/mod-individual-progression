@@ -8,7 +8,7 @@
 #include "ScriptedCreature.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_thaddius.h"
+#include "boss_thaddius.h"
 
 namespace Thaddius_40 {
 
