@@ -5,7 +5,7 @@
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
 #include "SpellInfo.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_razuvious.h"
+#include "boss_razuvious.h"
 
 namespace Razuvious_40 {
 
