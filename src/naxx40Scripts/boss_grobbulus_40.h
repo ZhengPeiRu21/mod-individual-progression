@@ -9,7 +9,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_grobbulus.h"
+#include "boss_grobbulus.h"
 
 namespace Grobbulus_40 {
 
