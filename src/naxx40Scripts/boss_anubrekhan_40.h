@@ -5,7 +5,7 @@
 #include "ScriptedCreature.h"
 #include "SpellInfo.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_anubrekhan.h"
+#include "boss_anubrekhan.h"
 
 namespace Anubrekhan_40 {
 
