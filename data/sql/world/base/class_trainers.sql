@@ -46,6 +46,8 @@ DELETE FROM `creature_loot_template` WHERE `Entry` = 12118 AND `Item` = 16665 AN
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (12118, 16665, 0, 100, 0, 1, 0, 1, 1, 'Lucifron - Tome of Tranquilizing Shot');
 
+UPDATE `item_template` SET `description` = 'Attempts to remove 1 Enrage and 1 Magic effect from an enemy target.' WHERE `entry` = 16665;
+
 /* Restore drops from Grimoire of Shadow Ward IV */
 DELETE FROM `creature_loot_template` WHERE `Item` = 22891;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Chance`, `GroupId`, `MinCount`, `MaxCount`) VALUES
