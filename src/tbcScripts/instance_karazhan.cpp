@@ -8,6 +8,7 @@
 #include "SpellAuraEffects.h"
 #include "Player.h"
 #include "ScriptMgr.h"
+#include "SpellScript.h"
 
 enum BlackUrn
 {
