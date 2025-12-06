@@ -4,7 +4,7 @@
 #include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_patchwerk.h"
+#include "boss_patchwerk.h"
 
 namespace PatchWerk_40 {
 
