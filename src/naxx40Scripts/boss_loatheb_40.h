@@ -4,7 +4,7 @@
 #include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_loatheb.h"
+#include "boss_loatheb.h"
 
 namespace Loatheb_40 {
 
