@@ -7,7 +7,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_gluth.h"
+#include "boss_gluth.h"
 
 namespace Gluth_40 {
 
