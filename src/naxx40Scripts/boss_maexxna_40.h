@@ -9,7 +9,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_maexxna.h"
+#include "boss_maexxna.h"
 
 namespace Maexxna_40 {
 
