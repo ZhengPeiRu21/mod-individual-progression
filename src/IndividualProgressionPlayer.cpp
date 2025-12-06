@@ -1,6 +1,7 @@
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
 
+
 class IndividualPlayerProgression : public PlayerScript
 {
 
@@ -476,18 +477,6 @@ public:
         return (currentState == otherPlayerState);
     }
 
-    void OnAddMember(Group* group, ObjectGuid guid) override
-    {
-        if (!group)
-            return;
-
-        Player* added = ObjectAccessor::FindPlayer(guid);
-        if (!added)
-            return;
-
-        sIndividualProgression->SyncBotsProgressionToLeader(group);
-    }
-
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
         switch (killed->GetEntry())
@@ -583,6 +572,24 @@ public:
             }
         }
         return true;
+    }
+};
+
+class IndividualPlayerProgression_GroupScript : public GroupScript
+{
+public:
+    IndividualPlayerProgression_GroupScript() : GroupScript("IndividualPlayerProgression_GroupScript") {}
+
+    void OnAddMember(Group* group, ObjectGuid guid) override
+    {
+        if (!group)
+            return;
+
+        Player* added = ObjectAccessor::FindPlayer(guid);
+        if (!added)
+            return;
+
+        sIndividualProgression->SyncBotsProgressionToLeader(group);
     }
 };
 
@@ -805,6 +812,7 @@ public:
 void AddSC_mod_individual_progression_player()
 {
     new IndividualPlayerProgression();
+    new IndividualPlayerProgression_GroupScript();
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();
