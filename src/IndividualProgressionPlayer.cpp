@@ -476,6 +476,18 @@ public:
         return (currentState == otherPlayerState);
     }
 
+    void OnAddMember(Group* group, ObjectGuid guid) override
+    {
+        if (!group)
+            return;
+
+        Player* added = ObjectAccessor::FindPlayer(guid);
+        if (!added)
+            return;
+
+        sIndividualProgression->SyncBotsProgressionToLeader(group);
+    }
+
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
         switch (killed->GetEntry())
