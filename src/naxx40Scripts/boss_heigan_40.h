@@ -10,7 +10,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_heigan.h"
+#include "boss_heigan.h"
 
 namespace Heigan_40 {
 
