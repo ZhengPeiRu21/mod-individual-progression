@@ -1,7 +1,6 @@
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
 
-
 class IndividualPlayerProgression : public PlayerScript
 {
 
