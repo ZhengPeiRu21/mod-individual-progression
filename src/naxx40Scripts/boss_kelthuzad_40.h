@@ -7,7 +7,7 @@
 #include "ScriptedCreature.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_kelthuzad.h"
+#include "boss_kelthuzad.h"
 
 namespace Kelthuzad_40 {
 
