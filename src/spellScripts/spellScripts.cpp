@@ -18,12 +18,12 @@ class spell_detect_magic : public SpellScript
             // Don't affect players
             if (target->GetTypeId() == TYPEID_PLAYER)
                 return;
-            float holyResist = target->GetModifierValue(UNIT_MOD_RESISTANCE_HOLY, BASE_VALUE);
-            float fireResist = target->GetModifierValue(UNIT_MOD_RESISTANCE_FIRE, BASE_VALUE);
-            float natureResist = target->GetModifierValue(UNIT_MOD_RESISTANCE_NATURE, BASE_VALUE);
-            float frostResist = target->GetModifierValue(UNIT_MOD_RESISTANCE_FROST, BASE_VALUE);
-            float shadowResist = target->GetModifierValue(UNIT_MOD_RESISTANCE_SHADOW, BASE_VALUE);
-            float arcaneResist = target->GetModifierValue(UNIT_MOD_RESISTANCE_ARCANE, BASE_VALUE);
+            float holyResist = target->GetFlatModifierValue(UNIT_MOD_RESISTANCE_HOLY, BASE_VALUE);
+            float fireResist = target->GetFlatModifierValue(UNIT_MOD_RESISTANCE_FIRE, BASE_VALUE);
+            float natureResist = target->GetFlatModifierValue(UNIT_MOD_RESISTANCE_NATURE, BASE_VALUE);
+            float frostResist = target->GetFlatModifierValue(UNIT_MOD_RESISTANCE_FROST, BASE_VALUE);
+            float shadowResist = target->GetFlatModifierValue(UNIT_MOD_RESISTANCE_SHADOW, BASE_VALUE);
+            float arcaneResist = target->GetFlatModifierValue(UNIT_MOD_RESISTANCE_ARCANE, BASE_VALUE);
             if (holyResist < 0.1 && fireResist < 0.01 && natureResist < 0.01 && frostResist < 0.01 && shadowResist < 0.01 && arcaneResist < 0.01)
             {
                 // Send message - you detect no magical resistances
