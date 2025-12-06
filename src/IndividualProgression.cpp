@@ -192,6 +192,35 @@ bool IndividualProgression::isExcludedFromProgression(Player* player)
     return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
 }
 
+void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
+{
+    if (!group)
+        return;
+
+    ObjectGuid leaderGuid = group->GetLeaderGUID();
+    if (!leaderGuid)
+        return;
+
+    Player* leader = ObjectAccessor::FindPlayer(leaderGuid);
+    if (!leader || isExcludedFromProgression(leader))
+        return;
+
+    uint8 refProgress = leader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+
+    if (!refProgress)
+        return;
+
+    for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
+    {
+        Player* member = itr->GetSource();
+        if (!member || !isExcludedFromProgression(member))
+            continue;
+
+        UpdateProgressionState(member, static_cast<ProgressionState>(refProgress));
+        CheckAdjustments(member);
+    }
+}
+
 void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 {
     player->RemoveAura(IPP_PHASE);
