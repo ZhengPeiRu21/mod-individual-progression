@@ -202,10 +202,7 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
         return;
 
     Player* leader = ObjectAccessor::FindPlayer(leaderGuid);
-    if (!leader)
-        return;
-
-    if (isExcludedFromProgression(leader))
+    if (!leader || isExcludedFromProgression(leader))
         return;
 
     uint8 refProgress = leader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
