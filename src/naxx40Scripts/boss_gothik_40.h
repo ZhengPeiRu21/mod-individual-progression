@@ -8,7 +8,7 @@
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_gothik.h"
+#include "boss_gothik.h"
 
 namespace Gothik_40 {
 
