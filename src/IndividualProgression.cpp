@@ -226,7 +226,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
     player->RemoveAura(IPP_PHASE);
     player->RemoveAura(IPP_PHASE_II);
     player->RemoveAura(IPP_PHASE_III);
-		
+
     switch (newArea) {
         case AREA_DARKSHORE:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_AQ_WAR)))
@@ -257,7 +257,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR)) 
+            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR))
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
             }
@@ -279,7 +279,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR)) 
+            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR))
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
             }
@@ -289,7 +289,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR)) 
+            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR))
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
             }
@@ -299,7 +299,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR)) 
+            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ_WAR))
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
             }
@@ -339,49 +339,49 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            break;	
+            break;
         case AREA_ROCKTUSK_FARM:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            break;	
+            break;
         case AREA_TIRISFAL_GLADES:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            break;	
+            break;
         case AREA_RUINS_OF_LORDAERON:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            break;	
+            break;
         case AREA_MULGORE:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            break;	
+            break;
         case AREA_VALLEY_OF_HEROES:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            break;	
+            break;
         case AREA_ELWYNN_FOREST:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            break;	
+            break;
         case AREA_DUN_MOROGH:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            break;	
+            break;
         case AREA_TELDRASSIL:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
@@ -438,7 +438,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             else if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_PRE_TBC)))
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
-            }					
+            }
             break;
         case AREA_SERPENTS_COIL:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
@@ -559,10 +559,10 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->CastSpell(player, IPP_PHASE, false);
             }
-            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) 
+            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ))
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
-            }					
+            }
             break;
         case AREA_IRONTREE_WOOD:
             if ((player->getClass() == CLASS_HUNTER) && ((player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_INCOMPLETE) || (player->GetQuestStatus(QUEST_THE_ANCIENT_LEAF) == QUEST_STATUS_REWARDED)))
@@ -636,7 +636,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                     player->CastSpell(player, IPP_PHASE, false);
                     break;
                 }
-            }    
+            }
             if (mapid == MAP_SCARLET_MONASTERY)
             {
                 if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
@@ -1057,6 +1057,10 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
                 }
             }
 
+			const uint32_t const chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
+			// PvP Titles go from 1 to 28.
+			const bool const usesPvPTitle = chosenTitleId != 0 && chosenTitleId < 29;
+
             // remove all titles except highest
             for (IppPvPTitles title : pvpTitlesList)
             {
@@ -1066,10 +1070,8 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
 				}
             }
 
-			if (highestTitle != -1)
-			{
+			if (highestTitle != -1 && usesPvPTitle)
 				player->SetCurrentTitle(sCharTitlesStore.LookupEntry(highestTitle));
-			}
         }
     }
 }
