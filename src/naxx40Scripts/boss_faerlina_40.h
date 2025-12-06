@@ -5,7 +5,7 @@
 #include "ScriptedCreature.h"
 #include "SpellInfo.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_faerlina.h"
+#include "boss_faerlina.h"
 
 namespace Faerlina_40 {
 
