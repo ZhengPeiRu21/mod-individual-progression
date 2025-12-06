@@ -90,14 +90,14 @@ enum NX40NPCs
 
     // Gothik
     NPC_GOTHIK_40                      = 351035,
-    NPC_LIVING_TRAINEE                 = 351043,
-    NPC_LIVING_KNIGHT                  = 351044,
-    NPC_LIVING_RIDER                   = 351045,
-    NPC_DEAD_TRAINEE                   = 351046,
-    NPC_DEAD_KNIGHT                    = 351050,
-    NPC_DEAD_HORSE                     = 351051,
-    NPC_DEAD_RIDER                     = 351052,
-    NPC_TRIGGER                        = 351047,
+    NPC_LIVING_TRAINEE_40              = 351043,
+    NPC_LIVING_KNIGHT_40               = 351044,
+    NPC_LIVING_RIDER_40                = 351045,
+    NPC_DEAD_TRAINEE_40                = 351046,
+    NPC_DEAD_KNIGHT_40                 = 351050,
+    NPC_DEAD_HORSE_40                  = 351051,
+    NPC_DEAD_RIDER_40                  = 351052,
+    NPC_TRIGGER_40                     = 351047,
 
     // Maexxna
     NPC_WEB_WRAP = 351079,
@@ -113,12 +113,11 @@ enum NX40NPCs
     NPC_SAPPHIRON_40                   = 351018,
 
     // Kel'Thuzad
-    NPC_KELTHUZAD_40                   = 351019,
-    // NPC_LICH_KING_40                   = 16980,
-    NPC_SOLDIER_OF_THE_FROZEN_WASTES   = 351073,
-    NPC_UNSTOPPABLE_ABOMINATION        = 351074,
-    NPC_SOUL_WEAVER                    = 351075,
-    NPC_GUARDIAN_OF_ICECROWN           = 351076,
+    NPC_KELTHUZAD_40                      = 351019,
+    NPC_SOLDIER_OF_THE_FROZEN_WASTES_40   = 351073,
+    NPC_UNSTOPPABLE_ABOMINATION_40        = 351074,
+    NPC_SOUL_WEAVER_40                    = 351075,
+    NPC_GUARDIAN_OF_ICECROWN_40           = 351076,
 
     // Frogger
     // NPC_LIVING_POISON_40               = 16027,
