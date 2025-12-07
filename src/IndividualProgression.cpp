@@ -1057,9 +1057,9 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
                 }
             }
 
-			const uint32_t const chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
+			const uint32_t chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
 			// PvP Titles go from 1 to 28.
-			const bool const usesPvPTitle = chosenTitleId != 0 && chosenTitleId < 29;
+			const bool usesPvPTitle = chosenTitleId != 0 && chosenTitleId < 29;
 
             // remove all titles except highest
             for (IppPvPTitles title : pvpTitlesList)
