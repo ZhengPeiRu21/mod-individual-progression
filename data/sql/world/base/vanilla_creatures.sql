@@ -21491,7 +21491,7 @@ UPDATE `creature_template` SET `DamageModifier` = 8.0, `ArmorModifier` = 1.0 WHE
 UPDATE `creature_template` SET `detection_range` = 18.0, `DamageModifier` = 1.0 WHERE `entry` = 15337;
 
 /*  Obsidian Destroyer  */
-UPDATE `creature_template` SET `detection_range` = 20.0, `DamageModifier` = 14.0, `ArmorModifier` = 1.0 WHERE `entry` = 15338;
+UPDATE `creature_template` SET `detection_range` = 20.0, `DamageModifier` = 14.0, `ArmorModifier` = 1.0, `skinloot` = 0 WHERE `entry` = 15338;
 
 /*  Ossirian the Unscarred  */
 UPDATE `creature_template` SET `detection_range` = 30.0, `DamageModifier` = 22.0, `ArmorModifier` = 1.0 WHERE `entry` = 15339;
