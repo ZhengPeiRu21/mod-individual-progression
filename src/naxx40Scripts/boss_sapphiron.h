@@ -1,15 +1,15 @@
-#ifndef BOSS_SAPPHIRON_40_H_
-#define BOSS_SAPPHIRON_40_H_
+#ifndef BOSS_SAPPHIRON_H_
+#define BOSS_SAPPHIRON_H_
 
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellScript.h"
+#include "SpellInfo.h"
 #include "naxxramas.h"
-#include "boss_sapphiron.h"
 
-namespace Sapphiron_40 {
-
+namespace Sapphiron {
+    
 enum Yells
 {
     EMOTE_AIR_PHASE         = 0,
@@ -21,8 +21,10 @@ enum Yells
 enum Spells
 {
     // Fight
+    SPELL_FROST_AURA                = 28531,
     SPELL_CLEAVE                    = 19983,
-    SPELL_TAIL_SWEEP                = 15847,
+    SPELL_TAIL_SWEEP                = 55697,
+    SPELL_SUMMON_BLIZZARD           = 28560,
     SPELL_LIFE_DRAIN                = 28542,
     SPELL_BERSERK                   = 26662,
 
@@ -32,11 +34,8 @@ enum Spells
     SPELL_FROST_MISSILE             = 30101,
     SPELL_FROST_EXPLOSION           = 28524,
 
-    // 10 and 25 Man Spells
-    SPELL_TAIL_SWEEP_10             = 55697,
-    SPELL_TAIL_SWEEP_25             = 55696,
-    SPELL_LIFE_DRAIN_10             = 28542,
-    SPELL_LIFE_DRAIN_25             = 55665,
+    // Visuals
+    SPELL_SAPPHIRON_DIES            = 29357
 };
 
 enum Misc
@@ -65,38 +64,147 @@ enum Events
     EVENT_HUNDRED_CLUB              = 14
 };
 
-// Unlike other Naxx 40 scripts, this overwrites all versions of the UI
-// This is due to AI casting used in the spell script
-
-class boss_sapphiron_40 : public CreatureScript
+class boss_sapphiron : public CreatureScript
 {
-private:
-    static bool isNaxx40Sapp(uint32 entry)
-    {
-        return (entry == NPC_SAPPHIRON_40);
-    }
 public:
-    boss_sapphiron_40() : CreatureScript("boss_sapphiron_40") { }
+    boss_sapphiron() : CreatureScript("boss_sapphiron") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return GetNaxxramasAI<boss_sapphiron_40AI>(pCreature);
+        return GetNaxxramasAI<boss_sapphironAI>(pCreature);
     }
 
-    struct boss_sapphiron_40AI : public Sapphiron::boss_sapphiron::boss_sapphironAI
+    struct boss_sapphironAI : public BossAI
     {
-        explicit boss_sapphiron_40AI(Creature* c) : Sapphiron::boss_sapphiron::boss_sapphironAI(c) {}
+        explicit boss_sapphironAI(Creature* c) : BossAI(c, BOSS_SAPPHIRON)
+        {}
+
+        EventMap events;
+        uint8 iceboltCount{};
+        uint32 spawnTimer{};
+        GuidList blockList;
+        ObjectGuid currentTarget;
 
         void InitializeAI() override
         {
-            if (instance->GetBossState(BOSS_SAPPHIRON) != DONE)
+            me->SummonGameObject(GO_SAPPHIRON_BIRTH, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), 0, 0, 0, 0, 0, 0);
+            me->SetVisible(false);
+            me->SetUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
+            me->SetReactState(REACT_PASSIVE);
+            ScriptedAI::InitializeAI();
+        }
+
+        bool IsInRoom()
+        {
+            if (me->GetExactDist(3523.5f, -5235.3f, 137.6f) > 100.0f)
             {
-                me->SummonGameObject(GO_SAPPHIRON_BIRTH, me->GetPositionX(), me->GetPositionY(), me->GetPositionZ(), 0, 0, 0, 0, 0, 0);
-                me->SetVisible(false);
-                me->SetUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
-                me->SetReactState(REACT_PASSIVE);
-                ScriptedAI::InitializeAI();
+                EnterEvadeMode();
+                return false;
             }
+            return true;
+        }
+
+        void Reset() override
+        {
+            BossAI::Reset();
+            if (me->IsVisible())
+            {
+                me->SetReactState(REACT_AGGRESSIVE);
+            }
+            events.Reset();
+            iceboltCount = 0;
+            spawnTimer = 0;
+            currentTarget.Clear();
+            blockList.clear();
+        }
+
+        void EnterCombatSelfFunction()
+        {
+            Map::PlayerList const& PlList = me->GetMap()->GetPlayers();
+            if (PlList.IsEmpty())
+                return;
+
+            for (auto const& i : PlList)
+            {
+                if (Player* player = i.GetSource())
+                {
+                    if (player->IsGameMaster())
+                        continue;
+
+                    if (player->IsAlive() && me->GetDistance(player) < 80.0f)
+                    {
+                        me->SetInCombatWith(player);
+                        player->SetInCombatWith(me);
+                        me->AddThreat(player, 0.0f);
+                    }
+                }
+            }
+        }
+
+        void JustEngagedWith(Unit* who) override
+        {
+            BossAI::JustEngagedWith(who);
+            EnterCombatSelfFunction();
+            me->CastSpell(me, SPELL_FROST_AURA, true);
+            events.ScheduleEvent(EVENT_BERSERK, 15min);
+            events.ScheduleEvent(EVENT_CLEAVE, 5s);
+            events.ScheduleEvent(EVENT_TAIL_SWEEP, 10s);
+            events.ScheduleEvent(EVENT_LIFE_DRAIN, 17s);
+            events.ScheduleEvent(EVENT_BLIZZARD, 17s);
+            events.ScheduleEvent(EVENT_FLIGHT_START, 45s);
+            events.ScheduleEvent(EVENT_HUNDRED_CLUB, 5s);
+        }
+
+        void JustDied(Unit*  killer) override
+        {
+            BossAI::JustDied(killer);
+            me->CastSpell(me, SPELL_SAPPHIRON_DIES, true);
+        }
+
+        void DoAction(int32 param) override
+        {
+            if (param == ACTION_SAPPHIRON_BIRTH)
+            {
+                spawnTimer = 1;
+            }
+        }
+
+        void MovementInform(uint32 type, uint32 id) override
+        {
+            if (type == POINT_MOTION_TYPE && id == POINT_CENTER)
+            {
+                events.ScheduleEvent(EVENT_FLIGHT_LIFTOFF, 500ms);
+            }
+        }
+
+        void SpellHitTarget(Unit* target, SpellInfo const* spellInfo) override
+        {
+            if (spellInfo->Id == SPELL_ICEBOLT_CAST)
+            {
+                me->CastSpell(target, SPELL_ICEBOLT_TRIGGER, true);
+            }
+        }
+
+        bool IsValidExplosionTarget(WorldObject* target)
+        {
+            for (ObjectGuid const& guid : blockList)
+            {
+                if (target->GetGUID() == guid)
+                    return false;
+
+                if (Unit* block = ObjectAccessor::GetUnit(*me, guid))
+                {
+                    if (block->IsInBetween(me, target, 2.0f) && block->IsWithinDist(target, 10.0f))
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        void KilledUnit(Unit* who) override
+        {
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void UpdateAI(uint32 diff) override
@@ -135,22 +243,11 @@ public:
                     events.Repeat(10s);
                     return;
                 case EVENT_TAIL_SWEEP:
-                    me->CastSpell(me, RAID_MODE(SPELL_TAIL_SWEEP_10, SPELL_TAIL_SWEEP_25, SPELL_TAIL_SWEEP, SPELL_TAIL_SWEEP_25), false);
+                    me->CastSpell(me, SPELL_TAIL_SWEEP, false);
                     events.Repeat(10s);
                     return;
                 case EVENT_LIFE_DRAIN:
-                    if (isNaxx40Sapp(me->GetEntry()))
-                    {
-                        CustomSpellValues values;
-                        int32 bp0 = 1700;
-                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
-                        values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 5);
-                        me->CastCustomSpell(SPELL_LIFE_DRAIN, values, me, TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
-                    }
-                    else
-                    {
-                        me->CastCustomSpell(RAID_MODE(SPELL_LIFE_DRAIN_10, SPELL_LIFE_DRAIN_25), SPELLVALUE_MAX_TARGETS, RAID_MODE(2, 5), me, false);
-                    }
+                    me->CastCustomSpell(SPELL_LIFE_DRAIN, SPELLVALUE_MAX_TARGETS, RAID_MODE(2, 5), me, false);
                     events.Repeat(24s);
                     return;
                 case EVENT_BLIZZARD:
@@ -168,7 +265,7 @@ public:
                         {
                             cr->GetMotionMaster()->MoveRandom(40);
                         }
-                        events.Repeat(RAID_MODE(8000ms, 6500ms, 6500ms, 6500ms));
+                        events.Repeat(RAID_MODE(8000ms, 6500ms));
                         return;
                     }
                 case EVENT_FLIGHT_START:
@@ -192,7 +289,7 @@ public:
                     me->SetDisableGravity(true);
                     currentTarget.Clear();
                     events.ScheduleEvent(EVENT_FLIGHT_ICEBOLT, 3s);
-                    iceboltCount = RAID_MODE(2, 3, 3, 3);
+                    iceboltCount = RAID_MODE(2, 3);
                     return;
                 case EVENT_FLIGHT_ICEBOLT:
                     {
@@ -300,7 +397,6 @@ public:
     };
 };
 
-// This will overwrite the declared 10 and 25 man frost explosion to handle all versions of the spell script
 class spell_sapphiron_frost_explosion : public SpellScript
 {
     PrepareSpellScript(spell_sapphiron_frost_explosion);
@@ -314,7 +410,7 @@ class spell_sapphiron_frost_explosion : public SpellScript
         std::list<WorldObject*> tmplist;
         for (auto& target : targets)
         {
-            if (CAST_AI(boss_sapphiron_40::boss_sapphiron_40AI, caster->ToCreature()->AI())->IsValidExplosionTarget(target))
+            if (CAST_AI(boss_sapphiron::boss_sapphironAI, caster->ToCreature()->AI())->IsValidExplosionTarget(target))
             {
                 tmplist.push_back(target);
             }

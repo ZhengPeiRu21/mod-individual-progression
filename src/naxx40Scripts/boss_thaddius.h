@@ -1,16 +1,14 @@
-#ifndef BOSS_THADDIUS_40_H_
-#define BOSS_THADDIUS_40_H_
+#ifndef BOSS_THADDIUS_H_
+#define BOSS_THADDIUS_H_
 
-#include "AreaTriggerScript.h"
-#include "CreatureScript.h"
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
 #include "SpellScript.h"
+#include "SpellInfo.h"
 #include "naxxramas.h"
-#include "boss_thaddius.h"
 
-namespace Thaddius_40 {
+namespace Thaddius {
 
 enum Says
 {
@@ -48,7 +46,7 @@ enum Spells
     SPELL_SHOCK_VISUAL                  = 28159,
 
     // Stalagg
-    SPELL_POWER_SURGE                   = 28134,
+    SPELL_POWER_SURGE                   = 54529,
     SPELL_STALAGG_CHAIN                 = 28096,
 
     // Feugen
@@ -96,26 +94,118 @@ enum Misc
     NPC_TESLA_COIL                      = 16218
 };
 
-class boss_thaddius_40 : public CreatureScript
+class boss_thaddius : public CreatureScript
 {
 public:
-    boss_thaddius_40() : CreatureScript("boss_thaddius_40") { }
+    boss_thaddius() : CreatureScript("boss_thaddius") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return GetNaxxramasAI<boss_thaddius_40AI>(pCreature);
+        return GetNaxxramasAI<boss_thaddiusAI>(pCreature);
     }
 
-    struct boss_thaddius_40AI : public Thaddius::boss_thaddius::boss_thaddiusAI
+    struct boss_thaddiusAI : public BossAI
     {
-        explicit boss_thaddius_40AI(Creature* c) : Thaddius::boss_thaddius::boss_thaddiusAI(c) {}
+        explicit boss_thaddiusAI(Creature* c) : BossAI(c, BOSS_THADDIUS), summons(me), ballLightningEnabled(false)
+        {}
+
+        EventMap events;
+        SummonList summons;
+        uint32 summonTimer{};
+        uint32 reviveTimer{};
+        uint32 resetTimer{};
+        bool ballLightningEnabled;
+
+        void DoAction(int32 param) override
+        {
+            if (param == ACTION_SUMMON_DIED)
+            {
+                if (summonTimer)
+                {
+                    summonTimer = 0;
+                    reviveTimer = 1;
+                    return;
+                }
+                summonTimer = 1;
+            }
+        }
+
+        void Reset() override
+        {
+            BossAI::Reset();
+            events.Reset();
+            summons.DespawnAll();
+            me->SetUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
+            me->SetControlled(true, UNIT_STATE_ROOT);
+            summonTimer = 0;
+            reviveTimer = 0;
+            resetTimer = 1;
+            me->SetPosition(me->GetHomePosition());
+            ballLightningEnabled = false;
+
+            me->SummonCreature(NPC_STALAGG, 3450.45f, -2931.42f, 312.091f, 5.49779f);
+            me->SummonCreature(NPC_FEUGEN, 3508.14f, -2988.65f, 312.092f, 2.37365f);
+            if (Creature* cr = me->SummonCreature(NPC_TESLA_COIL, 3527.34f, -2951.56f, 318.75f, 0.0f))
+            {
+                cr->RemoveAllAuras();
+                cr->InterruptNonMeleeSpells(true);
+                cr->CastSpell(cr, SPELL_FEUGEN_CHAIN, false);
+                cr->SetDisableGravity(true);
+                cr->SetImmuneToPC(false);
+                cr->SetControlled(true, UNIT_STATE_ROOT);
+            }
+            if (Creature* cr = me->SummonCreature(NPC_TESLA_COIL, 3487.04f, -2911.68f, 318.75f, 0.0f))
+            {
+                cr->RemoveAllAuras();
+                cr->InterruptNonMeleeSpells(true);
+                cr->CastSpell(cr, SPELL_STALAGG_CHAIN, false);
+                cr->SetDisableGravity(true);
+                cr->SetImmuneToPC(false);
+                cr->SetControlled(true, UNIT_STATE_ROOT);
+            }
+
+            if (GameObject* go = me->FindNearestGameObject(GO_TESLA_COIL_LEFT, 100.0f))
+                go->SetGoState(GO_STATE_ACTIVE);
+
+            if (GameObject* go = me->FindNearestGameObject(GO_TESLA_COIL_RIGHT, 100.0f))
+                go->SetGoState(GO_STATE_ACTIVE);
+
+            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_POSITIVE_POLARITY);
+            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_POSITIVE_CHARGE_STACK);
+            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_NEGATIVE_POLARITY);
+            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_NEGATIVE_CHARGE_STACK);
+        }
+
+        void KilledUnit(Unit* who) override
+        {
+            if (!who->IsPlayer())
+                return;
+
+            Talk(SAY_SLAY);
+            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+        }
+
+        void JustDied(Unit*  killer) override
+        {
+            BossAI::JustDied(killer);
+            Talk(SAY_DEATH);
+            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_POSITIVE_POLARITY);
+            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_POSITIVE_CHARGE_STACK);
+            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_NEGATIVE_POLARITY);
+            instance->DoRemoveAurasDueToSpellOnPlayers(SPELL_NEGATIVE_CHARGE_STACK);
+        }
+
+        void JustSummoned(Creature* cr) override
+        {
+            summons.Summon(cr);
+        }
 
         void JustEngagedWith(Unit* who) override
         {
             BossAI::JustEngagedWith(who);
             me->SetInCombatWithZone();
-            summons.DoZoneInCombat(NPC_FEUGEN_40);
-            summons.DoZoneInCombat(NPC_STALAGG_40);
+            summons.DoZoneInCombat(NPC_FEUGEN);
+            summons.DoZoneInCombat(NPC_STALAGG);
         }
 
         void UpdateAI(uint32 diff) override
@@ -202,24 +292,19 @@ public:
                     me->SetReactState(REACT_AGGRESSIVE);
                     me->SetControlled(false, UNIT_STATE_STUNNED);
                     me->RemoveUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
+                    me->SetControlled(false, UNIT_STATE_ROOT);
                     events.ScheduleEvent(EVENT_THADDIUS_CHAIN_LIGHTNING, 14s);
                     events.ScheduleEvent(EVENT_THADDIUS_BERSERK, 6min);
-                    events.ScheduleEvent(EVENT_THADDIUS_POLARITY_SHIFT, 30s);
+                    events.ScheduleEvent(EVENT_THADDIUS_POLARITY_SHIFT, 20s);
                     events.ScheduleEvent(EVENT_ALLOW_BALL_LIGHTNING, 5s);
                     return;
                 case EVENT_THADDIUS_BERSERK:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
                 case EVENT_THADDIUS_CHAIN_LIGHTNING:
-                {
-                    CustomSpellValues values;
-                    int32 customChainLightningDamage = 1850; // (1850, 2150), die 675
-                    values.AddSpellMod(SPELLVALUE_BASE_POINT0, customChainLightningDamage);
-                    values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 15);
-                    me->CastCustomSpell(SPELL_CHAIN_LIGHTNING, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
+                    me->CastSpell(me->GetVictim(), SPELL_CHAIN_LIGHTNING, false);
                     events.Repeat(15s);
                     break;
-                }
                 case EVENT_THADDIUS_POLARITY_SHIFT:
                     me->CastSpell(me, SPELL_POLARITY_SHIFT, false);
                     events.Repeat(30s);
@@ -237,27 +322,26 @@ public:
             {
                 if (Unit* target = SelectTarget(SelectTargetMethod::MaxThreat))
                 {
-                    int32 customBallLightningDamage = 6000;
-                    me->CastCustomSpell(target, SPELL_BALL_LIGHTNING, &customBallLightningDamage, 0, 0, false);
+                    me->CastSpell(target, SPELL_BALL_LIGHTNING, false);
                 }
             }
         }
     };
 };
 
-class boss_thaddius_summon_40 : public CreatureScript
+class boss_thaddius_summon : public CreatureScript
 {
 public:
-    boss_thaddius_summon_40() : CreatureScript("boss_thaddius_summon_40") { }
+    boss_thaddius_summon() : CreatureScript("boss_thaddius_summon") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return GetNaxxramasAI<boss_thaddius_summon_40AI>(pCreature);
+        return GetNaxxramasAI<boss_thaddius_summonAI>(pCreature);
     }
 
-    struct boss_thaddius_summon_40AI : public ScriptedAI
+    struct boss_thaddius_summonAI : public ScriptedAI
     {
-        explicit boss_thaddius_summon_40AI(Creature* c) : ScriptedAI(c)
+        explicit boss_thaddius_summonAI(Creature* c) : ScriptedAI(c)
         {
             overload = false;
         }
@@ -277,7 +361,7 @@ public:
             me->SetControlled(false, UNIT_STATE_STUNNED);
             if (Creature* cr = me->FindNearestCreature(NPC_TESLA_COIL, 150.0f))
             {
-                cr->CastSpell(cr, me->GetEntry() == NPC_STALAGG_40 ? SPELL_STALAGG_CHAIN : SPELL_FEUGEN_CHAIN, false);
+                cr->CastSpell(cr, me->GetEntry() == NPC_STALAGG ? SPELL_STALAGG_CHAIN : SPELL_FEUGEN_CHAIN, false);
                 cr->SetImmuneToPC(false);
                 myCoil = cr->GetGUID();
             }
@@ -296,7 +380,7 @@ public:
             {
                 myCoil = cr->GetGUID();
             }
-            if (me->GetEntry() == NPC_STALAGG_40)
+            if (me->GetEntry() == NPC_STALAGG)
             {
                 events.ScheduleEvent(EVENT_MINION_POWER_SURGE, 10s);
                 Talk(SAY_STAL_AGGRO);
@@ -308,7 +392,7 @@ public:
             }
             events.ScheduleEvent(EVENT_MINION_CHECK_DISTANCE, 5s);
 
-            if (me->GetEntry() == NPC_STALAGG_40) // This event needs synchronisation, called for stalagg only
+            if (me->GetEntry() == NPC_STALAGG) // This event needs synchronisation, called for stalagg only
             {
                 events.ScheduleEvent(EVENT_MINION_MAGNETIC_PULL, 20s);
             }
@@ -333,7 +417,7 @@ public:
                 {
                     me->Respawn();
                     me->SetInCombatWithZone();
-                    Talk(me->GetEntry() == NPC_STALAGG_40 ? EMOTE_STAL_REVIVE : EMOTE_FEUG_REVIVE);
+                    Talk(me->GetEntry() == NPC_STALAGG ? EMOTE_STAL_REVIVE : EMOTE_FEUG_REVIVE);
                 }
                 else
                 {
@@ -344,8 +428,8 @@ public:
 
         void JustDied(Unit* /*killer*/) override
         {
-            Talk(me->GetEntry() == NPC_STALAGG_40 ? SAY_STAL_DEATH : SAY_FEUG_DEATH);
-            Talk(me->GetEntry() == NPC_STALAGG_40 ? EMOTE_STAL_DEATH : EMOTE_FEUG_DEATH);
+            Talk(me->GetEntry() == NPC_STALAGG ? SAY_STAL_DEATH : SAY_FEUG_DEATH);
+            Talk(me->GetEntry() == NPC_STALAGG ? EMOTE_STAL_DEATH : EMOTE_FEUG_DEATH);
 
             if (Creature* cr = me->GetInstanceScript()->GetCreature(DATA_THADDIUS_BOSS))
                 cr->AI()->DoAction(ACTION_SUMMON_DIED);
@@ -357,7 +441,7 @@ public:
                 return;
 
             if (!urand(0, 2))
-                Talk(me->GetEntry() == NPC_STALAGG_40 ? SAY_STAL_SLAY : SAY_FEUG_SLAY);
+                Talk(me->GetEntry() == NPC_STALAGG ? SAY_STAL_SLAY : SAY_FEUG_SLAY);
 
             me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
@@ -372,7 +456,7 @@ public:
                     visualTimer = 0;
                     if (Creature* cr = me->FindNearestCreature(NPC_TESLA_COIL, 150.0f))
                     {
-                        cr->CastSpell(cr, me->GetEntry() == NPC_STALAGG_40 ? SPELL_STALAGG_CHAIN : SPELL_FEUGEN_CHAIN, false);
+                        cr->CastSpell(cr, me->GetEntry() == NPC_STALAGG ? SPELL_STALAGG_CHAIN : SPELL_FEUGEN_CHAIN, false);
                     }
                 }
             }
@@ -406,7 +490,7 @@ public:
                     events.Repeat(3s);
                     break;
                 case EVENT_MINION_MAGNETIC_PULL:
-               {
+                {
                     events.Repeat(20s);
                     if (Creature* feugen = me->GetInstanceScript()->GetCreature(DATA_FEUGEN_BOSS))
                     {
@@ -439,14 +523,13 @@ public:
                             {
                                 overload = true;
                                 cr->AI()->Talk(EMOTE_TESLA_LINK_BREAKS);
-                                me->RemoveAurasDueToSpell(me->GetEntry() == NPC_STALAGG_40 ? SPELL_STALAGG_CHAIN : SPELL_FEUGEN_CHAIN);
+                                me->RemoveAurasDueToSpell(me->GetEntry() == NPC_STALAGG ? SPELL_STALAGG_CHAIN : SPELL_FEUGEN_CHAIN);
                                 cr->InterruptNonMeleeSpells(true);
                             }
                             if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0, 1000.f, true))
                             {
                                 cr->CastStop(SPELL_TESLA_SHOCK);
-                                int32 customTeslaShockDamage = 4374;
-                                cr->CastCustomSpell(target, SPELL_TESLA_SHOCK, &customTeslaShockDamage, 0, 0, true);
+                                cr->CastSpell(target, SPELL_TESLA_SHOCK, true);
                             }
                             events.Repeat(1500ms);
                             break;
@@ -454,7 +537,7 @@ public:
                         else
                         {
                             overload = false;
-                            cr->CastSpell(cr, me->GetEntry() == NPC_STALAGG_40 ? SPELL_STALAGG_CHAIN : SPELL_FEUGEN_CHAIN, false);
+                            cr->CastSpell(cr, me->GetEntry() == NPC_STALAGG ? SPELL_STALAGG_CHAIN : SPELL_FEUGEN_CHAIN, false);
                         }
                     }
                     events.Repeat(5s);
@@ -465,7 +548,6 @@ public:
     };
 };
 
-// This will overwrite the declared 10 and 25 man pos_neg_charge to handle all versions of the spell script
 class spell_thaddius_pos_neg_charge : public SpellScript
 {
     PrepareSpellScript(spell_thaddius_pos_neg_charge);
@@ -512,14 +594,9 @@ class spell_thaddius_pos_neg_charge : public SpellScript
         {
             SetHitDamage(0);
         }
-        else if (target->GetInstanceScript())
+        else if (InstanceScript* instance = target->GetInstanceScript())
         {
-            target->GetInstanceScript()->SetData(DATA_CHARGES_CROSSED, 0);
-        }
-        // Adjust damage to 2000 from 4500 for naxx40
-        if (target->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
-            SetHitDamage(2000);
+            instance->SetData(DATA_CHARGES_CROSSED, 0);
         }
     }
 
@@ -556,7 +633,7 @@ class spell_thaddius_polarity_shift : public SpellScript
         {
             if (Creature* caster = GetCaster()->ToCreature())
             {
-                if (caster->GetEntry() == NPC_THADDIUS_40)
+                if (caster->GetEntry() == NPC_THADDIUS)
                 {
                     caster->AI()->Talk(SAY_ELECT);
                     caster->AI()->Talk(EMOTE_POLARITY_SHIFTED);
@@ -598,20 +675,16 @@ class at_thaddius_entrance : public AreaTriggerScript
 public:
     at_thaddius_entrance() : AreaTriggerScript("at_thaddius_entrance") { }
 
-    bool _thaddiusIntro = false;
-
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
     {
         InstanceScript* instance = player->GetInstanceScript();
-        if (!instance || _thaddiusIntro == true || instance->GetBossState(BOSS_THADDIUS) == DONE)
+        if (!instance || instance->GetData(DATA_THADDIUS_INTRO) || instance->GetBossState(BOSS_THADDIUS) == DONE)
             return true;
 
         if (Creature* thaddius = instance->GetCreature(DATA_THADDIUS_BOSS))
-		{
             thaddius->AI()->Talk(SAY_GREET);
-			_thaddiusIntro = true;
-        }
 
+        instance->SetData(DATA_THADDIUS_INTRO, 1);
         return true;
     }
 };

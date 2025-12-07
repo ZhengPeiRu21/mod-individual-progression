@@ -4,7 +4,7 @@
 #include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
-#include "../../../../src/server/scripts/Northrend/Naxxramas/boss_noth.h"
+#include "boss_noth.h"
 
 namespace Noth_40 {
 

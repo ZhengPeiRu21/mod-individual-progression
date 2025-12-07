@@ -1,24 +1,24 @@
-#ifndef BOSS_MAEXXNA_40_H_
-#define BOSS_MAEXXNA_40_H_
+#ifndef BOSS_MAEXXNA_H_
+#define BOSS_MAEXXNA_H_
 
 #include "CreatureScript.h"
-#include "PassiveAI.h"
 #include "Player.h"
+#include "PassiveAI.h"
 #include "ScriptedCreature.h"
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
 #include "SpellScriptLoader.h"
+#include "SpellInfo.h"
 #include "naxxramas.h"
-#include "boss_maexxna.h"
 
-namespace Maexxna_40 {
+namespace Maexxna {
 
 enum Spells
 {
-    SPELL_POISON_SHOCK                  = 28732,
+    SPELL_WEB_SPRAY                     = 29484,
+    SPELL_POISON_SHOCK                  = 28741,
     SPELL_NECROTIC_POISON               = 54121,
     SPELL_FRENZY                        = 54123,
-    SPELL_WEB_SPRAY                     = 29484,
     SPELL_WEB_WRAP_STUN                 = 28622,
     SPELL_WEB_WRAP_SUMMON               = 28627,
     SPELL_WEB_WRAP_KILL_WEBS            = 52512,
@@ -41,6 +41,12 @@ enum Emotes
     EMOTE_SPIDERS                       = 0,
     EMOTE_WEB_WRAP                      = 1,
     EMOTE_WEB_SPRAY                     = 2
+};
+
+enum Misc
+{
+    NPC_WEB_WRAP                        = 16486,
+    NPC_MAEXXNA_SPIDERLING              = 17055
 };
 
 const Position PosWrap[7] =
@@ -72,26 +78,83 @@ struct WebTargetSelector
         Unit const* _maexxna;
 };
 
-class boss_maexxna_40 : public CreatureScript
+class boss_maexxna : public CreatureScript
 {
 public:
-    boss_maexxna_40() : CreatureScript("boss_maexxna_40") { }
+    boss_maexxna() : CreatureScript("boss_maexxna") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return GetNaxxramasAI<boss_maexxna_40AI>(pCreature);
+        return GetNaxxramasAI<boss_maexxnaAI>(pCreature);
     }
 
-    struct boss_maexxna_40AI : public Maexxna::boss_maexxna::boss_maexxnaAI
+    struct boss_maexxnaAI : public BossAI
     {
-        explicit boss_maexxna_40AI(Creature* c) : Maexxna::boss_maexxna::boss_maexxnaAI(c) {}
+        explicit boss_maexxnaAI(Creature* c) : BossAI(c, BOSS_MAEXXNA), summons(me)
+        {}
+
+        EventMap events;
+        SummonList summons;
 
         GuidList wraps;
 
-        void DoCastWebWrap_40()
+        bool IsInRoom()
+        {
+            if (me->GetExactDist(3486.6f, -3890.6f, 291.8f) > 100.0f)
+            {
+                EnterEvadeMode();
+                return false;
+            }
+            return true;
+        }
+
+        void Reset() override
+        {
+            BossAI::Reset();
+            events.Reset();
+            summons.DespawnAll();
+        }
+
+        void JustEngagedWith(Unit* who) override
+        {
+            BossAI::JustEngagedWith(who);
+            me->SetInCombatWithZone();
+            events.ScheduleEvent(EVENT_WEB_WRAP, 20s);
+            events.ScheduleEvent(EVENT_WEB_SPRAY, 40s);
+            events.ScheduleEvent(EVENT_POISON_SHOCK, 10s);
+            events.ScheduleEvent(EVENT_NECROTIC_POISON, 5s);
+            events.ScheduleEvent(EVENT_HEALTH_CHECK, 1s);
+            events.ScheduleEvent(EVENT_SUMMON_SPIDERLINGS, 30s);
+        }
+
+        void JustSummoned(Creature* cr) override
+        {
+            if (cr->GetEntry() == NPC_MAEXXNA_SPIDERLING)
+            {
+                cr->SetInCombatWithZone();
+                if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0))
+                {
+                    cr->AI()->AttackStart(target);
+                }
+            }
+            summons.Summon(cr);
+        }
+
+        void KilledUnit(Unit* who) override
+        {
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+        }
+
+        void JustDied(Unit*  killer) override
+        {
+            BossAI::JustDied(killer);
+        }
+
+        void DoCastWebWrap()
         {
             std::list<Unit*> candidates;
-            SelectTargetList(candidates, RAID_MODE(1, 2, 2, 2), SelectTargetMethod::Random, 0, WebTargetSelector(me));
+            SelectTargetList(candidates, RAID_MODE(1, 2), SelectTargetMethod::Random, 0, WebTargetSelector(me));
 
             std::vector<uint32> positions {0, 1, 2, 3, 4, 5, 6};
             Acore::Containers::RandomShuffle(positions);
@@ -99,7 +162,7 @@ public:
             if (candidates.empty())
                 return;
 
-            for (int i = 0; i < RAID_MODE(1, 2, 2, 2); i++)
+            for (int i = 0; i < RAID_MODE(1, 2) ; i++)
             {
                 if (candidates.empty())
                     break;
@@ -182,7 +245,7 @@ public:
                     break;
                 case EVENT_WEB_WRAP:
                     Talk(EMOTE_WEB_WRAP);
-                    DoCastWebWrap_40();
+                    DoCastWebWrap();
                     events.Repeat(40s);
                     break;
                 case EVENT_WEB_WRAP_APPLY_STUN:
@@ -199,23 +262,23 @@ public:
                 }
             }
             DoMeleeAttackIfReady();
-        };
+        }
     };
 };
 
-class boss_maexxna_webwrap_40 : public CreatureScript
+class boss_maexxna_webwrap : public CreatureScript
 {
 public:
-    boss_maexxna_webwrap_40() : CreatureScript("boss_maexxna_webwrap_40") { }
+    boss_maexxna_webwrap() : CreatureScript("boss_maexxna_webwrap") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return GetNaxxramasAI<boss_maexxna_webwrap_40AI>(pCreature);
+        return GetNaxxramasAI<boss_maexxna_webwrapAI>(pCreature);
     }
 
-    struct boss_maexxna_webwrap_40AI : public NullCreatureAI
+    struct boss_maexxna_webwrapAI : public NullCreatureAI
     {
-        explicit boss_maexxna_webwrap_40AI(Creature* c) : NullCreatureAI(c) { }
+        explicit boss_maexxna_webwrapAI(Creature* c) : NullCreatureAI(c) { }
 
         ObjectGuid victimGUID;
 
@@ -235,7 +298,7 @@ public:
                     if (victim->IsAlive())
                     {
                         victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP_STUN);
-                        victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP_SUMMON_40);
+                        victim->RemoveAurasDueToSpell(SPELL_WEB_WRAP_SUMMON);
                     }
                 }
             }
@@ -264,22 +327,14 @@ public:
 
     bool Validate(SpellInfo const* /*spellInfo*/) override
     {
-        return ValidateSpellInfo({ SPELL_WEB_WRAP_SUMMON_40 });
+        return ValidateSpellInfo({ SPELL_WEB_WRAP_SUMMON });
     }
 
     void OnPeriodic(AuraEffect const* aurEff)
     {
-        if (GetCaster()->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
-            AuraEffect* eff = const_cast<AuraEffect*>(aurEff);
-            eff->SetAmount(static_cast<int32>(urand(657, 843)));
-        }
         if (aurEff->GetTickNumber() == 2)
         {
-            if (GetCaster()->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
-                GetTarget()->CastSpell(GetTarget(), SPELL_WEB_WRAP_SUMMON_40, true);
-            else
-                GetTarget()->CastSpell(GetTarget(), SPELL_WEB_WRAP_SUMMON, true);
+            GetTarget()->CastSpell(GetTarget(), SPELL_WEB_WRAP_SUMMON, true);
         }
     }
 
@@ -289,6 +344,6 @@ public:
     }
 };
 
-}
+} // namespace Maexxna
 
 #endif

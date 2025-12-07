@@ -1,13 +1,13 @@
-#ifndef BOSS_PATCHWERK_40_H_
-#define BOSS_PATCHWERK_40_H_
+#ifndef BOSS_PATCHWERK_H_
+#define BOSS_PATCHWERK_H_
 
-#include "CreatureScript.h"
+#include "ScriptMgr.h"
 #include "ScriptedCreature.h"
+#include "SpellInfo.h"
 #include "naxxramas.h"
-#include "boss_patchwerk.h"
 
-namespace PatchWerk_40 {
-
+namespace PatchWerk {
+    
 enum Yells
 {
     SAY_AGGRO                       = 0,
@@ -19,8 +19,7 @@ enum Yells
 
 enum Spells
 {
-    SPELL_HATEFUL_STRIKE_10         = 41926,
-    // SPELL_HATEFUL_STRIKE_25      = 59192,
+    SPELL_HATEFUL_STRIKE            = 41926,
     SPELL_FRENZY                    = 28131,
     SPELL_BERSERK                   = 26662,
     SPELL_SLIME_BOLT                = 32309
@@ -39,29 +38,55 @@ enum Misc
     ACHIEV_TIMED_START_EVENT        = 10286
 };
 
-class boss_patchwerk_40 : public CreatureScript
+class boss_patchwerk : public CreatureScript
 {
 public:
-    boss_patchwerk_40() : CreatureScript("boss_patchwerk_40") { }
+    boss_patchwerk() : CreatureScript("boss_patchwerk") { }
 
     CreatureAI* GetAI(Creature* pCreature) const override
     {
-        return GetNaxxramasAI<boss_patchwerk_40AI>(pCreature);
+        return GetNaxxramasAI<boss_patchwerkAI>(pCreature);
     }
 
-    struct boss_patchwerk_40AI : public PatchWerk::boss_patchwerk::boss_patchwerkAI
+    struct boss_patchwerkAI : public BossAI
     {
-        explicit boss_patchwerk_40AI(Creature* c) : PatchWerk::boss_patchwerk::boss_patchwerkAI(c) {}
+        explicit boss_patchwerkAI(Creature* c) : BossAI(c, BOSS_PATCHWERK)
+        {}
+
+        EventMap events;
+
+        void Reset() override
+        {
+            BossAI::Reset();
+            events.Reset();
+        }
+
+        void KilledUnit(Unit* who) override
+        {
+            if (!who->IsPlayer())
+                return;
+
+            if (!urand(0, 3))
+                Talk(SAY_SLAY);
+
+            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+        }
+
+        void JustDied(Unit*  killer) override
+        {
+            BossAI::JustDied(killer);
+            Talk(SAY_DEATH);
+        }
 
         void JustEngagedWith(Unit* who) override
         {
             BossAI::JustEngagedWith(who);
             Talk(SAY_AGGRO);
             me->SetInCombatWithZone();
-            events.ScheduleEvent(EVENT_HATEFUL_STRIKE, 1200ms);
-            events.ScheduleEvent(EVENT_BERSERK, 7min); // 7 minutes enrange
+            events.ScheduleEvent(EVENT_HATEFUL_STRIKE, 1500ms);
+            events.ScheduleEvent(EVENT_BERSERK, 6min);
             events.ScheduleEvent(EVENT_HEALTH_CHECK, 1s);
-            // instance->DoStartTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, ACHIEV_TIMED_START_EVENT);
+            instance->DoStartTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, ACHIEV_TIMED_START_EVENT);
         }
 
         void UpdateAI(uint32 diff) override
@@ -76,7 +101,7 @@ public:
             switch (events.ExecuteEvent())
             {
                 case EVENT_HATEFUL_STRIKE:
-                   {
+                    {
                         // Cast Hateful strike on the player with the highest amount of HP within melee distance, and second threat amount
                         std::list<Unit*> meleeRangeTargets;
                         Unit* finalTarget = nullptr;
@@ -91,7 +116,7 @@ public:
                                 meleeRangeTargets.push_back(target);
                             }
                             // and add threat to most hated
-                            if (counter < 3)
+                            if (counter < RAID_MODE(2, 3))
                             {
                                 me->AddThreat(target, 500.0f);
                             }
@@ -118,10 +143,9 @@ public:
                         }
                         if (finalTarget)
                         {
-                            int32 dmg = urand(22100,22850);
-                            me->CastCustomSpell(finalTarget, SPELL_HATEFUL_STRIKE_10, &dmg, 0, 0, false);
+                            me->CastSpell(finalTarget, SPELL_HATEFUL_STRIKE, false);
                         }
-                        events.Repeat(1200ms);
+                        events.Repeat(1s);
                         break;
                     }
                 case EVENT_BERSERK:
