@@ -35,7 +35,10 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (19184, -350000), -- Mildred Fletcher, Shattrath
 (19478, -350000), -- Fera Palerunner, Blades Edge Mountains
 (22477, -350000); -- Anchorite Ensham, Terokkar Forest
-   
+
+-- lockpicking
+UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE `id` IN (179488, 179486); -- change respawn time of footlockers from 2 hours to 15 minutes
+
 -- Make Brilliant Glass craft only available once WotLK is reached, to avoid early access to epic TBC gems
 UPDATE `npc_trainer` SET `ReqLevel` = 71 WHERE `SpellID` = 47280;
 
