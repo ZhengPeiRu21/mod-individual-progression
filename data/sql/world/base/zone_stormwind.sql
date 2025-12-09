@@ -65,7 +65,6 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 
 UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
 
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `ScriptName` = 'npc_king_varian_wrynn' WHERE `entry` = 29611; -- King Varian Wrynn
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` = 1747; -- Anduin Wrynn, hidden after TBC
 
 UPDATE `creature_template` SET `subname` = 'Arcane Goods Vendor' WHERE `entry` = 1257; -- Keldric Boucher <Alchemy Supplies & Reagents>
