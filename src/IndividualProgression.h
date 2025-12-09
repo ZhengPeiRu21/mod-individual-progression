@@ -74,6 +74,8 @@ enum ProgressionQuestIDs
     MIGHT_OF_KALIMDOR         = 8742,
     BANG_A_GONG               = 8743,
     INTO_THE_BREACH           = 10259,
+    BATTLE_UNDERCITY_HORDE    = 13267,
+    BATTLE_UNDERCITY_ALLIANCE = 13377,
     SIMPLY_BANG_A_GONG        = 108743,
     CHAOS_AND_DESTRUCTION     = 108744
 };
