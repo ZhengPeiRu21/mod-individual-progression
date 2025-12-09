@@ -839,7 +839,7 @@ UPDATE `item_template` SET `stat_type3` = 21 WHERE entry=28030;
 UPDATE `item_template` SET `dmg_min1` = 100.28, `dmg_max1` = 187.28 WHERE entry=28033;
 
 /*  Hourglass of the Unraveller  */
-UPDATE `item_template` SET `spellid_1` = 33648 WHERE entry=28034;
+UPDATE `item_template` SET `spellid_1` = 60066 WHERE entry=28034;
 
 /*  Vengeance of the Illidari  */
 UPDATE `item_template` SET `stat_type1` = 21 WHERE entry=28040;
@@ -878,7 +878,7 @@ UPDATE `item_template` SET `stat_type3` = 18 WHERE entry=28187;
 UPDATE `item_template` SET `dmg_min1` = 106.28, `dmg_max1` = 196.28, `stat_type3` = 21 WHERE entry=28188;
 
 /*  Scarab of the Infinite Cycle  */
-UPDATE `item_template` SET `spellid_2` = 33953 WHERE entry=28190;
+UPDATE `item_template` SET `spellid_2` = 60061 WHERE entry=28190;
 
 /*  Mana-Etched Vestments  */
 UPDATE `item_template` SET `stat_type3` = 21 WHERE entry=28191;
@@ -5465,6 +5465,9 @@ UPDATE item_template SET bonding = 3 WHERE entry=29958;
 
 /*  Captured Firefly  */
 UPDATE item_template SET bonding = 3 WHERE entry=29960;
+
+/*  Nether Vortex  */
+UPDATE item_template SET bonding = 1 WHERE entry=30183;
 
 /*  Fiery Warhorse's Reins  */
 UPDATE item_template SET RequiredLevel = 70 WHERE entry=30480;
