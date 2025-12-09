@@ -2,12 +2,15 @@ SET @IPPPHASE     := 65536;  -- this method of phasing is useful for aggressive 
 SET @IPPPHASE_II  := 131072;
 SET @IPPPHASE_III := 262144;
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16841, 19254, 16840,
-                                                                              20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130,
-                                                                              19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN 
+(16841, 19254, 16840, 20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130, 19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
 
+-- Stormwind
 UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1` = 1749;  -- Lady Katrana Prestor
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 29611; -- King Varian Wrynn
+
+-- Orgrimmar
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 29346; -- Apothecary Karlov
 
 -- Phasing NPCs related to AllowEarlyDungeonSet2
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15270, 15282, 16012, 16013);
