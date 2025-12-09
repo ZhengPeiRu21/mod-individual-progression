@@ -592,6 +592,12 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE_III, false);
             }
             break;
+        case AREA_ORGRIMMAR:
+            if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+            {
+                player->CastSpell(player, IPP_PHASE_III, false);
+            }
+            break;      
         case AREA_UNDERCITY:
             if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
             {
