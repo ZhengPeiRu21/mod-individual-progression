@@ -19,6 +19,15 @@ DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096
 /* the following edits are temporary */
 
 
+-- undo Replace orc guards with pre-wrathgate abomination guards -- 00_cleanup
+UPDATE `creature` SET `id1` = 36213, `equipment_id` = 1 WHERE `guid` IN 
+(17669, 28481, 28485, 28486, 28487, 28488, 28489, 28490, 33823, 33831, 34102, 34103, 34104, 34105, 34106, 38296, 38297, 38298, 38299, 38301, 38302, 38305, 
+39019, 39020, 39022, 39023, 39024, 39025, 39026, 41884, 41887, 41888, 41889, 41890, 41891, 41892, 41956, 41960, 41961, 41964, 79264, 79265, 79266, 79267);
+UPDATE `creature` SET `equipment_id` = 0 WHERE `guid` IN (34103, 34104, 38297);
+
+-- Restore conversation between Faranell and Wrathgate NPC Kraggosh - 00_cleanup
+UPDATE `creature_template` SET `AINAME` = 'SmartAI' WHERE `entry` = 2055;
+
 UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `ScriptName` = 'npc_king_varian_wrynn' WHERE `entry` = 29611; -- King Varian Wrynn
 
 -- restore AC entries that were wrongly overwritten by AQ war bosses
