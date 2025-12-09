@@ -599,9 +599,13 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             }
             break;      
         case AREA_UNDERCITY:
-            if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+            if ((player->GetQuestStatus(BATTLE_UNDERCITY_HORDE) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(BATTLE_UNDERCITY_ALLIANCE) == QUEST_STATUS_REWARDED)) // 13267 and 13377
             {
                 player->CastSpell(player, IPP_PHASE_III, false);
+            }
+            else
+            {
+                player->CastSpell(player, IPP_PHASE_II, false);
             }
             break;
         case AREA_ARGENT_TOURNAMENT_GROUNDS:
