@@ -19,6 +19,8 @@ DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096
 /* the following edits are temporary */
 
 
+UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `ScriptName` = 'npc_king_varian_wrynn' WHERE `entry` = 29611; -- King Varian Wrynn
+
 -- restore AC entries that were wrongly overwritten by AQ war bosses
 DELETE FROM `pool_template` WHERE `entry` IN (15813, 15818);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES

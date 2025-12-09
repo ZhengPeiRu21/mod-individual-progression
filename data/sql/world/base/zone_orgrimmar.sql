@@ -120,6 +120,8 @@ DELETE FROM `npc_vendor` WHERE `entry`= 12788; -- was placed in battlegrounds du
 -- Nazgrel <Advisor to Thrall>
 UPDATE `creature_template` SET `scale`=0.7, `npcflag`=2, `faction`=29, `gossip_menu_id`=0 WHERE `entry`=3230;
 
+-- remove civilian flag
+UPDATE `creature_template` SET `flags_extra` = 0 WHERE `entry` IN (14392, 14720); -- Overlord Runthak / High Overlord Saurfang
 
 SET @Stonehide  := 112793; -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
 SET @Zarg       := 112794; -- Stone Guard Zarg <Food and Drink>, Vanilla

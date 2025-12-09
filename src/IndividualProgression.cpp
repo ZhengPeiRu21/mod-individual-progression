@@ -582,6 +582,28 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE, false);
             }
             break;
+        case AREA_STORMWIND_CITY:
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
+            {
+                player->CastSpell(player, IPP_PHASE, false);
+            }
+            else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+            {
+                player->CastSpell(player, IPP_PHASE_III, false);
+            }
+            break;
+        case AREA_ORGRIMMAR:
+            if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+            {
+                player->CastSpell(player, IPP_PHASE_III, false);
+            }
+            break;      
+        case AREA_UNDERCITY:
+            if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+            {
+                player->CastSpell(player, IPP_PHASE_III, false);
+            }
+            break;
         case AREA_ARGENT_TOURNAMENT_GROUNDS:
         case AREA_ARGENT_SUNREAVER_PAVILION:
         case AREA_ARGENT_SILVER_COVENANT_PAVILION:

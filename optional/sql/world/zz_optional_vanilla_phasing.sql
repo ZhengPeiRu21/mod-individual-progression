@@ -89,7 +89,6 @@ UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 277
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 26537, -- Greeb Ramrocket, Zep
 26539, -- Meefi Farthrottle, Zep
-29346, -- Apothecary Karlov, Orgrimmar
 31704, -- Crewman Spinwheel, Zep
 31705, -- Crewman Coilspan, Zep
 31706, -- Crewman Stembolt, Zep
@@ -203,8 +202,8 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (
 );
 
 /* Hide Rogg and his anvil + forge at the entrance of Orgrimmar until WotLK */
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` = 37072;
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (347, 387); -- this needs a fix still, Rogg is currently aggressive while hidden. 
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk', `flags_extra` = 2 WHERE `entry` = 37072;
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (347, 387); 
 
 /* Landro for TCG promotion in Booty Bay */
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` = 17249;

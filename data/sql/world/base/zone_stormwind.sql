@@ -65,7 +65,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 
 UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
 
-UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63 WHERE `entry` = 29611; -- King Varian Wrynn
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` = 1747; -- Anduin Wrynn, hidden after TBC
 
 UPDATE `creature_template` SET `subname` = 'Arcane Goods Vendor' WHERE `entry` = 1257; -- Keldric Boucher <Alchemy Supplies & Reagents>
 UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1275; -- Kyra Boucher <Reagents>
@@ -92,10 +92,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
 SET @Karter      := 112783; -- Lieutenant Karter, <Mount Vendor>, Vanilla
 SET @Clate       := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
-SET @Wrynn       := 629611; -- creating copy with 'npc_king_varian_wrynn' script, to prevent AC worldserver error for not using the script
 
-
-DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
+DELETE FROM `creature_template` WHERE `entry` IN (@Biggins, @Karter, @Clate);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
 `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
 `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
@@ -104,17 +102,16 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 --
 (@Biggins,0,0,0,0,0,'Master Sergeant Biggins','Officer Accessories Quartermaster',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
 (@Karter,0,0,0,0,0,'Lieutenant Karter','Mount Vendor',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Clate,0,0,0,0,0,'Sergeant Major Clate','Food and Drink',NULL,0,55,55,0,123,4224,1,1.14286,1,1,18,1,0,0,2.15,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Wrynn,0,0,0,0,0,'King Varian Wrynn','King of Stormwind','',9834,63,63,2,1733,3,1,1.42857,1,1,20,1,3,0,35,2000,2000,1,1,1,0,2048,0,0,0,0,0,0,7,76,0,0,0,0,0,700000,750000,'',0,1,400,20,1,1,1,144,1,617299839,0,0,'npc_king_varian_wrynn',0);
+(@Clate,0,0,0,0,0,'Sergeant Major Clate','Food and Drink',NULL,0,55,55,0,123,4224,1,1.14286,1,1,18,1,0,0,2.15,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0);
 
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
+
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Karter, @Clate);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (@Biggins, 0, 0, 0, 1, 0, 0, NULL),
 (@Karter, 0, 0, 0, 0, 0, 0, NULL),
-(@Clate, 0, 0, 0, 0, 0, 0, NULL),
-(@Wrynn, 0, 0, 0, 1, 0, 3, NULL);
+(@Clate, 0, 0, 0, 0, 0, 0, NULL);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Karter, @Clate, @Wrynn);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (@Biggins, @Karter, @Clate);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
 (@Biggins, 'deDE', 'Hauptfeldwebel Biggins', 'Rüstmeister für Zubehör', 18019),
 (@Biggins, 'esES', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
@@ -141,23 +138,13 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@Clate, 'koKR', '선임하사 클레이트', '식료품 상인', 18019),
 (@Clate, 'ruRU', 'Старший сержант Клейт', 'Еда и напитки', 18019),
 (@Clate, 'zhCN', '克莱特军士长', '食物和饮料', 18019),
-(@Clate, 'zhTW', '士官長克萊特', '食物和飲料', 18019),
---
-(@Wrynn, 'deDE', 'König Varian Wrynn', 'König von Sturmwind', 18019),
-(@Wrynn, 'esES', 'Rey Varian Wrynn', 'Rey de Ventormenta', 18019),
-(@Wrynn, 'esMX', 'Rey Varian Wrynn', 'Rey de Ventormenta', 18019),
-(@Wrynn, 'frFR', 'Roi Varian Wrynn', 'Roi de Hurlevent', 18019),
-(@Wrynn, 'koKR', '국왕 바리안 린', '스톰윈드 국왕', 18019),
-(@Wrynn, 'ruRU', 'Король Вариан Ринн', 'Король Штормграда', 18019),
-(@Wrynn, 'zhCN', '瓦里安·乌瑞恩国王', '暴风城国王', 18019),
-(@Wrynn, 'zhTW', '瓦里安·烏瑞恩國王', '暴風之王', 18019);
+(@Clate, 'zhTW', '士官長克萊特', '食物和飲料', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Karter, @Clate, @Wrynn);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Biggins, @Karter, @Clate);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
 (@Biggins, 0, 12669, 1, 1, 12340),
 (@Karter, 0, 12922, 1, 1, 12340),
-(@Clate, 0, 12925, 1, 1, 12340),
-(@Wrynn, 0, 28127, 1, 1, 12340);
+(@Clate, 0, 12925, 1, 1, 12340);
 
 UPDATE `creature_template` SET `subname` = 'Mount Vendor' WHERE `entry` = 12783;
 UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12784; 
