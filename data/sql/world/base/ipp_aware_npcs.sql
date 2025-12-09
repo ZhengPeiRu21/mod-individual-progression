@@ -6,6 +6,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16
                                                                               20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130,
                                                                               19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
 
+UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1` = 1749;  -- Lady Katrana Prestor
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 29611; -- King Varian Wrynn
+
 -- Phasing NPCs related to AllowEarlyDungeonSet2
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15270, 15282, 16012, 16013);
 
