@@ -89,7 +89,6 @@ UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (12807, 17109, 277
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 26537, -- Greeb Ramrocket, Zep
 26539, -- Meefi Farthrottle, Zep
-29346, -- Apothecary Karlov, Orgrimmar
 31704, -- Crewman Spinwheel, Zep
 31705, -- Crewman Coilspan, Zep
 31706, -- Crewman Stembolt, Zep
