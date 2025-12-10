@@ -581,8 +581,8 @@ public:
 
     void OnAddMember(Group* group, ObjectGuid guid) override
     {
-        if (!group)
-            return;
+        // if (!group)
+        //    return;
 
         Player* added = ObjectAccessor::FindPlayer(guid);
         if (!added)
