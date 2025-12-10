@@ -19,7 +19,7 @@ public:
             { "get",    HandleGetIndividualProgressionCommand,    SEC_GAMEMASTER,    Console::Yes },
             { "set",    HandleSetIndividualProgressionCommand,    SEC_GAMEMASTER,    Console::Yes },
             { "tele",   HandleTeleIndividualProgressionCommand,   SEC_GAMEMASTER,    Console::Yes },
-//          { "setbot", HandleSetBotIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
+            { "setbot", HandleSetBotIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
         };
 
         static ChatCommandTable commandTable =
@@ -130,39 +130,43 @@ public:
         return true;
     }
 
-    /* static bool HandleSetBotIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, uint32 progressionLevel)
+    static bool HandleSetBotIndividualProgressionCommand(ChatHandler* handler)
     {
-        if (progressionLevel > PROGRESSION_WOTLK_TIER_5)
+        Player* player = handler->GetSession()->GetPlayer();
+
+        if (!player)
         {
-            handler->SendSysMessage("Invalid Progression Level.");
+            handler->SendSysMessage("Player not found.");
             return false;
         }
 
-        player = PlayerIdentifier::FromTargetOrSelf(handler);
-        Player* target = player->GetConnectedPlayer();
+        Group* group = player->GetGroup();
+		
+        std::string playername = player->GetName();
+        uint32 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        uint32 currentArea = player->GetAreaId();
 
-        if (!sIndividualProgression->isExcludedFromProgression(target))
+        if (!group)
         {
-            handler->SendSysMessage("Player is not a bot account.");
+            handler->SendSysMessage("You need to be in a group to use this command.");
             return false;
         }
 
-        std::string playername = target->GetName();
-        uint8 currentState = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
-        uint32 currentArea = target->GetAreaId();
-
-        if (progressionLevel < currentState)
+        for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
         {
-            CheckProgressionAchievements(target, currentState, progressionLevel);
+            Player* member = itr->GetSource();
+            if (!member || !sIndividualProgression->isExcludedFromProgression(member))
+                continue;
+
+            sIndividualProgression->UpdateProgressionState(member, static_cast<ProgressionState>(currentState));
+            sIndividualProgression->UpdateProgressionQuests(member);
+            sIndividualProgression->CheckAdjustments(member);
+            sIndividualProgression->checkIPPhasing(member, currentArea);
         }
 
-        sIndividualProgression->ForceUpdateProgressionState(target, static_cast<ProgressionState>(progressionLevel));
-        sIndividualProgression->UpdateProgressionQuests(target);
-        sIndividualProgression->checkIPPhasing(target, currentArea);
-
-        handler->PSendSysMessage("Updated Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
+        handler->PSendSysMessage("Updated Progression Level for all bots = |cff00ffff{}|r", currentState);
         return true;
-    } */
+    }
 
     static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, std::string location)
     {
