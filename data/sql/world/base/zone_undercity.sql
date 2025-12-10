@@ -195,7 +195,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+44, 5624, 0, 0, 0, 0, 0, 1, 1, 0, 1419.08, 389.021, -84.9804, 0.698132, 120, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, 'SAI Target');
 
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_II  WHERE `guid` IN (@Faranell_guid, @Varimathras); -- pre Wrathgate
-UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (31900, 31901, 43466, 79263);   -- post Wrathgate
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (31900, 31901, 43466, 79263, 203395, 203420);   -- post Wrathgate
 
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_II  WHERE `id1` = 5624;  -- pre Wrathgate
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 36213; -- post Wrathgate
