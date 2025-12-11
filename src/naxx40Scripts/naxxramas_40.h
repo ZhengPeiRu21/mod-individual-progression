@@ -59,15 +59,15 @@ enum NX40GOs
 enum NX40NPCs
 {
     // Anub'Rekhan
-    NPC_CORPSE_SCARAB               = 351083,
-    NPC_CRYPT_GUARD                 = 351082,
+    NPC_CORPSE_SCARAB_40               = 351083,
+    NPC_CRYPT_GUARD_40                 = 351082,
 
     // Faerlina
-    NPC_NAXXRAMAS_WORSHIPPER            = 351081,
-    NPC_NAXXRAMAS_FOLLOWER              = 351080,
+    NPC_NAXXRAMAS_WORSHIPPER           = 351081,
+    NPC_NAXXRAMAS_FOLLOWER             = 351080,
 
     // Gluth
-    NPC_ZOMBIE_CHOW                     = 351069,
+    NPC_ZOMBIE_CHOW                    = 351069,
 
     // Thaddius
     NPC_THADDIUS_40                    = 351000,
