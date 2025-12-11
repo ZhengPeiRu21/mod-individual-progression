@@ -120,7 +120,7 @@ public:
                     break;
                 case EVENT_DISRUPTING_SHOUT:
                     me->CastSpell(me, SPELL_MANA_BURN, false);
-                    events.Repeat(10s);
+                    events.Repeat(25s);
                     break;
                 case EVENT_JAGGED_KNIFE:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0, 45.0f))
