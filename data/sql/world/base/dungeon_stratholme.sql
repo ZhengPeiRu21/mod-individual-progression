@@ -204,7 +204,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11043, 0, 3, 0, 105, 0, 100, 0, 0, 0, 8000, 10000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Monk - Victim Casting - Cast Kick'),
 (11043, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Monk - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(16387, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28340, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Respawn - Cast Unholy Aura'),
+(16387, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28340, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Reset - Cast Unholy Aura'),
 (16387, 0, 1, 0, 0, 0, 100, 0, 1000, 1000, 13000, 18000, 0, 0, 11, 19729, 64, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,   'Atiesh - In Combat - Cast Shadow Bolt'),
 (16387, 0, 2, 0, 0, 0, 100, 0, 15000, 15000, 15000, 25000, 0, 0, 11, 28352, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Atiesh - In Combat - Cast Breath of Sargeras'), -- trigger curse spell 28342
 (16387, 0, 3, 4, 8, 0, 100, 0, 676, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Atiesh - On Disarm - Say Line 0'),
