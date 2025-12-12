@@ -206,8 +206,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (16387, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28340, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Respawn - Cast Unholy Aura'),
 (16387, 0, 1, 0, 0, 0, 100, 0, 1000, 1000, 13000, 18000, 0, 0, 11, 19729, 64, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,   'Atiesh - In Combat - Cast Shadow Bolt'),
-(16387, 0, 2, 0, 0, 0, 100, 0, 15000, 15000, 15000, 25000, 0, 0, 11, 28352, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Atiesh - In Combat - Cast Breath of Sargeras'), -- trigger curse spell 28342, 
-(16387, 0, 3, 4, 8, 0, 100, 0, 676, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Atiesh - On Disarm - Say Line 0'), -- Atiesh drops it's weapon. broadcast_text 12338
+(16387, 0, 2, 0, 0, 0, 100, 0, 15000, 15000, 15000, 25000, 0, 0, 11, 28352, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Atiesh - In Combat - Cast Breath of Sargeras'), -- trigger curse spell 28342
+(16387, 0, 3, 4, 8, 0, 100, 0, 676, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Atiesh - On Disarm - Say Line 0'),
 (16387, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28355, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Disarm - Cast Reaper of Souls DND'), -- drop sword on ground
 (16387, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Atiesh - On Disarm - Set Sheath Melee');
 
