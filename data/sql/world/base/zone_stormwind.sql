@@ -52,7 +52,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4353, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');     -- Georgio Bolero <Artisan Tailor>
 
 
-DELETE FROM `creature` WHERE `id1` IN (7410, 7798, 12778, 12779, 12780, 12805, 14981, 15008, 34078, 40607);
+DELETE FROM `creature` WHERE `id1` IN (7410, 7798, 12778, 12779, 12780, 12805, 14981, 15008, 40607);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
 (607410, 7410,  0, -8424.43, 342.967, 120.886, 3.82018, 300),  -- Thelman Slatefist <Alterac Valley Battlemaster>
 (607798, 7798,  0, -8422.17, 630.877, 95.8402, 5.044, 430),    -- Hank the Hammer <The Mitrhil Order>
@@ -65,7 +65,8 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 
 UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` = 1747; -- Anduin Wrynn, hidden after TBC
+UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `ScriptName` = 'npc_king_varian_wrynn' WHERE `entry` = 29611; -- King Varian Wrynn
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` = 1747; -- Anduin Wrynn
 
 UPDATE `creature_template` SET `subname` = 'Arcane Goods Vendor' WHERE `entry` = 1257; -- Keldric Boucher <Alchemy Supplies & Reagents>
 UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1275; -- Kyra Boucher <Reagents>
@@ -100,10 +101,9 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
 `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
 --
-(@Biggins,0,0,0,0,0,'Master Sergeant Biggins','Officer Accessories Quartermaster',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Karter,0,0,0,0,0,'Lieutenant Karter','Mount Vendor',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Clate,0,0,0,0,0,'Sergeant Major Clate','Food and Drink',NULL,0,55,55,0,123,4224,1,1.14286,1,1,18,1,0,0,2.15,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0);
-
+(@Biggins,0,0,0,0,0,'Master Sergeant Biggins','Officer Accessories Quartermaster',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
+(@Karter,0,0,0,0,0,'Lieutenant Karter','Mount Vendor',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
+(@Clate,0,0,0,0,0,'Sergeant Major Clate','Food and Drink',NULL,0,55,55,0,123,4224,1,1.14286,1,1,18,1,0,0,2.15,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0);
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Karter, @Clate);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
@@ -151,13 +151,10 @@ UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry`
 UPDATE `creature_template` SET `subname` = 'Armor Quartermaster' WHERE `entry` = 12785;
 UPDATE `creature_template` SET `npcflag` = 4224 WHERE `entry` IN (24671, 24672);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `entry` IN (12805, 26393, 26394);
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (12781, 12783, 12784, 12785, 20278, 23396, 23446, 24671, 24672);
-
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12783;
 
 
-DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 133927, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 720278, 723396);
+DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 133927, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 632380, 634076, 634077, 634078, 720278, 723396);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (612781, @Biggins, 0, 1, 1, -8777.4, 417.124, 103.921, 6.23553, 180), -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
@@ -172,8 +169,22 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `positio
 (720278, 20278, 0, 1, 1, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC
 (723396, 23396, 0, 1, 1, -8786.12, 428.386, 105.233, 5.5871, 180),    -- Krixel Pinchwhistle <Arena Vendor>, TBC
 (623446, 23446, 0, 1, 1, -8785.74, 420.484, 105.233, 0.701937, 180),  -- Lieutenant Tristia <Armor Quartermaster>, TBC
+(632380, 32380, 0, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180),   -- Lieutenant Tristia, WotLK Season 5
+(634076, 34076, 0, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180),   -- Lieutenant Tristia, WotLK Season 6
+(634077, 34077, 0, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180),   -- Lieutenant Tristia, WotLK Season 7
+(634078, 34078, 0, 1, 1, -8773.78, 425.804, 105.233, 4.80621, 180),   -- Lieutenant Tristia, WotLK Season 8
 (133927, 12783, 0, 1, 1, -8779.7, 432.158, 105.233, 5.36374, 180),    -- Lieutenant Karter <Mount Vendor>, TBC
 (612783, @Karter, 0, 1, 1, -8779.7, 432.158, 105.233, 5.36374, 180);  -- Lieutenant Karter <Mount Vendor>, Vanilla
+
+
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_tbc'  WHERE `guid` IN (612777, 612781, 612783, 612785, 612805, 626394); -- only visible during vanilla
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pvp'  WHERE `guid` IN (623446, 624672, 720278, 723396);                 -- only visible during tbc
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc'      WHERE `guid` IN (133921, 133926, 133927, 133928, 133929, 624671); -- visible during tbc & wotlk
+
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S5' WHERE `guid` IN (632380);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S6' WHERE `guid` IN (634076);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S7' WHERE `guid` IN (634077);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S8' WHERE `guid` IN (634078);
 
 
 -- Master Sergeant Biggins <Officer Accessories Quartermaster> - Vanilla
@@ -494,7 +505,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
-UPDATE `creature`   SET `ScriptName` = 'npc_ipp_tbc' WHERE `id1` = 19848; -- Harbinger Ennarth
 
 -- WotLK pvp vendors
 DELETE FROM `creature` WHERE `id1` IN 
