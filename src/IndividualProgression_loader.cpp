@@ -45,6 +45,7 @@ void AddSC_ipp_spell_scripts();
 void AddSC_individualProgression_commandscript();
 void AddSC_mod_individual_progression_awareness();
 void AddSC_mod_individual_progression_player();
+void AddSC_mod_individual_progression_pvp();
 void AddSC_npc_archmage_timear();
 void AddSC_karazhan_70();
 void AddSC_the_eye_70();
@@ -57,7 +58,7 @@ void Addmod_individual_progressionScripts()
     AddSC_instance_onyxias_lair_40();
     AddSC_instance_blackrock_spire_50_59_B();
     AddSC_instance_blackrock_depths_50_59_B();
-	AddSC_instance_stratholme_50_59_B();
+    AddSC_instance_stratholme_50_59_B();
     AddSC_instance_molten_core_60_1_A();
     AddSC_quest_jail_break_60_2();
     AddSC_quest_the_masquerade_60_2();
@@ -94,6 +95,7 @@ void Addmod_individual_progressionScripts()
     AddSC_individualProgression_commandscript();
     AddSC_mod_individual_progression_awareness();
     AddSC_mod_individual_progression_player();
+    AddSC_mod_individual_progression_pvp();
     AddSC_npc_archmage_timear();
     AddSC_karazhan_70();
     AddSC_the_eye_70();
