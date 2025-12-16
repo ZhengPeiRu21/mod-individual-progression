@@ -504,7 +504,6 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61
 DELETE FROM `creature` WHERE `id1` IN 
 (12782,  -- Captain O'Neal <Weapons Quartermaster>
  26393,  -- Captain Dirgehammer <Armor Quartermaster>
- 34075,  -- Captain Dirgehammer <Armor Quartermaster>
  34081); -- Captain O'Neal <Jewelcrafting Quartermaster>
 
 /* NPC Rebecca Laughlin - Remove non-Vanilla Tabards */
