@@ -227,78 +227,6 @@ public:
     }
 };
 
-class gobject_ipp_pvp_closed : public GameObjectScript
-{
-public:
-    gobject_ipp_pvp_closed() : GameObjectScript("gobject_ipp_pvp_closed") { }
-
-    struct gobject_ipp_pvp_closedAI: GameObjectAI
-    {
-        explicit gobject_ipp_pvp_closedAI(GameObject* object) : GameObjectAI(object) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-			uint32 PVP_RANK6_QUEST = 66106;
-			
-            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target))
-            {
-                return false;
-            }
-			
-            if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-    };
-
-    GameObjectAI* GetAI(GameObject* object) const override
-    {
-        return new gobject_ipp_pvp_closedAI(object);
-    }
-};
-
-class gobject_ipp_pvp_open : public GameObjectScript
-{
-public:
-    gobject_ipp_pvp_open() : GameObjectScript("gobject_ipp_pvp_open") { }
-
-    struct gobject_ipp_pvp_openAI: GameObjectAI
-    {
-        explicit gobject_ipp_pvp_openAI(GameObject* object) : GameObjectAI(object) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-			uint32 PVP_RANK6_QUEST = 66106;
-			
-            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target))
-            {
-                return true;
-            }
-			
-            if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-    };
-
-    GameObjectAI* GetAI(GameObject* object) const override
-    {
-        return new gobject_ipp_pvp_openAI(object);
-    }
-};
-
 class npc_ipp_preaq : public CreatureScript
 {
 public:
@@ -786,8 +714,6 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_tbc();
     new gobject_ipp_tbc_t4();         // Shattered Sun
     new gobject_ipp_wotlk();
-    new gobject_ipp_pvp_closed();     // pvp officer doors
-    new gobject_ipp_pvp_open();       // pvp officer doors
     new npc_ipp_preaq();              // Cenarion Hold NPCs
     new npc_ipp_we();                 // War Effort NPCs in cities
 	new npc_ipp_aq();

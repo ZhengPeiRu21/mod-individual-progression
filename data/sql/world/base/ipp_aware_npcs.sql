@@ -5,6 +5,10 @@ SET @IPPPHASE_III := 262144;
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN 
 (16841, 19254, 16840, 20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130, 19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
 
+/* Arena NPCs */
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN
+(19915, 19909, 19911, 26012, 26007, 26075, 26307, 26309, 26760, 19912, 19859, 19860, 19861, 20499, 20497, 30610, 30611, 32832);
+
 -- Stormwind
 UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1` = 1749;  -- Lady Katrana Prestor
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 29611; -- King Varian Wrynn

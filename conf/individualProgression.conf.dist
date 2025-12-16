@@ -315,6 +315,22 @@ IndividualProgression.CustomProgression = ""
 #
 IndividualProgression.AllowEarlyDungeonSet2 = 0
 
+# IndividualProgression.TBC.ArenaSeason
+#
+#        Description: Current TBC arena season id
+#        Default:     1
+#                     1-4
+#
+IndividualProgression.TBC.ArenaSeason = 1
+
+# IndividualProgression.WotLK.ArenaSeason
+#
+#        Description: Current WotLK arena season id
+#        Default:     5
+#                     5-8
+#
+IndividualProgression.WotLK.ArenaSeason = 5
+
 # IndividualProgression.VanillaPvPRankRequirement
 #
 #        Description: Required PvP honor kills during Vanilla for each PvP rank to earn relevant titles and get corresponding items
