@@ -153,8 +153,8 @@ UPDATE `creature_template` SET `npcflag` = 4224 WHERE `entry` IN (24671, 24672);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12783;
 
-DELETE FROM `creature` WHERE `guid` IN 
-(133928, 133926, 133929, 612781, 133927, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 632380, 632381, 634073, 634074, 634075, 634076, 634077, 634078, 720278, 723396);
+DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 133927, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 720278, 723396);
+DELETE FROM `creature` WHERE `id1`  IN (632380, 632381, 634073, 634074, 634075, 634076, 634077, 634078);
 
 INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
