@@ -308,22 +308,22 @@ class spell_sapphiron_frost_explosion : public SpellScript
     void FilterTargets(std::list<WorldObject*>& targets)
     {
         Unit* caster = GetCaster();
-        if (!caster || !caster->ToCreature())
+        auto* creature = caster ? caster->ToCreature() : nullptr;
+        if (!creature)
+            return;
+
+        auto* ai = CAST_AI(boss_sapphiron_40::boss_sapphiron_40AI, creature->AI());
+        if (!ai)
             return;
 
         std::list<WorldObject*> tmplist;
-        for (auto& target : targets)
+        for (WorldObject* target : targets)
         {
-            if (CAST_AI(boss_sapphiron_40::boss_sapphiron_40AI, caster->ToCreature()->AI())->IsValidExplosionTarget(target))
-            {
+            if (target && ai->IsValidExplosionTarget(target))
                 tmplist.push_back(target);
-            }
         }
-        targets.clear();
-        for (auto& itr : tmplist)
-        {
-            targets.push_back(itr);
-        }
+
+        targets.swap(tmplist);
     }
 
     void Register() override
