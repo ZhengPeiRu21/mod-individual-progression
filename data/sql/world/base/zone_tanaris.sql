@@ -135,8 +135,8 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (5475, 0, 2, 'Raaaaaaaaaaaaaaaaaaaaaaaaaaaaaar!!! Me smash $R!',  12, 0, 100, 0, 0, 0, 1927, 0, 'Dunemaul Warlock');
 
 
--- wotlk arena vendors
 DELETE FROM `creature` WHERE `id1` IN (32407, 33915, 33917, 33920, 33924, 33928, 33934, 33935, 33939, 34088, 34090, 34093);
+
 INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (633917, 33917, 1, 1, 1, -7120.75, -3774.16, 9.0363, 0.767945, 180), -- Ecton Brasstumbler, WotLK Season 7
@@ -174,7 +174,3 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (634088, 0, 0, 0, 1, 0, 0, NULL),
 (634090, 0, 0, 0, 1, 0, 0, NULL),
 (634093, 0, 0, 0, 1, 0, 0, NULL);
-
--- remove event entries added by AC
-DELETE FROM `creature_addon` WHERE `guid` IN (88155, 88158, 88159, 88160);
-DELETE FROM `game_event_creature` WHERE `guid` IN (88155, 88158, 88159, 88160, 152022, 208486, 208488, 208492, 208498, 208500, 208504, 208506);
