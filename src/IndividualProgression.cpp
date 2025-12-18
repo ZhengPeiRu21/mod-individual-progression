@@ -183,12 +183,12 @@ bool IndividualProgression::isAttuned(Player* player)
 
 bool IndividualProgression::isExcludedFromProgression(Player* player)
 {
-    if(!sIndividualProgression->excludeAccounts) {
+    if (!sIndividualProgression->excludeAccounts)
         return false;
-    }
+
     std::string accountName;
     bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
-    std::regex excludedAccountsRegex (sIndividualProgression->excludedAccountsRegex);
+    std::regex excludedAccountsRegex(sIndividualProgression->excludedAccountsRegex);
     return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
 }
 
@@ -216,7 +216,7 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
         if (!member || !isExcludedFromProgression(member))
             continue;
 
-        UpdateProgressionState(member, static_cast<ProgressionState>(refProgress));
+        ForceUpdateProgressionState(member, static_cast<ProgressionState>(refProgress));
         CheckAdjustments(member);
     }
 }
