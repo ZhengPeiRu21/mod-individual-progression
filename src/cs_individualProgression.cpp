@@ -158,7 +158,7 @@ public:
             if (!member || !sIndividualProgression->isExcludedFromProgression(member))
                 continue;
 
-            sIndividualProgression->UpdateProgressionState(member, static_cast<ProgressionState>(currentState));
+            sIndividualProgression->ForceUpdateProgressionState(member, static_cast<ProgressionState>(currentState));
             sIndividualProgression->UpdateProgressionQuests(member);
             sIndividualProgression->CheckAdjustments(member);
             sIndividualProgression->checkIPPhasing(member, currentArea);
