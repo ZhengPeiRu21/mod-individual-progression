@@ -15,11 +15,11 @@ DELETE FROM `game_event_creature` WHERE `guid` IN (208207, 208240, 208251, 20835
 -- remove AzerothCore area triggers used by WotLK Scourge Invasion Event
 DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096, 4098, 4099, 4100, 4101, 4103, 4104, 4105, 5151, 5152, 5153, 5154, 5158, 5159, 5160, 5161);
 
--- remove arena season event entries added by AC. IP uses it's own arena season settings
-DELETE FROM `creature_addon` WHERE `guid` IN (88155, 88158, 88159, 88160);
+-- remove arena season event entries added by AC
+DELETE FROM `creature_addon` WHERE `guid` IN (88155, 88156, 88158, 88159, 88160);
 DELETE FROM `game_event_creature` WHERE `guid` IN 
-(17676, 88155, 88158, 88159, 88160, 91798, 152022, 152026, 152028, 152030, 152031, 202335, 202336, 
-208486, 208487, 208488, 208489, 208491, 208492, 208496, 208498, 208499, 208500, 208501, 208503, 208504, 208506, 208508);
+(17676, 88155, 88156, 88158, 88159, 88160, 91798, 152022, 152026, 152028, 152030, 152031, 202335, 202336, 
+208486, 208487, 208488, 208489, 208491, 208492, 208494, 208496, 208498, 208499, 208500, 208501, 208503, 208504, 208506, 208508);
 
 
 /* the following edits are temporary */
