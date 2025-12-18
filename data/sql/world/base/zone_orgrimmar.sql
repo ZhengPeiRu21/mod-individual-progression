@@ -18,6 +18,7 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `ent
 UPDATE `creature_template` SET `npcflag` = 81, `trainer_type` = 2 WHERE `entry` IN (1383, 2855, 2857, 3412, 5811, 10266, 11017, 11046, 11066);
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (1383, 3412, 11017);
 
+
 DELETE FROM `npc_trainer` WHERE `ID` IN (1383, 2855, 2857, 3332, 3345, 3347, 3355, 3357, 3363, 3365, 3373, 3399, 3412, 4752, 5811, 7088, 10266, 11017, 11046, 11066);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
 (1383, -310000),  -- Snarl <Expert Blacksmith>
@@ -51,11 +52,13 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (11046, -300000), -- Whuut <Journeyman Alchemist>
 (11066, -330000); -- Jhag <Journeyman Enchanter>
 
+
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2782, 4148, 4151);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
 (2782, 0, 3, 'Train me.', 3266, 5, 16), -- Snarl <Expert Blacksmith>
 (4148, 0, 3, 'Train me.', 3266, 5, 16), -- Nogg <Expert Engineer>
 (4151, 0, 3, 'Train me.', 3266, 5, 16); -- Roxxik <Artisan Engineer>
+
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (1012, 2782, 4126, 4148, 4151, 4168, 4209, 4347);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
@@ -67,6 +70,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4168, 0, 7, 333, 50,  'Show menu if enchanting is 50 or higher'),     -- Godan <Expert Enchanter>
 (15, 4209, 0, 7, 165, 50,  'Show menu if leatherworking is 50 or higher'), -- Karolek <Expert Leatherworker>
 (15, 4347, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');      -- Magar <Expert Tailor>
+
 
 DELETE FROM `creature` WHERE `id1` = 3230 AND `map`= 1;
 DELETE FROM `creature` WHERE `guid` IN (10299, 203492, 203493, 203494, 203495);
@@ -80,6 +84,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (614942, 14942, 1, 1980.9, -4787.78, 55.8796, 5.13127,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
 (615006, 15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathis Basin Battlemaster>
 
+
 -- Master Pyreanor <Paladin Trainer>
 UPDATE `creature` SET `position_x`= 1940.23, `position_y`= -4135.53, `position_z`= 41.1522, `orientation`= 3.12425  WHERE `id1` = 23128;
 
@@ -90,6 +95,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 4967);
 -- An Imp's Request (Warlock)
 DELETE FROM `creature_queststarter` WHERE `id` IN (3324, 3325, 3326, 4564, 5495, 5496) AND `quest`= 8419;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (3326, 8419);
+
 
 UPDATE `creature_template` SET `subname` = 'General Goods Merchant'       WHERE `entry` = 3313;  -- Trak'gen <General Goods Merchant>
 UPDATE `creature_template` SET `subname` = 'Guns and Ammo Merchant'       WHERE `entry` = 3322;  -- Kaja <Guns and Ammo Merchant>
@@ -126,102 +132,6 @@ SET @Krixel     := 123396; -- Krixel Pinchwhistle - Season 3
 SET @Leeni      := 124392; -- Leeni "Smiley" Smalls - Season 4
 
 SET @CGUID      := 659000;
-
-DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork, @Vixton, @Krixel, @Leeni);
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
-`exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
-`BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
-`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
-`RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
-
-(@Stonehide,0,0,0,0,0,'Brave Stonehide','Officer Accessories Quartermaster',NULL,0,55,55,0,125,128,1,1.14286,1,1,18,1,0,0,2.9,2000,2000,1,1,1,256,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Zarg,0,0,0,0,0,'Stone Guard Zarg','Food and Drink',NULL,0,55,55,0,125,130,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Hola,0,0,0,0,0,'First Sergeant Hola\'mahi','Reagent Vendor',NULL,0,55,55,0,125,130,1,1.14286,1,1,18,1,0,0,1.2,2000,1551,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',1,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Bork,0,0,0,0,0,'Raider Bork','Mount Quartermaster',NULL,0,55,55,0,1074,128,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Vixton,0,0,0,0,0,'Vixton Pinchwhistle','Arena Vendor',NULL,8124,60,60,1,35,129,1,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1,1,1,1,0,0,1,0,0,2,'',0),
-(@Krixel,0,0,0,0,0,'Krixel Pinchwhistle','Arena Vendor',NULL,8710,70,70,1,35,129,1.1,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,0,0,0,0,7,134217728,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,0,2,'',0),
-(@Leeni,0,0,0,0,0,'Leeni "Smiley" Smalls','Arena Vendor',NULL,0,70,70,1,35,128,1.5,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,0,2,'',0);
-
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Bork, @Vixton);
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
-(@Bork, 0, 0, 0, 0, 0, 0, NULL),
-(@Vixton, 0, 0, 0, 1, 0, 0, NULL);
-
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork, @Vixton, @Krixel, @Leeni);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
---
-(@Stonehide, 'deDE', 'Kriegerheldin Steinfell', 'Rüstmeisterin für Zubehör', 18019),
-(@Stonehide, 'esES', 'Valiente Piel Pétrea', 'Intendente de accesorios', 18019),
-(@Stonehide, 'esMX', 'Valiente Piel Pétrea', 'Intendente de accesorios', 18019),
-(@Stonehide, 'frFR', 'Brave Cuir-de-Pierre', 'Intendante des accessoires', 18019),
-(@Stonehide, 'koKR', '용사 스톤하이드', '보급품 병참장교', 18019),
-(@Stonehide, 'ruRU', 'Храбрец Каменная Шкура', 'Начальник снабжения аксессуарами', 18019),
-(@Stonehide, 'zhCN', '卫兵布莱恩·石皮', '杂货军需官', 18019),
-(@Stonehide, 'zhTW', '勇者石皮', '雜貨軍需官', 18019),
---
-(@Zarg, 'deDE', 'Steingardist Zarg', 'Speis & Trank', 18019),
-(@Zarg, 'esES', 'Guardia de piedra Zarg', 'Alimentos y bebidas', 18019),
-(@Zarg, 'esMX', 'Guardia de piedra Zarg', 'Alimentos y bebidas', 18019),
-(@Zarg, 'frFR', 'Garde de pierre Zarg', 'Nourriture & boissons', 18019),
-(@Zarg, 'koKR', '투사 자르그', '식료품 상인', 18019),
-(@Zarg, 'ruRU', 'Каменный страж Зарг', 'Еда и напитки', 18019),
-(@Zarg, 'zhCN', '石头守卫扎尔格', '食物和饮料', 18019),
-(@Zarg, 'zhTW', '石衛士札爾格', '食物和飲料', 18019),
---
-(@Hola, 'deDE', 'Stabsfeldwebel Hola\'mahi', 'Reagenzien', 18019),
-(@Hola, 'esES', 'Gran capataz Hola\'mahi', 'Componentes', 18019),
-(@Hola, 'esMX', 'Gran capataz Hola\'mahi', 'Componentes', 18019),
-(@Hola, 'frFR', 'Sergent Hola\'mahi', 'Composants', 18019),
-(@Hola, 'koKR', '선임하사 홀라마히', '마법 재료 상인', 18019),
-(@Hola, 'ruRU', 'Первый сержант Хола\'махи', 'Реагенты', 18019),
-(@Hola, 'zhCN', '一等军士长霍拉麦', '材料商', 18019),
-(@Hola, 'zhTW', '一等士官霍拉麥', '施法材料', 18019),
---
-(@Bork, 'deDE', 'Räuber Bork', 'Rüstmeister für Kriegsreittiere', 18019),
-(@Bork, 'esES', 'Asaltante Bork', 'Intendente de monturas de guerra', 18019),
-(@Bork, 'esMX', 'Asaltante Bork', 'Intendente de monturas de guerra', 18019),
-(@Bork, 'frFR', 'Ecumeur Bork', 'Intendant des montures de guerre', 18019),
-(@Bork, 'koKR', '공격대원 보르크', '전투 탈것 병참장교', 18019),
-(@Bork, 'ruRU', 'Налетчик Борк', 'Начальник снабжения верховыми животными', 18019),
-(@Bork, 'zhCN', '狼骑兵波尔克', '战争坐骑军需官', 18019),
-(@Bork, 'zhTW', '狼騎兵波爾克', '戰爭坐騎軍需官', 18019),
---
-(@Vixton, 'deDE', 'Vixton Quetschpfeife', 'Überholte Arenarüstungen', 18019),
-(@Vixton, 'esES', 'Vixton Silbapellizco', 'Armadura de arena de legado', 18019),
-(@Vixton, 'esMX', 'Vixton Silbapellizco', 'Armadura de arena de legado', 18019),
-(@Vixton, 'frFR', 'Vixton Sifflepince', 'Armures d’arène historiques', 18019),
-(@Vixton, 'koKR', '빅스톤 핀치휘슬', '옛날 투기장 방어구 상인', 18019),
-(@Vixton, 'ruRU', 'Викстон Паросвист', 'Старинная экипировка арены', 18019),
-(@Vixton, 'zhCN', '维克斯顿', '传承竞技场护甲', 18019),
-(@Vixton, 'zhTW', '維斯頓·急嘯', '傳承競技場護甲', 18019),
---
-(@Krixel, 'deDE', 'Krixel Quetschpfeife', 'Arenaverkäufer', 18019),
-(@Krixel, 'esES', 'Krixel Silbapellizco', 'Vendedor de arena', 18019),
-(@Krixel, 'esMX', 'Krixel Silbapellizco', 'Vendedor de arena', 18019),
-(@Krixel, 'frFR', 'Krixel Sifflepince', 'Vendeur de l\'arène', 18019),
-(@Krixel, 'koKR', '크릭셀 핀치휘슬', '2시즌 투기장 상인', 18019),
-(@Krixel, 'ruRU', 'Криксель Паросвист', 'Продавец экипировки арены', 18019),
-(@Krixel, 'zhCN', '克里希·宾奇维斯', '竞技场商人', 18019),
-(@Krixel, 'zhTW', '奎克索·急嘯', '競技場商人', 18019),
---
-(@Leeni, 'deDE', 'Leeni "Kicher" Erbse', 'Arenaverkäuferin', 18019),
-(@Leeni, 'esES', 'Leeni "Sonrisa" Menuda', 'Vendedora de arena', 18019),
-(@Leeni, 'esMX', 'Leeni "Sonrisa" Menuda', 'Vendedora de arena', 18019),
-(@Leeni, 'frFR', 'Leeni « Sourire » Smalls', 'Vendeuse de l\'arène', 18019),
-(@Leeni, 'koKR', '"상냥한" 리니 스몰스', '3시즌 투기장 상인', 18019),
-(@Leeni, 'ruRU', 'Крошка Линни "Улыбайка"', 'Продавец экипировки арены', 18019),
-(@Leeni, 'zhCN', '雷尼·“招牌微笑”·斯莫', '竞技场商人', 18019),
-(@Leeni, 'zhTW', '利尼『微笑』斯莫斯', '競技場商人', 18019);
-
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Stonehide, @Zarg, @Hola, @Bork, @Vixton, @Krixel, @Leeni);
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
-(@Stonehide, 0, 12675, 1, 1, 0),
-(@Zarg, 0, 12676, 1, 1, 0),
-(@Hola, 0, 12677, 1, 1, 0),
-(@Bork, 0, 12678, 1, 1, 0),
-(@Vixton, 0, 18290, 1, 1, 12340),
-(@Krixel, 0, 21462, 1, 1, 12340),
-(@Leeni, 0, 22393, 1, 1, 12340);
 
 UPDATE `creature_template` SET `subname` = 'Officer Accessories Quartermaster' WHERE `entry` = 12793;
 UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster'             WHERE `entry` = 12794;
