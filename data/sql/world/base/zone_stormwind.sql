@@ -68,74 +68,15 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
 (5513, -390000); -- Gelman Stonehand <Mining Trainer>
 
 
-SET @Rachel      := 112778; -- Lieutenant Rachel Vaccar
-SET @Biggins     := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
-SET @Karter      := 112783; -- Lieutenant Karter, <Mount Vendor>, Vanilla
-SET @Clate       := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
+SET @Rachel     := 112778; -- Lieutenant Rachel Vaccar
+SET @Biggins    := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
+SET @Karter     := 112783; -- Lieutenant Karter, <Mount Vendor>, Vanilla
+SET @Clate      := 112785; -- Stone Guard Zarg <Food and Drink>, Vanilla
+SET @Vixton     := 120278; -- Vixton Pinchwhistle - Season 2
+SET @Krixel     := 123396; -- Krixel Pinchwhistle - Season 3
+SET @Leeni      := 124392; -- Leeni "Smiley" Smalls - Season 4
 
-DELETE FROM `creature_template` WHERE `entry` IN (@Rachel, @Biggins, @Karter, @Clate);
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
-`exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
-`BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
-`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
-`RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
---
-(@Rachel,0,0,0,0,0,'Lieutenant Rachel Vaccar',NULL,NULL,0,55,55,1,123,0,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,33536,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
-(@Biggins,0,0,0,0,0,'Master Sergeant Biggins','Officer Accessories Quartermaster',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
-(@Karter,0,0,0,0,0,'Lieutenant Karter','Mount Vendor',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
-(@Clate,0,0,0,0,0,'Sergeant Major Clate','Food and Drink',NULL,0,55,55,0,123,4224,1,1.14286,1,1,18,1,0,0,2.15,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0);
-
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Biggins, @Karter, @Clate);
-INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
-(@Biggins, 0, 0, 0, 1, 0, 0, NULL),
-(@Karter, 0, 0, 0, 0, 0, 0, NULL),
-(@Clate, 0, 0, 0, 0, 0, 0, NULL);
-
-DELETE FROM `creature_template_locale` WHERE `entry` IN (@Rachel, @Biggins, @Karter, @Clate);
-INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
---
-(@Rachel, 'deDE', 'Leutnant Rachel Vaccar', NULL, 18019),
-(@Rachel, 'esES', 'Teniente Rachel Vaccar', NULL, 18019),
-(@Rachel, 'esMX', 'Teniente Rachel Vaccar', NULL, 18019),
-(@Rachel, 'frFR', 'Lieutenant Rachel Vaccar', NULL, 18019),
-(@Rachel, 'koKR', '부관 레이첼 바카르', NULL, 18019),
-(@Rachel, 'ruRU', 'Лейтенант Рашель Ваккар', NULL, 18019),
-(@Rachel, 'zhCN', '拉切尔·瓦卡', NULL, 18019),
-(@Rachel, 'zhTW', '拉切爾·瓦卡中尉', NULL, 18019),
---
-(@Biggins, 'deDE', 'Hauptfeldwebel Biggins', 'Rüstmeister für Zubehör', 18019),
-(@Biggins, 'esES', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
-(@Biggins, 'esMX', 'Sargento primero Biggins', 'Intendente de accesorios', 18019),
-(@Biggins, 'frFR', 'Sergent-chef Socquet', 'Intendant des accessoires', 18019),
-(@Biggins, 'koKR', '정예근위병 비긴스', '보급품 병참장교', 18019),
-(@Biggins, 'ruRU', 'Старший сержант Биггинс', 'Начальник снабжения аксессуарами', 18019),
-(@Biggins, 'zhCN', '军士长贝金斯', '杂货军需官', 18019),
-(@Biggins, 'zhTW', '上士貝金斯', '雜貨軍需官', 18019),
---
-(@Karter, 'deDE', 'Leutnant Karter','Rüstmeisterin für Kriegsreittiere', 18019),
-(@Karter, 'esES', 'Teniente Karter','Intendente de monturas de guerra', 18019),
-(@Karter, 'esMX', 'Teniente Karter','Intendente de monturas de guerra', 18019),
-(@Karter, 'frFR', 'Lieutenant Karter','Intendante des montures de guerre', 18019),
-(@Karter, 'koKR', '부관 칼터','전투 탈것 병참장교', 18019),
-(@Karter, 'ruRU', 'Лейтенант Картер','Начальник снабжения верховыми животными', 18019),
-(@Karter, 'zhCN', '卡特尔中尉','战争坐骑军需官', 18019),
-(@Karter, 'zhTW', '卡特爾中尉','戰爭軍需官', 18019),
---
-(@Clate, 'deDE', 'Stabsfeldwebel Clate', 'Speis & Trank', 18019),
-(@Clate, 'esES', 'Alférez Clate', 'Alimentos y bebidas', 18019),
-(@Clate, 'esMX', 'Alférez Clate', 'Alimentos y bebidas', 18019),
-(@Clate, 'frFR', 'Sergent-major Clate', 'Nourriture & boissons', 18019),
-(@Clate, 'koKR', '선임하사 클레이트', '식료품 상인', 18019),
-(@Clate, 'ruRU', 'Старший сержант Клейт', 'Еда и напитки', 18019),
-(@Clate, 'zhCN', '克莱特军士长', '食物和饮料', 18019),
-(@Clate, 'zhTW', '士官長克萊特', '食物和飲料', 18019);
-
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@Rachel, @Biggins, @Karter, @Clate);
-INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
-(@Rachel, 0, 9811, 1, 1, 12340),
-(@Biggins, 0, 12669, 1, 1, 12340),
-(@Karter, 0, 12922, 1, 1, 12340),
-(@Clate, 0, 12925, 1, 1, 12340);
+SET @CGUID      := 659000;
 
 UPDATE `creature_template` SET `subname` = 'Mount Vendor' WHERE `entry` = 12783;
 UPDATE `creature_template` SET `subname` = 'Weapons Quartermaster' WHERE `entry` = 12784; 
@@ -144,43 +85,52 @@ UPDATE `creature_template` SET `npcflag` = 4224 WHERE `entry` IN (24671, 24672);
 
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12783;
 
-DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 133927, 612783, 612785, 623446, 624671, 624672, 612777, 626394, 720278, 723396);
+DELETE FROM `creature` WHERE `guid` IN (133928, 133926, 133929, 612781, 133927, 612783, 612785, 623446, 624671, 624672, 612777, 626394);
 DELETE FROM `creature` WHERE `id1`  IN (7410, 7798, 112778, 12779, 12780, 12805, 14981, 15008, 32380, 32381, 34073, 34074, 34075, 34076, 34077, 34078, 40607);
+DELETE FROM `creature` WHERE `guid` IN (720278, 723396); -- 00_cleanup
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+21 AND @CGUID+38;
 
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
-(612781, @Biggins, 0, -8777.4, 417.124, 103.921, 6.23553, 180),  -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
-(133926, 12781, 0, -8777.4, 417.124, 103.921, 6.23553, 180),     -- Master Sergeant Biggins <Officer Accessories Quartermaster>, TBC
-(612785, @Clate, 0, -8771.31, 401.973, 109.665, 0.659191, 180),  -- Sergeant Major Clate <Food and Drink>, Vanilla
-(133929, 12785, 0, -8771.31, 401.973, 109.665, 0.659191, 180),   -- Sergeant Major Clate <Armor Quartermaster>, TBC 
-(626394, 26394, 0, -8778.3, 432.142, 105.309, 4.17386, 180),     -- Captain O'Neal <Weapons Quartermaster>, Vanilla
-(624671, 24671, 0, -8778.3, 432.142, 105.309, 4.17386, 180),     -- Captain O'Neal <Weapons Quartermaster>, TBC
-(612777, 12777, 0, -8768.77, 401.647, 109.665, 2.22999, 180),    -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
-(624672, 24672, 0, -8773.33, 427.279, 105.233, 3.84677, 180),    -- Captain Dirgehammer <Armor Quartermaster>, TBC
-(632381, 32381, 0, -8781.18, 419.883, 105.233, 6.18459, 180),    -- Captain Dirgehammer, WotLK Season 5
-(634073, 34073, 0, -8781.18, 419.883, 105.233, 6.18459, 180),    -- Captain Dirgehammer, WotLK Season 6
-(634074, 34074, 0, -8781.18, 419.883, 105.233, 6.18459, 180),    -- Captain Dirgehammer, WotLK Season 7
-(634075, 34075, 0, -8781.18, 419.883, 105.233, 6.18459, 180),    -- Captain Dirgehammer, WotLK Season 8
-(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180),    -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
-(720278, 20278, 0, -8789.08, 425.681, 105.233, 5.68294, 180),    -- Vixton Pinchwhistle <Arena Vendor>, TBC
-(723396, 23396, 0, -8786.12, 428.386, 105.233, 5.5871, 180),     -- Krixel Pinchwhistle <Arena Vendor>, TBC
-(623446, 23446, 0, -8785.74, 420.484, 105.233, 0.701937, 180),   -- Lieutenant Tristia <Armor Quartermaster>, TBC
-(632380, 32380, 0, -8773.78, 425.804, 105.233, 4.80621, 180),    -- Lieutenant Tristia, WotLK Season 5
-(634076, 34076, 0, -8773.78, 425.804, 105.233, 4.80621, 180),    -- Lieutenant Tristia, WotLK Season 6
-(634077, 34077, 0, -8773.78, 425.804, 105.233, 4.80621, 180),    -- Lieutenant Tristia, WotLK Season 7
-(634078, 34078, 0, -8773.78, 425.804, 105.233, 4.80621, 180),    -- Lieutenant Tristia, WotLK Season 8
-(133927, 12783, 0, -8779.7, 432.158, 105.233, 5.36374, 180),     -- Lieutenant Karter <Mount Vendor>, TBC
-(612783, @Karter, 0, -8779.7, 432.158, 105.233, 5.36374, 180),   -- Lieutenant Karter <Mount Vendor>, Vanilla
-(607410, 7410,   0, -8424.43, 342.967, 120.886, 3.82018,  300),  -- Thelman Slatefist <Alterac Valley Battlemaster>
-(607798, 7798,   0, -8422.17, 630.877, 95.8402, 5.044,    430),  -- Hank the Hammer <The Mitrhil Order>
-(612778, @Rachel, 0, -8783.7,  423.749, 105.276, 0.651345, 300), -- Lieutenant Rachel Vaccar
-(612779, 12779,  0, -8783.33, 426.686, 105.276, 5.37159,  300),  -- Archmage Gaiman
-(612780, 12780,  0, -8779.46, 427.206, 105.275, 3.80473,  300),  -- Sergeant Major Skyshadow
-(612805, 12805,  0, -8759.18, 389.112, 101.056, 0.648394, 430),  -- Officer Areyn <Accessories Quartermaster>
-(614981, 14981,  0, -8454.62, 318.853, 120.969, 0.698132, 180),  -- Elfarran <Warsong Gulch Battlemaster>
-(615008, 15008,  0, -8420.48, 328.711, 120.886, 3.06638,  180);  -- Lady Hoteshem <Arathi Basin Battlemaster>
+(612781, @Biggins, 0, -8777.4, 417.124, 103.921, 6.23553, 180),      -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
+(133926, 12781, 0, -8777.4, 417.124, 103.921, 6.23553, 180),         -- Master Sergeant Biggins <Officer Accessories Quartermaster>, TBC
+(612785, @Clate, 0, -8771.31, 401.973, 109.665, 0.659191, 180),      -- Sergeant Major Clate <Food and Drink>, Vanilla
+(133929, 12785, 0, -8771.31, 401.973, 109.665, 0.659191, 180),       -- Sergeant Major Clate <Armor Quartermaster>, TBC 
+(626394, 26394, 0, -8778.3, 432.142, 105.309, 4.17386, 180),         -- Captain O'Neal <Weapons Quartermaster>, Vanilla
+(624671, 24671, 0, -8778.3, 432.142, 105.309, 4.17386, 180),         -- Captain O'Neal <Weapons Quartermaster>, TBC
+(612777, 12777, 0, -8768.77, 401.647, 109.665, 2.22999, 180),        -- Captain Dirgehammer <Armor Quartermaster>, Vanilla
+(624672, 24672, 0, -8773.33, 427.279, 105.233, 3.84677, 180),        -- Captain Dirgehammer <Armor Quartermaster>, TBC
+(133928, 12784, 0, -8764.6, 413.632, 103.922, 0.693375, 180),        -- Lieutenant Jackspring <Weapons Quartermaster>, TBC 
+(623446, 23446, 0, -8785.74, 420.484, 105.233, 0.701937, 180),       -- Lieutenant Tristia <Armor Quartermaster>, TBC
+(133927, 12783, 0, -8779.7, 432.158, 105.233, 5.36374, 180),         -- Lieutenant Karter <Mount Vendor>, TBC
+(612783, @Karter, 0, -8779.7, 432.158, 105.233, 5.36374, 180),       -- Lieutenant Karter <Mount Vendor>, Vanilla
 
-UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
+(607410, 7410,   0, -8424.43, 342.967, 120.886, 3.82018,  300),      -- Thelman Slatefist <Alterac Valley Battlemaster>
+(607798, 7798,   0, -8422.17, 630.877, 95.8402, 5.044,    430),      -- Hank the Hammer <The Mitrhil Order>
+(612778, @Rachel, 0, -8783.7,  423.749, 105.276, 0.651345, 300),     -- Lieutenant Rachel Vaccar
+(612779, 12779,  0, -8783.33, 426.686, 105.276, 5.37159,  300),      -- Archmage Gaiman
+(612780, 12780,  0, -8779.46, 427.206, 105.275, 3.80473,  300),      -- Sergeant Major Skyshadow
+(612805, 12805,  0, -8759.18, 389.112, 101.056, 0.648394, 430),      -- Officer Areyn <Accessories Quartermaster>
+(614981, 14981,  0, -8454.62, 318.853, 120.969, 0.698132, 180),      -- Elfarran <Warsong Gulch Battlemaster>
+(615008, 15008,  0, -8420.48, 328.711, 120.886, 3.06638,  180),      -- Lady Hoteshem <Arathi Basin Battlemaster>
+
+(@CGUID+21, 20278, 0, -8789.08, 425.681, 105.233, 5.68294, 180),     -- Vixton Pinchwhistle <Arena Vendor>, TBC, Season 1
+(@CGUID+22, @Vixton, 0, -8789.08, 425.681, 105.233, 5.68294, 180),   -- Vixton Pinchwhistle <Arena Vendor>, TBC, Season 2
+(@CGUID+23, 23396, 0, -8786.12, 428.386, 105.233, 5.5871, 180),      -- Krixel Pinchwhistle <Arena Vendor>, TBC, Season 2
+(@CGUID+24, 24392, 0, -8789.08, 425.681, 105.233, 5.68294, 180),     -- Leeni "Smiley" Smalls <Arena Vendor>, TBC, Season 3
+(@CGUID+25, @Krixel, 0, -8786.12, 428.386, 105.233, 5.5871, 180),    -- Krixel Pinchwhistle <Arena Vendor>, TBC, Season 3
+(@CGUID+26, @Leeni, 0, -8789.08, 425.681, 105.233, 5.68294, 180),    -- Leeni "Smiley" Smalls <Arena Vendor>, TBC, Season 4
+(@CGUID+27, 26352, 0, -8786.12, 428.386, 105.233, 5.5871, 180),      -- Big Zokk Torquewrench <Arena Vendor>, TBC, Season 4
+
+(@CGUID+31, 32381, 0, -8781.18, 419.883, 105.233, 6.18459, 180),     -- Captain Dirgehammer, WotLK Season 5
+(@CGUID+32, 34073, 0, -8781.18, 419.883, 105.233, 6.18459, 180),     -- Captain Dirgehammer, WotLK Season 6
+(@CGUID+33, 34074, 0, -8781.18, 419.883, 105.233, 6.18459, 180),     -- Captain Dirgehammer, WotLK Season 7
+(@CGUID+34, 34075, 0, -8781.18, 419.883, 105.233, 6.18459, 180),     -- Captain Dirgehammer, WotLK Season 8
+(@CGUID+35, 32380, 0, -8773.78, 425.804, 105.233, 4.80621, 180),     -- Lieutenant Tristia, WotLK Season 5
+(@CGUID+36, 34076, 0, -8773.78, 425.804, 105.233, 4.80621, 180),     -- Lieutenant Tristia, WotLK Season 6
+(@CGUID+37, 34077, 0, -8773.78, 425.804, 105.233, 4.80621, 180),     -- Lieutenant Tristia, WotLK Season 7
+(@CGUID+38, 34078, 0, -8773.78, 425.804, 105.233, 4.80621, 180);     -- Lieutenant Tristia, WotLK Season 8
+
 
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_tbc'   WHERE `guid` IN (612777, 612781, 612783, 612785, 612805, 626394); -- only visible during vanilla
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pvp'   WHERE `guid` IN (623446, 624672, 720278, 723396);                 -- only visible during tbc
@@ -188,141 +138,17 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc'       WHERE `guid` IN (133921
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `guid` IN (612778);
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'     WHERE `guid` IN (133922);
 
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S5'  WHERE `guid` IN (632380, 632381);
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S6'  WHERE `guid` IN (634073, 634076);
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S7'  WHERE `guid` IN (634074, 634077);
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S8'  WHERE `guid` IN (634075, 634078);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S1'    WHERE `guid` IN (@CGUID+21);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S2'    WHERE `guid` IN (@CGUID+22, @CGUID+23);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S3'    WHERE `guid` IN (@CGUID+24, @CGUID+25);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S4'    WHERE `guid` IN (@CGUID+26, @CGUID+27);
 
--- remove event entries added by AC
-DELETE FROM `game_event_creature` WHERE `guid` IN (152030, 152031); -- entry 32380, 32381
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S5'  WHERE `guid` IN (@CGUID+31, @CGUID+35);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S6'  WHERE `guid` IN (@CGUID+32, @CGUID+36);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S7'  WHERE `guid` IN (@CGUID+33, @CGUID+37);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S8'  WHERE `guid` IN (@CGUID+34, @CGUID+38);
 
--- Master Sergeant Biggins <Officer Accessories Quartermaster> - Vanilla
-DELETE FROM `npc_vendor` WHERE `entry` = @Biggins;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(@Biggins, 15198, 1006), (@Biggins, 18606, 386), (@Biggins, 18839, 2354), (@Biggins, 18841, 2354);
-
--- Master Sergeant Biggins <Officer Accessories Quartermaster> - TBC
-DELETE FROM `npc_vendor` WHERE `entry` = 12781;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(12781, 15196, 1007), (12781, 15198, 1006), (12781, 16342, 774),  (12781, 18440, 1050), (12781, 18441, 986),  (12781, 18442, 838),  (12781, 18443, 491),  (12781, 18444, 930),  (12781, 18445, 492), 
-(12781, 18447, 931),  (12781, 18448, 492),  (12781, 18449, 931),  (12781, 18452, 492),  (12781, 18453, 931),  (12781, 18454, 492),  (12781, 18455, 931),  (12781, 18456, 492),  (12781, 18457, 931), 
-(12781, 18606, 386),  (12781, 18839, 460),  (12781, 18841, 460),  (12781, 18854, 634),  (12781, 18856, 634),  (12781, 18857, 634),  (12781, 18858, 634),  (12781, 18859, 634),  (12781, 18862, 634), 
-(12781, 18863, 634),  (12781, 18864, 634),  (12781, 25829, 125),  (12781, 28118, 95),   (12781, 28119, 95),   (12781, 28120, 95),   (12781, 28123, 99),   (12781, 28234, 2404), (12781, 28235, 2404),
-(12781, 28236, 2404), (12781, 28237, 2404), (12781, 28238, 2404), (12781, 28244, 125),  (12781, 28245, 125),  (12781, 28246, 129),  (12781, 28247, 129),  (12781, 28362, 95),   (12781, 28363, 99), 
-(12781, 28379, 165),  (12781, 28380, 165),  (12781, 29593, 634),  (12781, 30348, 2404), (12781, 30349, 2404), (12781, 30350, 2404), (12781, 30351, 2404), (12781, 31838, 1648), (12781, 31839, 1649),
-(12781, 31840, 1648), (12781, 31841, 1649), (12781, 31852, 1652), (12781, 31853, 1653), (12781, 31854, 1652), (12781, 31855, 1653), (12781, 32453, 1564), (12781, 32455, 460);
-
--- Officer Areyn <Accessories Quartermaster>
-DELETE FROM `npc_vendor` WHERE `entry` = 12805;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
-(12805, 18445, 492), (12805, 18447, 931), (12805, 18448, 492), (12805, 18449, 931),  (12805, 18454, 492),  (12805, 18455, 931), (12805, 18456, 492), (12805, 18457, 931), 
-(12805, 18664, 0),   (12805, 18854, 634), (12805, 18856, 634), (12805, 18858, 634),  (12805, 18859, 634),  (12805, 18862, 634), (12805, 18863, 634), (12805, 18864, 634), 
-(12805, 18442, 838), (12805, 18444, 930), (12805, 18443, 491), (12805, 15196, 1007), (12805, 18440, 1050), (12805, 18441, 986), (12805, 16342, 774); 
-
--- Lieutenant Karter <War Mount Quartermaster> - Vanilla
-DELETE FROM `npc_vendor` WHERE `entry` = @Karter;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(@Karter, 18241, 423), (@Karter, 18242, 423), (@Karter, 18243, 423), (@Karter, 18244, 423);
-
--- Lieutenant Karter <War Mount Quartermaster> - TBC
-DELETE FROM `npc_vendor` WHERE `entry` = 12783;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(12783, 18241, 423), (12783, 18242, 423), (12783, 18243, 423), (12783, 18244, 423), (12783, 35906, 423);
-
--- Lieutenant Jackspring <Weapons Quartermaster> - TBC
-DELETE FROM `npc_vendor` WHERE `entry` = 12784;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(12784, 12584, 565), (12784, 18825, 565), (12784, 18827, 565), (12784, 18830, 131), (12784, 18833, 567), (12784, 18836, 567), (12784, 18838, 565),
-(12784, 18843, 565), (12784, 18847, 565), (12784, 18855, 567), (12784, 18865, 565), (12784, 18867, 131), (12784, 18869, 131), (12784, 18873, 131),
-(12784, 18876, 131), (12784, 23451, 565), (12784, 23452, 567), (12784, 23453, 567), (12784, 23454, 565), (12784, 23455, 131), (12784, 23456, 565);
-
--- Sergeant Major Clate <Food and Drink> - Vanilla
-DELETE FROM `npc_vendor` WHERE `entry` = @Clate;
-INSERT INTO `npc_vendor` (`entry`, `item`) VALUES 
-(@Clate, 117),  (@Clate, 159),  (@Clate, 1179), (@Clate, 1205), (@Clate, 1645), (@Clate, 1708), (@Clate, 2287), (@Clate, 2593), (@Clate, 2594),
-(@Clate, 2595), (@Clate, 2596), (@Clate, 2723), (@Clate, 3770), (@Clate, 3771), (@Clate, 4536), (@Clate, 4537), (@Clate, 4538), (@Clate, 4539), 
-(@Clate, 4540), (@Clate, 4541), (@Clate, 4542), (@Clate, 4544), (@Clate, 4599), (@Clate, 4601), (@Clate, 4602), (@Clate, 4604), (@Clate, 4605), 
-(@Clate, 4606), (@Clate, 4607), (@Clate, 4608), (@Clate, 8766), (@Clate, 8948), (@Clate, 8950), (@Clate, 8952), (@Clate, 8953);
-
--- Sergeant Major Clate <Armor Quartermaster> - TBC 
-DELETE FROM `npc_vendor` WHERE `entry` = 12785;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(12785, 16437, 465), (12785, 16440, 541), (12785, 16441, 464), (12785, 16442, 542), (12785, 16443, 463), (12785, 16444, 465), (12785, 16446, 465), (12785, 16448, 541), (12785, 16449, 465),
-(12785, 16450, 542), (12785, 16451, 464), (12785, 16452, 463), (12785, 16453, 463), (12785, 16454, 541), (12785, 16455, 464), (12785, 16456, 542), (12785, 16457, 465), (12785, 16459, 465),
-(12785, 16462, 465), (12785, 16463, 541), (12785, 16465, 464), (12785, 16466, 463), (12785, 16467, 542), (12785, 16468, 465), (12785, 16471, 541), (12785, 16472, 465), (12785, 16473, 463),
-(12785, 16474, 464), (12785, 16475, 542), (12785, 16476, 465), (12785, 16477, 463), (12785, 16478, 464), (12785, 16479, 542), (12785, 16480, 465), (12785, 16483, 465), (12785, 16484, 541),
-(12785, 17578, 464), (12785, 17579, 542), (12785, 17580, 465), (12785, 17581, 463), (12785, 17583, 465), (12785, 17584, 541), (12785, 17602, 464), (12785, 17603, 542), (12785, 17604, 465),
-(12785, 17605, 463), (12785, 17607, 465), (12785, 17608, 541), (12785, 23272, 652), (12785, 23273, 653), (12785, 23274, 428), (12785, 23275, 427), (12785, 23276, 444), (12785, 23277, 427),
-(12785, 23278, 427), (12785, 23279, 428), (12785, 23280, 428), (12785, 23281, 427), (12785, 23282, 428), (12785, 23283, 427), (12785, 23284, 428), (12785, 23285, 427), (12785, 23286, 428),
-(12785, 23287, 427), (12785, 23288, 428), (12785, 23289, 427), (12785, 23290, 428), (12785, 23291, 427), (12785, 23292, 652), (12785, 23293, 653), (12785, 23294, 652), (12785, 23295, 653),
-(12785, 23296, 653), (12785, 23297, 652), (12785, 23298, 652), (12785, 23299, 653), (12785, 23300, 652), (12785, 23301, 653), (12785, 23302, 653), (12785, 23303, 652), (12785, 23304, 653),
-(12785, 23305, 652), (12785, 23306, 444), (12785, 23307, 427), (12785, 23308, 444), (12785, 23309, 427), (12785, 23310, 444), (12785, 23311, 427), (12785, 23312, 444), (12785, 23313, 427),
-(12785, 23314, 444), (12785, 23315, 427), (12785, 23316, 444), (12785, 23317, 427), (12785, 23318, 444), (12785, 23319, 427), (12785, 29594, 427), (12785, 29595, 428), (12785, 29596, 652),
-(12785, 29597, 653), (12785, 29598, 444), (12785, 29599, 427), (12785, 29606, 465), (12785, 29607, 541), (12785, 29608, 542), (12785, 29609, 463), (12785, 29610, 464), (12785, 29611, 465);
-
--- Lieutenant Tristia <Armor Quartermaster> - TBC
-DELETE FROM `npc_vendor` WHERE `entry` = 23446;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(23446, 32785, 1911), (23446, 32786, 1911), (23446, 32787, 1911), (23446, 32788, 1911), (23446, 32789, 1911), (23446, 32790, 1911), (23446, 32791, 1911), (23446, 32792, 1911), (23446, 32793, 1911), 
-(23446, 32794, 1911), (23446, 32795, 1911), (23446, 32796, 1911), (23446, 32797, 1923), (23446, 32798, 1923), (23446, 32799, 1923), (23446, 32800, 1923), (23446, 32801, 1923), (23446, 32802, 1923), 
-(23446, 32803, 1923), (23446, 32804, 1923), (23446, 32805, 1923), (23446, 32806, 1923), (23446, 32807, 1923), (23446, 32808, 1923), (23446, 32809, 1935), (23446, 32810, 1935), (23446, 32811, 1935), 
-(23446, 32812, 1935), (23446, 32813, 1935), (23446, 32814, 1935), (23446, 32816, 1935), (23446, 32817, 1935), (23446, 32818, 1935), (23446, 32819, 1935), (23446, 32820, 1935), (23446, 32821, 1935), 
-(23446, 32979, 1923), (23446, 32980, 1935), (23446, 32981, 1911), (23446, 32988, 1923), (23446, 32989, 1935), (23446, 32990, 1911), (23446, 32997, 1935), (23446, 32998, 1923), (23446, 32999, 1911), 
-(23446, 33056, 129), (23446, 33057, 129), (23446, 33064, 129), (23446, 33065, 127), (23446, 33066, 127), (23446, 33067, 127), (23446, 33068, 127);
-
--- Captain O'Neal <Weapons Quartermaster> - Vanilla
-DELETE FROM `npc_vendor` WHERE `entry` IN (12782, 26394);
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES 
-(26394, 12584, 2291), (26394, 18825, 2291), (26394, 18827, 2291), (26394, 18830, 2257), (26394, 18833, 2291), (26394, 18836, 2291), (26394, 18838, 2291),
-(26394, 18843, 2291), (26394, 18847, 2291), (26394, 18855, 2291), (26394, 18865, 2291), (26394, 18867, 2257), (26394, 18869, 2257), (26394, 18873, 2257), 
-(26394, 18876, 2257), (26394, 23451, 2291), (26394, 23452, 2257), (26394, 23453, 2291), (26394, 23454, 2291), (26394, 23455, 2291), (26394, 23456, 2291);
-
--- Captain O'Neil <Weapons Quartermaster> - TBC
-DELETE FROM `npc_vendor` WHERE `entry` = 24671;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(24671, 28940, 2242), (24671, 28941, 2242), (24671, 28942, 2237), (24671, 28943, 2237), (24671, 28944, 2239),
-(24671, 28945, 2237), (24671, 28946, 2240), (24671, 28947, 2240), (24671, 28948, 2237), (24671, 28949, 2237),
-(24671, 28950, 2240), (24671, 28951, 2239), (24671, 28952, 2240), (24671, 28953, 2239), (24671, 28954, 2240),
-(24671, 28955, 2240), (24671, 28956, 2239), (24671, 28957, 2238), (24671, 28959, 2237), (24671, 28960, 2237);
-
--- Captain Dirgehammer <Armor Quartermaster> - Vanilla
-DELETE FROM `npc_vendor` WHERE `entry` IN (12777, 26393);
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
--- boot 427, gloves 428, helm 444, pants 653, chest 652, shoulders 427
-(12777, 16369, 427), (12777, 16391, 428), (12777, 16413, 652), (12777, 16414, 653), (12777, 16416, 444), (12777, 16415, 427), -- mages, pre naxx
-(12777, 16423, 427), (12777, 16424, 444), (12777, 16422, 653), (12777, 16421, 652), (12777, 16393, 427), (12777, 16397, 428), -- druid, pre naxx
-(12777, 16392, 427), (12777, 16396, 428), (12777, 16417, 652), (12777, 16419, 653), (12777, 16420, 427), (12777, 16418, 444), -- rogue, pre naxx
-(12777, 16405, 427), (12777, 16406, 428), (12777, 16430, 652), (12777, 16431, 653), (12777, 16429, 444), (12777, 16432, 427), -- warrior, pre naxx
-(12777, 16410, 428), (12777, 16409, 427), (12777, 16433, 652), (12777, 16435, 653), (12777, 16434, 444), (12777, 16436, 427), -- paladin, pre naxx
-(12777, 16425, 652), (12777, 16426, 653), (12777, 16401, 427), (12777, 16403, 428), (12777, 16428, 444), (12777, 16427, 427), -- hunter, pre naxx
-(12777, 17562, 427), (12777, 17564, 428), (12777, 17568, 652), (12777, 17567, 653), (12777, 17569, 427), (12777, 17566, 444), -- warlock, pre naxx
-(12777, 17594, 427), (12777, 17596, 428), (12777, 17600, 652), (12777, 17599, 653), (12777, 17598, 444), (12777, 17601, 427), -- priest, pre naxx
---
-(12777, 16437, 465), (12777, 16440, 541), (12777, 16441, 464), (12777, 16442, 542), (12777, 16443, 463), (12777, 16444, 465), (12777, 16446, 465), (12777, 16448, 541), (12777, 16449, 465),
-(12777, 16450, 542), (12777, 16451, 464), (12777, 16452, 463), (12777, 16453, 463), (12777, 16454, 541), (12777, 16455, 464), (12777, 16456, 542), (12777, 16457, 465), (12777, 16459, 465),
-(12777, 16462, 465), (12777, 16463, 541), (12777, 16465, 464), (12777, 16466, 463), (12777, 16467, 542), (12777, 16468, 465), (12777, 16471, 541), (12777, 16472, 465), (12777, 16473, 463),
-(12777, 16474, 464), (12777, 16475, 542), (12777, 16476, 465), (12777, 16477, 463), (12777, 16478, 464), (12777, 16479, 542), (12777, 16480, 465), (12777, 16483, 465), (12777, 16484, 541),
-(12777, 17578, 464), (12777, 17579, 542), (12777, 17580, 465), (12777, 17581, 463), (12777, 17583, 465), (12777, 17584, 541), (12777, 17602, 464), (12777, 17603, 542), (12777, 17604, 465),
-(12777, 17605, 463), (12777, 17607, 465), (12777, 17608, 541), (12777, 23272, 652), (12777, 23273, 653), (12777, 23274, 428), (12777, 23275, 427), (12777, 23276, 444), (12777, 23277, 427),
-(12777, 23278, 427), (12777, 23279, 428), (12777, 23280, 428), (12777, 23281, 427), (12777, 23282, 428), (12777, 23283, 427), (12777, 23284, 428), (12777, 23285, 427), (12777, 23286, 428),
-(12777, 23287, 427), (12777, 23288, 428), (12777, 23289, 427), (12777, 23290, 428), (12777, 23291, 427), (12777, 23292, 652), (12777, 23293, 653), (12777, 23294, 652), (12777, 23295, 653),
-(12777, 23296, 653), (12777, 23297, 652), (12777, 23298, 652), (12777, 23299, 653), (12777, 23300, 652), (12777, 23301, 653), (12777, 23302, 653), (12777, 23303, 652), (12777, 23304, 653),
-(12777, 23305, 652), (12777, 23306, 444), (12777, 23307, 427), (12777, 23308, 444), (12777, 23309, 427), (12777, 23310, 444), (12777, 23311, 427), (12777, 23312, 444), (12777, 23313, 427),
-(12777, 23314, 444), (12777, 23315, 427), (12777, 23316, 444), (12777, 23317, 427), (12777, 23318, 444), (12777, 23319, 427), (12777, 29594, 427), (12777, 29595, 428), (12777, 29596, 652),
-(12777, 29597, 653), (12777, 29598, 444), (12777, 29599, 427), (12777, 29606, 465), (12777, 29607, 541), (12777, 29608, 542), (12777, 29609, 463), (12777, 29610, 464), (12777, 29611, 465);
-
--- Captain Dirgehammer <Armor Quartermaster> - TBC
-DELETE FROM `npc_vendor` WHERE `entry` = 24672;
-INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
-(24672, 28613, 2259), (24672, 28614, 2261), (24672, 28615, 2263), (24672, 28616, 2265), (24672, 28617, 2267), (24672, 28618, 2261), (24672, 28619, 2263), (24672, 28620, 2265), (24672, 28622, 2267), 
-(24672, 28623, 2259), (24672, 28624, 2261), (24672, 28625, 2263), (24672, 28626, 2265), (24672, 28627, 2267), (24672, 28628, 2259), (24672, 28679, 2259), (24672, 28680, 2261), (24672, 28681, 2263),
-(24672, 28683, 2267), (24672, 28684, 2261), (24672, 28685, 2263), (24672, 28686, 2265), (24672, 28687, 2267), (24672, 28688, 2259), (24672, 28689, 2259), (24672, 28690, 2261), (24672, 28691, 2263), 
-(24672, 28692, 2265), (24672, 28693, 2267), (24672, 28694, 2259), (24672, 28695, 2261), (24672, 28696, 2263), (24672, 28697, 2265), (24672, 28698, 2267), (24672, 28699, 2259), (24672, 28700, 2261),
-(24672, 28701, 2263), (24672, 28702, 2265), (24672, 28703, 2267), (24672, 28704, 2261), (24672, 28705, 2263), (24672, 28706, 2265), (24672, 28707, 2267), (24672, 28708, 2259), (24672, 28709, 2259), 
-(24672, 28710, 2261), (24672, 28711, 2263), (24672, 28712, 2265), (24672, 28713, 2267), (24672, 28714, 2267), (24672, 28715, 2263), (24672, 28716, 2261), (24672, 28717, 2259), (24672, 28718, 2265),
-(24672, 28719, 2261), (24672, 28720, 2263), (24672, 28721, 2265), (24672, 28722, 2267), (24672, 28723, 2259), (24672, 28724, 2265), (24672, 31589, 2261), (24672, 31590, 2263), (24672, 31591, 2265), 
-(24672, 31592, 2267), (24672, 31593, 2259), (24672, 31620, 2261), (24672, 31622, 2263), (24672, 31623, 2265), (24672, 31624, 2267), (24672, 31625, 2259), (24672, 31630, 2259), (24672, 31631, 2261),
-(24672, 31632, 2263), (24672, 31633, 2265), (24672, 31634, 2267), (24672, 31640, 2259), (24672, 31641, 2261), (24672, 31642, 2263), (24672, 31643, 2265), (24672, 31644, 2267);
+UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
 
 
 /* Hide certain vendor items until the player has reached the progression tier for them */

@@ -435,10 +435,10 @@ void AddSC_mod_individual_progression_pvp()
     new gobject_ipp_pvp_closed();     // pvp officer doors
     new gobject_ipp_pvp_open();       // pvp officer doors
     new npc_ipp_tbc_pvp();            // only visible during TBC
-    // new npc_ipp_tbc_S1();
-    // new npc_ipp_tbc_S2();
-    // new npc_ipp_tbc_S3();
-    // new npc_ipp_tbc_S4();
+    new npc_ipp_tbc_S1();
+    new npc_ipp_tbc_S2();
+    new npc_ipp_tbc_S3();
+    new npc_ipp_tbc_S4();
     new npc_ipp_wotlk_S5();
     new npc_ipp_wotlk_S6();
     new npc_ipp_wotlk_S7();
