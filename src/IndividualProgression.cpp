@@ -242,7 +242,7 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
 
 void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 {
-    if (!newArea || !player || !player->IsInWorld())
+    if (!player || !player->IsInWorld())
         return;
 
     player->RemoveAura(IPP_PHASE);
