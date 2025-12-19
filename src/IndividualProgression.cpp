@@ -14,6 +14,9 @@ IndividualProgression* IndividualProgression::instance()
 
 bool IndividualProgression::hasPassedProgression(Player* player, ProgressionState state) const
 {
+    if (!enabled || !state || !player || !player->IsInWorld())
+        return false;
+
     if (progressionLimit && state >= progressionLimit)
 	{
         return false;
@@ -24,11 +27,17 @@ bool IndividualProgression::hasPassedProgression(Player* player, ProgressionStat
 
 bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState state)
 {
+    if (!state || !player || !player->IsInWorld())
+        return false;
+    
     return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value < state;
 }
 
 void IndividualProgression::UpdateProgressionState(Player* player, ProgressionState newState) const
 {
+    if (!enabled || !newState || !player || !player->IsInWorld())
+        return;
+
     if (progressionLimit && newState > progressionLimit)
 	{
         return;
@@ -48,10 +57,8 @@ void IndividualProgression::ForceUpdateProgressionState(Player* player, Progress
 
 void IndividualProgression::CheckAdjustments(Player* player) const
 {
-    if (!enabled)
-	{
+    if (!enabled || !player || !player->IsInWorld())
         return;
-	}
 
     if (player->getClass() == CLASS_HUNTER)
     {
@@ -86,6 +93,12 @@ void IndividualProgression::CheckAdjustments(Player* player) const
 
 void IndividualProgression::AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment)
 {
+    if (!player || !player->IsInWorld())
+        return;
+
+    if (!computedPowerAdjustment || !computedHealthAdjustment)
+        return;
+
     auto bp1 = static_cast<int32>(computedPowerAdjustment);
 	auto bp2 = static_cast<int32>(computedHealthAdjustment);
 
@@ -160,6 +173,9 @@ void IndividualProgression::LoadCustomProgressionEntries(std::string const& cust
 
 bool IndividualProgression::hasCustomProgressionValue(uint32 creatureEntry)
 {
+    if (!creatureEntry)
+        return false;
+    
     if (customProgressionMap.empty())
     {
         return false;
@@ -169,6 +185,9 @@ bool IndividualProgression::hasCustomProgressionValue(uint32 creatureEntry)
 
 bool IndividualProgression::isAttuned(Player* player)
 {
+    if (!player || !player->IsInWorld())
+        return false;
+    
     if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) ||
         (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
         (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
@@ -183,7 +202,7 @@ bool IndividualProgression::isAttuned(Player* player)
 
 bool IndividualProgression::isExcludedFromProgression(Player* player)
 {
-    if (!sIndividualProgression->excludeAccounts)
+    if (!player || !sIndividualProgression->excludeAccounts)
         return false;
 
     std::string accountName;
@@ -223,6 +242,9 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
 
 void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 {
+    if (!newArea || !player || !player->IsInWorld())
+        return;
+
     player->RemoveAura(IPP_PHASE);
     player->RemoveAura(IPP_PHASE_II);
     player->RemoveAura(IPP_PHASE_III);
@@ -693,10 +715,11 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 void IndividualProgression::checkIPProgression(Player* killer)
 {
     if (!enabled || disableDefaultProgression)
-    {
         return;
-    }
 
+    if (!killer || !killer->IsInWorld())
+        return;
+    
     uint8 currentState = killer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 
     if (killer->HasAchieved(HALION_KILL)) // 4815
@@ -816,9 +839,10 @@ void IndividualProgression::checkIPProgression(Player* killer)
 void IndividualProgression::checkKillProgression(Player* killer, Creature* killed)
 {
     if (!enabled)
-    {
         return;
-    }
+
+    if (!killed || !killer || !killer->IsInWorld())
+        return;
 
     if (hasCustomProgressionValue(killed->GetEntry()))
     {
@@ -827,9 +851,7 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
     }
 
     if (disableDefaultProgression)
-    {
         return;
-    }
 
     switch (killed->GetEntry())
     {
@@ -899,6 +921,9 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
 
 void IndividualProgression::UpdateProgressionQuests(Player* player)
 {
+    if (!player || !player->IsInWorld())
+        return;
+    
 	// remove all hidden progression quests
     for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
     {
@@ -929,6 +954,9 @@ void IndividualProgression::UpdateProgressionQuests(Player* player)
 
 void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16 achievementID)
 {
+    if (!achievementID || !player || !player->IsInWorld())
+        return;
+    
     AchievementEntry const* entry = sAchievementStore.LookupEntry(achievementID);
 
     if (entry)
@@ -939,6 +967,9 @@ void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16
 
 void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
 {
+    if (!player || !player->IsInWorld())
+        return;
+
     TeamId teamId = player->GetTeamId(true);
     uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
     uint16 playerGUID = player->GetGUID().GetCounter();
@@ -1045,6 +1076,9 @@ void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
 
 void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
 {
+    if (!player || !player->IsInWorld())
+        return;
+
     if (sIndividualProgression->isBeforeProgression(player, PROGRESSION_PRE_TBC) || sIndividualProgression->VanillaPvpTitlesKeepPostVanilla)
     {
         TeamId teamId = player->GetTeamId(true);
