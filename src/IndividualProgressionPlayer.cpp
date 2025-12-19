@@ -163,7 +163,7 @@ public:
 
         if (!sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(player))
             return;
-		
+
         // Player is still in Vanilla content - do not give XP past level 60
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() >= IP_LEVEL_VANILLA)
         {
