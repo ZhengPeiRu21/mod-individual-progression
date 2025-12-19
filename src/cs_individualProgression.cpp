@@ -32,6 +32,9 @@ public:
 
     static void CheckProgressionAchievements(Player* target, uint8 currentState, uint32 progressionLevel)
     {
+        if (!currentState || !progressionLevel || !target || !target->IsInWorld())
+            return;
+	
         uint16 playerGUID = target->GetGUID().GetCounter();
 
         for (uint8 i = progressionLevel; i < currentState; ++i)
@@ -94,6 +97,13 @@ public:
     static bool HandleGetIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player)
     {
         player = PlayerIdentifier::FromTargetOrSelf(handler);
+		
+        if (!player)
+        {
+            handler->SendSysMessage("Player not found.");
+            return false;
+        }
+
         Player* target = player->GetConnectedPlayer();
         uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         std::string playername = target->GetName();
@@ -104,6 +114,9 @@ public:
 
     static bool HandleSetIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, uint32 progressionLevel)
     {
+	    if (!progressionLevel)
+            return false;
+	
         if (progressionLevel > PROGRESSION_WOTLK_TIER_5)
         {
             handler->SendSysMessage("Invalid Progression Level.");
@@ -158,7 +171,7 @@ public:
             if (!member || !sIndividualProgression->isExcludedFromProgression(member))
                 continue;
 
-            sIndividualProgression->ForceUpdateProgressionState(member, static_cast<ProgressionState>(currentState));
+            sIndividualProgression->UpdateProgressionState(member, static_cast<ProgressionState>(currentState));
             sIndividualProgression->UpdateProgressionQuests(member);
             sIndividualProgression->CheckAdjustments(member);
             sIndividualProgression->checkIPPhasing(member, currentArea);
@@ -199,7 +212,6 @@ public:
             return false;
         }
     }
-
 };
 
 void AddSC_individualProgression_commandscript()
