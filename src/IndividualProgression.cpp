@@ -122,7 +122,7 @@ float IndividualProgression::ComputeVanillaAdjustment(uint8 playerLevel, float c
  * @return progression level
  */
 uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
-{   
+{
     uint8 progressionLevel = 0;
     if (!sWorld->getBoolConfig(CONFIG_PLAYER_SETTINGS_ENABLED))
     {
