@@ -108,3 +108,10 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (12778,0,35175,0,0,1935,0), (12778,0,35176,0,0,1935,0), (12778,0,35177,0,0,1935,0), (12778,0,35178,0,0,1935,0), (12778,0,35179,0,0,1935,0), (12778,0,35180,0,0,1935,0), (12778,0,35320,0,0,129,0),
 (12778,0,37927,0,0,2028,0), (12778,0,37928,0,0,127,0), (12778,0,37929,0,0,127,0), (12778,0,41587,0,0,2427,0), (12778,0,41588,0,0,2427,0), (12778,0,41589,0,0,2427,0), (12778,0,41590,0,0,2427,0),
 (12778,0,41591,0,0,2428,0), (12778,0,41592,0,0,2428,0), (12778,0,44429,0,0,2428,0), (12778,0,44431,0,0,2428,0);
+
+-- clean up alternate version of TBC Badge Vendor for pre-2.3
+DELETE FROM `creature` WHERE `guid` = 350994;
+DELETE FROM `npc_vendor` WHERE `entry` = 30201;
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 18525;
+UPDATE `creature_template` SET `ScriptName` = '', `flags_extra` = 0, `MovementType` = 0, `unit_flags` = 0, `npcflag` = 0, `name` = "G\'eras Test Vendor List" WHERE `entry` = 30201;
+UPDATE `npc_vendor` SET `entry` = 18525 WHERE `item` IN (35326, 35324, 35321);
