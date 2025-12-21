@@ -99,6 +99,12 @@ public:
         if (!player || !player->IsInWorld())
             return;
 
+        if (!sIndividualProgression->isExcludedFromProgression(player))
+        {
+            sIndividualProgression->checkIPProgression(player);
+            sIndividualProgression->UpdateProgressionQuests(player);
+        }
+        
         sIndividualProgression->CheckAdjustments(player);
     }
 
