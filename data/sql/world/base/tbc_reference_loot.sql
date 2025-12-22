@@ -1,5 +1,6 @@
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (34052, 36098, 36196, 36197, 36198, 36199, 50501);
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36003 AND 36026;
+DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36101 AND 36111; -- Hyjal
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36121 AND 36139; -- Black Temple
 
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
@@ -162,6 +163,77 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (36098, 30025, 0, 0, 0, 1, 1, 1, 1, 'Serpentshrine Shuriken'),
 (36098, 30027, 0, 0, 0, 1, 1, 1, 1, 'Boots of Courage Unending'),
 (36098, 30620, 0, 0, 0, 1, 1, 1, 1, 'Spyglass of the Hidden Fleet'),
+--
+(36101, 30868, 0, 0, 0, 1, 1, 1, 1, 'Rejuvenating Bracers'),
+(36101, 30869, 0, 0, 0, 1, 1, 1, 1, 'Howling Wind Bracers'),
+(36101, 30870, 0, 0, 0, 1, 1, 1, 1, 'Cuffs of Devastation'),
+(36101, 30871, 0, 0, 0, 1, 1, 1, 1, 'Bracers of Martyrdom'),
+(36101, 30872, 0, 0, 0, 1, 1, 1, 1, 'Chronicle of Dark Secrets'),
+(36101, 30873, 0, 0, 0, 1, 1, 1, 1, 'Stillwater Boots'),
+--
+(36102, 30861, 0, 0, 0, 1, 1, 1, 1, 'Furious Shackles'),
+(36102, 30862, 0, 0, 0, 1, 1, 1, 1, 'Blessed Adamantite Bracers'),
+(36102, 30863, 0, 0, 0, 1, 1, 1, 1, 'Deadly Cuffs'),
+(36102, 30864, 0, 0, 0, 1, 1, 1, 1, 'Bracers of the Pathfinder'),
+(36102, 30865, 0, 0, 0, 1, 1, 1, 1, 'Tracker\'s Blade'),
+(36102, 30866, 0, 0, 0, 1, 1, 1, 1, 'Blood-stained Pauldrons'),
+--
+(36103, 30874, 0, 0, 0, 1, 1, 1, 1, 'The Unbreakable Will'),
+(36103, 30883, 0, 0, 0, 1, 1, 1, 1, 'Pillar of Ferocity'),
+(36103, 30884, 0, 0, 0, 1, 1, 1, 1, 'Hatefury Mantle'),
+(36103, 30885, 0, 0, 0, 1, 1, 1, 1, 'Archbishop\'s Slippers'),
+(36103, 30887, 0, 0, 0, 1, 1, 1, 1, 'Golden Links of Restoration'),
+(36103, 30888, 0, 0, 0, 1, 1, 1, 1, 'Anetheron\'s Noose'),
+--
+(36104, 30878, 0, 0, 0, 1, 1, 1, 1, 'Glimmering Steel Mantle'),
+(36104, 30879, 0, 0, 0, 1, 1, 1, 1, 'Don Alejandro\'s Money Belt'),
+(36104, 30880, 0, 0, 0, 1, 1, 1, 1, 'Quickstrider Moccasins'),
+(36104, 30881, 0, 0, 0, 1, 1, 1, 1, 'Blade of Infamy'),
+(36104, 30882, 0, 0, 0, 1, 1, 1, 1, 'Bastion of Light'),
+(36104, 30886, 0, 0, 0, 1, 1, 1, 1, 'Enchanted Leather Sandals'),
+--
+(36105, 30893, 0, 0, 0, 1, 1, 1, 1, 'Sun-touched Chain Leggings'),
+(36105, 30894, 0, 0, 0, 1, 1, 1, 1, 'Blue Suede Shoes'),
+(36105, 30914, 0, 0, 0, 1, 1, 1, 1, 'Belt of the Crescent Moon'),
+(36105, 30916, 0, 0, 0, 1, 1, 1, 1, 'Leggings of Channeled Elements'),
+(36105, 30917, 0, 0, 0, 1, 1, 1, 1, 'Razorfury Mantle'),
+(36105, 30918, 0, 0, 0, 1, 1, 1, 1, 'Hammer of Atonement'),
+--
+(36106, 30889, 0, 0, 0, 1, 1, 1, 1, 'Kaz\'rogal\'s Hardened Heart'),
+(36106, 30891, 0, 0, 0, 1, 1, 1, 1, 'Black Featherlight Boots'),
+(36106, 30892, 0, 0, 0, 1, 1, 1, 1, 'Beast-tamer\'s Shoulders'),
+(36106, 30895, 0, 0, 0, 1, 1, 1, 1, 'Angelista\'s Sash'),
+(36106, 30915, 0, 0, 0, 1, 1, 1, 1, 'Belt of Seething Fury'),
+(36106, 30919, 0, 0, 0, 1, 1, 1, 1, 'Valestalker Girdle'),
+--
+(36107, 30896, 0, 0, 0, 1, 1, 1, 1, 'Glory of the Defender'),
+(36107, 30897, 0, 0, 0, 1, 1, 1, 1, 'Girdle of Hope'),
+(36107, 30898, 0, 0, 0, 1, 1, 1, 1, 'Shady Dealer\'s Pantaloons'),
+(36107, 30899, 0, 0, 0, 1, 1, 1, 1, 'Don Rodrigo\'s Poncho'),
+(36107, 30900, 0, 0, 0, 1, 1, 1, 1, 'Bow-stitched Leggings'),
+(36107, 30901, 0, 0, 0, 1, 1, 1, 1, 'Boundless Agony'),
+--
+(36108, 31092, 0, 0, 0, 1, 1, 1, 1, 'Gloves of the Forgotten Conqueror'),
+(36108, 31093, 0, 0, 0, 1, 1, 1, 1, 'Gloves of the Forgotten Vanquisher'),
+(36108, 31094, 0, 0, 0, 1, 1, 1, 1, 'Gloves of the Forgotten Protector'),
+--
+(36109, 30902, 0, 0, 0, 1, 1, 1, 1, 'Cataclysm\'s Edge'),
+(36109, 30903, 0, 0, 0, 1, 1, 1, 1, 'Legguards of Endless Rage'),
+(36109, 30904, 0, 0, 0, 1, 1, 1, 1, 'Savior\'s Grasp'),
+(36109, 30905, 0, 0, 0, 1, 1, 1, 1, 'Midnight Chestguard'),
+(36109, 30906, 0, 0, 0, 1, 1, 1, 1, 'Bristleblitz Striker'),
+(36109, 30907, 0, 0, 0, 1, 1, 1, 1, 'Mail of Fevered Pursuit'),
+--
+(36110, 30908, 0, 0, 0, 1, 1, 1, 1, 'Apostle of Argus'),
+(36110, 30909, 0, 0, 0, 1, 1, 1, 1, 'Antonidas\'s Aegis of Rapt Concentration'),
+(36110, 30910, 0, 0, 0, 1, 1, 1, 1, 'Tempest of Chaos'),
+(36110, 30911, 0, 0, 0, 1, 1, 1, 1, 'Scepter of Purification'),
+(36110, 30912, 0, 0, 0, 1, 1, 1, 1, 'Leggings of Eternity'),
+(36110, 30913, 0, 0, 0, 1, 1, 1, 1, 'Robes of Rhonin'),
+--
+(36111, 31095, 0, 0, 0, 1, 1, 1, 1, 'Helm of the Forgotten Protector'),
+(36111, 31096, 0, 0, 0, 1, 1, 1, 1, 'Helm of the Forgotten Vanquisher'),
+(36111, 31097, 0, 0, 0, 1, 1, 1, 1, 'Helm of the Forgotten Conqueror'),
 --
 (36121, 32232, 0, 0, 0, 1, 1, 1, 1, 'Eternium Shell Bracers'), -- High Warlord Naj'entus (22887)
 (36121, 32234, 0, 0, 0, 1, 1, 1, 1, 'Fists of Mukoa'),
@@ -423,4 +495,3 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (50501, 32411, 0, 0, 0, 1, 1, 1, 1, 'Design: Thundering Skyfire Diamond'),
 (50501, 33186, 0, 0, 0, 1, 1, 1, 1, 'Plans: Adamantite Weapon Chain'),
 (50501, 33954, 0, 0, 0, 1, 1, 1, 1, 'Plans: Hammer of Righteous Might');
-
