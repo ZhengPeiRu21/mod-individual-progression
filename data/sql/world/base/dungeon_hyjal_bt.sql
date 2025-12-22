@@ -117,7 +117,8 @@ DELETE FROM `reference_loot_template` WHERE `entry` = 39534;
 DELETE FROM `creature_loot_template` WHERE `Item` IN (22903, 23884, 39534) AND `Entry` IN
 (17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
 
--- Black Temple, remove reference loot tables added by AC
+-- Black Temple, remove reference loot tables added by AC (not used anymore)
+DELETE FROM `reference_loot_template` WHERE `entry` IN (34070, 34071, 34072, 34073, 34074, 34076, 34077, 1276883);
 DELETE FROM `creature_loot_template` WHERE `Item` IN (14099, 24092) AND `Entry` IN
 (22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 
 22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
@@ -371,4 +372,66 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (23374, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics');
 
 
+-- fix Black Temple boss loot tables
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (22841, 22871, 22887, 22898, 22917, 22947, 22948);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+--
+(22841, 29434, 0, 100, 0, 1, 0, 2, 2,     'Shade of Akama - Badge of Justice'),
+(22841, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Shade of Akama - (ReferenceTable)'),
+(22841, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Shade of Akama - (ReferenceTable)'),
+(22841, 36125, 36125, 100, 0, 1, 1, 1, 1, 'Shade of Akama - Epic Items (Group 1)'),
+(22841, 36126, 36126, 100, 0, 1, 1, 1, 1, 'Shade of Akama - Epic Items (Group 2)'),
+--
+(22871, 29434, 0, 100, 0, 1, 0, 2, 2,     'Teron Gorefiend - Badge of Justice'),
+(22871, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Teron Gorefiend - (ReferenceTable)'),
+(22871, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Teron Gorefiend - (ReferenceTable)'),
+(22871, 36127, 36127, 100, 0, 1, 1, 1, 1, 'Teron Gorefiend - Epic Items (Group 1)'),
+(22871, 36128, 36128, 100, 0, 1, 1, 1, 1, 'Teron Gorefiend - Epic Items (Group 2)'),
+--
+(22887, 29434, 0, 100, 0, 1, 0, 2, 2,     'High Warlord Naj\'entus - Badge of Justice'),
+(22887, 34069, 34069, 2, 0, 1, 2, 1, 1,   'High Warlord Naj\'entus - (ReferenceTable)'),
+(22887, 90069, 34069, 10, 0, 1, 1, 1, 1,  'High Warlord Naj\'entus - (ReferenceTable)'),
+(22887, 36121, 36121, 100, 0, 1, 1, 1, 1, 'High Warlord Naj\'entus - Epic Items (Group 1)'),
+(22887, 36122, 36122, 100, 0, 1, 1, 1, 1, 'High Warlord Naj\'entus - Epic Items (Group 2)'),
+--
+(22898, 29434, 0, 100, 0, 1, 0, 2, 2,     'Supremus - Badge of Justice'),
+(22898, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Supremus - (ReferenceTable)'),
+(22898, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Supremus - (ReferenceTable)'),
+(22898, 36123, 36123, 100, 0, 1, 1, 1, 1, 'Supremus - Epic Items (Group 1)'),
+(22898, 36124, 36124, 100, 0, 1, 1, 1, 1, 'Supremus - Epic Items (Group 2)'),
+--
+(22917, 29434, 0, 100, 0, 1, 0, 2, 2,     'Illidan Stormrage - Badge of Justice'),
+(22917, 32837, 0, 4, 0, 1, 1, 1, 1,       'Illidan Stormrage - Warglaive of Azzinoth'),
+(22917, 32838, 0, 4, 0, 1, 2, 1, 1,       'Illidan Stormrage - Warglaive of Azzinoth'),
+(22917, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Illidan Stormrage - (Patterns)'),
+(22917, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Illidan Stormrage - (Patterns)'),
+(22917, 36137, 36137, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - Epic Items (Group 1)'),
+(22917, 36138, 36138, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - Epic Items (Group 2)'),
+(22917, 36139, 36139, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - T6 Token'),
+--
+(22947, 29434, 0, 100, 0, 1, 0, 2, 2,     'Mother Shahraz - Badge of Justice'),
+(22947, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Mother Shahraz - (ReferenceTable)'),
+(22947, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Mother Shahraz - (ReferenceTable)'),
+(22947, 36133, 36133, 100, 0, 1, 1, 1, 1, 'Mother Shahraz - Epic Items'),
+(22947, 36134, 36134, 100, 0, 1, 1, 1, 1, 'Mother Shahraz - T6 Token'),
+--
+(22948, 29434, 0, 100, 0, 1, 0, 2, 2,     'Gurtogg Bloodboil - Badge of Justice'),
+(22948, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Gurtogg Bloodboil - (ReferenceTable)'),
+(22948, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Gurtogg Bloodboil - (ReferenceTable)'),
+(22948, 36129, 36129, 100, 0, 1, 1, 1, 1, 'Black Temple (Boss Loot) - Gurtogg Bloodboil - Epic Items (Group 1)'),
+(22948, 36130, 36130, 100, 0, 1, 1, 1, 1, 'Black Temple (Boss Loot) - Gurtogg Bloodboil - Epic Items (Group 2)');
+
+
+-- hide Badge of Justice drops until TBC tier 5
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (22841, 22871, 22887, 22898, 22917, 22947, 22948);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(1, 22841, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22871, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22887, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22898, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22917, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22947, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22948, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4');
 
