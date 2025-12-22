@@ -117,10 +117,25 @@ DELETE FROM `reference_loot_template` WHERE `entry` = 39534;
 DELETE FROM `creature_loot_template` WHERE `Item` IN (22903, 23884, 39534) AND `Entry` IN
 (17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
 
--- Black Temple, remove item, recipes and conditions added by AC
-DELETE FROM `creature_loot_template` WHERE `Item` IN (22903, 23884, 32526, 32527, 32528, 32593, 32606, 32608, 32943, 34011, 34012, 32737, 32738, 32744, 32747, 32749, 32750, 32753, 32754) AND `Entry` IN
-(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 
-22957, 22959, 22960, 22962, 22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
+-- Black Temple, remove reference loot tables added by AC
+DELETE FROM `creature_loot_template` WHERE `Item` IN (14099, 24092) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 
+22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
+
+-- Black Temple, remove items and recipes added by AC (now added with a referene loot table)
+DELETE FROM `creature_loot_template` WHERE `Item` IN (14099, 22903, 23884, 32526, 32527, 32528, 32593, 32606, 32608, 32943, 34011, 34012, 32737, 32738, 32744, 32747, 32749, 32750, 32753, 32754) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 
+22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
+
+-- Black Temple, remove gems added by AC (now added with a referene loot table)
+DELETE FROM `creature_loot_template` WHERE `Item` IN (32227, 32228, 32229, 32230, 32231, 32249) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 
+22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
+
+-- Black Temple, remove incorrect items and recipes added by AC
+DELETE FROM `creature_loot_template` WHERE `Item` IN (32589, 32590, 32591, 32592, 32609, 32736, 32739, 32745, 32746, 32748, 32751, 32752, 32755) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 
+22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN
 (22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 
@@ -140,10 +155,10 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (10, 36199, 32750, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Living Earth Bindings'),
 (10, 36199, 32754, 0, 0, 7, 0, 197, 1, 0, 0, 0, 0, '', 'Pattern: Bracers of Nimble Thought');
 
--- add reference loot tables to trash creatures
-DELETE FROM `creature_loot_template` WHERE `Reference` IN (36196, 36197, 36198, 36199, 50501) AND `Entry` IN
-(17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916, 22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 
-22957, 22959, 22960, 22962, 22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
+
+-- Hyjal, add reference loot tables to trash creatures
+DELETE FROM `creature_loot_template` WHERE `Reference` IN (36196, 36197, 50501) AND `Entry` IN
+(17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
 
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 --
@@ -175,7 +190,53 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17906, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17907, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17908, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(17916, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
+(17916, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics');
+
+-- Black Temple, add reference loot tables to trash creatures
+DELETE FROM `creature_loot_template` WHERE `Reference` IN (34093, 36198, 36199, 50501) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 
+22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
+
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+--
+(22844, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22845, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22846, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22847, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22853, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22855, 34093, 34093, 20, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22869, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22879, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22880, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22882, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22939, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22945, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22946, 34093, 34093, 5,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22953, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22954, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22955, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22956, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22957, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22959, 34093, 34093, 10, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22962, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22964, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22965, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23018, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23047, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23049, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23172, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23196, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23222, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23223, 34093, 34093, 10, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23232, 34093, 34093, 5,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23235, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23236, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23237, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23239, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23330, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23337, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23339, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23374, 34093, 34093, 10, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 --
 (22844, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
 (22845, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
@@ -308,3 +369,6 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (23337, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (23339, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (23374, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics');
+
+
+
