@@ -113,9 +113,11 @@ DELETE FROM `creature_loot_template` WHERE `Item` = 32897 AND `Entry` IN (22963)
 
 
 -- Hyjal, remove item, recipes and reference loot tables added by AC
-DELETE FROM `reference_loot_template` WHERE `entry` = 39534;
+DELETE FROM `reference_loot_template` WHERE `entry` IN (34064, 34065, 34066, 34067, 34068, 39534, 1276884);
 DELETE FROM `creature_loot_template` WHERE `Item` IN (22903, 23884, 39534) AND `Entry` IN
 (17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (17968);
 
 -- Black Temple, remove reference loot tables added by AC (not used anymore)
 DELETE FROM `reference_loot_template` WHERE `entry` IN (34070, 34071, 34072, 34073, 34074, 34076, 34077, 1276883);
@@ -421,7 +423,6 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (22948, 36129, 36129, 100, 0, 1, 1, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 1)'),
 (22948, 36130, 36130, 100, 0, 1, 1, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 2)');
 
-
 -- hide Badge of Justice drops until TBC tier 5
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (22841, 22871, 22887, 22898, 22917, 22947, 22948);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
@@ -435,3 +436,50 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 22947, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
 (1, 22948, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4');
 
+
+-- fix Hyjal boss loot tables
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (17767, 17808, 17888, 17842, 17968);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+--
+(17767, 29434, 0, 100, 0, 1, 0, 2, 2,     'Rage Winterchill - Badge of Justice'),
+(17767, 32459, 0, 100, 1, 1, 0, 1, 1,     'Rage Winterchill - Time-Phased Phylactery'),
+(17767, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Rage Winterchill - Epic Gem Patterns'), -- 36112 in cMangos
+(17767, 36101, 36101, 100, 0, 1, 1, 1, 1, 'Rage Winterchill - Epic Items (Group 1)'),
+(17767, 36102, 36102, 100, 0, 1, 1, 1, 1, 'Rage Winterchill - Epic Items (Group 2)'),
+(17767, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
+--
+(17808, 29434, 0, 100, 0, 1, 0, 2, 2,     'Anetheron - Badge of Justice'),
+(17808, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Anetheron - Epic Gem Patterns'),
+(17808, 36103, 36103, 100, 0, 1, 1, 1, 1, 'Anetheron - Epic Items (Group 1)'),
+(17808, 36104, 36104, 100, 0, 1, 1, 1, 1, 'Anetheron - Epic Items (Group 2)'),
+(17808, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
+--
+(17842, 29434, 0, 100, 0, 1, 0, 2, 2,     'Azgalor - Badge of Justice'),
+(17842, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Azgalor - Epic Gem Patterns'),
+(17842, 36107, 36107, 100, 0, 1, 1, 1, 1, 'Azgalor - Epic Items'),
+(17842, 36108, 36108, 100, 0, 1, 1, 3, 3, 'Azgalor - T6 Token'),
+(17842, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
+--
+(17888, 29434, 0, 100, 0, 1, 0, 2, 2,     'Kaz\'rogal - Badge of Justice'),
+(17888, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Kaz\'rogal - Epic Gem Patterns'),
+(17888, 36105, 36105, 100, 0, 1, 1, 1, 1, 'Kaz\'rogal - Epic Items (Group 1)'),
+(17888, 36106, 36106, 100, 0, 1, 1, 1, 1, 'Kaz\'rogal - Epic Items (Group 2)'),
+(17888, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
+--
+(17968, 29434, 0, 100, 0, 1, 0, 3, 3,     'Archimonde - Badge of Justice'),
+(17968, 34063, 34063, 30, 0, 1, 1, 1, 1,  'Archimonde - Epic Gem Patterns'),
+(17968, 36109, 36109, 100, 0, 1, 1, 1, 1, 'Archimonde - Epic Items (Group 1)'),
+(17968, 36110, 36110, 100, 0, 1, 1, 1, 1, 'Archimonde - Epic Items (Group 2)'),
+(17968, 36111, 36111, 100, 0, 1, 1, 3, 3, 'Archimonde - T6 Token'),
+(17968, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics');
+
+-- hide Badge of Justice drops until TBC tier 5
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (17767, 17808, 17842, 17888, 17968);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(1, 17767, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 17808, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 17842, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 17888, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 17968, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4');
