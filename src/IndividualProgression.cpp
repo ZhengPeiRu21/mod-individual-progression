@@ -716,10 +716,7 @@ void IndividualProgression::checkIPProgression(Player* killer)
 {
     if (!enabled || disableDefaultProgression)
         return;
-
-    if (!killer || !killer->IsInWorld())
-        return;
-    
+   
     uint8 currentState = killer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 
     if (killer->HasAchieved(HALION_KILL)) // 4815
