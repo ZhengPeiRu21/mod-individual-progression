@@ -164,7 +164,7 @@ public:
 
     void OnPlayerGiveXP(Player* player, uint32& amount, Unit* /*victim*/, uint8 xpSource) override
     {
-        if (!player || !player->IsInWorld() || !amount || !xpSource)
+        if (!player || !player->IsInWorld() || !amount)
             return;
 
         if (!sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(player))
