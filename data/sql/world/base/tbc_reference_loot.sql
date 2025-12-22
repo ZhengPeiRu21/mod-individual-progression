@@ -1,5 +1,7 @@
 DELETE FROM `reference_loot_template` WHERE `Entry` IN (34052, 36098, 36196, 36197, 36198, 36199, 50501);
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36003 AND 36026;
+DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36121 AND 36139; -- Black Temple
+
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 --
 (34052, 30280, 0, 0, 0, 1, 1, 1, 1, 'Pattern: Belt of Blasting'),
@@ -161,6 +163,111 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (36098, 30027, 0, 0, 0, 1, 1, 1, 1, 'Boots of Courage Unending'),
 (36098, 30620, 0, 0, 0, 1, 1, 1, 1, 'Spyglass of the Hidden Fleet'),
 --
+(36121, 32232, 0, 0, 0, 1, 1, 1, 1, 'Eternium Shell Bracers'), -- High Warlord Naj'entus (22887)
+(36121, 32234, 0, 0, 0, 1, 1, 1, 1, 'Fists of Mukoa'),
+(36121, 32236, 0, 0, 0, 1, 1, 1, 1, 'Rising Tide'),
+(36121, 32237, 0, 0, 0, 1, 1, 1, 1, 'The Maelstrom\'s Fury'),
+(36121, 32238, 0, 0, 0, 1, 1, 1, 1, 'Ring of Calming Waves'),
+(36121, 32243, 0, 0, 0, 1, 1, 1, 1, 'Pearl Inlaid Boots'),
+(36121, 32377, 0, 0, 0, 1, 1, 1, 1, 'Mantle of Darkness'),
+--
+(36122, 32239, 0, 0, 0, 1, 1, 1, 1, 'Slippers of the Seacaller'), -- High Warlord Naj'entus (22887)
+(36122, 32240, 0, 0, 0, 1, 1, 1, 1, 'Guise of the Tidal Lurker'),
+(36122, 32241, 0, 0, 0, 1, 1, 1, 1, 'Helm of Soothing Currents'),
+(36122, 32242, 0, 0, 0, 1, 1, 1, 1, 'Boots of Oceanic Fury'),
+(36122, 32245, 0, 0, 0, 1, 1, 1, 1, 'Tide-stomper\'s Greaves'),
+(36122, 32247, 0, 0, 0, 1, 1, 1, 1, 'Ring of Captured Storms'),
+(36122, 32248, 0, 0, 0, 1, 1, 1, 1, 'Halberd of Desolation'),
+--
+(36123, 32256, 0, 0, 0, 1, 1, 1, 1, 'Waistwrap of Infinity'), -- Supremus (22898)
+(36123, 32257, 0, 0, 0, 1, 1, 1, 1, 'Idol of the White Stag'),
+(36123, 32258, 0, 0, 0, 1, 1, 1, 1, 'Naturalist\'s Preserving Cinch'),
+(36123, 32259, 0, 0, 0, 1, 1, 1, 1, 'Bands of the Coming Storm'),
+(36123, 32260, 0, 0, 0, 1, 1, 1, 1, 'Choker of Endless Nightmares'),
+(36123, 32261, 0, 0, 0, 1, 1, 1, 1, 'Band of the Abyssal Lord'),
+(36123, 32262, 0, 0, 0, 1, 1, 1, 1, 'Syphon of the Nathrezim'),
+--
+(36124, 32250, 0, 0, 0, 1, 1, 1, 1, 'Pauldrons of Abyssal Fury'), -- Supremus (22898)
+(36124, 32251, 0, 0, 0, 1, 1, 1, 1, 'Wraps of Precise Flight'),
+(36124, 32252, 0, 0, 0, 1, 1, 1, 1, 'Nether Shadow Tunic'),
+(36124, 32253, 0, 0, 0, 1, 1, 1, 1, 'Legionkiller'),
+(36124, 32254, 0, 0, 0, 1, 1, 1, 1, 'The Brutalizer'),
+(36124, 32255, 0, 0, 0, 1, 1, 1, 1, 'Felstone Bulwark'),
+--
+(36125, 32263, 0, 0, 0, 1, 1, 1, 1, 'Praetorian\'s Legguards'), -- Shade of Akama (22841)
+(36125, 32264, 0, 0, 0, 1, 1, 1, 1, 'Shoulders of the Hidden Predator'),
+(36125, 32265, 0, 0, 0, 1, 1, 1, 1, 'Shadow-walker\'s Cord'),
+(36125, 32266, 0, 0, 0, 1, 1, 1, 1, 'Ring of Deceitful Intent'),
+(36125, 32268, 0, 0, 0, 1, 1, 1, 1, 'Myrmidon\'s Treads'),
+(36125, 32276, 0, 0, 0, 1, 1, 1, 1, 'Flashfire Girdle'),
+(36125, 32513, 0, 0, 0, 1, 1, 1, 1, 'Wristbands of Divine Influence'),
+--
+(36126, 32270, 0, 0, 0, 1, 1, 1, 1, 'Focused Mana Bindings'), -- Shade of Akama (22841)
+(36126, 32271, 0, 0, 0, 1, 1, 1, 1, 'Kilt of Immortal Nature'),
+(36126, 32273, 0, 0, 0, 1, 1, 1, 1, 'Amice of Brilliant Light'),
+(36126, 32275, 0, 0, 0, 1, 1, 1, 1, 'Spiritwalker Gauntlets'),
+(36126, 32278, 0, 0, 0, 1, 1, 1, 1, 'Grips of Silent Justice'),
+(36126, 32279, 0, 0, 0, 1, 1, 1, 1, 'The Seeker\'s Wristguards'),
+(36126, 32361, 0, 0, 0, 1, 1, 1, 1, 'Blind-Seers Icon'),
+--
+(36127, 32326, 0, 0, 0, 1, 1, 1, 1, 'Twisted Blades of Zarak'), -- Teron Gorefiend (22871)
+(36127, 32328, 0, 0, 0, 1, 1, 1, 1, 'Botanist\'s Gloves of Growth'),
+(36127, 32329, 0, 0, 0, 1, 1, 1, 1, 'Cowl of Benevolence'),
+(36127, 32330, 0, 0, 0, 1, 1, 1, 1, 'Totem of Ancestral Guidance'),
+(36127, 32348, 0, 0, 0, 1, 1, 1, 1, 'Soul Cleaver'),
+(36127, 32512, 0, 0, 0, 1, 1, 1, 1, 'Girdle of Lordaeron\'s Fallen'),
+--
+(36128, 32280, 0, 0, 0, 1, 1, 1, 1, 'Gauntlets of Enforcement'), -- Teron Gorefiend (22871)
+(36128, 32323, 0, 0, 0, 1, 1, 1, 1, 'Shadowmoon Destroyer\'s Drape'),
+(36128, 32324, 0, 0, 0, 1, 1, 1, 1, 'Insidious Bands'),
+(36128, 32325, 0, 0, 0, 1, 1, 1, 1, 'Rifle of the Stoic Guardian'),
+(36128, 32327, 0, 0, 0, 1, 1, 1, 1, 'Robe of the Shadow Council'),
+(36128, 32510, 0, 0, 0, 1, 1, 1, 1, 'Softstep Boots of Tracking'),
+--
+(36129, 32338, 0, 0, 0, 1, 1, 1, 1, 'Blood-cursed Shoulderpads'), -- Gurtogg Bloodboil (22948)
+(36129, 32339, 0, 0, 0, 1, 1, 1, 1, 'Belt of Primal Majesty'),
+(36129, 32340, 0, 0, 0, 1, 1, 1, 1, 'Garments of Temperance'),
+(36129, 32341, 0, 0, 0, 1, 1, 1, 1, 'Leggings of Divine Retribution'),
+(36129, 32342, 0, 0, 0, 1, 1, 1, 1, 'Girdle of Mighty Resolve'),
+(36129, 32343, 0, 0, 0, 1, 1, 1, 1, 'Wand of Prismatic Focus'),
+(36129, 32344, 0, 0, 0, 1, 1, 1, 1, 'Staff of Immaculate Recovery'),
+--
+(36130, 32269, 0, 0, 0, 1, 1, 1, 1, 'Messenger of Fate'), -- Gurtogg Bloodboil (22948)
+(36130, 32333, 0, 0, 0, 1, 1, 1, 1, 'Girdle of Stability'),
+(36130, 32334, 0, 0, 0, 1, 1, 1, 1, 'Vest of Mounting Assault'),
+(36130, 32335, 0, 0, 0, 1, 1, 1, 1, 'Unstoppable Aggressor\'s Ring'),
+(36130, 32337, 0, 0, 0, 1, 1, 1, 1, 'Shroud of Forgiveness'),
+(36130, 32501, 0, 0, 0, 1, 1, 1, 1, 'Shadowmoon Insignia'),
+--
+(36133, 32365, 0, 0, 0, 1, 1, 1, 1, 'Heartshatter Breastplate'), -- Mother Shahraz (22947)
+(36133, 32366, 0, 0, 0, 1, 1, 1, 1, 'Shadowmaster\'s Boots'),
+(36133, 32367, 0, 0, 0, 1, 1, 1, 1, 'Leggings of Devastation'),
+(36133, 32368, 0, 0, 0, 1, 1, 1, 1, 'Tome of the Lightbringer'),
+(36133, 32369, 0, 0, 0, 1, 1, 1, 1, 'Blade of Savagery'),
+(36133, 32370, 0, 0, 0, 1, 1, 1, 1, 'Nadina\'s Pendant of Purity'),
+--
+(36134, 31101, 0, 0, 0, 1, 1, 1, 1, 'Pauldrons of the Forgotten Conqueror'), -- Mother Shahraz (22947)
+(36134, 31102, 0, 0, 0, 1, 1, 1, 1, 'Pauldrons of the Forgotten Vanquisher'),
+(36134, 31103, 0, 0, 0, 1, 1, 1, 1, 'Pauldrons of the Forgotten Protector'),
+--
+(36137, 32235, 0, 0, 0, 1, 1, 1, 1, 'Cursed Vision of Sargeras'), -- Illidan Stormrage (22917)
+(36137, 32336, 0, 0, 0, 1, 1, 1, 1, 'Black Bow of the Betrayer'),
+(36137, 32375, 0, 0, 0, 1, 1, 1, 1, 'Bulwark of Azzinoth'),
+(36137, 32471, 0, 0, 0, 1, 1, 1, 1, 'Shard of Azzinoth'),
+(36137, 32497, 0, 0, 0, 1, 1, 1, 1, 'Stormrage Signet Ring'),
+(36137, 32521, 0, 0, 0, 1, 1, 1, 1, 'Faceplate of the Impenetrable'),
+--
+(36138, 32374, 0, 0, 0, 1, 1, 1, 1, 'Zhar\'doom, Greatstaff of the Devourer'), -- Illidan Stormrage (22917)
+(36138, 32483, 0, 0, 0, 1, 1, 1, 1, 'The Skull of Gul\'dan'),
+(36138, 32496, 0, 0, 0, 1, 1, 1, 1, 'Memento of Tyrande'),
+(36138, 32500, 0, 0, 0, 1, 1, 1, 1, 'Crystal Spire of Karabor'),
+(36138, 32524, 0, 0, 0, 1, 1, 1, 1, 'Shroud of the Highborne'),
+(36138, 32525, 0, 0, 0, 1, 1, 1, 1, 'Cowl of the Illidari High Lord'),
+--
+(36139, 31089, 0, 0, 0, 1, 1, 1, 1, 'Chestguard of the Forgotten Conqueror'), -- Illidan Stormrage (22917)
+(36139, 31090, 0, 0, 0, 1, 1, 1, 1, 'Chestguard of the Forgotten Vanquisher'),
+(36139, 31091, 0, 0, 0, 1, 1, 1, 1, 'Chestguard of the Forgotten Protector'),
+--
 (36196, 32589, 0, 0, 0, 1, 1, 1, 1, 'Hellfire-Encased Pendant'),
 (36196, 32590, 0, 0, 0, 1, 1, 1, 1, 'Nethervoid Cloak'),
 (36196, 32591, 0, 0, 0, 1, 1, 1, 1, 'Choker of Serrated Blades'),
@@ -316,3 +423,4 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (50501, 32411, 0, 0, 0, 1, 1, 1, 1, 'Design: Thundering Skyfire Diamond'),
 (50501, 33186, 0, 0, 0, 1, 1, 1, 1, 'Plans: Adamantite Weapon Chain'),
 (50501, 33954, 0, 0, 0, 1, 1, 1, 1, 'Plans: Hammer of Righteous Might');
+
