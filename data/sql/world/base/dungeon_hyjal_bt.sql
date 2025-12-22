@@ -418,8 +418,8 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (22948, 29434, 0, 100, 0, 1, 0, 2, 2,     'Gurtogg Bloodboil - Badge of Justice'),
 (22948, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Gurtogg Bloodboil - (ReferenceTable)'),
 (22948, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Gurtogg Bloodboil - (ReferenceTable)'),
-(22948, 36129, 36129, 100, 0, 1, 1, 1, 1, 'Black Temple (Boss Loot) - Gurtogg Bloodboil - Epic Items (Group 1)'),
-(22948, 36130, 36130, 100, 0, 1, 1, 1, 1, 'Black Temple (Boss Loot) - Gurtogg Bloodboil - Epic Items (Group 2)');
+(22948, 36129, 36129, 100, 0, 1, 1, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 1)'),
+(22948, 36130, 36130, 100, 0, 1, 1, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 2)');
 
 
 -- hide Badge of Justice drops until TBC tier 5
