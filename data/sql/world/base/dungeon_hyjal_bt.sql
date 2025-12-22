@@ -113,13 +113,32 @@ DELETE FROM `creature_loot_template` WHERE `Item` = 32897 AND `Entry` IN (22963)
 
 
 -- Hyjal, remove item, recipes and reference loot tables added by AC
+DELETE FROM `reference_loot_template` WHERE `entry` = 39534;
 DELETE FROM `creature_loot_template` WHERE `Item` IN (22903, 23884, 39534) AND `Entry` IN
 (17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
 
--- Black Temple, remove item, recipes and reference loot tables added by AC
+-- Black Temple, remove item, recipes and conditions added by AC
 DELETE FROM `creature_loot_template` WHERE `Item` IN (22903, 23884, 32526, 32527, 32528, 32593, 32606, 32608, 32943, 34011, 34012, 32737, 32738, 32744, 32747, 32749, 32750, 32753, 32754) AND `Entry` IN
 (22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 
 22957, 22959, 22960, 22962, 22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 
+22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 10 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (36197, 36199);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+-- Hyjal
+(10, 36197, 32736, 0, 0, 7, 0, 164, 1, 0, 0, 0, 0, '', 'Plans: Swiftsteel Bracers'),
+(10, 36197, 32746, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Swiftstrike Bracers'),
+(10, 36197, 32748, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Bindings of Lightning Reflexes'),
+(10, 36197, 32752, 0, 0, 7, 0, 197, 1, 0, 0, 0, 0, '', 'Pattern: Swiftheal Wraps'),
+-- BT
+(10, 36199, 32738, 0, 0, 7, 0, 164, 1, 0, 0, 0, 0, '', 'Plans: Dawnsteel Bracers'),
+(10, 36199, 32744, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Bracers of Renewed Life'),
+(10, 36199, 32750, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Living Earth Bindings'),
+(10, 36199, 32754, 0, 0, 7, 0, 197, 1, 0, 0, 0, 0, '', 'Pattern: Bracers of Nimble Thought');
 
 -- add reference loot tables to trash creatures
 DELETE FROM `creature_loot_template` WHERE `Reference` IN (36196, 36197, 36198, 36199, 50501) AND `Entry` IN
