@@ -182,8 +182,8 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (@CGUID+18, 34060, 1, 1673.07, -4201.89, 56.3826, 3.62927, 180);    -- Doris Volanthius, WotLK Season 8
 
 
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pvp'  WHERE `guid` IN (614581); -- only visible during tbc
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_tbc'  WHERE `guid` IN (612792, 612799, 626396); -- only visible during vanilla
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pvp'  WHERE `guid` IN (626396); -- only visible during tbc
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_tbc'  WHERE `guid` IN (612792, 612799, 614581); -- only visible during vanilla
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc'      WHERE `guid` IN (125685, 125688, 125690, 125694, 125695, 612788, 623447, 626397); -- visible during tbc & wotlk
 
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S1'   WHERE `guid` IN (@CGUID+1);
