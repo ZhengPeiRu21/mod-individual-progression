@@ -583,6 +583,29 @@ public:
         if (!player || !player->IsInWorld() || !newArea)
             return;
 
+        uint32 mapid = player->GetMap()->GetId();
+
+        if (mapid && mapid == MAP_OUTLAND) // prevent entering Sun's Reach Harbor in Quel'Danas without proper progression
+        {
+            if (sIndividualProgression->enabled && !player->IsGameMaster() && !sIndividualProgression->isExcludedFromProgression(player))
+            {
+                if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4) && newArea == 4087) // Sun's Reach Harbor
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
+
+                    TeamId teamId = player->GetTeamId(true);
+                    if (teamId == TEAM_ALLIANCE)
+                    {
+                        player->TeleportTo(0, 2270.32f, -5341.56f, 87, 1.34946f); // Light's Hope Chapel
+                    }
+                    else // Horde
+                    {
+                        player->TeleportTo(530, 9373.69f, -7168.46f, 9.17572f, 1.04876f); // Eversong Woods
+                    }
+                }
+            }
+        }
+        
         sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
