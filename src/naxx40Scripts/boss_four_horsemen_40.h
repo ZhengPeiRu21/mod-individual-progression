@@ -317,11 +317,11 @@ class spell_four_horsemen_mark_aura : public AuraScript
                 switch (GetStackAmount())
                 {
                     case 1: damage =     0; break;
-                    case 2: damage =    50; break;
+                    case 2: damage =    25; break;
                     case 3: damage =   100; break;
-                    case 4: damage =   200; break;
+                    case 4: damage =   300; break;
                     default:
-                        damage = 50 * GetStackAmount();
+                        damage = 100 * GetStackAmount();
                         break;
                 }
             }
