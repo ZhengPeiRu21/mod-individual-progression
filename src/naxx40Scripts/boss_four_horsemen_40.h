@@ -2,9 +2,8 @@
 #define BOSS_FOURHORSEMEN_40_H_
 
 #include "Player.h"
-#include "ScriptMgr.h"
-#include "ScriptedCreature.h"
-#include "SpellAuraDefines.h"
+// #include "ScriptMgr.h"
+// #include "ScriptedCreature.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
 #include "IndividualProgression.h"
