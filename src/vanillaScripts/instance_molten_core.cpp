@@ -323,8 +323,19 @@ public:
                 {
                     if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1) == 1)
                     {
-                        rune->SetGoState(GO_STATE_ACTIVE);
-                        rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
+                        for (uint8 i = 0; i < DATA_MAJORDOMO_EXECUTUS; ++i)
+                        {
+                            if (i == DATA_LUCIFRON)
+                            {
+                                continue;
+                            }
+
+                            if (GetBossState(i) != DONE)
+                            {
+                                rune->SetGoState(GO_STATE_ACTIVE);
+                                rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
+                            }
+                        }
                     }
                     else
                     {
