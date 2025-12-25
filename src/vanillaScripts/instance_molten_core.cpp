@@ -322,18 +322,16 @@ public:
                 if (GameObject* rune = instance->GetGameObject(_runesGUIDs[bossId]))
                 {
                     if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1) == 1)
-                    {
-                        for (uint8 i = 0; i < DATA_MAJORDOMO_EXECUTUS; ++i)
+                    {		
+                        if (GameObject* circle = instance->GetGameObject(_circlesGUIDs[bossId]))
                         {
-                            if (i == DATA_LUCIFRON)
-                            {
-                                continue;
-                            }
+                            rune->SetGoState(GO_STATE_ACTIVE);
+                            rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
 
-                            if (GetBossState(i) != DONE)
+                            if (_runeStatus[rune->GetEntry()] == true)
                             {
-                                rune->SetGoState(GO_STATE_ACTIVE);
-                                rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
+                                circle->DespawnOrUnsummon();
+                                _circlesGUIDs[bossId].Clear();
                             }
                         }
                     }
