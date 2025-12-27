@@ -67,7 +67,7 @@ enum NX40NPCs
     NPC_NAXXRAMAS_FOLLOWER             = 351080,
 
     // Gluth
-    NPC_ZOMBIE_CHOW                    = 351069,
+    NPC_ZOMBIE_CHOW_40                 = 351069,
 
     // Thaddius
     NPC_THADDIUS_40                    = 351000,
