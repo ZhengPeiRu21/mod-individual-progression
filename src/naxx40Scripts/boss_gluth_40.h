@@ -8,6 +8,7 @@
 #include "SpellScriptLoader.h"
 #include "naxxramas.h"
 #include "boss_gluth.h"
+#include "IndividualProgression.h"
 
 namespace Gluth_40 {
 
@@ -33,7 +34,7 @@ enum Events
     EVENT_BERSERK                       = 4,
     EVENT_SUMMON_ZOMBIE                 = 5,
     EVENT_CAN_EAT_ZOMBIE                = 6,
-	EVENT_TERRIFYING_ROAR               = 7
+    EVENT_TERRIFYING_ROAR               = 7
 };
 
 enum Emotes
@@ -91,8 +92,10 @@ public:
             switch (events.ExecuteEvent())
             {
                 case EVENT_BERSERK:
+                {
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
+                }
                 case EVENT_ENRAGE:
                 {
                     Talk(EMOTE_ENRAGE);
@@ -105,79 +108,100 @@ public:
                     break;
                 }
                 case EVENT_MORTAL_WOUND:
-                    me->CastSpell(me->GetVictim(), SPELL_MORTAL_WOUND, false);
+                {
+                    if (Unit* victim = me->GetVictim())
+                        me->CastSpell(victim, SPELL_MORTAL_WOUND, false);
                     events.Repeat(10s);
                     break;
+                }
                 case EVENT_DECIMATE:
+                {
                     Talk(EMOTE_DECIMATE);
                     me->CastSpell(me, SPELL_DECIMATE_10, false);
-                    // Apply Decimate effect to zombies
-                    // TODO: Is this block required?
+
+                    // Apply Decimate effect to nearby zombies
+                    std::list<Creature*> zombies;
+                    me->GetCreatureListWithEntryInGrid(zombies, NPC_ZOMBIE_CHOW_40, 150.0f);
+                    for (Creature* zombie : zombies)
                     {
-                        std::list<Creature*> zombies;
-                        me->GetCreatureListWithEntryInGrid(zombies, NPC_ZOMBIE_CHOW, 150.0f);
-                        for (Creature* zombie : zombies)
-                        {
-                            if (zombie->IsAlive())
-                            {
-                                uint32 reduceHp = uint32(zombie->GetMaxHealth() * 0.05f);
-                                if (zombie->GetHealth() > reduceHp)
-                                    zombie->SetHealth(reduceHp); // Reduce HP to 5%
-                                zombie->SetWalk(true);           // Set to walk
-                                zombie->GetMotionMaster()->MoveFollow(me,
-                                    0.0f,
-                                    0.0f,
-                                    MOTION_SLOT_CONTROLLED);          // Move to boss
-                                zombie->SetReactState(REACT_PASSIVE); // Set to passive
-                            }
-                        }
+                        if (!zombie || !zombie->IsAlive())
+                            continue;
+
+                        uint32 reduceHp = uint32(zombie->GetMaxHealth() * 0.05f);
+                        if (zombie->GetHealth() > int32(reduceHp))
+                            zombie->SetHealth(int32(reduceHp)); // Reduce HP to ~5%
+                        zombie->SetWalk(true);                 // Set to walk
+                        zombie->GetMotionMaster()->MoveFollow(me,
+                            0.0f,
+                            0.0f,
+                            MOTION_SLOT_CONTROLLED);          // Move to boss
+                        zombie->SetReactState(REACT_PASSIVE); // Set to passive
+
+                        Talk(EMOTE_DEVOURS_ALL);
                     }
+
                     events.Repeat(105s);
                     break;
+                }
                 case EVENT_SUMMON_ZOMBIE:
+                {
+                    // Summon one or more zombies at random positions
+                    const int32 count = RAID_MODE(1, 2, 2, 2);
+                    for (int32 i = 0; i < count; ++i)
                     {
-                        uint8 rand = urand(0, 2);
-                        for (int32 i = 0; i < RAID_MODE(1, 2, 2, 2); ++i)
-                        {
-                            // In 10 man raid, normal mode - should spawn only from mid gate
-                            // \1 |0 /2 pos
-                            // In 25 man raid - should spawn from all 3 gates
-                            if (me->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_NORMAL)
-                            {
-                                me->SummonCreature(NPC_ZOMBIE_CHOW, zombiePos[0]);
-                            }
-                            else
-                            {
-                                me->SummonCreature(NPC_ZOMBIE_CHOW, zombiePos[urand(0, 2)]);
-                            }
-                            (rand == 2 ? rand = 0 : rand++);
-                        }
-                        events.Repeat(6s);
-                        break;
+                        me->SummonCreature(NPC_ZOMBIE_CHOW_40, zombiePos[urand(0, 2)]);
                     }
-                case EVENT_CAN_EAT_ZOMBIE:
-                    events.Repeat(1s);
-                    if (me->GetVictim()->GetEntry() == NPC_ZOMBIE_CHOW && me->IsWithinMeleeRange(me->GetVictim()))
-                    {
-                        me->CastCustomSpell(SPELL_CHOW_SEARCHER, SPELLVALUE_RADIUS_MOD, 20000, me, true);
-                        Talk(EMOTE_DEVOURS_ALL);
-						
-						Unit* unitTarget = me->GetVictim();
-					    int32 damage = int32(unitTarget->GetHealth());
-						Unit::DealDamage(me, unitTarget, damage);
-											
-                        uint32 hp = uint32(me->GetMaxHealth() * 0.05f);
-                        me->SetHealth(me->GetHealth() + hp);
-                        return; // leave it to skip DoMeleeAttackIfReady
-                    }
+                    events.Repeat(6s);
                     break;
+                }
+                case EVENT_CAN_EAT_ZOMBIE:
+                {
+                    // Search for nearby alive zombie within a radius
+                    std::list<Creature*> zombies;
+                    me->GetCreatureListWithEntryInGrid(zombies, NPC_ZOMBIE_CHOW_40, 10.0f);
+					
+                    for (Creature* z : zombies)
+                    {
+                        if (!z || !z->IsAlive())
+                            continue;
+
+                        if (me->GetDistance(z) < 10.0f) // distance used by spell 28404
+                        {
+                            Talk(EMOTE_SPOTS_ONE);
+
+                            z->SetWalk(true);
+                            z->GetMotionMaster()->MoveFollow(me, 0.0f, 0.0f, MOTION_SLOT_CONTROLLED);
+                            z->SetReactState(REACT_PASSIVE);
+
+                            int32 damage = int32(z->GetHealth());
+                            if (damage > 0)
+                                Unit::DealDamage(me, z, damage);
+
+                            // Heal Gluth for 5% of max health
+                            uint32 hp = uint32(me->GetMaxHealth() * 0.05f);
+                            me->SetHealth(me->GetHealth() + hp);
+                            break; // Only eat one zombie
+                        }
+                    }
+
+                    if (sIndividualProgression->doableNaxx40Bosses)
+                        events.Repeat(9s);
+					else
+                        events.Repeat(3s);
+                    break;
+                }
                 case EVENT_TERRIFYING_ROAR:
+                {
                     if (me->CastSpell(me, SPELL_TERRIFYING_ROAR, true) == SPELL_CAST_OK)
                         events.Repeat(20s);
                     else
                         events.Repeat(100ms);
-                    break;        
+                    break;
+                }
+                default:
+                    break;
             }
+
             DoMeleeAttackIfReady();
         }
     };
