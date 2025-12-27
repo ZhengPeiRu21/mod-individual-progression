@@ -228,7 +228,7 @@ public:
                     {
                         if (sIndividualProgression->doableNaxx40Bosses)
                         {
-                            int32 bp0 = 112;
+                            int32 bp0 = 222;
                             CustomSpellValues values;
                             values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
                             values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 50); // 30yd
