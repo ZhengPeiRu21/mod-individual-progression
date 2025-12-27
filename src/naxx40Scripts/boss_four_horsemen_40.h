@@ -252,23 +252,22 @@ public:
                     }
                     else if (horsemanId == HORSEMAN_MOGRAINE)
                     {
-
-                        if (sIndividualProgression->doableNaxx40Bosses)
+                        /* if (sIndividualProgression->doableNaxx40Bosses)
                         {
-                            // int32 bp0 = 1080; // 2k to 1k
-                            // int32 bp1 = 300; // 600 to 300
-                            // CustomSpellValues values;
-                            // values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
-                            // values.AddSpellMod(SPELLVALUE_BASE_POINT1, bp1);
+                            int32 bp0 = 1080; // 2k to 1k
+                            int32 bp1 = 300; // 600 to 300
+                            CustomSpellValues values;
+                            values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                            values.AddSpellMod(SPELLVALUE_BASE_POINT1, bp1);
 
-                            // me->CastCustomSpell(SPELL_RIVENDARE_UNHOLY_SHADOW, values, me->GetVictim(), TRIGGERED_FULL_MASK, nullptr, nullptr, ObjectGuid::Empty);
-                            me->CastSpell(me->GetVictim(), SPELL_RIVENDARE_UNHOLY_SHADOW, false);
+                            me->CastCustomSpell(SPELL_RIVENDARE_UNHOLY_SHADOW, values, me->GetVictim(), TRIGGERED_FULL_MASK, nullptr, nullptr, ObjectGuid::Empty);
                         }
                         else
                         {
                             // same dbc as vanilla. Shadow damage instead of fire
                             me->CastSpell(me->GetVictim(), SPELL_RIVENDARE_UNHOLY_SHADOW, false);
-                        }
+                        } */
+                        me->CastSpell(me->GetVictim(), SPELL_RIVENDARE_UNHOLY_SHADOW, false);
                     }
                     else // HORSEMAN_KORTHAZZ
                     {
