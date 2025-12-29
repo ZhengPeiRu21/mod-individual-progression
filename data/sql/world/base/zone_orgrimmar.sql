@@ -428,4 +428,5 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (14720, 1, 0, 'Is that the best you can do?',            16, 0, 100, 0, 0, 0, 11564, 0, 'Saurfang on Kill'); 
 
 UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (12792, 12799, 14581, 112793, 112794, 112795, 112796); -- Orgrimmar, Vanilla
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_pvp_vendor_pre_tbc'   WHERE `id1` IN (12792, 12799, 14581, 112793, 112794, 112795, 112796);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_pvp_vendor_pre_tbc' WHERE `id1` IN (12792, 12799, 14581, 112793, 112794, 112795, 112796);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pre_wotlk' WHERE `id1` IN (12788); -- Legionnaire Teena <Outland Armor Quartermaster>, Orgrimmar (NPC wears TBC armor + possibly become pvp sellers later)

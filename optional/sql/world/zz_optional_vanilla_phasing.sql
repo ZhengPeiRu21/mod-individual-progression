@@ -39,8 +39,10 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
 17238, -- Anchorite Truuen, Western Plaguelands
 17531, -- Draenei Protector, Swamp of Sorrows
 18221, -- Holaaru, Swamp of Sorrows
+19848, -- Harbinger Ennarth, Stormwind
 19923, -- Bipp Glizzitor (Arena Master), Silvermoon
 19925, -- Miglik Blotstrom (Arena Master), Exodar
+19850, -- Councilor Arial D'Anastasis, Orgrimmar
 20381, -- Jovil <Eye of the Storm Battlemaster>, Stormwind
 20385, -- Andrissa Heartspear <Eye of the Storm Battlemaster>, Orgrimmar
 21045, -- Landro Hired Bodyguard, Booty Bay

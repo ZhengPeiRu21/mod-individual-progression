@@ -377,4 +377,5 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12739, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Onyxias Elite Guard - On Enrage - Say Line 0');
 
 UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (12777, 12805, 26394, 112781, 112785, 112783); -- Stormwind, Vanilla
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_pvp_vendor_pre_tbc'   WHERE `id1` IN (12777, 12805, 26394, 112781, 112785, 112783);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_pvp_vendor_pre_tbc' WHERE `id1` IN (12777, 12805, 26394, 112781, 112785, 112783);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pre_wotlk' WHERE `id1` IN (12778); -- Lieutenant Rachel Vaccar <Outland Armor Quartermaster>, Stormwind (NPC wears TBC armor + possibly become pvp sellers later)
