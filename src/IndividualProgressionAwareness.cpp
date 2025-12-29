@@ -1231,6 +1231,48 @@ public:
     }
 };
 
+class npc_ipp_tbc_t5 : public CreatureScript
+{
+public:
+    npc_ipp_tbc_t5() : CreatureScript("npc_ipp_tbc_t5") { }
+
+    struct npc_ipp_tbc_t5AI: ScriptedAI
+    {
+        explicit npc_ipp_tbc_t5AI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+            {
+                return true;
+            }
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_4);
+        }
+
+        protected:
+            void MoveInLineOfSight(Unit* who) override
+            {
+                if (!who)
+                    return;
+
+                if (sIndividualProgression->enabled
+                    && who->IsPlayer()
+                    && !sIndividualProgression->hasPassedProgression(who->ToPlayer(), PROGRESSION_TBC_TIER_4))
+                {
+                    return;
+                }
+
+                ScriptedAI::MoveInLineOfSight(who);
+            }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_tbc_t5AI(creature);
+    }
+};
+
 class npc_ipp_pre_wotlk : public CreatureScript
 {
 public:
