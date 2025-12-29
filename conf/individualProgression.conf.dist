@@ -154,6 +154,18 @@ IndividualProgression.NaxxExitViaPortals = 0
 #
 IndividualProgression.NaxxSkipToSaphiron = 0
 
+# IndividualProgression.doableNaxx40Bosses
+#
+#        Description: If enabled, this will make certain bosses in Naxx40 easier.
+#                     - Razuvious will cast disrupting shout instead of mana burn
+#                     - Four Horsemen's ability damage will be much lower. So they can be fought together without a strategy.
+#                     - Gluth will search for a zombie every 9 seconds instead of 3.
+#
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.doableNaxx40Bosses = 0
+
 # IndividualProgression.MoltenCore.ManualRuneHandling
 #
 #        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) 

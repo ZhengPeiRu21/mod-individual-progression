@@ -6,6 +6,7 @@
 #include "naxxramas.h"
 #include "SpellInfo.h"
 #include "boss_razuvious.h"
+#include "IndividualProgression.h"
 
 namespace Razuvious_40 {
 
@@ -23,7 +24,7 @@ enum Says
 enum Spells
 {
     SPELL_UNBALANCING_STRIKE        = 26613,
-    // SPELL_DISRUPTING_SHOUT       = 29107, // 55543
+    SPELL_DISRUPTING_SHOUT          = 55543, // 29107
     SPELL_MANA_BURN                 = 26046, // Alternative for Disrupting shout.
     SPELL_JAGGED_KNIFE              = 55550,
     // SPELL_HOPELESS               = 29125,
@@ -119,7 +120,14 @@ public:
                     events.Repeat(20s);
                     break;
                 case EVENT_DISRUPTING_SHOUT:
-                    me->CastSpell(me, SPELL_MANA_BURN, false);
+                    if (sIndividualProgression->doableNaxx40Bosses)
+                    {
+                        me->CastSpell(me, SPELL_DISRUPTING_SHOUT, false);
+                    }
+                    else
+                    {
+                        me->CastSpell(me, SPELL_MANA_BURN, false);
+                    }
                     events.Repeat(25s);
                     break;
                 case EVENT_JAGGED_KNIFE:
