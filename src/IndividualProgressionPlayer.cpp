@@ -23,9 +23,10 @@ public:
         sIndividualProgression->TeleportOutsideRestoredRaid(player);
         
         if (!sIndividualProgression->enabled)
-        {
             return;
-        }
+		
+        if (!player || !player->IsInWorld())
+            return;
 
         if (!sIndividualProgression->isExcludedFromProgression(player))
         {
@@ -50,13 +51,27 @@ public:
 
 		if (sIndividualProgression->isExcludedFromProgression(player))
         {
-            sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));
+            if (player->GetLevel() <= IP_LEVEL_VANILLA)
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));
+            }
+            else if ((player->GetLevel() > IP_LEVEL_VANILLA) && (player->GetLevel() <= IP_LEVEL_TBC))
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(8));
+            }
+            else // (player->GetLevel() <= IP_LEVEL_WOTLK)
+            {
+                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(13));
+            }
         }
 
         sIndividualProgression->CheckAdjustments(player);
 
         if (sIndividualProgression->enabled)
         {
+            if (!player->GetSession())
+                return;
+			
             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
         }
     }
@@ -73,10 +88,8 @@ public:
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
     {
-        if (!sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(player))
-        {
+        if (!sIndividualProgression->enabled || !maxPlayerLevel || !player || !player->IsInWorld() || sIndividualProgression->isExcludedFromProgression(player))
             return;
-        }
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40))
         {
@@ -96,30 +109,46 @@ public:
 
     void OnPlayerMapChanged(Player* player) override
     {
+        if (!player || !player->IsInWorld())
+            return;
+
+        if (!sIndividualProgression->isExcludedFromProgression(player))
+        {
+            sIndividualProgression->checkIPProgression(player);
+            sIndividualProgression->UpdateProgressionQuests(player);
+        }
+        
         sIndividualProgression->CheckAdjustments(player);
     }
 
     void OnPlayerLevelChanged(Player* player, uint8 /*oldLevel*/) override
     {
+        if (!player || !player->IsInWorld())
+            return;
+
         sIndividualProgression->CheckAdjustments(player);
     }
 
     void OnPlayerEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
     {
+        if (!player || !player->IsInWorld())
+            return;
+
         sIndividualProgression->CheckAdjustments(player);
     }
 
     void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
     {
+        if (!player || !player->IsInWorld())
+            return;
+
         sIndividualProgression->CheckAdjustments(player);
     }
 
     bool OnPlayerShouldBeRewardedWithMoneyInsteadOfExp(Player* player) override
     {
-        if (!sIndividualProgression->questMoneyAtLevelCap)
-        {
+        if (!player || !player->IsInWorld() || !sIndividualProgression->questMoneyAtLevelCap)
             return false;
-        }
 
         // Player is still in Vanilla content - give money at 60 level cap
         return ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() == IP_LEVEL_VANILLA) ||
@@ -129,10 +158,12 @@ public:
 
     void OnPlayerQuestComputeXP(Player* player, Quest const* quest, uint32& xpValue) override
     {
-        if (!sIndividualProgression->enabled || !sIndividualProgression->questXpFix || sIndividualProgression->isExcludedFromProgression(player))
-        {
+        if (!sIndividualProgression->enabled || !quest || !xpValue || !player || !player->IsInWorld())
             return;
-        }
+		
+        if (!sIndividualProgression->questXpFix || sIndividualProgression->isExcludedFromProgression(player))
+            return;
+		
         if (sIndividualProgression->questXpMap.count(quest->GetQuestId()))
         {
             uint32 vanillaXpValue = sIndividualProgression->questXpMap[quest->GetQuestId()];
@@ -146,10 +177,12 @@ public:
 
     void OnPlayerGiveXP(Player* player, uint32& amount, Unit* /*victim*/, uint8 xpSource) override
     {
-        if (!sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(player))
-        {
+        if (!player || !player->IsInWorld() || !amount)
             return;
-        }
+
+        if (!sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(player))
+            return;
+
         // Player is still in Vanilla content - do not give XP past level 60
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_NAXX40) && player->GetLevel() >= IP_LEVEL_VANILLA)
         {
@@ -172,10 +205,12 @@ public:
 
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
     {
+        if (!player || !player->IsInWorld())
+            return false;
+
         if (!sIndividualProgression->enabled || player->IsGameMaster() || sIndividualProgression->isExcludedFromProgression(player))
-        {
             return true;
-        }
+
         if (mapid == MAP_BLACKWING_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE))
         {
             ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_MOLTEN_CORE);
@@ -258,7 +293,17 @@ public:
             ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_4);
             return false;
         }
-
+        if (mapid == MAP_MAGISTERS_TERRACE && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
+            return false;
+        }
+        if (mapid == MAP_THE_SUNWELL && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
+            return false;
+        }
+        
         InstanceTemplate const* instanceTemplate = sObjectMgr->GetInstanceTemplate(mapid);
         if (instanceTemplate)
         {
@@ -280,10 +325,9 @@ public:
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
     {
-        if (!sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(player))
-        {
+        if (!player || !player->IsInWorld() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(player))
             return;
-        }
+
         switch (quest->GetQuestId())
         {
             case BANG_A_GONG:
@@ -331,14 +375,15 @@ public:
 
     bool OnPlayerCanGroupInvite(Player* player, std::string& membername) override
     {
+        if (!player || !player->IsInWorld())
+            return false;
+
+        if (!sIndividualProgression->enabled)
+            return true;
+		
         Player* otherPlayer = ObjectAccessor::FindPlayerByName(membername, false);
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = otherPlayer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
-
-        if (!sIndividualProgression->enabled)
-        {
-            return true;
-        }
 
         if (sIndividualProgression->enforceGroupRules) // enforceGroupRules enabled
         {
@@ -445,6 +490,9 @@ public:
 
     bool OnPlayerCanGroupAccept(Player* player, Group* group) override
     {
+        if (!player || !player->IsInWorld() || !group)
+            return false;
+
         Player* groupLeader = ObjectAccessor::FindPlayerByLowGUID(group->GetLeaderGUID().GetCounter());
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = groupLeader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
@@ -468,6 +516,9 @@ public:
 
     void OnPlayerCreatureKill(Player* killer, Creature* killed) override
     {
+        if (!killed || !killer || !killer->IsInWorld())
+            return;
+
         switch (killed->GetEntry())
         {
             case RHAHK_ZOR:
@@ -515,6 +566,9 @@ public:
 
     bool OnPlayerUpdateFishingSkill(Player* player, int32 /*skill*/, int32 /*zone_skill*/, int32 chance, int32 roll) override
     {
+        if (!player || !player->IsInWorld() || !chance || !roll)
+            return false;
+
         if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix || sIndividualProgression->isExcludedFromProgression(player))
             return true;
         if (chance < roll)
@@ -524,6 +578,29 @@ public:
 
     void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
     {
+        if (!player || !player->IsInWorld() || !newArea)
+            return;
+
+        uint32 mapid = player->GetMap()->GetId();
+
+        if (mapid && mapid == MAP_OUTLAND) // prevent entering Sun's Reach Harbor in Quel'Danas without proper progression
+        {
+            if (!sIndividualProgression->isExcludedFromProgression(player) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4) && newArea == 4087) // Sun's Reach Harbor
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
+
+                TeamId teamId = player->GetTeamId(true);
+                if (teamId == TEAM_ALLIANCE)
+                {
+                    player->TeleportTo(0, 2270.32f, -5341.56f, 87, 1.34946f); // Light's Hope Chapel
+                }
+                else // Horde
+                {
+                    player->TeleportTo(530, 9373.69f, -7168.46f, 9.17572f, 1.04876f); // Eversong Woods
+                }
+            }
+        }
+        
         sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
@@ -720,6 +797,9 @@ public:
 
     bool CanAccountCreateCharacter(uint32 accountId, uint8 charRace, uint8 charClass) override
     {
+        if (!accountId || !charRace || !charClass)
+            return false;
+
         if ((!sIndividualProgression->enabled) ||
             (charRace != RACE_DRAENEI && charRace != RACE_BLOODELF && charClass != CLASS_DEATH_KNIGHT) ||
             (!sIndividualProgression->tbcRacesProgressionLevel && !sIndividualProgression->deathKnightProgressionLevel))
@@ -763,20 +843,32 @@ public:
     }
 };
 
+class IndividualPlayerProgression_GroupScript : public GroupScript
+{
+public:
+    IndividualPlayerProgression_GroupScript() : GroupScript("IndividualPlayerProgression_GroupScript") {}
+
+    void OnAddMember(Group* group, ObjectGuid guid) override
+    {
+        if (!group || !guid)
+            return;
+
+        Player* added = ObjectAccessor::FindPlayer(guid);
+        if (!added)
+            return;
+
+        sIndividualProgression->SyncBotsProgressionToLeader(group);
+    }
+};
+
 
 class IndividualPlayerProgression_PetScript : public PetScript
 {
 private:
     static void CheckAdjustments(Pet* pet)
     {
-        if (!sIndividualProgression->enabled)
-        {
+        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
             return;
-        }
-        if (!pet || !pet->GetOwner())
-        {
-            return;
-        }
 
         if (pet->GetLevel() <= IP_LEVEL_VANILLA)
         {
@@ -786,10 +878,17 @@ private:
         {
             AdjustTBCStats(pet);
         }
+        else
+        {
+            return;
+        }
     }
 
     static void AdjustVanillaStats(Pet* pet)
     {
+        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
+            return;
+
         float adjustmentValue = -100.0f * (1.0f - sIndividualProgression->vanillaPowerAdjustment);
         float adjustmentApplyPercent = (pet->GetLevel() - 10.0f) / 50.0f;
         float computedAdjustment = pet->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
@@ -800,6 +899,9 @@ private:
 
     static void AdjustTBCStats(Pet* pet)
     {
+        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
+            return;
+
         float adjustmentValue = -100.0f * (1.0f - sIndividualProgression->tbcPowerAdjustment);
         float adjustmentApplyPercent = 1;
         float computedAdjustment = pet->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
@@ -810,6 +912,9 @@ private:
 
     static void AdjustStats(Pet* pet, float computedAdjustment, float hpAdjustment)
     {
+        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
+            return;
+
         // int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
         auto bp1 = static_cast<int32>(computedAdjustment);
         auto bp2 = static_cast<int32>(hpAdjustment);
@@ -826,6 +931,9 @@ public:
 
     void OnPetAddToWorld(Pet* pet) override
     {
+        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
+            return;
+
         CheckAdjustments(pet);
     }
 };
@@ -851,7 +959,7 @@ public:
                 return;
             }
         }
-        if (spellInfo->Id == SPELL_RUNE_TAP || spellInfo->Id == SPELL_LIFE_STEAL)
+        if (spellInfo->Id == SPELL_RUNE_TAP || spellInfo->Id == SPELL_LIFE_STEAL || spellInfo->Id == SPELL_CANNIBALISE)
         {
             return;
         }
@@ -882,14 +990,13 @@ public:
 
     void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* /*spellInfo*/) override
     {
-        if (!sIndividualProgression->enabled || !attacker)
+        if (!sIndividualProgression->enabled || !attacker || !damage)
             return;
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
-        {
             return;
-        }
+
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (player->GetLevel() <= IP_LEVEL_VANILLA)
@@ -908,14 +1015,13 @@ public:
 
     void ModifyMeleeDamage(Unit* /*target*/, Unit* attacker, uint32& damage) override
     {
-        if (!sIndividualProgression->enabled || !attacker)
+        if (!sIndividualProgression->enabled || !attacker || !damage)
             return;
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
-        {
             return;
-        }
+
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (player->GetLevel() <= IP_LEVEL_VANILLA)
@@ -934,7 +1040,7 @@ public:
 
     void ModifyPeriodicDamageAurasTick(Unit* /*target*/, Unit* attacker, uint32& damage, SpellInfo const* spellInfo) override
     {
-        if (!sIndividualProgression->enabled || !attacker)
+        if (!sIndividualProgression->enabled || !attacker || !damage || !spellInfo)
             return;
 
         // Do not apply reductions to healing auras - these are already modified in the ModifyHeal hook
@@ -944,6 +1050,12 @@ public:
             {
                 return;
             }
+        }
+
+        // Also manually filter cannibalise (forsaken racial). It isn't covered by SPELL_AURA_PERIODIC_HEAL
+        if (spellInfo->Id == SPELL_CANNIBALISE)
+        {
+            return;
         }
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
@@ -985,6 +1097,7 @@ public:
 void AddSC_mod_individual_progression_player()
 {
     new IndividualPlayerProgression();
+    new IndividualPlayerProgression_GroupScript();
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();

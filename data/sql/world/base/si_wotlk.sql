@@ -47,7 +47,7 @@ INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (54092, 'spel
 
 /* Broll and Valeera at Stormwind Harbor */
 DELETE FROM `creature` WHERE `id1` IN (29604, 29607) and `map` = 0;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
-`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(@CGUID+2990, 29604, 0, 0, 0, 0, 0, 1, @IPPPHASE, 0, -8541.75, 1017.81, 89.7305, 0.897277, 300, 0, 0, 151200, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+2991, 29607, 0, 0, 0, 0, 0, 1, @IPPPHASE, 0, -8540.83, 1016.55, 89.7305, 0.818736, 300, 0, 0, 126000, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
+-- INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+-- `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+-- (@CGUID+2990, 29604, 0, 0, 0, 0, 0, 1, 1, 0, -8541.75, 1017.81, 89.7305, 0.897277, 300, 0, 0, 151200, 0, 0, 0, 0, 0, '', 'toDo', 0, NULL), -- to do
+-- (@CGUID+2991, 29607, 0, 0, 0, 0, 0, 1, 1, 0, -8540.83, 1016.55, 89.7305, 0.818736, 300, 0, 0, 126000, 0, 0, 0, 0, 0, '', 'toDo', 0, NULL); -- to do

@@ -233,7 +233,7 @@ IndividualProgression.DisableRDF = 0
 #
 #        Description: If enabled, players will not be able to proceed beyond this progression stage.
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
-#                     For example, a value of 6 will limit players to Vanilla content.
+#                     For example, a value of 7 will limit players to Vanilla content.
 #
 #        Default:     0 - Disabled (players may progress up to the maximum progression stage of 18, which is the completion of WotLK content)
 #                     1-15 - Set a lower maximum attainable progression stage 
@@ -353,6 +353,22 @@ IndividualProgression.CustomProgression = ""
 #                     1 - Enabled
 #
 IndividualProgression.AllowEarlyDungeonSet2 = 0
+
+# IndividualProgression.TBC.ArenaSeason
+#
+#        Description: Current TBC arena season id
+#        Default:     1
+#                     1-4
+#
+IndividualProgression.TBC.ArenaSeason = 1
+
+# IndividualProgression.WotLK.ArenaSeason
+#
+#        Description: Current WotLK arena season id
+#        Default:     5
+#                     5-8
+#
+IndividualProgression.WotLK.ArenaSeason = 5
 
 # IndividualProgression.VanillaPvPRankRequirement
 #

@@ -1,10 +1,10 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (10381, 10382, 10383, 10390, 10391, 10393, 10394, 10398, 10400, 10405, 10406, 10407, 10408, 10409, 10412, 10413, 10414, 10416, 10417, 10418, 10419, 
-10420, 10421, 10422, 10423, 10424, 10425, 10426, 10437, 10438, 10439, 10463, 10464, 10516, 10558, 10809, 10811, 10812, 10997, 11032, 11043);
+10420, 10421, 10422, 10423, 10424, 10425, 10426, 10437, 10438, 10439, 10463, 10464, 10516, 10558, 10809, 10811, 10812, 10997, 11032, 11043, 16387);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
 (10381, 10382, 10383, 10390, 10391, 10393, 10394, 10398, 10400, 10405, 10406, 10407, 10408, 10409, 10412, 10413, 10414, 10416, 10417, 10418, 10419, 
-10420, 10421, 10422, 10423, 10424, 10425, 10426, 10437, 10438, 10439, 10463, 10464, 10516, 10558, 10809, 10811, 10812, 10997, 11032, 11043);
+10420, 10421, 10422, 10423, 10424, 10425, 10426, 10437, 10438, 10439, 10463, 10464, 10516, 10558, 10809, 10811, 10812, 10997, 11032, 11043, 16387);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -202,7 +202,33 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11043, 0, 1, 2, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 674, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Crimson Monk - On Respawn - Cast Dual Wield'),
 (11043, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Crimson Monk - On Respawn - Cast Thrash Proc'),
 (11043, 0, 3, 0, 105, 0, 100, 0, 0, 0, 8000, 10000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Monk - Victim Casting - Cast Kick'),
-(11043, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Monk - Between 0-15% Health - Flee For Assist (No Repeat)');
+(11043, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Monk - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
+(16387, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28340, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Reset - Cast Unholy Aura'),
+(16387, 0, 1, 0, 0, 0, 100, 0, 1000, 1000, 13000, 18000, 0, 0, 11, 19729, 64, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,   'Atiesh - In Combat - Cast Shadow Bolt'),
+(16387, 0, 2, 0, 0, 0, 100, 0, 15000, 15000, 15000, 25000, 0, 0, 11, 28352, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Atiesh - In Combat - Cast Breath of Sargeras'), -- trigger curse spell 28342
+(16387, 0, 3, 4, 8, 0, 100, 0, 676, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Atiesh - On Disarm - Say Line 0'),
+(16387, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28355, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Disarm - Cast Reaper of Souls DND'), -- drop sword on ground
+(16387, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Atiesh - On Disarm - Set Sheath Melee');
+
+
+DELETE FROM `creature_text` WHERE `CreatureID` = 16387;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(16387, 0, 0, '%s drops it\'s weapon.', 16, 0, 100, 0, 0, 0, 12338, 0, 'Atiesh');
+
+DELETE FROM `spell_script_names` WHERE `spell_id` = 28352;
+INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (28352, 'spell_atiesh_breath_of_sargeras');
+
+DELETE FROM `gameobject_template` WHERE `entry` = 181207;
+INSERT INTO `gameobject_template` (`entry`, `type`, `displayId`, `name`, `IconName`, `castBarCaption`, `unk1`, `size`, 
+`Data0`, `Data1`, `Data2`, `Data3`, `Data4`, `Data5`, `Data6`, `Data7`, `Data8`, `Data9`, `Data10`, `Data11`, `Data12`, `Data13`, `Data14`, 
+`Data15`, `Data16`, `Data17`, `Data18`, `Data19`, `Data20`, `Data21`, `Data22`, `Data23`, `AIName`, `ScriptName`, `VerifiedBuild`) VALUES 
+(181207, 3, 4175, 'Runed Demonic Blade', '', '', '', 1, 93, 622736, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 1);
+
+DELETE FROM `gameobject_loot_template` WHERE `Entry` = 622736;
+INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+(622736, 22736, 0, 100, 0, 1, 0, 1, 1, 'Andonisus Reaper of Souls');
+
 
 /* fix rare loot drop rates  */
 UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10398 AND `item` = 16697; -- Thuzadin Shadowcaster - Dreadmist Belt

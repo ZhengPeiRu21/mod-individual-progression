@@ -229,6 +229,28 @@ class spell_kelthuzad_frostbolt_40 : public SpellScript
     }
 };
 
+// 28547 - Chill (Blizzard)
+class spell_sapphiron_chill_40 : public AuraScript
+{
+    PrepareAuraScript(spell_sapphiron_chill_40);
+
+    void CalculateAmount(AuraEffect const* /*aurEff*/, int32& amount, bool& /*canBeRecalculated*/)
+    {
+        Unit* caster = GetCaster();
+        if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
+        {
+            return;
+        }
+        amount = urand(3063, 3937);
+    }
+
+    void Register() override
+    {
+        DoEffectCalcAmount += AuraEffectCalcAmountFn(spell_sapphiron_chill_40::CalculateAmount, EFFECT_0, SPELL_AURA_PERIODIC_DAMAGE);
+    }
+};
+
+
 // 28522 - Icebolt
 class spell_sapphiron_icebolt_40 : public SpellScript
 {
@@ -526,7 +548,6 @@ class isAllowedToCastSpell : public SpellScript
     }
 };
 
-
 void AddSC_custom_spells_40()
 {
     RegisterSpellScript(spell_anub_locust_swarm_aura_40);
@@ -539,6 +560,7 @@ void AddSC_custom_spells_40()
     RegisterSpellScript(spell_kelthuzad_frostbolt_40);
     RegisterSpellScript(spell_sapphiron_icebolt_40);
     RegisterSpellScript(spell_sapphiron_frost_aura_40);
+    RegisterSpellScript(spell_sapphiron_chill_40);
     RegisterSpellScript(spell_patchwork_golem_war_stomp_40);
     RegisterSpellScript(spell_noth_curse_of_the_plaguebringer_aura_40);
     RegisterSpellScript(spell_razuvious_disrupting_shout_40);

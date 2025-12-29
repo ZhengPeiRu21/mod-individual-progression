@@ -2,16 +2,29 @@ SET @IPPPHASE     := 65536;  -- this method of phasing is useful for aggressive 
 SET @IPPPHASE_II  := 131072;
 SET @IPPPHASE_III := 262144;
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (16841, 19254, 16840,
-                                                                              20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130,
-                                                                              19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN 
+(16841, 19254, 16840, 20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130, 19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
+
+/* Arena NPCs */
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN
+(19915, 19909, 19911, 26012, 26007, 26075, 26307, 26309, 26760, 19912, 19859, 19860, 19861, 20499, 20497, 30610, 30611, 32832);
+
+-- Stormwind
+UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1` = 1749;  -- Lady Katrana Prestor
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 29611; -- King Varian Wrynn
+
+-- Orgrimmar
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 29346; -- Apothecary Karlov
 
 -- Phasing NPCs related to AllowEarlyDungeonSet2
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15270, 15282, 16012, 16013);
 
 -- Phasing Cenarion Hold NPCs
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_preaq' WHERE `entry` IN (15176, 15180, 15181, 15183, 15188, 15189, 15190, 15191, 15293, 15194,
-                                                                                15306, 15419, 15599, 15612, 15613, 15614, 15693, 15903, 16543, 17081, 17082);
+                                                                                15306, 15419, 15599, 15612, 15613, 15614, 15903, 16543, 17081, 17082);
+
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aqwewar' WHERE `entry` IN (15693); -- Jonathan the Revelator
+
 -- Phasing Cenarion Hold guards
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id1` = 15184 AND `guid` IN (42782, 42783, 42768);
 

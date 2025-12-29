@@ -322,9 +322,18 @@ public:
                 if (GameObject* rune = instance->GetGameObject(_runesGUIDs[bossId]))
                 {
                     if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1) == 1)
-                    {
-                        rune->SetGoState(GO_STATE_ACTIVE);
-                        rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
+                    {		
+                        if (GameObject* circle = instance->GetGameObject(_circlesGUIDs[bossId]))
+                        {
+                            rune->SetGoState(GO_STATE_ACTIVE);
+                            rune->RemoveFlag(GAMEOBJECT_FLAGS, GO_FLAG_NOT_SELECTABLE);
+
+                            if (_runeStatus[rune->GetEntry()] == true)
+                            {
+                                circle->DespawnOrUnsummon();
+                                _circlesGUIDs[bossId].Clear();
+                            }
+                        }
                     }
                     else
                     {

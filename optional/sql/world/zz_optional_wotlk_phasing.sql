@@ -25,13 +25,13 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk_ulduar' WHERE `map` = 
 
 /* 3.2 - TotC */
 /* Open world TotC NPCs */
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_totc' WHERE `map` = 1 AND `id1` IN (
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 1 AND `id1` IN (
 33935 -- Evee Copperspring <Arena Vendor>, Tanaris
 );
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_totc' WHERE `map` = 530 AND `id1` IN (
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 530 AND `id1` IN (
 33933 -- Big Zokk Torquewrench <Arena Vendor>, Area52
 );
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_totc' WHERE `map` = 571 AND `id1` IN (
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 571 AND `id1` IN (
 33937 -- Xazi Smolderpipe <Arena Vendor>, Dalaran
 );
 /* TotC raid & dungeon portal phasing */
@@ -39,17 +39,19 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk_totc' WHERE `map` = 57
 
 /* 3.3 - ICC */
 /* Open world ICC NPCs */
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `map` = 1 AND `id1` IN (
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 1 AND `id1` IN (
 33939, -- Argex Irongut <Veteran Arena Vendor>, Tanaris
 34093 -- Blazzek the Biter <Exceptional Arena Weaponry>, Tanaris
 );
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `map` = 530 AND `id1` IN (
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 530 AND `id1` IN (
 33940, -- Kezzik the Striker <Veteran Arena Vendor>, Area52
 34094 -- Grex Brainboiler <Exceptional Arena Weaponry>, Area52
 );
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `map` = 571 AND `id1` IN (
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 571 AND `id1` IN (
 33936, -- Nargle Lashcord <Veteran Arena Vendor>, Dalaran
-34095, -- Trapjaw Rix <Exceptional Arena Weaponry>, Dalaran
+34095 -- Trapjaw Rix <Exceptional Arena Weaponry>, Dalaran
+);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_icc' WHERE `map` = 571 AND `id1` IN (
 36624, -- Caladis Brightspear, Icecrown
 36642, -- Myralion Sunblaze, Icecrown
 36656, -- Silver Covenant Sentinel, Icecrown

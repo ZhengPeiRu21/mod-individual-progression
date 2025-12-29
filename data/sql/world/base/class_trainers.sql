@@ -42,9 +42,11 @@ WHERE SpellID IN (19801, 21302, 21562, 21564, 21849, 21850, 23028,
     26991, 27090, 27127, 27683, 28609, 28610, 28612, 29228, 31016, 31018, 31709, 33717, 39374);
 
 /* Restore Tome of Tranquilizing Shot to Lucifron */
-DELETE FROM `creature_loot_template` WHERE `Entry`=12118 AND `Item`=16665 AND `Reference`=0 AND `GroupId`=0;
+DELETE FROM `creature_loot_template` WHERE `Entry` = 12118 AND `Item` = 16665 AND `Reference` = 0 AND `GroupId` = 0;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(12118, 16665, 0, 100, 0, 1, 0, 1, 1, NULL);
+(12118, 16665, 0, 100, 0, 1, 0, 1, 1, 'Lucifron - Tome of Tranquilizing Shot');
+
+UPDATE `item_template` SET `description` = 'Attempts to remove 1 Enrage and 1 Magic effect from an enemy target.' WHERE `entry` = 16665;
 
 /* Restore drops from Grimoire of Shadow Ward IV */
 DELETE FROM `creature_loot_template` WHERE `Item` = 22891;

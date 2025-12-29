@@ -58,6 +58,7 @@ enum BuffSpells
     RANGED_HASTE_SPELL   = 89507,
     SPELL_RUNE_TAP       = 48982,
     SPELL_LIFE_STEAL     = 20004,
+    SPELL_CANNIBALISE    = 20578,
     IPP_PHASE            = 89509,
     IPP_PHASE_II         = 89511,
     IPP_PHASE_III        = 89513
@@ -73,6 +74,8 @@ enum ProgressionQuestIDs
     MIGHT_OF_KALIMDOR         = 8742,
     BANG_A_GONG               = 8743,
     INTO_THE_BREACH           = 10259,
+    BATTLE_UNDERCITY_HORDE    = 13267,
+    BATTLE_UNDERCITY_ALLIANCE = 13377,
     SIMPLY_BANG_A_GONG        = 108743,
     CHAOS_AND_DESTRUCTION     = 108744
 };
@@ -416,7 +419,7 @@ public:
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, vanillaHealthAdjustment, tbcPowerAdjustment, tbcHealthAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment;
     bool enabled, questXpFix, hunterPetLevelFix, moltenCoreOnySamePhase, requirePreAQQuests, enforceGroupRules, fishingFix, simpleConfigOverride, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, requireNaxxStrath, naxxExitViaPortals, naxxSkipToSaphiron, DisableRDF, excludeAccounts, VanillaPvpTitlesKeepPostVanilla, VanillaPvpTitlesEarnPostVanilla, ExcludedAccountsEarnPvPTitles;
-    int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression, RequiredZulGurubProgression;
+    int progressionLimit, startingProgression, tbcRacesProgressionLevel, deathKnightProgressionLevel, deathKnightStartingProgression, RequiredZulGurubProgression, tbcArenaSeason, wotlkArenaSeason;
     uint32 VanillaPvpKillRank1, VanillaPvpKillRank2, VanillaPvpKillRank3, VanillaPvpKillRank4, VanillaPvpKillRank5, VanillaPvpKillRank6, VanillaPvpKillRank7, VanillaPvpKillRank8, VanillaPvpKillRank9, VanillaPvpKillRank10, VanillaPvpKillRank11, VanillaPvpKillRank12, VanillaPvpKillRank13, VanillaPvpKillRank14;
     std::string excludedAccountsRegex;
 
@@ -430,6 +433,7 @@ public:
     void AdjustWotLKStats(Player* player) const;
     bool hasCustomProgressionValue(uint32 creatureEntry);
     bool isExcludedFromProgression(Player* player);
+    void SyncBotsProgressionToLeader(Group* group);
     bool isAttuned(Player* player);
     void checkIPPhasing(Player* player, uint32 newArea);
     void checkIPProgression(Player* player);	

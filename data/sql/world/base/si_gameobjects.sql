@@ -2,7 +2,7 @@
 
 SET @OGUID    := 660000;
 
-DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID AND @OGUID+115;
+DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID AND @OGUID+121;
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `VerifiedBuild`) VALUES
 
@@ -131,10 +131,15 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 (@OGUID+112, 181227, 0, 0, 0, 1, 1, -7984.3, -2434.14, 130.307, 6.16176, 0, 0, 0, 0, 120, 100, 1, 0),
 (@OGUID+113, 181227, 0, 0, 0, 1, 1, -8028.92, -1000.55, 122.648, 0.00813007, 0, 0, 0, 0, 120, 100, 1, 0),
 (@OGUID+114, 181227, 0, 0, 0, 1, 1, -8362.69, -976.306, 187.089, 0.0984673, 0, 0, 0, 0, 120, 100, 1, 0),
-(@OGUID+115, 181227, 0, 0, 0, 1, 1, -8401.13, -1204.99, 187.317, 5.89863, 0, 0, 0, 0, 120, 100, 1, 0);
+(@OGUID+115, 181227, 0, 0, 0, 1, 1, -8401.13, -1204.99, 187.317, 5.89863, 0, 0, 0, 0, 120, 100, 1, 0),
+(@OGUID+116, 181227, 0, 0, 0, 1, 1, 1945.29, -5141.46, 73.6436, 0, 0, 0, 0, 1, 120, 100, 1, 0),
+(@OGUID+117, 181227, 0, 0, 0, 1, 1, 1977.27, -4729.21, 98.4099, 0, 0, 0, 0, 1, 120, 100, 1, 0),
+(@OGUID+118, 181227, 0, 0, 0, 1, 1, 2342.06, -4966.79, 70.3062, 0, 0, 0, 0, 1, 120, 100, 1, 0),
+(@OGUID+119, 181227, 0, 0, 0, 1, 1, 1785.28, -2861.17, 70.0994, 0, 0, 0, 0, 1, 120, 100, 1, 0),
+(@OGUID+120, 181227, 0, 0, 0, 1, 1, 1613.15, -3044.22, 77.6374, 0, 0, 0, 0, 1, 120, 100, 1, 0),
+(@OGUID+121, 181227, 0, 0, 0, 1, 1, 1933.74, -3099.59, 87.1927, 0, 0, 0, 0, 1, 120, 100, 1, 0);
 
-
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `guid` BETWEEN @OGUID AND @OGUID+115;
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_si' WHERE `guid` BETWEEN @OGUID AND @OGUID+121;
 
 -- undo AC adding IP's gameobjects to event 17
-DELETE FROM `game_event_gameobject` WHERE `eventEntry` = 17 AND `guid` BETWEEN @OGUID AND @OGUID+115;
+DELETE FROM `game_event_gameobject` WHERE `eventEntry` = 17 AND `guid` BETWEEN @OGUID AND @OGUID+121;

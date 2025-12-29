@@ -186,8 +186,8 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (
 );
 
 /* Hide Rogg and his anvil + forge at the entrance of Orgrimmar until WotLK */
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` = 37072;
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (347, 387); -- this needs a fix still, Rogg is currently aggressive while hidden. 
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk', `flags_extra` = 2 WHERE `entry` = 37072;
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `guid` IN (347, 387); 
 
 /* Landro for TCG promotion in Booty Bay */
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aq' WHERE `entry` = 17249;

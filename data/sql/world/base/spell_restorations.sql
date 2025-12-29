@@ -18,7 +18,6 @@ DELETE FROM `spell_ranks` WHERE `first_spell_id` = 1784;
 -- (1784, 1786, 3),
 -- (1784, 1787, 4);
 
-
 /* Restore Detect Magic - situation spell removed in 2.3 when enemy buffs became part of the base UI; restore for flavor even though not useful */
 DELETE FROM `npc_trainer` WHERE `ID`=200008 AND `SpellID`=2855;
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES (200008, 2855, 1500, 0, 0, 16, 0);
@@ -26,8 +25,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 DELETE FROM `spell_script_names` WHERE `spell_id`=2855 AND `ScriptName`='spell_detect_magic';
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES (2855, 'spell_detect_magic');
 
-
-DELETE FROM `spell_dbc` WHERE `ID` IN (8137, 16449);
+DELETE FROM `spell_dbc` WHERE `ID` IN (8137, 16449, 48403);
 INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes`, `AttributesEx`, `AttributesEx2`, `AttributesEx3`, `AttributesEx4`, `AttributesEx5`, `AttributesEx6`, `AttributesEx7`, `ShapeshiftMask`, 
 `unk_320_2`, `ShapeshiftExclude`, `unk_320_3`, `Targets`, `TargetCreatureType`, `RequiresSpellFocus`, `FacingCasterFlags`, `CasterAuraState`, `TargetAuraState`, `ExcludeCasterAuraState`, `ExcludeTargetAuraState`, 
 `CasterAuraSpell`, `TargetAuraSpell`, `ExcludeCasterAuraSpell`, `ExcludeTargetAuraSpell`, `CastingTimeIndex`, `RecoveryTime`, `CategoryRecoveryTime`, `InterruptFlags`, `AuraInterruptFlags`, `ChannelInterruptFlags`, 
@@ -69,4 +67,13 @@ INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes
 'Maggot Slime', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712188, 
 'Reduces an enemy''s melee attack power by $s1 and its ranged attack power by $s2 for $d.', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 
 'Melee attack power reduced by $s1.\nRanged attack power reduced by $s2.', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 
-0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 1, 1, 0, 0);  
+0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 1, 1, 0, 0),
+
+-- fix Charm of Swift Flight
+(48403, 0, 0, 0, 448, 268435456, 0, 0, 0, 0, 0, 0, 335544320, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5000, 0, 0, 0, 0, 0, 101, 
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 6, 6, 0, 1, 1, 0, 0, 0, 0, 0, 0, 
+0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 171, 208, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2241, 0, 0, 
+'Crow Speed', '', '', '', '乌鸦之速', '烏鴉之速', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712172, 
+'Increases speed in Flight Form and Swift Flight Form by $s1%.', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 
+'Flight Form and Swift Flight Form speed increased by $s1%.', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 16712190, 
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0);

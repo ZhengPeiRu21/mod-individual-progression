@@ -795,7 +795,7 @@ DELETE FROM `npc_vendor` WHERE `item` = 3777  AND `entry` IN (989, 1148, 1286, 1
                                                               3779, 3954, 3955, 3969, 4229, 4561, 4585, 4897, 5135, 5139, 5169, 5817, 6301, 6779, 7947, 8145, 8363, 8934,  
 															  10364, 11189, 12022, 12028, 12245, 12941, 12957, 12958, 15175, 15179);
 DELETE FROM `npc_vendor` WHERE `item` = 4471  AND `entry` IN (151, 227, 491, 734, 791, 1149, 1250, 1285, 1448, 1452, 1682, 1685, 1691, 2084, 2134, 2140, 2401, 2803, 2806, 2808, 2820, 2908, 
-                                                              3076, 3164, 3186, 3313, 3350, 3481, 3498, 3541, 3608, 3625, 3962, 4082, 4084, 4170, 4182, 4241, 4876, 4896, 5101, 5134, 
+                                                              3076, 3164, 3186, 3313, 3350, 3481, 3498, 3541, 3608, 3625, 3962, 4082, 4084, 4170, 4182, 4241, 4555, 4876, 4896, 5101, 5134, 
 															  7942, 8139, 8362, 11038, 11555, 12021, 12027, 12246, 12959, 12960, 14624, 15174);
 DELETE FROM `npc_vendor` WHERE `item` = 4833  AND `entry` IN (4890);
 DELETE FROM `npc_vendor` WHERE `item` = 4835  AND `entry` IN (4890);
@@ -1182,6 +1182,7 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (4265, 3713, 0, 0),       -- Nyoma, Soothing Spices
 (4553, 2692, 0, 0),       -- Ronald Burch, Hot Spices
 (4553, 3713, 0, 0),       -- Ronald Burch, Soothing Spices
+(4555, 4471, 0, 0),       -- Eleanor Rusk, Flint and Tinder
 (4561, 2324, 0, 0),       -- Daniel Bartlett, Bleach
 (4561, 2605, 0, 0),       -- Daniel Bartlett, Green Dye
 (4561, 2692, 0, 0),       -- Daniel Bartlett, Hot Spices
@@ -1471,6 +1472,24 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 
 
 /* PvP Gear Vendor Rep Requirements */
+
+-- Illiyana Moonblaze <Silverwing Supply Officer>
+UPDATE `item_template` SET `RequiredReputationFaction` = 890, `RequiredReputationRank` = 5 WHERE `entry` IN
+(19514, 19515, 19516, 19517, 19522, 19523, 19524, 19525, 19530, 19531, 19532, 19533, 19538, 19539, 19540, 19541, 20428, 20431, 20439, 20444);
+UPDATE `item_template` SET `RequiredReputationFaction` = 890, `RequiredReputationRank` = 6 WHERE `entry` IN
+(19546, 19547, 19548, 19549, 19554, 19555, 19556, 19557, 19562, 19563, 19564, 19565, 19570, 19571, 19572, 19573, 20434, 20438, 20440, 20443);
+UPDATE `item_template` SET `RequiredReputationFaction` = 890, `RequiredReputationRank` = 7 WHERE `entry` IN
+(19506, 22672, 22748, 22749, 22750, 22752, 22753);
+
+-- Kelm Hargunth <Warsong Supply Officer>
+UPDATE `item_template` SET `RequiredReputationFaction` = 889, `RequiredReputationRank` = 5 WHERE `entry` IN
+(19510, 19511, 19512, 19513, 19518, 19519, 19520, 19521, 19526, 19527, 19528, 19529, 19534, 19535, 19536, 19537, 20426, 20427, 20429, 20442);
+UPDATE `item_template` SET `RequiredReputationFaction` = 889, `RequiredReputationRank` = 6 WHERE `entry` IN
+(19542, 19543, 19544, 19545, 19550, 19551, 19552, 19553, 19558, 19559, 19560, 19561, 19566, 19567, 19568, 19569, 20425, 20430, 20437, 20441);
+UPDATE `item_template` SET `RequiredReputationFaction` = 889, `RequiredReputationRank` = 7 WHERE `entry` IN
+(19505, 22651, 22673, 22676, 22740, 22741, 22747);
+
+
 -- these need to be hidden. they cannot get a reputation requirement, because some of these items have the same ID for both alliance and horde.
 -- you can only set 1 reputation requirement for an item.
 -- AB is an exception. all AB items are unique to either faction
@@ -1625,153 +1644,67 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 13219, 19325, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13219, 21563, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
 (23, 13219, 19324, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+
 -- Illiyana Moonblaze <Silverwing Supply Officer>
+(23, 14753, 17349, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 17352, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19060, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19061, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19062, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19066, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19067, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19068, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 21565, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 21566, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 21567, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 21568, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19062, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19061, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19060, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19068, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19067, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19066, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 17349, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 17352, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19530, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19531, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19532, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19533, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 20428, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19522, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19523, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19524, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19525, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 20431, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19538, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19539, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19540, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19541, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 20444, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19514, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19515, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19516, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19517, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 20439, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+--
 (23, 14753, 17348, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 17351, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19570, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19571, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19572, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19573, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 20434, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19562, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19563, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19564, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19565, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 20438, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19554, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19555, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19556, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19557, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 20440, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19546, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19547, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19548, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19549, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 20443, 5, 890, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19506, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+--
 (23, 14753, 19578, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 19580, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 19581, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19595, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19596, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19597, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19587, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19589, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 19590, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 19582, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 19583, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14753, 19584, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 22752, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 22749, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 22750, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 22748, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 22672, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 22753, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14753, 30497, 8, 66008, 0, 'Illiyana Moonblaze - Sentinel\'s Mail Leggings'),
+(23, 14753, 19587, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19589, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19590, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19595, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19596, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19597, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+--
+(23, 14753, 30497, 8, 66008, 0, 'Illiyana Moonblaze - Sentinel\'s Mail Leggings'), -- not available during vanilla
+
 -- Kelm Hargunth <Warsong Supply Officer>
+(23, 14754, 17349, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 17352, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19060, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19061, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19062, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19066, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19067, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19068, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21565, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21566, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21567, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 21568, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19062, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19061, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19060, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19068, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19067, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19066, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 17349, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 17352, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19526, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19527, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19528, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19529, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 20427, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19518, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19519, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19520, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19521, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 20426, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19534, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19535, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19536, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19537, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 20442, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19510, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19511, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19512, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19513, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 20429, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+--
 (23, 14754, 17348, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 17351, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19566, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19567, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19568, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19569, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 20425, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19558, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19559, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19560, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19561, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 20437, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19550, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19551, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19552, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19553, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 20430, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19542, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19543, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19544, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19545, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 20441, 5, 889, 64 + 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19505, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+--
 (23, 14754, 19578, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 19580, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 19581, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19595, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19596, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19597, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19587, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19589, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 19590, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 19582, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 19583, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
 (23, 14754, 19584, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 22747, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 22740, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 22741, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 22673, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 22676, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 22651, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
-(23, 14754, 30498, 8, 66008, 0, 'Kelm Hargunth - Outrider\'s Lamellar Legguards');
+(23, 14754, 19587, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19589, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19590, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19595, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19596, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19597, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+--
+(23, 14754, 30498, 8, 66008, 0, 'Kelm Hargunth - Outrider\'s Lamellar Legguards'); -- not available during vanilla
