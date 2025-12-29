@@ -125,6 +125,16 @@ public:
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40)
+                && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_2))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5))
             {
                 if (sIndividualProgression->tbcArenaSeason == 1)
@@ -164,6 +174,16 @@ public:
                 return true;
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_2)
+                && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_3))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
 
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5))
             {
@@ -205,6 +225,16 @@ public:
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_3)
+                && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_4))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5))
             {
                 if (sIndividualProgression->tbcArenaSeason == 3)
@@ -244,6 +274,16 @@ public:
                 return true;
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_4)
+                && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
 
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5))
             {
@@ -285,6 +325,16 @@ public:
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5)
+                && sIndividualProgression->isBeforeProgression(target, PROGRESSION_WOTLK_TIER_2))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5))
             {
                 if (sIndividualProgression->wotlkArenaSeason == 5)
@@ -324,6 +374,16 @@ public:
                 return true;
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_2)
+                && sIndividualProgression->isBeforeProgression(target, PROGRESSION_WOTLK_TIER_3))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
 
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5))
             {
@@ -365,6 +425,16 @@ public:
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_3)
+                && sIndividualProgression->isBeforeProgression(target, PROGRESSION_WOTLK_TIER_4))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5))
             {
                 if (sIndividualProgression->wotlkArenaSeason == 7)
@@ -404,6 +474,15 @@ public:
                 return true;
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_WOTLK_TIER_4))
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
 
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5))
             {

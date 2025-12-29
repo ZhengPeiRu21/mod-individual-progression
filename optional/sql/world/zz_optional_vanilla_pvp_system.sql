@@ -938,7 +938,9 @@ DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` = 12783 AND `SourceEntry` = 35906; -- Reins of the Black War Elekk
 
 -- Update Vanilla ExtendedCost                             
-UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (12777, 12792, 12799, 12805, 26394, 26396, 112781, 112783, 112785, 112793, 112794, 112795, 112796);
+-- UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (12777, 12792, 12799, 12805, 26394, 26396, 112781, 112783, 112785, 112793, 112794, 112795, 112796);
+UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (12792, 12799, 14581, 112793, 112794, 112795, 112796); -- Orgrimmar, Vanilla
+UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (12777, 12805, 26394, 112781, 112785, 112783); -- Stormwind, Vanilla
 
 -- officer room doors
 DELETE FROM `gameobject` WHERE `guid` IN (626262, 631660, 631661);
@@ -963,3 +965,6 @@ UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (
 UPDATE `item_template` SET `BuyPrice` = 1000000 WHERE `entry` IN (19029,19030);
 -- Update Arathi stuff prices when price is missing
 UPDATE `item_template` SET `BuyPrice` = 13960 WHERE `entry` IN (20126,20129,20207,20210) AND `BuyPrice` = 0;
+
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_pvp_vendor_pre_tbc'   WHERE `id1` IN (12792, 12799, 14581, 112793, 112794, 112795, 112796);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_pvp_vendor_pre_tbc'   WHERE `id1` IN (12777, 12805, 26394, 112781, 112785, 112783);
