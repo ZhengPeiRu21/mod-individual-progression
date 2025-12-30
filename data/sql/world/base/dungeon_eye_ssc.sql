@@ -5,7 +5,7 @@ UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skar\'this the Her
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 4 WHERE `creature_id` = 17938;
     
 -- creatures in normal The Slave Pens should not drop Coilfang Armaments
-UPDATE `creature_loot_template` SET `LootMode` = 2 WHERE `Item` = 24368 AND `Entry` IN (17938, 17957, 17958, 17959, 17960, 17961, 21126, 21127);
+DELETE FROM `creature_loot_template` WHERE `Item` = 24368 AND `Entry` IN (17938, 17957, 17958, 17959, 17960, 17961, 21126, 21127);
 
     
 /* fix recipe loot drops */
