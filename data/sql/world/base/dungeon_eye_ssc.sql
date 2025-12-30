@@ -1,7 +1,10 @@
 /* Correct quest log text for SSC attunement quest "The Cudgel of Kar'desh" */
 UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skar\'this the Heretic in the heroic Slave Pens of Coilfang Reservoir.' WHERE `ID` = 10901;
 
+-- creatures in normal The Slave Pens should not drop Coilfang Armaments
+UPDATE `creature_loot_template` SET `LootMode` = 2 WHERE `Item` = 24368 AND `Entry` IN (17938, 17957, 17958, 17959, 17960, 17961, 21126, 21127);
 
+    
 /* fix recipe loot drops */
 
 -- remove unused reference loot tables
