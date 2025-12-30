@@ -105,9 +105,6 @@ UPDATE `gameobject_template` SET `ScriptName` = "go_cavernsoftimedoor" WHERE `en
 
 UPDATE `creature` SET `position_x` = -8175.67, `position_y` = -4718.28, `position_z` = 26.3489, `orientation` = 1.88496 WHERE `id1` = 15192;
 
--- Completion of "The Vials of Eternity" should award players the title "Hand of A'dal" 
-UPDATE `quest_template` SET `RewardTitle` = 64 WHERE `ID` = 10445;
-
 -- update Laden Dew Gland drop rate, was 100%
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 8428;
 
