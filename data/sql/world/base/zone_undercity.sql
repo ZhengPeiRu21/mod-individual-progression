@@ -1,34 +1,33 @@
-UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Leatherworker'     WHERE `entry` = 223;   -- Dan Golthas <Journeyman Leatherworker>
-UPDATE `creature_template` SET `npcflag`=83, `trainer_type`=2, `subname`='Journeyman Engineer'          WHERE `entry` = 4586;  -- Graham Van Talen <Journeyman Engineer>
-UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Blacksmith'        WHERE `entry` = 4605;  -- Basil Frye <Journeyman Blacksmith>
-UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Expert Alchemist'             WHERE `entry` = 4609;  -- Doctor Marsh <Expert Alchemist>
-UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Alchemist Trainer' WHERE `entry` = 11044; -- Doctor Martin Felben <Journeyman Alchemist Trainer>
-UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Tailor'            WHERE `entry` = 11048; -- Victor Ward <Journeyman Tailor>
-UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Expert Tailor'                WHERE `entry` = 11049; -- Rhiannon Davis <Expert Tailor>
-UPDATE `creature_template` SET `npcflag`=81, `trainer_type`=2, `subname`='Journeyman Enchanter'         WHERE `entry` = 11067; -- Malcomb Wynn <Journeyman Enchanter>
+UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Leatherworker'     WHERE `entry` = 223;   -- Dan Golthas <Journeyman Leatherworker> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag`=83, `subname`='Journeyman Engineer'          WHERE `entry` = 4586;  -- Graham Van Talen <Journeyman Engineer>  -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Blacksmith'        WHERE `entry` = 4605;  -- Basil Frye <Journeyman Blacksmith> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag`=81, `subname`='Expert Alchemist'             WHERE `entry` = 4609;  -- Doctor Marsh <Expert Alchemist> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Alchemist Trainer' WHERE `entry` = 11044; -- Doctor Martin Felben <Journeyman Alchemist Trainer> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Tailor'            WHERE `entry` = 11048; -- Victor Ward <Journeyman Tailor> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag`=81, `subname`='Expert Tailor'                WHERE `entry` = 11049; -- Rhiannon Davis <Expert Tailor> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Enchanter'         WHERE `entry` = 11067; -- Malcomb Wynn <Journeyman Enchanter> -- `trainer_type` = 2
 
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4609, 11049);
 
+SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (223, 4586, 4605, 4609, 11044, 11048, 11049, 11067);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(223,  -380000),  -- Dan Golthas <Journeyman Leatherworker>
-(4586, -340000),  -- Graham Van Talen <Journeyman Engineer>
-(4605, -310000),  -- Basil Frye <Journeyman Blacksmith>
-(4609, -300000),  -- Doctor Marsh <Expert Alchemist>
-(4609, -300001),  -- Doctor Marsh <Expert Alchemist>
-(11044, -300000), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
-(11048, -410000), -- Victor Ward <Journeyman Tailor>
-(11049, -410000), -- Rhiannon Davis <Expert Tailor>
-(11049, -410001), -- Rhiannon Davis <Expert Tailor>
-(11067, -330000); -- Malcomb Wynn <Journeyman Enchanter>
-
+DELETE FROM `npc_trainer` WHERE `ID` IN (223, 4586, 4591, 4605, 4609, 11044, 11048, 11049, 11067);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (223, 4586, 4591, 4605, 4609, 11044, 11048, 11049, 11067);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
+(223,   @TRAINER_ID+31), -- Dan Golthas <Journeyman Leatherworker>
+(4586,  @TRAINER_ID+26), -- Graham Van Talen <Journeyman Engineer>
+(4591,  @TRAINER_ID+45), -- Mary Edras <First Aid Trainer> 
+(4605,  @TRAINER_ID+16), -- Basil Frye <Journeyman Blacksmith>
+(4609,  @TRAINER_ID+12), -- Doctor Marsh <Expert Alchemist>
+(11044, @TRAINER_ID+11), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
+(11048, @TRAINER_ID+36), -- Victor Ward <Journeyman Tailor>
+(11049, @TRAINER_ID+37), -- Rhiannon Davis <Expert Tailor>
+(11067, @TRAINER_ID+21); -- Malcomb Wynn <Journeyman Enchanter>
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4130, 4352);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
 (4130, 0, 3, 'Train me.', 3266, 5, 16), -- Doctor Marsh <Expert Alchemist>
 (4352, 0, 3, 'Train me.', 3266, 5, 16); -- Rhiannon Davis <Expert Tailor>
-
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7 AND `SourceGroup` IN (1022, 4130, 4132, 4166, 4210, 4352, 4354);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
@@ -39,11 +38,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4210, 0, 7, 165, 50,  'Show menu if leatherworking is 50 or higher'), -- Arthur Moore <Expert Leatherworker>
 (15, 4352, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher'),      -- Rhiannon Davis <Expert Tailor>
 (15, 4354, 0, 7, 197, 125, 'Show menu if tailoring is 125 or higher');     -- Josef Gregorian <Artisan Tailor>
-
-
--- Mary Edras <First Aid Trainer> 
-DELETE FROM `npc_trainer` WHERE `ID`=4591; 
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4591, -350000); 
 
 DELETE FROM `gossip_menu_option` WHERE (`MenuID`) IN (2847, 2848, 2849);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, 
@@ -94,13 +88,13 @@ SET @CGUID          := 658000;
 SET @WPID           := 6580000;
 
 DELETE FROM `creature_template` WHERE `entry` IN (@Faranell_entry);
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
-`exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
-`BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
-`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
-`RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
+`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
+`PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
+`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
-(@Faranell_entry,0,0,0,0,0,'Master Apothecary Faranell','Royal Apothecary Society',NULL,10775,50,50,0,68,3,1,1.14286,1,1,18,1,0,0,1.1,2000,2000,1,1,2,37376,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,1.25,1,1,1,0,0,1,0,0,2,'',12340);
+(@Faranell_entry,0,0,0,0,0,'Master Apothecary Faranell','Royal Apothecary Society',NULL,10775,50,50,0,68,3,1,1.14286,1,1,18,1,0,0,1.1,2000,2000,1,1,2,37376,2048,0,0,7,0,0,0,0,0,0,0,0,'',0,1,1.25,1,1,1,0,0,1,0,0,2,'',12340);
 
 DELETE FROM `creature_template_locale` WHERE `entry` IN (@Faranell_entry);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
