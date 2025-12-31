@@ -6,32 +6,32 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Engineer'      WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `entry` = 11068; -- Betty Quin <Apprentice Enchanter>
 UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry` = 11096; -- Randal Worth <Apprentice Leatherworker>
 
-UPDATE `creature_template` SET `npcflag` = 81, `trainer_type` = 2 WHERE `entry` IN (957, 1300, 11026, 11068, 11096);
+UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (957, 1300, 11026, 11068, 11096); -- `trainer_type` = 2
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` = 5567; -- Sellandus <Expert Tailor>
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (957, 1300, 1317, 1346, 5499, 5500, 5511, 5518, 5564, 5567, 11026, 11068, 11096);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(957,  -310000),  -- Dane Lindgren <Journeyman Blacksmith>
-(1300, -410000),  -- Lawrence Schneider <Journeyman Tailor>
-(1317, -330000),  -- Lucan Cordell <Expert Enchanter>
-(1317, -330001),  -- Lucan Cordell <Expert Enchanter>
-(1346, -410000),  -- Georgio Bolero <Artisan Tailor>
-(1346, -410001),  -- Georgio Bolero <Artisan Tailor>
-(1346, -410002),  -- Georgio Bolero <Artisan Tailor>
-(5499, -300000),  -- Lilyssia Nightbreeze <Expert Alchemist>
-(5499, -300001),  -- Lilyssia Nightbreeze <Expert Alchemist>
-(5500, -300000),  -- Tel'Athir <Journeyman Alchemist>
-(5511, -310000),  -- Therum Deepforge <Expert Blacksmith>
-(5511, -310001),  -- Therum Deepforge <Expert Blacksmith>
-(5518, -340000),  -- Lilliam Sparkspindle <Expert Engineer>
-(5518, -340001),  -- Lilliam Sparkspindle <Expert Engineer>
-(5564, -380000),  -- Simon Tanner <Expert Leatherworker>
-(5564, -380001),  -- Simon Tanner <Expert Leatherworker>
-(5567, -410000),  -- Sellandus <Expert Tailor>
-(5567, -410001),  -- Sellandus <Expert Tailor>
-(11026, -340000), -- Sprite Jumpsprocket <Journeyman Engineer>
-(11068, -330000), -- Betty Quin <Journeyman Enchanter>
-(11096, -380000); -- Randal Worth <Journeyman Leatherworker>
+SET @TRAINER_ID   := 600;
+
+DELETE FROM `npc_trainer` WHERE `ID` IN (957, 1300, 1317, 1346, 1430, 2327, 5482, 5493, 5499, 5500, 5511, 5513, 5518, 5564, 5567, 11026, 11068, 11096);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (957, 1300, 1317, 1346, 1430, 2327, 5482, 5493, 5499, 5500, 5511, 5513, 5518, 5564, 5567, 11026, 11068, 11096);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
+(957,   @TRAINER_ID+16), -- Dane Lindgren <Journeyman Blacksmith>
+(1300,  @TRAINER_ID+36), -- Lawrence Schneider <Journeyman Tailor>
+(1317,  @TRAINER_ID+22), -- Lucan Cordell <Expert Enchanter>
+(1346,  @TRAINER_ID+38), -- Georgio Bolero <Artisan Tailor>
+(1430,  @TRAINER_ID+44), -- Tomas <Cook>
+(2327,  @TRAINER_ID+45), -- Shaina Fuller <First Aid Trainer>
+(5482,  @TRAINER_ID+44), -- Stephen Ryback <Cooking Trainer>
+(5493,  @TRAINER_ID+47), -- Arnold Leland <Fishing Trainer>
+(5499,  @TRAINER_ID+12), -- Lilyssia Nightbreeze <Expert Alchemist>
+(5500,  @TRAINER_ID+11), -- Tel'Athir <Journeyman Alchemist>
+(5511,  @TRAINER_ID+17), -- Therum Deepforge <Expert Blacksmith>
+(5513,  @TRAINER_ID+42), -- Gelman Stonehand <Mining Trainer>
+(5518,  @TRAINER_ID+27), -- Lilliam Sparkspindle <Expert Engineer>
+(5564,  @TRAINER_ID+32), -- Simon Tanner <Expert Leatherworker>
+(5567,  @TRAINER_ID+37), -- Sellandus <Expert Tailor>
+(11026, @TRAINER_ID+26), -- Sprite Jumpsprocket <Journeyman Engineer>
+(11068, @TRAINER_ID+21), -- Betty Quin <Journeyman Enchanter>
+(11096, @TRAINER_ID+31); -- Randal Worth <Journeyman Leatherworker>
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4161, 4344);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
@@ -52,21 +52,12 @@ UPDATE `creature_template` SET `minlevel` = 63, `maxlevel` = 63, `ScriptName` = 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` = 1747; -- Anduin Wrynn
 
 UPDATE `creature_template` SET `subname` = 'Arcane Goods Vendor' WHERE `entry` = 1257; -- Keldric Boucher <Alchemy Supplies & Reagents>
-UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1275; -- Kyra Boucher <Reagents>
-UPDATE `creature_template` SET `subname` = 'Trade Supplier'  WHERE `entry` = 1286; -- Edna Mullby <Trade Supplies>
-UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1308; -- Owen Vaughn <Reagents>
-UPDATE `creature_template` SET `subname` = 'Poison Supplier' WHERE `entry` = 1326; -- Sloan McCoy <Poison Supplier>
-UPDATE `creature_template` SET `subname` = 'Reagent Vendor'  WHERE `entry` = 1351; -- Brother Cassius <Reagents>
-UPDATE `creature_template` SET `subname` = 'Weapon Crafter'  WHERE `entry` = 7232; -- Borgus Steelhand <Weapon Crafter>
-
-DELETE FROM `npc_trainer` WHERE `ID` IN (1430, 2327, 5482, 5493, 5513);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(1430, -320000), -- Tomas <Cook>
-(2327, -350000), -- Shaina Fuller <First Aid Trainer>
-(5482, -320000), -- Stephen Ryback <Cooking Trainer>
-(5493, -360000), -- Arnold Leland <Fishing Trainer>
-(5513, -390000); -- Gelman Stonehand <Mining Trainer>
-
+UPDATE `creature_template` SET `subname` = 'Reagent Vendor'      WHERE `entry` = 1275; -- Kyra Boucher <Reagents>
+UPDATE `creature_template` SET `subname` = 'Trade Supplier'      WHERE `entry` = 1286; -- Edna Mullby <Trade Supplies>
+UPDATE `creature_template` SET `subname` = 'Reagent Vendor'      WHERE `entry` = 1308; -- Owen Vaughn <Reagents>
+UPDATE `creature_template` SET `subname` = 'Poison Supplier'     WHERE `entry` = 1326; -- Sloan McCoy <Poison Supplier>
+UPDATE `creature_template` SET `subname` = 'Reagent Vendor'      WHERE `entry` = 1351; -- Brother Cassius <Reagents>
+UPDATE `creature_template` SET `subname` = 'Weapon Crafter'      WHERE `entry` = 7232; -- Borgus Steelhand <Weapon Crafter>
 
 SET @Rachel     := 112778; -- Lieutenant Rachel Vaccar
 SET @Biggins    := 112781; -- Master Sergeant Biggins <Officer Accessories Quartermaster>, Vanilla
@@ -131,7 +122,6 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (@CGUID+37, 34077, 0, -8773.78, 425.804, 105.233, 4.80621, 180),     -- Lieutenant Tristia, WotLK Season 7
 (@CGUID+38, 34078, 0, -8773.78, 425.804, 105.233, 4.80621, 180);     -- Lieutenant Tristia, WotLK Season 8
 
-
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_tbc'   WHERE `guid` IN (612777, 612781, 612783, 612785, 612805, 626394); -- only visible during vanilla
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pvp'   WHERE `guid` IN (623446, 624672, 720278, 723396);                 -- only visible during tbc
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc'       WHERE `guid` IN (133921, 133926, 133927, 133928, 133929, 624671); -- visible during tbc & wotlk
@@ -149,7 +139,6 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S7'  WHERE `guid` IN (@CGUID
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S8'  WHERE `guid` IN (@CGUID+34, @CGUID+38);
 
 UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 12805; -- Officer Areyn <Accessories Quartermaster>
-
 
 /* Hide certain vendor items until the player has reached the progression tier for them */
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (12777, 12782, 12783, 26394) AND `ConditionValue1` IN (66002, 66006, 66008);
@@ -326,7 +315,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 26394, 23456, 0, 0, 8, 0, 66002, 0, 0, 0, 0, 0, '', 'Captain O\'Neal will not sell Grand Marshal\'s Swiftblade until the player has completed PROGRESSION_ONYXIA'),
 --
 (23, 12783, 35906, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lieutenant Karter will not sell Reins of the Black War Elekk until the player has completed PROGRESSION_PRE_TBC');
-
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
 
