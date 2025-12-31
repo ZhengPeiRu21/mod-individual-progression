@@ -15,7 +15,7 @@ DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (11041, 11042, 1105
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11041, @TRAINER_ID+11), -- Milla Fairancora <Journeyman Alchemist>
 (11042, @TRAINER_ID+12), -- Sylvanna Forestmoon <Expert Alchemist>
-(11050, @TRAINER_ID+31), -- Trianna <Journeyman Tailor>
+(11050, @TRAINER_ID+36), -- Trianna <Journeyman Tailor>
 (11070, @TRAINER_ID+21), -- Lalina Summermoon <Journeyman Enchanter>
 (11081, @TRAINER_ID+32), -- Faldron <Expert Leatherworker>
 (11083, @TRAINER_ID+31); -- Darianna <Journeyman Leatherworker>
