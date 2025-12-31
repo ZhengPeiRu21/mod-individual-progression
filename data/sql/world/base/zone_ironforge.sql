@@ -10,6 +10,8 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `ent
 UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (1246, 1466, 1703, 10276, 10277, 11028, 11029, 11065); -- `trainer_type` = 2
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (5157, 10276, 11029);
 
+SET @TRAINER_ID   := 600;
+
 DELETE FROM `npc_trainer` WHERE `ID` IN (1246, 1466, 1703, 5150, 10276, 10277, 11028, 11029, 11065);
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1246, 1466, 1703, 5150, 10276, 10277, 11028, 11029, 11065);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
