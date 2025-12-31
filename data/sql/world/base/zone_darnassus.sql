@@ -5,10 +5,10 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry` = 11083; -- Darianna <Journeyman Leatherworker>
 UPDATE `creature_template` SET `subname` = 'Expert Leatherworker'     WHERE `entry` = 11081; -- Faldron <Expert Leatherworker>
 
-SET @TRAINER_ID   := 600;
-
 UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (11041, 11042, 11050, 11070, 11081, 11083); -- `trainer_type` = 2
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4212, 11042, 11081);
+
+SET @TRAINER_ID   := 600;
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (11041, 11042, 11050, 11070, 11081, 11083);
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (11041, 11042, 11050, 11070, 11081, 11083);
