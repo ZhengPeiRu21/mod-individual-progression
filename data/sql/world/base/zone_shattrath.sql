@@ -30,3 +30,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (22375, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0,                            'Avatar of Terokk - On Just Died - Set Data 1 1'),
 (22375, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 24193, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                           'Avatar of Terokk - On Aggro - Cast Charge'),
 (22375, 0, 3, 0, 0, 0, 100, 0, 6000, 9000, 11000, 14000, 0, 0, 11, 39068, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Avatar of Terokk - In Combat - Cast Feather Burst');
+
+-- fix worldserver error during quest: The Skettis Offensive
+UPDATE `smart_scripts` SET `event_type` = 61 WHERE `entryorguid` = 22374 AND `source_type` = 0 AND `id` = 1;
