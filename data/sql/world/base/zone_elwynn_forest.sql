@@ -149,6 +149,8 @@ DELETE FROM `creature_template_addon` WHERE `entry` = 299; -- Diseased Young Wol
 DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4169;
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES (4169, 0, 3, 'Train me.', 3266, 5, 16);
 
+SET @TRAINER_ID   := 600;
+
 DELETE FROM `npc_trainer` WHERE `ID` IN (514, 1103, 1215, 1632, 1651, 2329, 4732, 11072);
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (514, 1103, 1215, 1632, 1651, 2329, 4732, 5500, 5567, 11072);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
