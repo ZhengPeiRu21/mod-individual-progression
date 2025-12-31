@@ -169,7 +169,6 @@ INSERT INTO npc_vendor (entry, slot, item) VALUES
 (18751, 0, 23130),
 (18774, 0, 23130);
 
-
 /* These NPCs shouldn't train certain spells until progression tier 10
    to solve this copies are created that only train or sell what was available before progression tier 10
    the originals replace their copies at progression tier 10 */
@@ -437,6 +436,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (33674, -201002, 0, 0, 0, 0);
 -- Grandmaster Alchemy Trainers already have their own unique template
 
+
 DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+16,  @TRAINER_ID+17,  @TRAINER_ID+18);
 INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Blacksmith
@@ -612,6 +612,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (28694, -201006, 0, 0, 0, 0),
 (29924, -201006, 0, 0, 0, 0),
 (33591, -201006, 0, 0, 0, 0);
+
 
 DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+21, @TRAINER_ID+22, @TRAINER_ID+23);
 INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -876,6 +877,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (28697, -201014, 0, 0, 0, 0),
 (33586, -201014, 0, 0, 0, 0);
 
+
 DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+31, @TRAINER_ID+32,@TRAINER_ID+33);
 INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Leatherworking
@@ -1019,6 +1021,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 -- Grandmaster Leatherworking Trainer
 (26996, -201029, 0, 0, 0, 0);
 
+
 DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+36, @TRAINER_ID+37, @TRAINER_ID+38);
 INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Tailoring
@@ -1047,6 +1050,30 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 (@TRAINER_ID+36, 2964, 100, 197, 75, 0),
 (@TRAINER_ID+36, 12046, 300, 197, 75, 0),
 -- Expert Tailoring
+(@TRAINER_ID+37, 3911, 10, 0, 0, 5),
+(@TRAINER_ID+37, 2393, 25, 197, 1, 0),
+(@TRAINER_ID+37, 3915, 25, 197, 1, 0),
+(@TRAINER_ID+37, 12044, 30, 197, 1, 0),
+(@TRAINER_ID+37, 2385, 50, 197, 10, 0),
+(@TRAINER_ID+37, 8776, 50, 197, 10, 0),
+(@TRAINER_ID+37, 12045, 50, 197, 20, 0),
+(@TRAINER_ID+37, 7623, 50, 197, 30, 0),
+(@TRAINER_ID+37, 7624, 50, 197, 30, 0),
+(@TRAINER_ID+37, 3914, 50, 197, 30, 0),
+(@TRAINER_ID+37, 3840, 100, 197, 35, 0),
+(@TRAINER_ID+37, 2392, 50, 197, 40, 0),
+(@TRAINER_ID+37, 2394, 50, 197, 40, 0),
+(@TRAINER_ID+37, 8465, 50, 197, 40, 0),
+(@TRAINER_ID+37, 3755, 100, 197, 45, 0),
+(@TRAINER_ID+37, 2397, 200, 197, 60, 0),
+(@TRAINER_ID+37, 3841, 200, 197, 60, 0),
+(@TRAINER_ID+37, 2386, 200, 197, 65, 0),
+(@TRAINER_ID+37, 2395, 300, 197, 70, 0),
+(@TRAINER_ID+37, 2396, 200, 197, 70, 0),
+(@TRAINER_ID+37, 3842, 300, 197, 70, 0),
+(@TRAINER_ID+37, 2402, 250, 197, 75, 0),
+(@TRAINER_ID+37, 2964, 100, 197, 75, 0),
+(@TRAINER_ID+37, 12046, 300, 197, 75, 0),
 (@TRAINER_ID+37, 3912, 500, 197, 50, 10),
 (@TRAINER_ID+37, 3757, 200, 197, 80, 0),
 (@TRAINER_ID+37, 3845, 300, 197, 80, 0),
@@ -1068,6 +1095,50 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 (@TRAINER_ID+37, 3813, 750, 197, 150, 0),
 (@TRAINER_ID+37, 3859, 700, 197, 150, 0),
 -- Artisan Tailoring
+(@TRAINER_ID+38, 3911, 10, 0, 0, 5),
+(@TRAINER_ID+38, 2393, 25, 197, 1, 0),
+(@TRAINER_ID+38, 3915, 25, 197, 1, 0),
+(@TRAINER_ID+38, 12044, 30, 197, 1, 0),
+(@TRAINER_ID+38, 2385, 50, 197, 10, 0),
+(@TRAINER_ID+38, 8776, 50, 197, 10, 0),
+(@TRAINER_ID+38, 12045, 50, 197, 20, 0),
+(@TRAINER_ID+38, 7623, 50, 197, 30, 0),
+(@TRAINER_ID+38, 7624, 50, 197, 30, 0),
+(@TRAINER_ID+38, 3914, 50, 197, 30, 0),
+(@TRAINER_ID+38, 3840, 100, 197, 35, 0),
+(@TRAINER_ID+38, 2392, 50, 197, 40, 0),
+(@TRAINER_ID+38, 2394, 50, 197, 40, 0),
+(@TRAINER_ID+38, 8465, 50, 197, 40, 0),
+(@TRAINER_ID+38, 3755, 100, 197, 45, 0),
+(@TRAINER_ID+38, 2397, 200, 197, 60, 0),
+(@TRAINER_ID+38, 3841, 200, 197, 60, 0),
+(@TRAINER_ID+38, 2386, 200, 197, 65, 0),
+(@TRAINER_ID+38, 2395, 300, 197, 70, 0),
+(@TRAINER_ID+38, 2396, 200, 197, 70, 0),
+(@TRAINER_ID+38, 3842, 300, 197, 70, 0),
+(@TRAINER_ID+38, 2402, 250, 197, 75, 0),
+(@TRAINER_ID+38, 2964, 100, 197, 75, 0),
+(@TRAINER_ID+38, 12046, 300, 197, 75, 0),
+(@TRAINER_ID+38, 3912, 500, 197, 50, 10),
+(@TRAINER_ID+38, 3757, 200, 197, 80, 0),
+(@TRAINER_ID+38, 3845, 300, 197, 80, 0),
+(@TRAINER_ID+38, 2399, 300, 197, 85, 0),
+(@TRAINER_ID+38, 3843, 400, 197, 85, 0),
+(@TRAINER_ID+38, 6521, 400, 197, 90, 0),
+(@TRAINER_ID+38, 2401, 300, 197, 95, 0),
+(@TRAINER_ID+38, 2406, 200, 197, 100, 0),
+(@TRAINER_ID+38, 3848, 500, 197, 110, 0),
+(@TRAINER_ID+38, 3850, 500, 197, 110, 0),
+(@TRAINER_ID+38, 3866, 250, 197, 110, 0),
+(@TRAINER_ID+38, 8467, 250, 197, 110, 0),
+(@TRAINER_ID+38, 3839, 500, 197, 125, 0),
+(@TRAINER_ID+38, 3855, 700, 197, 125, 0),
+(@TRAINER_ID+38, 3852, 700, 197, 130, 0),
+(@TRAINER_ID+38, 6690, 1000, 197, 135, 0),
+(@TRAINER_ID+38, 8758, 600, 197, 140, 0),
+(@TRAINER_ID+38, 8760, 600, 197, 145, 0),
+(@TRAINER_ID+38, 3813, 750, 197, 150, 0),
+(@TRAINER_ID+38, 3859, 700, 197, 150, 0),
 (@TRAINER_ID+38, 3913, 5000, 197, 125, 20),
 (@TRAINER_ID+38, 8483, 500, 197, 160, 0),
 (@TRAINER_ID+38, 8762, 700, 197, 160, 0),
@@ -1099,18 +1170,18 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 DELETE FROM `creature_default_trainer` WHERE `TrainerId` IN (@TRAINER_ID+31, @TRAINER_ID+32, @TRAINER_ID+33);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(3523,  @TRAINER_ID+31), -- Journeyman Tailoring
-(4193,  @TRAINER_ID+31),
-(16366, @TRAINER_ID+31),
-(17487, @TRAINER_ID+31),
+(3523,  @TRAINER_ID+36), -- Journeyman Tailoring
+(4193,  @TRAINER_ID+36),
+(16366, @TRAINER_ID+36),
+(17487, @TRAINER_ID+36),
 --
-(2627,  @TRAINER_ID+32), -- Expert Tailoring
-(4159,  @TRAINER_ID+32),
-(5153,  @TRAINER_ID+32),
-(16640, @TRAINER_ID+32),
-(16729, @TRAINER_ID+32),
+(2627,  @TRAINER_ID+37), -- Expert Tailoring
+(4159,  @TRAINER_ID+37),
+(5153,  @TRAINER_ID+37),
+(16640, @TRAINER_ID+37),
+(16729, @TRAINER_ID+37),
 --
-(4576,  @TRAINER_ID+33); -- Artisan Tailoring
+(4576,  @TRAINER_ID+38); -- Artisan Tailoring
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (2627, 3523, 4159, 4193, 4576, 5153, 16366, 16640, 16729, 17487, 18749, 18772, 26914, 26964, 26969, 27001, 28699, 33580, 33613, 33636, 33684);
 INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
