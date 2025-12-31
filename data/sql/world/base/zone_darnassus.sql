@@ -5,19 +5,20 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `entry` = 11083; -- Darianna <Journeyman Leatherworker>
 UPDATE `creature_template` SET `subname` = 'Expert Leatherworker'     WHERE `entry` = 11081; -- Faldron <Expert Leatherworker>
 
-UPDATE `creature_template` SET `npcflag` = 81, `trainer_type` = 2 WHERE `entry` IN (11041, 11042, 11050, 11070, 11081, 11083);
+SET @TRAINER_ID   := 600;
+
+UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (11041, 11042, 11050, 11070, 11081, 11083); -- `trainer_type` = 2
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4212, 11042, 11081);
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (11041, 11042, 11050, 11070, 11081, 11083);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(11041, -300000), -- Milla Fairancora <Journeyman Alchemist>
-(11042, -300000), -- Sylvanna Forestmoon <Expert Alchemist>
-(11042, -300001), -- Sylvanna Forestmoon <Expert Alchemist>
-(11050, -410000), -- Trianna <Journeyman Tailor>
-(11070, -330000), -- Lalina Summermoon <Journeyman Enchanter>
-(11081, -380000), -- Faldron <Expert Leatherworker>
-(11081, -380001), -- Faldron <Expert Leatherworker>
-(11083, -380000); -- Darianna <Journeyman Leatherworker>
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (11041, 11042, 11050, 11070, 11081, 11083);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
+(11041, @TRAINER_ID+11), -- Milla Fairancora <Journeyman Alchemist>
+(11042, @TRAINER_ID+12), -- Sylvanna Forestmoon <Expert Alchemist>
+(11050, @TRAINER_ID+31), -- Trianna <Journeyman Tailor>
+(11070, @TRAINER_ID+21), -- Lalina Summermoon <Journeyman Enchanter>
+(11081, @TRAINER_ID+32), -- Faldron <Expert Leatherworker>
+(11083, @TRAINER_ID+31); -- Darianna <Journeyman Leatherworker>
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4125, 4204, 4241);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
