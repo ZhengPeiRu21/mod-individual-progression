@@ -29,7 +29,7 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (3332,  @TRAINER_ID+47), -- Lumak <Fishing Trainer>
 (3345,  @TRAINER_ID+22), -- Godan <Expert Enchanter>
 (3347,  @TRAINER_ID+12), -- Yelmak <Expert Alchemist>
-(3355, -@TRAINER_ID+18), -- Saru Steelfury <Artisan Blacksmith>
+(3355,  @TRAINER_ID+18), -- Saru Steelfury <Artisan Blacksmith>
 (3357,  @TRAINER_ID+42), -- Makaru <Mining Trainer>
 (3363,  @TRAINER_ID+37), -- Magar <Expert Tailor>
 (3365,  @TRAINER_ID+32), -- Karolek <Expert Leatherworker>
