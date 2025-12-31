@@ -342,8 +342,8 @@ INSERT INTO `trainer` (`Id`, `Type`, `Requirement`, `Greeting`, `VerifiedBuild`)
 
 /* Crafting Professions */
 
-DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+11, @TRAINER_ID+12, @TRAINER_ID+13);
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+11, @TRAINER_ID+12, @TRAINER_ID+13);
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Alchemist
 (@TRAINER_ID+11, 2275, 10, 0, 0, 5),
 (@TRAINER_ID+11, 3170, 50, 171, 15, 0),
@@ -405,7 +405,7 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 -- Master Alchemy Trainer      - @TRAINER_ID+14
 -- Grandmaster Alchemy Trainer - @TRAINER_ID+15
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` IN (@TRAINER_ID+11, @TRAINER_ID+12, @TRAINER_ID+13);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1470, 3603, 16161, 2391, 2837, 3964, 4900, 5177, 16642, 16723, 4160, 4611);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (1470,  @TRAINER_ID+11), -- Journeyman Alchemist
@@ -436,9 +436,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (33674, -201002, 0, 0, 0, 0);
 -- Grandmaster Alchemy Trainers already have their own unique template
 
-
-DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+16,  @TRAINER_ID+17,  @TRAINER_ID+18);
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+16,  @TRAINER_ID+17,  @TRAINER_ID+18);
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Blacksmith
 (@TRAINER_ID+16, 2020, 10, 0, 0, 5),
 (@TRAINER_ID+16, 2662, 50, 164, 1, 0),
@@ -577,7 +576,7 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 -- Master Blacksmithing Trainer      - @TRAINER_ID+19
 -- Grandmaster Blacksmithing Trainer - @TRAINER_ID+20
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` IN (@TRAINER_ID+16, @TRAINER_ID+17, @TRAINER_ID+18);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1241, 3557, 6299, 15400, 17245, 3136, 4596, 16669, 16724, 4258);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (1241,  @TRAINER_ID+16), -- Journeyman Blacksmith
@@ -613,9 +612,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (29924, -201006, 0, 0, 0, 0),
 (33591, -201006, 0, 0, 0, 0);
 
-
-DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+21, @TRAINER_ID+22, @TRAINER_ID+23);
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+21, @TRAINER_ID+22, @TRAINER_ID+23);
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Enchanter
 (@TRAINER_ID+21, 7414, 10, 0, 0, 5),
 (@TRAINER_ID+21, 14293, 50, 333, 10, 0),
@@ -714,7 +712,7 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 -- Master Enchanting Trainer      - @TRAINER_ID+24
 -- Grandmaster Enchanting Trainer - @TRAINER_ID+25
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` IN (@TRAINER_ID+21, @TRAINER_ID+22, @TRAINER_ID+23);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3606, 16160, 19251, 4213, 4616, 5157, 7949, 16633, 16725, 11074);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (3606,  @TRAINER_ID+21), -- Journeyman Enchanter
@@ -742,9 +740,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (33676, -201010, 0, 0, 0, 0);
 -- Grandmaster Enchanting Trainers already have their own unique template
 
-
-DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+26, @TRAINER_ID+27, @TRAINER_ID+28);
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+26, @TRAINER_ID+27, @TRAINER_ID+28);
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Engineering
 (@TRAINER_ID+26, 4039, 10, 0, 0, 5),
 (@TRAINER_ID+26, 3922, 115, 202, 30, 0),
@@ -847,7 +844,7 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 -- Master Engineering Trainer      - @TRAINER_ID+29
 -- Grandmaster Engineering Trainer - @TRAINER_ID+30
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` IN (@TRAINER_ID+26, @TRAINER_ID+27, @TRAINER_ID+28);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1702, 3290, 11037, 17222, 1676, 11031, 16667, 16726, 5174);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (1702,  @TRAINER_ID+26), -- Journeyman Engineering
@@ -877,9 +874,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (28697, -201014, 0, 0, 0, 0),
 (33586, -201014, 0, 0, 0, 0);
 
-
-DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+31, @TRAINER_ID+32,@TRAINER_ID+33);
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+31, @TRAINER_ID+32,@TRAINER_ID+33);
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Leatherworking
 (@TRAINER_ID+31, 2155, 10, 0, 0, 5),
 (@TRAINER_ID+31, 2153, 50, 165, 15, 0),
@@ -991,7 +987,7 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 -- Master Leatherworking Trainer      - @TRAINER_ID+34
 -- Grandmaster Leatherworking Trainer - @TRAINER_ID+35
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` IN (@TRAINER_ID+31, @TRAINER_ID+32, @TRAINER_ID+33);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3605, 16278, 17442, 1385, 3967, 4588, 5127, 8153, 16688, 16728, 4212);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (3605,  @TRAINER_ID+31), -- Journeyman Leatherworking
@@ -1021,9 +1017,8 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 -- Grandmaster Leatherworking Trainer
 (26996, -201029, 0, 0, 0, 0);
 
-
-DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+36, @TRAINER_ID+37, @TRAINER_ID+38);
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+36, @TRAINER_ID+37, @TRAINER_ID+38);
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 -- Journeyman Tailoring
 (@TRAINER_ID+36, 3911, 10, 0, 0, 5),
 (@TRAINER_ID+36, 2393, 25, 197, 1, 0),
@@ -1167,7 +1162,7 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 -- Master Tailoring Trainer      - @TRAINER_ID+39 
 -- Grandmaster Tailoring Trainer - @TRAINER_ID+40
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` IN (@TRAINER_ID+31, @TRAINER_ID+32, @TRAINER_ID+33);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3523, 4193, 16366, 17487, 2627, 4159, 5153, 16640, 16729, 4576);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (3523,  @TRAINER_ID+36), -- Journeyman Tailoring
@@ -1203,14 +1198,14 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 /* Gathering Professions */
 
 -- Herbalism
-DELETE FROM `trainer_spell` WHERE `ID` = @TRAINER_ID+41;
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+41;
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (@TRAINER_ID+41, 2372, 10, 0, 0, 1),
 (@TRAINER_ID+41, 2373, 500, 182, 50, 1),
 (@TRAINER_ID+41, 3571, 5000, 182, 125, 10),
 (@TRAINER_ID+41, 11994, 50000, 182, 200, 25);
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` = @TRAINER_ID+41;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2114, 3013, 3185);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (2114, @TRAINER_ID+41),
@@ -1218,8 +1213,8 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (3185, @TRAINER_ID+41);
 
 -- Mining
-DELETE FROM `trainer_spell` WHERE `ID` = @TRAINER_ID+42;
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+42;
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (@TRAINER_ID+42, 2581, 10, 186, 0, 1),
 (@TRAINER_ID+42, 2582, 500, 186, 50, 1),
 (@TRAINER_ID+42, 2658, 200, 186, 75, 0),
@@ -1234,7 +1229,7 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 (@TRAINER_ID+42, 10098, 10000, 186, 230, 0),
 (@TRAINER_ID+42, 16153, 20000, 186, 250, 0);
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` = @TRAINER_ID+42;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3001, 3175, 3357, 5513);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (3001, @TRAINER_ID+42),
@@ -1243,14 +1238,14 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (5513, @TRAINER_ID+42);
 
 -- Skinning
-DELETE FROM `npc_trainer` WHERE `ID` = @TRAINER_ID+43;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+43;
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (@TRAINER_ID+43, 8615, 10, 0, 0, 1),
 (@TRAINER_ID+43, 8619, 500, 393, 50, 1),
 (@TRAINER_ID+43, 8620, 5000, 393, 125, 10),
 (@TRAINER_ID+43, 10769, 50000, 393, 200, 25);
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` = @TRAINER_ID+43;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (6289, 6290, 6387, 7088, 7089);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (6289, @TRAINER_ID+43),
@@ -1263,8 +1258,8 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 /* Secondary Skills */
 
 -- Cooking
-DELETE FROM `npc_trainer` WHERE `ID` = @TRAINER_ID+44;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+44;
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (@TRAINER_ID+44, 2551, 100, 0, 0, 5),
 (@TRAINER_ID+44, 2539, 50, 185, 10, 0),
 (@TRAINER_ID+44, 2541, 100, 185, 50, 0),
@@ -1275,7 +1270,7 @@ INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSki
 (@TRAINER_ID+44, 6500, 300, 185, 125, 0),
 (@TRAINER_ID+44, 21175, 4000, 185, 200, 0);
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` = @TRAINER_ID+44;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1430, 3026, 3399, 5482, 8306);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (1430, @TRAINER_ID+44),
@@ -1285,8 +1280,8 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (8306, @TRAINER_ID+44);
 
 -- First Aid
-DELETE FROM `trainer_spell` WHERE `ID` IN (@TRAINER_ID+45, @TRAINER_ID+46);
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+45, @TRAINER_ID+46);
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 --
 (@TRAINER_ID+45, 3279, 100, 0, 0, 1),
 (@TRAINER_ID+45, 3276, 100, 129, 40, 0),
@@ -1296,11 +1291,11 @@ INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqS
 (@TRAINER_ID+45, 3278, 1000, 129, 115, 0),
 (@TRAINER_ID+45, 7928, 5000, 129, 150, 0),
 --
-(@TRAINER_ID+46, 10843, 0, 129, 240, 0, 0),
-(@TRAINER_ID+46, 18631, 0, 129, 260, 35, 0),
-(@TRAINER_ID+46, 18632, 0, 129, 290, 35, 0);
+(@TRAINER_ID+46, 10843, 0, 129, 240, 0),
+(@TRAINER_ID+46, 18631, 0, 129, 260, 35),
+(@TRAINER_ID+46, 18632, 0, 129, 290, 35);
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` IN (@TRAINER_ID+45, @TRAINER_ID+46);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2326, 2327, 2329, 2798, 3181, 3373, 4211, 4591, 5150, 5759, 5939, 5943, 6094, 16272, 16662, 16731, 17214, 17424, 19184, 19478, 22477, 12920, 12939);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (2326,  @TRAINER_ID+45),
@@ -1329,12 +1324,12 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (12939, @TRAINER_ID+46);
 
 -- Fishing
-DELETE FROM `trainer_spell` WHERE `ID` = @TRAINER_ID+47;
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+47;
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (@TRAINER_ID+47, 7733, 100, 0, 0, 5),
 (@TRAINER_ID+47, 7734, 500, 356, 50, 10);
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` = @TRAINER_ID+47;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1651, 3028, 3332, 5493, 5690, 5938);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (1651, @TRAINER_ID+47),
@@ -1345,12 +1340,12 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (5938, @TRAINER_ID+47);
 
 -- Riding
-DELETE FROM `trainer_spell` WHERE `ID` = @TRAINER_ID+48;
-INSERT INTO `trainer_spell` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+48;
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 (@TRAINER_ID+48, 33388, 900000, 762, 0, 40),
 (@TRAINER_ID+48, 33391, 9000000, 762, 75, 60);
 
-DELETE FROM `creature_default_trainer` WHERE `TrainerId` = @TRAINER_ID+48;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3690, 4732, 4752, 4773, 7953);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (3690, @TRAINER_ID+48),
