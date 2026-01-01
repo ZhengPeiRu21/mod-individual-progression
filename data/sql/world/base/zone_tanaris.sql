@@ -141,8 +141,7 @@ SET @Vixton    := 120278;
 SET @Evee      := 125177;
 SET @Ecton     := 125178;
 
-DELETE FROM `creature` WHERE `guid` IN (@CGUID+41, @CGUID+42);
-DELETE FROM `creature` WHERE `id1` IN (25177, 25178, 26378, @Evee, @Ecton);
+DELETE FROM `creature` WHERE `id1` IN (20278, 25177, 25178, 26378, @Vixton, @Evee, @Ecton);
 DELETE FROM `creature` WHERE `id1` IN (32359, 32360, 32362, 32407, 33915, 33917, 33920, 33924, 33928, 33929, 33934, 33935, 33939, 34088, 34090, 34093);
 
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
