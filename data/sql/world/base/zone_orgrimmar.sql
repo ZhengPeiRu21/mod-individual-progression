@@ -44,11 +44,17 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11046, @TRAINER_ID+11), -- Whuut <Journeyman Alchemist>
 (11066, @TRAINER_ID+21); -- Jhag <Journeyman Enchanter>
 
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2782, 4148, 4151);
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2747, 2782, 4118, 4143, 4148, 4151, 4159, 4183, 4265);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(2747, 0, 3, 'Train me.', 3266, 5, 16), -- Ug'thok <Journeyman Blacksmith>
 (2782, 0, 3, 'Train me.', 3266, 5, 16), -- Snarl <Expert Blacksmith>
+(4118, 0, 3, 'Train me.', 3266, 5, 16), -- Whuut <Journeyman Alchemist>
+(4143, 0, 3, 'Train me.', 3266, 5, 16), -- Thund <Journeyman Engineer>
 (4148, 0, 3, 'Train me.', 3266, 5, 16), -- Nogg <Expert Engineer>
-(4151, 0, 3, 'Train me.', 3266, 5, 16); -- Roxxik <Artisan Engineer>
+(4151, 0, 3, 'Train me.', 3266, 5, 16), -- Roxxik <Artisan Engineer>
+(4159, 0, 3, 'Train me.', 3266, 5, 16), -- Jhag <Journeyman Enchanter>
+(4183, 0, 3, 'Train me.', 3266, 5, 16), -- Kamari <Journeyman Leatherworker>
+(4265, 0, 3, 'Train me.', 3266, 5, 16); -- Snang <Journeyman Tailor>
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (1012, 2782, 4126, 4148, 4151, 4168, 4209, 4347);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
