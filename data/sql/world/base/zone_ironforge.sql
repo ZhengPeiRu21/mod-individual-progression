@@ -4,7 +4,7 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Tailor'        WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Expert Blacksmith'        WHERE `entry` = 10276; -- Rotgath Stonebeard <Expert Blacksmith>
 UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith'    WHERE `entry` = 10277; -- Groum Stonebeard <Journeyman Blacksmith>
 UPDATE `creature_template` SET `subname` = 'Journeyman Engineer'      WHERE `entry` = 11028; -- Jemma Quikswitch <Journeyman Engineer>
-UPDATE `creature_template` SET `subname` = 'Journeyman Engineer'      WHERE `entry` = 11029; -- Trixie Quikswitch <Expert Engineer>
+UPDATE `creature_template` SET `subname` = 'Expert Engineer'          WHERE `entry` = 11029; -- Trixie Quikswitch <Expert Engineer>
 UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `entry` = 11065; -- Thonys Pillarstone <Journeyman Enchanter>
 
 UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (1246, 1466, 1703, 10276, 10277, 11028, 11029, 11065); -- `trainer_type` = 2
@@ -25,11 +25,17 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11029, @TRAINER_ID+27), -- Trixie Quikswitch <Expert Engineer>
 (11065, @TRAINER_ID+21); -- Thonys Pillarstone <Journeyman Enchanter>
 
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2761, 4147, 4160);
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2742, 2761, 4116, 4137, 4147, 4154, 4160, 4182, 4264);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
+(2742, 0, 3, 'Train me.', 3266, 5, 16), -- Groum Stonebeard <Journeyman Blacksmith>
 (2761, 0, 3, 'Train me.', 3266, 5, 16), -- Rotgath Stonebeard <Expert Blacksmith>
+(4116, 0, 3, 'Train me.', 3266, 5, 16), -- Vosur Brakthel <Journeyman Alchemist>
+(4137, 0, 3, 'Train me.', 3266, 5, 16), -- Jemma Quikswitch <Journeyman Engineer>
 (4147, 0, 3, 'Train me.', 3266, 5, 16), -- Trixie Quikswitch <Expert Engineer>
-(4160, 0, 3, 'Train me.', 3266, 5, 16); -- Gimble Thistlefuzz <Expert Enchanter>
+(4154, 0, 3, 'Train me.', 3266, 5, 16), -- Thonys Pillarstone <Journeyman Enchanter>
+(4160, 0, 3, 'Train me.', 3266, 5, 16), -- Gimble Thistlefuzz <Expert Enchanter>
+(4182, 0, 3, 'Train me.', 3266, 5, 16), -- Gretta Finespindle <Journeyman Leatherworker>
+(4264, 0, 3, 'Train me.', 3266, 5, 16); -- Uthrar Threx <Journeyman Tailor>
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (593, 2761, 4123, 4147, 4150, 4160, 4205, 4345);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
