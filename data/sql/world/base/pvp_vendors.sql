@@ -17,27 +17,23 @@ SET @Ecton      := 125178;
 
 
 DELETE FROM `creature_template` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork, @Rachel, @Biggins, @Karter, @Clate, @Vixton, @Krixel, @Leeni, @Evee, @Ecton);
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
-`exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
-`BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
-`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
-`RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
 --
-(@Stonehide,0,0,0,0,0,'Brave Stonehide','Officer Accessories Quartermaster',NULL,0,55,55,0,125,128,1,1.14286,1,1,18,1,0,0,2.9,2000,2000,1,1,1,256,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Zarg,0,0,0,0,0,'Stone Guard Zarg','Food and Drink',NULL,0,55,55,0,125,130,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Hola,0,0,0,0,0,'First Sergeant Hola\'mahi','Reagent Vendor',NULL,0,55,55,0,125,130,1,1.14286,1,1,18,1,0,0,1.2,2000,1551,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',1,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
-(@Bork,0,0,0,0,0,'Raider Bork','Mount Quartermaster',NULL,0,55,55,0,1074,128,1,1.14286,1,1,18,1,0,0,1.05,2000,1606,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'npc_ipp_pre_tbc',0),
+(@Stonehide, 0, 0, 0, 0, 0, 'Brave Stonehide', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 125, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.9, 2000, 2000, 1, 1, 1, 256, 2048, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 0),
+(@Zarg, 0, 0, 0, 0, 0, 'Stone Guard Zarg', 'Food and Drink', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 1606, 1, 1, 1, 768, 2048, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 0),
+(@Hola, 0, 0, 0, 0, 0, 'First Sergeant Hola\'mahi', 'Reagent Vendor', NULL, 0, 55, 55, 0, 125, 130, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.2, 2000, 1551, 1, 1, 1, 768, 2048, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 0),
+(@Bork, 0, 0, 0, 0, 0, 'Raider Bork', 'Mount Quartermaster', NULL, 0, 55, 55, 0, 1074, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 1606, 1, 1, 1, 768, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 0, 'npc_ipp_pre_tbc', 0),
 --
-(@Rachel,0,0,0,0,0,'Lieutenant Rachel Vaccar',NULL,NULL,0,55,55,1,123,0,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,33536,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
-(@Biggins,0,0,0,0,0,'Master Sergeant Biggins','Officer Accessories Quartermaster',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
-(@Karter,0,0,0,0,0,'Lieutenant Karter','Mount Vendor',NULL,0,55,55,0,1078,128,1,1.14286,1,1,18,1,0,0,1.05,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
-(@Clate,0,0,0,0,0,'Sergeant Major Clate','Food and Drink',NULL,0,55,55,0,123,4224,1,1.14286,1,1,18,1,0,0,2.15,2000,2000,1,1,1,768,2048,0,0,0,0,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,2.6,1,0,0,1,0,0,0,'',0),
+(@Rachel, 0, 0, 0, 0, 0, 'Lieutenant Rachel Vaccar', NULL, NULL, 0, 55, 55, 1, 123, 0, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 33536, 2048, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, '', 0),
+(@Biggins, 0, 0, 0, 0, 0, 'Master Sergeant Biggins', 'Officer Accessories Quartermaster', NULL, 0, 55, 55, 0, 1078, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, '', 0),
+(@Karter, 0, 0, 0, 0, 0, 'Lieutenant Karter', 'Mount Vendor', NULL, 0, 55, 55, 0, 1078, 128, 1, 1.14286, 1, 1, 18, 1, 0, 0, 1.05, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, '', 0),
+(@Clate, 0, 0, 0, 0, 0, 'Sergeant Major Clate', 'Food and Drink', NULL, 0, 55, 55, 0, 123, 4224, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.15, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 7, 4096, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 2.6, 1, 0, 0, 1, 0, 0, 0, '', 0),
 --
-(@Vixton,0,0,0,0,0,'Vixton Pinchwhistle','Arena Vendor',NULL,8124,60,60,1,35,129,1,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1,1,1,1,0,0,1,0,0,2,'',0),
-(@Krixel,0,0,0,0,0,'Krixel Pinchwhistle','Arena Vendor',NULL,8710,70,70,1,35,129,1.1,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,0,0,0,0,7,134217728,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,0,2,'',0),
-(@Leeni,0,0,0,0,0,'Leeni "Smiley" Smalls','Arena Vendor',NULL,0,70,70,1,35,128,1.5,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,0,2,'',0),
-(@Evee,0,0,0,0,0,'Evee Copperspring','Arena Vendor',NULL,0,70,70,2,35,128,1.1,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,514,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,0,0,'',0),
-(@Ecton,0,0,0,0,0,'Ecton Brasstumbler','Arena Vendor',NULL,0,70,70,2,35,128,1.05,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,0,2,'',0);
+(@Vixton, 0, 0, 0, 0, 0, 'Vixton Pinchwhistle', 'Arena Vendor', NULL, 8124, 60, 60, 1, 35, 129, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 0),
+(@Krixel, 0, 0, 0, 0, 0, 'Krixel Pinchwhistle', 'Arena Vendor', NULL, 8710, 70, 70, 1, 35, 129, 1.1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 7, 134217728, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 0),
+(@Leeni, 0, 0, 0, 0, 0, 'Leeni "Smiley" Smalls', 'Arena Vendor', NULL, 0, 70, 70, 1, 35, 128, 1.5, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 0),
+(@Evee, 0, 0, 0, 0, 0, 'Evee Copperspring', 'Arena Vendor', NULL, 0, 70, 70, 2, 35, 128, 1.1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 514, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, '', 0),
+(@Ecton, 0, 0, 0, 0, 0, 'Ecton Brasstumbler', 'Arena Vendor', NULL, 0, 70, 70, 2, 35, 128, 1.05, 1.14286, 1, 1, 20, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 0);
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN (@Bork, @Biggins, @Karter, @Clate, @Vixton);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
