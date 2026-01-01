@@ -20,11 +20,15 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11081, @TRAINER_ID+32), -- Faldron <Expert Leatherworker>
 (11083, @TRAINER_ID+31); -- Darianna <Journeyman Leatherworker>
 
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4125, 4204, 4241);
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4114, 4125, 4155, 4181, 4204, 4241, 4269);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(4114, 0, 3, 'Train me.', 3266, 5, 16), -- Milla Fairancora <Journeyman Alchemist>
 (4125, 0, 3, 'Train me.', 3266, 5, 16), -- Sylvanna Forestmoon <Expert Alchemist>
+(4155, 0, 3, 'Train me.', 3266, 5, 16), -- Lalina Summermoon <Journeyman Enchanter>
+(4181, 0, 3, 'Train me.', 3266, 5, 16), -- Darianna <Journeyman Leatherworker>
 (4204, 0, 3, 'Train me.', 3266, 5, 16), -- Faldron <Expert Leatherworker>
-(4241, 0, 3, 'Train me.', 3266, 5, 16); -- Telonis <Artisan Leatherworker>
+(4241, 0, 3, 'Train me.', 3266, 5, 16), -- Telonis <Artisan Leatherworker>
+(4269, 0, 3, 'Train me.', 3266, 5, 16); -- Trianna <Journeyman Tailor>
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (4125, 4131, 4163, 4204, 4241, 4349);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
