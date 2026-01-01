@@ -145,10 +145,6 @@ UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (5500, 5567);
 DELETE FROM `creature_template_addon` WHERE `entry` = 69;  -- Diseased Timber Wolf
 DELETE FROM `creature_template_addon` WHERE `entry` = 299; -- Diseased Young Wolf
 
--- Kitta Firewind <Enchanting Trainer>
-DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4169;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES (4169, 0, 3, 'Train me.', 3266, 5, 16);
-
 SET @TRAINER_ID   := 600;
 
 DELETE FROM `npc_trainer` WHERE `ID` IN (514, 1103, 1215, 1632, 1651, 2329, 4732, 11072);
@@ -164,6 +160,12 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (5500,  @TRAINER_ID+11), -- Tel'Athir <Journeyman Alchemist>
 (5567,  @TRAINER_ID+37), -- Sellandus <Expert Tailor>
 (11072, @TRAINER_ID+23); -- Kitta Firewind <Enchanting Trainer>
+
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4110, 4112, 4169);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(4110, 0, 3, 'Train me.', 3266, 5, 16), -- Alchemist Mallory <Journeyman Alchemist>
+(4112, 0, 3, 'Train me.', 3266, 5, 16), -- Tel'Athir <Journeyman Alchemist>
+(4169, 0, 3, 'Train me.', 3266, 5, 16); -- Kitta Firewind <Enchanting Trainer>
 
 -- Wolves Across the Border
 DELETE FROM `quest_offer_reward` WHERE `ID` = 33;
