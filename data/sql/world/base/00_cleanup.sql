@@ -24,6 +24,8 @@ DELETE FROM `game_event_creature` WHERE `guid` IN
 DELETE FROM `creature`   WHERE `id1`   IN (32405, 32832, 32834);
 DELETE FROM `npc_vendor` WHERE `entry` IN (32405, 32832, 32834);
 
+DELETE FROM `creature` WHERE `id1` IN (20278); -- Vixton Pinchwhistle
+
 
 /* the following edits are temporary */
 
@@ -115,6 +117,9 @@ DELETE FROM `npc_vendor` WHERE `entry` = 30201;
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 18525;
 UPDATE `creature_template` SET `ScriptName` = '', `flags_extra` = 0, `MovementType` = 0, `unit_flags` = 0, `npcflag` = 0, `name` = "G\'eras Test Vendor List" WHERE `entry` = 30201;
 UPDATE `npc_vendor` SET `entry` = 18525 WHERE `item` IN (35326, 35324, 35321);
+
+-- undo Completion of "The Vials of Eternity" should award players the title "Hand of A'dal" (64)
+UPDATE `quest_template` SET `RewardTitle` = 0 WHERE `ID` = 10445;
 
 -- UNDO transport NPCs phasing
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (
