@@ -39,12 +39,17 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11071, @TRAINER_ID+21), -- Mot Dawnstrider <Journeyman Enchanter>
 (11084, @TRAINER_ID+32); -- Tarn <Expert Leatherworker>
 
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4128, 4165, 4207, 4242, 4351);
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2748, 4119, 4128, 4158, 4165, 4187, 4207, 4242, 4266, 4351); 
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(2748, 0, 3, 'Train me.', 3266, 5, 16), -- Thrag Stonehoof <Journeyman Blacksmith>
+(4119, 0, 3, 'Train me.', 3266, 5, 16), -- Kray <Journeyman Alchemist>
 (4128, 0, 3, 'Train me.', 3266, 5, 16), -- Bena Winterhoof <Expert Alchemist>
+(4158, 0, 3, 'Train me.', 3266, 5, 16), -- Mot Dawnstrider <Journeyman Enchanter>
 (4165, 0, 3, 'Train me.', 3266, 5, 16), -- Teg Dawnstrider <Expert Enchanter>
+(4187, 0, 3, 'Train me.', 3266, 5, 16), -- Mak <Journeyman Leatherworker>
 (4207, 0, 3, 'Train me.', 3266, 5, 16), -- Tarn <Expert Leatherworker>
 (4242, 0, 3, 'Train me.', 3266, 5, 16), -- Una <Artisan Leatherworker>
+(4266, 0, 3, 'Train me.', 3266, 5, 16), -- Vhan <Journeyman Tailor>
 (4351, 0, 3, 'Train me.', 3266, 5, 16); -- Tepa <Expert Tailor>
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (1017, 4128, 4165, 4207, 4242, 4351);
