@@ -24,9 +24,15 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11049, @TRAINER_ID+37), -- Rhiannon Davis <Expert Tailor>
 (11067, @TRAINER_ID+21); -- Malcomb Wynn <Journeyman Enchanter>
 
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4130, 4352);
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2750, 4121, 4130, 4144, 4157, 4188, 4268, 4352);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(2750, 0, 3, 'Train me.', 3266, 5, 16), -- Basil Frye <Journeyman Blacksmith>
+(4121, 0, 3, 'Train me.', 3266, 5, 16), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
 (4130, 0, 3, 'Train me.', 3266, 5, 16), -- Doctor Marsh <Expert Alchemist>
+(4144, 0, 3, 'Train me.', 3266, 5, 16), -- Graham Van Talen <Journeyman Engineer>
+(4157, 0, 3, 'Train me.', 3266, 5, 16), -- Malcomb Wynn <Journeyman Enchanter>
+(4188, 0, 3, 'Train me.', 3266, 5, 16), -- Dan Golthas <Journeyman Leatherworker>
+(4268, 0, 3, 'Train me.', 3266, 5, 16), -- Victor Ward <Journeyman Tailor>
 (4352, 0, 3, 'Train me.', 3266, 5, 16); -- Rhiannon Davis <Expert Tailor>
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7 AND `SourceGroup` IN (1022, 4130, 4132, 4166, 4210, 4352, 4354);
