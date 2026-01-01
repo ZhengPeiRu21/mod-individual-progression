@@ -33,9 +33,15 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11068, @TRAINER_ID+21), -- Betty Quin <Journeyman Enchanter>
 (11096, @TRAINER_ID+31); -- Randal Worth <Journeyman Leatherworker>
 
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4161, 4344);
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES 
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2745, 4112, 4139, 4153, 4161, 4173, 4262, 4344);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(2745, 0, 3, 'Train me.', 3266, 5, 16), -- Dane Lindgren <Journeyman Blacksmith>
+(4112, 0, 3, 'Train me.', 3266, 5, 16), -- Tel'Athir <Journeyman Alchemist>
+(4139, 0, 3, 'Train me.', 3266, 5, 16), -- Sprite Jumpsprocket <Journeyman Engineer>
+(4153, 0, 3, 'Train me.', 3266, 5, 16), -- Betty Quin <Journeyman Enchanter>
 (4161, 0, 3, 'Train me.', 3266, 5, 16), -- Lucan Cordell <Expert Enchanter>
+(4173, 0, 3, 'Train me.', 3266, 5, 16), -- Randal Worth <Journeyman Leatherworker>
+(4262, 0, 3, 'Train me.', 3266, 5, 16), -- Lawrence Schneider <Journeyman Tailor>
 (4344, 0, 3, 'Train me.', 3266, 5, 16); -- Sellandus <Expert Tailor>
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (581, 4146, 4161, 4201, 4203, 4344, 4353); 
