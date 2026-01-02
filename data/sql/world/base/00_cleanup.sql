@@ -24,6 +24,8 @@ DELETE FROM `game_event_creature` WHERE `guid` IN
 DELETE FROM `creature`   WHERE `id1`   IN (32405, 32832, 32834);
 DELETE FROM `npc_vendor` WHERE `entry` IN (32405, 32832, 32834);
 
+DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinchwhistle
+
 
 /* the following edits are temporary */
 
