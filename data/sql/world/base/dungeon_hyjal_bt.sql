@@ -398,6 +398,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (23402, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (23403, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics');
 
+
 -- fix Black Temple boss loot tables
 DELETE FROM `creature_loot_template` WHERE `Entry` IN (22841, 22871, 22887, 22898, 22917, 22947, 22948);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
