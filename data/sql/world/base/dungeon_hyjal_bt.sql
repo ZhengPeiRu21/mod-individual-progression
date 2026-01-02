@@ -163,6 +163,60 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (10, 36199, 32750, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Living Earth Bindings'),
 (10, 36199, 32754, 0, 0, 7, 0, 197, 1, 0, 0, 0, 0, '', 'Pattern: Bracers of Nimble Thought');
 
+-- Black Temple, add Khorium Lockboxes
+DELETE FROM `creature_loot_template` WHERE `Item` = 31952 AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
+23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+--
+(22844, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22845, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22846, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22847, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22853, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22855, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22869, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22879, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22880, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22882, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22939, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22945, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22946, 31952, 0, 0.3, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22953, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22954, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22955, 31952, 0, 0.8, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22956, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22957, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22959, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22960, 31952, 0, 0.9, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22962, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22963, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22964, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22965, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23018, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23028, 31952, 0, 0.6, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23030, 31952, 0, 0.6, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23047, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23049, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23172, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23196, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23222, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23223, 31952, 0, 0.8, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23232, 31952, 0, 0.2, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23235, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23236, 31952, 0, 0.8, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23237, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23239, 31952, 0, 0.7, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23330, 31952, 0, 0.6, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23337, 31952, 0, 1.3, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23339, 31952, 0, 1.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23374, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23394, 31952, 0, 1.1, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23397, 31952, 0, 0.6, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23400, 31952, 0, 0.9, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23402, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23403, 31952, 0, 0.7, 0, 1, 0, 1, 1, 'Khorium Lockbox');
 
 -- Hyjal, add reference loot tables to trash creatures
 DELETE FROM `creature_loot_template` WHERE `Reference` IN (36196, 36197, 50501) AND `Entry` IN
