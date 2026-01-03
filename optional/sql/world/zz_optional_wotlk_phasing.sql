@@ -4,6 +4,13 @@
 
 /* 3.0 - Naxx */
 /* Open world WotLK NPCs */
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 0 AND `id1` IN (
+27616, -- Prince Atherann, Silverpine Forest
+27618, -- Prince Kelesth, Silverpine Forest
+27619, -- Prince Valanar, Silverpine Forest
+27620, -- Shade of Arugal, Silverpine Forest
+27624 -- Prince Theraldis, Silverpine Forest
+);
 -- UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `map` = 1 AND `id1` IN (
 -- 33934 -- Ecton Brasstumbler <Apprentice Arena Vendor>, Tanaris
 -- );
