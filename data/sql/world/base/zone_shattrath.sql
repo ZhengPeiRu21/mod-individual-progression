@@ -4,11 +4,12 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (18756, 0, 38089, 1, 1800, 0, 0);
 
 /* Hide certain vendor items until the player has reached the progression tier for them */
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (11481, 11482);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (11130, 11481, 11482);
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (34200, 34201);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
+(19, 0, 11130, 0, 0, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'Hide \'Oooh, Shinies!\' until the player reaches TBC T4'),
 (19, 0, 11481, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Hide \'Crisis at the Sunwell\' until the player reaches TBC T5'),
 (19, 0, 11482, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Hide \'Duty Calls\' until the player reaches TBC T5'),
 --
