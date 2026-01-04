@@ -279,16 +279,16 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 DELETE FROM `creature_template` WHERE `entry` IN (607068, 607069, 607070, 607071, 607072, 607075);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
-`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, 
-`type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, 
-`ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
+`PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
+`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
-(607068, 0, 0, 0, 0, 0, 'Condemned Acolyte', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.3, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 421, 555, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607069, 0, 0, 0, 0, 0, 'Condemned Monk', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.55, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 474, 624, 'SmartAI', 0, 1, 1, 1, 0.25, 1, 0, 0, 1, 8413702, 0, 0, '', 12340),
-(607070, 0, 0, 0, 0, 0, 'Condemned Cleric', NULL, NULL, 0, 32, 33, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.25, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 454, 598, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607071, 0, 0, 0, 0, 0, 'Cursed Paladin', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.8, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 413, 544, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607072, 0, 0, 0, 0, 0, 'Cursed Justicar', NULL, NULL, 0, 32, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.7, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 527, 693, 'SmartAI', 0, 1, 1.1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607075, 0, 0, 0, 0, 0, 'Writhing Mage', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.75, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 397, 524, 'SmartAI', 0, 1, 1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
+(607068, 0, 0, 0, 0, 0, 'Condemned Acolyte', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.3, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 421, 555, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607069, 0, 0, 0, 0, 0, 'Condemned Monk', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.55, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 474, 624, 'SmartAI', 0, 1, 1, 1, 0.25, 1, 0, 0, 1, 8413702, 0, 0, '', 12340),
+(607070, 0, 0, 0, 0, 0, 'Condemned Cleric', NULL, NULL, 0, 32, 33, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.25, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 454, 598, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607071, 0, 0, 0, 0, 0, 'Cursed Paladin', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.8, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 413, 544, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607072, 0, 0, 0, 0, 0, 'Cursed Justicar', NULL, NULL, 0, 32, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.7, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 527, 693, 'SmartAI', 0, 1, 1.1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607075, 0, 0, 0, 0, 0, 'Writhing Mage', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.75, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 397, 524, 'SmartAI', 0, 1, 1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN (607068, 607070);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
