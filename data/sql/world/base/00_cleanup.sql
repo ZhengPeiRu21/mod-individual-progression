@@ -120,3 +120,6 @@ UPDATE `npc_vendor` SET `entry` = 18525 WHERE `item` IN (35326, 35324, 35321);
 
 -- undo Completion of "The Vials of Eternity" should award players the title "Hand of A'dal" (64)
 UPDATE `quest_template` SET `RewardTitle` = 0 WHERE `ID` = 10445;
+
+-- remove phasing to avoid overriding smartai, will now hide quest instead
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (19227);
