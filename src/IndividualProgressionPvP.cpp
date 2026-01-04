@@ -14,12 +14,12 @@ public:
         {
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 			uint32 PVP_RANK6_QUEST = 66106;
-			
+
             if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target) || sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC))
             {
                 return false;
             }
-			
+
             if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED)
             {
                 return false;
@@ -50,12 +50,12 @@ public:
         {
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 			uint32 PVP_RANK6_QUEST = 66106;
-			
+
             if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target) || sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC))
             {
                 return true;
             }
-			
+
             if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED)
             {
                 return true;
@@ -88,9 +88,9 @@ public:
             {
                 return true;
             }
-			
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-			
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5))
             {
                 return true;
@@ -98,7 +98,7 @@ public:
             else
             {
                 return false;
-            }			
+            }
         }
     };
 
@@ -136,7 +136,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -176,7 +176,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -216,7 +216,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -256,7 +256,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -296,7 +296,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -336,7 +336,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -376,7 +376,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -416,7 +416,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
