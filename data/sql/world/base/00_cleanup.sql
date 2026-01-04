@@ -47,8 +47,8 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (15813,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein'),
 (15818,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein');
 
--- undo Shattrath phasing, now done with phasemask
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (18594, 25167, 27666, 27667);
+-- undo phasing
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (15599, 18594, 19227, 25167, 27666, 27667);
 
 -- pvp rank requirements no longer needed
 UPDATE `item_template` SET `requiredhonorrank` = 0 WHERE `entry` IN 
@@ -120,6 +120,3 @@ UPDATE `npc_vendor` SET `entry` = 18525 WHERE `item` IN (35326, 35324, 35321);
 
 -- undo Completion of "The Vials of Eternity" should award players the title "Hand of A'dal" (64)
 UPDATE `quest_template` SET `RewardTitle` = 0 WHERE `ID` = 10445;
-
--- remove phasing to avoid overriding smartai, will now hide quest instead
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (19227);
