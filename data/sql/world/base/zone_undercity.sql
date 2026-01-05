@@ -11,7 +11,6 @@ UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4609, 
 
 SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (223, 4586, 4591, 4605, 4609, 11044, 11048, 11049, 11067);
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (223, 4586, 4591, 4605, 4609, 11044, 11048, 11049, 11067);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (223,   @TRAINER_ID+31), -- Dan Golthas <Journeyman Leatherworker>
