@@ -18,7 +18,6 @@ DELETE FROM `npc_vendor` WHERE `entry`= 5189 AND `item` IN (15197, 15199, 19031,
 
 SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (2798, 2998, 3001, 3004, 3007, 3008, 3009, 3011, 3013, 3026, 3028, 7089, 10278, 11047, 11051, 11071, 11084);
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2798, 2998, 3001, 3004, 3007, 3008, 3009, 3011, 3013, 3026, 3028, 7089, 10278, 11047, 11051, 11071, 11084);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (2798,  @TRAINER_ID+45), -- Pand Stonebinder <First Aid Trainer>
