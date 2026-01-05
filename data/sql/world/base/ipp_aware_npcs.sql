@@ -21,7 +21,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_ds2' WHERE `entry` IN (15
 
 -- Phasing Cenarion Hold NPCs
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_preaq' WHERE `entry` IN (15176, 15180, 15181, 15183, 15188, 15189, 15190, 15191, 15293, 15194,
-                                                                                15306, 15419, 15599, 15612, 15613, 15614, 15903, 16543, 17081, 17082);
+                                                                                15306, 15419, 15612, 15613, 15614, 15903, 16543, 17081, 17082);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aqwewar' WHERE `entry` IN (15693); -- Jonathan the Revelator
 
@@ -71,7 +71,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `entry` IN (195532, 195533);
 
 -- Phasing Zul'Aman quest npcs until TBC T4.
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (19227, 23761);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (23761);
 
 -- Phasing TBC vendors and trainers - Copies are added to replace them until TBC T4.
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (18754, 18771, 19187, 21087);

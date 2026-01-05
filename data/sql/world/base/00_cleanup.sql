@@ -47,8 +47,8 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (15813,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein'),
 (15818,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein');
 
--- undo Shattrath phasing, now done with phasemask
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (18594, 25167, 27666, 27667);
+-- undo phasing
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (15599, 18594, 19227, 25167, 27666, 27667);
 
 -- restore Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
 DELETE FROM `creature_template` WHERE `entry` IN (12778);
