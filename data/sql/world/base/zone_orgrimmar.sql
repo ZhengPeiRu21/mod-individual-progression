@@ -20,7 +20,6 @@ UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (1383, 
 
 SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (1383, 2855, 2857, 3332, 3345, 3347, 3355, 3357, 3363, 3365, 3373, 3399, 3412, 4752, 5811, 7088, 10266, 11017, 11046, 11066);
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1383, 2855, 2857, 3332, 3345, 3347, 3355, 3357, 3363, 3365, 3373, 3399, 3412, 4752, 5811, 7088, 10266, 11017, 11046, 11066);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (1383,  @TRAINER_ID+17), -- Snarl <Expert Blacksmith>
