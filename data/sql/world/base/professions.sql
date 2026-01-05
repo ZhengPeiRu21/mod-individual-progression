@@ -1,29 +1,22 @@
 -- Enchant formulas dropped as items
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (20008, 20012, 20013, 20014, 20016, 20023, 20028, 32667);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (20008, 20012, 20013, 20014, 20016, 20023, 20028, 32667);
 
 -- Blacksmithing Plans dropped as items
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (16642, 16643, 16644, 16652, 16653, 16662, 16969, 16971);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (16642, 16643, 16644, 16652, 16653, 16662, 16969, 16971);
 
 -- Alchemy recipes dropped as items
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (2795, 17552, 17553, 17555, 17556, 17557, 17572, 17573);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (2795, 17552, 17553, 17555, 17556, 17557, 17572, 17573);
 
 -- Engineering Schematics dropped as items
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (12615, 19790, 19791, 19792, 19794, 19795, 19800, 19825, 23071);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (12615, 19790, 19791, 19792, 19794, 19795, 19800, 19825, 23071);
 
 -- Tailoring Recipes dropped as items
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (18450, 18453, 18444, 18406, 18409, 18417, 18423);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (18450, 18453, 18444, 18406, 18409, 18417, 18423);
 
 -- First Aid Recipes dropped as items
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (7929, 10840, 27032, 27033);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (7929, 10840, 27032, 27033);
 
 -- First Aid Skills should be from books or quests
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (54254, 10847, 54255);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (54254, 10847, 54255);
 UPDATE `quest_template` SET `RewardItem3` = 16085, `RewardAmount3` = 1 WHERE `ID` IN (6624, 6622);
 UPDATE `item_template` SET `description` = 'Teaches you advanced first aid, allowing a maximum of 300 first aid skill.' WHERE `entry` = 16085;
@@ -33,25 +26,13 @@ INSERT IGNORE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`
 -- TBC First Aid vendors
 UPDATE `creature_template` SET `npcflag` = 128 WHERE `entry` IN (18990, 18991); -- set to vendors, no longer trainers
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (16272, 16731, 17214, 17424, 18990, 18991, 19184, 19478, 22477); -- still exists, still used
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(16272, -350000), -- Kanaria, Eversong Woods
-(16731, -350000), -- Nus, The Exodar
-(17214, -350000), -- Anchorite Fateema, Azuremyst Isle
-(17424, -350000), -- Anchorite Paetheus, Bloodmyst Isle
-(19184, -350000), -- Mildred Fletcher, Shattrath
-(19478, -350000), -- Fera Palerunner, Blades Edge Mountains
-(22477, -350000); -- Anchorite Ensham, Terokkar Forest
-
 -- lockpicking
 UPDATE `gameobject` SET `spawntimesecs` = 900 WHERE `id` IN (179488, 179486); -- change respawn time of footlockers from 2 hours to 15 minutes
 
 -- Make Brilliant Glass craft only available once WotLK is reached, to avoid early access to epic TBC gems
-UPDATE `npc_trainer`   SET `ReqLevel` = 71 WHERE `SpellID` = 47280;
 UPDATE `trainer_spell` SET `ReqLevel` = 71 WHERE `SpellID` = 47280;
 
 -- Cooking Skills learned from Books and Quests, not trainers
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (18261, 19886, 54257, 54256);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (18261, 19886, 54257, 54256);
 UPDATE `quest_template` SET `RewardItem1` = 16073, `RewardAmount1` = 1 WHERE id = 6610;
 UPDATE `item_template` SET `spellid_1` = 19887, `spellcharges_1` = -1, `spellppmRate_1` = -1 WHERE `entry` = 16073;
@@ -59,18 +40,13 @@ INSERT IGNORE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`
 (16073, 'frFR', 'Livre de cuisine pour artisan', '', 0);
 
 -- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
-UPDATE `npc_trainer`   SET `ReqSkillRank` = 200 WHERE `SpellID` = 37836;
 UPDATE `trainer_spell` SET `ReqSkillRank` = 200 WHERE `SpellID` = 37836;
 
 -- Fishing needs to be learned from Quests and Books, remove from trainers
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (18249, 54083, 54084);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (18249, 54083, 54084);
 UPDATE `quest_template` SET `RewardItem2` = 16082, `RewardAmount2` = 1 WHERE `ID` = 6607;
 
 -- Leatherworking Recipes, dropped from creatures
-DELETE FROM `npc_trainer` WHERE `SpellID` IN
-(19052, 19055, 19065, 19071, 19072, 19083, 19091, 19092, 19098, 19102, 19103, 18403, 18407, 18410, 18411, 18413,
- 18414, 18415, 18416, 18420, 18421, 18424, 18437, 18438, 18441, 18442, 18446, 18449, 18451, 19082, 32455);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN
 (19052, 19055, 19065, 19071, 19072, 19083, 19091, 19092, 19098, 19102, 19103, 18403, 18407, 18410, 18411, 18413,
  18414, 18415, 18416, 18420, 18421, 18424, 18437, 18438, 18441, 18442, 18446, 18449, 18451, 19082, 32455);
@@ -143,7 +119,6 @@ DELETE FROM creature WHERE `id1` IN
 33674, 33675, 33676, 33677, 33678, 33680, 33681, 33682, 33683, 33684, 35099, 35101);
 
 -- TBC Recipes moved to trainers in 2.4.0
-DELETE FROM `npc_trainer`   WHERE `SpellID` IN (28905, 34590, 28903, 28914, 28925, 28910, 28917, 28916, 28950, 28903);
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (28905, 34590, 28903, 28914, 28925, 28910, 28917, 28916, 28950, 28903);
 
 DELETE FROM npc_vendor WHERE item IN (23131, 28596, 23148, 23137, 23144, 23135, 23141, 23140, 23152, 23130);
@@ -177,32 +152,6 @@ SET @Darmari := 119187;
 SET @Barim   := 118754;
 SET @Brumman := 118771;
 SET @Grikka  := 121087;
-
-SET @lw_trainer_pre_t4 := 201050;
-
-DELETE FROM `npc_trainer` WHERE `ID` = @lw_trainer_pre_t4;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES 
-(@lw_trainer_pre_t4, 32454, 10000, 165, 300, 0, 0),
-(@lw_trainer_pre_t4, 32456, 15000, 165, 300, 0, 0),
-(@lw_trainer_pre_t4, 32462, 15000, 165, 300, 0, 0),
-(@lw_trainer_pre_t4, 32463, 20000, 165, 310, 0, 0),
-(@lw_trainer_pre_t4, 32464, 20000, 165, 320, 0, 0),
-(@lw_trainer_pre_t4, 32465, 25000, 165, 335, 0, 0),
-(@lw_trainer_pre_t4, 32466, 15000, 165, 300, 0, 0),
-(@lw_trainer_pre_t4, 32467, 20000, 165, 310, 0, 0),
-(@lw_trainer_pre_t4, 32468, 20000, 165, 325, 0, 0),
-(@lw_trainer_pre_t4, 32469, 25000, 165, 335, 0, 0),
-(@lw_trainer_pre_t4, 32470, 15000, 165, 300, 0, 0),
-(@lw_trainer_pre_t4, 32471, 20000, 165, 315, 0, 0),
-(@lw_trainer_pre_t4, 32472, 20000, 165, 320, 0, 0),
-(@lw_trainer_pre_t4, 32473, 25000, 165, 330, 0, 0),
-(@lw_trainer_pre_t4, 32478, 15000, 165, 300, 0, 0),
-(@lw_trainer_pre_t4, 32479, 20000, 165, 310, 0, 0),
-(@lw_trainer_pre_t4, 32480, 20000, 165, 320, 0, 0),
-(@lw_trainer_pre_t4, 32481, 25000, 165, 330, 0, 0),
-(@lw_trainer_pre_t4, 32550, 100000, 165, 275, 50, 0),
-(@lw_trainer_pre_t4, 35540, 20000, 165, 340, 0, 0),
-(@lw_trainer_pre_t4, 44970, 50000, 165, 350, 0, 0);
 
 /* Add copies with script npc_ipp_tbc_pre_t4 */
 DELETE FROM `creature_template` WHERE `entry` IN (@Darmari, @Barim, @Brumman, @Grikka);
@@ -279,13 +228,6 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 (@Barim, 1, 10616, 0, 0, 18019),
 (@Brumman, 1, 10616, 0, 0, 18019);
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (@Darmari, @Barim, @Brumman, @Grikka);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `ReqSpell`) VALUES 
-(@Darmari, -201050, 0, 0, 0, 0, 0),
-(@Barim, -201050, 0, 0, 0, 0, 0),
-(@Brumman, -201050, 0, 0, 0, 0, 0),
-(@Grikka, -201050, 0, 0, 0, 0, 0);
-
 DELETE FROM `npc_vendor` WHERE `entry` IN (@Barim, @Brumman);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
 (@Barim, 0, 2320, 0, 0, 0, 0), (@Barim, 0, 2321, 0, 0, 0, 0), (@Barim, 0, 2325, 0, 0, 0, 0), (@Barim, 0, 2604, 0, 0, 0, 0), (@Barim, 0, 2605, 0, 0, 0, 0), 
@@ -302,7 +244,7 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 
 SET @TRAINER_ID   := 600;
 
-DELETE FROM `trainer` WHERE `Id` BETWEEN @TRAINER_ID+11 AND @TRAINER_ID+48;
+DELETE FROM `trainer` WHERE `Id` BETWEEN @TRAINER_ID+11 AND @TRAINER_ID+51;
 INSERT INTO `trainer` (`Id`, `Type`, `Requirement`, `Greeting`, `VerifiedBuild`) VALUES 
 --
 (@TRAINER_ID+11, 2, 0, 'With alchemy you can turn found herbs into healing and other types of potions.', 0),
@@ -337,8 +279,9 @@ INSERT INTO `trainer` (`Id`, `Type`, `Requirement`, `Greeting`, `VerifiedBuild`)
 (@TRAINER_ID+45, 2, 0, 'Here, let me show you how to bind those wounds....', 0),
 (@TRAINER_ID+46, 2, 0, 'Here, let me show you how to bind those wounds....', 0),
 (@TRAINER_ID+47, 2, 0, 'I can teach you how to use a fishing pole to catch fish.', 0),
-(@TRAINER_ID+48, 1, 0, 'Hello!  Can I teach you something?', 0);
-
+(@TRAINER_ID+48, 1, 0, 'Hello!  Can I teach you something?', 0),
+--
+(@TRAINER_ID+51, 2, 0, 'Greetings!  Can I teach you how to turn beast hides into armor?', 0);
 
 /* Crafting Professions */
 
@@ -402,7 +345,7 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 (@TRAINER_ID+13, 53042, 10000, 171, 50, 0),
 (@TRAINER_ID+13, 63732, 2000, 171, 135, 0);
 
--- Master Alchemy Trainer      - @TRAINER_ID+14
+-- Master Alchemy Trainer      - @TRAINER_ID+14 -- 66
 -- Grandmaster Alchemy Trainer - @TRAINER_ID+15
 
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1470, 3603, 16161, 2391, 2837, 3964, 4900, 5177, 16642, 16723, 4160, 4611);
@@ -422,19 +365,6 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (4160,  @TRAINER_ID+13), -- Artisan Alchemist
 (4611,  @TRAINER_ID+13);
-
-DELETE FROM `npc_trainer` WHERE `ID` IN (1470, 2391, 2837, 3603, 3964, 4160, 4611, 4900, 5177, 16161, 16588, 16642, 16723, 18802, 19052, 27023, 27029, 33608, 33630, 33674);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
--- Master Alchemy Trainer
-(16588, -201002, 0, 0, 0, 0),
-(18802, -201002, 0, 0, 0, 0),
-(19052, -201002, 0, 0, 0, 0),
-(27023, -201002, 0, 0, 0, 0),
-(27029, -201002, 0, 0, 0, 0),
-(33608, -201002, 0, 0, 0, 0),
-(33630, -201002, 0, 0, 0, 0),
-(33674, -201002, 0, 0, 0, 0);
--- Grandmaster Alchemy Trainers already have their own unique template
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+16,  @TRAINER_ID+17,  @TRAINER_ID+18);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -573,8 +503,8 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 (@TRAINER_ID+18, 9993, 9000, 164, 210, 0),
 (@TRAINER_ID+18, 9935, 4500, 164, 215, 0);
 
--- Master Blacksmithing Trainer      - @TRAINER_ID+19
--- Grandmaster Blacksmithing Trainer - @TRAINER_ID+20
+-- Master Blacksmithing Trainer      - @TRAINER_ID+19 - 58
+-- Grandmaster Blacksmithing Trainer - @TRAINER_ID+20 - 59
 
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1241, 3557, 6299, 15400, 17245, 3136, 4596, 16669, 16724, 4258);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
@@ -591,26 +521,6 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (16724, @TRAINER_ID+17),
 --
 (4258,  @TRAINER_ID+18); -- Artisan Blacksmith
-
-DELETE FROM `npc_trainer` WHERE `ID` IN (1241, 3136, 3557, 6299, 55356, 4596, 4258, 15400, 16583, 16669, 16724, 16823, 17245, 19341, 26564, 26904, 26952, 26981, 26988, 27034, 28694, 29924, 33591, 33609, 33631, 33675);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
--- Master Blacksmithing Trainer
-(16583, -201005, 0, 0, 0, 0),
-(16823, -201005, 0, 0, 0, 0),
-(19341, -201005, 0, 0, 0, 0),
-(33609, -201005, 0, 0, 0, 0),
-(33631, -201005, 0, 0, 0, 0),
-(33675, -201005, 0, 0, 0, 0),
--- Grandmaster Blacksmithing Trainer
-(26564, -201006, 0, 0, 0, 0),
-(26904, -201006, 0, 0, 0, 0),
-(26952, -201006, 0, 0, 0, 0),
-(26981, -201006, 0, 0, 0, 0),
-(26988, -201006, 0, 0, 0, 0),
-(27034, -201006, 0, 0, 0, 0),
-(28694, -201006, 0, 0, 0, 0),
-(29924, -201006, 0, 0, 0, 0),
-(33591, -201006, 0, 0, 0, 0);
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+21, @TRAINER_ID+22, @TRAINER_ID+23);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -709,7 +619,7 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 (@TRAINER_ID+23, 13890, 4500, 333, 225, 0),
 (@TRAINER_ID+23, 13887, 4500, 333, 225, 0);
 
--- Master Enchanting Trainer      - @TRAINER_ID+24
+-- Master Enchanting Trainer      - @TRAINER_ID+24 - 95
 -- Grandmaster Enchanting Trainer - @TRAINER_ID+25
 
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3606, 16160, 19251, 4213, 4616, 5157, 7949, 16633, 16725, 11074);
@@ -727,18 +637,6 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (16725, @TRAINER_ID+22),
 --
 (11074, @TRAINER_ID+23); -- Artisan Enchanter
-
-DELETE FROM `npc_trainer` WHERE `ID` IN (3606, 4213, 4616, 5157, 7949, 11074, 16160, 16633, 16725, 18753, 18773, 19251, 19252, 19540, 33610, 33633, 33676);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
--- Master Enchanting Trainer
-(18753, -201010, 0, 0, 0, 0),
-(18773, -201010, 0, 0, 0, 0),
-(19252, -201010, 0, 0, 0, 0),
-(19540, -201010, 0, 0, 0, 0),
-(33610, -201010, 0, 0, 0, 0),
-(33633, -201010, 0, 0, 0, 0),
-(33676, -201010, 0, 0, 0, 0);
--- Grandmaster Enchanting Trainers already have their own unique template
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+26, @TRAINER_ID+27, @TRAINER_ID+28);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -841,8 +739,8 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 (@TRAINER_ID+28, 12599, 1650, 202, 215, 0),
 (@TRAINER_ID+28, 12603, 1700, 202, 215, 0);
 
--- Master Engineering Trainer      - @TRAINER_ID+29
--- Grandmaster Engineering Trainer - @TRAINER_ID+30
+-- Master Engineering Trainer      - @TRAINER_ID+29 - 62
+-- Grandmaster Engineering Trainer - @TRAINER_ID+30 - 89
 
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1702, 3290, 11037, 17222, 1676, 11031, 16667, 16726, 5174);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
@@ -858,21 +756,6 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (16726, @TRAINER_ID+27),
 --
 (5174,  @TRAINER_ID+28); -- Artisan Engineering
-
-DELETE FROM `npc_trainer` WHERE `ID` IN (17634, 17637, 18752, 18775, 19576) AND `SpellID` = -201012;
-DELETE FROM `npc_trainer` WHERE `ID` IN (1676, 1702, 3290, 5174, 11031, 11037, 16667, 16726, 17222, 25277, 26907, 26955, 26991, 28697, 33586, 33611, 33634, 33677);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
--- Master Engineering Trainer
-(33611, -201013, 0, 0, 0, 0),
-(33634, -201013, 0, 0, 0, 0),
-(33677, -201013, 0, 0, 0, 0),
--- Grandmaster Engineering Trainer
-(25277, -201014, 0, 0, 0, 0),
-(26907, -201014, 0, 0, 0, 0),
-(26955, -201014, 0, 0, 0, 0),
-(26991, -201014, 0, 0, 0, 0),
-(28697, -201014, 0, 0, 0, 0),
-(33586, -201014, 0, 0, 0, 0);
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+31, @TRAINER_ID+32,@TRAINER_ID+33);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -984,8 +867,8 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 (@TRAINER_ID+33, 14930, 4000, 165, 225, 0),
 (@TRAINER_ID+33, 14932, 4000, 165, 225, 0);
 
--- Master Leatherworking Trainer      - @TRAINER_ID+34
--- Grandmaster Leatherworking Trainer - @TRAINER_ID+35
+-- Master Leatherworking Trainer      - @TRAINER_ID+34 - 62
+-- Grandmaster Leatherworking Trainer - @TRAINER_ID+35 - 63
 
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3605, 16278, 17442, 1385, 3967, 4588, 5127, 8153, 16688, 16728, 4212);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
@@ -1003,19 +886,6 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (16728, @TRAINER_ID+32),
 --
 (4212,  @TRAINER_ID+33); -- Artisan Leatherworking
-
-DELETE FROM `npc_trainer` WHERE `ID` IN (1385, 3605, 3967, 4212, 4588, 5127, 8153, 16278, 16688, 16728, 17442, 18754, 18771, 19187, 21087, 26996, 33612, 33635, 33681);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
--- Master Leatherworking Trainer
-(18754, -201028, 0, 0, 0, 0),
-(18771, -201028, 0, 0, 0, 0),
-(19187, -201028, 0, 0, 0, 0),
-(21087, -201028, 0, 0, 0, 0),
-(33612, -201028, 0, 0, 0, 0),
-(33635, -201028, 0, 0, 0, 0),
-(33681, -201028, 0, 0, 0, 0),
--- Grandmaster Leatherworking Trainer
-(26996, -201029, 0, 0, 0, 0);
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+36, @TRAINER_ID+37, @TRAINER_ID+38);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -1159,8 +1029,8 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 (@TRAINER_ID+38, 12069, 5000, 197, 225, 0),
 (@TRAINER_ID+38, 12070, 5000, 197, 225, 0);
 
--- Master Tailoring Trainer      - @TRAINER_ID+39 
--- Grandmaster Tailoring Trainer - @TRAINER_ID+40
+-- Master Tailoring Trainer      - @TRAINER_ID+39 - 73
+-- Grandmaster Tailoring Trainer - @TRAINER_ID+40 - 72
 
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3523, 4193, 16366, 17487, 2627, 4159, 5153, 16640, 16729, 4576);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
@@ -1177,22 +1047,6 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (16729, @TRAINER_ID+37),
 --
 (4576,  @TRAINER_ID+38); -- Artisan Tailoring
-
-DELETE FROM `npc_trainer` WHERE `ID` IN (2627, 3523, 4159, 4193, 4576, 5153, 16366, 16640, 16729, 17487, 18749, 18772, 26914, 26964, 26969, 27001, 28699, 33580, 33613, 33636, 33684);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
--- Master Tailoring Trainer
-(18749, -201040, 0, 0, 0, 0),
-(18772, -201040, 0, 0, 0, 0),
-(33613, -201040, 0, 0, 0, 0),
-(33636, -201040, 0, 0, 0, 0),
-(33684, -201040, 0, 0, 0, 0),
--- Grandmaster Tailoring Trainer
-(26914, -201041, 0, 0, 0, 0),
-(26964, -201041, 0, 0, 0, 0),
-(26969, -201041, 0, 0, 0, 0),
-(27001, -201041, 0, 0, 0, 0),
-(28699, -201041, 0, 0, 0, 0),
-(33580, -201041, 0, 0, 0, 0);
 
 
 /* Gathering Professions */
@@ -1353,3 +1207,37 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (4752, @TRAINER_ID+48),
 (4773, @TRAINER_ID+48),
 (7953, @TRAINER_ID+48);
+
+-- pre_t4 Leatherworking trainer
+DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+51;
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
+--
+(@TRAINER_ID+51, 32454, 10000, 165, 300, 0),
+(@TRAINER_ID+51, 32456, 15000, 165, 300, 0),
+(@TRAINER_ID+51, 32462, 15000, 165, 300, 0),
+(@TRAINER_ID+51, 32463, 20000, 165, 310, 0),
+(@TRAINER_ID+51, 32464, 20000, 165, 320, 0),
+(@TRAINER_ID+51, 32465, 25000, 165, 335, 0),
+(@TRAINER_ID+51, 32466, 15000, 165, 300, 0),
+(@TRAINER_ID+51, 32467, 20000, 165, 310, 0),
+(@TRAINER_ID+51, 32468, 20000, 165, 325, 0),
+(@TRAINER_ID+51, 32469, 25000, 165, 335, 0),
+(@TRAINER_ID+51, 32470, 15000, 165, 300, 0),
+(@TRAINER_ID+51, 32471, 20000, 165, 315, 0),
+(@TRAINER_ID+51, 32472, 20000, 165, 320, 0),
+(@TRAINER_ID+51, 32473, 25000, 165, 330, 0),
+(@TRAINER_ID+51, 32478, 15000, 165, 300, 0),
+(@TRAINER_ID+51, 32479, 20000, 165, 310, 0),
+(@TRAINER_ID+51, 32480, 20000, 165, 320, 0),
+(@TRAINER_ID+51, 32481, 25000, 165, 330, 0),
+(@TRAINER_ID+51, 32550, 100000, 165, 275, 50),
+(@TRAINER_ID+51, 35540, 20000, 165, 340, 0),
+(@TRAINER_ID+51, 44970, 50000, 165, 350, 0);
+
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (@Darmari, @Barim, @Brumman, @Grikka);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
+--
+(@Darmari, @TRAINER_ID+51),
+(@Barim,   @TRAINER_ID+51),
+(@Brumman, @TRAINER_ID+51),
+(@Grikka,  @TRAINER_ID+51);
