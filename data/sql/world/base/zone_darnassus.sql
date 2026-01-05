@@ -10,7 +10,6 @@ UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4212, 
 
 SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (11041, 11042, 11050, 11070, 11081, 11083);
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (11041, 11042, 11050, 11070, 11081, 11083);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11041, @TRAINER_ID+11), -- Milla Fairancora <Journeyman Alchemist>
@@ -40,8 +39,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4349, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');       -- Me'lynn <Expert Tailor>
 
 -- Dannelor <First Aid Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=4211; 
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (4211, -350000);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (4211);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (4211, @TRAINER_ID+45);
 
 -- Batllemasters
 DELETE FROM `creature` WHERE `id1` IN (907, 2302, 5118);
