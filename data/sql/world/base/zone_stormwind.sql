@@ -11,7 +11,6 @@ UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` = 5567; --
 
 SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (957, 1300, 1317, 1346, 1430, 2327, 5482, 5493, 5499, 5500, 5511, 5513, 5518, 5564, 5567, 11026, 11068, 11096);
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (957, 1300, 1317, 1346, 1430, 2327, 5482, 5493, 5499, 5500, 5511, 5513, 5518, 5564, 5567, 11026, 11068, 11096);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (957,   @TRAINER_ID+16), -- Dane Lindgren <Journeyman Blacksmith>
