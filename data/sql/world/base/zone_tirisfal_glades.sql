@@ -133,16 +133,18 @@ UPDATE `creature_template` SET `subname` = 'Demon Trainer'            WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Skinner'                  WHERE `entry` = 6289; -- Rand Rhobart <Skinner>
 UPDATE `creature_template` SET `subname` = 'Zeppelin Master'          WHERE `entry` = 9566; -- Zapetta <Zeppelin Master>
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (2114, 2132, 3549, 4773, 5690, 5695, 5759, 6289);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(2114, -370000), -- Faruza <Apprentice Herbalist>
-(2132, -300000), -- Carolai Anise <Journeyman Alchemist>
-(3549, -380000), -- Shelene Rhobart <Journeyman Leatherworker>
-(4773, -450000), -- Velma Warnam <Riding Trainer>
-(5690, -360000), -- Clyde Kellen <Fisherman>
-(5695, -330000), -- Vance Undergloom <Journeyman Enchanter>
-(5759, -350000), -- Nurse Neela <First Aid Trainer>
-(6289, -400000); -- Rand Rhobart <Skinner>
+SET @TRAINER_ID   := 600;
+
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2114, 2132, 3549, 4773, 5690, 5695, 5759, 6289);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(2114, @TRAINER_ID+41), -- Faruza <Apprentice Herbalist>
+(2132, @TRAINER_ID+11), -- Carolai Anise <Journeyman Alchemist>
+(3549, @TRAINER_ID+31), -- Shelene Rhobart <Journeyman Leatherworker>
+(4773, @TRAINER_ID+48), -- Velma Warnam <Riding Trainer>
+(5690, @TRAINER_ID+47), -- Clyde Kellen <Fisherman>
+(5695, @TRAINER_ID+21), -- Vance Undergloom <Journeyman Enchanter>
+(5759, @TRAINER_ID+45), -- Nurse Neela <First Aid Trainer>
+(6289, @TRAINER_ID+43); -- Rand Rhobart <Skinner>
 
 
 /* Quests */
