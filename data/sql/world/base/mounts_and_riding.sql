@@ -185,6 +185,28 @@ UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel`
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift Timber Wolf'                WHERE `entry` = 18797;
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift Gray Wolf'                  WHERE `entry` = 18798;
 
+-- Alliance 150% speed flying mounts
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Golden Gryphon'                   WHERE `entry` = 25470;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Ebon Gryphon'                     WHERE `entry` = 25471;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Snowy Gryphon'                    WHERE `entry` = 25472;
+
+-- Horde 150% speed flying mounts
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Tawny Windrider'                  WHERE `entry` = 25474;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Blue Windrider'                   WHERE `entry` = 25475;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Green Windrider'                  WHERE `entry` = 25476;
+
+-- Alliance 280% speed flying mounts
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Blue Gryphon'               WHERE `entry` = 25473;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Red Gryphon'                WHERE `entry` = 25527;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Green Gryphon'              WHERE `entry` = 25528;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Purple Gryphon'             WHERE `entry` = 25529;
+
+-- Horde 280% speed flying mounts
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Red Windrider'              WHERE `entry` = 25477;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Green Windrider'            WHERE `entry` = 25531;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Yellow Windrider'           WHERE `entry` = 25532;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Purple Windrider'           WHERE `entry` = 25533;
+
 -- special mounts
 UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 10000000, `RequiredLevel` = 60, `Name` = 'Winterspring Frostsaber'          WHERE `entry` = 13086;
 UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 10000000, `RequiredLevel` = 60, `Name` = 'Deathcharger'                     WHERE `entry` = 13335;
