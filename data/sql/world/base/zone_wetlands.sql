@@ -206,9 +206,9 @@ UPDATE `creature_loot_template` SET `Chance` = 2  WHERE `Item` = 3349 AND `Entry
 UPDATE `creature_loot_template` SET `Chance` = 5  WHERE `Item` = 3349 AND `Entry` = 1033; -- Monstrous Ooze
 
 -- Fremal Doohickey <First Aid Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=3181; 
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3181, -350000); 
-
+SET @TRAINER_ID   := 600;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3181);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (3181, @TRAINER_ID+45);
 
 -- missing patrols
 DELETE FROM `pool_creature` WHERE `pool_entry` = 1072; -- remove 22 spawn locations used by AC, we are now using waypoints

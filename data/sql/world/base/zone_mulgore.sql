@@ -269,15 +269,16 @@ UPDATE `creature_template` SET `subname` = 'Fisherman'                 WHERE `en
 UPDATE `creature_template` SET `subname` = 'Skinner'                   WHERE `entry` = 6290;  -- Yonn Deepcut <Skinner>
 UPDATE `creature_template` SET `subname` = 'Journeyman Engineer'       WHERE `entry` = 10993; -- Twizwick Sprocketgrind <Journeyman Engineer>
 
+SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (3069, 3690, 5938, 5939, 6290, 10993);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(3069,  -380000), -- Chaw Stronghide <Journeyman Leatherworker>
-(3690,  -450000), -- Kar Stormsinger <Riding Trainer>
-(5938,  -360000), -- Uthan Stillwater <Fisherman>
-(5939,  -350000), -- Vira Younghoof <First Aid Trainer>
-(6290,  -400000), -- Yonn Deepcut <Skinner>
-(10993, -340000); -- Twizwick Sprocketgrind <Journeyman Engineer>
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3069, 3690, 5938, 5939, 6290, 10993);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(3069,  @TRAINER_ID+31), -- Chaw Stronghide <Journeyman Leatherworker>
+(3690,  @TRAINER_ID+48), -- Kar Stormsinger <Riding Trainer>
+(5938,  @TRAINER_ID+47), -- Uthan Stillwater <Fisherman>
+(5939,  @TRAINER_ID+45), -- Vira Younghoof <First Aid Trainer>
+(6290,  @TRAINER_ID+43), -- Yonn Deepcut <Skinner>
+(10993, @TRAINER_ID+26); -- Twizwick Sprocketgrind <Journeyman Engineer>
 
 
 /* Quests */
