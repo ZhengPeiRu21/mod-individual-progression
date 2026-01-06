@@ -17,6 +17,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1806902,9,9,0,0,0,100,0,0,0,0,0,0,0,1,6,0,1,0,0,0,12,1,0,0,0,0,0,0,0,                'Mogor - Actionlist - Say Line 6'),
 (1806902,9,10,0,0,0,100,0,0,0,0,0,0,0,42,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,               'Mogor - Actionlist - Reset Invincibility Hp');
 
+-- fix drop rate flawless greater windroc beak / aged clefthoof blubber
+UPDATE `creature_loot_template` SET `Chance` = 20 WHERE `Item` IN (28667, 28668);
+
 SET @CGUID   := 670000;
 
 -- add kodo corpses near the Greater Windrocs
