@@ -210,8 +210,7 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 (@TRAINER_ID+50, 57992, 300000, 0, 0, 32684, 0, 0, 74, 0),
 (@TRAINER_ID+50, 57993, 300000, 0, 0, 57992, 0, 0, 80, 0);
 
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1411, 2130, 3170, 3327, 3328, 3401, 4582, 4583, 4584, 26329, 200016);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1411, 2130, 3170, 3327, 3328, 3401, 4582, 4583, 4584, 26329);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
 (1411,   @TRAINER_ID+50),
@@ -223,9 +222,7 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (4582,   @TRAINER_ID+50),
 (4583,   @TRAINER_ID+50),
 (4584,   @TRAINER_ID+50),
-(26329,  @TRAINER_ID+50),
-(200016, @TRAINER_ID+50);
-
+(26329,  @TRAINER_ID+50);
 
 DELETE FROM `reference_loot_template` WHERE `Entry`= 30424 AND `Item`= 21302;
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
