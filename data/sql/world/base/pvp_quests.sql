@@ -154,6 +154,7 @@ UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'     WHERE `guid` IN (14740,
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `guid` BETWEEN @CGUID+201 AND @CGUID+217;
 
 UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` IN (8367, 8371, 8375, 8385, 8388, 8396, 8403, 8369, 8430, 8439); -- enable quests
+UPDATE `quest_template` SET `MinLevel` = 61 WHERE `ID` IN (11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342);
 UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN (8371, 8375, 8396, 8403, 8367, 8369, 8430, 8439); -- make quests repeatable
 
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (8367, 8371, 8385, 8388, 11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342);
