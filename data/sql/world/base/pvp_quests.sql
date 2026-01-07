@@ -90,9 +90,11 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (@ABG, 8396), 
 (@ABG, 8403);
 
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'     WHERE `guid` IN (6505, 16472, 26901, 32075, 119054, 202720);
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'     WHERE `guid` IN (14740, 40534, 49852, 86263, 88247, 202732);
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `guid` BETWEEN @CGUID+201 AND @CGUID+216;
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'     WHERE `guid` IN (6505, 16472, 26901, 32075, 119054, 202720); -- Horde Warbringer
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'     WHERE `guid` IN (14740, 40534, 49852, 86263, 88247, 202732); -- Alliance Brigadier General
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `guid` BETWEEN @CGUID+201 AND @CGUID+217;
 
-UPDATE `quest_template` SET `QuestType` = 1 WHERE `ID` = 8369;
+UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` IN (8367, 8371, 8375, 8385, 8388, 8396, 8403, 8369, 8430, 8439); -- enable quests
 UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN (8371, 8375, 8396, 8403, 8367, 8369, 8430, 8439); -- make quests repeatable
+
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (8367, 8371, 8385, 8388, 11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342);
