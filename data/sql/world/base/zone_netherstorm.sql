@@ -1,3 +1,54 @@
+-- fix quest 10182, 10305, 10306, 10307
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (19543, 19544, 19545, 19546);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(19543, 0, 0, 1, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                 'Battle-Mage Dathric - On Just Summoned - Store Targetlist'),
+(19543, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 71, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Battle-Mage Dathric - On Just Summoned - Remove Weapon'),
+(19543, 0, 2, 3, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Battle-Mage Dathric - On Just Summoned - Set Faction 35'),
+(19543, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 18, 131840, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Battle-Mage Dathric - On Just Summoned - Set Flags Immune to NPC/PC'),
+(19543, 0, 4, 5, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Battle-Mage Dathric - On Just Summoned - Combat Stop'),
+(19543, 0, 5, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 53, 1, 19543, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Battle-Mage Dathric - On Just Summoned - Start WP'),
+(19543, 0, 6, 0, 40, 0, 100, 512, 5, 19543, 0, 0, 0, 0, 80, 1954300, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Battle-Mage Dathric - On Reached WP5 - Run Script'),
+(19543, 0, 7, 0, 0, 0, 100, 0, 0, 3000, 3000, 8000, 0, 0, 11, 36104, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Battle-Mage Dathric - In Combat - Cast \'Torrent of Flames\''),
+(19543, 0, 8, 0, 0, 0, 100, 0, 0, 2500, 8500, 12000, 0, 0, 11, 17273, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Battle-Mage Dathric - In Combat - Cast \'Pyroblast\''),
+--
+(19544, 0, 0, 1, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                 'Conjurer Luminrath - On Just Summoned - Store Targetlist'),
+(19544, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Conjurer Luminrath - On Just Summoned - Set Faction 35'),
+(19544, 0, 2, 3, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 18, 131840, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Conjurer Luminrath - On Just Summoned - Set Flags Immune to NPC/PC'),
+(19544, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Conjurer Luminrath - On Just Summoned - Combat Stop'),
+(19544, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 53, 1, 19544, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Conjurer Luminrath - On Just Summoned - Start WP'),
+(19544, 0, 5, 0, 40, 0, 100, 512, 3, 19544, 0, 0, 0, 0, 80, 1954400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Conjurer Luminrath - On Reached WP3 - Run Script'),
+(19544, 0, 6, 0, 0, 0, 100, 0, 0, 2500, 1000, 7500, 0, 0, 11, 9532, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Conjurer Luminrath - In Combat - Cast \'Lightning Bolt\''),
+(19544, 0, 7, 0, 0, 0, 100, 0, 0, 5000, 15000, 30000, 0, 0, 11, 36110, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Conjurer Luminrath - In Combat - Cast \'Summon Dancing Sword\''),
+(19544, 0, 8, 0, 0, 0, 100, 0, 0, 10000, 5000, 15000, 0, 0, 11, 36109, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Conjurer Luminrath - In Combat - Cast \'Blink\''),
+--
+(19545, 0, 0, 1, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cohlien Frostweaver - On Just Summoned - Store Targetlist'),
+(19545, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cohlien Frostweaver - On Just Summoned - Set Faction 35'),
+(19545, 0, 2, 3, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 18, 131840, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Cohlien Frostweaver - On Just Summoned - Set Flags Immune to NPC/PC'),
+(19545, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cohlien Frostweaver - On Just Summoned - Combat Stop'),
+(19545, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 53, 1, 19545, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cohlien Frostweaver - On Just Summoned - Start WP'),
+(19545, 0, 5, 0, 40, 0, 100, 512, 6, 19545, 0, 0, 0, 0, 80, 1954500, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Cohlien Frostweaver - On Reached WP6 - Run Script'),
+(19545, 0, 6, 0, 0, 0, 100, 0, 0, 1000, 25000, 30000, 0, 0, 11, 33245, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Cohlien Frostweaver - In Combat - Cast \'Ice Barrier\''),
+(19545, 0, 7, 0, 106, 0, 100, 0, 0, 10000, 2500, 9500, 0, 10, 11, 11831, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Cohlien Frostweaver - In Combat - Cast \'Frost Nova\''),
+(19545, 0, 8, 0, 0, 0, 100, 0, 0, 2500, 2500, 11000, 0, 0, 11, 9672, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Cohlien Frostweaver - In Combat - Cast \'Frostbolt\''),
+--
+(19546, 0, 0, 1, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                 'Abjurist Belmara - On Just Summoned - Store Targetlist'),
+(19546, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Abjurist Belmara - On Just Summoned - Set Faction 35'),
+(19546, 0, 2, 3, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 18, 131840, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Abjurist Belmara - On Just Summoned - Set Flags Immune to NPC/PC'),
+(19546, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Abjurist Belmara - On Just Summoned - Combat Stop'),
+(19546, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 53, 1, 19546, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Abjurist Belmara - On Just Summoned - Start WP'),
+(19546, 0, 5, 0, 40, 0, 100, 512, 5, 19546, 0, 0, 0, 0, 80, 1954600, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Abjurist Belmara - On Reached WP5 - Run Script'),
+(19546, 0, 6, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Abjurist Belmara - On Aggro - Cast \'Frost Armor\''),
+(19546, 0, 7, 0, 0, 0, 100, 0, 2000, 5000, 12000, 22000, 0, 0, 11, 17740, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Abjurist Belmara - In Combat - Cast \'Mana Shield\''),
+(19546, 0, 8, 0, 0, 0, 100, 0, 0, 6000, 2500, 8000, 0, 0, 11, 34447, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Abjurist Belmara - In Combat - Cast \'Arcane Missiles\''),
+(19546, 0, 9, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 28, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Abjurist Belmara - On Reset - Remove Aura \'Frost Armor\'');
+
+-- fix creature placed under ground
+UPDATE `creature` SET `position_x` = 2246.56, `position_y` = 2294.01, `position_z` = 86.2593 WHERE `guid` = 67476;
+
 SET @CGUID      := 659000;
 
 SET @Vixton     := 120278;
