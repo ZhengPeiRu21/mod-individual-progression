@@ -84,7 +84,6 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+204, @HW, 0, 0, 0, 0, 0, 1, 1, 1, -832.362, -3512.62, 72.3318, 4.55531, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+205, @HW, 0, 0, 0, 0, 0, 1, 1, 1, 382.498, -983.076, 109.979, 2.82743, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+206, @HW, 0, 0, 1, 0, 0, 1, 1, 1, 1026.33, -2110.51, 123.1, 5.49779, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+207, @HW_TBC, 0, 0, 530, 0, 0, 1, 1, 1, -1966.8800, 5260.6201, -38.8442, 4.1024, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 --
 (@CGUID+211, @ABG, 0, 0, 0, 0, 0, 1, 1, 0, -5049.99, -1270.26, 510.408, 0.0349066, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+212, @ABG, 0, 0, 1, 0, 0, 1, 1, 0, 9994.73, 2324.28, 1330.87, 3.24631, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -92,30 +91,41 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+214, @ABG, 0, 0, 0, 0, 0, 1, 1, 0, -1231.22, -2510.21, 23.1758, 4.36332, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+215, @ABG, 0, 0, 0, 0, 0, 1, 1, 0, -36.7805, -316.826, 130.69, 4.7822, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+216, @ABG, 0, 0, 1, 0, 0, 1, 1, 0, 1450.77, -1872.06, 126.998, 0.436332, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+217, @ABG_TBC, 0, 0, 530, 0, 0, 1, 1, 0, -1768.1700, 5255.3599, -38.7639, 5.2011, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+--
+(@CGUID+221, @HW_TBC, 0, 0, 1, 0, 0, 1, 1, 1, 1991.28, -4797.15, 56.1305, 2.77507, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+222, @HW_TBC, 0, 0, 1, 0, 0, 1, 1, 1, -1385.16, -91.2934, 159.055, 3.12414, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+223, @HW_TBC, 0, 0, 1, 0, 0, 1, 1, 1, 1663.62, -4196.58, 56.4659, 4.19403, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+224, @HW_TBC, 0, 0, 0, 0, 0, 1, 1, 1, 1316.82, 291.133, -63.6295, 2.04204, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+225, @HW_TBC, 0, 0, 530, 0, 0, 1, 1, 1, -1966.8800, 5260.6201, -38.8442, 4.1024, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+--
+(@CGUID+226, @ABG_TBC, 0, 0, 0, 0, 0, 1, 1, 0, -8385.67, 272.605, 120.886, 2.20103, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+227, @ABG_TBC, 0, 0, 0, 0, 0, 1, 1, 0, -5042.4, -1265.32, 510.325, 4.62873, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+228, @ABG_TBC, 0, 0, 0, 0, 0, 1, 1, 0, -8766.67, 408.102, 109.785, 2.22503, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+229, @ABG_TBC, 0, 0, 1, 0, 0, 1, 1, 0, 9994.73, 2324.28, 1330.87, 3.24631, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+230, @ABG_TBC, 0, 0, 530, 0, 0, 1, 1, 0, -1768.1700, 5255.3599, -38.7639, 5.2011, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 
 DELETE FROM `creature_queststarter` WHERE `id` IN (@HW, @ABG, @HW_TBC, @ABG_TBC);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES 
 --
-(@HW, 8367),
+(@HW, 13476),
 (@HW, 8369),
 (@HW, 8430),
 (@HW, 8439),
 --
-(@ABG, 8371), 
+(@ABG, 13478), 
 (@ABG, 8375), 
 (@ABG, 8396), 
 (@ABG, 8403),
 --
-(@HW_TBC, 8367), -- need new version
+(@HW_TBC, 8367), 
 (@HW_TBC, 8388),
 (@HW_TBC, 11339),
 (@HW_TBC, 11340),
 (@HW_TBC, 11341),
 (@HW_TBC, 11342),
 --
-(@ABG_TBC, 8371), -- need new version
+(@ABG_TBC, 8371),
 (@ABG_TBC, 8385), 
 (@ABG_TBC, 11335), 
 (@ABG_TBC, 11336),
@@ -125,36 +135,49 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 DELETE FROM `creature_questender` WHERE `id` IN (@HW, @ABG, @HW_TBC, @ABG_TBC);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES 
 --
-(@HW, 8367),
+(@HW, 13476),
 (@HW, 8369),
 (@HW, 8430),
 (@HW, 8439),
 --
-(@ABG, 8371), 
+(@ABG, 13478), 
 (@ABG, 8375), 
 (@ABG, 8396), 
 (@ABG, 8403),
 --
-(@HW_TBC, 8367), -- need new version
+(@HW_TBC, 8367),
 (@HW_TBC, 8388),
 (@HW_TBC, 11339),
 (@HW_TBC, 11340),
 (@HW_TBC, 11341),
 (@HW_TBC, 11342),
 --
-(@ABG_TBC, 8371), -- need new version
+(@ABG_TBC, 8371),
 (@ABG_TBC, 8385), 
 (@ABG_TBC, 11335), 
 (@ABG_TBC, 11336),
 (@ABG_TBC, 11337),
 (@ABG_TBC, 11338);
 
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'     WHERE `guid` IN (6505, 16472, 26901, 32075, 119054, 202720); -- Horde Warbringer
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'     WHERE `guid` IN (14740, 40534, 49852, 86263, 88247, 202732); -- Alliance Brigadier General
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `guid` BETWEEN @CGUID+201 AND @CGUID+217;
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'   WHERE `guid` IN (6505, 16472, 26901, 32075, 119054, 202720); -- Horde Warbringer
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'   WHERE `guid` IN (14740, 40534, 49852, 86263, 88247, 202732); -- Alliance Brigadier General
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `guid` BETWEEN @CGUID+201 AND @CGUID+216;
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pvp' WHERE `guid` BETWEEN @CGUID+221 AND @CGUID+230; -- only visible during tbc
 
-UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` IN (8367, 8371, 8375, 8385, 8388, 8396, 8403, 8369, 8430, 8439); -- enable quests
+UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` IN (8367, 8371, 8375, 8385, 8388, 8396, 8403, 8369, 8430, 8439, 13476, 13478); -- enable quests
 UPDATE `quest_template` SET `MinLevel` = 61 WHERE `ID` IN (11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342);
-UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN (8371, 8375, 8396, 8403, 8367, 8369, 8430, 8439); -- make quests repeatable
+UPDATE `quest_template` SET `RewardMoney` = 10000, `RewardHonor` = 314, `RewardKillHonor` = 0 WHERE `ID` IN (8367, 8371);
 
-DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (8367, 8371, 8385, 8388, 11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342);
+UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN (8371, 8375, 8396, 8403, 8367, 8369, 8430, 8439, 13476, 13478); -- make quests repeatable
+
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (8367, 8371, 8385, 8388, 11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342, 13476, 13478);
+
+-- change unused WotLK version of 'For Great Honor' and 'Concerted Efforts' into missing vanilla version
+UPDATE `quest_template` SET `MinLevel` = 51, `RewardMoney` = 27000, `RewardHonor` = 2388, `RewardKillHonor` = 0,
+`RequiredItemId1` = 20558, `RequiredItemId2` = 20559, `RequiredItemId3` = 20560, `RequiredItemId4` = 0, `RequiredItemId5` = 0, `RequiredItemId6` = 0,
+`RequiredItemCount1` = 3, `RequiredItemCount2` = 3, `RequiredItemCount3` = 3, `RequiredItemCount4` = 0, `RequiredItemCount5` = 0, `RequiredItemCount6` = 0 WHERE `ID` IN (13476, 13478);
+
+UPDATE `quest_template` SET 
+`LogDescription` = 'Bring 3 Alterac Valley Marks of Honor, 3 Arathi Basin Marks of Honor and 3 Warsong Gulch Marks of Honor to a Horde Warbringer outside the battlegrounds.' WHERE `ID` = 13476;
+UPDATE `quest_template` SET 
+`LogDescription` = 'Bring 3 Alterac Valley Mark of Honor, 3 Arathi Basin Mark of Honor and 3 Warsong Gulch Mark of Honor to an Alliance Brigadier General outside the battlegrounds.' WHERE `ID` = 13478;
