@@ -46,6 +46,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (19546, 0, 8, 0, 0, 0, 100, 0, 0, 6000, 2500, 8000, 0, 0, 11, 34447, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Abjurist Belmara - In Combat - Cast \'Arcane Missiles\''),
 (19546, 0, 9, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 28, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Abjurist Belmara - On Reset - Remove Aura \'Frost Armor\'');
 
+-- fix Escape from the Staging Grounds (didn't complete)
+UPDATE `smart_scripts` SET `link` = 14 WHERE `entryorguid` = 20763 AND `id` = 13;
+
 -- fix creature placed under ground
 UPDATE `creature` SET `position_x` = 2246.56, `position_y` = 2294.01, `position_z` = 86.2593 WHERE `guid` = 67476;
 
