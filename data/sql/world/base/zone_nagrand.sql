@@ -21,10 +21,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature_loot_template` SET `Chance` = 20 WHERE `Item` IN (28667, 28668);
 
 SET @CGUID   := 670000;
+SET @WPID    := 6700000;
 
 -- add kodo corpses near the Greater Windrocs
-DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+4;
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+6;
 DELETE FROM `creature` WHERE `guid` IN (59582, 60208);
+DELETE FROM `creature` WHERE `id1`  IN (23022); -- needed to remove creature placed by AC
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
@@ -32,6 +34,9 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+2, 17133, 0, 0, 530, 0, 0, 1, 1, 0, -1016.1700, 8313.7002, 16.7102, 5.0091, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+3, 17133, 0, 0, 530, 0, 0, 1, 1, 0, -918.2130, 8454.0098, 36.3233, 3.3510, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+4, 17133, 0, 0, 530, 0, 0, 1, 1, 0, -781.6080, 8482.6299, 40.5285, 5.8294, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+--
+(@CGUID+5, 23022, 0, 0, 530, 0, 0, 1, 1, 0, -1529.1022, 5971.2354, 192.3297, 0, 300, 0, 1, 27945, 6310, 2, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+6, 23022, 0, 0, 530, 0, 0, 1, 1, 0, -1337.0262, 5707.4595, 180.8865, 0, 300, 0, 1, 27945, 6310, 2, 0, 0, 0, '', 0, 0, NULL),
 -- misplaced
 (59582, 17129, 0, 0, 530, 0, 0, 1, 1, 0, -788.8040, 8474.4004, 44.6907, 2.3430, 300, 5, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 (60208, 17146, 0, 0, 530, 0, 0, 1, 1, 0, -3014.7700, 6524.4902, 99.2735, 2.9321, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
@@ -53,13 +58,32 @@ INSERT INTO `creature_template_movement` (`CreatureId`, `Ground`, `Swim`, `Fligh
 (18257, 1, 1, 1, 0, 0, 0, NULL),
 (18258, 1, 1, 0, 0, 0, 0, NULL);
 
-DELETE FROM `creature_addon` WHERE `guid` IN (65525, 65528);
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+5, @CGUID+6, 65525, 65528);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(@CGUID+5, @WPID+50, 0, 0, 0, 0, 0, ''),
+(@CGUID+6, @WPID+60, 0, 0, 0, 0, 0, ''),
 (65525, 655250, 0, 0, 0, 0, 0, ''), -- Gutripper
 (65528, 655280, 0, 0, 0, 0, 0, ''); -- Bach'lor
 
-DELETE FROM `waypoint_data` WHERE `id` IN (655250, 655280);
+DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+50, @WPID+60, 655250, 655280);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+--
+(@WPID+50, 1, -1529.1, 5971.24, 192.33, 0, 0, 0, 0, 100, 0),
+(@WPID+50, 2, -1521.51, 5957.25, 193.641, 0, 0, 0, 0, 100, 0),
+(@WPID+50, 3, -1515.27, 5940.26, 194.593, 0, 0, 0, 0, 100, 0),
+(@WPID+50, 4, -1501.01, 5922.79, 194.599, 0, 0, 0, 0, 100, 0),
+(@WPID+50, 5, -1479.96, 5914.02, 195.544, 0, 0, 0, 0, 100, 0),
+(@WPID+50, 6, -1458.55, 5917.25, 194.75, 0, 0, 0, 0, 100, 0),
+(@WPID+50, 7, -1437.51, 5908.63, 193.411, 0, 0, 0, 0, 100, 0),
+(@WPID+50, 8, -1413.04, 5889.4, 187.326, 0, 1000, 0, 0, 100, 0),
+--
+(@WPID+60, 1, -1337.03, 5707.46, 180.886, 0, 1000, 0, 0, 100, 0),
+(@WPID+60, 2, -1333.27, 5731.09, 180.424, 0, 0, 0, 0, 100, 0),
+(@WPID+60, 3, -1332.24, 5754.8, 182.023, 0, 0, 0, 0, 100, 0),
+(@WPID+60, 4, -1330.81, 5779.44, 182.903, 0, 0, 0, 0, 100, 0),
+(@WPID+60, 5, -1324.87, 5800.58, 184.493, 0, 0, 0, 0, 100, 0),
+(@WPID+60, 6, -1350.48, 5824.88, 186.404, 0, 0, 0, 0, 100, 0),
+(@WPID+60, 7, -1385.07, 5843.76, 185.519, 0, 1000, 0, 0, 100, 0),
 --
 (655250, 1, -1091.72, 8560.97, 66.4831, 0, 0, 0, 0, 100, 0),
 (655250, 2, -1068.59, 8521.24, 80.7095, 0, 0, 0, 0, 100, 0),
