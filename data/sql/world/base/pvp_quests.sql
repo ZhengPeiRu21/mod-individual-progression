@@ -107,77 +107,99 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 
 DELETE FROM `creature_queststarter` WHERE `id` IN (@HW, @ABG, @HW_TBC, @ABG_TBC);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES 
+-- 
+(@HW, 13476),  -- For Great Honor
+(@HW, 13475),  -- For Great Honor (repeatable)
+(@HW, 8369),   -- Invaders of Alterac Valley
+(@HW, 8387),   -- Invaders of Alterac Valley (repeatable)
+(@HW, 8430),   -- lvl60 Battle of Warsong Gulch
+(@HW, 8435),   -- lvl60 Battle of Warsong Gulch (repeatable)
+(@HW, 8439),   -- lvl60 Conquering Arathi Basin
+(@HW, 8443),   -- lvl60 Conquering Arathi Basin (repeatable)
 --
-(@HW, 13476),
-(@HW, 8369),
-(@HW, 8430),
-(@HW, 8439),
+(@ABG, 13478), -- Concerted Efforts
+(@ABG, 13477), -- Concerted Efforts (repeatable)
+(@ABG, 8375),  -- Remember Alterac Valley!
+(@ABG, 8383),  -- Remember Alterac Valley! (repeatable)
+(@ABG, 8396),  -- lvl60 Claiming Arathi Basin
+(@ABG, 8398),  -- lvl60 Claiming Arathi Basin (repeatable)
+(@ABG, 8403),  -- lvl60 Fight for Warsong Gulch
+(@ABG, 8408),  -- lvl60 Fight for Warsong Gulch (repeatable)
 --
-(@ABG, 13478), 
-(@ABG, 8375), 
-(@ABG, 8396), 
-(@ABG, 8403),
+(@HW_TBC, 8367),   -- For Great Honor
+(@HW_TBC, 8388),   -- For Great Honor (repeatable)
+(@HW_TBC, 11339),  -- Call to Arms: Arathi Basin (repeatable)
+(@HW_TBC, 11340),  -- Call to Arms: Alterac Valley (repeatable)
+(@HW_TBC, 11341),  -- Call to Arms: Eye of the Storm (repeatable)
+(@HW_TBC, 11342),  -- Call to Arms: Warsong Gulch (repeatable)
 --
-(@HW_TBC, 8367), 
-(@HW_TBC, 8388),
-(@HW_TBC, 11339),
-(@HW_TBC, 11340),
-(@HW_TBC, 11341),
-(@HW_TBC, 11342),
---
-(@ABG_TBC, 8371),
-(@ABG_TBC, 8385), 
-(@ABG_TBC, 11335), 
-(@ABG_TBC, 11336),
-(@ABG_TBC, 11337),
-(@ABG_TBC, 11338);
+(@ABG_TBC, 8371),  -- Concerted Efforts
+(@ABG_TBC, 8385),  -- Concerted Efforts (repeatable)
+(@ABG_TBC, 11335), -- Call to Arms: Arathi Basin (repeatable)
+(@ABG_TBC, 11336), -- Call to Arms: Alterac Valley (repeatable)
+(@ABG_TBC, 11337), -- Call to Arms: Eye of the Storm (repeatable)
+(@ABG_TBC, 11338); -- Call to Arms: Warsong Gulch (repeatable)
 
 DELETE FROM `creature_questender` WHERE `id` IN (@HW, @ABG, @HW_TBC, @ABG_TBC);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES 
---
-(@HW, 13476),
-(@HW, 8369),
-(@HW, 8430),
-(@HW, 8439),
---
-(@ABG, 13478), 
-(@ABG, 8375), 
-(@ABG, 8396), 
-(@ABG, 8403),
---
-(@HW_TBC, 8367),
-(@HW_TBC, 8388),
-(@HW_TBC, 11339),
-(@HW_TBC, 11340),
-(@HW_TBC, 11341),
-(@HW_TBC, 11342),
---
-(@ABG_TBC, 8371),
-(@ABG_TBC, 8385), 
-(@ABG_TBC, 11335), 
-(@ABG_TBC, 11336),
-(@ABG_TBC, 11337),
-(@ABG_TBC, 11338);
+-- 13476, 13475, 8369, 8387, 8430, 8435, 8439, 8443
+(@HW, 13476),  -- For Great Honor
+(@HW, 13475),  -- For Great Honor (repeatable)
+(@HW, 8369),   -- Invaders of Alterac Valley
+(@HW, 8387),   -- Invaders of Alterac Valley (repeatable)
+(@HW, 8430),   -- lvl60 Battle of Warsong Gulch
+(@HW, 8435),   -- lvl60 Battle of Warsong Gulch (repeatable)
+(@HW, 8439),   -- lvl60 Conquering Arathi Basin
+(@HW, 8443),   -- lvl60 Conquering Arathi Basin (repeatable)
+-- 13478, 13477, 8375, 8383, 8396, 8398, 8403, 8408
+(@ABG, 13478), -- Concerted Efforts
+(@ABG, 13477), -- Concerted Efforts (repeatable)
+(@ABG, 8375),  -- Remember Alterac Valley!
+(@ABG, 8383),  -- Remember Alterac Valley! (repeatable)
+(@ABG, 8396),  -- lvl60 Claiming Arathi Basin
+(@ABG, 8398),  -- lvl60 Claiming Arathi Basin (repeatable)
+(@ABG, 8403),  -- lvl60 Fight for Warsong Gulch
+(@ABG, 8408),  -- lvl60 Fight for Warsong Gulch (repeatable)
+-- 8367, 8388, 11339, 1134, 11341, 11342
+(@HW_TBC, 8367),   -- For Great Honor
+(@HW_TBC, 8388),   -- For Great Honor (repeatable)
+(@HW_TBC, 11339),  -- Call to Arms: Arathi Basin (repeatable)
+(@HW_TBC, 11340),  -- Call to Arms: Alterac Valley (repeatable)
+(@HW_TBC, 11341),  -- Call to Arms: Eye of the Storm (repeatable)
+(@HW_TBC, 11342),  -- Call to Arms: Warsong Gulch (repeatable)
+-- 8371, 8385, 11335, 11336, 11337, 11338
+(@ABG_TBC, 8371),  -- Concerted Efforts
+(@ABG_TBC, 8385),  -- Concerted Efforts (repeatable)
+(@ABG_TBC, 11335), -- Call to Arms: Arathi Basin (repeatable)
+(@ABG_TBC, 11336), -- Call to Arms: Alterac Valley (repeatable)
+(@ABG_TBC, 11337), -- Call to Arms: Eye of the Storm (repeatable)
+(@ABG_TBC, 11338); -- Call to Arms: Warsong Gulch (repeatable)
 
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'   WHERE `guid` IN (6505, 16472, 26901, 32075, 119054, 202720); -- Horde Warbringer
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'   WHERE `guid` IN (14740, 40534, 49852, 86263, 88247, 202732); -- Alliance Brigadier General
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `guid` BETWEEN @CGUID+201 AND @CGUID+216;
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pvp' WHERE `guid` BETWEEN @CGUID+221 AND @CGUID+230; -- only visible during tbc
 
-UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` IN (8367, 8371, 8375, 8385, 8388, 8396, 8403, 8369, 8430, 8439, 13476, 13478); -- enable quests
+UPDATE `quest_template` SET `QuestType` = 0 WHERE `ID` IN (8385, 8388, 13475, 13477); -- repeatable quests, enabled and auto complete
+UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` IN (8367, 8371, 8375, 8396, 8403, 8369, 8430, 8439, 13476, 13478); -- enable quests
 UPDATE `quest_template` SET `MinLevel` = 61 WHERE `ID` IN (11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342);
-UPDATE `quest_template` SET `RewardMoney` = 10000, `RewardHonor` = 314, `RewardKillHonor` = 0 WHERE `ID` IN (8367, 8371);
 
-UPDATE `quest_template_addon` SET `SpecialFlags` = 1 WHERE `ID` IN (8371, 8375, 8396, 8403, 8367, 8369, 8430, 8439, 13476, 13478); -- make quests repeatable
+UPDATE `quest_template` SET `RewardHonor` = 314, `RewardKillHonor` = 0  WHERE `ID` IN (8367, 8371);   -- first time completion
+UPDATE `quest_template` SET `RewardMoney` = 27000, `RewardHonor` = 2388 WHERE `ID` IN (13476, 13478); -- first time completion
 
-DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (8367, 8371, 8385, 8388, 11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342, 13476, 13478);
+UPDATE `quest_template_addon` SET `PrevQuestID` = 13476, `SpecialFlags` = 1 WHERE `ID` = 13475;
+UPDATE `quest_template_addon` SET `PrevQuestID` = 13478, `SpecialFlags` = 1 WHERE `ID` = 13477;
+
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN 
+(8367, 8371, 8385, 8388, 8398, 8408, 8435, 8443, 11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342, 13475, 13476, 13477, 13478);
 
 -- change unused WotLK version of 'For Great Honor' and 'Concerted Efforts' into missing vanilla version
-UPDATE `quest_template` SET `MinLevel` = 51, `RewardMoney` = 27000, `RewardHonor` = 2388, `RewardKillHonor` = 0,
+UPDATE `quest_template` SET `MinLevel` = 51, `RewardKillHonor` = 0,
 `RequiredItemId1` = 20558, `RequiredItemId2` = 20559, `RequiredItemId3` = 20560, `RequiredItemId4` = 0, `RequiredItemId5` = 0, `RequiredItemId6` = 0,
-`RequiredItemCount1` = 3, `RequiredItemCount2` = 3, `RequiredItemCount3` = 3, `RequiredItemCount4` = 0, `RequiredItemCount5` = 0, `RequiredItemCount6` = 0 WHERE `ID` IN (13476, 13478);
+`RequiredItemCount1` = 3, `RequiredItemCount2` = 3, `RequiredItemCount3` = 3, `RequiredItemCount4` = 0, `RequiredItemCount5` = 0, `RequiredItemCount6` = 0 WHERE `ID` IN (13475, 13476, 13477, 13478);
 
 UPDATE `quest_template` SET 
 `LogDescription` = 'Bring 3 Alterac Valley Marks of Honor, 3 Arathi Basin Marks of Honor and 3 Warsong Gulch Marks of Honor to a Horde Warbringer outside the battlegrounds.' WHERE `ID` = 13476;
 UPDATE `quest_template` SET 
 `LogDescription` = 'Bring 3 Alterac Valley Mark of Honor, 3 Arathi Basin Mark of Honor and 3 Warsong Gulch Mark of Honor to an Alliance Brigadier General outside the battlegrounds.' WHERE `ID` = 13478;
+
