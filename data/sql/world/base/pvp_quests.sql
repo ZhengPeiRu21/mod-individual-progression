@@ -381,6 +381,19 @@ DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN
 8404, 8405, 8406, 8407, 8408, 8431, 8432, 8433, 8434, 8435, 8440, 8441, 8442, 8443, 
 11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342, 13475, 13476, 13477, 13478);
 
+-- connect Call to Arms quests to events
+DELETE FROM `game_event_creature_quest` WHERE `eventEntry` IN (18, 19, 20, 21) AND `quest` IN (11335, 11337, 11338, 11340);
+INSERT INTO `game_event_creature_quest` (`eventEntry`, `id`, `quest`) VALUES 
+--
+(18, @HW_TBC,  11340), -- Call to Arms: Alterac Valley
+(18, @ABG_TBC, 11340),
+(19, @HW_TBC,  11338), -- Call to Arms: Warsong Gulch
+(19, @ABG_TBC, 11338),
+(20, @HW_TBC,  11335), -- Call to Arms: Arathi Basin
+(20, @ABG_TBC, 11335),
+(21, @HW_TBC,  11337), -- Call to Arms: Eye of the Storm
+(21, @ABG_TBC, 11337);
+
 -- change unused WotLK version of 'For Great Honor' and 'Concerted Efforts' into missing vanilla version
 UPDATE `quest_template` SET `MinLevel` = 51, `RewardKillHonor` = 0,
 `RequiredItemId1` = 20558, `RequiredItemId2` = 20559, `RequiredItemId3` = 20560, `RequiredItemId4` = 0, `RequiredItemId5` = 0, `RequiredItemId6` = 0,
