@@ -7,6 +7,7 @@
 #include "Battleground.h"
 #include "Mail.h"
 #include "DatabaseEnv.h"
+#include "IndividualProgression.h"
 
 enum class Battlemaster
 {
@@ -60,6 +61,9 @@ public:
         if (battleground == nullptr)
             return;
 
+        if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+            return;
+        
         const TeamId playerTeamId = player->GetBgTeamId();
 
         uint8_t rewardQuantity = 1;
