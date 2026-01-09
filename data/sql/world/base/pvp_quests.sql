@@ -160,7 +160,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (@ABG, 8398),  -- lvl60 Claiming Arathi Basin (repeatable)
 (@ABG, 8403),  -- lvl60 Fight for Warsong Gulch
 (@ABG, 8408),  -- lvl60 Fight for Warsong Gulch (repeatable)
--- 8367, 8388, 11339, 1134, 11341, 11342
+-- 8367, 8388, 11339, 11340, 11341, 11342
 (@HW_TBC, 8367),   -- For Great Honor
 (@HW_TBC, 8388),   -- For Great Honor (repeatable)
 (@HW_TBC, 11339),  -- Call to Arms: Arathi Basin (repeatable)
@@ -186,6 +186,19 @@ UPDATE `quest_template` SET `MinLevel` = 61 WHERE `ID` IN (11335, 11336, 11337, 
 
 UPDATE `quest_template` SET `RewardHonor` = 314, `RewardKillHonor` = 0  WHERE `ID` IN (8367, 8371);   -- first time completion
 UPDATE `quest_template` SET `RewardMoney` = 27000, `RewardHonor` = 2388 WHERE `ID` IN (13476, 13478); -- first time completion
+
+UPDATE `quest_template` SET `RewardArenaPoints` = 0, `RewardKillHonor` = 0  WHERE `ID` IN 
+(8367, 8388, 11339, 11340, 11341, 11342,  -- horde
+ 8371, 8385, 11335, 11336, 11337, 11338); -- alliance
+ 
+UPDATE `quest_template` SET `RewardXPDifficulty` = 3, `RewardMoney` = 74000  WHERE `ID` IN 
+(8367, 11339, 11340, 11341, 11342,  -- horde
+ 8371, 11335, 11336, 11337, 11338); -- alliance
+
+UPDATE `quest_template` SET `RewardItem1` = 20559, `RewardAmount1` = 3 WHERE `ID` IN (11335, 11339); -- Call to Arms: Arathi Basin (repeatable)
+UPDATE `quest_template` SET `RewardItem1` = 20560, `RewardAmount1` = 3 WHERE `ID` IN (11336, 11340); -- Call to Arms: Alterac Valley (repeatable)
+UPDATE `quest_template` SET `RewardItem1` = 29024, `RewardAmount1` = 3 WHERE `ID` IN (11337, 11341); -- Call to Arms: Eye of the Storm (repeatable)
+UPDATE `quest_template` SET `RewardItem1` = 20558, `RewardAmount1` = 3 WHERE `ID` IN (11338, 11342); -- Call to Arms: Warsong Gulch (repeatable)
 
 UPDATE `quest_template_addon` SET `PrevQuestID` = 13476, `SpecialFlags` = 1 WHERE `ID` = 13475;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 13478, `SpecialFlags` = 1 WHERE `ID` = 13477;
