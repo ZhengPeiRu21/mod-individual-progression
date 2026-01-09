@@ -112,8 +112,26 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (@HW, 13475),  -- For Great Honor (repeatable)
 (@HW, 8369),   -- Invaders of Alterac Valley
 (@HW, 8387),   -- Invaders of Alterac Valley (repeatable)
+(@HW, 8368),   -- lvl10 Battle of Warsong Gulch
+(@HW, 8389),   -- lvl10 Battle of Warsong Gulch (repeatable)
+(@HW, 8426),   -- lvl20 Battle of Warsong Gulch
+(@HW, 8431),   -- lvl20 Battle of Warsong Gulch (repeatable)
+(@HW, 8427),   -- lvl30 Battle of Warsong Gulch
+(@HW, 8432),   -- lvl30 Battle of Warsong Gulch (repeatable)
+(@HW, 8428),   -- lvl40 Battle of Warsong Gulch
+(@HW, 8433),   -- lvl40 Battle of Warsong Gulch (repeatable)
+(@HW, 8429),   -- lvl50 Battle of Warsong Gulch
+(@HW, 8434),   -- lvl50 Battle of Warsong Gulch (repeatable)
 (@HW, 8430),   -- lvl60 Battle of Warsong Gulch
 (@HW, 8435),   -- lvl60 Battle of Warsong Gulch (repeatable)
+(@HW, 8370),   -- lvl20 Conquering Arathi Basin
+(@HW, 8390),   -- lvl20 Conquering Arathi Basin (repeatable)
+(@HW, 8436),   -- lvl30 Conquering Arathi Basin
+(@HW, 8440),   -- lvl30 Conquering Arathi Basin (repeatable)
+(@HW, 8437),   -- lvl40 Conquering Arathi Basin
+(@HW, 8441),   -- lvl40 Conquering Arathi Basin (repeatable)
+(@HW, 8438),   -- lvl50 Conquering Arathi Basin
+(@HW, 8442),   -- lvl50 Conquering Arathi Basin (repeatable)
 (@HW, 8439),   -- lvl60 Conquering Arathi Basin
 (@HW, 8443),   -- lvl60 Conquering Arathi Basin (repeatable)
 --
@@ -121,8 +139,26 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (@ABG, 13477), -- Concerted Efforts (repeatable)
 (@ABG, 8375),  -- Remember Alterac Valley!
 (@ABG, 8383),  -- Remember Alterac Valley! (repeatable)
+(@ABG, 8374),  -- lvl20 Claiming Arathi Basin
+(@ABG, 8384),  -- lvl20 Claiming Arathi Basin (repeatable)
+(@ABG, 8393),  -- lvl30 Claiming Arathi Basin
+(@ABG, 8391),  -- lvl30 Claiming Arathi Basin (repeatable)
+(@ABG, 8394),  -- lvl40 Claiming Arathi Basin
+(@ABG, 8392),  -- lvl40 Claiming Arathi Basin (repeatable)
+(@ABG, 8395),  -- lvl50 Claiming Arathi Basin
+(@ABG, 8397),  -- lvl50 Claiming Arathi Basin (repeatable)
 (@ABG, 8396),  -- lvl60 Claiming Arathi Basin
 (@ABG, 8398),  -- lvl60 Claiming Arathi Basin (repeatable)
+(@ABG, 8372),  -- lvl10 Fight for Warsong Gulch
+(@ABG, 8386),  -- lvl10 Fight for Warsong Gulch (repeatable)
+(@ABG, 8399),  -- lvl20 Fight for Warsong Gulch
+(@ABG, 8404),  -- lvl20 Fight for Warsong Gulch (repeatable)
+(@ABG, 8400),  -- lvl30 Fight for Warsong Gulch
+(@ABG, 8405),  -- lvl30 Fight for Warsong Gulch (repeatable)
+(@ABG, 8401),  -- lvl40 Fight for Warsong Gulch
+(@ABG, 8406),  -- lvl40 Fight for Warsong Gulch (repeatable)
+(@ABG, 8402),  -- lvl50 Fight for Warsong Gulch
+(@ABG, 8407),  -- lvl50 Fight for Warsong Gulch (repeatable)
 (@ABG, 8403),  -- lvl60 Fight for Warsong Gulch
 (@ABG, 8408),  -- lvl60 Fight for Warsong Gulch (repeatable)
 --
@@ -142,32 +178,68 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 
 DELETE FROM `creature_questender` WHERE `id` IN (@HW, @ABG, @HW_TBC, @ABG_TBC);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES 
--- 13476, 13475, 8369, 8387, 8430, 8435, 8439, 8443
+--
 (@HW, 13476),  -- For Great Honor
 (@HW, 13475),  -- For Great Honor (repeatable)
 (@HW, 8369),   -- Invaders of Alterac Valley
 (@HW, 8387),   -- Invaders of Alterac Valley (repeatable)
+(@HW, 8368),   -- lvl10 Battle of Warsong Gulch
+(@HW, 8389),   -- lvl10 Battle of Warsong Gulch (repeatable)
+(@HW, 8426),   -- lvl20 Battle of Warsong Gulch
+(@HW, 8431),   -- lvl20 Battle of Warsong Gulch (repeatable)
+(@HW, 8427),   -- lvl30 Battle of Warsong Gulch
+(@HW, 8432),   -- lvl30 Battle of Warsong Gulch (repeatable)
+(@HW, 8428),   -- lvl40 Battle of Warsong Gulch
+(@HW, 8433),   -- lvl40 Battle of Warsong Gulch (repeatable)
+(@HW, 8429),   -- lvl50 Battle of Warsong Gulch
+(@HW, 8434),   -- lvl50 Battle of Warsong Gulch (repeatable)
 (@HW, 8430),   -- lvl60 Battle of Warsong Gulch
 (@HW, 8435),   -- lvl60 Battle of Warsong Gulch (repeatable)
+(@HW, 8370),   -- lvl20 Conquering Arathi Basin
+(@HW, 8390),   -- lvl20 Conquering Arathi Basin (repeatable)
+(@HW, 8436),   -- lvl30 Conquering Arathi Basin
+(@HW, 8440),   -- lvl30 Conquering Arathi Basin (repeatable)
+(@HW, 8437),   -- lvl40 Conquering Arathi Basin
+(@HW, 8441),   -- lvl40 Conquering Arathi Basin (repeatable)
+(@HW, 8438),   -- lvl50 Conquering Arathi Basin
+(@HW, 8442),   -- lvl50 Conquering Arathi Basin (repeatable)
 (@HW, 8439),   -- lvl60 Conquering Arathi Basin
 (@HW, 8443),   -- lvl60 Conquering Arathi Basin (repeatable)
--- 13478, 13477, 8375, 8383, 8396, 8398, 8403, 8408
+--
 (@ABG, 13478), -- Concerted Efforts
 (@ABG, 13477), -- Concerted Efforts (repeatable)
 (@ABG, 8375),  -- Remember Alterac Valley!
 (@ABG, 8383),  -- Remember Alterac Valley! (repeatable)
+(@ABG, 8374),  -- lvl20 Claiming Arathi Basin
+(@ABG, 8384),  -- lvl20 Claiming Arathi Basin (repeatable)
+(@ABG, 8393),  -- lvl30 Claiming Arathi Basin
+(@ABG, 8391),  -- lvl30 Claiming Arathi Basin (repeatable)
+(@ABG, 8394),  -- lvl40 Claiming Arathi Basin
+(@ABG, 8392),  -- lvl40 Claiming Arathi Basin (repeatable)
+(@ABG, 8395),  -- lvl50 Claiming Arathi Basin
+(@ABG, 8397),  -- lvl50 Claiming Arathi Basin (repeatable)
 (@ABG, 8396),  -- lvl60 Claiming Arathi Basin
 (@ABG, 8398),  -- lvl60 Claiming Arathi Basin (repeatable)
+(@ABG, 8372),  -- lvl10 Fight for Warsong Gulch
+(@ABG, 8386),  -- lvl10 Fight for Warsong Gulch (repeatable)
+(@ABG, 8399),  -- lvl20 Fight for Warsong Gulch
+(@ABG, 8404),  -- lvl20 Fight for Warsong Gulch (repeatable)
+(@ABG, 8400),  -- lvl30 Fight for Warsong Gulch
+(@ABG, 8405),  -- lvl30 Fight for Warsong Gulch (repeatable)
+(@ABG, 8401),  -- lvl40 Fight for Warsong Gulch
+(@ABG, 8406),  -- lvl40 Fight for Warsong Gulch (repeatable)
+(@ABG, 8402),  -- lvl50 Fight for Warsong Gulch
+(@ABG, 8407),  -- lvl50 Fight for Warsong Gulch (repeatable)
 (@ABG, 8403),  -- lvl60 Fight for Warsong Gulch
 (@ABG, 8408),  -- lvl60 Fight for Warsong Gulch (repeatable)
--- 8367, 8388, 11339, 11340, 11341, 11342
+--
 (@HW_TBC, 8367),   -- For Great Honor
 (@HW_TBC, 8388),   -- For Great Honor (repeatable)
 (@HW_TBC, 11339),  -- Call to Arms: Arathi Basin (repeatable)
 (@HW_TBC, 11340),  -- Call to Arms: Alterac Valley (repeatable)
 (@HW_TBC, 11341),  -- Call to Arms: Eye of the Storm (repeatable)
 (@HW_TBC, 11342),  -- Call to Arms: Warsong Gulch (repeatable)
--- 8371, 8385, 11335, 11336, 11337, 11338
+--
 (@ABG_TBC, 8371),  -- Concerted Efforts
 (@ABG_TBC, 8385),  -- Concerted Efforts (repeatable)
 (@ABG_TBC, 11335), -- Call to Arms: Arathi Basin (repeatable)
@@ -175,13 +247,114 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (@ABG_TBC, 11337), -- Call to Arms: Eye of the Storm (repeatable)
 (@ABG_TBC, 11338); -- Call to Arms: Warsong Gulch (repeatable)
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 27 AND `SourceEntry` IN 
+(8368, 8389, 8372, 8386, 8426, 8431, 8399, 8404, 8427, 8432, 8400, 8405, 8428, 8433, 8401, 8406, 8429, 8434, 8402, 8407, 8403, 8408, 8430, 8435, -- WSG
+ 8370, 8390, 8374, 8384, 8436, 8440, 8393, 8391, 8437, 8441, 8394, 8392, 8438, 8442, 8395, 8397, 8439, 8443, 8396, 8398); -- AB
+
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+-- WSG quests
+(19, 0, 8368, 0, 1, 27, 0, 10, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 10'),
+(19, 0, 8368, 0, 1, 27, 0, 19, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 19'),
+(19, 0, 8389, 0, 1, 27, 0, 10, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 10'),
+(19, 0, 8389, 0, 1, 27, 0, 19, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 19'),
+(19, 0, 8372, 0, 1, 27, 0, 10, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 10'),
+(19, 0, 8372, 0, 1, 27, 0, 19, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 19'),
+(19, 0, 8386, 0, 1, 27, 0, 10, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 10'),
+(19, 0, 8386, 0, 1, 27, 0, 19, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 19'),
+--
+(19, 0, 8426, 0, 1, 27, 0, 20, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 20'),
+(19, 0, 8426, 0, 1, 27, 0, 29, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 29'),
+(19, 0, 8431, 0, 1, 27, 0, 20, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 20'),
+(19, 0, 8431, 0, 1, 27, 0, 29, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 29'),
+(19, 0, 8399, 0, 1, 27, 0, 20, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 20'),
+(19, 0, 8399, 0, 1, 27, 0, 29, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 29'),
+(19, 0, 8404, 0, 1, 27, 0, 20, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 20'),
+(19, 0, 8404, 0, 1, 27, 0, 29, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 29'),
+--
+(19, 0, 8427, 0, 1, 27, 0, 30, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 30'),
+(19, 0, 8427, 0, 1, 27, 0, 39, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 39'),
+(19, 0, 8432, 0, 1, 27, 0, 30, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 30'),
+(19, 0, 8432, 0, 1, 27, 0, 39, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 39'),
+(19, 0, 8400, 0, 1, 27, 0, 30, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 30'),
+(19, 0, 8400, 0, 1, 27, 0, 39, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 39'),
+(19, 0, 8405, 0, 1, 27, 0, 30, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 30'),
+(19, 0, 8405, 0, 1, 27, 0, 39, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 39'),
+--
+(19, 0, 8428, 0, 1, 27, 0, 40, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 40'),
+(19, 0, 8428, 0, 1, 27, 0, 49, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 49'),
+(19, 0, 8433, 0, 1, 27, 0, 40, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 40'),
+(19, 0, 8433, 0, 1, 27, 0, 49, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 49'),
+(19, 0, 8401, 0, 1, 27, 0, 40, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 40'),
+(19, 0, 8401, 0, 1, 27, 0, 49, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 49'),
+(19, 0, 8406, 0, 1, 27, 0, 40, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 40'),
+(19, 0, 8406, 0, 1, 27, 0, 49, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 49'),
+--
+(19, 0, 8429, 0, 1, 27, 0, 50, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 50'),
+(19, 0, 8429, 0, 1, 27, 0, 59, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 59'),
+(19, 0, 8434, 0, 1, 27, 0, 50, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 50'),
+(19, 0, 8434, 0, 1, 27, 0, 59, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 59'),
+(19, 0, 8402, 0, 1, 27, 0, 50, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 50'),
+(19, 0, 8402, 0, 1, 27, 0, 59, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 59'),
+(19, 0, 8407, 0, 1, 27, 0, 50, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 50'),
+(19, 0, 8407, 0, 1, 27, 0, 59, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 59'),
+--
+(19, 0, 8403, 0, 0, 27, 0, 60, 0, 0, 0, 0, 0, '', 'level must be equal to 60'),
+(19, 0, 8408, 0, 0, 27, 0, 60, 0, 0, 0, 0, 0, '', 'level must be equal to 60'),
+(19, 0, 8430, 0, 0, 27, 0, 60, 0, 0, 0, 0, 0, '', 'level must be equal to 60'),
+(19, 0, 8435, 0, 0, 27, 0, 60, 0, 0, 0, 0, 0, '', 'level must be equal to 60'),
+
+-- AB quests
+(19, 0, 8370, 0, 1, 27, 0, 20, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 20'),
+(19, 0, 8370, 0, 1, 27, 0, 29, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 29'),
+(19, 0, 8390, 0, 1, 27, 0, 20, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 20'),
+(19, 0, 8390, 0, 1, 27, 0, 29, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 29'),
+(19, 0, 8374, 0, 1, 27, 0, 20, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 20'),
+(19, 0, 8374, 0, 1, 27, 0, 29, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 29'),
+(19, 0, 8384, 0, 1, 27, 0, 20, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 20'),
+(19, 0, 8384, 0, 1, 27, 0, 29, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 29'),
+--
+(19, 0, 8436, 0, 1, 27, 0, 30, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 30'),
+(19, 0, 8436, 0, 1, 27, 0, 39, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 39'),
+(19, 0, 8440, 0, 1, 27, 0, 30, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 30'),
+(19, 0, 8440, 0, 1, 27, 0, 39, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 39'),
+(19, 0, 8393, 0, 1, 27, 0, 30, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 30'),
+(19, 0, 8393, 0, 1, 27, 0, 39, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 39'),
+(19, 0, 8391, 0, 1, 27, 0, 30, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 30'),
+(19, 0, 8391, 0, 1, 27, 0, 39, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 39'),
+--
+(19, 0, 8437, 0, 1, 27, 0, 40, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 40'),
+(19, 0, 8437, 0, 1, 27, 0, 49, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 49'),
+(19, 0, 8441, 0, 1, 27, 0, 40, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 40'),
+(19, 0, 8441, 0, 1, 27, 0, 49, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 49'),
+(19, 0, 8394, 0, 1, 27, 0, 40, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 40'),
+(19, 0, 8394, 0, 1, 27, 0, 49, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 49'),
+(19, 0, 8392, 0, 1, 27, 0, 40, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 40'),
+(19, 0, 8392, 0, 1, 27, 0, 49, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 49'),
+--
+(19, 0, 8438, 0, 1, 27, 0, 50, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 50'),
+(19, 0, 8438, 0, 1, 27, 0, 59, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 59'),
+(19, 0, 8442, 0, 1, 27, 0, 50, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 50'),
+(19, 0, 8442, 0, 1, 27, 0, 59, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 59'),
+(19, 0, 8395, 0, 1, 27, 0, 50, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 50'),
+(19, 0, 8395, 0, 1, 27, 0, 59, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 59'),
+(19, 0, 8397, 0, 1, 27, 0, 50, 3, 0, 0, 0, 0, '', 'level must be higher or equal to 50'),
+(19, 0, 8397, 0, 1, 27, 0, 59, 4, 0, 0, 0, 0, '', 'level must be lower or equal to 59'),
+--
+(19, 0, 8439, 0, 0, 27, 0, 60, 0, 0, 0, 0, 0, '', 'level must be equal to 60'),
+(19, 0, 8443, 0, 0, 27, 0, 60, 0, 0, 0, 0, 0, '', 'level must be equal to 60'),
+(19, 0, 8396, 0, 0, 27, 0, 60, 0, 0, 0, 0, 0, '', 'level must be equal to 60'),
+(19, 0, 8398, 0, 0, 27, 0, 60, 0, 0, 0, 0, 0, '', 'level must be equal to 60');
+
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'   WHERE `guid` IN (6505, 16472, 26901, 32075, 119054, 202720); -- Horde Warbringer
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk'   WHERE `guid` IN (14740, 40534, 49852, 86263, 88247, 202732); -- Alliance Brigadier General
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_pre_tbc' WHERE `guid` BETWEEN @CGUID+201 AND @CGUID+216;
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_pvp' WHERE `guid` BETWEEN @CGUID+221 AND @CGUID+230; -- only visible during tbc
 
 UPDATE `quest_template` SET `QuestType` = 0 WHERE `ID` IN (8385, 8388, 13475, 13477); -- repeatable quests, enabled and auto complete
-UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` IN (8367, 8371, 8375, 8396, 8403, 8369, 8430, 8439, 13476, 13478); -- enable quests
+UPDATE `quest_template` SET `QuestType` = 2 WHERE `ID` IN 
+(8367, 8368, 8369, 8370, 8371, 8372, 8374, 8375, 8393, 8394, 8395, 8396, 8399, 8400, 8401, 8402, 8403, 8426, 8427, 8428, 8429, 8430, 8436, 8437, 8438, 8439, 13476, 13478); -- enable quests
+
 UPDATE `quest_template` SET `MinLevel` = 61 WHERE `ID` IN (11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342);
 
 UPDATE `quest_template` SET `RewardHonor` = 314, `RewardKillHonor` = 0  WHERE `ID` IN (8367, 8371);   -- first time completion
@@ -204,7 +377,9 @@ UPDATE `quest_template_addon` SET `PrevQuestID` = 13476, `SpecialFlags` = 1 WHER
 UPDATE `quest_template_addon` SET `PrevQuestID` = 13478, `SpecialFlags` = 1 WHERE `ID` = 13477;
 
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN 
-(8367, 8371, 8385, 8388, 8398, 8408, 8435, 8443, 11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342, 13475, 13476, 13477, 13478);
+(8367, 8371, 8384, 8385, 8386, 8388, 8389, 8390, 8391, 8392, 8397, 8398, 
+8404, 8405, 8406, 8407, 8408, 8431, 8432, 8433, 8434, 8435, 8440, 8441, 8442, 8443, 
+11335, 11336, 11337, 11338, 11339, 11340, 11341, 11342, 13475, 13476, 13477, 13478);
 
 -- change unused WotLK version of 'For Great Honor' and 'Concerted Efforts' into missing vanilla version
 UPDATE `quest_template` SET `MinLevel` = 51, `RewardKillHonor` = 0,
