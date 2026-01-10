@@ -34,7 +34,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (72364,  20395, 0, 0, 530, 0, 0, 1, 1, 0, -1764.6200, 5260.4102, -38.7595, 0.7679, 300, 0, 0, 3144, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 -- don't hide battlemasters
-DELETE FROM `game_event_creature` WHERE `guid` IN (72252, 72364, 207610, 207611, 207760, 207761, 207810, 207811, 207860, 207861);
+DELETE FROM `game_event_creature` WHERE `guid` IN (72252, 72364, 207610, 207611, 207710, 207711, 207760, 207761, 207810, 207811, 207860, 207861);
 
 -- remove wotlk battlemaster from Shattrath
 DELETE FROM `creature` WHERE `guid` IN (63451, 88251, 88252, 88254, 207710, 207711);
