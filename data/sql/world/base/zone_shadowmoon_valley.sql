@@ -22,3 +22,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (831120, 12, -3465.55, 2286.99, 63.416, 3.6997, 0, 0, 0, 100, 0),
 (831120, 13, -3476.52, 2280.52, 64.1385, 3.41225, 0, 0, 0, 100, 0),
 (831120, 14, -3494.46, 2277.87, 65.362, 0.162269, 0, 0, 0, 100, 0);
+
+-- Deathforged Infernal, shorten respawn to solve range issue of remote control (was 120 secs)
+UPDATE `gameobject` SET `spawntimesecs` = 30 WHERE `id` = 184979;
