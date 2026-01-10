@@ -25,3 +25,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 -- Deathforged Infernal, shorten respawn to solve range issue of remote control (was 120 secs)
 UPDATE `gameobject` SET `spawntimesecs` = 30 WHERE `id` = 184979;
+
+-- fix Neltharaku, flying too fast
+UPDATE `waypoint_data` SET `move_type` = 0 WHERE `id` = 756540; -- walk instead of run
