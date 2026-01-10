@@ -37,4 +37,4 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 DELETE FROM `game_event_creature` WHERE `guid` IN (72252, 72364, 207610, 207611, 207760, 207761, 207810, 207811, 207860, 207861);
 
 -- remove wotlk battlemaster from Shattrath
-DELETE FROM `creature` WHERE `guid` IN (63451, 88251, 88252, 88254);
+DELETE FROM `creature` WHERE `guid` IN (63451, 88251, 88252, 88254, 207710, 207711);
