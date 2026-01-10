@@ -1,45 +1,40 @@
 /* Remove Aquatic Form from Druid Trainers - it is a quest reward instead */
-DELETE FROM `npc_trainer` WHERE `SpellID` = 1066;
+DELETE FROM `trainer_spell` WHERE `SpellID` = 1066;
 
 /* Restore Aquatic Form as a reward for Aquatic Form quests */
 UPDATE `quest_template` SET `RewardSpell` = 1446 WHERE `ID` IN (31, 5061);
 
 /* Remove Conjure Water (Rank 7) from Mage Trainers - it is a quest reward instead */
-DELETE FROM `npc_trainer` WHERE `SpellID` = 10140;
+DELETE FROM `trainer_spell` WHERE `SpellID` = 10140;
 
 /* Restore Ghost Wolf level requirement to 20 */
-UPDATE `npc_trainer` SET `ReqLevel` = 20 WHERE `SpellID` = 2645;
+UPDATE `trainer_spell` SET `ReqLevel` = 20 WHERE `SpellID` = 2645;
 
 /* Restore Aspect of the Cheetah level requirement to 20 */
-UPDATE `npc_trainer` SET `ReqLevel` = 20 WHERE `SpellID` = 5118;
+UPDATE `trainer_spell` SET `ReqLevel` = 20 WHERE `SpellID` = 5118;
 
 /* Restore Travel Form level requirement to 30 */
-UPDATE `npc_trainer` SET `ReqLevel` = 30 WHERE `SpellID` = 783;
+UPDATE `trainer_spell` SET `ReqLevel` = 30 WHERE `SpellID` = 783;
 
 /* Remove Summon Imp from Trainer - it is a quest reward instead */
-DELETE FROM `npc_trainer` WHERE `ID`=200009 AND `SpellID`=688;
-
-/* Remove Summon Felsteed from Trainer - it is a quest reward instead */
-DELETE FROM `npc_trainer` WHERE `ID`=200010 AND `SpellID`=1710;
+DELETE FROM `trainer_spell` WHERE `SpellID` = 688;
 
 /* Remove Sense Undead from Trainer - it is a quest reward for Tome of Valor quest line */
-DELETE FROM `npc_trainer` WHERE `SpellID`=5502;
+DELETE FROM `trainer_spell` WHERE `SpellID` = 5502;
 
 -- Remove starting dual wield skill for rogues, add to trainers at level 10
-DELETE FROM `playercreateinfo_skills` WHERE `skill`=118;
+DELETE FROM `playercreateinfo_skills` WHERE `skill` = 118;
 INSERT INTO `playercreateinfo_skills` (`raceMask`, `classMask`, `skill`, `rank`, `comment`) VALUES (0, 32, 118, 0, 'Dual Wield');
-DELETE FROM `npc_trainer` WHERE `ID` = 200015 AND `SpellID` = 674;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES (200015, 674, 300, 0, 0, 10);
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 9 AND `SpellID` = 674;
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`, `VerifiedBuild`) VALUES (9, 674, 300, 0, 0, 10, 0);
 
 -- fix Mai'ah <Mage Trainer> in Valley of Trials.
-DELETE FROM `npc_trainer` WHERE `ID` = 5884 AND `SpellID` = -200008;
+UPDATE `creature_default_trainer` SET `TrainerId` = 17 WHERE `CreatureId` = 5884;
 
 -- Class skills taught by dropped items that should not be taught by trainers
-DELETE FROM npc_trainer
-WHERE SpellID IN (19801, 21302, 21562, 21564, 21849, 21850, 23028, 
-    25286, 25288, 25289, 25290, 25291, 25292, 25294, 25295, 25296, 25297, 25298, 25299, 
-    25300, 25302, 25304, 25306, 25307, 25309, 25311, 25314, 25315, 25316, 25345, 25357, 25361, 25392, 
-    26991, 27090, 27127, 27683, 28609, 28610, 28612, 29228, 31016, 31018, 31709, 33717, 39374);
+DELETE FROM `trainer_spell` WHERE `SpellID` IN 
+(19801, 21302, 21562, 21564, 21849, 21850, 23028, 25286, 25288, 25289, 25290, 25291, 25292, 25294, 25295, 25296, 25297, 25298, 25299, 25300, 25302, 25304, 25306, 
+25307, 25309, 25311, 25314, 25315, 25316, 25345, 25357, 25361, 25392, 26991, 27090, 27127, 27683, 28609, 28610, 28612, 29228, 31016, 31018, 31709, 33717, 39374);
 
 /* Restore Tome of Tranquilizing Shot to Lucifron */
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12118 AND `Item` = 16665 AND `Reference` = 0 AND `GroupId` = 0;

@@ -122,5 +122,7 @@ UPDATE `quest_template` SET `Flags` = 8 WHERE `ID` = 1599;
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` = 1599;
 
 -- Thamner Pol <Physician> 
-DELETE FROM `npc_trainer` WHERE `ID` = 2326;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2326, -350000);
+SET @TRAINER_ID   := 600;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2326);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(2326, @TRAINER_ID+45);

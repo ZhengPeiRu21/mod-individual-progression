@@ -342,19 +342,18 @@ UPDATE `creature_template` SET `subname` = 'Master Goblin Engineer'   WHERE `ent
 UPDATE `creature_template` SET `gossip_menu_id` = 0, `npcflag` = 2 WHERE `entry` = 3443; -- Grub
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 4244    WHERE `CreatureID` = 3465;-- Gilthares Firebough
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (3478, 3484, 3494, 3703, 3704, 5784, 6387, 8306, 8738);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(3478, -310000), -- Traugh <Expert Blacksmith>
-(3478, -310001), -- Traugh <Expert Blacksmith>
-(3484, -410000), -- Kil'hala <Journeyman Tailor>
-(3494, -340000), -- Tinkerwiz <Journeyman Engineer>
-(3703, -380000), -- Krulmoo Fullmoon <Expert Leatherworker>
-(3703, -380001), -- Krulmoo Fullmoon <Expert Leatherworker>
-(3704, -410000), -- Mahani <Expert Tailor>
-(3704, -410001), -- Mahani <Expert Tailor>
-(5784, -380000), -- Waldor <Journeyman Leatherworker>
-(6387, -400000), -- Dranh <Skinner>
-(8306, -320000); -- Duhng <Cook>
+SET @TRAINER_ID   := 600;
+
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3478, 3484, 3494, 3703, 3704, 5784, 6387, 8306, 8738);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(3478, @TRAINER_ID+17), -- Traugh <Expert Blacksmith>
+(3484, @TRAINER_ID+36), -- Kil'hala <Journeyman Tailor>
+(3494, @TRAINER_ID+26), -- Tinkerwiz <Journeyman Engineer>
+(3703, @TRAINER_ID+32), -- Krulmoo Fullmoon <Expert Leatherworker>
+(3704, @TRAINER_ID+37), -- Mahani <Expert Tailor>
+(5784, @TRAINER_ID+31), -- Waldor <Journeyman Leatherworker>
+(6387, @TRAINER_ID+43), -- Dranh <Skinner>
+(8306, @TRAINER_ID+44); -- Duhng <Cook>
 
 /* NPC Grub - not a Vendor in Vanilla */
 DELETE FROM `npc_vendor` WHERE `entry` = 3443;

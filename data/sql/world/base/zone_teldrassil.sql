@@ -70,5 +70,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- Byancie <First Aid Trainer> 
-DELETE FROM `npc_trainer` WHERE `ID`=6094; 
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (6094, -350000); 
+SET @TRAINER_ID   := 600;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (6094);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (6094, @TRAINER_ID+45);
