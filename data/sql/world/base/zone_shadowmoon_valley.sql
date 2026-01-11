@@ -1,3 +1,11 @@
+-- flightmasters at Sanctum of the Stars and Altar of Sha'tar only visible if friendly with Scryers/Aldor
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 30 AND `ConditionTypeOrReference` = 5 AND `SourceEntry` IN (19581, 21766);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(30, 0, 19581, 0, 0, 5, 0, 932, 240, 0, 0, 0, 0, '', 'Only able to activate flight path if friendly with Aldor'),
+(30, 0, 21766, 0, 0, 5, 0, 934, 240, 0, 0, 0, 0, '', 'Only able to activate flight path if friendly with Scryers');
+
 -- fix movement for Parsha
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -3493.5701, `position_y` = 2277.0901, `position_z` = 65.3081 WHERE `id1` = 22024;
 
