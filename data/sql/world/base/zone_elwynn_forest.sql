@@ -16,7 +16,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (40, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Kobold Miner - On Aggro - Say Line 0'),
 (40, 0, 1, 0, 0, 0, 100, 0, 4000, 14000, 38000, 42000, 0, 0, 11, 6016, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Kobold Miner - Within 0-5 Range - Cast Pierce Armor'),
 (43, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11959, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Mine Spider - On Respawn - Cast Poison Proc'),
-(46, 0, 0, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 3368, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Murloc Forager - Between 0-40% Health - Cast Drink Minor Potion'),
+(46, 0, 0, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 3368, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Murloc Forager - Between 0-40% Health - Cast Drink Minor Potion'),
 (61, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Thuros Lightfingers - On Aggro - Say Line 0)'),
 (79, 0, 0, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Narg the Taskmaster - On Aggro - Say Line 0)'), 
 (79, 0, 1, 0, 0, 0, 100, 0, 2000, 2000, 18000, 18000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Narg the Taskmaster - In Combat - Cast Battle Shout'),

@@ -21,10 +21,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10390, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 211, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Skeletal Guardian - On Update - Flag reset 0 (No Repeat)'),
 (10390, 0, 2, 0, 1, 1, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 13787, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Skeletal Guardian - Out of Combat - Cast Demon Armor (Phase 1)'),
 (10390, 0, 3, 0, 0, 1, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Skeletal Guardian - In Combat - Cast Shadow Bolt (Phase 1)'),
-(10390, 0, 4, 0, 0, 2, 100, 0, 5000, 11000, 17000, 24500, 0, 0, 11, 8364, 65, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,   'Skeletal Guardian - In Combat - Cast Blizzard (Phase 2)'),
+(10390, 0, 4, 0, 0, 2, 100, 0, 5000, 11000, 17000, 24500, 0, 0, 11, 8364, 1, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,    'Skeletal Guardian - In Combat - Cast Blizzard (Phase 2)'),
 (10390, 0, 5, 0, 0, 2, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9672, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Skeletal Guardian - In Combat - Cast Frostbolt (Phase 2)'),
-(10390, 0, 6, 0, 106, 3, 100, 0, 0, 0, 13000, 24500, 0, 8, 11, 11975, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Skeletal Guardian - Within 0-8 Range - Cast Arcane Explosion (Phase 3)'),
-(10390, 0, 7, 0, 0, 3, 100, 0, 0, 0, 0, 3500, 0, 0, 11, 37361, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Skeletal Guardian - In Combat - Cast Arcane Bolt (Phase 3)'),
+(10390, 0, 6, 0, 106, 3, 100, 0, 0, 0, 13000, 24500, 0, 8, 11, 11975, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Skeletal Guardian - Within 0-8 Range - Cast Arcane Explosion (Phase 3)'),
+(10390, 0, 7, 0, 0, 3, 100, 0, 0, 0, 2000, 3500, 0, 0, 11, 37361, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Skeletal Guardian - In Combat - Cast Arcane Bolt (Phase 3)'),
 (10391, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 29651, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Skeletal Berserker - On Reset - Cast Dual Wield'),
 (10391, 0, 1, 0, 0, 0, 100, 0, 5100, 7900, 5900, 16500, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Skeletal Berserker - Within 0-5 Range - Cast Strike'),
 (10391, 0, 2, 0, 9, 0, 100, 0, 0, 0, 10000, 19000, 0, 5, 11, 9080, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Skeletal Berserker - Within 0-5 Range - Cast Hamstring'),
@@ -41,8 +41,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (10398, 0, 0, 0, 1, 0, 100, 0, 6000, 6000, 0, 0, 0, 0, 11, 12380, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Thuzadin Shadowcaster - Out of Combat - Cast Shadow Channeling'),
 (10398, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 15232, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Thuzadin Shadowcaster - In Combat - Cast Shadow Bolt'),
-(10398, 0, 2, 0, 0, 0, 100, 0, 4000, 6000, 20000, 25000, 0, 0, 11, 11443, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Thuzadin Shadowcaster - In Combat - Cast Cripple'),
-(10398, 0, 3, 0, 0, 0, 100, 0, 7000, 12000, 15000, 20000, 0, 0, 11, 16429, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Thuzadin Shadowcaster - In Combat - Cast Piercing Shadow'),
+(10398, 0, 2, 0, 0, 0, 100, 0, 4000, 6000, 20000, 25000, 0, 0, 11, 11443, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Thuzadin Shadowcaster - In Combat - Cast Cripple'),
+(10398, 0, 3, 0, 0, 0, 100, 0, 7000, 12000, 15000, 20000, 0, 0, 11, 16429, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Thuzadin Shadowcaster - In Combat - Cast Piercing Shadow'),
 (10400, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12420, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Thuzadin Necromancer - Out of Combat - Cast Summon Skeletal Servant'),
 (10400, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 16431, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Thuzadin Necromancer - On Aggro - Cast Bone Armor'),
 (10400, 0, 2, 0, 0, 0, 100, 0, 3000, 10000, 15000, 20000, 0, 0, 11, 16430, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,   'Thuzadin Necromancer - Within 0-10 Range - Cast Soul Tap'),
@@ -64,7 +64,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10409, 0, 3, 0, 0, 0, 100, 0, 1000, 1000, 7000, 11000, 0, 0, 11, 16997, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Rockwing Screecher - In Combat - Cast Gargoyle Strike'),
 (10412, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 16000, 0, 20, 11, 15471, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Crawler - Within 0-20 Range - Cast Enveloping Web'),
 (10413, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 16428, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Crypt Beast - On Reset - Cast Virulent Poison Proc'),
-(10413, 0, 1, 0, 9, 0, 100, 0, 0, 0, 11000, 15000, 0, 20, 11, 4962, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Beast - In Combat - Cast Encasing Webs'),
+(10413, 0, 1, 0, 9, 0, 100, 0, 0, 0, 11000, 15000, 0, 20, 11, 4962, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crypt Beast - In Combat - Cast Encasing Webs'),
 --
 (10414, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 16345, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Patchwork Horror - On Respawn - Cast Disease Cloud'),
 (10414, 0, 2, 0, 0, 0, 100, 0, 7000, 14000, 7000, 15000, 0, 0, 11, 10101, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,   'Patchwork Horror - Within 0-10 Range - Cast Knock Away'),
@@ -74,23 +74,23 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10416, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Bile Spewer - On Death - Say Line 1'),
 (10416, 0, 5, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12787, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Bile Spewer - On Respawn - Cast Thrash Proc'),
 (10417, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8601, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Venom Belcher - On Respawn - Cast Slowing Poison Proc'),
-(10417, 0, 1, 0, 0, 0, 100, 0, 1000, 1000, 15000, 15000, 0, 0, 11, 16866, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Venom Belcher - In Combat - Cast Venom Pit'),
+(10417, 0, 1, 0, 0, 0, 100, 0, 1000, 1000, 15000, 15000, 0, 0, 11, 16866, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Venom Belcher - In Combat - Cast Venom Pit'),
 --
 (10418, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 8, 25, 11, 15749, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Guardsman - Within Range 8-25yd - Cast Shield Charge'),
 (10418, 0, 1, 0, 0, 0, 100, 0, 6000, 6000, 15000, 15000, 0, 0, 11, 6713, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Guardsman - In Combat - Cast Disarm'),
 (10418, 0, 2, 0, 105, 0, 100, 0, 4000, 4000, 8000, 8000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Guardsman - Victim Casting - Cast Shield Bash'),
 (10418, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Guardsman - Between 0-15% Health - Flee For Assist'),
 (10419, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12675, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Crimson Conjuror - In Combat - Cast Frostbolt'),
-(10419, 0, 1, 0, 0, 0, 100, 0, 2000, 4000, 5000, 12000, 0, 0, 11, 17195, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Conjuror - In Combat - Cast Scorch'),
+(10419, 0, 1, 0, 0, 0, 100, 0, 2000, 4000, 5000, 12000, 0, 0, 11, 17195, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Conjuror - In Combat - Cast Scorch'),
 (10419, 0, 2, 0, 106, 0, 100, 0, 0, 0, 15000, 21000, 0, 8, 11, 12674, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Crimson Conjuror - Within 0-8 Range - Cast Frost Nova'),
-(10419, 0, 3, 0, 0, 0, 100, 0, 3000, 5000, 21000, 25000, 0, 0, 11, 17162, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Crimson Conjuror - In Combat - Cast Summon Water Elemental'),
+(10419, 0, 3, 0, 0, 0, 100, 0, 3000, 5000, 21000, 25000, 0, 0, 11, 17162, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Conjuror - In Combat - Cast Summon Water Elemental'),
 (10419, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Conjuror - Between 0-15% Health - Flee For Assist'),
-(10420, 0, 0, 0, 14, 0, 100, 0, 3000, 30, 17000, 21000, 0, 0, 11, 17138, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Initiate - Friendly Missing Health - Cast Flash Heal'),
-(10420, 0, 1, 0, 14, 0, 100, 0, 2000, 30, 14000, 19000, 0, 0, 11, 8362, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Initiate - Friendly Missing Health - Cast Renew'),
+(10420, 0, 0, 0, 14, 0, 100, 0, 3000, 30, 17000, 21000, 0, 0, 11, 17138, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Initiate - Friendly Missing Health - Cast Flash Heal'),
+(10420, 0, 1, 0, 14, 0, 100, 0, 2000, 30, 14000, 19000, 0, 0, 11, 8362, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Initiate - Friendly Missing Health - Cast Renew'),
 (10420, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 17194, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Crimson Initiate - In Combat - Cast Mind Blast'),
 (10420, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Initiate - Between 0-15% Health - Flee For Assist'),
 (10421, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 120000, 120000, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Crimson Defender - In Combat - Cast Devotion Aura'),
-(10421, 0, 1, 0, 14, 0, 100, 0, 3000, 40, 18000, 25000, 0, 0, 11, 15493, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Defender - Friendly Missing Health - Cast Holy Light'),
+(10421, 0, 1, 0, 14, 0, 100, 0, 3000, 40, 18000, 25000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Defender - Friendly Missing Health - Cast Holy Light'),
 (10421, 0, 2, 0, 9, 0, 100, 0, 0, 0, 16000, 25000, 0, 8, 11, 13005, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Crimson Defender - Within 0-8 Range - Cast Hammer of Justice'),
 (10421, 0, 3, 0, 0, 0, 100, 0, 17000, 25000, 21000, 30000, 0, 0, 11, 13874, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Crimson Defender - In Combat - Cast Divine Shield'),
 (10421, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Defender - Between 0-15% Health - Flee For Assist'),
@@ -98,11 +98,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10422, 0, 1, 0, 1, 0, 100, 0, 1000, 3000, 900000, 900000, 0, 0, 11, 12544, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Crimson Sorcerer - Out of Combat - Cast Frost Armor'),
 (10422, 0, 2, 0, 0, 0, 80, 0, 0, 0, 1000, 3000, 0, 0, 11, 15230, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Crimson Sorcerer - In Combat - Cast Arcane Bolt'),
 (10422, 0, 3, 0, 0, 0, 100, 0, 5000, 6000, 8000, 10000, 0, 0, 11, 14145, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Sorcerer - In Combat - Cast Fire Blast'),
-(10422, 0, 4, 0, 0, 0, 100, 0, 7000, 14000, 21000, 26000, 0, 0, 11, 13323, 96, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,  'Crimson Sorcerer - In Combat - Cast Polymorph'),
+(10422, 0, 4, 0, 0, 0, 100, 0, 7000, 14000, 21000, 26000, 0, 0, 11, 13323, 32, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,  'Crimson Sorcerer - In Combat - Cast Polymorph'),
 (10422, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Sorcerer - Between 0-15% Health - Flee For Assist'),
 (10423, 0, 0, 0, 0, 0, 100, 0, 3000, 3000, 5000, 5000, 0, 0, 11, 15238, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Priest - In Combat - Cast Holy Smite'),
-(10423, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15586, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Crimson Priest - Between 0-50% Health - Cast Heal'), -- https://www.youtube.com/watch?v=3yAOdhlXotw
-(10423, 0, 2, 0, 0, 0, 100, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 17142, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Crimson Priest - In Combat - Cast Holy Fire'),
+(10423, 0, 1, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15586, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Crimson Priest - Between 0-50% Health - Cast Heal'), -- https://www.youtube.com/watch?v=3yAOdhlXotw
+(10423, 0, 2, 0, 0, 0, 100, 0, 5000, 5000, 15000, 15000, 0, 0, 11, 17142, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Priest - In Combat - Cast Holy Fire'),
 (10423, 0, 3, 0, 2, 0, 100, 0, 15000, 15000, 45000, 45000, 0, 0, 11, 17139, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Crimson Priest - In Combat - Cast Power Word: Shield'),
 (10423, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Priest - Between 0-15% Health - Flee For Assist'),
 (10424, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8990, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Crimson Gallant - On Respawn - Cast Retribution Aura'),
@@ -112,15 +112,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10425, 0, 0, 0, 106, 0, 100, 0, 0, 0, 9000, 14000, 0, 8, 11, 15253, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Battle Mage - In Combat - Cast Arcane Explosion'),
 (10425, 0, 1, 0, 0, 0, 100, 0, 8000, 15000, 13000, 17000, 0, 10, 11, 17145, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Crimson Battle Mage - In Combat - Cast Blast Wave'),
 (10425, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Battle Mage - Between 0-15% Health - Flee For Assist'),
-(10426, 0, 0, 0, 0, 0, 100, 0, 0, 0, 9000, 14000, 0, 0, 11, 15785, 320, 0, 0, 0, 0, 5, 30, 0, 1, 0, 0, 0, 0, 0,         'Crimson Inquisitor - In Combat - Cast Mana Burn'),
-(10426, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 16000, 0, 20, 11, 17165, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Inquisitor - In Combat - Cast Mind Flay'),
+(10426, 0, 0, 0, 0, 0, 100, 0, 0, 0, 9000, 14000, 0, 0, 11, 15785, 256, 0, 0, 0, 0, 5, 30, 0, 1, 0, 0, 0, 0, 0,         'Crimson Inquisitor - In Combat - Cast Mana Burn'),
+(10426, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 16000, 0, 20, 11, 17165, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Crimson Inquisitor - In Combat - Cast Mind Flay'),
 (10426, 0, 2, 0, 0, 0, 100, 0, 6000, 11000, 21000, 27000, 0, 0, 11, 17146, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Crimson Inquisitor - In Combat - Cast Shadow Word: Pain'),
 (10426, 0, 3, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17151, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Crimson Inquisitor - Out of Combat - Cast Shadow Barrier'),
 (10426, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Inquisitor - Between 0-15% Health - Flee For Assist'),
 -- https://github.com/vmangos/core/blob/development/src/scripts/eastern_kingdoms/eastern_plaguelands/stratholme/boss_nerubenkan.cpp
 (10437, 0, 0, 0, 0, 0, 100, 0, 7000, 10000, 10000, 15000, 0, 0, 11, 4962, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,    'Nerub enkan - In Combat - Cast Encasing Webs'),
 (10437, 0, 1, 0, 0, 0, 100, 0, 15000, 15000, 15000, 20000, 0, 0, 11, 6016, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Nerub enkan - In Combat - Cast Pierce Armor'), -- https://www.youtube.com/watch?v=2SIKU9GZFWQ
-(10437, 0, 2, 0, 0, 0, 100, 0, 3000, 3000, 6000, 10000, 0, 0, 11, 31602, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Nerub enkan - In Combat - Cast Crypt Scarabs'),
+(10437, 0, 2, 0, 0, 0, 100, 0, 3000, 3000, 6000, 10000, 0, 0, 11, 31602, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Nerub enkan - In Combat - Cast Crypt Scarabs'),
 (10437, 0, 3, 0, 0, 0, 100, 0, 10000, 10000, 20000, 20000, 0, 0, 11, 17235, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Nerub enkan - In Combat - Cast Raide Undead Scarab'),
 (10437, 0, 4, 0, 6, 0, 100, 2, 0, 0, 0, 0, 0, 0, 34, 2, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Nerub enkan - On Death - Set Instance Data 2 to 1 (Normal Dungeon)'),
 -- https://github.com/vmangos/core/blob/development/src/scripts/eastern_kingdoms/eastern_plaguelands/stratholme/boss_maleki_the_pallid.cpp
@@ -135,9 +135,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10439, 0, 3, 0, 0, 0, 100, 0, 3000, 3000, 7000, 12000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Ramstein the Gorger - In Combat - Cast Trample'),
 --
 (10463, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 3000, 0, 0, 11, 16868, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Shrieking Banshee - In Combat - Cast Banshee Wail'),
-(10463, 0, 1, 0, 9, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 3589, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Shrieking Banshee - Within 0-5 Range - Cast Deafening Screech'),
-(10464, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 20000, 27000, 0, 0, 11, 19645, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Wailing Banshee - In Combat - Cast Anti-Magic Shield'),
-(10464, 0, 1, 0, 0, 0, 100, 0, 0, 0, 12000, 15000, 0, 0, 11, 17105, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,         'Wailing Banshee - Within 0-30 Range - Cast Banshee Curse'),
+(10463, 0, 1, 0, 9, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 3589, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Shrieking Banshee - Within 0-5 Range - Cast Deafening Screech'),
+(10464, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 20000, 27000, 0, 0, 11, 19645, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Wailing Banshee - In Combat - Cast Anti-Magic Shield'),
+(10464, 0, 1, 0, 0, 0, 100, 0, 0, 0, 12000, 15000, 0, 0, 11, 17105, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,          'Wailing Banshee - Within 0-30 Range - Cast Banshee Curse'),
 --
 (10516, 0, 0, 0, 37, 0, 80, 512, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'The Unforgiven - On AI Init - Set Invisible'),
 (10516, 0, 1, 2, 4, 0, 100, 769, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'The Unforgiven - On Aggro - Set Visible'),
@@ -163,22 +163,22 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (10811, 0, 0, 0, 0, 0, 100, 0, 13000, 16000, 15000, 18000, 0, 0, 11, 17293, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Archivist Galford - In Combat - Cast Burning Winds'),
 (10811, 0, 1, 0, 0, 0, 100, 0, 3000, 10000, 10000, 12000, 0, 0, 11, 17366, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Archivist Galford - In Combat - Cast Fire Nova'), -- https://www.youtube.com/watch?v=gIC5OEz75BY
-(10811, 0, 2, 0, 0, 0, 100, 0, 12000, 15000, 15000, 25000, 0, 0, 11, 17274, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Archivist Galford - In Combat - Cast Pyroblast'), -- https://www.youtube.com/watch?v=3yAOdhlXotw
+(10811, 0, 2, 0, 0, 0, 100, 0, 12000, 15000, 15000, 25000, 0, 0, 11, 17274, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Archivist Galford - In Combat - Cast Pyroblast'), -- https://www.youtube.com/watch?v=3yAOdhlXotw
 -- https://github.com/vmangos/core/blob/development/src/scripts/eastern_kingdoms/eastern_plaguelands/stratholme/boss_dathrohan_balnazzar.cpp
 (10812, 0, 0, 1, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Grand Crusader Dathrohan - On Aggro - Say Line 0'),
 (10812, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Grand Crusader Dathrohan - On Aggro - Set Event Phase'),
 (10812, 0, 2, 0, 0, 1, 100, 0, 12000, 12000, 15000, 15000, 0, 0, 11, 17281, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Grand Crusader Dathrohan - Within 0-5 Range - Cast Crusader Strike'), 
-(10812, 0, 3, 0, 0, 1, 100, 0, 8000, 8000, 12000, 12000, 0, 0, 11, 17286, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Grand Crusader Dathrohan - In Combat - Cast Crusader Hammer'),
-(10812, 0, 4, 0, 0, 1, 100, 0, 18000, 18000, 15000, 15000, 0, 0, 11, 17284, 64, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0, 'Grand Crusader Dathrohan - Within 0-5 Range - Cast Holy Strike'),
+(10812, 0, 3, 0, 0, 1, 100, 0, 8000, 8000, 12000, 12000, 0, 0, 11, 17286, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Grand Crusader Dathrohan - In Combat - Cast Crusader Hammer'),
+(10812, 0, 4, 0, 0, 1, 100, 0, 18000, 18000, 15000, 15000, 0, 0, 11, 17284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Grand Crusader Dathrohan - Within 0-5 Range - Cast Holy Strike'),
 (10812, 0, 5, 6, 2, 1, 100, 513, 0, 40, 0, 0, 0, 0, 11, 17288, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Grand Crusader Dathrohan - Between 0-40% Health - Cast Balnazzar Transform'),
 (10812, 0, 6, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 67, 1, 1500, 1500, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Grand Crusader Dathrohan - Between 0-40% Health - Create Timed Event'),
 (10812, 0, 7, 8, 59, 1, 100, 512, 1, 0, 0, 0, 0, 0, 36, 10813, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Grand Crusader Dathrohan - On Timed Event - Update Entry'),
 (10812, 0, 8, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Grand Crusader Dathrohan - On Timed Event - Set Event Phase'),
 (10812, 0, 9, 0, 0, 2, 100, 1, 1000, 1000, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Grand Crusader Dathrohan - In Combat - Balnazzar Say Line 1'),
 (10812, 0, 10, 0, 0, 2, 100, 0, 3000, 3000, 11000, 11000, 0, 0, 11, 17399, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Grand Crusader Dathrohan - In Combat - Cast Shadow Shock'),
-(10812, 0, 11, 0, 0, 2, 100, 0, 6000, 6000, 15000, 20000, 0, 0, 11, 17287, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Grand Crusader Dathrohan - In Combat - Cast Mind Blast'),
+(10812, 0, 11, 0, 0, 2, 100, 0, 6000, 6000, 15000, 20000, 0, 0, 11, 17287, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Grand Crusader Dathrohan - In Combat - Cast Mind Blast'),
 (10812, 0, 12, 0, 0, 2, 100, 0, 12000, 12000, 20000, 20000, 0, 0, 11, 13704, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Grand Crusader Dathrohan - In Combat - Cast Psychic Scream'),
-(10812, 0, 13, 0, 0, 2, 100, 0, 9000, 9000, 15000, 15000, 0, 0, 11, 12098, 64, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,  'Grand Crusader Dathrohan - In Combat - Cast Sleep'),
+(10812, 0, 13, 0, 0, 2, 100, 0, 9000, 9000, 15000, 15000, 0, 0, 11, 12098, 0, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,   'Grand Crusader Dathrohan - In Combat - Cast Sleep'),
 (10812, 0, 14, 0, 0, 2, 100, 0, 18000, 18000, 25000, 30000, 0, 0, 11, 15690, 0, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0, 'Grand Crusader Dathrohan - In Combat - Cast Mind Control'), -- does this work?
 (10812, 0, 15, 16, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Grand Crusader Dathrohan - On Death - Balnazzar Say Line 2'),
 (10812, 0, 16, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 107, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Grand Crusader Dathrohan - On Death - Summon Creature Group'),
@@ -194,8 +194,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (11032, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 14000, 0, 8, 11, 12734, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Malor the Zealous - Within 0-8 Range - Cast Ground Smash'),
 (11032, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 5, 11, 16172, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Malor the Zealous - In Combat - Cast Head Crack'),
-(11032, 0, 2, 0, 2, 0, 100, 0, 0, 20, 9000, 13000, 0, 0, 11, 15493, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Malor the Zealous - Between Health 0-20% - Cast Holy Light'),
-(11032, 0, 3, 0, 14, 0, 100, 0, 2500, 40, 14000, 17000, 0, 0, 11, 15493, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Malor the Zealous - Friendly Missing 2500 Health - Cast Holy Light'),
+(11032, 0, 2, 0, 2, 0, 100, 0, 0, 20, 9000, 13000, 0, 0, 11, 15493, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Malor the Zealous - Between Health 0-20% - Cast Holy Light'),
+(11032, 0, 3, 0, 14, 0, 100, 0, 2500, 40, 14000, 17000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Malor the Zealous - Friendly Missing 2500 Health - Cast Holy Light'),
 (11032, 0, 4, 0, 2, 0, 100, 1, 0, 10, 0, 0, 0, 0, 11, 10310, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Malor the Zealous - Between Health 0-10% - Cast Lay on Hands'),
 --
 (11043, 0, 0, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Crimson Monk - On Aggro - Say Line 0'),
@@ -205,8 +205,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11043, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Monk - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (16387, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28340, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Reset - Cast Unholy Aura'),
-(16387, 0, 1, 0, 0, 0, 100, 0, 1000, 1000, 13000, 18000, 0, 0, 11, 19729, 64, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,   'Atiesh - In Combat - Cast Shadow Bolt'),
-(16387, 0, 2, 0, 0, 0, 100, 0, 15000, 15000, 15000, 25000, 0, 0, 11, 28352, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Atiesh - In Combat - Cast Breath of Sargeras'), -- trigger curse spell 28342
+(16387, 0, 1, 0, 0, 0, 100, 0, 1000, 1000, 13000, 18000, 0, 0, 11, 19729, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,    'Atiesh - In Combat - Cast Shadow Bolt'),
+(16387, 0, 2, 0, 0, 0, 100, 0, 15000, 15000, 15000, 25000, 0, 0, 11, 28352, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Atiesh - In Combat - Cast Breath of Sargeras'), -- trigger curse spell 28342
 (16387, 0, 3, 4, 8, 0, 100, 0, 676, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Atiesh - On Disarm - Say Line 0'),
 (16387, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28355, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Disarm - Cast Reaper of Souls DND'), -- drop sword on ground
 (16387, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Atiesh - On Disarm - Set Sheath Melee');

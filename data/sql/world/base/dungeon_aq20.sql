@@ -31,7 +31,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15333, 0, 0, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 17742, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Silicate Feeder - On Just Died - Cast Cloud of Disease'),
 (15335, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Flesh Hunter - On Respawn - Cast Thrash'),
 (15335, 0, 1, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Flesh Hunter - On Aggro - Set Event Phase 1'),
-(15335, 0, 2, 0, 0, 0, 100, 0, 6000, 7000, 9000, 10000, 0, 0, 11, 25424, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Flesh Hunter - In Combat - Cast Poison Bolt'),
+(15335, 0, 2, 0, 0, 0, 100, 0, 6000, 7000, 9000, 10000, 0, 0, 11, 25424, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Flesh Hunter - In Combat - Cast Poison Bolt'),
 (15335, 0, 3, 0, 24, 2, 100, 0, 25371, 1, 5000, 5000, 0, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Flesh Hunter - On Target Buffed With Consume - Set Event Phase 2 (Phase 2)'),
 (15335, 0, 4, 0, 28, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Flesh Hunter - On Passenger Removed - Set Event Phase 1'),
 (15335, 0, 5, 0, 9, 1, 100, 0, 0, 0, 21000, 24000, 0, 10, 11, 25371, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Flesh Hunter - Within 0-10 Range - Cast Consume (Phase 1)'),
@@ -110,7 +110,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15461, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 7000, 9000, 0, 0, 11, 26379, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Shrieker Scarab - In Combat - Cast Piercing Shriek'),
 
 (15462, 0, 0, 0, 0, 0, 100, 0, 4000, 6000, 7000, 10000, 0, 0, 11, 22886, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Spitting Scarab - In Combat - Cast Berserker Charge'),
-(15462, 0, 1, 0, 0, 0, 100, 0, 2000, 7000, 8000, 14000, 0, 0, 11, 24334, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Spitting Scarab - In Combat - Cast Acid Spit');
+(15462, 0, 1, 0, 0, 0, 100, 0, 2000, 7000, 8000, 14000, 0, 0, 11, 24334, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Spitting Scarab - In Combat - Cast Acid Spit');
 
 
 /* fix loot tables */

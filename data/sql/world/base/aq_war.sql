@@ -15,9 +15,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (15634, 0, 0, 0, 101, 0, 100, 0, 1, 20, 0, 50000, 60000, 0, 11, 25839, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Priestess of the Moon - On Near Player - Cast Mass Healing'),
 --
-(15740, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Colossus of Zora - In Combat - Cast Colossal Smash'),
-(15741, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Colossus of Regal - In Combat - Cast Colossal Smash'), -- https://www.youtube.com/watch?v=F4aAAo_GSrw
-(15742, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Colossus of Ashi - In Combat - Cast Colossal Smash'),
+(15740, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Colossus of Zora - In Combat - Cast Colossal Smash'),
+(15741, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Colossus of Regal - In Combat - Cast Colossal Smash'), -- https://www.youtube.com/watch?v=F4aAAo_GSrw
+(15742, 0, 0, 0, 0, 0, 100, 0, 60000, 60000, 60000, 60000, 0, 0, 11, 26167, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Colossus of Ashi - In Combat - Cast Colossal Smash'),
 --
 (15758, 0, 0, 0, 0, 0, 100, 0, 8000, 12000, 8000, 12000, 0, 0, 11, 11971, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Supreme Anubisath Warbringer - Within 0-5 Range - Cast Sundering Cleave'),
 (15810, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Eroded Anubisath Warbringer - 0-5 Range - Cast Cleave'),

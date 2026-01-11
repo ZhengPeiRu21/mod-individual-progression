@@ -66,7 +66,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8564, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Ranger - Between 0-15% Health - Flee For Assist'),
 (8565, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 9000, 14000, 0, 0, 11, 16498, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Pathstrider - In Combat - Cast Faerie Fire'),
 (8597, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 9000, 14000, 0, 0, 11, 3427, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Plaguehound - Within 0-5 Range - Cast Infected Wound'),
-(8600, 0, 0, 0, 0, 0, 100, 0, 7000, 10000, 14000, 16000, 0, 0, 11, 6605, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Plaguebat - In Combat - Cast Terrifying Screech'),
+(8600, 0, 0, 0, 0, 0, 100, 0, 7000, 10000, 14000, 16000, 0, 0, 11, 6605, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Plaguebat - In Combat - Cast Terrifying Screech'),
 (8601, 0, 0, 0, 0, 0, 100, 0, 2000, 6000, 9000, 12000, 0, 0, 11, 7992, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Noxious Plaguebat - In Combat - Cast Slowing Poison'),
 (8602, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 16000, 19000, 0, 0, 11, 8281, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Monstrous Plaguebat - In Combat - Cast Sonic Burst'),
 (8603, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 8000, 12000, 0, 0, 11, 16449, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Carrion Grub - Within 0-5 Range - Cast Maggot Slime'),
@@ -83,11 +83,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9448, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 13000, 18000, 0, 0, 11, 17143, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Praetorian - In Combat - Cast Holy Strike'),
 (9448, 0, 2, 0, 0, 0, 100, 0, 4000, 7000, 9000, 11000, 0, 0, 11, 17149, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Praetorian - In Combat - Cast Exorcism'),
 (9449, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Cleric - On Aggro - Say Line 0'),
-(9449, 0, 1, 0, 0, 0, 100, 0, 7000, 11000, 7000, 11000, 0, 0, 11, 15587, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Cleric - In Combat - Cast Mind Blast'),
+(9449, 0, 1, 0, 0, 0, 100, 0, 7000, 11000, 7000, 11000, 0, 0, 11, 15587, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Scarlet Cleric - In Combat - Cast Mind Blast'),
 (9449, 0, 2, 0, 74, 0, 100, 0, 0, 0, 20000, 30000, 40, 40, 11, 15586, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Scarlet Cleric - On Friendly Between 0-40% Health - Cast Heal'),
 (9449, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Cleric - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9450, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Curate - On Aggro - Say Line 0'),
-(9450, 0, 1, 0, 0, 0, 100, 0, 3000, 4000, 6000, 8000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Scarlet Curate - In Combat - Cast Holy Smite'),
+(9450, 0, 1, 0, 0, 0, 100, 0, 3000, 4000, 6000, 8000, 0, 0, 11, 9734, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Scarlet Curate - In Combat - Cast Holy Smite'),
 (9450, 0, 2, 0, 15, 0, 100, 0, 30, 1000, 2500, 0, 0, 0, 11, 17201, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Scarlet Curate - On Friendly Crowd Controlled - Cast Dispel Magic'),
 (9450, 0, 3, 0, 74, 0, 100, 0, 0, 0, 5000, 15000, 40, 40, 11, 11640, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Curate - On Friendly Between 0-40% Health - Cast Renew'),
 (9450, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Curate - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -98,7 +98,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9451, 0, 4, 0, 105, 0, 75, 0, 0, 0, 10000, 15000, 0, 30, 11, 15122, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Archmage - Target Casting - Cast Counterspell'),
 (9451, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Archmage - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9452, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Enchanter - On Aggro - Say Line 0'),
-(9452, 0, 1, 0, 0, 0, 100, 0, 3000, 4000, 6000, 8000, 0, 0, 11, 15230, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Scarlet Enchanter - In Combat - Cast Arcane Bolt'),
+(9452, 0, 1, 0, 0, 0, 100, 0, 3000, 4000, 6000, 8000, 0, 0, 11, 15230, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Scarlet Enchanter - In Combat - Cast Arcane Bolt'),
 (9452, 0, 2, 0, 0, 0, 100, 0, 7000, 10000, 12000, 18000, 0, 0, 11, 15970, 1, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Enchanter - In Combat - Cast Sleep'),
 --
 (10817, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Duggan Wildhammer - Outside 30 Range - Start Combat Movement'),
@@ -159,7 +159,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11885, 0, 1, 0, 9, 0, 100, 0, 0, 0, 12000, 17000, 0, 5, 11, 13445, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Blighthound - Within 0-5 Range - Cast Rend'),
 --
 (11896, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21645, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Borelgore - On Respawn - Cast Virulent Poison Proc'),
-(11896, 0, 1, 0, 0, 0, 100, 0, 5000, 5000, 5000, 15000, 0, 0, 11, 16866, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Borelgore - Within 0-30 Range - Cast Venom Spit'),
+(11896, 0, 1, 0, 0, 0, 100, 0, 5000, 5000, 5000, 15000, 0, 0, 11, 16866, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Borelgore - Within 0-30 Range - Cast Venom Spit'),
 (11896, 0, 2, 0, 0, 0, 100, 0, 6000, 8000, 8000, 11000, 0, 0, 11, 5568, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Borelgore - In Combat - Cast Trample'), -- https://www.youtube.com/watch?v=0pmoJ2pj4pE
 (11897, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 11000, 0, 5, 11, 14516, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Duskwing - Within 0-5 Range - Cast Strike'),
 (11897, 0, 1, 0, 0, 0, 100, 0, 6000, 10000, 12000, 16000, 0, 0, 11, 8281, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Duskwing - In Combat - Cast Sonic Burst'),
@@ -190,7 +190,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13118, 0, 2, 0, 0, 0, 100, 0, 7000, 12000, 12000, 25000, 0, 0, 11, 6713, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Crimson Bodyguard - Within 0-5 Range - Cast Disarm'),
 (13118, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Crimson Bodyguard - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (16184, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 13000, 0, 20, 11, 15471, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Nerubian Overseer - Within 0-20 Range - Cast Enveloping Web'),
-(16184, 0, 1, 0, 0, 0, 100, 0, 6000, 10000, 15000, 20000, 0, 0, 11, 31601, 64, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Nerubian Overseer - In Combat - Cast Crypt Scarabs');
+(16184, 0, 1, 0, 0, 0, 100, 0, 6000, 10000, 15000, 20000, 0, 0, 11, 31601, 0, 7, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Nerubian Overseer - In Combat - Cast Crypt Scarabs');
 
 
 -- fix spawn locations, respawn and movement

@@ -609,7 +609,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@SCORN, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 13000, 21000, 0, 0, 11, 8398, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Scorn - In Combat - Cast Frostbolt Volley'),
 (@SCORN, 0, 2, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 28873, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,                   'Scorn - In Combat - Cast Lich Slap'),
 (@SCORN, 0, 3, 0, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 53, 0, 1469300, 1, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,                              'Scorn - On Just Summoned - Start Patrol Path 1469300'),
-(@LORD_BLACKWOOD, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 5, 30, 11, 21390, 64, 0, 0, 0, 0, 25, 30, 0, 0, 0, 0, 0, 0, 0,             'Lord Blackwood - On Victim In Range - Cast Multi-Shot'), 
+(@LORD_BLACKWOOD, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 5, 30, 11, 21390, 0, 0, 0, 0, 0, 25, 30, 0, 0, 0, 0, 0, 0, 0,              'Lord Blackwood - On Victim In Range - Cast Multi-Shot'), 
 (@LORD_BLACKWOOD, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 11972, 1, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,          'Lord Blackwood - In Combat - Cast Shield Bash'),
 (@LORD_BLACKWOOD, 0, 2, 0, 106, 0, 100, 0, 13000, 13000, 15000, 15000, 0, 5, 11, 7964, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lord Blackwood - In Combat - Cast Smoke Bomb'),
 --

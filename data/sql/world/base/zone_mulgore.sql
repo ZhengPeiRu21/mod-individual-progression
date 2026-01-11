@@ -10,7 +10,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(2949, 0, 0, 0, 0, 0, 100, 0, 0, 0, 9000, 14000, 0, 0, 11, 9739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Palemane Tanner - In Combat - Cast Wrath'),
+(2949, 0, 0, 0, 0, 0, 100, 0, 0, 0, 9000, 14000, 0, 0, 11, 9739, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Palemane Tanner - In Combat - Cast Wrath'),
 (2949, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Palemane Tanner - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2950, 0, 0, 0, 2, 0, 100, 0, 0, 50, 21000, 25000, 0, 0, 11, 774, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Palemane Skinner - Between 0-50% Health - Cast Rejuvenation'),
 (2950, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Palemane Skinner - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -31,12 +31,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (2962, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Windfury Harpy - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2963, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Windfury Wind Witch - In Combat - Cast Lightning Bolt'),
-(2963, 0, 1, 0, 0, 0, 100, 0, 0, 3000, 11000, 16000, 0, 0, 11, 6982, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Windfury Wind Witch - In Combat - Cast Gust of Wind'),
+(2963, 0, 1, 0, 0, 0, 100, 0, 0, 3000, 11000, 16000, 0, 0, 11, 6982, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Windfury Wind Witch - In Combat - Cast Gust of Wind'),
 (2963, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Windfury Wind Witch - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2964, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 13322, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Windfury Sorceress - In Combat - Cast Frostbolt'),
 (2964, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Windfury Sorceress - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2965, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Windfury Matriarch - In Combat - Cast Lightning Bolt'),
-(2965, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 24000, 50, 40, 11, 332, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Windfury Matriarch - Friendly Between 0-50% Health - Cast Healing Wave'),
+(2965, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 24000, 50, 40, 11, 332, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Windfury Matriarch - Friendly Between 0-50% Health - Cast Healing Wave'),
 --
 (2967, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Galak Centaur - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2968, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Galak Outrunner - Outside 30 Range - Start Combat Movement'),
@@ -57,7 +57,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2977, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Venture Co. Taskmaster - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2978, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Venture Co. Worker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2989, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bael\'dun Digger - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2990, 0, 0, 0, 2, 0, 100, 0, 0, 50, 12000, 17000, 0, 0, 11, 2052, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Bael\'dun Appraiser - Between 0-50% Health - Cast Lesser Heal'),
+(2990, 0, 0, 0, 2, 0, 100, 0, 0, 50, 12000, 17000, 0, 0, 11, 2052, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Bael\'dun Appraiser - Between 0-50% Health - Cast Lesser Heal'),
 (2990, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bael\'dun Appraiser - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3051, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 15000, 30000, 0, 0, 11, 6673, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Supervisor Fizsprocket - In Combat - Cast Battle Shout'),
