@@ -9,3 +9,6 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15283, 8344);
 DELETE FROM `creature_loot_template` WHERE `Entry`= 15298 AND `Item`=20935;
 INSERT INTO `creature_loot_template` (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
 (15298, 20935, 0, 80, 1, 1, 0, 1, 1, 'Tainted Arcane Wraith - Tainted Wraith Essence');
+
+-- Add missing FR locale for NPCs
+UPDATE `creature_template_locale` SET `Title` = 'Maître des voleurs' WHERE `entry` = 16279 and `locale` = 'frFR';

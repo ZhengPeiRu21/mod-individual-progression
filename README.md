@@ -1,4 +1,9 @@
-# Individual Player Progression
+# Individual Player Progression Fork
+
+## THIS FORK IS ORIENTED TO AVOID USING HARD CLIENT PATCHES (so you can ignore all the DBC or MPQ files)
+## It also keep the old phase structures (I prefer it)
+## It also restore some minor additional content like some beta NPCs
+## It also fix some phasing inconsistencies, better handle stuff distribution in phases, etc
 
 ## Azerothcore Module
 
