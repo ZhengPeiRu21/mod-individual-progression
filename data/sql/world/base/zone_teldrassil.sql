@@ -22,7 +22,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2007, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnarlpine Gardener - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2008, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Gnarlpine Warrior - Within 0-5 Range - Cast Strike'),
 (2008, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnarlpine Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2009, 0, 0, 0, 14, 0, 100, 0, 70, 40, 15000, 21000, 0, 0, 11, 332, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Gnarlpine Shaman - Friendly Missing 70 Health - Cast Healing Wave'),
+(2009, 0, 0, 0, 14, 0, 100, 0, 70, 40, 15000, 21000, 0, 0, 11, 332, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Gnarlpine Shaman - Friendly Missing 70 Health - Cast Healing Wave'),
 (2009, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnarlpine Shaman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2010, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnarlpine Defender - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2011, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 5628, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Gnarlpine Augur - Between 0-30% Health - Cast Gnarlpine Vengeance (No Repeat)'),
@@ -30,17 +30,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2012, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 5628, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Gnarlpine Pathfinder - Between 0-30% Health - Cast Gnarlpine Vengeance (No Repeat)'),
 (2013, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 5628, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Gnarlpine Avenger - Between 0-30% Health - Cast Gnarlpine Vengeance (No Repeat)'),
 (2014, 0, 0, 0, 2, 0, 100, 0, 0, 30, 0, 0, 0, 0, 11, 5628, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Gnarlpine Totemic - In Combat - Cast Gnarlpine Vengeance (No Repeat)'),
-(2014, 0, 1, 0, 2, 0, 100, 0, 0, 60, 32000, 32000, 0, 0, 11, 5605, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Gnarlpine Totemic - Between 0-60% Health - Cast Healing Ward'),
+(2014, 0, 1, 0, 2, 0, 100, 0, 0, 60, 32000, 32000, 0, 0, 11, 5605, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Gnarlpine Totemic - Between 0-60% Health - Cast Healing Ward'),
 --
 (2015, 0, 0, 0, 4, 0, 70, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodfeather Harpy - On Aggro - Say Line 0'),
-(2015, 0, 1, 0, 0, 0, 100, 0, 0, 0, 6000, 10000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Bloodfeather Harpy - In Combat - Cast Blood Leech'),
+(2015, 0, 1, 0, 0, 0, 100, 0, 0, 0, 6000, 10000, 0, 0, 11, 20793, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodfeather Harpy - In Combat - Cast Blood Leech'),
 (2015, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bloodfeather Harpy - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2018, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodfeather Sorceress - On Aggro - Say Line 0'),
 (2018, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 1800000, 1800000, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Bloodfeather Sorceress - Out of Combat - Cast Frost Armor'),
 (2018, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodfeather Sorceress - In Combat - Cast Fireball'),
 (2018, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bloodfeather Sorceress - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2020, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodfeather Wind Witch - On Aggro - Say Line 0'),
-(2020, 0, 1, 0, 9, 0, 100, 0, 0, 0, 11000, 16000, 0, 5, 11, 6982, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Bloodfeather Wind Witch - Within 0-5 Range - Cast Gust of Wind'),
+(2020, 0, 1, 0, 9, 0, 100, 0, 0, 0, 11000, 16000, 0, 5, 11, 6982, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodfeather Wind Witch - Within 0-5 Range - Cast Gust of Wind'),
 (2020, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bloodfeather Wind Witch - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2021, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Bloodfeather Matriarch - In Combat - Cast Lightning Bolt'),
 (2021, 0, 1, 0, 2, 0, 100, 0, 0, 50, 18000, 24000, 0, 0, 11, 332, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodfeather Matriarch - Between 0-50% Health - Cast Healing Wave'),
@@ -70,5 +70,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- Byancie <First Aid Trainer> 
-DELETE FROM `npc_trainer` WHERE `ID`=6094; 
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (6094, -350000); 
+SET @TRAINER_ID   := 600;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (6094);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (6094, @TRAINER_ID+45);

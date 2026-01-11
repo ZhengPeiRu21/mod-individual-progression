@@ -29,7 +29,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3669, 0, 0, 1, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lord Cobrahn - On Aggro - Say Line 0'),
 (3669, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Lord Cobrahn - On Aggro - Set Event Phase 1'),
 (3669, 0, 2, 0, 0, 1, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Lord Cobrahn - In Combat - Cast Lightning Bolt'),
-(3669, 0, 3, 0, 0, 1, 100, 0, 10000, 10000, 13000, 20000, 0, 0, 11, 8040, 96, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,  'Lord Cobrahn - In Combat - Cast Druids Slumber'),
+(3669, 0, 3, 0, 0, 1, 100, 0, 10000, 10000, 13000, 20000, 0, 0, 11, 8040, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,  'Lord Cobrahn - In Combat - Cast Druids Slumber'),
 (3669, 0, 4, 0, 14, 1, 100, 0, 400, 40, 12000, 18000, 0, 0, 11, 5187, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Lord Cobrahn - Friendly Missing Health - Cast Healing Touch'),
 (3669, 0, 5, 6, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 7965, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Lord Cobrahn - Health Between 0-30% - Cast Cobrahn Serpent Form'),
 (3669, 0, 6, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Lord Cobrahn - Between 0-30% Health - Cast Poison Proc'),
@@ -38,34 +38,34 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3670, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lord Pythas - On Aggro - Say Line 0'),
 (3670, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Lord Pythas - In Combat - Cast Lightning Bolt'),
 (3670, 0, 2, 0, 0, 0, 100, 0, 6000, 8000, 6000, 11000, 0, 0, 11, 8147, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lord Pythas - In Combat - Cast Thunderclap'),
-(3670, 0, 3, 0, 0, 0, 100, 0, 8000, 12000, 12000, 20000, 0, 0, 11, 700, 96, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Lord Pythas - In Combat - Cast Druids Slumber'),
-(3670, 0, 4, 0, 14, 0, 100, 0, 400, 40, 20000, 25000, 0, 0, 11, 5187, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Lord Pythas - Friendly Missing Health - Cast Healing Touch'),
+(3670, 0, 3, 0, 0, 0, 100, 0, 8000, 12000, 12000, 20000, 0, 0, 11, 700, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Lord Pythas - In Combat - Cast Druids Slumber'),
+(3670, 0, 4, 0, 14, 0, 100, 0, 400, 40, 20000, 25000, 0, 0, 11, 5187, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Lord Pythas - Friendly Missing Health - Cast Healing Touch'),
 (3670, 0, 5, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 1, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Lord Pythas - On Just Died - Set Instance Data 1 to 3'),
 --
 (3671, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lady Anacondra - On Aggro - Say Line 0'),
 (3671, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Lady Anacondra - In Combat - Cast Lightning Bolt'),
-(3671, 0, 2, 0, 0, 0, 100, 0, 8000, 12000, 12000, 25000, 0, 0, 11, 700, 96, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Lady Anacondra - In Combat - Cast Druids Slumber'),
-(3671, 0, 3, 0, 14, 0, 100, 0, 400, 40, 15000, 26000, 0, 0, 11, 5187, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Lady Anacondra - Friendly Missing Health - Cast Healing Touch'),
+(3671, 0, 2, 0, 0, 0, 100, 0, 8000, 12000, 12000, 25000, 0, 0, 11, 700, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Lady Anacondra - In Combat - Cast Druids Slumber'),
+(3671, 0, 3, 0, 14, 0, 100, 0, 400, 40, 15000, 26000, 0, 0, 11, 5187, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Lady Anacondra - Friendly Missing Health - Cast Healing Touch'),
 (3671, 0, 4, 0, 0, 0, 100, 0, 1000, 3000, 50000, 50000, 0, 0, 11, 8148, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Lady Anacondra - In Combat - Cast Thorns'),
 (3671, 0, 5, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 2, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Lady Anacondra - On Just Died - Set Instance Data 2 to 3'),
 --
 (3672, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Boahn - In Combat - Cast Lightning Bolt'),
-(3672, 0, 1, 0, 74, 0, 100, 0, 0, 0, 20000, 30000, 60, 40, 11, 5187, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Boahn - Friendly Between 0-60% Health - Cast Healing Touch'),
+(3672, 0, 1, 0, 74, 0, 100, 0, 0, 0, 20000, 30000, 60, 40, 11, 5187, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Boahn - Friendly Between 0-60% Health - Cast Healing Touch'),
 (3672, 0, 2, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 8041, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Boahn - Between 0-50% Health - Cast Snake Form'),
 (3672, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Boahn - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3673, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lord Serpentis - On Aggro - Say Line 1'),
 (3673, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Lord Serpentis - In Combat - Cast Lightning Bolt'),
-(3673, 0, 2, 0, 0, 0, 100, 0, 3000, 6000, 10000, 20000, 0, 0, 11, 700, 96, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,     'Lord Serpentis - In Combat - Cast Druids Slumber'),
-(3673, 0, 3, 0, 14, 0, 100, 0, 600, 40, 12000, 18000, 0, 0, 11, 6778, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Lord Serpentis - Friendly Missing Health - Cast Healing Touch'),
+(3673, 0, 2, 0, 0, 0, 100, 0, 3000, 6000, 10000, 20000, 0, 0, 11, 700, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,     'Lord Serpentis - In Combat - Cast Druids Slumber'),
+(3673, 0, 3, 0, 14, 0, 100, 0, 600, 40, 12000, 18000, 0, 0, 11, 6778, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Lord Serpentis - Friendly Missing Health - Cast Healing Touch'),
 (3673, 0, 4, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 3, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Lord Serpentis - On Just Died - Set Instance Data 3 to 3'),
 --
 (3674, 0, 0, 0, 0, 0, 100, 0, 1000, 2000, 4000, 8000, 0, 0, 11, 6254, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Skum - In Combat - Cast Chained Bolt'),
 (3674, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Skum - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3840, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Druid of the Fang - In Combat - Cast Lightning Bolt'),
-(3840, 0, 1, 0, 0, 0, 100, 0, 8000, 9000, 10000, 20000, 0, 0, 11, 8040, 96, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Druid of the Fang - In Combat - Cast Druids Slumber'),
-(3840, 0, 2, 0, 14, 0, 100, 0, 400, 40, 12000, 18000, 0, 0, 11, 5187, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Druid of the Fang - Friendly Missing Health - Cast Healing Touch'),
+(3840, 0, 1, 0, 0, 0, 100, 0, 8000, 9000, 10000, 20000, 0, 0, 11, 8040, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Druid of the Fang - In Combat - Cast Druids Slumber'),
+(3840, 0, 2, 0, 14, 0, 100, 0, 400, 40, 12000, 18000, 0, 0, 11, 5187, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Druid of the Fang - Friendly Missing Health - Cast Healing Touch'),
 (3840, 0, 3, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8041, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Druid of the Fang - Between 0-30% Health - Cast Serpent Form'),
 (3840, 0, 4, 5, 1, 0, 100, 0, 5000, 60000, 60000, 90000, 0, 0, 11, 13236, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Druid of the Fang - Out of Combat - Cast Nature Channeling'),
 (3840, 0, 5, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 67, 1, 6000, 30000, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Druid of the Fang - Out of Combat - Create Timed Event'),
@@ -79,9 +79,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5056, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 15000, 0, 5, 11, 7399, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Deviate Dreadfang - Within 0-5 Range - Cast Terrify'),
 (5755, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 10000, 16000, 0, 0, 11, 7947, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Deviate Viper - Within 0-5 Range - Cast Localized Toxin'),
 (5755, 0, 1, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Deviate Viper - Is Summoned - Set In Combat With Zone'),
-(5756, 0, 0, 0, 9, 0, 50, 0, 0, 0, 3000, 5000, 0, 30, 11, 7951, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Deviate Venomwing - Within 0-30 Range - Cast Toxic Spit'),
+(5756, 0, 0, 0, 9, 0, 50, 0, 0, 0, 3000, 5000, 0, 30, 11, 7951, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Deviate Venomwing - Within 0-30 Range - Cast Toxic Spit'),
 (5761, 0, 0, 0, 2, 0, 100, 0, 0, 50, 18000, 21000, 0, 0, 11, 7948, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Deviate Shambler - Between 0-50% Health - Cast Wild Regeneration'),
-(5775, 0, 0, 0, 9, 0, 100, 0, 0, 0, 13000, 16000, 0, 8, 11, 8142, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Verdan the Everliving - Within 0-8 Range - Cast Grasping Vines');
+(5775, 0, 0, 0, 9, 0, 100, 0, 0, 0, 13000, 16000, 0, 8, 11, 8142, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Verdan the Everliving - Within 0-8 Range - Cast Grasping Vines');
 
 
 -- fix Respawn and Movement

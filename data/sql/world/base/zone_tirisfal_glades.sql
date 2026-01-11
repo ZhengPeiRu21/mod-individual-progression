@@ -39,7 +39,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1537, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Zealot - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1538, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Friar - On Aggro - Say Line 0'),
 (1538, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 1243, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Friar - Out of Combat - Cast Power Word: Fortitude'),
-(1538, 0, 2, 0, 14, 0, 100, 0, 55, 40, 8000, 12000, 0, 0, 11, 2052, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scarlet Friar - Friendly Missing 55 Health - Cast Lesser Heal'),
+(1538, 0, 2, 0, 14, 0, 100, 0, 55, 40, 8000, 12000, 0, 0, 11, 2052, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Friar - Friendly Missing 55 Health - Cast Lesser Heal'),
 (1538, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Friar - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1539, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Neophyte - On Aggro - Say Line 0'),
 (1539, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 12544, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarlet Neophyte - Out of Combat - Cast Frost Armor'),
@@ -81,11 +81,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1675, 0, 1, 0, 0, 0, 100, 0, 7000, 14000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Rot Hide Mongrel - In Combat - Cast Curse of Thule'),
 (1688, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11959, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Night Web Matriarch - On Respawn - Cast Poison Proc'),
 (1753, 0, 0, 0, 2, 0, 100, 0, 4000, 9000, 30000, 45000, 0, 0, 11, 3237, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Maggot Eye - In Combat - Cast Curse of Thule'),
-(1753, 0, 1, 0, 2, 0, 100, 0, 0, 75, 7000, 14000, 0, 0, 11, 3243, 64, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,          'Maggot Eye - Between 0-75% Health - Cast Life Harvest'),
+(1753, 0, 1, 0, 2, 0, 100, 0, 0, 75, 7000, 14000, 0, 0, 11, 3243, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,           'Maggot Eye - Between 0-75% Health - Cast Life Harvest'),
 (1765, 0, 0, 0, 0, 0, 100, 0, 4000, 14000, 34000, 60000, 0, 0, 11, 3149, 24604, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Worg - In Combat - Cast Furious Howl'),
 --
 (1910, 0, 0, 0, 0, 0, 100, 0, 2000, 6000, 6000, 10000, 0, 0, 11, 2607, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Muad - In Combat - Cast Shock'),
-(1910, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 16000, 50, 40, 11, 332, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Muad - Friendly Between 0-50% Health - Cast Healing Wave'),
+(1910, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 16000, 50, 40, 11, 332, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Muad - Friendly Between 0-50% Health - Cast Healing Wave'),
 (1910, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Muad - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1911, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Deeb - In Combat - Cast Lightning Bolt'),
 (1911, 0, 1, 0, 0, 0, 100, 0, 2000, 6000, 6000, 6000, 0, 0, 11, 2607, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Deeb - In Combat - Cast Shock'),
@@ -102,7 +102,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1944, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Vile Fin Minor Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (10356, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 21000, 25000, 0, 0, 11, 13443, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Bayne - Within 0-5 Range - Cast Rend'),
 (10356, 0, 1, 0, 9, 0, 100, 0, 0, 0, 20000, 24000, 0, 5, 11, 3604, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Bayne - Within 0-5 Range - Cast Tendon Rip'),
-(10358, 0, 0, 0, 0, 0, 100, 0, 6000, 11000, 21000, 27000, 0, 0, 11, 7068, 96, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Fellicents Shade - Within 0-20 Range - Cast Veil of Shadow'),
+(10358, 0, 0, 0, 0, 0, 100, 0, 6000, 11000, 21000, 27000, 0, 0, 11, 7068, 32, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Fellicents Shade - Within 0-20 Range - Cast Veil of Shadow'),
 (10358, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 13901, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Fellicents Shade - In Combat - Cast Arcane Bolt'),
 (10358, 0, 2, 0, 106, 0, 100, 0, 0, 0, 12000, 17000, 0, 8, 11, 11975, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Fellicents Shade - Within 0-8 Range - Cast Arcane Explosion'),
 (13158, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Lieutenant Sanders - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -133,16 +133,18 @@ UPDATE `creature_template` SET `subname` = 'Demon Trainer'            WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Skinner'                  WHERE `entry` = 6289; -- Rand Rhobart <Skinner>
 UPDATE `creature_template` SET `subname` = 'Zeppelin Master'          WHERE `entry` = 9566; -- Zapetta <Zeppelin Master>
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (2114, 2132, 3549, 4773, 5690, 5695, 5759, 6289);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(2114, -370000), -- Faruza <Apprentice Herbalist>
-(2132, -300000), -- Carolai Anise <Journeyman Alchemist>
-(3549, -380000), -- Shelene Rhobart <Journeyman Leatherworker>
-(4773, -450000), -- Velma Warnam <Riding Trainer>
-(5690, -360000), -- Clyde Kellen <Fisherman>
-(5695, -330000), -- Vance Undergloom <Journeyman Enchanter>
-(5759, -350000), -- Nurse Neela <First Aid Trainer>
-(6289, -400000); -- Rand Rhobart <Skinner>
+SET @TRAINER_ID   := 600;
+
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2114, 2132, 3549, 4773, 5690, 5695, 5759, 6289);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(2114, @TRAINER_ID+41), -- Faruza <Apprentice Herbalist>
+(2132, @TRAINER_ID+11), -- Carolai Anise <Journeyman Alchemist>
+(3549, @TRAINER_ID+31), -- Shelene Rhobart <Journeyman Leatherworker>
+(4773, @TRAINER_ID+48), -- Velma Warnam <Riding Trainer>
+(5690, @TRAINER_ID+47), -- Clyde Kellen <Fisherman>
+(5695, @TRAINER_ID+21), -- Vance Undergloom <Journeyman Enchanter>
+(5759, @TRAINER_ID+45), -- Nurse Neela <First Aid Trainer>
+(6289, @TRAINER_ID+43); -- Rand Rhobart <Skinner>
 
 
 /* Quests */

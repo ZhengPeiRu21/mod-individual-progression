@@ -39,7 +39,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8894, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Anvilrage Medic - Between 0-15% Health - Flee For Assist'),
 (8895, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Anvilrage Officer - On Aggro - Cast Battle Shout'),
 (8895, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 15000, 0, 5, 11, 6253, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Anvilrage Officer - Within 0-5 Range - Cast Backhand'),
-(8895, 0, 2, 0, 14, 0, 100, 0, 3000, 40, 6000, 10000, 0, 0, 11, 13952, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Anvilrage Officer - Friendly Missing 3000 Health - Cast Holy Light'),
+(8895, 0, 2, 0, 14, 0, 100, 0, 3000, 40, 6000, 10000, 0, 0, 11, 13952, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Anvilrage Officer - Friendly Missing 3000 Health - Cast Holy Light'),
 (8895, 0, 3, 0, 2, 0, 100, 0, 0, 30, 21000, 28000, 0, 0, 11, 13874, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Anvilrage Officer - Between 0-30% Health - Cast Divine Shield'),
 (8895, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Anvilrage Officer - Between 0-15% Health - Flee For Assist'),
 (8896, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Shadowforge Peasant - Outside 30 Range - Start Combat Movement'),
@@ -60,7 +60,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8897, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Doomforge Craftsman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (8898, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Anvilrage Marshal - On Aggro - Cast Devotion Aura'),
 (8898, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6000, 8000, 0, 5, 11, 13953, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Anvilrage Marshal - Within 0-5 Range - Cast Holy Strike'),
-(8898, 0, 2, 0, 14, 0, 100, 0, 3000, 40, 3000, 6000, 0, 0, 11, 15493, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Anvilrage Marshal - Friendly Missing 3000 Health - Cast Holy Light'),
+(8898, 0, 2, 0, 14, 0, 100, 0, 3000, 40, 3000, 6000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Anvilrage Marshal - Friendly Missing 3000 Health - Cast Holy Light'),
 (8898, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Anvilrage Marshal - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (8899, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Doomforge Dragoon - Outside 30 Range - Start Combat Movement'),
 (8899, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Doomforge Dragoon - Within 5-30 Range - Stop Combat Movement'),
@@ -118,7 +118,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8906, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 15088, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Ragereaver Golem - On Respawn - Cast Flurry'),
 (8906, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 12795, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Ragereaver Golem - Between 0-30% Health - Cast Frenzy (No Repeat)'),
 (8906, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ragereaver Golem - On Frenzy - Say Line 0'),
-(8907, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 6000, 9000, 0, 0, 11, 15575, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Wrath Hammer Construct - In Combat - Cast Flame Cannon'),
+(8907, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 6000, 9000, 0, 0, 11, 15575, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Wrath Hammer Construct - In Combat - Cast Flame Cannon'),
 (8907, 0, 1, 0, 0, 0, 100, 0, 5000, 15000, 5000, 15000, 0, 0, 11, 10966, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,   'Wrath Hammer Construct - Within 0-10 Range - Cast Uppercut'),
 (8908, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 15506, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Molten War Golem - In Combat - Cast Immolate Proc'),
 --
@@ -178,8 +178,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8923, 0, 0, 0, 37, 0, 85, 2, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Panzor the Invincible - On AI initialize - Despawn (Normal Dungeon)'),
 (8923, 0, 1, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 9941, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Panzor the Invincible - Out of Combat - Cast Spell Reflection (No Repeat)'),
 (9017, 0, 0, 0, 0, 0, 100, 0, 1000, 5000, 20000, 28000, 0, 0, 11, 26977, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Lord Incendius - In Combat - Cast Curse of the Elemental Lord'),
-(9017, 0, 1, 0, 0, 0, 100, 0, 6000, 11000, 9000, 16000, 0, 0, 11, 13900, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Lord Incendius - In Combat - Cast Fiery Burst'),
-(9017, 0, 2, 0, 0, 0, 100, 0, 12000, 16000, 11000, 14000, 0, 0, 11, 13899, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lord Incendius - In Combat - Cast Fire Storm'),
+(9017, 0, 1, 0, 0, 0, 100, 0, 6000, 11000, 9000, 16000, 0, 0, 11, 13900, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Lord Incendius - In Combat - Cast Fiery Burst'),
+(9017, 0, 2, 0, 0, 0, 100, 0, 12000, 16000, 11000, 14000, 0, 0, 11, 13899, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Lord Incendius - In Combat - Cast Fire Storm'),
 (9017, 0, 3, 0, 0, 0, 100, 0, 9000, 17000, 18000, 24000, 0, 0, 11, 14099, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,  'Lord Incendius - Within 0-10 Range - Cast Mighty Blow'),
 (9017, 0, 4, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Lord Incendius - On Just Died - Say Line 0'),
 (9024, 0, 0, 0, 0, 0, 100, 0, 6000, 11000, 12000, 19000, 0, 0, 11, 15616, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,   'Pyromancer Loregrain - Within 0-20 Range - Cast Flame Shock'),
@@ -205,8 +205,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9035, 0, 4, 0, 0, 0, 100, 2, 5000, 5000, 5000, 5000, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anger\'rel - In Combat - In Combat with Zone (Normal Dungeon)'),
 (9036, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 15587, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Vile\'rel - In Combat - Cast Mind Blast'),
 (9036, 0, 1, 0, 0, 0, 100, 0, 2000, 3000, 60000, 120000, 0, 0, 11, 11974, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Vile\'rel - In Combat - Cast Power Word: Shield'), -- https://www.youtube.com/watch?v=QoEwUz7Bdq8
-(9036, 0, 2, 0, 0, 0, 100, 0, 15000, 20000, 15000, 20000, 0, 0, 11, 15585, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Vile\'rel - In Combat - Cast Prayer of Healing'),
-(9036, 0, 3, 0, 2, 0, 100, 0, 0, 50, 16000, 20000, 0, 0, 11, 15586, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Vile\'rel - Between 0-50% Health - Cast Heal'),
+(9036, 0, 2, 0, 0, 0, 100, 0, 15000, 20000, 15000, 20000, 0, 0, 11, 15585, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Vile\'rel - In Combat - Cast Prayer of Healing'),
+(9036, 0, 3, 0, 2, 0, 100, 0, 0, 50, 16000, 20000, 0, 0, 11, 15586, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Vile\'rel - Between 0-50% Health - Cast Heal'),
 (9036, 0, 4, 0, 0, 0, 100, 2, 5000, 5000, 5000, 5000, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Vile\'rel - In Combat - In Combat with Zone (Normal Dungeon)'),
 (9038, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 12544, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Seeth\'rel - Out of Combat - Cast Frost Armor'),
 (9038, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12675, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Seeth\'rel - In Combat - Cast Frostbolt'),
@@ -232,8 +232,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9042, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Verek - On Enrage - Say Line 0'),
 --
 (9056, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 240000, 240000, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Fineous Darkvire - Out of Combat - Cast Devotion Aura'),
-(9056, 0, 1, 0, 2, 0, 100, 1, 0, 60, 0, 0, 0, 0, 11, 15493, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Fineous Darkvire - Between 0-60% Health - Cast Holy Light (No Repeat)'),
-(9056, 0, 2, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 15493, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Fineous Darkvire - Between 0-40% Health - Cast Holy Light (No Repeat)'),
+(9056, 0, 1, 0, 2, 0, 100, 1, 0, 60, 0, 0, 0, 0, 11, 15493, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Fineous Darkvire - Between 0-60% Health - Cast Holy Light (No Repeat)'),
+(9056, 0, 2, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Fineous Darkvire - Between 0-40% Health - Cast Holy Light (No Repeat)'),
 (9056, 0, 3, 0, 9, 0, 100, 0, 0, 0, 6000, 8500, 0, 5, 11, 13953, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Fineous Darkvire - Within 0-5 Range - Cast Holy Strike'),
 (9056, 0, 4, 0, 105, 0, 100, 0, 0, 0, 11000, 15000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Fineous Darkvire - Target Casting - Cast Kick'),
 (9056, 0, 5, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 15346, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Fineous Darkvire - Between 0-20% Health - Cast Seal of Reckoning (No Repeat)'),
@@ -331,14 +331,14 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 
 -- fix Ironhand Guardian's Gout of Flame in room with Magmus
 DELETE FROM `creature_template` WHERE `entry` IN (108982);
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, 
-`exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, 
-`BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, 
-`lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, 
-`RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES 
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
+`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
+`PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
+`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
-(108982, 0, 0, 0, 0, 0, 'Ironhand Guardian', NULL, NULL, 0, 56, 56, 0, 15, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 0.1, 2000, 2000, 
-1, 1, 1, 64, 2048, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 3, 2, 1, 1, 0, 0, 1, 16384, 0, 2050, '', 0);
+(108982, 0, 0, 0, 0, 0, 'Ironhand Guardian', NULL, NULL, 0, 60, 60, 0, 15, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 0.1, 2000, 2000, 
+1, 1, 1, 64, 2048, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 3, 2, 1, 1, 0, 0, 1, 16384, 0, 2050, '', 0);
 
 DELETE FROM `creature` WHERE `id1` IN (8982, 108982);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 

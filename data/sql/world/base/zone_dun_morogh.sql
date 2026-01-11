@@ -57,12 +57,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (1196, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 42000, 46000, 0, 0, 11, 3130, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Ice Claw Bear - Within 0-5 Range - Cast Ice Claw'),
 (1211, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Leper Gnome - On Aggro - Say Line 0'),
-(1211, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 14000, 17000, 0, 0, 11, 6951, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Leper Gnome - In Combat - Cast Decayed Strength'),
+(1211, 0, 1, 0, 0, 0, 100, 0, 2000, 5000, 14000, 17000, 0, 0, 11, 6951, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Leper Gnome - In Combat - Cast Decayed Strength'),
 (1211, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Leper Gnome - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1260, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 465, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Great Father Arctikus - Out of Combat - Cast Devotion Aura (No Repeat)'),
 (1260, 0, 1, 0, 4, 0, 80, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Great Father Arctikus - On Aggro - Say Line 0'),
-(1260, 0, 2, 0, 2, 0, 100, 1, 0, 75, 0, 0, 0, 0, 11, 139, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Great Father Arctikus - Between 0-75% Health - Cast Renew (No Repeat)'),
-(1260, 0, 3, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 2053, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Great Father Arctikus - Between 0-20% Health - Cast Lesser Heal (No Repeat)'),
+(1260, 0, 2, 0, 2, 0, 100, 1, 0, 75, 0, 0, 0, 0, 11, 139, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Great Father Arctikus - Between 0-75% Health - Cast Renew (No Repeat)'),
+(1260, 0, 3, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 11, 2053, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Great Father Arctikus - Between 0-20% Health - Cast Lesser Heal (No Repeat)'),
 (1271, 0, 0, 0, 0, 0, 100, 0, 2000, 4000, 17000, 23000, 0, 0, 11, 3145, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Old Icebeard - Within 0-5 Range - Cast Icy Grasp'), 
 (1271, 0, 1, 0, 0, 0, 100, 0, 6000, 12000, 30000, 44000, 0, 0, 11, 3146, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Old Icebeard - Within 0-5 Range - Cast Daunting Growl'), -- https://www.youtube.com/watch?v=jaYpr0YlBmQ
 (1397, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Frostmane Seer - On Aggro - Say Line 0'),
@@ -82,7 +82,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6221, 0, 5, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Addled Leper - Within 5-30 Range - Cast Shoot'),
 (6221, 0, 6, 0, 9, 0, 100, 0, 0, 0, 17000, 23000, 0, 5, 11, 9080, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Addled Leper - Within 0-5 Range - Cast Hamstring'),
 (6221, 0, 7, 0, 0, 0, 100, 0, 7000, 9000, 13000, 16000, 0, 0, 11, 25712, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Addled Leper - Within 0-5 Range - Cast Heroic Strike'),
-(6221, 0, 8, 0, 2, 0, 100, 0, 0, 30, 30000, 45000, 0, 0, 11, 2055, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Addled Leper - Between 0-30% Health - Cast Heal'),
+(6221, 0, 8, 0, 2, 0, 100, 0, 0, 30, 30000, 45000, 0, 0, 11, 2055, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Addled Leper - Between 0-30% Health - Cast Heal'),
 (6221, 0, 9, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Addled Leper - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (7843, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Gnomeregan Evacuee - Out of Combat - Cast Battle Stance (No Repeat)'),
 (7843, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Gnomeregan Evacuee - Outside 30 Range - Start Combat Movement'),
@@ -91,7 +91,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7843, 0, 4, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Gnomeregan Evacuee - Within 5-30 Range - Cast Shoot'),
 (7843, 0, 5, 0, 9, 0, 100, 0, 0, 0, 17000, 23000, 0, 5, 11, 9080, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Gnomeregan Evacuee - Within 0-5 Range - Cast Hamstring'),
 (7843, 0, 6, 0, 0, 0, 100, 0, 7000, 9000, 13000, 16000, 0, 0, 11, 25712, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Gnomeregan Evacuee - Within 0-5 Range - Cast Heroic Strike'),
-(7843, 0, 7, 0, 2, 0, 100, 0, 0, 30, 30000, 45000, 0, 0, 11, 2055, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Gnomeregan Evacuee - Between 0-30% Health - Cast Heal'),
+(7843, 0, 7, 0, 2, 0, 100, 0, 0, 30, 30000, 45000, 0, 0, 11, 2055, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Gnomeregan Evacuee - Between 0-30% Health - Cast Heal'),
 (7843, 0, 8, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnomeregan Evacuee - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (7843, 0, 9, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Gnomeregan Evacuee - On Just Died - Say Line 0'),
 --
@@ -122,5 +122,7 @@ UPDATE `quest_template` SET `Flags` = 8 WHERE `ID` = 1599;
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` = 1599;
 
 -- Thamner Pol <Physician> 
-DELETE FROM `npc_trainer` WHERE `ID` = 2326;
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (2326, -350000);
+SET @TRAINER_ID   := 600;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2326);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(2326, @TRAINER_ID+45);

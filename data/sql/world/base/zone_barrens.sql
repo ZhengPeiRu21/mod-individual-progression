@@ -20,10 +20,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3234, 0, 1, 0, 0, 0, 100, 0, 7000, 16000, 9000, 17000, 0, 0, 11, 6266, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Lost Barrens Kodo - In Combat - Cast Kodo Stomp'),
 (3236, 0, 0, 0, 0, 0, 100, 0, 7000, 16000, 9000, 17000, 0, 0, 11, 6266, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Barrens Kodo - In Combat - Cast Kodo Stomp'),
 (3237, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Wooly Kodo - On Aggro - Cast Rushing Charge'),
-(3238, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 12000, 0, 30, 11, 5401, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Stormhide   - Within 0-30 Range - Cast Lizard Bolt'),
+(3238, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 12000, 0, 30, 11, 5401, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Stormhide   - Within 0-30 Range - Cast Lizard Bolt'),
 (3238, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 15000, 0, 5, 11, 6730, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Stormhide   - Within 0-5 Range  - Cast Head Butt'),
-(3239, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 12000, 0, 30, 11, 5401, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Thunderhead - Within 0-30 Range - Cast Lizard Bolt'),
-(3240, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 12000, 0, 30, 11, 5401, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Stormsnout  - Within 0-30 Range - Cast Lizard Bolt'),
+(3239, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 12000, 0, 30, 11, 5401, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Thunderhead - Within 0-30 Range - Cast Lizard Bolt'),
+(3240, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 12000, 0, 30, 11, 5401, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Stormsnout  - Within 0-30 Range - Cast Lizard Bolt'),
 (3241, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17498, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Savannah Patriarch - On Respawn - Cast Speed'),
 (3242, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17498, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Zhevra Runner - On Respawn - Cast Speed'),
 (3244, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Greater Plainstrider  - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -46,16 +46,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3258, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Bristleback Hunter - Within 5-30 Range - Stop Combat Movement'),
 (3258, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Bristleback Hunter - Within 0-5 Range - Start Combat Movement'),
 (3258, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Bristleback Hunter - Within 5-30 Range - Cast Shoot'),
-(3258, 0, 4, 0, 0, 0, 100, 0, 9000, 14000, 9000, 14000, 0, 0, 11, 8806, 96, 0, 0, 0, 0, 28, 30, 1, 1, 5, 0, 0, 0, 0,   'Bristleback Hunter - Within 5-30 Range - Cast Poisoned Shot'),
+(3258, 0, 4, 0, 0, 0, 100, 0, 9000, 14000, 9000, 14000, 0, 0, 11, 8806, 32, 0, 0, 0, 0, 28, 30, 1, 1, 5, 0, 0, 0, 0,   'Bristleback Hunter - Within 5-30 Range - Cast Poisoned Shot'),
 (3258, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bristleback Hunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3260, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 16000, 0, 8, 11, 12748, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Bristleback Water Seeker - Within 0-8 Range - Cast Frost Nova'),
 (3260, 0, 1, 0, 2, 0, 100, 0, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bristleback Water Seeker - Between 0-15% Health - Flee For Assist'),
 (3261, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 60000, 60000, 0, 0, 11, 782, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Bristleback Thornweaver - Out of Combat - Cast Thorns'),
-(3261, 0, 1, 0, 0, 0, 100, 0, 5000, 11000, 12000, 18000, 0, 0, 11, 12747, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Bristleback Thornweaver - In Combat - Cast Entangling Roots'),
+(3261, 0, 1, 0, 0, 0, 100, 0, 5000, 11000, 12000, 18000, 0, 0, 11, 12747, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Bristleback Thornweaver - In Combat - Cast Entangling Roots'),
 (3261, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bristleback Thornweaver - Between 0-15% Health - Flee For Assist'),
 (3263, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Bristleback Geomancer - In Combat - Cast Fireball'),
-(3263, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 17000, 22000, 0, 0, 11, 4979, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Bristleback Geomancer - In Combat - Cast Quick Flame Ward'),
-(3263, 0, 2, 0, 0, 0, 100, 0, 8000, 13000, 18000, 25000, 0, 0, 11, 20794, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Bristleback Geomancer - In Combat - Cast Flamestrike'),
+(3263, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 17000, 22000, 0, 0, 11, 4979, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Bristleback Geomancer - In Combat - Cast Quick Flame Ward'),
+(3263, 0, 2, 0, 0, 0, 100, 0, 8000, 13000, 18000, 25000, 0, 0, 11, 20794, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Bristleback Geomancer - In Combat - Cast Flamestrike'),
 (3263, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Bristleback Geomancer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3265, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Razormane Hunter - Outside 30 Range - Start Combat Movement'),
@@ -68,7 +68,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3266, 0, 1, 0, 0, 0, 100, 0, 10000, 10000, 35000, 35000, 0, 0, 11, 13730, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Razormane Defender - In Combat - Cast Demoralizing Shout'), -- https://www.youtube.com/watch?v=7L9B25m566E&t=435s
 (3266, 0, 2, 0, 0, 0, 100, 0, 4000, 4000, 11000, 11000, 0, 0, 11, 25710, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Razormane Defender - Within 0-5 Range - Cast Heroic Strike'),
 (3266, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Razormane Defender - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(3267, 0, 0, 0, 0, 0, 80, 0, 7000, 13000, 30000, 40000, 0, 0, 11, 6278, 96, 0, 0, 0, 0, 5, 15, 0, 0, 0, 0, 0, 0, 0,    'Razormane Water Seeker - Within 0-15 Range - Cast Creeping Mold'),
+(3267, 0, 0, 0, 0, 0, 80, 0, 7000, 13000, 30000, 40000, 0, 0, 11, 6278, 32, 0, 0, 0, 0, 5, 15, 0, 0, 0, 0, 0, 0, 0,    'Razormane Water Seeker - Within 0-15 Range - Cast Creeping Mold'),
 (3267, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Razormane Water Seeker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3268, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 467, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Razormane Thornweaver - On Aggro - Cast Thorns'),
 (3268, 0, 1, 0, 0, 0, 100, 0, 7000, 12000, 15000, 21000, 0, 0, 11, 6950, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Razormane Thornweaver - Within 0-30 Range - Cast Faerie Fire'),
@@ -77,12 +77,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3269, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Razormane Geomancer - In Combat - Cast Fireball'),
 (3269, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Razormane Geomancer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(3270, 0, 0, 0, 2, 0, 100, 0, 0, 50, 24200, 38600, 0, 0, 11, 547, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Elder Mystic Razorsnout - Between 0-50% Health - Cast Healing Wave'),
+(3270, 0, 0, 0, 2, 0, 100, 0, 0, 50, 24200, 38600, 0, 0, 11, 547, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Elder Mystic Razorsnout - Between 0-50% Health - Cast Healing Wave'),
 (3270, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 2484, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Elder Mystic Razorsnout - Between 0-30% Health - Cast Earthbind Totem (No Repeat)'),
 (3270, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Elder Mystic Razorsnout - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3271, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Razormane Mystic - Out of Combat - Cast Lightning Shield'),
 (3271, 0, 1, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 324, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Razormane Mystic - In Combat - Cast Lightning Shield'),
-(3271, 0, 2, 0, 74, 0, 100, 0, 6000, 10000, 12000, 20000, 50, 40, 11, 547, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Razormane Mystic - Friendly Between 0-50% Health - Cast Healing Wave'),
+(3271, 0, 2, 0, 74, 0, 100, 0, 6000, 10000, 12000, 20000, 50, 40, 11, 547, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Razormane Mystic - Friendly Between 0-50% Health - Cast Healing Wave'),
 (3271, 0, 3, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Razormane Mystic - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3272, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Kolkar Wrangler - Outside 30 Range - Start Combat Movement'),
@@ -92,7 +92,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3272, 0, 4, 0, 0, 0, 100, 0, 4000, 6000, 25000, 35000, 0, 0, 11, 12024, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Kolkar Wrangler - In Combat - Cast Net'),
 (3272, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Kolkar Wrangler - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3273, 0, 0, 0, 9, 0, 100, 1, 0, 0, 0, 0, 0, 30, 11, 6535, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                  'Kolkar Stormer - Within 0-30 Range - Cast Lightning Cloud (No Repeat)'),
-(3273, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Kolkar Stormer - In Combat - Cast Lightning Bolt'),
+(3273, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Kolkar Stormer - In Combat - Cast Lightning Bolt'),
 (3273, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Kolkar Stormer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3274, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Kolkar Pack Runner - On Aggro - Cast Battle Shout'),
 (3274, 0, 1, 2, 6, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Kolkar Pack Runner - On Just Died - Say Line 0'),
@@ -107,10 +107,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3397, 0, 2, 3, 6, 0, 3, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Kolkar Bloodcharger - On Just Died - Say Line 0'),
 (3397, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 3395, 4, 300000, 0, 0, 0, 8, 0, 0, 0, 0, -1210.59, -2725.84, 106.783, 4.95674, 'Kolkar Bloodcharger - On Just Died - Summon Creature \'Verog the Dervish\''),
 --
-(3276, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 18000, 25000, 0, 0, 11, 7098, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Witchwing Harpy - In Combat - Cast Curse of Mending'),
+(3276, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 18000, 25000, 0, 0, 11, 7098, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Witchwing Harpy - In Combat - Cast Curse of Mending'),
 (3276, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Witchwing Harpy - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3277, 0, 0, 0, 4, 0, 75, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                       'Witchwing Roguefeather - On Aggro - Say Line 0'),
-(3277, 0, 1, 0, 0, 0, 100, 0, 4000, 8000, 12000, 16000, 0, 0, 11, 7992, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Witchwing Roguefeather - In Combat - Cast Slowing Poison'),
+(3277, 0, 1, 0, 0, 0, 100, 0, 4000, 8000, 12000, 16000, 0, 0, 11, 7992, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Witchwing Roguefeather - In Combat - Cast Slowing Poison'),
 (3277, 0, 2, 0, 67, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 6595, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Witchwing Roguefeather - Behind Target - Cast Exploit Weakness'),
 (3278, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Witchwing Slayer - On Aggro - Say Line 0'),
 (3278, 0, 1, 0, 9, 0, 100, 0, 0, 0, 5000, 10000, 0, 8, 11, 13730, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Witchwing Slayer - Within 0-8 Range - Cast Demoralizing Shout'),
@@ -120,7 +120,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3279, 0, 1, 0, 67, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 6595, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Witchwing Ambusher - Behind Target - Cast Exploit Weakness'),
 (3279, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Witchwing Ambusher - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3280, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Witchwing Windcaller - On Aggro - Say Line 0'),
-(3280, 0, 1, 0, 0, 0, 100, 0, 4000, 7000, 12000, 15000, 0, 0, 11, 6728, 96, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Witchwing Windcaller - Within 0-30 Range - Cast Enveloping Winds'),
+(3280, 0, 1, 0, 0, 0, 100, 0, 4000, 7000, 12000, 15000, 0, 0, 11, 6728, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0,    'Witchwing Windcaller - Within 0-30 Range - Cast Enveloping Winds'),
 (3280, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Witchwing Windcaller - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3281, 0, 0, 0, 0, 0, 100, 0, 7000, 14000, 10000, 16000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Southsea Brigand - Within 0-5 Range  - Cast Backhand'),
@@ -136,7 +136,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3284, 0, 0, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Venture Co. Drudger - Between 0-20% Health - Flee For Assist (No Repeat)'),
 (3285, 0, 0, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Venture Co. Peon - Between 0-20% Health - Flee For Assist (No Repeat)'),
 (3286, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 12000, 0, 5, 11, 9080, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Venture Co. Overseer - In Combat - Cast Hamstring'),
-(3295, 0, 0, 0, 9, 0, 100, 9, 0, 0, 9000, 16000, 0, 5, 11, 7279, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Sludge Beast - Within 0-5 Range - Cast Black Sludge'),
+(3295, 0, 0, 0, 9, 0, 100, 9, 0, 0, 9000, 16000, 0, 5, 11, 7279, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Sludge Beast - Within 0-5 Range - Cast Black Sludge'),
 --
 (3374, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Bael\'dun Excavator - On Aggro - Cast Defensive Stance'),
 (3374, 0, 1, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 7386, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Bael\'dun Excavator - Within 0-5 Range - Cast Sunder Armor'),
@@ -155,7 +155,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (3379, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 4133, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Burning Blade Bruiser - On Aggro - Cast Bruise'),
 (3380, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 696, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Burning Blade Acolyte - On Aggro - Cast Demon Skin'),
-(3380, 0, 1, 0, 0, 0, 70, 0, 5000, 5000, 20000, 20000, 0, 0, 11, 707, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Burning Blade Acolyte - In Combat - Cast Immolate'),
+(3380, 0, 1, 0, 0, 0, 70, 0, 5000, 5000, 20000, 20000, 0, 0, 11, 707, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Burning Blade Acolyte - In Combat - Cast Immolate'),
 (3380, 0, 2, 0, 0, 0, 70, 1, 0, 0, 15000, 15000, 0, 0, 11, 980, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Burning Blade Acolyte - In Combat - Cast Curse of Agony'),
 (3380, 0, 3, 0, 2, 0, 80, 0, 0, 50, 13000, 13000, 0, 0, 11, 689, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Burning Blade Acolyte - Between 0-50% Health - Cast Drain Life'),
 (3381, 0, 0, 0, 0, 0, 100, 0, 7000, 14000, 10000, 16000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Southsea Brigand - Within 0-5 Range  - Cast Backhand'),
@@ -176,8 +176,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3385, 0, 2, 0, 0, 0, 100, 0, 12000, 18000, 20000, 33000, 0, 0, 11, 6713, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Theramore Marine - Within 0-5 Range - Cast Disarm'),
 (3385, 0, 3, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Theramore Marine - Between 0-20% Health - Flee For Assist (No Repeat)'),
 (3386, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Theramore Preserver - In Combat - Cast Holy Smite'),
-(3386, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 18000, 80, 40, 11, 2052, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Theramore Preserver - Friendly Between 0-80% Health - Cast Lesser Heal'),
-(3386, 0, 2, 0, 74, 0, 100, 0, 0, 0, 15000, 21000, 20, 40, 11, 6074, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Theramore Preserver - Friendly Between 0-20% Health - Cast Renew'),
+(3386, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 18000, 80, 40, 11, 2052, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Theramore Preserver - Friendly Between 0-80% Health - Cast Lesser Heal'),
+(3386, 0, 2, 0, 74, 0, 100, 0, 0, 0, 15000, 21000, 20, 40, 11, 6074, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Theramore Preserver - Friendly Between 0-20% Health - Cast Renew'),
 (3386, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Theramore Preserver - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3392, 0, 0, 0, 0, 0, 100, 0, 7000, 14000, 10000, 16000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Prospector Khazgorm - Within 0-5 Range - Cast Backhand'),
@@ -198,7 +198,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3426, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17498, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Zhevra Charger - On Respawn - Cast Speed'),
 --
 (3434, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Nak - In Combat - Cast Lightning Bolt'),
-(3434, 0, 1, 0, 2, 0, 100, 0, 0, 50, 17000, 23000, 0, 0, 11, 8004, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Nak - Between 0-50% Health - Cast Lesser Healing Wave'),
+(3434, 0, 1, 0, 2, 0, 100, 0, 0, 50, 17000, 23000, 0, 0, 11, 8004, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Nak - Between 0-50% Health - Cast Lesser Healing Wave'),
 (3434, 0, 2, 0, 0, 0, 100, 1, 6000, 12000, 0, 0, 0, 0, 11, 8154, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Nak - In Combat - Cast Stoneskin Totem (No Repeat)'),
 (3434, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Nak - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3435, 0, 0, 0, 0, 0, 100, 0, 7000, 7000, 15000, 15000, 0, 0, 11, 9080, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Lok Orcbane - Within 0-5 Range - Cast Hamstring'),
@@ -207,7 +207,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3436, 0, 1, 0, 0, 0, 100, 0, 5000, 9000, 9000, 12000, 0, 0, 11, 20795, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Kuz - In Combat - Cast Fire Blast'),
 (3436, 0, 2, 0, 106, 0, 100, 0, 0, 0, 12000, 16000, 0, 8, 11, 11831, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Kuz - Within 0-8 Range - Cast Frost Nova'),
 (3438, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Kreenig Snarlsnout - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(3452, 0, 0, 0, 0, 0, 100, 0, 3000, 7000, 19000, 19000, 0, 0, 11, 3264, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Serena Bloodfeather - In Combat - Cast Blood Howl'),
+(3452, 0, 0, 0, 0, 0, 100, 0, 3000, 7000, 19000, 19000, 0, 0, 11, 3264, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Serena Bloodfeather - In Combat - Cast Blood Howl'),
 (3452, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Serena Bloodfeather - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3454, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Cannoneer Smythe - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3455, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Cannoneer Whessan - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -226,28 +226,28 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3458, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Razormane Seer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3459, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Razormane Warfrenzy - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(3461, 0, 0, 0, 0, 0, 100, 0, 9000, 18000, 17000, 24000, 0, 0, 11, 6530, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Oasis Snapjaw - In Combat - Cast Sling Dirt'),
+(3461, 0, 0, 0, 0, 0, 100, 0, 9000, 18000, 17000, 24000, 0, 0, 11, 6530, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Oasis Snapjaw - In Combat - Cast Sling Dirt'),
 (3463, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17498, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Wandering Barrens Giraffe - On Respawn - Cast Speed'),
 (3466, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17498, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Zhevra Courser - On Respawn - Cast Speed'),
 (3471, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Tinkerer Sniggles - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(3473, 0, 0, 0, 0, 0, 100, 0, 7000, 15000, 10000, 18000, 0, 0, 11, 6254, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Owatanka - In Combat - Cast Chained Bolt'),
+(3473, 0, 0, 0, 0, 0, 100, 0, 7000, 15000, 10000, 18000, 0, 0, 11, 6254, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Owatanka - In Combat - Cast Chained Bolt'),
 (5828, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 14000, 0, 5, 11, 3247, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Humar the Pridelord - Within 0-5 Range - Cast Agonizing Pain'),
 (5828, 0, 1, 2, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 39, 75, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Humar the Pridelord - Between 0-25% Health - Call For Help'), -- https://www.youtube.com/watch?v=ofv1U_gRhEY
 (5828, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Humar the Pridelord - On Call For Help - Say Line 0'),
-(5829, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 7000, 11000, 0, 0, 11, 7951, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Snort the Heckler - In Combat - Cast Toxic Spit'),
+(5829, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 7000, 11000, 0, 0, 11, 7951, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Snort the Heckler - In Combat - Cast Toxic Spit'),
 (5829, 0, 1, 0, 9, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 3604, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Snort the Heckler - Within 0-5 Range - Cast Tendon Rip'),
-(5830, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 14000, 21000, 0, 0, 11, 6728, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Sister Rathtalon - Within 0-30 Range - Cast Enveloping Winds'),
-(5830, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 15000, 0, 5, 11, 6982, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Sister Rathtalon - Within 0-5 Range - Cast Gust of Wind'),
-(5830, 0, 2, 0, 0, 0, 100, 0, 11000, 16000, 25000, 35000, 0, 0, 11, 6535, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Sister Rathtalon - In Combat - Cast Lightning Cloud'),
+(5830, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 14000, 21000, 0, 0, 11, 6728, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Sister Rathtalon - Within 0-30 Range - Cast Enveloping Winds'),
+(5830, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 15000, 0, 5, 11, 6982, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Sister Rathtalon - Within 0-5 Range - Cast Gust of Wind'),
+(5830, 0, 2, 0, 0, 0, 100, 0, 11000, 16000, 25000, 35000, 0, 0, 11, 6535, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Sister Rathtalon - In Combat - Cast Lightning Cloud'),
 (5830, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Sister Rathtalon - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5831, 0, 0, 0, 0, 0, 100, 0, 3000, 7000, 7000, 15000, 0, 0, 11, 6016, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Swiftmane - Within 0-5 Range - Cast Pierce Armor'),
 (5831, 0, 1, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 53, 1, 5831, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Swiftmane - On Reset - Start Patrol Path 5831'),
 (5831, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Swiftmane - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5834, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 13375, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Azzere the Skyblade - In Combat - Cast Fireball'),
-(5834, 0, 1, 0, 0, 0, 80, 0, 4000, 9000, 22000, 29000, 0, 0, 11, 6725, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Azzere the Skyblade - In Combat - Cast Flame Spike'),
+(5834, 0, 1, 0, 0, 0, 80, 0, 4000, 9000, 22000, 29000, 0, 0, 11, 6725, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Azzere the Skyblade - In Combat - Cast Flame Spike'),
 (5835, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 5, 11, 9080, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Foreman Grills - Within 0-5 Range - Cast Hamstring'),
 (5836, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7979, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Engineer Whirleygig - On Aggro - Cast Compact Harvest Reaper'),
-(5836, 0, 1, 0, 0, 0, 100, 0, 5000, 16000, 25000, 31000, 0, 0, 11, 8209, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Engineer Whirleygig - In Combat - Cast Explosive Sheep'),
+(5836, 0, 1, 0, 0, 0, 100, 0, 5000, 16000, 25000, 31000, 0, 0, 11, 8209, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Engineer Whirleygig - In Combat - Cast Explosive Sheep'),
 (5838, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Brokespear - Outside 30 Range - Start Combat Movement'),
 (5838, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Brokespear - Within 5-30 Range - Stop Combat Movement'),
 (5838, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Brokespear - Within 0-5 Range - Start Combat Movement'),
@@ -280,19 +280,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5859, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7165, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Hagg Taurenbane - On Respawn - Cast Battle Stance'),
 (5859, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 15000, 0, 5, 11, 9080, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Hagg Taurenbane - Within 0-5 Range - Cast Hamstring'),
 (5863, 0, 0, 0, 2, 0, 70, 0, 0, 60, 12500, 12500, 0, 0, 11, 600, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Geopriest Gukk\'rok - Between 0-60% Health - Cast Power Word: Shield'),
-(5863, 0, 1, 0, 2, 0, 70, 0, 0, 45, 7500, 7500, 0, 0, 11, 6075, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Geopriest Gukk\'rok - Between 0-45% Health - Cast Renew'),
-(5863, 0, 2, 0, 2, 0, 70, 0, 0, 20, 27500, 27500, 0, 0, 11, 2054, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Geopriest Gukk\'rok - Between 0-20% Health - Cast Heal'),
+(5863, 0, 1, 0, 2, 0, 70, 0, 0, 45, 7500, 7500, 0, 0, 11, 6075, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Geopriest Gukk\'rok - Between 0-45% Health - Cast Renew'),
+(5863, 0, 2, 0, 2, 0, 70, 0, 0, 20, 27500, 27500, 0, 0, 11, 2054, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Geopriest Gukk\'rok - Between 0-20% Health - Cast Heal'),
 (5863, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Geopriest Gukk\'rok - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5865, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8210, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Dishu - On Aggro - Cast Savannah Cubs'),
 (6494, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 10000, 0, 5, 11, 6253, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Tazan - Within 0-5 Range - Cast Backhand'),
 (6494, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Tazan - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (7872, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Deaths Head Cultist - In Combat - Cast Shadow Bolt'),
-(7872, 0, 1, 0, 0, 0, 100, 0, 9000, 13000, 8000, 13000, 0, 0, 11, 11433, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Deaths Head Cultist - In Combat - Cast Death & Decay'),
+(7872, 0, 1, 0, 0, 0, 100, 0, 9000, 13000, 8000, 13000, 0, 0, 11, 11433, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Deaths Head Cultist - In Combat - Cast Death & Decay'),
 (7872, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Deaths Head Cultist - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (7873, 0, 0, 0, 0, 0, 100, 0, 7000, 12000, 9000, 15000, 0, 0, 11, 11430, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Razorfen Battleguard - Within 0-5 Range - Cast Slam'),
 (7873, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Razorfen Battleguard - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (7874, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7966, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Razorfen Thornweaver - On Aggro - Cast Thorns Aura'),
-(7874, 0, 1, 0, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 11431, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Razorfen Thornweaver - Between 0-25% Health - Cast Healing Touch (No Repeat)'),
+(7874, 0, 1, 0, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 11431, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Razorfen Thornweaver - Between 0-25% Health - Cast Healing Touch (No Repeat)'),
 (7874, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Razorfen Thornweaver - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9336, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Boss Copperplug - Outside 30 Range - Start Combat Movement'),
 (9336, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Boss Copperplug - Within 5-30 Range - Stop Combat Movement'),
@@ -301,7 +301,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9336, 0, 4, 0, 0, 0, 100, 0, 5000, 10000, 15000, 35000, 0, 0, 11, 6533, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Boss Copperplug - In Combat - Cast Net'),
 (9336, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Boss Copperplug - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (12865, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Ambassador Malcin - Combat - Cast Shadow Bolt'),
-(12865, 0, 1, 0, 0, 0, 100, 0, 5000, 9000, 15000, 25000, 0, 0, 11, 8282, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Ambassador Malcin - Combat - Cast Curse of Blood'),
+(12865, 0, 1, 0, 0, 0, 100, 0, 5000, 9000, 15000, 25000, 0, 0, 11, 8282, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Ambassador Malcin - Combat - Cast Curse of Blood'),
 (14908, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 53, 0, 14908, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Mogg - On Reset - Start Waypoint'),
 (14908, 0, 1, 0, 40, 0, 100, 0, 5, 14908, 0, 0, 0, 0, 80, 1490800, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Mogg - On Waypoint 5 Reached - Run Script'),
 (14908, 0, 2, 0, 40, 0, 100, 0, 6, 14908, 0, 0, 0, 0, 80, 1490801, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Mogg - On Waypoint 6 Reached - Run Script'),
@@ -342,19 +342,18 @@ UPDATE `creature_template` SET `subname` = 'Master Goblin Engineer'   WHERE `ent
 UPDATE `creature_template` SET `gossip_menu_id` = 0, `npcflag` = 2 WHERE `entry` = 3443; -- Grub
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 4244    WHERE `CreatureID` = 3465;-- Gilthares Firebough
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (3478, 3484, 3494, 3703, 3704, 5784, 6387, 8306, 8738);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(3478, -310000), -- Traugh <Expert Blacksmith>
-(3478, -310001), -- Traugh <Expert Blacksmith>
-(3484, -410000), -- Kil'hala <Journeyman Tailor>
-(3494, -340000), -- Tinkerwiz <Journeyman Engineer>
-(3703, -380000), -- Krulmoo Fullmoon <Expert Leatherworker>
-(3703, -380001), -- Krulmoo Fullmoon <Expert Leatherworker>
-(3704, -410000), -- Mahani <Expert Tailor>
-(3704, -410001), -- Mahani <Expert Tailor>
-(5784, -380000), -- Waldor <Journeyman Leatherworker>
-(6387, -400000), -- Dranh <Skinner>
-(8306, -320000); -- Duhng <Cook>
+SET @TRAINER_ID   := 600;
+
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3478, 3484, 3494, 3703, 3704, 5784, 6387, 8306, 8738);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(3478, @TRAINER_ID+17), -- Traugh <Expert Blacksmith>
+(3484, @TRAINER_ID+36), -- Kil'hala <Journeyman Tailor>
+(3494, @TRAINER_ID+26), -- Tinkerwiz <Journeyman Engineer>
+(3703, @TRAINER_ID+32), -- Krulmoo Fullmoon <Expert Leatherworker>
+(3704, @TRAINER_ID+37), -- Mahani <Expert Tailor>
+(5784, @TRAINER_ID+31), -- Waldor <Journeyman Leatherworker>
+(6387, @TRAINER_ID+43), -- Dranh <Skinner>
+(8306, @TRAINER_ID+44); -- Duhng <Cook>
 
 /* NPC Grub - not a Vendor in Vanilla */
 DELETE FROM `npc_vendor` WHERE `entry` = 3443;

@@ -12,7 +12,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(4323, 0, 0, 0, 0, 0, 100, 0, 2400, 2700, 9400, 9700, 0, 0, 11, 11985, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Searing Hatchling - In Combat - Cast Fireball'),
+(4323, 0, 0, 0, 0, 0, 100, 0, 2400, 2700, 9400, 9700, 0, 0, 11, 11985, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Searing Hatchling - In Combat - Cast Fireball'),
 (4328, 0, 1, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 18968, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Firemane Scalebane - In Combat - Cast Fire Shield'),
 (4328, 0, 2, 0, 105, 0, 100, 0, 0, 0, 12000, 17000, 0, 5, 11, 11972, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Firemane Scalebane - Within 0-5 Range - Cast Shield Bash'),
 (4328, 0, 3, 0, 9, 0, 100, 0, 3000, 3000, 5000, 9000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Firemane Scalebane - Within 0-5 Range - Cast Sunder Armor'),
@@ -22,9 +22,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4331, 0, 0, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 18968, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Firemane Ash Tail - In Combat - Cast Fire Shield'),
 (4331, 0, 1, 0, 106, 0, 100, 0, 4000, 6000, 12000, 16000, 0, 5, 11, 11969, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Firemane Ash Tail - Within 0-5 Range - Cast Fire Nova'),
 (4331, 0, 2, 0, 8, 0, 100, 512, 42411, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Firemane Ash Tail - On spell hit  - Despawn'), -- Brogg's Totem
-(4334, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 18968, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                  'Firemane Flamecaller - On Aggro - Cast Fireball'),
-(4334, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2400, 3400, 0, 0, 11, 9053, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Firemane Flamecaller - In Combat - Cast Fireball'),
-(4334, 0, 2, 0, 0, 0, 100, 0, 9000, 16000, 30000, 45000, 0, 0, 11, 11990, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Firemane Flamecaller - In Combat - Cast Rain of Fire'),
+(4334, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2400, 3400, 0, 0, 11, 9053, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Firemane Flamecaller - In Combat - Cast Fireball'),
+(4334, 0, 1, 0, 0, 0, 100, 0, 9000, 16000, 30000, 45000, 0, 0, 11, 11990, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Firemane Flamecaller - In Combat - Cast Rain of Fire'),
 --
 (4344, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 42455, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                   'Mottled Drywallow Crocolisk - On Death - Cast Captured Totem Test Credit'),
 (4345, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 42455, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                   'Drywallow Daggermaw - On Death - Cast Captured Totem Test Credit'),
@@ -45,13 +44,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4360, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9463, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Mirefin Warrior - On Respawn - Cast Mirefin Fungus Proc'),
 (4360, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Mirefin Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4361, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9463, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Mirefin Muckdweller - On Respawn - Cast Mirefin Fungus Proc'),
-(4361, 0, 1, 0, 0, 0, 100, 0, 4000, 9000, 30000, 35000, 0, 0, 11, 6278, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Mirefin Muckdweller - In Combat - Cast Creeping Mold'),
+(4361, 0, 1, 0, 0, 0, 100, 0, 4000, 9000, 30000, 35000, 0, 0, 11, 6278, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Mirefin Muckdweller - In Combat - Cast Creeping Mold'),
 (4361, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Mirefin Muckdweller - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4362, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9463, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Mirefin Coastrunner - On Respawn - Cast Mirefin Fungus Proc'),
 (4362, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Mirefin Coastrunner - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4363, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 9463, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Mirefin Oracle - On Respawn - Cast Mirefin Fungus Proc'),
 (4363, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Mirefin Oracle - In Combat - Cast Lightning Bolt'),
-(4363, 0, 2, 0, 74, 0, 100, 0, 0, 0, 14000, 19000, 50, 40, 11, 959, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Mirefin Oracle - Friendly Between 0-50% Health - Cast Healing Wave'),
+(4363, 0, 2, 0, 74, 0, 100, 0, 0, 0, 14000, 19000, 50, 40, 11, 959, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Mirefin Oracle - Friendly Between 0-50% Health - Cast Healing Wave'),
 (4363, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Mirefin Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (4364, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 15000, 0, 5, 11, 9080, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Strashaz Warrior - Within 0-5 Range - Cast Hamstring'),
@@ -70,7 +69,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4371, 0, 0, 0, 0, 0, 100, 0, 15000, 18000, 21000, 26000, 0, 0, 11, 15654, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Strashaz Siren - In Combat - Cast Shadow Word: Pain'),
 (4371, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 15587, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Strashaz Siren - In Combat - Cast Mind Blast'),
 (4371, 0, 2, 0, 0, 0, 100, 0, 8, 12, 16, 22, 0, 0, 11, 7645, 97, 0, 0, 0, 0, 6, 20, 0, 0, 0, 0, 0, 0, 0,               'Strashaz Siren - In Combat - Cast Dominate Mind'),
-(4371, 0, 3, 0, 0, 0, 50, 0, 3000, 6000, 30000, 30000, 0, 0, 11, 15785, 321, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Strashaz Siren - In Combat - Cast Mana Burn'),
+(4371, 0, 3, 0, 0, 0, 50, 0, 3000, 6000, 30000, 30000, 0, 0, 11, 15785, 256, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Strashaz Siren - In Combat - Cast Mana Burn'),
 (4371, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Strashaz Siren - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4374, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 21000, 0, 5, 11, 16128, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Strashaz Hydra - In Combat - Cast Infected Bite'),
 (4374, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Strashaz Hydra - In Combat - Cast Thrash'),
@@ -95,8 +94,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4401, 0, 0, 0, 9, 0, 100, 0, 0, 0, 20000, 25000, 0, 5, 11, 3604, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Muckshell Clacker - Within 0-5 Range - Cast Tendon Rip'),
 (4401, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Muckshell Clacker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4404, 0, 0, 0, 0, 0, 60, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Muckshell Scrabbler - In Combat - Cast Lightning Bolt'),
-(4404, 0, 1, 0, 74, 0, 100, 0, 0, 0, 16000, 21000, 50, 40, 11, 8005, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Muckshell Scrabbler - Friendly Between 0-50% Health - Cast Healing Wave'),
-(4412, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 13000, 0, 30, 11, 7992, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Darkfang Creeper - In Combat - Cast Slowing Poison'),
+(4404, 0, 1, 0, 74, 0, 100, 0, 0, 0, 16000, 21000, 50, 40, 11, 8005, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Muckshell Scrabbler - Friendly Between 0-50% Health - Cast Healing Wave'),
+(4412, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 13000, 0, 30, 11, 7992, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Darkfang Creeper - In Combat - Cast Slowing Poison'),
 (4414, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 7951, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Darkfang Venomspitter - In Combat - Cast Toxic Spit'),
 (4834, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Theramore Infiltrator - On Reset - Cast Sneak'),
 --
@@ -118,7 +117,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (23594, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 11876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Grimtotem Destroyer - Within 0-5 Range - Cast War Stomp'),
 (23595, 0, 0, 0, 0, 0, 100, 0, 3000, 3000, 60000, 70000, 0, 0, 11, 15786, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Grimtotem Earthbinder - In Combat - Cast Earthbind Totem'),
 (23714, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 4000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Grimtotem Elder - In Combat - Cast Lightning Bolt'),
-(23714, 0, 1, 0, 74, 0, 100, 0, 0, 0, 16000, 21000, 50, 40, 11, 11986, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Grimtotem Elder - Friendly Between 0-50% Health - Cast Healing Wave'),
+(23714, 0, 1, 0, 74, 0, 100, 0, 0, 0, 16000, 21000, 50, 40, 11, 11986, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Grimtotem Elder - Friendly Between 0-50% Health - Cast Healing Wave'),
 --
 (23786, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 2378600, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Stonemaul Spirit - On Spawn - Run Script'), -- say line 0, start attack
 (23786, 0, 1, 0, 0, 0, 15, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Stonemaul Spirit - In Combat - Say Line 1 (No Repeat)'),

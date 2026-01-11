@@ -12,16 +12,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(11722, 0, 0, 0, 0, 0, 100, 0, 3000, 4500, 12000, 15000, 0, 0, 11, 11443, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Hive\'Ashi Defender - In Combat - Cast Cripple'),
+(11722, 0, 0, 0, 0, 0, 100, 0, 3000, 4500, 12000, 15000, 0, 0, 11, 11443, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Hive\'Ashi Defender - In Combat - Cast Cripple'),
 (11722, 0, 1, 0, 0, 0, 100, 0, 2000, 12000, 36000, 46000, 0, 0, 11, 6713, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Hive\'Ashi Defender - In Combat - Cast Disarm'),
 (11723, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hive\'Ashi Sandstalker - On Reset - Cast Sneak'),
 (11727, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 11000, 0, 5, 11, 19448, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Hive\'Zora Wasp - Within 0-5 Range - Cast Poison'),
 (11728, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 20000, 22000, 0, 0, 11, 16790, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Hive\'Zora Reaver - Within 0-5 Range - Cast Knockdown'), -- https://www.youtube.com/watch?v=kCZtsdQG2-w
 (11728, 0, 1, 0, 9, 0, 100, 0, 0, 0, 16000, 19000, 0, 5, 11, 40504, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Hive\'Zora Reaver - Within 0-5 Range - Cast Cleave'),
-(11729, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 12000, 16000, 0, 0, 11, 19452, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Hive\'Zora Hive Sister - In Combat - Cast Toxic Spit'),
+(11729, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 12000, 16000, 0, 0, 11, 19452, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Hive\'Zora Hive Sister - In Combat - Cast Toxic Spit'),
 (11730, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Hive\'Regal Ambusher - On Reset - Cast Sneak'),
 (11730, 0, 1, 0, 9, 0, 100, 0, 0, 0, 15000, 24000, 0, 5, 11, 13298, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Hive\'Regal Ambusher - Within 0-5 Range - Cast Poison'),
-(11732, 0, 0, 0, 0, 0, 100, 0, 8000, 17000, 21000, 28000, 0, 0, 11, 21047, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Hive\'Regal Spitfire - In Combat - Cast Corrosive Acid Spit'),
+(11732, 0, 0, 0, 0, 0, 100, 0, 8000, 17000, 21000, 28000, 0, 0, 11, 21047, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Hive\'Regal Spitfire - In Combat - Cast Corrosive Acid Spit'),
 (11732, 0, 1, 0, 9, 0, 100, 0, 0, 0, 13000, 15000, 0, 5, 11, 5708, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Hive\'Regal Spitfire - Within 0-5 Range - Cast Swoop'),
 (11733, 0, 0, 0, 0, 0, 100, 0, 6000, 12000, 9000, 20000, 0, 0, 11, 3584, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Hive\'Regal Slavemaker - In Combat - Cast Volatile Infection'),
 (11733, 0, 1, 0, 0, 0, 100, 0, 10000, 20000, 30000, 45000, 0, 0, 11, 19469, 0, 0, 0, 0, 0, 6, 5, 0, 0, 0, 0, 0, 0, 0,   'Hive\'Regal Slavemaker - Within 0-5 Range - Cast Poison Mind'),
@@ -70,7 +70,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11883, 0, 3, 0, 0, 0, 100, 0, 17000, 18000, 20000, 22000, 0, 0, 11, 13339, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0, 'Twilight Master - Within 0-20 Range - Cast Fire Blast'),
 (11883, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Master - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(12178, 0, 0, 0, 2, 0, 100, 0, 0, 50, 2000, 8000, 0, 0, 11, 23381, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Tortured Druid - Between 0-50% Health - Cast Healing Touch'), -- https://www.youtube.com/watch?v=U2NTYNHjvM0
+(12178, 0, 0, 0, 2, 0, 100, 0, 0, 50, 2000, 8000, 0, 0, 11, 23381, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Tortured Druid - Between 0-50% Health - Cast Healing Touch'), -- https://www.youtube.com/watch?v=U2NTYNHjvM0
 (12178, 0, 1, 0, 0, 0, 100, 0, 4000, 10000, 4000, 10000, 0, 0, 11, 23380, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Tortured Druid - In Combat - Cast Moonfire'),
 (12178, 0, 2, 3, 6, 0, 75, 512, 0, 0, 0, 0, 0, 0, 11, 21327, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Tortured Druid - On Just Died - Cast Summon Hive\'Ashi Drones'),
 (12178, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Tortured Druid - On Just Died - Say Line 0'),
@@ -82,7 +82,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14471, 0, 2, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Setis - On Reset - Set Active On'),
 (14472, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21788, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Gretheer - On Respawn - Cast Deadly Poison Proc'),
 (14472, 0, 1, 0, 0, 0, 100, 0, 0, 9000, 9000, 14000, 0, 0, 11, 745, 0, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,         'Gretheer - Within 0-30 Range - Cast Web'),
-(14474, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 30, 11, 21971, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Zora - Within 0-30 Range - Cast Poison Bolt'),
+(14474, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 30, 11, 21971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Zora - Within 0-30 Range - Cast Poison Bolt'),
 (14475, 0, 0, 0, 0, 0, 100, 0, 5000, 7000, 12000, 14000, 0, 0, 11, 6016, 0, 7, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Rex Ashil - Within 0-5 Range - Cast Pierce Armor'),
 (14477, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 9000, 13000, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Grubthor - In Combat - Cast Trample'),
 (14478, 0, 0, 0, 0, 0, 100, 0, 4000, 10000, 5000, 15000, 0, 0, 11, 15659, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Huricanian - In Combat - Cast Chain Lightning'),
@@ -105,7 +105,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15213, 0, 3, 0, 0, 0, 100, 0, 17000, 18000, 20000, 22000, 0, 0, 11, 13339, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0, 'Twilight Overlord - Within 0-20 Range - Cast Fire Blast'),
 (15213, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Twilight Overlord - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (15213, 0, 5, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 11880, 0, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Twilight Overlord - On Death - Cross Cast Vengeance'),
-(15308, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 10000, 15000, 0, 0, 11, 15305, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Twilight Prophet - In Combat - Cast Chain Lightning'),
+(15308, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 10000, 15000, 0, 0, 11, 15305, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Twilight Prophet - In Combat - Cast Chain Lightning'),
 (15308, 0, 1, 0, 9, 0, 100, 0, 0, 0, 15000, 20000, 0, 5, 11, 22884, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Twilight Prophet - Within 0-5 Range - Cast Psychic Scream'),
 (15308, 0, 2, 0, 106, 0, 100, 0, 0, 0, 16000, 22000, 0, 8, 11, 17366, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Twilight Prophet - Within 0-8 Range - Cast Fire Nova'),
 (15308, 0, 3, 0, 106, 0, 100, 0, 0, 0, 20000, 25000, 0, 8, 11, 15531, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Twilight Prophet - Within 0-8 Range - Cast Frost Nova'),

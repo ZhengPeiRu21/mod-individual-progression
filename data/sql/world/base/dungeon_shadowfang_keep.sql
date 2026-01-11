@@ -33,7 +33,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3927, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 60, 0, 0, 0, 0, 0, 0, 0,                    'Wolf Master Nandos - On Counter Set - Attack Start'),
 --
 (4278, 0, 0, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Commander Springvale - In Combat - Say Line 0 (No Repeat)'),
-(4278, 0, 2, 0, 2, 0, 100, 0, 0, 80, 0, 0, 7500, 15300, 11, 1026, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Commander Springvale - Between Health 0-80% - Cast Holy Light'),
-(4278, 0, 3, 0, 14, 0, 100, 0, 800, 40, 12500, 22300, 0, 0, 11, 1026, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Commander Springvale - On Friendly HP Deficit - Cast Holy Light'),
+(4278, 0, 2, 0, 2, 0, 100, 0, 0, 80, 0, 0, 7500, 15300, 11, 1026, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Commander Springvale - Between Health 0-80% - Cast Holy Light'),
+(4278, 0, 3, 0, 14, 0, 100, 0, 800, 40, 12500, 22300, 0, 0, 11, 1026, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Commander Springvale - On Friendly HP Deficit - Cast Holy Light'),
 (4278, 0, 4, 0, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 498, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Commander Springvale - Between Health 0-25% - Cast Divine Protection'),
 (4278, 0, 5, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Commander Springvale - On Just Died - Say Line 1');

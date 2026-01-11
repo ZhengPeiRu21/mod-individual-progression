@@ -26,24 +26,16 @@ DELETE FROM `mail_level_reward` WHERE `level` <= 60;
 UPDATE `mail_level_reward` SET `level` = 71 WHERE `mailTemplateId` IN (285, 284);
 
 -- Riding Skills
-UPDATE npc_trainer SET ReqLevel = 40        WHERE SpellID = 33388; -- Apprentice Riding
-UPDATE npc_trainer SET MoneyCost = 800000   WHERE SpellID = 33388;
-UPDATE npc_trainer SET ReqLevel = 60        WHERE SpellID = 33391; -- Journeyman Riding
-UPDATE npc_trainer SET MoneyCost = 10000000 WHERE SpellID = 33391;
-UPDATE npc_trainer SET ReqLevel = 70        WHERE SpellID = 34090; -- Expert Riding
-UPDATE npc_trainer SET MoneyCost = 6000000  WHERE SpellID = 34090;
+UPDATE `trainer_spell` SET `ReqLevel`  = 40, `MoneyCost` = 800000   WHERE `SpellID` = 33388; -- Apprentice Riding
+UPDATE `trainer_spell` SET `ReqLevel`  = 60, `MoneyCost` = 10000000 WHERE `SpellID` = 33391; -- Journeyman Riding
+UPDATE `trainer_spell` SET `ReqLevel`  = 70, `MoneyCost` = 8000000  WHERE `SpellID` = 34090; -- Expert Riding
 
-DELETE FROM `npc_trainer` WHERE `SpellID` = 13819; -- Summon Warhorse (alliance)
-DELETE FROM `npc_trainer` WHERE `SpellID` = 13820; -- Summon Warhorse (alliance)
-DELETE FROM `npc_trainer` WHERE `SpellID` = 23214; -- Summon Charger (alliance)
-DELETE FROM `npc_trainer` WHERE `SpellID` = 34767; -- Summon Charger (horde)
-DELETE FROM `npc_trainer` WHERE `SpellID` = 23161; -- Dreadsteed
-DELETE FROM `npc_trainer` WHERE `SpellID` = 1710;  -- Summon Felsteed
+-- remove mounts from trainers, they are quest rewards
+DELETE FROM `trainer_spell` WHERE `SpellID` IN (1710, 13819, 13820, 23161, 23214, 34767);
 
-UPDATE npc_trainer SET ReqLevel = 40 WHERE SpellID = 34768; -- Summon Warhorse
-UPDATE npc_trainer SET ReqLevel = 40 WHERE SpellID = 1710;  -- Summon Felsteed
-UPDATE npc_trainer SET ReqLevel = 68 WHERE SpellID = 33950; -- Flight Form
-
+UPDATE `trainer_spell` SET `ReqLevel` = 40 WHERE `SpellID` = 34768; -- Summon Warhorse
+UPDATE `trainer_spell` SET `ReqLevel` = 40 WHERE `SpellID` = 1710;  -- Summon Felsteed
+UPDATE `trainer_spell` SET `ReqLevel` = 68 WHERE `SpellID` = 33950; -- Flight Form
 
 -- Hide pre 1.6 epic mounts ater BWL is unlocked - Hide WotLK mounts on vanilla vendors
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (384, 1261, 3362, 3685, 4730, 4731, 7952, 7955);
@@ -192,6 +184,28 @@ UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel`
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift Brown Wolf'                 WHERE `entry` = 18796;
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift Timber Wolf'                WHERE `entry` = 18797;
 UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 1000000,  `RequiredLevel` = 60, `Name` = 'Swift Gray Wolf'                  WHERE `entry` = 18798;
+
+-- Alliance 150% speed flying mounts
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Golden Gryphon'                   WHERE `entry` = 25470;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Ebon Gryphon'                     WHERE `entry` = 25471;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Snowy Gryphon'                    WHERE `entry` = 25472;
+
+-- Horde 150% speed flying mounts
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Tawny Windrider'                  WHERE `entry` = 25474;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Blue Windrider'                   WHERE `entry` = 25475;
+UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 1000000,  `RequiredLevel` = 70, `Name` = 'Green Windrider'                  WHERE `entry` = 25476;
+
+-- Alliance 280% speed flying mounts
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Blue Gryphon'               WHERE `entry` = 25473;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Red Gryphon'                WHERE `entry` = 25527;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Green Gryphon'              WHERE `entry` = 25528;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Purple Gryphon'             WHERE `entry` = 25529;
+
+-- Horde 280% speed flying mounts
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Red Windrider'              WHERE `entry` = 25477;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Green Windrider'            WHERE `entry` = 25531;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Yellow Windrider'           WHERE `entry` = 25532;
+UPDATE `item_template` SET `Quality` = 4, `BuyPrice` = 2000000,  `RequiredLevel` = 70, `Name` = 'Swift Purple Windrider'           WHERE `entry` = 25533;
 
 -- special mounts
 UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 10000000, `RequiredLevel` = 60, `Name` = 'Winterspring Frostsaber'          WHERE `entry` = 13086;

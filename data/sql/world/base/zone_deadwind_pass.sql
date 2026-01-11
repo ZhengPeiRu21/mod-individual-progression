@@ -16,7 +16,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7372, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Deadwind Warlock - On Aggro - Say Line 0'),
 (7372, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Deadwind Warlock - In Combat - Cast Shadow Bolt'),
 (7372, 0, 2, 0, 0, 0, 100, 0, 6000, 8000, 7000, 15000, 0, 0, 11, 11980, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Deadwind Warlock - In Combat - Cast Curse of Weakness'),
-(7372, 0, 3, 0, 0, 0, 100, 0, 9000, 11000, 11000, 18000, 0, 0, 11, 20787, 97, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Deadwind Warlock - In Combat - Cast Immolate'),
+(7372, 0, 3, 0, 0, 0, 100, 0, 9000, 11000, 11000, 18000, 0, 0, 11, 20787, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Deadwind Warlock - In Combat - Cast Immolate'),
 (7376, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 16000, 19000, 0, 0, 11, 13443, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Sky Shadow - In Combat - Cast Rend'),
 (7379, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Deadwind Ogre Mage - On Aggro - Say Line 0'),
 (7379, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 12550, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Deadwind Ogre Mage - Out of Combat - Cast Lightning Shield'),

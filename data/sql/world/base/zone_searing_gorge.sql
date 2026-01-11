@@ -10,12 +10,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(5833, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 8000, 14000, 0, 0, 11, 15549, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Margol the Rager - In Combat - Cast Chained Bolt'),
+(5833, 0, 0, 0, 0, 0, 100, 0, 5000, 8000, 8000, 14000, 0, 0, 11, 15549, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Margol the Rager - In Combat - Cast Chained Bolt'),
 (5833, 0, 1, 0, 9, 0, 100, 0, 0, 0, 16000, 20000, 0, 8, 11, 8147, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Margol the Rager - Within 0-8 Range - Cast Thunderclap (No Repeat)'),
 (5839, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 5000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Dark Iron Geologist - Outside 30 Range - Start Combat Movement'),
 (5839, 0, 1, 0, 9, 0, 100, 0, 0, 0, 5000, 5000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Dark Iron Geologist - Within 5-30 Range - Stop Combat Movement'),
 (5839, 0, 2, 0, 9, 0, 100, 0, 0, 0, 5000, 5000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Dark Iron Geologist - Within 0-5 Range - Start Combat Movement'),
-(5839, 0, 3, 0, 9, 0, 100, 0, 0, 0, 5000, 12000, 5, 30, 11, 8858, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Dark Iron Geologist - Within 5-30 Range - Cast Bomb'),
+(5839, 0, 3, 0, 9, 0, 100, 0, 0, 0, 5000, 12000, 5, 30, 11, 8858, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Dark Iron Geologist - Within 5-30 Range - Cast Bomb'),
 (5839, 0, 4, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Dark Iron Geologist - In Combat - Cast Fireball'),
 (5839, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Dark Iron Geologist - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5840, 0, 0, 0, 9, 0, 100, 0, 0, 0, 12000, 15000, 0, 5, 11, 11983, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Dark Iron Steamsmith - In Combat - Cast Steam Jet'),
@@ -25,17 +25,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5846, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 10000, 15000, 0, 0, 11, 5115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Dark Iron Taskmaster - In Combat - Cast Battle Command'),
 (5846, 0, 1, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 12613, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Dark Iron Taskmaster - On Just Died - Cast Dark Iron Taskmaster Death'),
 --
-(5852, 0, 0, 0, 9, 0, 100, 9, 0, 0, 7000, 11000, 0, 5, 11, 10733, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Inferno Elemental - Within 0-5 Range - Cast Flame Spray'),
+(5852, 0, 0, 0, 9, 0, 100, 9, 0, 0, 7000, 11000, 0, 5, 11, 10733, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Inferno Elemental - Within 0-5 Range - Cast Flame Spray'),
 (5854, 0, 0, 0, 0, 0, 100, 0, 2900, 3700, 9700, 11900, 0, 0, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Heavy War Golem - In Combat - Cast Trample'),
 (5854, 0, 1, 0, 9, 0, 100, 9, 0, 0, 8000, 13000, 0, 5, 11, 12612, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Heavy War Golem - Within 0-5 Range - Cast Stomp'),
 (5855, 0, 0, 0, 106, 0, 100, 0, 0, 0, 12000, 16000, 0, 8, 11, 11970, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Magma Elemental - Between 20-80% Health - Cast Fire Nova'),
 (5856, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 11000, 0, 25, 11, 745, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Glassweb Spider - Within 0-25 Range - Cast Web'),
 (5856, 0, 1, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3616, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Glassweb Spider - On Spawn - Cast Poison Proc'),
-(5858, 0, 0, 0, 0, 0, 80, 0, 0, 0, 10000, 20000, 0, 0, 11, 11985, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Greater Lava Spider - In Combat - Cast Fireball'),
+(5858, 0, 0, 0, 0, 0, 80, 0, 0, 0, 10000, 20000, 0, 0, 11, 11985, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Greater Lava Spider - In Combat - Cast Fireball'),
 --
 (5860, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9000, 13000, 0, 20, 11, 15500, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Twilight Dark Shaman - Within 0-20 Range - Cast Shock'),
-(5860, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 15000, 25000, 0, 0, 11, 7289, 96, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,   'Twilight Dark Shaman - In Combat - Cast Shrink'),
-(5860, 0, 2, 0, 74, 0, 100, 0, 0, 0, 16000, 20000, 50, 40, 11, 12491, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Twilight Dark Shaman - Friendly Between 0-50% Health - Cast Healing Wave'),
+(5860, 0, 1, 0, 0, 0, 100, 0, 7000, 9000, 15000, 25000, 0, 0, 11, 7289, 32, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,   'Twilight Dark Shaman - In Combat - Cast Shrink'),
+(5860, 0, 2, 0, 74, 0, 100, 0, 0, 0, 16000, 20000, 50, 40, 11, 12491, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Twilight Dark Shaman - Friendly Between 0-50% Health - Cast Healing Wave'),
 (5861, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 18968, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Twilight Fire Guard - Out of Combat - Cast Fire Shield'),
 (5861, 0, 1, 0, 0, 0, 100, 0, 4000, 9000, 18000, 26000, 0, 0, 11, 15243, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Twilight Fire Guard - In Combat - Cast Fireball Volley'),
 (5862, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 14034, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Twilight Geomancer - In Combat - Cast Fireball'),
@@ -45,7 +45,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (8280, 0, 0, 0, 9, 0, 100, 0, 3000, 9000, 9000, 15000, 0, 30, 11, 13321, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Shleipnarr - In Combat - Cast Mana Burn'), -- https://www.youtube.com/watch?v=ALcxDbNcgFE
 (8282, 0, 0, 0, 0, 0, 100, 0, 20000, 25000, 20000, 25000, 0, 0, 11, 11974, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Highlord Mastrogonde - In Combat - Cast Power Word: Shield'), 
-(8282, 0, 1, 0, 0, 0, 100, 0, 6000, 18000, 15000, 18000, 0, 0, 11, 13323, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Highlord Mastrogonde - In Combat - Cast Polymorph'), -- https://www.youtube.com/watch?v=KgZKdJeVfeQ
+(8282, 0, 1, 0, 0, 0, 100, 0, 6000, 18000, 15000, 18000, 0, 0, 11, 13323, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Highlord Mastrogonde - In Combat - Cast Polymorph'), -- https://www.youtube.com/watch?v=KgZKdJeVfeQ
 (8282, 0, 2, 0, 0, 0, 100, 0, 8000, 14000, 21000, 25000, 0, 0, 11, 11639, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Highlord Mastrogonde - In Combat - Cast Shadow Word: Pain'),
 (8282, 0, 3, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Highlord Mastrogonde - In Combat - Cast Shadow Bolt'),
 (8282, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Highlord Mastrogonde - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -63,12 +63,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8400, 0, 5, 0, 9, 0, 100, 512, 0, 0, 15000, 21000, 0, 5, 11, 10101, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Obsidion - Within 0-5 Range - Cast Knock Away'),
 --
 (8637, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Dark Iron Watchman - Within 0-5 Range - Cast Strike'),
-(9318, 0, 0, 0, 0, 0, 100, 0, 0, 0, 6000, 9000, 0, 0, 11, 11985, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Incendosaur - In Combat - Cast Fireball'),
+(9318, 0, 0, 0, 0, 0, 100, 0, 0, 0, 6000, 9000, 0, 0, 11, 11985, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Incendosaur - In Combat - Cast Fireball'),
 --
 (14621, 0, 0, 0, 0, 0, 100, 0, 0, 0, 21000, 28000, 0, 0, 11, 15654, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Overseer Maltorius - In Combat - Cast Shadow Word: Pain'),
 (14621, 0, 1, 0, 0, 0, 100, 0, 14000, 19000, 48000, 60000, 0, 0, 11, 11974, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Overseer Maltorius - In Combat - Cast Power Word: Shield'),
 (14621, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12739, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Overseer Maltorius - In Combat - Cast Shadow Bolt'),
-(14621, 0, 3, 0, 0, 0, 100, 0, 9000, 13000, 13000, 16000, 0, 0, 11, 13323, 97, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Overseer Maltorius - Between 5-30% Health - Cast Polymorph'),
+(14621, 0, 3, 0, 0, 0, 100, 0, 9000, 13000, 13000, 16000, 0, 0, 11, 13323, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Overseer Maltorius - Between 5-30% Health - Cast Polymorph'),
 (14621, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Overseer Maltorius - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 

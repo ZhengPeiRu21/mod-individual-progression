@@ -114,7 +114,7 @@ public:
 
     static bool HandleSetIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, uint32 progressionLevel)
     {
-	    if (!progressionLevel)
+	    if (!progressionLevel && progressionLevel != 0)
             return false;
 	
         if (progressionLevel > PROGRESSION_WOTLK_TIER_5)

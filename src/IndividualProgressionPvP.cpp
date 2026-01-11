@@ -88,7 +88,7 @@ public:
             {
                 return true;
             }
-			
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 			
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40) && sIndividualProgression->isBeforeProgression(target, PROGRESSION_TBC_TIER_5))
@@ -98,7 +98,7 @@ public:
             else
             {
                 return false;
-            }			
+            }
         }
     };
 
@@ -146,7 +146,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -196,7 +196,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -246,7 +246,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -296,7 +296,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -346,7 +346,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -396,7 +396,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -446,7 +446,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
@@ -495,7 +495,7 @@ public:
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }

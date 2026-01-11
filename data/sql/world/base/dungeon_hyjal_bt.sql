@@ -488,13 +488,13 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (22917, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Illidan Stormrage - (Patterns)'),
 (22917, 36137, 36137, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - Epic Items (Group 1)'),
 (22917, 36138, 36138, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - Epic Items (Group 2)'),
-(22917, 36139, 36139, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - T6 Token'),
+(22917, 36139, 36139, 100, 0, 1, 1, 2, 2, 'Illidan Stormrage - T6 Token'),
 --
 (22947, 29434, 0, 100, 0, 1, 0, 2, 2,     'Mother Shahraz - Badge of Justice'),
 (22947, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Mother Shahraz - (ReferenceTable)'),
 (22947, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Mother Shahraz - (ReferenceTable)'),
 (22947, 36133, 36133, 100, 0, 1, 1, 1, 1, 'Mother Shahraz - Epic Items'),
-(22947, 36134, 36134, 100, 0, 1, 1, 1, 1, 'Mother Shahraz - T6 Token'),
+(22947, 36134, 36134, 100, 0, 1, 1, 2, 2, 'Mother Shahraz - T6 Token'),
 --
 (22948, 29434, 0, 100, 0, 1, 0, 2, 2,     'Gurtogg Bloodboil - Badge of Justice'),
 (22948, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Gurtogg Bloodboil - (ReferenceTable)'),
@@ -536,7 +536,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17842, 29434, 0, 100, 0, 1, 0, 2, 2,     'Azgalor - Badge of Justice'),
 (17842, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Azgalor - Epic Gem Patterns'),
 (17842, 36107, 36107, 100, 0, 1, 1, 1, 1, 'Azgalor - Epic Items'),
-(17842, 36108, 36108, 100, 0, 1, 1, 3, 3, 'Azgalor - T6 Token'),
+(17842, 36108, 36108, 100, 0, 1, 1, 2, 2, 'Azgalor - T6 Token'),
 (17842, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 --
 (17888, 29434, 0, 100, 0, 1, 0, 2, 2,     'Kaz\'rogal - Badge of Justice'),
@@ -549,7 +549,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17968, 34063, 34063, 30, 0, 1, 1, 1, 1,  'Archimonde - Epic Gem Patterns'),
 (17968, 36109, 36109, 100, 0, 1, 1, 1, 1, 'Archimonde - Epic Items (Group 1)'),
 (17968, 36110, 36110, 100, 0, 1, 1, 1, 1, 'Archimonde - Epic Items (Group 2)'),
-(17968, 36111, 36111, 100, 0, 1, 1, 3, 3, 'Archimonde - T6 Token'),
+(17968, 36111, 36111, 100, 0, 1, 1, 2, 2, 'Archimonde - T6 Token'),
 (17968, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics');
 
 -- hide Badge of Justice drops until TBC tier 5
