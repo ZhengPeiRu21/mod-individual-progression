@@ -30,7 +30,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4442, 0, 2, 0, 105, 0, 100, 0, 2000, 16000, 10000, 20000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Razorfen Defender - Victim Casting - Cast Shield Bash'),
 (4442, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Razorfen Defender - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(4515, 0, 0, 0, 14, 0, 100, 0, 1000, 40, 14000, 19000, 0, 0, 11, 8362, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Death\'s Head Acolyte - Friendly Missing Health - Cast Renew'),
+(4515, 0, 0, 0, 14, 0, 100, 0, 1000, 40, 14000, 19000, 0, 0, 11, 8362, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Death\'s Head Acolyte - Friendly Missing Health - Cast Renew'),
 (4515, 0, 1, 0, 0, 0, 100, 0, 5000, 9000, 11000, 15000, 0, 0, 11, 15785, 256, 0, 0, 0, 0, 5, 30, 0, 1, 0, 0, 0, 0, 0, 'Death\'s Head Acolyte - In Combat - Cast Mana Burn'),
 (4515, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Death\'s Head Acolyte - Between 0-15% Health - Flee For Assist'),
 (4516, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 3000, 3500, 0, 0, 11, 9672, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Death\'s Head Adept - In Combat - Cast Frostbolt'),
