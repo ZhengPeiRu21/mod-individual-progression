@@ -25,7 +25,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2246, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Syndicate Assassin - Out of Combat - Cast Sneak (No Repeat)'),
 (2246, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Syndicate Assassin - On Reset - Cast Poison Proc'),
 (2246, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Assassin - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2247, 0, 0, 0, 9, 0, 100, 0, 2000, 13000, 12000, 18000, 0, 5, 11, 17207, 66, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Syndicate Enforcer - Within 0-5 Range - Cast Whirlwind'),
+(2247, 0, 0, 0, 9, 0, 100, 0, 2000, 13000, 12000, 18000, 0, 5, 11, 17207, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Syndicate Enforcer - Within 0-5 Range - Cast Whirlwind'),
 (2247, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Enforcer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (2254, 0, 0, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Crushridge Mauler - On Aggro - Say Line 0'),
@@ -49,14 +49,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (2271, 0, 0, 0, 106, 0, 50, 0, 0, 0, 4800, 18100, 0, 5, 11, 3260, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Dalaran Shield Guard - Within 0-5 Range - Cast Violet Shield Effect'),
 (2271, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dalaran Shield Guard - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2272, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3300, 6600, 0, 0, 11, 20819, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Dalaran Theurgist - In Combat - Cast Frostbolt'),
+(2272, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3300, 6600, 0, 0, 11, 20819, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Dalaran Theurgist - In Combat - Cast Frostbolt'),
 (2272, 0, 1, 0, 0, 0, 100, 0, 4000, 5300, 4600, 9900, 0, 0, 11, 3652, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Dalaran Theurgist - In Combat - Cast Summon Spirit of Old'),
 (2272, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dalaran Theurgist - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2306, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 3000, 0, 0, 11, 20822, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Baron Vardus - In Combat - Cast Frostbolt'),
 (2306, 0, 1, 0, 106, 0, 100, 0, 0, 0, 12200, 39800, 0, 8, 11, 11831, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Baron Vardus - Within 0-8 Range - Cast Frost Nova'),
 (2306, 0, 2, 0, 0, 0, 100, 0, 1000, 3000, 12500, 29800, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,       'Baron Vardus - In Combat - Cast Backhand'),
 (2306, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Baron Vardus - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(2415, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3300, 4900, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Warden Belamoore - In Combat - Cast Fireball'),
+(2415, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3300, 4900, 0, 0, 11, 20823, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Warden Belamoore - In Combat - Cast Fireball'),
 (2415, 0, 1, 0, 106, 0, 100, 0, 0, 0, 14900, 37400, 0, 10, 11, 20828, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Warden Belamoore - Within 0-10 Range - Cast Cone of Cold'),
 (2415, 0, 2, 0, 0, 0, 100, 0, 7000, 13000, 6000, 16000, 0, 0, 11, 13323, 1, 0, 0, 0, 0, 6, 30, 1, 0, 0, 0, 0, 0, 0,     'Warden Belamoore - Within 0-30 Range - Cast Polymorph'),
 (2415, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Warden Belamoore - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -64,7 +64,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2417, 0, 0, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Grel\'borg the Miser - On Aggro - Say Line 0 (No Repeat)'),
 (2417, 0, 1, 0, 0, 0, 100, 0, 3000, 6000, 29000, 38000, 0, 0, 11, 6742, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Grel\'borg the Miser - In Combat - Cast Bloodlust'),
 (2417, 0, 2, 0, 0, 0, 100, 0, 2000, 2000, 36000, 36000, 0, 0, 11, 4979, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Grel\'borg the Miser - In Combat - Cast Quick Flame Ward'),
-(2417, 0, 3, 0, 0, 0, 100, 0, 10000, 19000, 10000, 23000, 0, 0, 11, 11990, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,  'Grel\'borg the Miser - Within 0-30 Range - Cast Rain of Fire'),
+(2417, 0, 3, 0, 0, 0, 100, 0, 10000, 19000, 10000, 23000, 0, 0, 11, 11990, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Grel\'borg the Miser - Within 0-30 Range - Cast Rain of Fire'),
 (2420, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 7366, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Targ - Out of Combat - Cast Berserker Stance (No Repeat)'),
 (2420, 0, 1, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Targ - On Aggro - Say Line 0 (No Repeat)'),
 (2420, 0, 2, 0, 0, 0, 100, 0, 4000, 16000, 6000, 19000, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Targ - Within 0-5 Range - Cast Cleave'),
@@ -81,7 +81,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2423, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Lord Aliden Perenolde - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2453, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 30000, 35000, 0, 0, 11, 6742, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lo Grosh - In Combat - Cast Bloodlust'),
 (2453, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 35000, 38000, 0, 0, 11, 2601, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lo Grosh - In Combat - Cast Fire Shield III'),
-(2453, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 18000, 22000, 0, 0, 11, 8814, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Lo Grosh - In Combat - Cast Flame Spike'),
+(2453, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 18000, 22000, 0, 0, 11, 8814, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Lo Grosh - In Combat - Cast Flame Spike'),
 (4504, 0, 0, 0, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 53, 0, 450400, 1, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Frostmaw - On Just Summoned - Start Patrol');
 
 
