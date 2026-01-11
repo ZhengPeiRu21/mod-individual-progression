@@ -18,7 +18,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 17657, 34201, 0, 0, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'Ulrike will not sell Pattern: Netherscale Ammo Pouch until the player has completed PROGRESSION_TBC_TIER_3');
 
 -- fix quest: The Skettis Offensive
-UPDATE `quest_template` SET `RequiredNpcOrGo1` = 22375, `RequiredNpcOrGoCount1 = 1 WHERE `ID` = 10879;
+UPDATE `quest_template` SET `RequiredNpcOrGo1` = 22375, `RequiredNpcOrGoCount1` = 1 WHERE `ID` = 10879;
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` = 10879;
 
 DELETE FROM `smart_scripts` WHERE `entryorguid` = 22375 AND `source_type` = 0;
