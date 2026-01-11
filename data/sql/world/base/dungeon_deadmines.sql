@@ -40,7 +40,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (639, 0, 8, 0, 5, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Edwin VanCleef - On Killed Unit - Say Line 4'),
 (639, 0, 9, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Edwin VanCleef - In Combat - Cast Thrash'),
 --
-(641, 0, 0, 0, 0, 0, 80, 1, 1000, 4000, 0, 0, 0, 0, 11, 6466, 64, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,             'Goblin Woodcarver - Within 0-20 Range - Cast Axe Toss (No Repeat)'),
+(641, 0, 0, 0, 0, 0, 80, 1, 1000, 4000, 0, 0, 0, 0, 11, 6466, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,              'Goblin Woodcarver - Within 0-20 Range - Cast Axe Toss (No Repeat)'),
 (641, 0, 1, 0, 0, 0, 100, 0, 1000, 9000, 15000, 34000, 0, 0, 11, 40505, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Goblin Woodcarver - Within 0-5 Range - Cast Cleave'),
 (642, 0, 0, 0, 0, 0, 100, 0, 9000, 14000, 15000, 21000, 0, 0, 11, 7399, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Sneeds Shredder - In Combat - Cast Terrify'),
 (642, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 48000, 54000, 0, 0, 11, 3603, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Sneeds Shredder - Within 0-5 Range - Cast Distracting Pain'),
