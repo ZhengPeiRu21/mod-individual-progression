@@ -1,6 +1,6 @@
 /* Formula, Plans, Schematics */
 
-DELETE * FROM `creature_loot_template` WHERE `Reference` = 50501 AND `Entry` BETWEEN 7370 AND 28132;
+DELETE * FROM `creature_loot_template` WHERE `Reference` = 50501 AND `Entry` BETWEEN 11980 AND 28132;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 --
 -- (7370, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'), -- vanilla creature
