@@ -154,7 +154,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17732, 50501, 50501, 0.12, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17734, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17735, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(17767, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Rage Winterchill - ReferenceTable - Formula, Plans, Schematics'),
+-- (17767, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Rage Winterchill - ReferenceTable - Formula, Plans, Schematics'),
 (17770, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17771, 50501, 50501, 0.12, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17796, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -166,7 +166,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17802, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17803, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17805, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(17808, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Anetheron - ReferenceTable - Formula, Plans, Schematics'),
+-- (17808, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Anetheron - ReferenceTable - Formula, Plans, Schematics'),
 (17814, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17815, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17816, 50501, 50501, 0.12, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -177,7 +177,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17833, 50501, 50501, 0.14, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17839, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17840, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(17842, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Azgalor - ReferenceTable - Formula, Plans, Schematics'),
+-- (17842, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Azgalor - ReferenceTable - Formula, Plans, Schematics'),
 (17846, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17848, 50501, 50501, 0.15, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17860, 50501, 50501, 0.14, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -188,7 +188,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17880, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17881, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17882, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(17888, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kaz\'rogal - ReferenceTable - Formula, Plans, Schematics'),
+-- (17888, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kaz\'rogal - ReferenceTable - Formula, Plans, Schematics'),
 (17895, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17897, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17898, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -209,7 +209,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (17960, 50501, 50501, 0.12, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17961, 50501, 50501, 0.12, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17962, 50501, 50501, 0.12, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(17968, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Archimonde - ReferenceTable - Formula, Plans, Schematics'),
+-- (17968, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Archimonde - ReferenceTable - Formula, Plans, Schematics'),
 (17975, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17976, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (17977, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -410,7 +410,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (18733, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (18794, 50501, 50501, 0.15, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (18796, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(18805, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Formula, Plans, Schematics'),
+-- (18805, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Formula, Plans, Schematics'),
 (18830, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (18831, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (18848, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -485,7 +485,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19512, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19513, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19514, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(19516, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Formula, Plans, Schematics'),
+-- (19516, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Formula, Plans, Schematics'),
 (19519, 50501, 50501, 0.02, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19543, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19544, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -497,7 +497,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19595, 50501, 50501, 0.03, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19598, 50501, 50501, 0.05, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19608, 50501, 50501, 0.05, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(19622, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Formula, Plans, Schematics'),
+-- (19622, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Formula, Plans, Schematics'),
 (19632, 50501, 50501, 0.13, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19633, 50501, 50501, 0.15, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19635, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -967,12 +967,12 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (21196, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (21198, 50501, 50501, 0.02, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (21205, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(21212, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Formula, Plans, Schematics'),
-(21213, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Formula, Plans, Schematics'),
-(21214, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Formula, Plans, Schematics'),
-(21215, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Leotheras the Blind - ReferenceTable - Formula, Plans, Schematics'),
-(21216, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Formula, Plans, Schematics'),
-(21217, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Formula, Plans, Schematics'),
+-- (21212, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Formula, Plans, Schematics'),
+-- (21213, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Formula, Plans, Schematics'),
+-- (21214, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Formula, Plans, Schematics'),
+-- (21215, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Leotheras the Blind - ReferenceTable - Formula, Plans, Schematics'),
+-- (21216, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Formula, Plans, Schematics'),
+-- (21217, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Formula, Plans, Schematics'),
 (21218, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (21220, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (21221, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
@@ -1525,3 +1525,700 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 DELETE * FROM `creature_loot_template` WHERE `Reference` = 0 
 AND `Item` IN (SELECT `Item` FROM `reference_loot_template` WHERE `Entry` = 50501) 
 AND `Entry` IN (SELECT `Entry` FROM `creature_loot_template` WHERE `Reference` = 50501);
+
+
+/* Black Temple and Mount Hyjal */
+
+-- fix drop rates for Heart of Darkness
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 17895;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32428 AND `Entry` = 17897;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 17898;
+UPDATE `creature_loot_template` SET `Chance` = 10    WHERE `Item` = 32428 AND `Entry` = 17899;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32428 AND `Entry` = 17905;
+UPDATE `creature_loot_template` SET `Chance` = 2     WHERE `Item` = 32428 AND `Entry` = 17906;
+UPDATE `creature_loot_template` SET `Chance` = 7     WHERE `Item` = 32428 AND `Entry` = 17907;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32428 AND `Entry` = 17908;
+UPDATE `creature_loot_template` SET `Chance` = 1.9   WHERE `Item` = 32428 AND `Entry` = 17916;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 22844;
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32428 AND `Entry` = 22845;
+UPDATE `creature_loot_template` SET `Chance` = 10    WHERE `Item` = 32428 AND `Entry` = 22846;
+UPDATE `creature_loot_template` SET `Chance` = 11.63 WHERE `Item` = 32428 AND `Entry` = 22847;
+UPDATE `creature_loot_template` SET `Chance` = 10    WHERE `Item` = 32428 AND `Entry` = 22853;
+UPDATE `creature_loot_template` SET `Chance` = 10    WHERE `Item` = 32428 AND `Entry` = 22855;
+UPDATE `creature_loot_template` SET `Chance` = 10.24 WHERE `Item` = 32428 AND `Entry` = 22869;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 22879;
+UPDATE `creature_loot_template` SET `Chance` = 10    WHERE `Item` = 32428 AND `Entry` = 22880;
+UPDATE `creature_loot_template` SET `Chance` = 3     WHERE `Item` = 32428 AND `Entry` = 22882;
+UPDATE `creature_loot_template` SET `Chance` = 4.81  WHERE `Item` = 32428 AND `Entry` = 22939;
+UPDATE `creature_loot_template` SET `Chance` = 10    WHERE `Item` = 32428 AND `Entry` = 22945;
+UPDATE `creature_loot_template` SET `Chance` = 2     WHERE `Item` = 32428 AND `Entry` = 22946;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 22953;
+UPDATE `creature_loot_template` SET `Chance` = 6     WHERE `Item` = 32428 AND `Entry` = 22954;
+UPDATE `creature_loot_template` SET `Chance` = 3.59  WHERE `Item` = 32428 AND `Entry` = 22955;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 22956;
+UPDATE `creature_loot_template` SET `Chance` = 8     WHERE `Item` = 32428 AND `Entry` = 22957;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32428 AND `Entry` = 22959;
+-- UPDATE `creature_loot_template` SET `Chance` = 4     WHERE `Item` = 32428 AND `Entry` = 22960; -- currently doesn't drop Heart of Darkness 
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 22962;
+-- UPDATE `creature_loot_template` SET `Chance` = 7.48  WHERE `Item` = 32428 AND `Entry` = 22963; -- doesn't drop Heart of Darkness in cMangos TBC
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32428 AND `Entry` = 22964;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32428 AND `Entry` = 22965;
+UPDATE `creature_loot_template` SET `Chance` = 12.93 WHERE `Item` = 32428 AND `Entry` = 23018;
+UPDATE `creature_loot_template` SET `Chance` = 3     WHERE `Item` = 32428 AND `Entry` = 23028;
+UPDATE `creature_loot_template` SET `Chance` = 3     WHERE `Item` = 32428 AND `Entry` = 23030;
+UPDATE `creature_loot_template` SET `Chance` = 3.33  WHERE `Item` = 32428 AND `Entry` = 23047;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32428 AND `Entry` = 23049;
+-- UPDATE `creature_loot_template` SET `Chance` = 15    WHERE `Item` = 32428 AND `Entry` = 23147; -- doesn't drop Heart of Darkness in cMangos TBC
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32428 AND `Entry` = 23172;
+UPDATE `creature_loot_template` SET `Chance` = 14.04 WHERE `Item` = 32428 AND `Entry` = 23196;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 23222;
+UPDATE `creature_loot_template` SET `Chance` = 5     WHERE `Item` = 32428 AND `Entry` = 23223;
+UPDATE `creature_loot_template` SET `Chance` = 1.7   WHERE `Item` = 32428 AND `Entry` = 23232;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32428 AND `Entry` = 23235;
+UPDATE `creature_loot_template` SET `Chance` = 12.15 WHERE `Item` = 32428 AND `Entry` = 23236;
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32428 AND `Entry` = 23237;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 23239;
+UPDATE `creature_loot_template` SET `Chance` = 3     WHERE `Item` = 32428 AND `Entry` = 23330;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 23337;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32428 AND `Entry` = 23339;
+UPDATE `creature_loot_template` SET `Chance` = 8     WHERE `Item` = 32428 AND `Entry` = 23374;
+
+DELETE FROM `creature_loot_template` WHERE `Item` = 32428 AND `Entry` IN (22960, 22963, 23147);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+(22960, 32428, 0, 4, 0, 1, 0, 1, 1, 'Dragonmaw Wyrmcaller - Heart of Darkness');
+
+-- fix drop rates for Mark of the Illidari
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32897 AND `Entry` = 17895;
+UPDATE `creature_loot_template` SET `Chance` = 16    WHERE `Item` = 32897 AND `Entry` = 17897;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32897 AND `Entry` = 17898;
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32897 AND `Entry` = 17899;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32897 AND `Entry` = 17905;
+UPDATE `creature_loot_template` SET `Chance` = 4     WHERE `Item` = 32897 AND `Entry` = 17906;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32897 AND `Entry` = 17907;
+UPDATE `creature_loot_template` SET `Chance` = 17    WHERE `Item` = 32897 AND `Entry` = 17908;
+UPDATE `creature_loot_template` SET `Chance` = 3     WHERE `Item` = 32897 AND `Entry` = 17916;
+UPDATE `creature_loot_template` SET `Chance` = 13    WHERE `Item` = 32897 AND `Entry` = 22844;
+UPDATE `creature_loot_template` SET `Chance` = 10    WHERE `Item` = 32897 AND `Entry` = 22845;
+UPDATE `creature_loot_template` SET `Chance` = 13    WHERE `Item` = 32897 AND `Entry` = 22846;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 22847;
+UPDATE `creature_loot_template` SET `Chance` = 13    WHERE `Item` = 32897 AND `Entry` = 22853;
+UPDATE `creature_loot_template` SET `Chance` = 12.68 WHERE `Item` = 32897 AND `Entry` = 22855;
+UPDATE `creature_loot_template` SET `Chance` = 15    WHERE `Item` = 32897 AND `Entry` = 22869;
+UPDATE `creature_loot_template` SET `Chance` = 13    WHERE `Item` = 32897 AND `Entry` = 22879;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 22880;
+UPDATE `creature_loot_template` SET `Chance` = 8.97  WHERE `Item` = 32897 AND `Entry` = 22882;
+UPDATE `creature_loot_template` SET `Chance` = 16    WHERE `Item` = 32897 AND `Entry` = 22939;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 22945;
+UPDATE `creature_loot_template` SET `Chance` = 11    WHERE `Item` = 32897 AND `Entry` = 22946;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 22953;
+UPDATE `creature_loot_template` SET `Chance` = 7.61  WHERE `Item` = 32897 AND `Entry` = 22954;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 22955;
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32897 AND `Entry` = 22956;
+UPDATE `creature_loot_template` SET `Chance` = 13    WHERE `Item` = 32897 AND `Entry` = 22957;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 22959;
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32897 AND `Entry` = 22962;
+-- UPDATE `creature_loot_template` SET `Chance` = 13.25 WHERE `Item` = 32897 AND `Entry` = 22963; -- doesn't drop Mark of the Illidari in cMangos TBC
+UPDATE `creature_loot_template` SET `Chance` = 16    WHERE `Item` = 32897 AND `Entry` = 22964;
+UPDATE `creature_loot_template` SET `Chance` = 13    WHERE `Item` = 32897 AND `Entry` = 22965;
+UPDATE `creature_loot_template` SET `Chance` = 6.8   WHERE `Item` = 32897 AND `Entry` = 23018;
+UPDATE `creature_loot_template` SET `Chance` = 17    WHERE `Item` = 32897 AND `Entry` = 23028;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23030;
+UPDATE `creature_loot_template` SET `Chance` = 15    WHERE `Item` = 32897 AND `Entry` = 23047;
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32897 AND `Entry` = 23049;
+UPDATE `creature_loot_template` SET `Chance` = 16    WHERE `Item` = 32897 AND `Entry` = 23147;
+UPDATE `creature_loot_template` SET `Chance` = 13    WHERE `Item` = 32897 AND `Entry` = 23172;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23196;
+UPDATE `creature_loot_template` SET `Chance` = 15    WHERE `Item` = 32897 AND `Entry` = 23222;
+UPDATE `creature_loot_template` SET `Chance` = 20    WHERE `Item` = 32897 AND `Entry` = 23223;
+UPDATE `creature_loot_template` SET `Chance` = 9     WHERE `Item` = 32897 AND `Entry` = 23232;
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32897 AND `Entry` = 23235;
+UPDATE `creature_loot_template` SET `Chance` = 12    WHERE `Item` = 32897 AND `Entry` = 23236;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23237;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23239;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23330;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23337;
+UPDATE `creature_loot_template` SET `Chance` = 16    WHERE `Item` = 32897 AND `Entry` = 23339;
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23374;
+UPDATE `creature_loot_template` SET `Chance` = 33    WHERE `Item` = 32897 AND `Entry` = 23394;
+UPDATE `creature_loot_template` SET `Chance` = 13    WHERE `Item` = 32897 AND `Entry` = 23397; 
+UPDATE `creature_loot_template` SET `Chance` = 15    WHERE `Item` = 32897 AND `Entry` = 23400; 
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23402; 
+UPDATE `creature_loot_template` SET `Chance` = 14    WHERE `Item` = 32897 AND `Entry` = 23403;
+
+DELETE FROM `creature_loot_template` WHERE `Item` = 32897 AND `Entry` IN (22963);
+
+
+-- Hyjal, remove item, recipes and reference loot tables added by AC
+DELETE FROM `reference_loot_template` WHERE `entry` IN (34064, 34065, 34066, 34067, 34068, 39534, 1276884);
+DELETE FROM `creature_loot_template` WHERE `Item` IN (39534) AND `Entry` IN (17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (17968);
+
+-- Black Temple, remove reference loot tables added by AC (not used anymore)
+DELETE FROM `reference_loot_template` WHERE `entry` IN (34070, 34071, 34072, 34073, 34074, 34076, 34077, 1276883);
+DELETE FROM `creature_loot_template` WHERE `Item` IN (14099, 24092) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
+23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+
+-- Black Temple, remove items and recipes added by AC (now added with a referene loot table)
+DELETE FROM `creature_loot_template` WHERE `Item` IN (32526, 32527, 32528, 32593, 32606, 32608, 32943, 34011, 34012, 32737, 32738, 32744, 32747, 32749, 32750, 32753, 32754) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
+23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+
+-- Black Temple, remove gems added by AC (now added with a referene loot table)
+DELETE FROM `creature_loot_template` WHERE `Item` IN (32227, 32228, 32229, 32230, 32231, 32249) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
+23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+
+-- Black Temple, remove incorrect items and recipes added by AC
+DELETE FROM `creature_loot_template` WHERE `Item` IN (32589, 32590, 32591, 32592, 32609, 32736, 32739, 32745, 32746, 32748, 32751, 32752, 32755) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
+23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
+23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 10 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (36197, 36199);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+-- Hyjal
+(10, 36197, 32736, 0, 0, 7, 0, 164, 1, 0, 0, 0, 0, '', 'Plans: Swiftsteel Bracers'),
+(10, 36197, 32746, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Swiftstrike Bracers'),
+(10, 36197, 32748, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Bindings of Lightning Reflexes'),
+(10, 36197, 32752, 0, 0, 7, 0, 197, 1, 0, 0, 0, 0, '', 'Pattern: Swiftheal Wraps'),
+-- BT
+(10, 36199, 32738, 0, 0, 7, 0, 164, 1, 0, 0, 0, 0, '', 'Plans: Dawnsteel Bracers'),
+(10, 36199, 32744, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Bracers of Renewed Life'),
+(10, 36199, 32750, 0, 0, 7, 0, 165, 1, 0, 0, 0, 0, '', 'Pattern: Living Earth Bindings'),
+(10, 36199, 32754, 0, 0, 7, 0, 197, 1, 0, 0, 0, 0, '', 'Pattern: Bracers of Nimble Thought');
+
+-- Black Temple, add Khorium Lockboxes
+DELETE FROM `creature_loot_template` WHERE `Item` = 31952 AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
+23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+--
+(22844, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22845, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22846, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22847, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22853, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22855, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22869, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22879, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22880, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22882, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22939, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22945, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22946, 31952, 0, 0.3, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22953, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22954, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22955, 31952, 0, 0.8, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22956, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22957, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22959, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22960, 31952, 0, 0.9, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22962, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22963, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22964, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(22965, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23018, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23028, 31952, 0, 0.6, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23030, 31952, 0, 0.6, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23047, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23049, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23172, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23196, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23222, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23223, 31952, 0, 0.8, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23232, 31952, 0, 0.2, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23235, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23236, 31952, 0, 0.8, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23237, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23239, 31952, 0, 0.7, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23330, 31952, 0, 0.6, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23337, 31952, 0, 1.3, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23339, 31952, 0, 1.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23374, 31952, 0, 0.5, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23394, 31952, 0, 1.1, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23397, 31952, 0, 0.6, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23400, 31952, 0, 0.9, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23402, 31952, 0, 0.4, 0, 1, 0, 1, 1, 'Khorium Lockbox'),
+(23403, 31952, 0, 0.7, 0, 1, 0, 1, 1, 'Khorium Lockbox');
+
+-- Hyjal, add reference loot tables to trash creatures
+DELETE FROM `creature_loot_template` WHERE `Reference` IN (36196, 36197) AND `Entry` IN
+(17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
+
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+--
+(17895, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+(17897, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+(17898, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+(17899, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+(17905, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+(17906, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+(17907, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+(17908, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+(17916, 36196, 36196, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Epic Items'),
+--
+(17895, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes'),
+(17897, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes'),
+(17898, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes'),
+(17899, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes'),
+(17905, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes'),
+(17906, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes'),
+(17907, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes'),
+(17908, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes'),
+(17916, 36197, 36197, 1, 0, 1, 1, 1, 1, 'Hyjal - Trash loot - Recipes');
+
+-- Black Temple, add reference loot tables to trash creatures
+DELETE FROM `creature_loot_template` WHERE `Reference` IN (34093, 36198, 36199) AND `Entry` IN
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
+23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+--
+(22844, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22845, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22846, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22847, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22853, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22855, 34093, 34093, 20, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22869, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22879, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22880, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22882, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22939, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22945, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22946, 34093, 34093, 5,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22953, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22954, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22955, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22956, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22957, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22959, 34093, 34093, 10, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22962, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22964, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22965, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23018, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23047, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23049, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23172, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23196, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23222, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23223, 34093, 34093, 10, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23232, 34093, 34093, 5,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23235, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23236, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23237, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23239, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23330, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23337, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23339, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23374, 34093, 34093, 10, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23394, 34093, 34093, 33, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23397, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23400, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23402, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(23403, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+--
+(22844, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22845, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22846, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22847, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22853, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22855, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22869, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22879, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22880, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22882, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22939, 36198, 36198, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22945, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22946, 36198, 36198, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22953, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22954, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22955, 36198, 36198, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22956, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22957, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22959, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22960, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22962, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22963, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22964, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(22965, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23018, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23028, 36198, 36198, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23030, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23047, 36198, 36198, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23049, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23147, 36198, 36198, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23172, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23196, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23222, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23223, 36198, 36198, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23232, 36198, 36198, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23235, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23236, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23237, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23239, 36198, 36198, 3, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23330, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23337, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23339, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23374, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23394, 36198, 36198, 5, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23397, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23400, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23402, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+(23403, 36198, 36198, 2, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Epic Items'),
+--
+(22844, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22845, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22846, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22847, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22853, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22855, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22869, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22879, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22880, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22882, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22939, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22945, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22946, 36199, 36199, 0.5, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22953, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22954, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22955, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22956, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22957, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22959, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22960, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22962, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22963, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22964, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(22965, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23018, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23028, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23030, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23047, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23049, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23147, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23172, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23196, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23222, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23223, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23232, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23235, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23236, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23237, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23239, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23330, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23337, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23339, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23374, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23394, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23397, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23400, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23402, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes'),
+(23403, 36199, 36199, 1, 0, 1, 1, 1, 1, 'Black Temple - Trash loot - Recipes');
+
+
+-- fix Black Temple boss loot tables
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (22841, 22871, 22887, 22898, 22917, 22947, 22948);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+--
+(22841, 29434, 0, 100, 0, 1, 0, 2, 2,     'Shade of Akama - Badge of Justice'),
+(22841, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Shade of Akama - (ReferenceTable)'),
+(22841, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Shade of Akama - (ReferenceTable)'),
+(22841, 36125, 36125, 100, 0, 1, 1, 1, 1, 'Shade of Akama - Epic Items (Group 1)'),
+(22841, 36126, 36126, 100, 0, 1, 1, 1, 1, 'Shade of Akama - Epic Items (Group 2)'),
+--
+(22871, 29434, 0, 100, 0, 1, 0, 2, 2,     'Teron Gorefiend - Badge of Justice'),
+(22871, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Teron Gorefiend - (ReferenceTable)'),
+(22871, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Teron Gorefiend - (ReferenceTable)'),
+(22871, 36127, 36127, 100, 0, 1, 1, 1, 1, 'Teron Gorefiend - Epic Items (Group 1)'),
+(22871, 36128, 36128, 100, 0, 1, 1, 1, 1, 'Teron Gorefiend - Epic Items (Group 2)'),
+--
+(22887, 29434, 0, 100, 0, 1, 0, 2, 2,     'High Warlord Naj\'entus - Badge of Justice'),
+(22887, 34069, 34069, 2, 0, 1, 2, 1, 1,   'High Warlord Naj\'entus - (ReferenceTable)'),
+(22887, 90069, 34069, 10, 0, 1, 1, 1, 1,  'High Warlord Naj\'entus - (ReferenceTable)'),
+(22887, 36121, 36121, 100, 0, 1, 1, 1, 1, 'High Warlord Naj\'entus - Epic Items (Group 1)'),
+(22887, 36122, 36122, 100, 0, 1, 1, 1, 1, 'High Warlord Naj\'entus - Epic Items (Group 2)'),
+--
+(22898, 29434, 0, 100, 0, 1, 0, 2, 2,     'Supremus - Badge of Justice'),
+(22898, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Supremus - (ReferenceTable)'),
+(22898, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Supremus - (ReferenceTable)'),
+(22898, 36123, 36123, 100, 0, 1, 1, 1, 1, 'Supremus - Epic Items (Group 1)'),
+(22898, 36124, 36124, 100, 0, 1, 1, 1, 1, 'Supremus - Epic Items (Group 2)'),
+--
+(22917, 29434, 0, 100, 0, 1, 0, 2, 2,     'Illidan Stormrage - Badge of Justice'),
+(22917, 32837, 0, 4, 0, 1, 1, 1, 1,       'Illidan Stormrage - Warglaive of Azzinoth'),
+(22917, 32838, 0, 4, 0, 1, 2, 1, 1,       'Illidan Stormrage - Warglaive of Azzinoth'),
+(22917, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Illidan Stormrage - (Patterns)'),
+(22917, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Illidan Stormrage - (Patterns)'),
+(22917, 36137, 36137, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - Epic Items (Group 1)'),
+(22917, 36138, 36138, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - Epic Items (Group 2)'),
+(22917, 36139, 36139, 100, 0, 1, 1, 2, 2, 'Illidan Stormrage - T6 Token'),
+--
+(22947, 29434, 0, 100, 0, 1, 0, 2, 2,     'Mother Shahraz - Badge of Justice'),
+(22947, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Mother Shahraz - (ReferenceTable)'),
+(22947, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Mother Shahraz - (ReferenceTable)'),
+(22947, 36133, 36133, 100, 0, 1, 1, 1, 1, 'Mother Shahraz - Epic Items'),
+(22947, 36134, 36134, 100, 0, 1, 1, 2, 2, 'Mother Shahraz - T6 Token'),
+--
+(22948, 29434, 0, 100, 0, 1, 0, 2, 2,     'Gurtogg Bloodboil - Badge of Justice'),
+(22948, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Gurtogg Bloodboil - (ReferenceTable)'),
+(22948, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Gurtogg Bloodboil - (ReferenceTable)'),
+(22948, 36129, 36129, 100, 0, 1, 1, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 1)'),
+(22948, 36130, 36130, 100, 0, 1, 1, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 2)');
+
+-- hide Badge of Justice drops until TBC tier 5
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (22841, 22871, 22887, 22898, 22917, 22947, 22948);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(1, 22841, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22871, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22887, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22898, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22917, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22947, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 22948, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4');
+
+
+-- fix Hyjal boss loot tables
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (17767, 17808, 17888, 17842, 17968);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+--
+(17767, 29434, 0, 100, 0, 1, 0, 2, 2,     'Rage Winterchill - Badge of Justice'),
+(17767, 32459, 0, 100, 1, 1, 0, 1, 1,     'Rage Winterchill - Time-Phased Phylactery'),
+(17767, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Rage Winterchill - Epic Gem Patterns'), -- 36112 in cMangos
+(17767, 36101, 36101, 100, 0, 1, 1, 1, 1, 'Rage Winterchill - Epic Items (Group 1)'),
+(17767, 36102, 36102, 100, 0, 1, 1, 1, 1, 'Rage Winterchill - Epic Items (Group 2)'),
+(17767, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Rage Winterchill - ReferenceTable - Formula, Plans, Schematics'),
+--
+(17808, 29434, 0, 100, 0, 1, 0, 2, 2,     'Anetheron - Badge of Justice'),
+(17808, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Anetheron - Epic Gem Patterns'),
+(17808, 36103, 36103, 100, 0, 1, 1, 1, 1, 'Anetheron - Epic Items (Group 1)'),
+(17808, 36104, 36104, 100, 0, 1, 1, 1, 1, 'Anetheron - Epic Items (Group 2)'),
+(17808, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Anetheron - ReferenceTable - Formula, Plans, Schematics'),
+--
+(17842, 29434, 0, 100, 0, 1, 0, 2, 2,     'Azgalor - Badge of Justice'),
+(17842, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Azgalor - Epic Gem Patterns'),
+(17842, 36107, 36107, 100, 0, 1, 1, 1, 1, 'Azgalor - Epic Items'),
+(17842, 36108, 36108, 100, 0, 1, 1, 2, 2, 'Azgalor - T6 Token'),
+(17842, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Azgalor - ReferenceTable - Formula, Plans, Schematics'),
+--
+(17888, 29434, 0, 100, 0, 1, 0, 2, 2,     'Kaz\'rogal - Badge of Justice'),
+(17888, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Kaz\'rogal - Epic Gem Patterns'),
+(17888, 36105, 36105, 100, 0, 1, 1, 1, 1, 'Kaz\'rogal - Epic Items (Group 1)'),
+(17888, 36106, 36106, 100, 0, 1, 1, 1, 1, 'Kaz\'rogal - Epic Items (Group 2)'),
+(17888, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kaz\'rogal - ReferenceTable - Formula, Plans, Schematics'),
+--
+(17968, 29434, 0, 100, 0, 1, 0, 3, 3,     'Archimonde - Badge of Justice'),
+(17968, 34063, 34063, 30, 0, 1, 1, 1, 1,  'Archimonde - Epic Gem Patterns'),
+(17968, 36109, 36109, 100, 0, 1, 1, 1, 1, 'Archimonde - Epic Items (Group 1)'),
+(17968, 36110, 36110, 100, 0, 1, 1, 1, 1, 'Archimonde - Epic Items (Group 2)'),
+(17968, 36111, 36111, 100, 0, 1, 1, 2, 2, 'Archimonde - T6 Token'),
+(17968, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Archimonde - ReferenceTable - Formula, Plans, Schematics');
+
+-- hide Badge of Justice drops until TBC tier 5
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (17767, 17808, 17842, 17888, 17968);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(1, 17767, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 17808, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 17842, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 17888, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 17968, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4');
+
+
+/* Tempest Keep: The Eye and Serpentshrine Cavern */
+
+-- remove unused reference loot tables
+DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 34054 AND 34062;
+
+-- remove unused conditions
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` IN (30282, 30283, 30305, 30306, 30307, 30308, 30323, 30324, 30321, 30322, 30301, 30302, 30303, 30304, 30280, 30281);
+
+-- remove T5 recipes reference loot table from bosses that shouldn't have it.
+DELETE FROM `creature_loot_template` WHERE `Reference` = 34052 AND `Entry` IN (18805, 19516, 19622, 21212, 21213, 21214, 21215, 21216, 21217);
+
+-- remove T5 recipes from trash creatures, this is now done with a reference loot table.
+DELETE FROM `creature_loot_template` WHERE `item` IN (30282, 30283, 30305, 30306, 30307, 30308, 30323, 30324, 30321, 30322, 30301, 30302, 30303, 30304, 30280, 30281);
+
+-- remove epic loot from trash mobs in SSC, this is now done with a reference loot table.
+DELETE FROM `creature_loot_template` WHERE `item` IN (30021, 30022, 30023, 30025, 30027, 30620);
+
+-- add reference loot table to trash creatures
+DELETE FROM `creature_loot_template` WHERE `Item` IN (34052, 36098);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+--
+(20031, 34052, 34052, 1.768, 0, 1, 1, 1, 1, 'T5 - Recipes'), --  The Eye
+(20032, 34052, 34052, 1.822, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20033, 34052, 34052, 1.83, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20034, 34052, 34052, 1.802, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20035, 34052, 34052, 1.94, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20036, 34052, 34052, 1.673, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20037, 34052, 34052, 1.953, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20039, 34052, 34052, 1.236, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20040, 34052, 34052, 2.475, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20041, 34052, 34052, 2.701, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20042, 34052, 34052, 1.655, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20043, 34052, 34052, 0.779, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20044, 34052, 34052, 0.788, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20045, 34052, 34052, 1.382, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20046, 34052, 34052, 1.603, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+-- (20047, 34052, 34052, 1.882, 0, 1, 1, 1, 1, 'T5 - Recipes'), -- creature 20047 uses 20032 instead of having it's own loot template
+(20048, 34052, 34052, 1.877, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20049, 34052, 34052, 1.881, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20050, 34052, 34052, 1.833, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(20052, 34052, 34052, 1.784, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+--
+(21218, 34052, 34052, 1.46, 0, 1, 1, 1, 1, 'T5 - Recipes'), -- SSC
+(21220, 34052, 34052, 1.695, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21221, 34052, 34052, 1.338, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21224, 34052, 34052, 1.733, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21225, 34052, 34052, 1.387, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21226, 34052, 34052, 1.358, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21227, 34052, 34052, 1.1, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21228, 34052, 34052, 1.346, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21229, 34052, 34052, 1.96, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21230, 34052, 34052, 2.219, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21231, 34052, 34052, 1.84, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21232, 34052, 34052, 1.726, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21246, 34052, 34052, 7.62, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21251, 34052, 34052, 5.509, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21263, 34052, 34052, 0.1, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21298, 34052, 34052, 1.586, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21299, 34052, 34052, 1.489, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21301, 34052, 34052, 1.69, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21339, 34052, 34052, 1.533, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+(21863, 34052, 34052, 0.532, 0, 1, 1, 1, 1, 'T5 - Recipes'),
+--
+(21218, 36098, 36098, 2.224, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21220, 36098, 36098, 2.205, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21221, 36098, 36098, 2.483, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21224, 36098, 36098, 1.691, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21225, 36098, 36098, 1.945, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21226, 36098, 36098, 2.094, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21227, 36098, 36098, 1.767, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21228, 36098, 36098, 2.178, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21229, 36098, 36098, 2.839, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21230, 36098, 36098, 2.889, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21231, 36098, 36098, 2.971, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21232, 36098, 36098, 2.707, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21246, 36098, 36098, 9.105, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21251, 36098, 36098, 8.705, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21263, 36098, 36098, 0.212, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21298, 36098, 36098, 2.242, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21299, 36098, 36098, 2.6, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21301, 36098, 36098, 2.196, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21339, 36098, 36098, 2.47, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items'),
+(21863, 36098, 36098, 1.148, 0, 1, 1, 1, 1, 'SSC - Trash loot - Items');
+
+-- fix epic loot table chance for Tempest Keep: The Eye, was incorrectly set to 10% for ALL trash mobs
+UPDATE `creature_loot_template` SET `Chance` = 2.656 WHERE `Reference` = 55500 AND `Entry` = 20031;
+UPDATE `creature_loot_template` SET `Chance` = 2.838 WHERE `Reference` = 55500 AND `Entry` = 20032;
+UPDATE `creature_loot_template` SET `Chance` = 2.767 WHERE `Reference` = 55500 AND `Entry` = 20033;
+UPDATE `creature_loot_template` SET `Chance` = 2.781 WHERE `Reference` = 55500 AND `Entry` = 20034;
+UPDATE `creature_loot_template` SET `Chance` = 2.901 WHERE `Reference` = 55500 AND `Entry` = 20035;
+UPDATE `creature_loot_template` SET `Chance` = 2.538 WHERE `Reference` = 55500 AND `Entry` = 20036;
+UPDATE `creature_loot_template` SET `Chance` = 2.61  WHERE `Reference` = 55500 AND `Entry` = 20037;
+UPDATE `creature_loot_template` SET `Chance` = 1.793 WHERE `Reference` = 55500 AND `Entry` = 20039;
+UPDATE `creature_loot_template` SET `Chance` = 4.037 WHERE `Reference` = 55500 AND `Entry` = 20040;
+UPDATE `creature_loot_template` SET `Chance` = 4.11  WHERE `Reference` = 55500 AND `Entry` = 20041;
+UPDATE `creature_loot_template` SET `Chance` = 2.555 WHERE `Reference` = 55500 AND `Entry` = 20042;
+UPDATE `creature_loot_template` SET `Chance` = 1.227 WHERE `Reference` = 55500 AND `Entry` = 20043;
+UPDATE `creature_loot_template` SET `Chance` = 1.222 WHERE `Reference` = 55500 AND `Entry` = 20044;
+UPDATE `creature_loot_template` SET `Chance` = 2.607 WHERE `Reference` = 55500 AND `Entry` = 20045;
+UPDATE `creature_loot_template` SET `Chance` = 2.916 WHERE `Reference` = 55500 AND `Entry` = 20046;
+-- UPDATE `creature_loot_template` SET `Chance` = 2.756 WHERE `Reference` = 55500 AND `Entry` = 20047; -- creature 20047 uses 20032 instead of having it's own loot template
+UPDATE `creature_loot_template` SET `Chance` = 2.848 WHERE `Reference` = 55500 AND `Entry` = 20048;
+UPDATE `creature_loot_template` SET `Chance` = 2.929 WHERE `Reference` = 55500 AND `Entry` = 20049;
+UPDATE `creature_loot_template` SET `Chance` = 2.801 WHERE `Reference` = 55500 AND `Entry` = 20050;
+UPDATE `creature_loot_template` SET `Chance` = 2.913 WHERE `Reference` = 55500 AND `Entry` = 20052;
+
+-- fix boss loot tables
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (18805, 19516, 19622, 21212, 21213, 21214, 21215, 21216, 21217);
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+--
+(18805, 21877, 0, 18, 0, 1, 1, 3, 3,      'High Astromancer Solarian - Netherweave Cloth'),
+(18805, 29434, 0, 100, 0, 1, 0, 2, 2,     'High Astromancer Solarian - Badge of Justice'),
+(18805, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Formula, Plans, Schematics'),
+(18805, 36005, 36005, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 1)'),
+(18805, 36006, 36006, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 2)'),
+(18805, 36007, 36007, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 3)'),
+--
+(19516, 29434, 0, 100, 0, 1, 0, 2, 2,     'Void Reaver - Badge of Justice'),
+(19516, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Formula, Plans, Schematics'),
+(19516, 36003, 36003, 100, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Epic Items (Group 1)'),
+(19516, 36004, 36004, 100, 0, 1, 1, 2, 2, 'Void Reaver - ReferenceTable - Epic Items (Tokens)'),
+--
+(19622, 21877, 0, 18, 0, 1, 1, 3, 3,      'Kael\'thas Sunstrider - Netherweave Cloth'),
+(19622, 29434, 0, 100, 0, 1, 0, 3, 3,     'Kael\'thas Sunstrider - Badge of Justice'),
+(19622, 29905, 0, 100, 1, 1, 0, 1, 1,     'Kael\'thas Sunstrider - Kael\'s Vial Remnant'),
+(19622, 30183, 0, 100, 0, 1, 0, 2, 2,     'Kael\'thas Sunstrider - Nether Vortex'),
+(19622, 32405, 0, 100, 0, 1, 0, 1, 1,     'Kael\'thas Sunstrider - Verdant Sphere'),
+(19622, 32458, 0, 2, 0, 1, 0, 1, 1,       'Kael\'thas Sunstrider - Ashes of Al\'ar'),
+(19622, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Formula, Plans, Schematics'),
+(19622, 36008, 36008, 100, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Group 1)'),
+(19622, 36009, 36009, 100, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Group 2)'),
+(19622, 36010, 36010, 100, 0, 1, 1, 2, 2, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Tokens)'),
+--
+(21212, 21877, 0, 18, 0, 1, 1, 3, 3,      'Lady Vashj - Netherweave Cloth'),
+(21212, 29434, 0, 100, 0, 1, 0, 3, 3,     'Lady Vashj - Badge of Justice'),
+(21212, 29906, 0, 100, 1, 1, 0, 1, 1,     'Lady Vashj - Vashj\'s Vial Remnant'),
+(21212, 30183, 0, 100, 0, 1, 0, 2, 2,     'Lady Vashj - Nether Vortex'),
+(21212, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Formula, Plans, Schematics'),
+(21212, 36024, 36024, 100, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Epic Items (Group 1)'),
+(21212, 36025, 36025, 100, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Epic Items (Group 2)'),
+(21212, 36026, 36026, 100, 0, 1, 1, 2, 2, 'Lady Vashj - ReferenceTable - Epic Items (Tokens)'),
+--
+(21213, 21877, 0, 18, 0, 1, 1, 3, 3,      'Morogrim Tidewalker - Netherweave Cloth'),
+(21213, 29434, 0, 100, 0, 1, 0, 2, 2,     'Morogrim Tidewalker - Badge of Justice'),
+(21213, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Formula, Plans, Schematics'),
+(21213, 36017, 36017, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 1)'),
+(21213, 36018, 36018, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 2)'),
+(21213, 36019, 36019, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 3)'),
+--
+(21214, 21877, 0, 18, 0, 1, 1, 3, 3,      'Fathom-Lord Karathress - Netherweave Cloth'),
+(21214, 29434, 0, 100, 0, 1, 0, 2, 2,     'Fathom-Lord Karathress - Badge of Justice'),
+(21214, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Formula, Plans, Schematics'),
+(21214, 36022, 36022, 100, 0, 1, 1, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Epic Items (Group 1)'),
+(21214, 36023, 36023, 100, 0, 1, 1, 2, 2, 'Fathom-Lord Karathress - ReferenceTable - Epic Items (Tokens)'),
+--
+(21215, 21877, 0, 18, 0, 1, 1, 3, 3,      'Leotheras the Blind - Netherweave Cloth'),
+(21215, 29434, 0, 100, 0, 1, 0, 2, 2,     'Leotheras the Blind - Badge of Justice'),
+(21215, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Leotheras the Blind - ReferenceTable - Formula, Plans, Schematics'),
+(21215, 36020, 36020, 100, 0, 1, 1, 1, 1, 'Leotheras the Blind - ReferenceTable - Epic Items (Group 1)'),
+(21215, 36021, 36021, 100, 0, 1, 1, 2, 2, 'Leotheras the Blind - ReferenceTable - Epic Items (Tokens)'),
+--
+(21216, 29434, 0, 100, 0, 1, 0, 2, 2,     'Hydross the Unstable - Badge of Justice'),
+(21216, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Formula, Plans, Schematics'),
+(21216, 36011, 36011, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 1)'),
+(21216, 36012, 36012, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 2)'),
+(21216, 36013, 36013, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 3)'),
+--
+(21217, 29434, 0, 100, 0, 1, 0, 2, 2,     'The Lurker Below - Badge of Justice'),
+(21217, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Formula, Plans, Schematics'),
+(21217, 36014, 36014, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 1)'),
+(21217, 36015, 36015, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 2)'),
+(21217, 36016, 36016, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 3)');
+
+-- hide Badge of Justice drops until TBC tier 5
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (18805, 19516, 19622, 21212, 21213, 21214, 21215, 21216, 21217);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(1, 18805, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 19516, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 19622, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 21212, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 21213, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 21214, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 21215, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 21216, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4'),
+(1, 21217, 29434, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Badge of Justice will only drop if the player has completed PROGRESSION_TBC_TIER_4');
