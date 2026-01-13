@@ -16,3 +16,16 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (17941, 2, 0, 'It had to be done....', 14, 0, 100, 0, 0, 10380, 17892, 0, 'Mennu the Betrayer - Kill'),
 (17941, 2, 1, 'You should not have come....', 14, 0, 100, 0, 0, 10381, 17893, 0, 'Mennu the Betrayer - Kill'),
 (17941, 3, 0, 'I... deserve this....', 14, 0, 100, 0, 0, 10382, 17894, 0, 'Mennu the Betrayer - Death');
+
+-- fix Fathom-Lord Karathress TextGroup 6 console error
+DELETE FROM `creature_text` WHERE `CreatureID` = 21214;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+(21214, 0, 0, 'Guards, attention! We have visitors....', 14, 0, 100, 0, 0, 11277, 20000, 0, 'karathress SAY_AGGRO'),
+(21214, 1, 0, 'Your overconfidence will be your undoing! Guards, lend me your strength!', 14, 0, 100, 0, 0, 11278, 19854, 0, 'karathress SAY_GAIN_BLESSING'),
+(21214, 2, 0, 'Go on, kill them! I\'ll be the better for it!', 14, 0, 100, 0, 0, 11279, 19643, 0, 'karathress SAY_GAIN_ABILITY1'),
+(21214, 3, 0, 'I am more powerful than ever!', 14, 0, 100, 0, 0, 11280, 19645, 0, 'karathress SAY_GAIN_ABILITY2'),
+(21214, 4, 0, 'More knowledge, more power!', 14, 0, 100, 0, 0, 11281, 19644, 0, 'karathress SAY_GAIN_ABILITY3'),
+(21214, 5, 0, 'Land-dwelling scum!', 14, 0, 100, 0, 0, 11282, 20001, 0, 'karathress SAY_SLAY1'),
+(21214, 5, 1, 'Alana be\'lendor!', 14, 0, 100, 0, 0, 11283, 20002, 0, 'karathress SAY_SLAY2'),
+(21214, 5, 2, 'I am rid of you.', 14, 0, 100, 0, 0, 11284, 20003, 0, 'karathress SAY_SLAY3'),
+(21214, 6, 0, 'Her... excellency... awaits.', 14, 0, 100, 0, 0, 11285, 20004, 0, 'karathress SAY_DEATH');
