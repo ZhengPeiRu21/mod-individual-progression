@@ -2,8 +2,8 @@
 UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skar\'this the Heretic in the heroic Slave Pens of Coilfang Reservoir.' WHERE `ID` = 10901;
 
 -- fix reputation gain for creatures in normal Slave Pens
-UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 4 WHERE `creature_id` = 17938;
-UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 4 WHERE `creature_id` = 21128;
+UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 4 WHERE `creature_id` = 17938; -- Coilfang Observer
+UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 4 WHERE `creature_id` = 21128; -- Coilfang Ray <Observer's Pet>
     
 -- creatures in normal The Slave Pens should not drop Coilfang Armaments
 DELETE FROM `creature_loot_template` WHERE `Item` = 24368 AND `Entry` IN (17938, 17957, 17958, 17959, 17960, 17961, 21126, 21127);
