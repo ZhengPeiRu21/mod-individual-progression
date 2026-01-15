@@ -1,3 +1,6 @@
+-- fix entry 24039 worldserver console error
+UPDATE `smart_scripts` SET `event_type` = 61, `event_flags` = 0, `event_param1` = 0, `event_param2` = 0 WHERE `entryorguid` = 24039 AND `source_type` = 0 AND `id` = 2;
+
 -- fix movement for Dreadwing
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = 1582.5800, `position_y` = 5299.3701, `position_z` = 267.8560 WHERE `id1` = 21032;
 
