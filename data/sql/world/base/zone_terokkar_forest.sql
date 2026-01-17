@@ -1,6 +1,9 @@
 -- fix drop Mature Bone Sifter Carcass (didn't drop)
 UPDATE `creature_loot_template` SET `GroupId` = 2 WHERE `Item` = 31814 AND `Entry` = 22482;
 
+-- quest: Evil Draws Near - fix turn in screen
+UPDATE `quest_template` SET `RequiredItemId3` = 0, `RequiredItemCount3` = 0 WHERE `ID` = 10923;
+
 -- fix movement Teribus the Cursed - patrols while nobody is doing the quest.
 DELETE FROM `creature_template` WHERE `entry` IN (122441);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
