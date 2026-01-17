@@ -1,6 +1,131 @@
 -- fix drop Mature Bone Sifter Carcass (didn't drop)
 UPDATE `creature_loot_template` SET `GroupId` = 2 WHERE `Item` = 31814 AND `Entry` = 22482;
 
+-- fix movement Teribus the Cursed - patrols while nobody is doing the quest.
+DELETE FROM `creature_template` WHERE `entry` IN (122441);
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
+`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
+`PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
+`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+--
+(122441, 0, 0, 0, 0, 0, 'Teribus the Cursed', NULL, NULL, 0, 65, 65, 1, 16, 0, 1, 2.28571, 1, 1, 20, 1, 1, 0, 3, 2000, 2000, 1, 1, 1, 33538, 0, 0, 0, 6, 8, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8388624, 0, 2, '', 12340);
+
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (122441);
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES 
+(122441, 0, 21018, 1, 1, 12340);
+
+DELETE FROM `creature_template_movement` WHERE `CreatureID` IN (122441);
+INSERT INTO `creature_template_movement` (`CreatureId`, `Ground`, `Swim`, `Flight`, `Rooted`, `Chase`, `Random`, `InteractionPauseTimer`) VALUES 
+(122441, 1, 0, 1, 0, 0, 0, NULL);
+
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (22441);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (22441);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(22441, 0, 0, 1, 38, 0, 100, 512, 1, 1, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Teribus the Cursed - On Data Set - Set Active'),
+(22441, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Teribus the Cursed - On Data Set - Set Visible ON'),
+(22441, 0, 2, 3, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 10, 622441, 122441, 0, 0, 0, 0, 0, 0,        'Teribus the Cursed - On Data Set - Set Visible OFF for patrol'),
+(22441, 0, 3, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 69, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, -3398.96, 4466.33, -11.18, 0, 'Teribus the Cursed - On Data Set - Move To Position'),
+(22441, 0, 4, 5, 34, 0, 100, 0, 8, 1, 0, 0, 0, 0, 5, 293, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Teribus the Cursed - Movement Inform - Play Emote'),
+(22441, 0, 5, 6, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Teribus the Cursed - On Data Set - Set Active off'),
+(22441, 0, 6, 7, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Teribus the Cursed - On Data Set - Set Event Phase'),
+(22441, 0, 7, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Teribus the Cursed - On Data Set - Set Home Position'),
+(22441, 0, 8, 9, 60, 1, 100, 513, 2000, 2000, 0, 0, 0, 0, 19, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Teribus the Cursed - On Update - Remove Unit Flags'),
+(22441, 0, 9, 0, 61, 0, 100, 513, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 70, 0, 0, 0, 0, 0, 0, 0,                 'Teribus the Cursed - On Update - Attack Start'),
+(22441, 0, 10, 0, 7, 0, 100, 512, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Teribus the Cursed - On Data Set - Set Home Position'),
+(22441, 0, 11, 12, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Teribus the Cursed - On Respawn - Set Visible OFF'),
+(22441, 0, 12, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 622441, 122441, 0, 0, 0, 0, 0, 0,       'Teribus the Cursed - On Respawn - Set Visible ON for patrol');
+
+DELETE FROM `creature` WHERE `guid` = 622441;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+(622441, 122441, 0, 0, 530, 0, 0, 1, 1, 0, -3536.9500, 4552.8501, 83.9206, 1.4071, 300, 0, 1, 29570, 0, 2, 0, 0, 0, '', 0, 0, 'Patrol');
+
+DELETE FROM `creature_addon` WHERE `guid` = 622441;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(622441, 6224410, 0, 0, 0, 0, 4, '');
+
+DELETE FROM `waypoint_data` WHERE `id` = 6224410;
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+--
+(6224410, 1, -3536.95, 4552.85, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 2, -3409.62, 4449.58, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 3, -3375.35, 4441.38, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 4, -3349.25, 4439.43, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 5, -3313.64, 4444.91, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 6, -3279.4, 4454.19, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 7, -3234.19, 4473.26, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 8, -3196.13, 4495.16, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 9, -3171.48, 4517.38, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 10, -3151.42, 4535.17, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 11, -3123.37, 4561.55, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 12, -3095.09, 4595.4, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 13, -3068.84, 4630.34, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 14, -3045.78, 4664.11, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 15, -3026.6, 4694.87, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 16, -2995.64, 4732.21, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 17, -2978.61, 4756.44, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 18, -2947.33, 4792.06, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 19, -2923.64, 4824.37, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 20, -2906.17, 4847.41, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 21, -2891.8, 4874.13, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 22, -2877.48, 4912.11, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 23, -2864.91, 4943.6, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 24, -2849.98, 4977.14, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 25, -2846.4, 5005.69, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 26, -2847, 5047.85, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 27, -2857.18, 5095.88, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 28, -2886.46, 5132.28, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 29, -2918.97, 5168.65, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 30, -2953.35, 5195.61, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 31, -2978.21, 5215.58, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 32, -3008.71, 5233.99, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 33, -3046.67, 5256.23, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 34, -3080.47, 5271.79, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 35, -3120.41, 5288.65, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 36, -3165.92, 5299.69, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 37, -3199.94, 5307.78, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 38, -3235.6, 5312.55, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 39, -3283.41, 5319.14, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 40, -3312.06, 5321.95, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 41, -3346.04, 5326.45, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 42, -3387.92, 5326.46, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 43, -3436.25, 5327.4, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 44, -3475.92, 5333.69, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 45, -3517.05, 5338.55, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 46, -3557.72, 5343.17, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 47, -3602.69, 5336.2, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 48, -3650.57, 5328.92, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 49, -3684.33, 5309.17, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 50, -3706.66, 5290.85, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 51, -3732.21, 5262.83, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 52, -3749.45, 5217.35, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 53, -3752.95, 5185.75, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 54, -3756.9, 5145.65, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 55, -3755.04, 5099.2, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 56, -3751.65, 5054.66, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 57, -3752.23, 5019.97, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 58, -3751.52, 4985.04, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 59, -3748.57, 4947.28, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 60, -3746.74, 4898.95, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 61, -3741.4, 4859.79, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 62, -3731.88, 4829.11, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 63, -3716.06, 4788.73, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 64, -3696.45, 4749.87, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 65, -3681.39, 4712.53, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 66, -3654.75, 4670.41, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 67, -3633.88, 4642.1, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 68, -3600.05, 4613.08, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 69, -3564.84, 4580.33, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 70, -3536.95, 4552.85, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 71, -3409.62, 4449.58, 83.9206, 0, 0, 2, 0, 100, 0),
+(6224410, 72, -3375.35, 4441.38, 83.9206, 0, 0, 2, 0, 100, 0);
+
 -- fix movement Rotting Forest-Rager (entry 22307)
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `wander_distance` = 0 WHERE `guid` IN (78435, 78436, 78437, 78438, 78439);
 DELETE FROM `creature` WHERE `guid` = 133907 AND `id1` = 22307; -- misplaced
