@@ -48,7 +48,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4345, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');      -- Jormund Stonebrow <Expert Tailor>
 
 -- battlemasters
-DELETE FROM `creature` WHERE `id1` IN (857, 5113, 5115, 6114, 12197, 14982, 19915, 34991, 35007, 35600) OR `guid` = 86263;
+DELETE FROM `creature` WHERE `id1` IN (857, 5113, 5115, 6114, 12197, 14982, 19915, 34991, 35007, 35025, 35600) OR `guid` = 86263;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `curhealth`, `curmana`) VALUES 
 (600857, 857,   0, 1, -5039.19, -1266.88, 510.326, 3.92579,  120, 1, 0), -- Donal Osgood <Arathi Basin Battlemaster>
 (2019,   5113,  0, 1, -5047.54, -1269.69, 510.408, 6.24828,  540, 1, 0), -- Kelv Sternhammer <Warrior Trainer>
