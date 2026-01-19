@@ -103,7 +103,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (9045, 0, 0, 0, 0, 0, 100, 0, 7000, 15000, 21000, 33000, 0, 0, 11, 14032, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Scarshield Acolyte - In Combat - Cast Shadow Word: Pain'),
-(9045, 0, 1, 0, 2, 0, 100, 1, 0, 75, 0, 0, 0, 0, 11, 12039, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarshield Acolyte - Between 0-75% Health - Cast Heal (No Repeat)'),
+(9045, 0, 1, 0, 2, 0, 100, 1, 0, 75, 0, 0, 0, 0, 11, 12039, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarshield Acolyte - Between 0-75% Health - Cast Heal (No Repeat)'),
 (9045, 0, 2, 0, 74, 0, 100, 0, 0, 0, 17000, 24000, 35, 40, 11, 8362, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Scarshield Acolyte - On Friendly Between 0-35% Health - Cast Renew'),
 (9045, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarshield Acolyte - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (9097, 0, 0, 0, 0, 0, 100, 0, 7800, 11500, 8000, 22100, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Scarshield Legionnaire - Within 0-5 Range - Cast Cleave'),
