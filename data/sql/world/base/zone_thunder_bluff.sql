@@ -60,11 +60,15 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4242, 0, 7, 165, 125, 'Show menu if leatherworking is 125 or higher'), -- Una <Artisan Leatherworker>
 (15, 4351, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');       -- Tepa <Expert Tailor>
 
+-- battlemasters
 DELETE FROM `creature` WHERE `id1` IN (7427, 10360, 12198, 34976, 34978);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (607427, 7427,  1, -1384.29, -98.6163, 159.018, 2.87979, 300), -- Taim Ragetotem <Alterac Valley Battlemaster>
 (610360, 10360, 1, -1381.29, -75.9809, 160.602, 3.19395, 300), -- Kergul Bloodaxe <Warsong Gulch Battlemaster>
 (612198, 12198, 1, -995.143, 217.173, 104.729, 4.46804,  300); -- Martin Lindsey <Arathi Basin Battlemaster>
+
+-- hide wotlk battlemasters
+UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (35020, 35603);
 
 UPDATE `creature_template` SET `subname` = 'Mining Supplier'           WHERE `entry` = 3002;-- Kurm Stonehoof <Mining Supplier>
 UPDATE `creature_template` SET `subname` = 'Sword and Dagger Merchant' WHERE `entry` = 3021;-- Kard Ragetotem <Sword and Dagger Merchant>

@@ -78,6 +78,25 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 (2849, 10, 0, 'A class trainer', 5338, 1, 1, 2848, 0, 0, 0, NULL, 0, 0),
 (2849, 11, 0, 'A profession trainer', 6635, 1, 1, 2847, 0, 0, 0, NULL, 0, 0);
 
+-- Batllemasters
+DELETE FROM `creature` WHERE `id1` IN (347, 2804, 15007, 20386);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+(600347, 347, 0, 1331.94, 334.713, -63.6249, 3.40339, 900),
+(602804, 2804, 0, 1262.97, 353.389, -63.6165, 5.46288, 900),
+(615007, 15007, 0, 1282.43, 284.592, -63.6281, 1.27409, 900),
+(620386, 20386, 0, 1252.89, 314.549, -63.6294, 0.31416, 900);
+
+-- remove vanilla battlemasters placed by AC from game events
+DELETE FROM `game_event_creature` WHERE `guid` IN (208429, 208473, 280484);
+
+-- hide battlemasters
+UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_tbc'       WHERE `entry` IN (20386);
+UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` IN (347, 2804, 15007);
+UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk'     WHERE `entry` IN (35021, 35611);
+
+-- remove vanilla battlemasters placed by AC from game events
+DELETE FROM `game_event_creature` WHERE `guid` IN (208451, 208484);
+
 
 /* Battle for the Undercity - Wrathgate NPCs  */
 
