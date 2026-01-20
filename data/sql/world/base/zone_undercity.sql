@@ -94,6 +94,8 @@ UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_tbc'  
 UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` IN (347, 2804, 15007);
 UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk'     WHERE `entry` IN (35021, 35611);
 
+-- remove vanilla battlemasters placed by AC from game events
+DELETE FROM `game_event_creature` WHERE `guid` IN (208451, 208484);
 
 /* Battle for the Undercity - Wrathgate NPCs  */
 
