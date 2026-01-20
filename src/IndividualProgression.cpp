@@ -4,6 +4,7 @@
 
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
+#include "LoginDatabase.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
@@ -205,8 +206,22 @@ bool IndividualProgression::isExcludedFromProgression(Player* player)
     if (!player || !sIndividualProgression->excludeAccounts)
         return false;
 
+    WorldSession* session = player->GetSession();
+    if (!session)
+        return false;
+
+    uint32 accountId = session->GetAccountId();
+
+    if (sIndividualProgression->excludeAccountsUseDatabase)
+    {
+        if (QueryResult res = LoginDatabase.Query("SELECT excluded FROM account WHERE id = {}", accountId))
+            return res->Fetch()[0].Get<uint8>() != 0;
+
+        // If DB lookup fails, fall back to regex to maintain behavior.
+    }
+
     std::string accountName;
-    bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
+    bool accountNameFound = AccountMgr::GetName(accountId, accountName);
     std::regex excludedAccountsRegex(sIndividualProgression->excludedAccountsRegex);
     return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
 }
@@ -1232,6 +1247,7 @@ private:
         sIndividualProgression->ExcludedAccountsEarnPvPTitles = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludedAccountsEarnPvPTitles", false);
         sIndividualProgression->DisableRDF = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
         sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
+        sIndividualProgression->excludeAccountsUseDatabase = sConfigMgr->GetOption<uint32>("IndividualProgression.ExcludeAccountsUseDatabase", 0) != 0;
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "^RNDBOT.*");
     }
 
