@@ -49,6 +49,8 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (602302, 2302, 1, 9977.6, 2313.53, 1330.87, 0.698132, 600),   -- Aethalas <Warsong Gulch Battlemaster>
 (605118, 5118, 1, 9923.77, 2323.84, 1330.87, 1.6057, 600);    -- Brogun Stoneshield <Alterac Valley Battlemaster>
 
+UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (34988, 35023, 35599);
+
 -- smart scripts
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (3516, 7999, 14378, 14379, 14380);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (3516, 7999, 14378, 14379, 14380);

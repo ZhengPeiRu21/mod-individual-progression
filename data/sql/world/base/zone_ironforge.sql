@@ -48,7 +48,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4345, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');      -- Jormund Stonebrow <Expert Tailor>
 
 -- battlemasters
-DELETE FROM `creature` WHERE `id1` IN (857, 5113, 5115, 6114, 12197, 14982, 19915, 34991, 35007, 35600) OR `guid` = 86263;
+DELETE FROM `creature` WHERE `id1` IN (857, 5113, 5115, 6114, 12197, 14982, 19915, 34991, 35007, 35025, 35600) OR `guid` = 86263;
 INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `curhealth`, `curmana`) VALUES 
 (600857, 857,   0, 1, -5039.19, -1266.88, 510.326, 3.92579,  120, 1, 0), -- Donal Osgood <Arathi Basin Battlemaster>
 (2019,   5113,  0, 1, -5047.54, -1269.69, 510.408, 6.24828,  540, 1, 0), -- Kelv Sternhammer <Warrior Trainer>
@@ -60,6 +60,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `pos
 (81,     19915, 0, 0, -5045.42, -1276.81, 510.325, 1.43228,  300, 1, 0), -- Max Xim <Arena Battlemaster>
 (88250,  34991, 0, 1, -5038.09, -1269.94, 510.325, 3.16003,  120, 1, 0), -- Borim Goldhammer <Battlemaster>
 (88249,  35007, 0, 1, -5040.18, -1263.17, 510.325, 4.46067,  120, 1, 1), -- Lixa Felflinger <Battlemaster>
+(208055, 35025, 0, 1, -5036.95, -1264.96, 510.325, 3.85973,  120, 1, 0), -- Lynette Bracer <Isle of Conquest Battlemaster>
 (88248,  35600, 0, 1, -5035.64, -1267.93, 510.324, 3.29044,  300, 1, 1); -- Arcanist Laniria <Wintergrasp Battle-Mage>
 
-UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (34991, 35007, 35600);
+UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (15351, 34991, 35007, 35025, 35600);
