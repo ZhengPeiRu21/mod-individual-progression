@@ -97,6 +97,7 @@ UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk'
 -- remove vanilla battlemasters placed by AC from game events
 DELETE FROM `game_event_creature` WHERE `guid` IN (208451, 208484);
 
+
 /* Battle for the Undercity - Wrathgate NPCs  */
 
 SET @IPPPHASE       := 65536;
