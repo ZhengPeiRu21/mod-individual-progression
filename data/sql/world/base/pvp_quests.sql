@@ -378,6 +378,10 @@ UPDATE `quest_template_addon` SET `PrevQuestID` = 13478, `SpecialFlags` = 1 WHER
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (8369, 8375); -- set AV quests to not repeatable
 
+UPDATE quest_template_addon SET `ExclusiveGroup` = 0 WHERE `id` IN 
+(8368, 8370, 8372, 8374, 8384, 8386, 8389, 8390, 8391, 8392, 8393, 8394, 8395, 8396, 8397, 8398, 8399, 8400, 8401, 8402, 8403, 8404, 
+8405, 8406, 8407, 8408, 8426, 8427, 8428, 8429, 8430, 8431, 8432, 8433, 8434, 8435, 8436, 8437, 8438, 8439, 8440, 8441, 8442, 8443);
+
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN 
 (8367, 8371, 8384, 8385, 8386, 8388, 8389, 8390, 8391, 8392, 8397, 8398, 
 8404, 8405, 8406, 8407, 8408, 8431, 8432, 8433, 8434, 8435, 8440, 8441, 8442, 8443, 
