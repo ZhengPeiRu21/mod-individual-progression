@@ -409,4 +409,15 @@ IndividualProgression.ExcludeAccounts = 1
 #
 #        Default:     "^RNDBOT.*"
 #
+#
+#
+#
+#       IndividualProgression.ExcludeAccountsUseDatabase
+#
+#       Description: Reads the account table in the database for a column named excluded. If run on a public server.
+#                    This can be used to skip the server restarts and run quicky exclusions to the system
+#
+#       Default:    0 - Disabled (Checks IndividualProgression.ExcludedAccountsRegex)
+#                   1 - Enabled (Checks Database)
+IndividualProgression.ExcludeAccountsUseDatabase = 0
 IndividualProgression.ExcludedAccountsRegex = "^RNDBOT.*"
