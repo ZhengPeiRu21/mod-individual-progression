@@ -60,7 +60,7 @@ UPDATE `quest_template` SET `RewardSpell` = 2995 WHERE `ID` IN (2480, 2359);
 
 DELETE FROM `npc_vendor` WHERE `item` IN (3775, 2892, 2893, 5237, 6947, 6949, 6950, 6951, 8926, 8927, 8928, 8984, 8985, 3776, 9186, 10918, 10920, 10921, 10922, 20844, 21835, 21927, 22053, 22054, 22055);
 
-DELETE FROM `trainer_spell` WHERE `TrainerId` IN = 9 AND `SpellID` In
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 9 AND `SpellID` In
 (2835, 2837, 3420, 3421, 5763, 6510, 8687, 8691, 8694, 11341, 11342, 11343, 11357, 11358, 11400, 13220, 13228, 13229, 13230, 26786, 26892, 26969, 27282, 27283);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
 --
