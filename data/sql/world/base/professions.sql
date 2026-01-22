@@ -281,7 +281,6 @@ INSERT INTO `trainer` (`Id`, `Type`, `Requirement`, `Greeting`, `VerifiedBuild`)
 (@TRAINER_ID+47, 2, 0, 'I can teach you how to use a fishing pole to catch fish.', 0),
 (@TRAINER_ID+48, 1, 0, 'Hello!  Can I teach you something?', 0),
 --
-(@TRAINER_ID+50, 0, 0, 'Hello, rogue!  Ready for some training?', 0),
 (@TRAINER_ID+51, 2, 0, 'Greetings!  Can I teach you how to turn beast hides into armor?', 0);
 
 /* Crafting Professions */
