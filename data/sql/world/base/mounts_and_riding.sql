@@ -30,13 +30,6 @@ UPDATE `trainer_spell` SET `ReqLevel`  = 40, `MoneyCost` = 800000   WHERE `Spell
 UPDATE `trainer_spell` SET `ReqLevel`  = 60, `MoneyCost` = 10000000 WHERE `SpellID` = 33391; -- Journeyman Riding
 UPDATE `trainer_spell` SET `ReqLevel`  = 70, `MoneyCost` = 8000000  WHERE `SpellID` = 34090; -- Expert Riding
 
--- remove mounts from trainers, they are quest rewards
-DELETE FROM `trainer_spell` WHERE `SpellID` IN (1710, 13819, 13820, 23161, 23214, 34767);
-
-UPDATE `trainer_spell` SET `ReqLevel` = 40 WHERE `SpellID` = 34768; -- Summon Warhorse
-UPDATE `trainer_spell` SET `ReqLevel` = 40 WHERE `SpellID` = 1710;  -- Summon Felsteed
-UPDATE `trainer_spell` SET `ReqLevel` = 68 WHERE `SpellID` = 33950; -- Flight Form
-
 -- Hide pre 1.6 epic mounts ater BWL is unlocked - Hide WotLK mounts on vanilla vendors
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (384, 1261, 3362, 3685, 4730, 4731, 7952, 7955);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
@@ -59,7 +52,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 7952, 13317, 0, 0, 8, 0, 66002, 0, 0, 1, 0, 0, '', 'Zjolnir will not sell Whistle of the Ivory Raptor after the player has completed PROGRESSION_ONYXIA'),
 (23, 7955, 13326, 0, 0, 8, 0, 66002, 0, 0, 1, 0, 0, '', 'Milli Featherwhistle will not sell White Mechanostrider Mod A after the player has completed PROGRESSION_ONYXIA'),
 (23, 7955, 13327, 0, 0, 8, 0, 66002, 0, 0, 1, 0, 0, '', 'Milli Featherwhistle will not sell Icy Blue Mechanostrider Mod A after the player has completed PROGRESSION_ONYXIA');
-
 
 DELETE FROM `npc_vendor` WHERE `entry` = 384  AND `item` IN (12353, 12354);
 DELETE FROM `npc_vendor` WHERE `entry` = 1261 AND `item` IN (13328, 13329);
@@ -97,7 +89,6 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES
 (7952, 13317, 0, 0),      -- Zjolnir, Whistle of the Ivory Raptor
 (7955, 13326, 0, 0),      -- Milli Featherwhistle, White Mechanostrider Mod B
 (7955, 13327, 0, 0);      -- Milli Featherwhistle, Icy Blue Mechanostrider Mod A
-
 
 -- Alliance 60% speed mounts
 UPDATE `item_template` SET `Quality` = 3, `BuyPrice` = 100000,   `RequiredLevel` = 40, `Name` = 'Black Stallion'                   WHERE `entry` = 2411;
