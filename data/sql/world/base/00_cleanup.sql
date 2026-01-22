@@ -29,6 +29,9 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinc
 
 /* the following edits are temporary */
 
+-- remove unused rogue trainer spell lists
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 650; 
+DELETE FROM `creature_default_trainer` WHERE `TrainerId` = 650;
 
 -- undo Replace orc guards with pre-wrathgate abomination guards -- 00_cleanup
 UPDATE `creature` SET `id1` = 36213, `equipment_id` = 1 WHERE `guid` IN 
