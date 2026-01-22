@@ -689,10 +689,11 @@ UPDATE `quest_template` SET `AllowableRaces` = 690 WHERE `ID` IN (9263, 9264, 92
 UPDATE `quest_template` SET `Flags` = 8, `RequiredNpcOrGo1` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (9260, 9261, 9262, 9263, 9264, 9265);
 
-UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA);
+UPDATE `creature_template` SET `npcflag` = 2 WHERE `entry` IN 
+(@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA);
 
-DELETE FROM `creature_queststarter` WHERE `id` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA) AND 
-                                       `quest` IN (9260, 9261, 9262, 9263, 9264, 9265);
+DELETE FROM `creature_queststarter` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265) AND `id` IN 
+(@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (@LIEUTENANT_ORRIN, 9260),
 (@LIEUTENANT_NEVELL, 9261),
@@ -701,8 +702,8 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (@LIEUTENANT_RUKAG, 9265),
 (@LIEUTENANT_BEITHA, 9262);
 
-DELETE FROM `creature_questender` WHERE `id` IN (@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA) AND 
-                                     `quest` IN (9260, 9261, 9262, 9263, 9264, 9265);
+DELETE FROM `creature_questender` WHERE `quest` IN (9260, 9261, 9262, 9263, 9264, 9265) AND `id` IN 
+(@LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (@LIEUTENANT_ORRIN, 9260),
 (@LIEUTENANT_NEVELL, 9261),
@@ -711,6 +712,16 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (@LIEUTENANT_RUKAG, 9265),
 (@LIEUTENANT_BEITHA, 9262);
 
+-- Hide Investigate the Scourge quests, until progression level 6, to prevent bots from picking it up
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (9260, 9261, 9262, 9263, 9264, 9265);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(19, 0, 9260, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Investigate the Scourge\' until progression level 6'),
+(19, 0, 9261, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Investigate the Scourge\' until progression level 6'),
+(19, 0, 9262, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Investigate the Scourge\' until progression level 6'),
+(19, 0, 9263, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Investigate the Scourge\' until progression level 6'),
+(19, 0, 9264, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Investigate the Scourge\' until progression level 6'),
+(19, 0, 9265, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Hide \'Investigate the Scourge\' until progression level 6');
 
 SET @AGUID    := 6000;
 
