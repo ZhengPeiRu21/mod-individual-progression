@@ -17,6 +17,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1806902,9,9,0,0,0,100,0,0,0,0,0,0,0,1,6,0,1,0,0,0,12,1,0,0,0,0,0,0,0,                'Mogor - Actionlist - Say Line 6'),
 (1806902,9,10,0,0,0,100,0,0,0,0,0,0,0,42,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,               'Mogor - Actionlist - Reset Invincibility Hp');
 
+-- fix Hero of the Mag'har event
+-- all three need smartAI for the event to play, but they are only used for the scripted event, 
+-- so I'm just giving them something to prevent an error on server startup saying they have SmartAI enabled but no SmartAI entries in the database.
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (18075, 18076, 19647);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (18075, 18076, 19647);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(18075, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Mannoroth - On Just Summoned - Set Sheath Melee'),
+(18076, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Grom Hellscream - On Just Summoned - Set Sheath Melee'),
+(19647, 0, 0, 0, 54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Thrall - On Just Summoned - Set Sheath Melee');
+
 -- fix drop rate flawless greater windroc beak / aged clefthoof blubber
 UPDATE `creature_loot_template` SET `Chance` = 20 WHERE `Item` IN (28667, 28668);
 
