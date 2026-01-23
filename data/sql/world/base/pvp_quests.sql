@@ -373,13 +373,6 @@ UPDATE `quest_template` SET `RewardXPDifficulty` = 3, `RewardMoney` = 74000  WHE
 (8367, 11339, 11340, 11341, 11342,  -- horde
  8371, 11335, 11336, 11337, 11338); -- alliance
 
-UPDATE `quest_template` SET `RewardItem1` = 20558, `RewardAmount1` = 3 WHERE `ID` IN
-(8368, 8389, 8372, 8386, 8426, 8431, 8399, 8404, 8427, 8432, 8400, 8405, 8428, 8433, 8401, 8406, 8429, 8434, 8402, 8407, 8403, 8408, 8430, 8435, -- Vanilla WSG
-
-UPDATE `quest_template` SET `RewardItem1` = 20559, `RewardAmount1` = 3 WHERE `ID` IN
-(8370, 8390, 8374, 8384, 8436, 8440, 8393, 8391, 8437, 8441, 8394, 8392, 8438, 8442, 8395, 8397, 8439, 8443, 8396, 8398); -- Vanilla AB
-
-UPDATE `quest_template` SET `RewardItem1` = 20560, `RewardAmount1` = 3 WHERE `ID` IN (8369, 8375, 8383, 8387); -- Vanilla AV quests
 UPDATE `quest_template` SET `RewardItem1` = 20559, `RewardAmount1` = 3 WHERE `ID` IN (11335, 11339); -- Call to Arms: Arathi Basin (repeatable)
 UPDATE `quest_template` SET `RewardItem1` = 20560, `RewardAmount1` = 3 WHERE `ID` IN (11336, 11340); -- Call to Arms: Alterac Valley (repeatable)
 UPDATE `quest_template` SET `RewardItem1` = 29024, `RewardAmount1` = 3 WHERE `ID` IN (11337, 11341); -- Call to Arms: Eye of the Storm (repeatable)
