@@ -610,7 +610,6 @@ public:
         if (!player || !player->IsInWorld() || !spellID)
             return;
 
-        uint16 playerGUID = player->GetGUID().GetCounter();
         Pet* pet = player->GetPet();
 
         if (!pet)
