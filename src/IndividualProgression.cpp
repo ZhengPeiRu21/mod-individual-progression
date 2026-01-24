@@ -248,63 +248,145 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
     if (!pet || !pet->IsInWorld())
         return;
 
-    // only for demons
-    if (pet->GetEntry() != NPC_VOIDWALKER && pet->GetEntry() != NPC_SUCCUBUS &&
-        pet->GetEntry() != NPC_FELHUNTER && pet->GetEntry() != NPC_IMP && pet->GetEntry() != NPC_FELGUARD)
-        return;
-
     // only for vanilla and tbc
     if (player->GetLevel() > 70)
         return;
 
-    // remove all demon spells
-    for (uint32 demonSpellID : {20270, 20312, 20313, 20314, 20315, 20314, 27487, // Grimoire of Firebolt
-                                20397, 20318, 20319, 20320, 20321, 27488,        // Grimoire of Blood Pact
-                                20322, 20323, 20324, 20326, 20327, 27489,        // Grimoire of Fire Shield
-                                20329,                                           // Grimoire of Phase Shift
-                                20317, 20377, 20378, 20379, 20380, 27490,        // Grimoire of Torment
-                                20381, 20382, 20383, 20384, 20385, 20386, 27492, // Grimoire of Sacrifice
-                                20387, 20388, 20389, 20390, 20391, 20392, 27491, // Grimoire of Consume Shadows
-                                20393, 20394, 20395, 20396, 27500, 33703,        // Grimoire of Suffering
-                                20398, 20399, 20400, 20401, 20402, 27493,        // Grimoire of Lash of Pain
-                                20403, 20404, 20405, 20406, 27494,               // Grimoire of Soothing Kiss
-                                20426, 20427, 20428, 27495, 27496,               // Grimoire of Devour Magic
-                                20429, 20430, 20431, 20432, 27497,               // Grimoire of Tainted Blood
-                                20433, 20434,                                    // Grimoire of Spell Lock
-                                30154, 30199, 30200,                             // Grimoire of Intercept
-                                30214, 30222, 30224,                             // Grimoire of Cleave
-                                33704, 33705, 33706,                             // Grimoire of Anguish
-                                20407, 20408, 20435, 32234, 32852})
+    switch (pet->GetEntry())
     {
-        if (pet->HasSpell(demonSpellID))
+    case NPC_IMP:
+        // remove all Imp demon spells
+        for (uint32 Imp_SpellID :
+        {20270, 20312, 20313, 20314, 20315, 20314, 27487, // Grimoire of Firebolt
+         20397, 20318, 20319, 20320, 20321, 27488,        // Grimoire of Blood Pact
+         20322, 20323, 20324, 20326, 20327, 27489,        // Grimoire of Fire Shield
+         20329})                                          // Grimoire of Phase Shift
         {
-            pet->removeSpell(demonSpellID, false);
+            if (pet->HasSpell(Imp_SpellID))
+            {
+                pet->removeSpell(Imp_SpellID, false);
+            }
         }
-    }
 
-    // add learned demon spells
-    for (uint32 playerSpellID : {620270, 620312, 620313, 620314, 620315, 620314, 627487,
-                                 620397, 620318, 620319, 620320, 620321, 627488,
-                                 620322, 620323, 620324, 620326, 620327, 627489,
-                                 620329,
-                                 620317, 620377, 620378, 620379, 620380, 627490,
-                                 620381, 620382, 620383, 620384, 620385, 620386, 627492,
-                                 620387, 620388, 620389, 620390, 620391, 620392, 627491,
-                                 620393, 620394, 620395, 620396, 627500, 633703,
-                                 620398, 620399, 620400, 620401, 620402, 627493,
-                                 620403, 620404, 620405, 620406, 627494,
-                                 620426, 620427, 620428, 627495, 627496,
-                                 620429, 620430, 620431, 620432, 627497,
-                                 620433, 620434,
-                                 630154, 630199, 630200,
-                                 630214, 630222, 630224,
-                                 633704, 633705, 633706,
-                                 620407, 620408, 620435, 632234, 632852})
-    {
-        if (player->HasSpell(playerSpellID))
+        // add learned Imp demon spells
+        for (uint32 player_Imp_SpellID :
+        {620270, 620312, 620313, 620314, 620315, 620314, 627487,
+         620397, 620318, 620319, 620320, 620321, 627488,
+         620322, 620323, 620324, 620326, 620327, 627489,
+         620329})
         {
-            pet->learnSpell(playerSpellID - 600000);
+            if (player->HasSpell(player_Imp_SpellID))
+            {
+                pet->learnSpell(player_Imp_SpellID - 600000);
+            }
         }
+        break;
+    case NPC_VOIDWALKER:
+        // remove all Voidwalker demon spells
+        for (uint32 Voidwalker_SpellID :
+        {20317, 20377, 20378, 20379, 20380, 27490,        // Grimoire of Torment
+         20381, 20382, 20383, 20384, 20385, 20386, 27492, // Grimoire of Sacrifice
+         20387, 20388, 20389, 20390, 20391, 20392, 27491, // Grimoire of Consume Shadows
+         20393, 20394, 20395, 20396, 27500, 33703})       // Grimoire of Suffering
+        {
+            if (pet->HasSpell(Voidwalker_SpellID))
+            {
+                pet->removeSpell(Voidwalker_SpellID, false);
+            }
+        }
+
+        // add learned Voidwalker demon spells
+        for (uint32 player_Voidwalker_SpellID :
+        {620317, 620377, 620378, 620379, 620380, 627490,
+         620381, 620382, 620383, 620384, 620385, 620386, 627492,
+         620387, 620388, 620389, 620390, 620391, 620392, 627491,
+         620393, 620394, 620395, 620396, 627500, 633703})
+        {
+            if (player->HasSpell(player_Voidwalker_SpellID))
+            {
+                pet->learnSpell(player_Voidwalker_SpellID - 600000);
+            }
+        }
+        break;
+    case NPC_SUCCUBUS:
+        // remove all Succubus demon spells
+        for (uint32 Succubus_SpellID :
+        {20398, 20399, 20400, 20401, 20402, 27493, // Grimoire of Lash of Pain
+         20403, 20404, 20405, 20406, 27494,        // Grimoire of Soothing Kiss
+         20407, 20408})                            // Seduction, Lesser Invisibility,
+        {
+            if (pet->HasSpell(Succubus_SpellID))
+            {
+                pet->removeSpell(Succubus_SpellID, false);
+            }
+        }
+
+        // add learned Succubus demon spells
+        for (uint32 player_Succubus_SpellID :
+        {620398, 620399, 620400, 620401, 620402, 627493,
+         620403, 620404, 620405, 620406, 627494,
+         620407, 620408})
+        {
+            if (player->HasSpell(player_Succubus_SpellID))
+            {
+                pet->learnSpell(player_Succubus_SpellID - 600000);
+            }
+        }
+        break;
+    case NPC_FELHUNTER:
+        // remove all Felhunter demon spells
+        for (uint32 Felhunter_SpellID :
+        {20426, 20427, 20428, 27495, 27496, // Grimoire of Devour Magic
+         20429, 20430, 20431, 20432, 27497, // Grimoire of Tainted Blood
+         20433, 20434,                      // Grimoire of Spell Lock
+         20435})                            // Paranoia
+        {
+            if (pet->HasSpell(Felhunter_SpellID))
+            {
+                pet->removeSpell(Felhunter_SpellID, false);
+            }
+        }
+
+        // add learned Felhunter demon spells
+        for (uint32 player_Felhunter_SpellID :
+        {620426, 620427, 620428, 627495, 627496,
+         620429, 620430, 620431, 620432, 627497,
+         620433, 620434,
+         620435})
+        {
+            if (player->HasSpell(player_Felhunter_SpellID))
+            {
+                pet->learnSpell(player_Felhunter_SpellID - 600000);
+            }
+        }
+        break;
+    case NPC_FELGUARD:
+        // remove all Felguard demon spells
+        for (uint32 Felguard_SpellID :
+        {30154, 30199, 30200, // Grimoire of Intercept
+         30214, 30222, 30224, // Grimoire of Cleave
+         33704, 33705, 33706, // Grimoire of Anguish
+         32234, 32852})       // Avoidance, Demonic Frenzy
+        {
+            if (pet->HasSpell(Felguard_SpellID))
+            {
+                pet->removeSpell(Felguard_SpellID, false);
+            }
+        }
+
+        // add learned Felhunter demon spells
+        for (uint32 player_Felhunter_SpellID :
+        {630154, 630199, 630200,
+         630214, 630222, 630224,
+         633704, 633705, 633706,
+         632234, 632852})
+        {
+            if (player->HasSpell(player_Felhunter_SpellID))
+            {
+                pet->learnSpell(player_Felhunter_SpellID - 600000);
+            }
+        }
+        break;
     }
 }
 
