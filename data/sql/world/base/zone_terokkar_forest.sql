@@ -4,6 +4,9 @@ UPDATE `creature_loot_template` SET `GroupId` = 2 WHERE `Item` = 31814 AND `Entr
 -- quest: Evil Draws Near - fix turn in screen
 UPDATE `quest_template` SET `RequiredItemId3` = 0, `RequiredItemCount3` = 0 WHERE `ID` = 10923;
 
+-- quest: Safety is Job One - fix turn in text
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to the Ethereal Transporter Control Panel in the Mana-Tombs.' WHERE `ID` = 10216;
+
 -- fix movement Teribus the Cursed - patrols while nobody is doing the quest.
 DELETE FROM `creature_template` WHERE `entry` IN (22441, 122441);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
