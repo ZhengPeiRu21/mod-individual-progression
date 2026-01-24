@@ -605,6 +605,29 @@ public:
         sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
+    void OnPlayerLearnSpell(Player* player, uint32 spellID) override
+    {
+        if (!player || !player->IsInWorld() || !spellID)
+            return;
+
+        uint16 playerGUID = player->GetGUID().GetCounter();
+        Pet* pet = player->GetPet();
+
+        if (!pet)
+            return;
+    
+        if (spellID == 620270)
+        {
+	        // remove all demon spells
+            CharacterDatabase.Query("DELETE FROM `pet_spell` WHERE `guid` IN (SELECT `ID` FROM `character_pet` WHERE `owner` = {}", playerGUID);
+
+            // add learned demon spells
+            if (player->HasSpell(620270))
+            {   
+                pet->learnSpell(620270-600000);
+            }
+        }    
+    }
 };
 
 class IndividualPlayerProgression_AccountScript: public AccountScript
