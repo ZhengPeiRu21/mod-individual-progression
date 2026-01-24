@@ -56,6 +56,7 @@ UPDATE `item_template` SET `Quality` = 1, `class` = 7 WHERE `entry` IN
  8923,  -- Essence of Agony
  8924); -- Dust of Deterioration
 
+-- add Poisons skill reward to rogue quests
 UPDATE `quest_template` SET `RewardSpell` = 2995 WHERE `ID` IN (2480, 2359);
 
 DELETE FROM `npc_vendor` WHERE `item` IN (3775, 2892, 2893, 5237, 6947, 6949, 6950, 6951, 8926, 8927, 8928, 8984, 8985, 3776, 9186, 10918, 10920, 10921, 10922, 20844, 21835, 21927, 22053, 22054, 22055);
