@@ -119,8 +119,7 @@ public:
 
     struct boss_thaddius_40AI : public BossAI
     {
-        explicit boss_thaddius_40AI(Creature* c) : BossAI(c, BOSS_THADDIUS), summons(me), ballLightningEnabled(false)
-        {}
+        explicit boss_thaddius_40AI(Creature* c) : BossAI(c, BOSS_THADDIUS), summons(me), ballLightningEnabled(false) { }
 
         EventMap events;
         SummonList summons;
@@ -198,7 +197,7 @@ public:
                 return;
 
             Talk(SAY_SLAY);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustDied(Unit*  killer) override
@@ -310,7 +309,7 @@ public:
                     me->RemoveUnitFlag(UNIT_FLAG_NON_ATTACKABLE);
                     events.ScheduleEvent(EVENT_THADDIUS_CHAIN_LIGHTNING, 14s);
                     events.ScheduleEvent(EVENT_THADDIUS_BERSERK, 6min);
-                    events.ScheduleEvent(EVENT_THADDIUS_POLARITY_SHIFT, 30s);
+                    events.ScheduleEvent(EVENT_THADDIUS_POLARITY_SHIFT, 20s);
                     events.ScheduleEvent(EVENT_ALLOW_BALL_LIGHTNING, 5s);
                     return;
                 case EVENT_THADDIUS_BERSERK:
@@ -699,26 +698,18 @@ public:
     };
 };
 
-class at_thaddius_entrance : public AreaTriggerScript
+class at_thaddius_entrance : public OnlyOnceAreaTriggerScript
 {
 public:
-    at_thaddius_entrance() : AreaTriggerScript("at_thaddius_entrance") { }
+    at_thaddius_entrance() : OnlyOnceAreaTriggerScript("at_thaddius_entrance") { }
 
-    bool _thaddiusIntro = false;
-
-    bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
+    bool _OnTrigger(Player* player, const AreaTrigger* /*trigger*/) override
     {
-        InstanceScript* instance = player->GetInstanceScript();
-        if (!instance || _thaddiusIntro == true || instance->GetBossState(BOSS_THADDIUS) == DONE)
-            return true;
-
-        if (Creature* thaddius = instance->GetCreature(DATA_THADDIUS_BOSS))
-		{
-            thaddius->AI()->Talk(SAY_GREET);
-			_thaddiusIntro = true;
-        }
-
-        return true;
+        if (InstanceScript* instance = player->GetInstanceScript())
+            if (instance->GetBossState(BOSS_THADDIUS) != DONE)
+                if (Creature* thaddius = instance->GetCreature(DATA_THADDIUS_BOSS))
+                    thaddius->AI()->Talk(SAY_GREET);
+        return false;
     }
 };
 
@@ -726,8 +717,8 @@ void AddSC_boss_thaddius_40()
 {
     new boss_thaddius_40();
     new boss_thaddius_summon_40();
-//    new npc_tesla();
+    new npc_tesla();
     RegisterSpellScript(spell_thaddius_pos_neg_charge);
-    // RegisterSpellScript(spell_thaddius_polarity_shift);
-//    new at_thaddius_entrance();
+    RegisterSpellScript(spell_thaddius_polarity_shift);
+    new at_thaddius_entrance();
 }

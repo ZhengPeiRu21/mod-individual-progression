@@ -42,7 +42,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1013, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Mosshide Mystic - On Aggro - Say Line 0'),
 (1013, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Mosshide Mystic - In Combat - Cast Lightning Bolt'),
 (1013, 0, 2, 0, 0, 0, 30, 0, 10000, 15000, 60000, 60000, 0, 0, 11, 11436, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Mosshide Mystic - In Combat - Cast Slow'),
-(1013, 0, 3, 0, 74, 0, 80, 0, 0, 0, 60000, 60000, 40, 40, 11, 11986, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Mosshide Mystic - Friendly Between 0-40% Health - Cast Healing Wave'),
+(1013, 0, 3, 0, 74, 0, 80, 0, 0, 0, 60000, 60000, 40, 40, 11, 11986, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Mosshide Mystic - Friendly Between 0-40% Health - Cast Healing Wave'),
 (1013, 0, 4, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 3288, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Mosshide Mystic - Between 0-30% Health - Cast Moss Hide (No Repeat)'),
 (1013, 0, 5, 0, 2, 0, 100, 513, 0, 15, 0, 0, 0, 0, 28, 3288, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Mosshide Mystic - Between 0-15% Health - Remove Aura Moss Hide (No Repeat)'),
 (1013, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Mosshide Mystic - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -72,7 +72,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1028, 0, 0, 0, 0, 0, 90, 0, 1000, 6000, 11000, 14000, 0, 0, 11, 1777, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Bluegill Muckdweller - Within 0-5 Range - Cast Gouge'),
 (1028, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Bluegill Muckdweller - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1029, 0, 0, 0, 2, 0, 100, 1, 0, 60, 0, 0, 0, 0, 11, 6274, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Bluegill Oracle - Between 0-60% Health - Cast Healing Ward (No Repeat)'),
-(1029, 0, 1, 0, 74, 0, 100, 0, 0, 0, 10000, 25000, 40, 40, 11, 939, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Bluegill Oracle - Friendly Between 0-40% Health - Cast Healing Wave'),
+(1029, 0, 1, 0, 74, 0, 100, 0, 0, 0, 10000, 25000, 40, 40, 11, 939, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Bluegill Oracle - Friendly Between 0-40% Health - Cast Healing Wave'),
 (1029, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Bluegill Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (1030, 0, 0, 0, 0, 0, 100, 0, 1000, 2000, 186000, 195000, 0, 0, 11, 3335, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Black Slime - Within 0-5 Range - Cast Dark Sludge'),
@@ -96,23 +96,23 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1038, 0, 1, 0, 0, 0, 100, 0, 2000, 8000, 20000, 30000, 0, 0, 11, 6223, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Dragonmaw Shadowwarder - In Combat - Cast Corruption'),
 (1038, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dragonmaw Shadowwarder - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(1042, 0, 0, 0, 0, 0, 100, 0, 1000, 11000, 15000, 26000, 0, 0, 11, 3356, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Red Whelp - In Combat - Cast Flame Lash'),
+(1042, 0, 0, 0, 0, 0, 100, 0, 1000, 11000, 15000, 26000, 0, 0, 11, 3356, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Red Whelp - In Combat - Cast Flame Lash'),
 (1043, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 11839, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Lost Whelp - In Combat - Cast Fireball'),
 (1044, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 11839, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Flamesnorting Whelp - In Combat - Cast Fireball'),
 (1045, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 7000, 9000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Red Dragonspawn - Within 0-5 Range - Cast Strike'),
 (1045, 0, 1, 0, 0, 0, 100, 0, 8000, 10000, 6000, 17000, 0, 0, 11, 9080, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Red Dragonspawn - Within 0-5 Range - Cast Hamstring'),
 (1046, 0, 0, 0, 0, 0, 100, 0, 0, 1000, 3000, 22000, 0, 0, 11, 15242, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Red Wyrmkin - In Combat - Cast Fireball'),
-(1046, 0, 1, 0, 0, 0, 100, 0, 3000, 24000, 21000, 26000, 0, 0, 11, 18399, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Red Wyrmkin - In Combat - Cast Flamestrike'),
+(1046, 0, 1, 0, 0, 0, 100, 0, 3000, 24000, 21000, 26000, 0, 0, 11, 18399, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Red Wyrmkin - In Combat - Cast Flamestrike'),
 (1046, 0, 2, 0, 0, 0, 100, 0, 3000, 19000, 13000, 32000, 0, 0, 11, 14145, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Red Wyrmkin - In Combat - Cast Fire Blast'),
-(1046, 0, 3, 0, 0, 0, 100, 0, 7000, 12000, 8000, 23000, 0, 0, 11, 15230, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Red Wyrmkin - In Combat - Cast Arcane Bolt'),
+(1046, 0, 3, 0, 0, 0, 100, 0, 7000, 12000, 8000, 23000, 0, 0, 11, 15230, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Red Wyrmkin - In Combat - Cast Arcane Bolt'),
 (1047, 0, 0, 0, 0, 0, 100, 0, 6000, 18000, 5000, 16000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Red Scalebane - Within 0-5 Range - Cast Cleave'),
 (1048, 0, 0, 0, 0, 0, 100, 0, 3400, 7600, 9800, 26800, 0, 0, 11, 16509, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Scalebane Lieutenant - Within 0-5 Range - Cast Rend'),
 (1048, 0, 1, 0, 0, 0, 100, 0, 4000, 15100, 6900, 23100, 0, 0, 11, 12169, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scalebane Lieutenant - In Combat - Cast Shield Block'),
 (1048, 0, 2, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 16145, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Scalebane Lieutenant - Within 0-5 Range - Cast Sunder Armor'),
-(1049, 0, 0, 0, 0, 0, 100, 0, 11000, 22000, 12000, 13000, 0, 0, 11, 17203, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Wyrmkin Firebrand - In Combat - Cast Fireball Volley'),
+(1049, 0, 0, 0, 0, 0, 100, 0, 11000, 22000, 12000, 13000, 0, 0, 11, 17203, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Wyrmkin Firebrand - In Combat - Cast Fireball Volley'),
 (1049, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 18000, 0, 0, 11, 17195, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Wyrmkin Firebrand - In Combat - Cast Scorch'),
 (1049, 0, 2, 0, 0, 0, 100, 0, 7000, 19000, 6000, 22000, 0, 0, 11, 20754, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Wyrmkin Firebrand - In Combat - Cast Rain of Fire'),
-(1049, 0, 3, 0, 0, 0, 100, 0, 3000, 18000, 9000, 20000, 0, 0, 11, 15537, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Wyrmkin Firebrand - In Combat - Cast Shadow Bolt'),
+(1049, 0, 3, 0, 0, 0, 100, 0, 3000, 18000, 9000, 20000, 0, 0, 11, 15537, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Wyrmkin Firebrand - In Combat - Cast Shadow Bolt'),
 (1050, 0, 0, 0, 0, 0, 100, 0, 5000, 17000, 5000, 21000, 0, 0, 11, 16635, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scalebane Royal Guard - In Combat - Cast Fire Nova'),
 (1050, 0, 1, 0, 0, 0, 100, 0, 7000, 15000, 7000, 29000, 0, 0, 11, 16856, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Scalebane Royal Guard - Within 0-5 Range - Cast Mortal Strike'),
 --
@@ -139,7 +139,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (1057, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 8853, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Dragonmaw Bonewarder - Out of Combat - Cast Summon Skeleton (No Repeat)'),
 (1057, 0, 1, 0, 0, 0, 100, 0, 8000, 14000, 8000, 14000, 0, 0, 11, 6205, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Dragonmaw Bonewarder - In Combat - Cast Curse of Weakness'),
-(1057, 0, 2, 0, 0, 0, 100, 0, 1000, 9000, 15000, 27000, 0, 0, 11, 707, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Dragonmaw Bonewarder - In Combat - Cast Immolate'),
+(1057, 0, 2, 0, 0, 0, 100, 0, 1000, 9000, 15000, 27000, 0, 0, 11, 707, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Dragonmaw Bonewarder - In Combat - Cast Immolate'),
 (1057, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dragonmaw Bonewarder - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1111, 0, 0, 0, 0, 0, 100, 0, 2000, 17000, 32000, 52000, 0, 0, 11, 3358, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Leech Stalker - Within 0-5 Range - Cast Leech Poison'),
 (1112, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 38000, 61000, 0, 0, 11, 3388, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Leech Widow - Within 0-5 Range - Cast Deadly Leech Poison'),
@@ -165,9 +165,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1353, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 11000, 28000, 0, 0, 11, 3427, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Sarltooth - Within 0-5 Range - Cast Infected Wound'),
 (1364, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12746, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Balgaras the Foul - Out of Combat - Cast Summon Voidwalker'),
 (1364, 0, 1, 0, 4, 0, 70, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Balgaras the Foul - On Aggro - Say Line 0'),
-(1364, 0, 2, 0, 0, 0, 100, 0, 4000, 7000, 21000, 21000, 0, 0, 11, 9081, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Balgaras the Foul - In Combat - Cast Shadow Bolt Volley'),
+(1364, 0, 2, 0, 0, 0, 100, 0, 4000, 7000, 21000, 21000, 0, 0, 11, 9081, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Balgaras the Foul - In Combat - Cast Shadow Bolt Volley'),
 (1364, 0, 3, 0, 106, 0, 100, 0, 0, 0, 19000, 38000, 0, 8, 11, 11831, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Balgaras the Foul - Within 0-8 Range - Cast Frost Nova'),
-(1364, 0, 4, 0, 0, 0, 100, 0, 13000, 16000, 182000, 182000, 0, 0, 11, 3586, 64, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0, 'Balgaras the Foul - Within 0-5 Range - Cast Volatile Infection'),
+(1364, 0, 4, 0, 0, 0, 100, 0, 13000, 16000, 182000, 182000, 0, 0, 11, 3586, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Balgaras the Foul - Within 0-5 Range - Cast Volatile Infection'),
 (1364, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Balgaras the Foul - Between 0-15% Health - Flee For Assist'),
 --
 (1418, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Bluegill Raider - Outside 30 Range - Start Combat Movement'),
@@ -185,14 +185,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2108, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Garneg Charskull - On Aggro - Say Line 0'),
 (2108, 0, 1, 0, 0, 0, 100, 0, 0, 0, 6000, 19000, 0, 0, 11, 15039, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Garneg Charskull - In Combat - Cast Flame Shock'),
 (2108, 0, 2, 0, 0, 0, 100, 0, 2000, 6000, 1000, 7000, 0, 0, 11, 184, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Garneg Charskull - In Combat - Cast Fire Shield II'),
-(2108, 0, 3, 0, 0, 0, 100, 0, 10000, 17000, 33000, 61000, 0, 0, 11, 6725, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Garneg Charskull - In Combat - Cast Flame Spike'),
+(2108, 0, 3, 0, 0, 0, 100, 0, 10000, 17000, 33000, 61000, 0, 0, 11, 6725, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Garneg Charskull - In Combat - Cast Flame Spike'),
 (2108, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Garneg Charskull - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4040, 0, 0, 0, 0, 0, 100, 0, 4000, 17000, 40000, 64000, 0, 0, 11, 3358, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Cave Stalker - Within 0-5 Range - Cast Leech Poison'),
 --
 (12899, 0, 0, 0, 0, 0, 100, 0, 6000, 7000, 16000, 16000, 0, 0, 11, 20712, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Axtroz - In Combat - Cast Flame Breath'),
 (12899, 0, 1, 0, 0, 0, 100, 0, 8000, 13000, 7000, 11000, 0, 0, 11, 16095, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Axtroz - Within 0-5 Range - Cast Vicious Rend'),
-(12899, 0, 2, 0, 0, 0, 90, 0, 4000, 5000, 6000, 11000, 0, 0, 11, 20714, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Axtroz - In Combat - Cast Fireball'),
-(14424, 0, 0, 0, 0, 0, 100, 0, 10000, 16000, 14000, 28000, 0, 0, 11, 22127, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Mirelow - In Combat - Cast Entangling Roots'),
+(12899, 0, 2, 0, 0, 0, 90, 0, 4000, 5000, 6000, 11000, 0, 0, 11, 20714, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Axtroz - In Combat - Cast Fireball'),
+(14424, 0, 0, 0, 0, 0, 100, 0, 10000, 16000, 14000, 28000, 0, 0, 11, 22127, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Mirelow - In Combat - Cast Entangling Roots'),
 (14425, 0, 0, 0, 0, 0, 100, 0, 8000, 8000, 8000, 26000, 0, 0, 11, 11977, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Gnawbone - Within 0-5 Range - Cast Rend'),
 (14425, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnawbone - Between 0-15% Health - Flee For Assist (No Repeat)');
 
@@ -206,9 +206,9 @@ UPDATE `creature_loot_template` SET `Chance` = 2  WHERE `Item` = 3349 AND `Entry
 UPDATE `creature_loot_template` SET `Chance` = 5  WHERE `Item` = 3349 AND `Entry` = 1033; -- Monstrous Ooze
 
 -- Fremal Doohickey <First Aid Trainer>
-DELETE FROM `npc_trainer` WHERE `ID`=3181; 
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES (3181, -350000); 
-
+SET @TRAINER_ID   := 600;
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3181);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (3181, @TRAINER_ID+45);
 
 -- missing patrols
 DELETE FROM `pool_creature` WHERE `pool_entry` = 1072; -- remove 22 spawn locations used by AC, we are now using waypoints

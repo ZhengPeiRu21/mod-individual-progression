@@ -1,6 +1,3 @@
-DELETE FROM `game_event_creature` WHERE `guid` IN (208146, 208159, 208185, 208207, 208240, 208251, 208355, 208368, 208394, 208407);
-DELETE FROM `creature_addon` WHERE `guid` IN (29803, 133925, 133926);
-
 /* Several unused BG NPCs have wrong classes in AC - fix to prevent console warning */
 UPDATE `creature_template` SET `unit_class` = 2 WHERE `entry` IN (22742, 22791, 22796, 22792, 22627, 22532, 22774, 22534, 22529, 22537, 22790, 22791, 22637, 22599,
                                                                  32013, 22781, 31930, 32128, 31935, 31927, 31938, 32120, 37332, 32142, 31821, 37248, 37453, 37253,
@@ -9,82 +6,99 @@ UPDATE `creature_template` SET `unit_class` = 1 WHERE `entry` IN (22632, 32055, 
 UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (29273);
 
 /* Delete unused Creature Addon data */
-DELETE FROM `creature_addon` WHERE `guid` IN (133917, 133918, 133919, 133920, 133928);
+DELETE FROM `creature_addon` WHERE `guid` IN (29803, 133917, 133918, 133919, 133920, 133925);
 
--- needed to avoid error because zone_burning_steppes is run before zone_hillsbrad_foothills
-DELETE FROM `pool_creature` WHERE `pool_entry` IN (601046);
-
--- undo incorrect waypoint IDs 
-DELETE FROM `waypoint_data` WHERE `id` = 48310;  -- Lady Sarevess
-DELETE FROM `waypoint_data` WHERE `id` = 101820; -- Rexxar
-
--- removed unused requirement for Onyxia 40, this is now handled with cpp
-DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 123;
-
--- undo incorrect title change
-UPDATE `creature_template` SET `subname` = 'Master Blacksmithing Trainer' WHERE `entry` = 16583;
-
--- alliance battlemasters
-DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 208042, 208081, 208107);
-
--- Onyxia wotlk version
-UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `DamageModifier` = 35, `HealthModifier` = 350.0, `ManaModifier` = 1, `mingold` = 93755, `maxgold` = 122438 WHERE `entry` = 10184;
-UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `DamageModifier` = 1, `HealthModifier` = 5 WHERE `entry` = 11262;
-UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80, `DamageModifier` = 7.5, `HealthModifier` = 70, `ManaModifier` = 1 WHERE `entry` = 12129;
-
--- Naxx40 - Razuvious
-DELETE FROM `spell_script_names` WHERE `spell_id` IN (29107, 55543);
-
--- Naxx40
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 15975;
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
-`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
-(15975,0,0,0,0,0,100,2,5000,8000,14000,18000,0,0,11,30043,0,0,0,0,0,2,0,0,0,0,0,0,0,0,'Cast Spell IC'),
-(15975,0,1,0,0,0,100,4,5000,8000,14000,18000,0,0,11,56032,0,0,0,0,0,2,0,0,0,0,0,0,0,0,'Cast Spell IC'),
-(15975,0,2,0,0,0,100,0,9000,16000,18000,21000,0,0,11,28434,0,0,0,0,0,5,0,0,0,0,0,0,0,0,'Cast Spell IC');
-
--- Scourge Invasion Update
-UPDATE `creature_template` SET `AIName` = ''   WHERE `entry` = 16136;
-UPDATE `creature_template` SET `npcflag` = 1   WHERE `entry` = 16786;
-UPDATE `creature_template` SET `npcflag` = 129 WHERE `entry` = 16787;
-UPDATE `creature_template` SET `npcflag` = 2   WHERE `entry` IN (29441, 29442);
-
-UPDATE `creature` SET `phaseMask` = 1   WHERE `id1` IN (14682, 14684, 14686, 14690, 14693, 14695);
-UPDATE `creature` SET `ScriptName` = '' WHERE `id1` IN (16241, 16255, 16281, 16285, 16359, 16361, 16478, 16484, 16490, 16493, 16494, 16495, 16786, 16787);
+-- battlemasters
+DELETE FROM `game_event_creature` WHERE `guid` IN (207918, 207929, 207951, 208042, 208081, 208107, 208146, 208159, 208185); -- alliance
+DELETE FROM `game_event_creature` WHERE `guid` IN (208207, 208240, 208251, 208355, 208368, 208394, 208407); -- horde
 
 -- remove AzerothCore area triggers used by WotLK Scourge Invasion Event
 DELETE FROM `areatrigger_involvedrelation` WHERE `id` IN (4092, 4094, 4095, 4096, 4098, 4099, 4100, 4101, 4103, 4104, 4105, 5151, 5152, 5153, 5154, 5158, 5159, 5160, 5161);
 
--- maraudon cleanup
-SET @CGUID  := 349000;
-SET @WPID   := 3490000;
+-- remove arena season event entries added by AC
+DELETE FROM `creature_addon` WHERE `guid` IN (88155, 88156, 88158, 88159, 88160);
+DELETE FROM `game_event_creature` WHERE `guid` IN 
+(17676, 88155, 88156, 88158, 88159, 88160, 91798, 152022, 152023, 152026, 152027, 152028, 152029, 152030, 152031, 202335, 202336, 
+208486, 208487, 208488, 208489, 208491, 208492, 208494, 208496, 208498, 208499, 208500, 208501, 208503, 208504, 208506, 208508);
 
-DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+32;
-DELETE FROM `creature_formations` WHERE `leaderGUID` IN (@CGUID+1, @CGUID+6, @CGUID+11, @CGUID+16, @CGUID+21, @CGUID+26, @CGUID+31);
-DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+1, @CGUID+6, @CGUID+11, @CGUID+16, @CGUID+21, @CGUID+26, @CGUID+31);
-DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+10, @WPID+60, @WPID+110, @WPID+160, @WPID+210, @WPID+260, @WPID+310);
-DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+41, @CGUID+42, @CGUID+43, @CGUID+44);
+DELETE FROM `creature`   WHERE `id1`   IN (32405, 32832, 32834);
+DELETE FROM `npc_vendor` WHERE `entry` IN (32405, 32832, 32834);
 
--- Into the Breach cleanup
-SET @CGUID  := 640000;
-SET @WPID   := 6400000;
+DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinchwhistle
 
-DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+212;
-DELETE FROM `creature_formations` WHERE `leaderGUID` IN (@CGUID+6, @CGUID+7, @CGUID+8, @CGUID+200, @CGUID+203, @CGUID+206);
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-640006, -640007, -640008);
-DELETE FROM `creature_addon` WHERE `guid` IN 
-(@CGUID+4, @CGUID+5, @CGUID+6, @CGUID+7, @CGUID+8, @CGUID+9, @CGUID+10, @CGUID+11, @CGUID+12, @CGUID+13, @CGUID+14, @CGUID+15, 
-@CGUID+16, @CGUID+17, @CGUID+18, @CGUID+19, @CGUID+20, @CGUID+21, @CGUID+22, @CGUID+102, @CGUID+200, @CGUID+203, @CGUID+206);
-DELETE FROM `waypoint_data` WHERE `id` IN 
-(@WPID+40, @WPID+50, @WPID+60, @WPID+70, @WPID+80, @WPID+90, @WPID+100, @WPID+110, @WPID+120, @WPID+130, @WPID+140, @WPID+150, 
-@WPID+160, @WPID+170, @WPID+180, @WPID+190, @WPID+200, @WPID+0210, @WPID+0220, @WPID+1020, @WPID+2000, @WPID+2030, @WPID+2060);
 
--- AV cleanup
-SET @CGUID  := 670000;
-SET @WPID   := 6700000;
+/* the following edits are temporary */
 
-DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+88, @CGUID+89, @CGUID+105, @CGUID+106, @CGUID+114, @CGUID+133, @CGUID+138, @CGUID+139);
-DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+880, @WPID+890, @WPID+1050, @WPID+1060, @WPID+1140, @WPID+1330, @WPID+1380, @WPID+1390);
-DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+164, @CGUID+165, @CGUID+181, @CGUID+182, @CGUID+190, @CGUID+209, @CGUID+214, @CGUID+215);
+-- remove unused rogue trainer spell lists
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 650; 
+DELETE FROM `creature_default_trainer` WHERE `TrainerId` = 650;
+
+-- undo Replace orc guards with pre-wrathgate abomination guards -- 00_cleanup
+UPDATE `creature` SET `id1` = 36213, `equipment_id` = 1 WHERE `guid` IN 
+(17669, 28481, 28485, 28486, 28487, 28488, 28489, 28490, 33823, 33831, 34102, 34103, 34104, 34105, 34106, 38296, 38297, 38298, 38299, 38301, 38302, 38305, 
+39019, 39020, 39022, 39023, 39024, 39025, 39026, 41884, 41887, 41888, 41889, 41890, 41891, 41892, 41956, 41960, 41961, 41964, 79264, 79265, 79266, 79267);
+UPDATE `creature` SET `equipment_id` = 0 WHERE `guid` IN (34103, 34104, 38297);
+
+-- Restore conversation between Faranell and Wrathgate NPC Kraggosh - 00_cleanup
+UPDATE `creature_template` SET `AINAME` = 'SmartAI' WHERE `entry` = 2055;
+
+UPDATE `creature_template` SET `minlevel` = 83, `maxlevel` = 83, `ScriptName` = 'npc_king_varian_wrynn' WHERE `entry` = 29611; -- King Varian Wrynn
+
+-- restore AC entries that were wrongly overwritten by AQ war bosses
+DELETE FROM `pool_template` WHERE `entry` IN (15813, 15818);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
+(15813,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein'),
+(15818,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein');
+
+-- undo phasing
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (15599, 18594, 19227, 25167, 27666, 27667);
+
+-- restore Lieutenant Rachel Vaccar <Outland Armor Quartermaster>
+DELETE FROM `creature_template` WHERE `entry` IN (12778);
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
+`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
+`PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
+`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+--
+(12778,0,0,0,0,0,'Lieutenant Rachel Vaccar','Outland Armor Quartermaster',NULL,0,65,65,1,123,4224,1,1.14286,1,1,18,1,0,0,1,2000,2000,1,1,1,33536,2048,0,0,7,4096,0,0,0,0,0,0,0,'',0,1,2,1,1,1,0,0,1,0,0,0,'',12340);
+
+DELETE FROM `creature_template_locale` WHERE `entry` IN (12778);
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES 
+--
+(12778,'deDE','Leutnant Rachel Vaccar','Rüstmeisterin für Rüstungen der Scherbenwelt',18019),
+(12778,'esES','Teniente Rachel Vaccar','Intendente de armaduras de Terrallende',18019),
+(12778,'esMX','Teniente Rachel Vaccar','Intendente de armaduras de Terrallende',18019),
+(12778,'frFR','Lieutenant Rachel Vaccar','Intendante des armures d\'Outreterre',18019),
+(12778,'koKR','부관 레이첼 바카르','아웃랜드 방어구 병참장교',18019),
+(12778,'ruRU','Лейтенант Рашель Ваккар','Начальник снабжения доспехами Запределья',18019),
+(12778,'zhCN','拉切尔·瓦卡','外域护甲军需官',18019),
+(12778,'zhTW','拉切爾·瓦卡中尉','外域護甲軍需官',18019);
+
+DELETE FROM `creature` WHERE `id1` IN (12778);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(133922, 12778,  0, -8776.97, 414.074, 103.922, 6.01885,  300);
+
+DELETE FROM `npc_vendor` WHERE `entry` IN (12778);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+--
+(12778,0,33853,0,0,129,0), (12778,0,33918,0,0,129,0), (12778,0,33919,0,0,129,0), (12778,0,35129,0,0,2028,0), (12778,0,35130,0,0,2028,0), (12778,0,35131,0,0,2028,0), (12778,0,35132,0,0,127,0),
+(12778,0,35133,0,0,127,0), (12778,0,35134,0,0,127,0), (12778,0,35135,0,0,127,0), (12778,0,35136,0,0,1911,0), (12778,0,35137,0,0,1911,0), (12778,0,35138,0,0,1911,0), (12778,0,35139,0,0,1911,0),
+(12778,0,35140,0,0,1911,0), (12778,0,35141,0,0,1911,0), (12778,0,35142,0,0,1911,0), (12778,0,35143,0,0,1911,0), (12778,0,35144,0,0,1911,0), (12778,0,35145,0,0,1911,0), (12778,0,35146,0,0,1911,0),
+(12778,0,35147,0,0,1911,0), (12778,0,35148,0,0,1911,0), (12778,0,35149,0,0,1911,0), (12778,0,35150,0,0,1911,0), (12778,0,35151,0,0,1923,0), (12778,0,35152,0,0,1923,0), (12778,0,35153,0,0,1923,0),
+(12778,0,35154,0,0,1923,0), (12778,0,35155,0,0,1923,0), (12778,0,35156,0,0,1923,0), (12778,0,35157,0,0,1923,0), (12778,0,35158,0,0,1923,0), (12778,0,35159,0,0,1923,0), (12778,0,35160,0,0,1923,0),
+(12778,0,35161,0,0,1923,0), (12778,0,35162,0,0,1923,0), (12778,0,35163,0,0,1923,0), (12778,0,35164,0,0,1923,0), (12778,0,35165,0,0,1923,0), (12778,0,35166,0,0,1935,0), (12778,0,35167,0,0,1935,0),
+(12778,0,35168,0,0,1935,0), (12778,0,35169,0,0,1935,0), (12778,0,35170,0,0,1935,0), (12778,0,35171,0,0,1935,0), (12778,0,35172,0,0,1935,0), (12778,0,35173,0,0,1935,0), (12778,0,35174,0,0,1935,0),
+(12778,0,35175,0,0,1935,0), (12778,0,35176,0,0,1935,0), (12778,0,35177,0,0,1935,0), (12778,0,35178,0,0,1935,0), (12778,0,35179,0,0,1935,0), (12778,0,35180,0,0,1935,0), (12778,0,35320,0,0,129,0),
+(12778,0,37927,0,0,2028,0), (12778,0,37928,0,0,127,0), (12778,0,37929,0,0,127,0), (12778,0,41587,0,0,2427,0), (12778,0,41588,0,0,2427,0), (12778,0,41589,0,0,2427,0), (12778,0,41590,0,0,2427,0),
+(12778,0,41591,0,0,2428,0), (12778,0,41592,0,0,2428,0), (12778,0,44429,0,0,2428,0), (12778,0,44431,0,0,2428,0);
+
+-- clean up alternate version of TBC Badge Vendor for pre-2.3
+DELETE FROM `creature` WHERE `guid` = 350994;
+DELETE FROM `npc_vendor` WHERE `entry` = 30201;
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 18525;
+UPDATE `creature_template` SET `ScriptName` = '', `flags_extra` = 0, `MovementType` = 0, `unit_flags` = 0, `npcflag` = 0, `name` = "G\'eras Test Vendor List" WHERE `entry` = 30201;
+UPDATE `npc_vendor` SET `entry` = 18525 WHERE `item` IN (35326, 35324, 35321);
+
+-- undo Completion of "The Vials of Eternity" should award players the title "Hand of A'dal" (64)
+UPDATE `quest_template` SET `RewardTitle` = 0 WHERE `ID` = 10445;

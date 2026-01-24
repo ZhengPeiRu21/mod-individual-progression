@@ -35,21 +35,15 @@ enum GuardSays
 
 enum Spells
 {
-    SPELL_IMPALE_10                 = 28783,
-    SPELL_IMPALE_25                 = 56090,
-    SPELL_LOCUST_SWARM_10           = 28785,
-    SPELL_LOCUST_SWARM_25           = 54021,
-    // SPELL_SUMMON_CORPSE_SCRABS_5    = 29105,
-    // SPELL_SUMMON_CORPSE_SCRABS_10   = 28864,
+    SPELL_IMPALE                    = 28783,
+    SPELL_LOCUST_SWARM              = 28785,
     SPELL_BERSERK                   = 26662
 };
 
-enum Misc
-{
-    // NPC_CORPSE_SCARAB               = 16698,
-    // NPC_CRYPT_GUARD                 = 16573,
-
-    ACHIEV_TIMED_START_EVENT        = 9891
+Position const cryptguardPositions[] = {
+    { 3299.732f, -3502.489f, 287.077f, 2.378f },
+    { 3299.086f, -3450.929f, 287.077f, 3.999f },
+    { 3331.217f, -3476.607f, 287.074f, 3.269f }
 };
 
 class boss_anubrekhan_40 : public CreatureScript
@@ -66,23 +60,20 @@ public:
     {
         boss_anubrekhan_40AI(Creature* c) : BossAI(c, BOSS_ANUB)
         {
-            sayGreet = false;
+            _sayGreet = false;
         }
 
-        void SummonCryptGuards()
+        void SummonCryptGuards_40()
         {
-            // if (Is25ManRaid())
-            {
-                me->SummonCreature(NPC_CRYPT_GUARD, 3299.732f, -3502.489f, 287.077f, 2.378f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-                me->SummonCreature(NPC_CRYPT_GUARD, 3299.086f, -3450.929f, 287.077f, 3.999f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-            }
+            me->SummonCreature(NPC_CRYPT_GUARD_40, cryptguardPositions[0], TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
+            me->SummonCreature(NPC_CRYPT_GUARD_40, cryptguardPositions[1], TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
         }
 
         void Reset() override
         {
             BossAI::Reset();
-            SummonCryptGuards();
-            me->m_Events.KillAllEvents(false);
+            SummonCryptGuards_40();
+            // me->m_Events.KillAllEvents(false);
         }
 
         void JustSummoned(Creature* cr) override
@@ -90,7 +81,7 @@ public:
             if (me->IsInCombat())
             {
                 cr->SetInCombatWithZone();
-                if (cr->GetEntry() == NPC_CRYPT_GUARD)
+                if (cr->GetEntry() == NPC_CRYPT_GUARD_40)
                     cr->AI()->Talk(EMOTE_SPAWN, me);
             }
             summons.Summon(cr);
@@ -98,18 +89,18 @@ public:
 
         void SummonedCreatureDies(Creature* cr, Unit*) override
         {
-            if (cr->GetEntry() == NPC_CRYPT_GUARD)
+            if (cr->GetEntry() == NPC_CRYPT_GUARD_40)
             {
                 cr->CastSpell(cr, SPELL_SUMMON_CORPSE_SCRABS_10, true, nullptr, nullptr, me->GetGUID());
                 cr->AI()->Talk(EMOTE_SCARAB);
             }
         }
 
-        /* void JustDied(Unit*  killer) override
+        void JustDied(Unit*  killer) override
         {
             BossAI::JustDied(killer);
-            instance->DoStartTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, ACHIEV_TIMED_START_EVENT);
-        } */
+            // instance->DoStartTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, ACHIEV_TIMED_START_EVENT);
+        }
 
         void KilledUnit(Unit* victim) override
         {
@@ -118,7 +109,7 @@ public:
 
             Talk(SAY_SLAY);
             victim->CastSpell(victim, SPELL_SUMMON_CORPSE_SCRABS_5, true, nullptr, nullptr, me->GetGUID());
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustEngagedWith(Unit* who) override
@@ -127,52 +118,45 @@ public:
             me->CallForHelp(30.0f);
             Talk(SAY_AGGRO);
 
-            if (!summons.HasEntry(NPC_CRYPT_GUARD))
-                SummonCryptGuards();
-            if (!Is25ManRaid())
-            {
-                me->m_Events.AddEventAtOffset([&]
-                {
-                    me->SummonCreature(NPC_CRYPT_GUARD, 3331.217f, -3476.607f, 287.074f, 3.269f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-                }, Milliseconds(urand(15000, 20000)));
-            }
+            if (!summons.HasEntry(NPC_CRYPT_GUARD_40))
+                SummonCryptGuards_40();
+
+            me->m_Events.AddEventAtOffset([this] {
+                me->SummonCreature(NPC_CRYPT_GUARD_40, cryptguardPositions[2], TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
+            }, Milliseconds(urand(15000, 20000)));
 
             ScheduleTimedEvent(15s, [&] {
-                int32 bp1 = IMPALE_BP1;
-                int32 bp2 = IMPALE_BP2;
+                int32 bp1 = 3937;
+                int32 bp2 = 299;
                 if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0, 0.0f, true, true))
-                    me->CastCustomSpell(target, SPELL_IMPALE_10, 0, &bp1, &bp2, false, nullptr, nullptr, ObjectGuid::Empty);
+                    me->CastCustomSpell(target, SPELL_IMPALE, 0, &bp1, &bp2, false, nullptr, nullptr, ObjectGuid::Empty);
             }, 20s);
 
             ScheduleTimedEvent(70s, 2min, [&] {
                 Talk(EMOTE_LOCUST);
-                DoCastSelf(RAID_MODE(SPELL_LOCUST_SWARM_10, SPELL_LOCUST_SWARM_25, SPELL_LOCUST_SWARM_10, SPELL_LOCUST_SWARM_25));
+                DoCastSelf(SPELL_LOCUST_SWARM);
 
-                me->m_Events.AddEventAtOffset([&]
-                {
-                    me->SummonCreature(NPC_CRYPT_GUARD, 3331.217f, -3476.607f, 287.074f, 3.269f, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
-                }, 3s);
+                scheduler.Schedule(3s, [this](TaskContext /*context*/) {
+                    me->SummonCreature(NPC_CRYPT_GUARD_40, cryptguardPositions[2], TEMPSUMMON_CORPSE_TIMED_DESPAWN, 60000);
+                });
 
             }, 90s);
 
-            me->m_Events.AddEventAtOffset([&]
-            {
-                DoCastSelf(SPELL_BERSERK, true);
-            }, 10min);
+            ScheduleEnrageTimer(SPELL_BERSERK, 10min);
         }
 
         void MoveInLineOfSight(Unit* who) override
         {
-            if (!sayGreet && who->IsPlayer())
+            if (!_sayGreet && who->IsPlayer())
             {
                 Talk(SAY_GREET);
-                sayGreet = true;
+                _sayGreet = true;
             }
             ScriptedAI::MoveInLineOfSight(who);
         }
 
     private:
-        bool sayGreet;
+        bool _sayGreet{false};
     };
 };
 

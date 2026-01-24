@@ -87,7 +87,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1195, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7276, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Forest Lurker - On Respawn - Cast Poison Proc'),
 --
 (1197, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Stonesplinter Shaman - On Aggro - Say Line 0'),
-(1197, 0, 1, 0, 74, 0, 100, 0, 0, 0, 7600, 35700, 50, 40, 11, 547, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Stonesplinter Shaman - Friendly Between 0-50% Health - Cast Healing Wave'),
+(1197, 0, 1, 0, 74, 0, 100, 0, 0, 0, 7600, 35700, 50, 40, 11, 547, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Stonesplinter Shaman - Friendly Between 0-50% Health - Cast Healing Wave'),
 (1197, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Stonesplinter Shaman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1202, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Tunnel Rat Kobold - On Aggro - Say Line 0'),
 (1202, 0, 1, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Tunnel Rat Kobold - On Aggro - Say Line 2'),
@@ -113,7 +113,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1398, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Boss Galgosh - On Frenzy - Say Line 1'),
 (1399, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Magosh - On Aggro - Say Line 0'),
 (1399, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Magosh - In Combat - Cast Lightning Bolt'),
-(1399, 0, 2, 0, 74, 0, 100, 0, 0, 0, 25000, 30000, 50, 40, 11, 913, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Magosh - Friendly Between 0-50% Health - Cast Healing Wave'),
+(1399, 0, 2, 0, 74, 0, 100, 0, 0, 0, 25000, 30000, 50, 40, 11, 913, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Magosh - Friendly Between 0-50% Health - Cast Healing Wave'),
 (1399, 0, 3, 0, 0, 0, 100, 0, 1000, 4000, 20000, 35000, 0, 0, 11, 2606, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Magosh - In Combat - Cast Shock'),
 (1425, 0, 0, 0, 74, 0, 100, 0, 0, 0, 20100, 28100, 40, 40, 11, 6074, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Grizlak - Friendly Between 0-40% Health - Cast Renew'),
 (1425, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Grizlak - Between 0-15% Health - Flee For Assist (No Repeat)'),

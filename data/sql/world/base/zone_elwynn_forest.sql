@@ -16,7 +16,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (40, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Kobold Miner - On Aggro - Say Line 0'),
 (40, 0, 1, 0, 0, 0, 100, 0, 4000, 14000, 38000, 42000, 0, 0, 11, 6016, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Kobold Miner - Within 0-5 Range - Cast Pierce Armor'),
 (43, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 11959, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Mine Spider - On Respawn - Cast Poison Proc'),
-(46, 0, 0, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 3368, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Murloc Forager - Between 0-40% Health - Cast Drink Minor Potion'),
+(46, 0, 0, 0, 2, 0, 100, 1, 0, 40, 0, 0, 0, 0, 11, 3368, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Murloc Forager - Between 0-40% Health - Cast Drink Minor Potion'),
 (61, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Thuros Lightfingers - On Aggro - Say Line 0)'),
 (79, 0, 0, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Narg the Taskmaster - On Aggro - Say Line 0)'), 
 (79, 0, 1, 0, 0, 0, 100, 0, 2000, 2000, 18000, 18000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Narg the Taskmaster - In Combat - Cast Battle Shout'),
@@ -57,13 +57,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (881, 0, 1, 0, 4, 0, 40, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Surena Caledon - On Aggro - Say Line 0'),
 (881, 0, 2, 0, 0, 0, 100, 0, 0, 0, 1000, 1000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Surena Caledon - In Combat - Cast Fireball');
 
-
 DELETE FROM `creature_text` WHERE `CreatureID` = 79;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 (79, 0, 0, 'You no take candle!', 12, 0, 100, 0, 0, 0, 16658, 0,    'Narg the Taskmaster'),
 (79, 0, 1, 'Yiieeeee! Me run!', 12, 7, 100, 0, 0, 0, 1864, 0,       'Narg the Taskmaster'),
 (79, 0, 2, 'No kill me! No kill me!', 12, 0, 100, 0, 0, 0, 1863, 0, 'Narg the Taskmaster');
-
 
 -- Hogger, fix missing waypoints and spawn points, entry 448, guid 80531
 DELETE FROM `creature` WHERE `id1` = 448;
@@ -106,7 +104,6 @@ DELETE FROM `pool_template` WHERE `entry` = 601013;
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
 (601013, 1, '');
 
-
 -- Kitta Firewind <Enchanting Trainer>
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 4169 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
@@ -126,8 +123,8 @@ UPDATE `creature_template_model` SET `CreatureDisplayID` = 10912 WHERE `Creature
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 447   WHERE `CreatureID` = 299; -- Diseased Young Wolf
 
 -- update creature names
-UPDATE `creature_template` SET `name` = 'Timber Wolf' WHERE `entry` = 69;                   -- Diseased Timber Wolf
-UPDATE `creature_template` SET `name` = 'Young Wolf'  WHERE `entry` = 299;                  -- Diseased Young Wolf
+UPDATE `creature_template` SET `name`    = 'Timber Wolf'              WHERE `entry` = 69;   -- Diseased Timber Wolf
+UPDATE `creature_template` SET `name`    = 'Young Wolf'               WHERE `entry` = 299;  -- Diseased Young Wolf
 UPDATE `creature_template` SET `subname` = 'Journeyman Blacksmith'    WHERE `entry` = 514;  -- Smith Argus
 UPDATE `creature_template` SET `subname` = 'Journeyman Tailor'        WHERE `entry` = 1103; -- Eldrin <Journeyman Tailor>
 UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist'     WHERE `entry` = 1215; -- Alchemist Mallory <Journeyman Alchemist>
@@ -140,29 +137,34 @@ UPDATE `creature_template` SET `subname` = 'Expert Blacksmith'        WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Expert Engineer'          WHERE `entry` = 5518; -- Lilliam Sparkspindle <Engineering Trainer>
 UPDATE `creature_template` SET `subname` = 'Expert Leatherworker'     WHERE `entry` = 5564; -- Simon Tanner <Leatherworking Trainer>
 UPDATE `creature_template` SET `subname` = 'Skinner'                  WHERE `entry` = 6306; -- Helene Peltskinner <Skinner>
-UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist', `npcflag` = 81, `trainer_type` = 2 WHERE `entry` = 5500; -- Tel'Athir <Apprentice Alchemist>
-UPDATE `creature_template` SET `subname` = 'Expert Tailor',        `npcflag` = 81, `trainer_type` = 2 WHERE `entry` = 5567; -- Sellandus <Apprentice Tailor>
+UPDATE `creature_template` SET `subname` = 'Journeyman Alchemist'     WHERE `entry` = 5500; -- Tel'Athir <Apprentice Alchemist> -- `trainer_type` = 2
+UPDATE `creature_template` SET `subname` = 'Expert Tailor'            WHERE `entry` = 5567; -- Sellandus <Apprentice Tailor> -- `trainer_type` = 2
+
+UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (5500, 5567);
 
 DELETE FROM `creature_template_addon` WHERE `entry` = 69;  -- Diseased Timber Wolf
 DELETE FROM `creature_template_addon` WHERE `entry` = 299; -- Diseased Young Wolf
 
--- Kitta Firewind <Enchanting Trainer>
-DELETE FROM `gossip_menu_option` WHERE `MenuID` = 4169;
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES (4169, 0, 3, 'Train me.', 3266, 5, 16);
+SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (514, 1103, 1215, 1632, 1651, 2329, 4732, 11072);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES 
-(514,   -310000), -- Smith Argus <Journeyman Blacksmith>
-(1103,  -410000), -- Eldrin <Journeyman Tailor>
-(1215,  -300000), -- Alchemist Mallory <Journeyman Alchemist>
-(1632,  -380000), -- Adele Fielder <Journeyman Leatherworker>
-(1651,  -360000), -- Lee Brown <Fisherman>
-(2329,  -350000), -- Michelle Belle <Physician>
-(4732,  -450000), -- Randal Hunter <Riding Trainer>
-(11072, -330000), -- Kitta Firewind <Enchanting Trainer>
-(11072, -330001),
-(11072, -330002);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (514, 1103, 1215, 1632, 1651, 2329, 4732, 5500, 5567, 11072);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
+(514,   @TRAINER_ID+16), -- Smith Argus <Journeyman Blacksmith>
+(1103,  @TRAINER_ID+36), -- Eldrin <Journeyman Tailor>
+(1215,  @TRAINER_ID+11), -- Alchemist Mallory <Journeyman Alchemist>
+(1632,  @TRAINER_ID+31), -- Adele Fielder <Journeyman Leatherworker>
+(1651,  @TRAINER_ID+47), -- Lee Brown <Fisherman>
+(2329,  @TRAINER_ID+45), -- Michelle Belle <Physician>
+(4732,  @TRAINER_ID+48), -- Randal Hunter <Riding Trainer>
+(5500,  @TRAINER_ID+11), -- Tel'Athir <Journeyman Alchemist>
+(5567,  @TRAINER_ID+37), -- Sellandus <Expert Tailor>
+(11072, @TRAINER_ID+23); -- Kitta Firewind <Enchanting Trainer>
 
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4110, 4112, 4169);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(4110, 0, 3, 'Train me.', 3266, 5, 16), -- Alchemist Mallory <Journeyman Alchemist>
+(4112, 0, 3, 'Train me.', 3266, 5, 16), -- Tel'Athir <Journeyman Alchemist>
+(4169, 0, 3, 'Train me.', 3266, 5, 16); -- Kitta Firewind <Enchanting Trainer>
 
 -- Wolves Across the Border
 DELETE FROM `quest_offer_reward` WHERE `ID` = 33;
@@ -208,7 +210,6 @@ UPDATE `quest_template` SET `Flags`=0 WHERE `ID`=3905; -- Grape Manifest
 UPDATE `quest_template` SET `QuestDescription` = 
 'Eagan Peltskinner is looking for someone to hunt wolves for him. That\'s good news, because we\'re seeing a lot more wolves in Northshire Valley lately.$B$B
 If you\'re interested then speak with Eagan. He\'s around the side of the abbey, to the left.' WHERE `ID`=5261;
-
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (
 6,    -- Bounty on Garrick Padfoot
@@ -259,7 +260,6 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (80403, 116, 0, 0, 0, 0, 0, 1, 1, 1, -9441.33, 447.532, 52.5032, 3.9619, 180, 5, 0, 156, 0, 1, 0, 0, 0, '', 0),
 (80404, 116, 0, 0, 0, 0, 0, 1, 1, 1, -9445.96, 451.56, 52.6251, 1.93731, 180, 5, 0, 156, 0, 1, 0, 0, 0, '', 0),
 (80405, 94, 0, 0, 0, 0, 0, 1, 1, 1, -9517.96, 494.378, 52.2181, 5.29769, 180, 5, 0, 102, 0, 1, 0, 0, 0, '', 0);
-
 
 -- fix Defias Thug worldserver errors
 UPDATE `creature` SET `MovementType` = 0  WHERE `guid` = 80149;

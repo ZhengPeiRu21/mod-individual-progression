@@ -16,11 +16,9 @@
  */
 
 #include "Player.h"
-#include "ScriptMgr.h"
-#include "ScriptedCreature.h"
-#include "SpellAuraEffects.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
+#include "IndividualProgression.h"
 
 enum Spells
 {
@@ -34,15 +32,13 @@ enum Spells
     // Korth'azz
     SPELL_KORTHAZZ_METEOR            = 28884,
     // Blaumeux
-    SPELL_BLAUMEUX_SHADOW_BOLT       = 57374,
     SPELL_BLAUMEUX_VOID_ZONE         = 28863,
     // Zeliek
     SPELL_ZELIEK_HOLY_WRATH          = 28883,
-    SPELL_ZELIEK_HOLY_BOLT           = 57376,
     // Mograine
     SPELL_RIVENDARE_UNHOLY_SHADOW    = 28882,
 
-    // NX40
+    // NAXX40
     SPELL_SHIELDWALL                 = 29061, // Shield Wall - All 4 horsemen will shield wall at 50% hp and 20% hp for 20 seconds
     SPELL_SUMMON_PLAYER              = 25104,
 };
@@ -51,7 +47,7 @@ enum Events
 {
     EVENT_MARK_CAST                     = 1,
     EVENT_PRIMARY_SPELL                 = 2,
-    EVENT_SECONDARY_SPELL               = 3,
+    // EVENT_SECONDARY_SPELL            = 3,
     EVENT_BERSERK                       = 4,
     EVENT_HEALTH_CHECK                  = 5
 };
@@ -147,14 +143,7 @@ public:
             events.RescheduleEvent(EVENT_MARK_CAST, 20s);
             events.RescheduleEvent(EVENT_BERSERK, 600s);
             summons.DespawnAll(); // despawn spirits
-            if ((me->GetEntry() != NPC_LADY_BLAUMEUX_40 && me->GetEntry() != NPC_SIR_ZELIEK_40))
-            {
-                events.RescheduleEvent(EVENT_PRIMARY_SPELL, 10s, 15s);
-            }
-            else
-            {
-                events.RescheduleEvent(EVENT_SECONDARY_SPELL, 15s);
-            }
+            events.RescheduleEvent(EVENT_PRIMARY_SPELL, 10s, 15s);
             doneFirstShieldWall = false;
         }
 
@@ -164,12 +153,12 @@ public:
                 return;
 
             Talk(SAY_SLAY);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void SpellHitTarget(Unit* target, SpellInfo const* spellInfo) override
         {
-            if (spellInfo->Id == TABLE_SPELL_MARK[horsemanId])
+            if (spellInfo && spellInfo->Id == TABLE_SPELL_MARK[horsemanId])
                 DoModifyThreatByPercent(target, -50);
         }
 
@@ -178,7 +167,7 @@ public:
             BossAI::JustDied(killer);
             Talk(SAY_DEATH);
 
-            if (instance->GetBossState(BOSS_HORSEMAN) == DONE)
+            if (instance && instance->GetBossState(BOSS_HORSEMAN) == DONE)
             {
                 if (!me->GetMap()->GetPlayers().IsEmpty())
                 {
@@ -245,17 +234,49 @@ public:
                     Talk(SAY_TAUNT);
                     if (horsemanId == HORSEMAN_ZELIEK)
                     {
-                        int32 bp0 = 1109; // spell not used in vanilla, reduced damage from ~2.5 to ~1.2k
-                        me->CastCustomSpell(me->GetVictim(), SPELL_ZELIEK_HOLY_BOLT, &bp0, 0, 0, false);
+                        if (sIndividualProgression->doableNaxx40Bosses)
+                        {
+                            int32 bp0 = 222;
+                            CustomSpellValues values;
+                            values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                            values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 50); // 30yd
+                            me->CastCustomSpell(SPELL_ZELIEK_HOLY_WRATH, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
+                        }
+                        else
+                        {
+                            int32 bp0 = 443;
+                            CustomSpellValues values;
+                            values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                            values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 50); // 30yd
+                            me->CastCustomSpell(SPELL_ZELIEK_HOLY_WRATH, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
+                        }
                     }
                     else if (horsemanId == HORSEMAN_BLAUMEUX)
                     {
-                        int32 bp0 = 1109; // spell not used in vanilla, reduced damage from ~2.5 to ~1.2k
-                        me->CastCustomSpell(me->GetVictim(), SPELL_BLAUMEUX_SHADOW_BOLT, &bp0, 0, 0, false);
+                    {
+                        if (!sIndividualProgression->doableNaxx40Bosses)
+                        {
+                            me->CastSpell(me->GetVictim(), SPELL_BLAUMEUX_VOID_ZONE, false);
+                        }
+                    }
                     }
                     else if (horsemanId == HORSEMAN_MOGRAINE)
                     {
-                        // same dbc as vanilla. Shadow damage instead of fire
+                        /* if (sIndividualProgression->doableNaxx40Bosses)
+                        {
+                            int32 bp0 = 1080; // 2k to 1k
+                            int32 bp1 = 300; // 600 to 300
+                            CustomSpellValues values;
+                            values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                            values.AddSpellMod(SPELLVALUE_BASE_POINT1, bp1);
+
+                            me->CastCustomSpell(SPELL_RIVENDARE_UNHOLY_SHADOW, values, me->GetVictim(), TRIGGERED_FULL_MASK, nullptr, nullptr, ObjectGuid::Empty);
+                        }
+                        else
+                        {
+                            // same dbc as vanilla. Shadow damage instead of fire
+                            me->CastSpell(me->GetVictim(), SPELL_RIVENDARE_UNHOLY_SHADOW, false);
+                        } */
                         me->CastSpell(me->GetVictim(), SPELL_RIVENDARE_UNHOLY_SHADOW, false);
                     }
                     else // HORSEMAN_KORTHAZZ
@@ -263,19 +284,6 @@ public:
                         int32 bp0 = 12824; // 14.5k to 13.5k
                         me->CastCustomSpell(me->GetVictim(), SPELL_KORTHAZZ_METEOR, &bp0, 0, 0, false);
                     }
-                    events.Repeat(15s);
-                    return;
-                case EVENT_SECONDARY_SPELL:
-                    if (horsemanId == HORSEMAN_ZELIEK)
-                    {
-                        int32 bp0 = 443;
-                        CustomSpellValues values;
-                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
-                        values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 50); // 30yd
-                        me->CastCustomSpell(SPELL_ZELIEK_HOLY_WRATH, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
-                    }
-                    else // HORSEMAN_BLAUMEUX
-                        me->CastSpell(me->GetVictim(), SPELL_BLAUMEUX_VOID_ZONE, false);
                     events.Repeat(15s);
                     return;
                 case EVENT_HEALTH_CHECK:
@@ -308,34 +316,25 @@ class spell_four_horsemen_mark_aura : public AuraScript
     {
         if (Unit* caster = GetCaster())
         {
+            if (!caster->IsCreature())
+                return;
+
             int32 damage;
 
-            switch (GetStackAmount())
+            if (sIndividualProgression->doableNaxx40Bosses)
             {
-                case 1:
-                    damage = 0;
-                    break;
-                case 2:
-                    damage = 500;
-                    break;
-                case 3:
-                    damage = 1500;
-                    break;
-                case 4:
-                    damage = 4000;
-                    break;
-                case 5:
-                    damage = 12000;
-                    break;
-                case 6:
-                    damage = 20000;
-                    break;
-                default:
-                    damage = 20000 + 1000 * (GetStackAmount() - 7);
-                    break;
+                switch (GetStackAmount())
+                {
+                    case 1: damage =     0; break;
+                    case 2: damage =    25; break;
+                    case 3: damage =   100; break;
+                    case 4: damage =   300; break;
+                    default:
+                        damage = 100 * GetStackAmount();
+                        break;
+                }
             }
-
-            if (caster->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+            else
             {
                 switch (GetStackAmount())
                 {
@@ -348,6 +347,7 @@ class spell_four_horsemen_mark_aura : public AuraScript
                         break;
                 }
             }
+
 
             if (damage)
             {
@@ -367,4 +367,3 @@ void AddSC_boss_four_horsemen_40()
     new boss_four_horsemen_40();
     RegisterSpellScript(spell_four_horsemen_mark_aura);
 }
-

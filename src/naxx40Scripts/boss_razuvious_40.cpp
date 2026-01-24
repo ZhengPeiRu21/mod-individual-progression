@@ -19,6 +19,7 @@
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
 #include "SpellInfo.h"
+#include "IndividualProgression.h"
 
 enum Says
 {
@@ -34,8 +35,8 @@ enum Says
 enum Spells
 {
     SPELL_UNBALANCING_STRIKE        = 26613,
-    // SPELL_DISRUPTING_SHOUT       = 29107, // 55543
-	SPELL_MANA_BURN                 = 26046, // Alternative for Disrupting shout.
+    SPELL_DISRUPTING_SHOUT          = 55543, // 29107
+    SPELL_MANA_BURN                 = 26046, // Alternative for Disrupting shout.
     SPELL_JAGGED_KNIFE              = 55550,
     SPELL_HOPELESS                  = 29125,
     SPELL_TAUNT                     = 29060
@@ -45,12 +46,11 @@ enum Events
 {
     EVENT_UNBALANCING_STRIKE        = 1,
     EVENT_DISRUPTING_SHOUT          = 2,
-    EVENT_JAGGED_KNIFE              = 3
+    // EVENT_JAGGED_KNIFE           = 3
 };
 
 enum NPCs
 {
-    // NPC_DEATH_KNIGHT_UNDERSTUDY     = 351084,
     NPC_TARGET_DUMMY                = 16211,
 };
 
@@ -81,20 +81,17 @@ public:
 
     struct boss_razuvious_40AI : public BossAI
     {
-        explicit boss_razuvious_40AI(Creature* c) : BossAI(c, BOSS_RAZUVIOUS), summons(me)
-        {}
+        explicit boss_razuvious_40AI(Creature* c) : BossAI(c, BOSS_RAZUVIOUS), summons(me) { }
 
         EventMap events;
         SummonList summons;
 
-        void SpawnHelpers()
+        void SpawnHelpers_40()
         {
-            // 10man
-            me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY, 2762.23f, -3085.07f, 267.685f, 1.95f);
-            me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY, 2758.24f, -3110.97f, 267.685f, 3.94f);
-            // 25man
-            me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY, 2782.45f, -3088.03f, 267.685f, 0.75f);
-            me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY, 2778.56f, -3113.74f, 267.685f, 5.28f);
+            me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY_40, 2762.23f, -3085.07f, 267.685f, 1.95f);
+            me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY_40, 2758.24f, -3110.97f, 267.685f, 3.94f);
+            me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY_40, 2782.45f, -3088.03f, 267.685f, 0.75f);
+            me->SummonCreature(NPC_DEATH_KNIGHT_UNDERSTUDY_40, 2778.56f, -3113.74f, 267.685f, 5.28f);
         }
 
         void JustSummoned(Creature* cr) override
@@ -107,7 +104,7 @@ public:
             BossAI::Reset();
             summons.DespawnAll();
             events.Reset();
-            SpawnHelpers();
+            SpawnHelpers_40();
             ScheduleRP();
         }
 
@@ -207,15 +204,12 @@ public:
         {
             if (roll_chance_i(30))
                 Talk(SAY_SLAY);
-
-            if (who->IsPlayer())
-                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void DamageTaken(Unit* who, uint32& damage, DamageEffectType, SpellSchoolMask) override
         {
             // Damage done by the controlled Death Knight understudies should also count toward damage done by players
-            if (who && who->IsCreature() && who->GetEntry() == NPC_DEATH_KNIGHT_UNDERSTUDY)
+            if (who && who->IsCreature() && who->GetEntry() == NPC_DEATH_KNIGHT_UNDERSTUDY_40)
             {
                 me->LowerPlayerDamageReq(damage);
             }
@@ -241,7 +235,7 @@ public:
             BossAI::JustEngagedWith(who);
             scheduler.CancelGroup(GROUP_OOC_RP);
             Talk(SAY_AGGRO);
-            events.ScheduleEvent(EVENT_UNBALANCING_STRIKE, 20s); //  TODO: This can be 30 seconds to match vanilla
+            events.ScheduleEvent(EVENT_UNBALANCING_STRIKE, 30s);
             events.ScheduleEvent(EVENT_DISRUPTING_SHOUT, 15s);
             // events.ScheduleEvent(EVENT_JAGGED_KNIFE, 10s); // wrath only
             summons.DoZoneInCombat();
@@ -263,19 +257,26 @@ public:
             {
                 case EVENT_UNBALANCING_STRIKE:
                     me->CastSpell(me->GetVictim(), SPELL_UNBALANCING_STRIKE, false);
-                    events.Repeat(20s);
+                    events.Repeat(30s);
                     break;
                 case EVENT_DISRUPTING_SHOUT:
-                    me->CastSpell(me, SPELL_MANA_BURN, false);
-                    events.Repeat(10s);
+                    if (sIndividualProgression->doableNaxx40Bosses)
+                    {
+                        me->CastSpell(me, SPELL_DISRUPTING_SHOUT, false);
+                    }
+                    else
+                    {
+                        me->CastSpell(me, SPELL_MANA_BURN, false);
+                    }
+                    events.Repeat(25s);
                     break;
-                case EVENT_JAGGED_KNIFE:
+                /* case EVENT_JAGGED_KNIFE:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0, 45.0f))
                     {
                         me->CastSpell(target, SPELL_JAGGED_KNIFE, false);
                     }
                     events.Repeat(10s);
-                    break;
+                    break; */
             }
             DoMeleeAttackIfReady();
         }
@@ -344,12 +345,6 @@ public:
                     ScheduleAttackDummy();
                     break;
             }
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (who->IsPlayer())
-                me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustEngagedWith(Unit* who) override

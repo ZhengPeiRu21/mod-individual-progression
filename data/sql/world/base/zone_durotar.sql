@@ -14,7 +14,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (3099, 0, 0, 0, 9, 0, 100, 1, 0, 0, 0, 0, 0, 20, 11, 3385, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Dire Mottled Boar - Within 0-20 Range - Cast Boar Charge (No Repeat)'),
 (3100, 0, 0, 0, 9, 0, 100, 1, 0, 0, 0, 0, 0, 20, 11, 3385, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Elder Mottled Boar - Within 0-20 Range - Cast Boar Charge (No Repeat)'),
-(3101, 0, 0, 0, 0, 0, 100, 0, 0, 0, 5000, 15000, 0, 0, 11, 11921, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Vile Familiar - In Combat - Cast Fireball'), -- https://www.youtube.com/watch?v=_NrDScU8JBM
+(3101, 0, 0, 0, 0, 0, 100, 0, 0, 0, 5000, 15000, 0, 0, 11, 11921, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Vile Familiar - In Combat - Cast Fireball'), -- https://www.youtube.com/watch?v=_NrDScU8JBM
 --
 (3103, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Makrura Clacker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3104, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Makrura Shellhide - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -63,22 +63,22 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3129, 0, 0, 0, 105, 0, 100, 0, 0, 0, 16000, 32000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Kul Tiras Marine - Target Casting - Cast Shield Bash'),
 (3129, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Kul Tiras Marine - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(3130, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 6000, 11000, 0, 0, 11, 5401, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Thunder Lizard - In Combat - Cast Lizard Bolt'),
-(3131, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 6000, 11000, 0, 0, 11, 5401, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Lightning Hide - In Combat - Cast Lizard Bolt'),
+(3130, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 6000, 11000, 0, 0, 11, 5401, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Thunder Lizard - In Combat - Cast Lizard Bolt'),
+(3131, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 6000, 11000, 0, 0, 11, 5401, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Lightning Hide - In Combat - Cast Lizard Bolt'),
 --
 (3183, 0, 0, 0, 9, 0, 100, 0, 0, 0, 19000, 25000, 0, 30, 11, 172, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Yarrog Baneshadow - Within 0-30 Range - Cast Corruption'),
-(3183, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 22000, 29000, 0, 0, 11, 348, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Yarrog Baneshadow - In Combat - Cast Immolate'),
+(3183, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 22000, 29000, 0, 0, 11, 348, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Yarrog Baneshadow - In Combat - Cast Immolate'),
 (3192, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 200000, 200000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lieutenant Benedict - Out of Combat - Cast Defensive Stance'),
 (3192, 0, 1, 0, 105, 0, 100, 0, 0, 0, 20000, 30000, 0, 5, 11, 72, 2, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Lieutenant Benedict - Target Casting - Cast Shield Bash'),
 (3192, 0, 2, 0, 9, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Lieutenant Benedict - Within 0-5 Range - Cast Improved Blocking'),
 (3192, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Lieutenant Benedict - Between 0-15% Health - Flee For Assist'),
 --
-(3196, 0, 0, 0, 9, 0, 100, 0, 0, 0, 21000, 25000, 0, 30, 11, 348, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Burning Blade Neophyte - Within 0-30 Range - Cast Immolate'),
+(3196, 0, 0, 0, 9, 0, 100, 0, 0, 0, 21000, 25000, 0, 30, 11, 348, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Burning Blade Neophyte - Within 0-30 Range - Cast Immolate'),
 (3197, 0, 0, 0, 0, 0, 100, 0, 1000, 11000, 16000, 22000, 0, 0, 11, 5262, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Burning Blade Fanatic - In Combat - Cast Fanatic Blade'),
 (3198, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12746, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Burning Blade Apprentice - Out of Combat - Cast Summon Voidwalker (No Repeat)'),
 (3198, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20791, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Burning Blade Apprentice - In Combat - Cast Shadow Bolt'),
 (3199, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 11939, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Burning Blade Cultist - Out of Combat - Cast Summon Imp (No Repeat)'),
-(3199, 0, 1, 0, 0, 0, 100, 0, 6000, 13000, 18000, 23000, 0, 0, 11, 11962, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Burning Blade Cultist - In Combat - Cast Immolate'),
+(3199, 0, 1, 0, 0, 0, 100, 0, 6000, 13000, 18000, 23000, 0, 0, 11, 11962, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Burning Blade Cultist - In Combat - Cast Immolate'),
 --
 (3203, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 11939, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Fizzle Darkstorm - Out of Combat - Cast Summon Imp (No Repeat)'),
 (3203, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20791, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Fizzle Darkstorm - In Comba - Cast Shadow Bolt'),
@@ -90,12 +90,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3204, 0, 3, 0, 0, 0, 100, 0, 5000, 8000, 30000, 45000, 0, 0, 11, 172, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Gazz uz - In Combat - Cast Corruption'),
 (3204, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gazz uz - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(3205, 0, 0, 0, 2, 0, 100, 0, 0, 50, 16000, 21000, 0, 0, 11, 332, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Zalazane - Between 0-50% Health - Cast Healing Wave'),
-(3205, 0, 1, 0, 0, 0, 100, 0, 6000, 11000, 12000, 21000, 0, 0, 11, 7289, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Zalazane - In Combat - Cast Shrink'),
+(3205, 0, 0, 0, 2, 0, 100, 0, 0, 50, 16000, 21000, 0, 0, 11, 332, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Zalazane - Between 0-50% Health - Cast Healing Wave'),
+(3205, 0, 1, 0, 0, 0, 100, 0, 6000, 11000, 12000, 21000, 0, 0, 11, 7289, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Zalazane - In Combat - Cast Shrink'),
 (3206, 0, 0, 0, 16, 0, 100, 0, 324, 1, 15000, 30000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Voodoo Troll - Missing Buff - Cast Lightning Shield'),
-(3206, 0, 1, 0, 2, 0, 100, 0, 0, 50, 16000, 21000, 0, 0, 11, 332, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Voodoo Troll - Between 0-50% Health - Cast Healing Wave'),
+(3206, 0, 1, 0, 2, 0, 100, 0, 0, 50, 16000, 21000, 0, 0, 11, 332, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Voodoo Troll - Between 0-50% Health - Cast Healing Wave'),
 (3206, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Voodoo Troll - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(3207, 0, 0, 0, 0, 0, 100, 0, 3000, 8000, 19000, 24000, 0, 0, 11, 11962, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Hexed Troll - In Combat - Cast Immolate'),
+(3207, 0, 0, 0, 0, 0, 100, 0, 3000, 8000, 19000, 24000, 0, 0, 11, 11962, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Hexed Troll - In Combat - Cast Immolate'),
 (3207, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hexed Troll - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3226, 0, 0, 0, 9, 0, 100, 0, 0, 0, 30000, 35000, 0, 5, 11, 5413, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Corrupted Scorpid - Within 0-5 Range - Cast Noxious Catalyst'),
@@ -113,7 +113,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5824, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 0, 5, 11, 25710, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Flat Tusk - In Combat - Cast Heroic Strike'),
 (5824, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Flat Tusk - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5826, 0, 0, 0, 16, 0, 100, 0, 324, 1, 15000, 30000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Geolord Mottle - On Missing Buff - Cast Lightning Shield'),
-(5826, 0, 1, 0, 2, 0, 100, 0, 0, 75, 16000, 21000, 0, 0, 11, 547, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Geolord Mottle - Between 0-75% Health - Cast Healing Wave'),
+(5826, 0, 1, 0, 2, 0, 100, 0, 0, 75, 16000, 21000, 0, 0, 11, 547, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Geolord Mottle - Between 0-75% Health - Cast Healing Wave'),
 (5826, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Geolord Mottle - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 
@@ -260,16 +260,17 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (123220, 55, 40.7949, -3898.71, 43.2894, NULL, 0, 0, 0, 100, 0),
 (123220, 56, 52.673, -3894.57, 42.6995, NULL, 0, 0, 0, 100, 0);
 
+SET @TRAINER_ID   := 600;
 
-DELETE FROM `npc_trainer` WHERE `ID` IN (3174, 3175, 3184, 3185, 5943, 7953, 11025);
-INSERT INTO `npc_trainer` (`ID`, `SpellID`) VALUES
-(3174, -310000),  -- Dwukk <Journeyman Blacksmith>
-(3175, -390000),  -- Krunn <Miner>
-(3184, -300000),  -- Miao'zan <Journeyman Alchemist>
-(3185, -370000),  -- Mishiki <Herbalist>
-(5943, -350000),  -- Rawrk <First Aid Trainer>
-(7953, -450000),  -- Xar'Ti <Riding Trainer>
-(11025, -340000); -- Mukdrak <Journeyman Engineer>
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3174, 3175, 3184, 3185, 5943, 7953, 11025);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(3174,  @TRAINER_ID+16), -- Dwukk <Journeyman Blacksmith>
+(3175,  @TRAINER_ID+42), -- Krunn <Miner>
+(3184,  @TRAINER_ID+11), -- Miao'zan <Journeyman Alchemist>
+(3185,  @TRAINER_ID+41), -- Mishiki <Herbalist>
+(5943,  @TRAINER_ID+45), -- Rawrk <First Aid Trainer>
+(7953,  @TRAINER_ID+48), -- Xar'Ti <Riding Trainer>
+(11025, @TRAINER_ID+26); -- Mukdrak <Journeyman Engineer>
 
 
 /* Quests */
@@ -285,6 +286,16 @@ UPDATE `quest_template` SET `Flags` = 8,
 -- Vile Familiars
 UPDATE `quest_template` SET `Flags` = 8, 
 `LogDescription` = 'Kill 12 Vile Familiars.$b$bReturn to Zureetha Fargaze outside the Den.', `RequiredNpcOrGoCount1` = 12 WHERE `ID` = 792;
+
+UPDATE `quest_template_addon` SET `AllowableClasses` = 1279 WHERE `ID` = 792;
+UPDATE `quest_template_addon` SET `NextQuestID` = 1499 WHERE `ID` = 1485;
+
+DELETE FROM `creature_queststarter` WHERE `id` = 5765 AND `quest` = 1485;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5765, 1485);
+
+DELETE FROM `creature_questender` WHERE `id` = 5765 AND `quest` = 1485;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (5765, 1485);
+
 
 -- Galgar's Cactus Apple Surprise
 UPDATE `quest_template` SET `Flags` = 8, 

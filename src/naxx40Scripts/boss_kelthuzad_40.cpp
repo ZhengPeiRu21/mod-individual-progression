@@ -43,10 +43,8 @@ enum Yells
 enum Spells
 {
     // Kel'Thzuad
-    SPELL_FROST_BOLT_SINGLE_10              = 28478,
-    SPELL_FROST_BOLT_SINGLE_25              = 55802,
-    SPELL_FROST_BOLT_MULTI_10               = 28479,
-    SPELL_FROST_BOLT_MULTI_25               = 55807,
+    SPELL_FROST_BOLT_SINGLE                 = 28478,
+    SPELL_FROST_BOLT_MULTI                  = 28479,
     SPELL_SHADOW_FISURE                     = 27810,
     SPELL_VOID_BLAST                        = 27812,
     SPELL_DETONATE_MANA                     = 27819,
@@ -64,11 +62,6 @@ enum Spells
 
 enum Misc
 {
-    // NPC_SOLDIER_OF_THE_FROZEN_WASTES        = 16427,
-    // NPC_UNSTOPPABLE_ABOMINATION             = 16428,
-    // NPC_SOUL_WEAVER                         = 16429,
-    // NPC_GUARDIAN_OF_ICECROWN                = 16441,
-
     ACTION_CALL_HELP_ON                     = 1,
     ACTION_CALL_HELP_OFF                    = 2,
     ACTION_SECOND_PHASE                     = 3,
@@ -89,7 +82,7 @@ enum Event
     EVENT_P3_LICH_KING_SAY                  = 9,
     EVENT_SHADOW_FISSURE                    = 10,
     EVENT_FROST_BLAST                       = 11,
-    EVENT_CHAINS                            = 12,
+    // EVENT_CHAINS                         = 12,
     EVENT_SUMMON_GUARDIAN_OF_ICECROWN       = 13,
     EVENT_FLOOR_CHANGE                      = 14,
     EVENT_ENRAGE                            = 15,
@@ -129,7 +122,7 @@ const Position SpawnPool[7] =
     {3759.355225f, -5174.128418f, 143.802383f, 2.170104f}, // RIGHT_FAR
     {3700.724365f, -5185.123047f, 143.928024f, 1.309310f}, // RIGHT_MIDDLE
     {3665.121094f, -5138.679199f, 143.183212f, 0.604023f}, // RIGHT_NEAR
-    {3651.729980f, -5092.620117f, 143.380005f, 6.050000f} // GATE
+    {3651.729980f, -5092.620117f, 143.380005f, 6.050000f}  // GATE
 };
 
 class boss_kelthuzad_40 : public CreatureScript
@@ -144,8 +137,7 @@ public:
 
     struct boss_kelthuzad_40AI : public BossAI
     {
-        explicit boss_kelthuzad_40AI(Creature* c) : BossAI(c, BOSS_KELTHUZAD), summons(me)
-        {}
+        explicit boss_kelthuzad_40AI(Creature* c) : BossAI(c, BOSS_KELTHUZAD), summons(me) {}
 
         EventMap events;
         SummonList summons;
@@ -155,19 +147,19 @@ public:
             return std::fmod(o, 2.0f * static_cast<float>(M_PI)); // Only positive values will be passed
         }
 
-        void SpawnHelpers()
+        void SpawnHelpers_40()
         {
             // spawn at gate
-            me->SummonCreature(NPC_UNSTOPPABLE_ABOMINATION, 3656.19f, -5093.78f, 143.33f, 6.08, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000);// abo center
-            me->SummonCreature(NPC_UNSTOPPABLE_ABOMINATION, 3657.94f, -5087.68f, 143.60f, 6.08, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000);// abo left
-            me->SummonCreature(NPC_UNSTOPPABLE_ABOMINATION, 3655.48f, -5100.05f, 143.53f, 6.08, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000);// abo right
-            me->SummonCreature(NPC_SOUL_WEAVER, 3651.73f, -5092.62f, 143.38f, 6.05, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // soul behind
-            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES, 3660.17f, -5092.45f, 143.37f, 6.07, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske front left
-            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES, 3659.39f, -5096.21f, 143.29f, 6.07, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske front right
-            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES, 3659.29f, -5090.19f, 143.48f, 6.07, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske left left
-            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES, 3657.43f, -5098.03f, 143.41f, 6.07, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske right right
-            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES, 3654.36f, -5090.51f, 143.48f, 6.09, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske behind left
-            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES, 3653.35f, -5095.91f, 143.41f, 6.09, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske right right
+            me->SummonCreature(NPC_UNSTOPPABLE_ABOMINATION_40, 3656.19f, -5093.78f, 143.33f, 6.08, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000);// abo center
+            me->SummonCreature(NPC_UNSTOPPABLE_ABOMINATION_40, 3657.94f, -5087.68f, 143.60f, 6.08, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000);// abo left
+            me->SummonCreature(NPC_UNSTOPPABLE_ABOMINATION_40, 3655.48f, -5100.05f, 143.53f, 6.08, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000);// abo right
+            me->SummonCreature(NPC_SOUL_WEAVER_40, 3651.73f, -5092.62f, 143.38f, 6.05, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // soul behind
+            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES_40, 3660.17f, -5092.45f, 143.37f, 6.07, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske front left
+            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES_40, 3659.39f, -5096.21f, 143.29f, 6.07, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske front right
+            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES_40, 3659.29f, -5090.19f, 143.48f, 6.07, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske left left
+            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES_40, 3657.43f, -5098.03f, 143.41f, 6.07, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske right right
+            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES_40, 3654.36f, -5090.51f, 143.48f, 6.09, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske behind left
+            me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES_40, 3653.35f, -5095.91f, 143.41f, 6.09, TEMPSUMMON_CORPSE_TIMED_DESPAWN, 2000); // ske right right
 
             // 6 rooms, 8 soldiers, 3 abominations and 1 weaver in each room | middle positions in table starts from 6
             for (uint8 i = 6; i < 12; ++i)
@@ -175,7 +167,7 @@ public:
                 for (uint8 j = 0; j < 8; ++j)
                 {
                     float angle = M_PI * 2 / 8 * j;
-                    me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES, SummonGroups[i].GetPositionX() + 6 * cos(angle), SummonGroups[i].GetPositionY() + 6 * std::sin(angle), SummonGroups[i].GetPositionZ(), SummonGroups[i].GetOrientation(), TEMPSUMMON_CORPSE_TIMED_DESPAWN, 20000);
+                    me->SummonCreature(NPC_SOLDIER_OF_THE_FROZEN_WASTES_40, SummonGroups[i].GetPositionX() + 6 * cos(angle), SummonGroups[i].GetPositionY() + 6 * std::sin(angle), SummonGroups[i].GetPositionZ(), SummonGroups[i].GetOrientation(), TEMPSUMMON_CORPSE_TIMED_DESPAWN, 20000);
                 }
             }
             for (uint8 i = 6; i < 12; ++i)
@@ -184,7 +176,7 @@ public:
                 {
                     float dist = j == 2 ? 0.0f : 8.0f; // second in middle
                     float angle = SummonGroups[i].GetOrientation() + M_PI * 2 / 4 * j;
-                    me->SummonCreature(NPC_UNSTOPPABLE_ABOMINATION, SummonGroups[i].GetPositionX() + dist * cos(angle), SummonGroups[i].GetPositionY() + dist * std::sin(angle), SummonGroups[i].GetPositionZ(), SummonGroups[i].GetOrientation(), TEMPSUMMON_CORPSE_TIMED_DESPAWN, 20000);
+                    me->SummonCreature(NPC_UNSTOPPABLE_ABOMINATION_40, SummonGroups[i].GetPositionX() + dist * cos(angle), SummonGroups[i].GetPositionY() + dist * std::sin(angle), SummonGroups[i].GetPositionZ(), SummonGroups[i].GetOrientation(), TEMPSUMMON_CORPSE_TIMED_DESPAWN, 20000);
                 }
             }
             for (uint8 i = 6; i < 12; ++i)
@@ -192,7 +184,7 @@ public:
                 for (uint8 j = 0; j < 1; ++j)
                 {
                     float angle = SummonGroups[i].GetOrientation() + M_PI;
-                    me->SummonCreature(NPC_SOUL_WEAVER, SummonGroups[i].GetPositionX() + 6 * cos(angle), SummonGroups[i].GetPositionY() + 6 * std::sin(angle), SummonGroups[i].GetPositionZ() + 0.5f, SummonGroups[i].GetOrientation(), TEMPSUMMON_CORPSE_TIMED_DESPAWN, 20000);
+                    me->SummonCreature(NPC_SOUL_WEAVER_40, SummonGroups[i].GetPositionX() + 6 * cos(angle), SummonGroups[i].GetPositionY() + 6 * std::sin(angle), SummonGroups[i].GetPositionZ() + 0.5f, SummonGroups[i].GetOrientation(), TEMPSUMMON_CORPSE_TIMED_DESPAWN, 20000);
                 }
             }
         }
@@ -250,14 +242,14 @@ public:
                 return;
 
             Talk(SAY_SLAY);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustDied(Unit*  killer) override
         {
             BossAI::JustDied(killer);
             summons.DoAction(ACTION_GUARDIANS_OFF);
-            if (Creature* guardian = summons.GetCreatureWithEntry(NPC_GUARDIAN_OF_ICECROWN))
+            if (Creature* guardian = summons.GetCreatureWithEntry(NPC_GUARDIAN_OF_ICECROWN_40))
             {
                 guardian->AI()->Talk(EMOTE_GUARDIAN_FLEE);
             }
@@ -300,7 +292,7 @@ public:
             {
                 cr->GetMotionMaster()->MoveRandom(5);
             }
-            if (cr->GetEntry() == NPC_GUARDIAN_OF_ICECROWN)
+            if (cr->GetEntry() == NPC_GUARDIAN_OF_ICECROWN_40)
             {
                 cr->SetHomePosition(cr->GetPositionX(), cr->GetPositionY(), cr->GetPositionZ(), cr->GetOrientation());
             }
@@ -329,18 +321,18 @@ public:
                     }
                     break;
                 case EVENT_SPAWN_POOL:
-                    SpawnHelpers();
+                    SpawnHelpers_40();
                     break;
                 case EVENT_SUMMON_SOLDIER:
-                    SummonHelper(NPC_SOLDIER_OF_THE_FROZEN_WASTES, 1);
+                    SummonHelper(NPC_SOLDIER_OF_THE_FROZEN_WASTES_40, 1);
                     events.Repeat(3100ms);
                     break;
                 case EVENT_SUMMON_UNSTOPPABLE_ABOMINATION:
-                    SummonHelper(NPC_UNSTOPPABLE_ABOMINATION, 1);
+                    SummonHelper(NPC_UNSTOPPABLE_ABOMINATION_40, 1);
                     events.Repeat(18s + 500ms);
                     break;
                 case EVENT_SUMMON_SOUL_WEAVER:
-                    SummonHelper(NPC_SOUL_WEAVER, 1);
+                    SummonHelper(NPC_SOUL_WEAVER_40, 1);
                     events.Repeat(30s);
                     break;
                 case EVENT_PHASE_2:
@@ -358,20 +350,16 @@ public:
                     events.ScheduleEvent(EVENT_PHASE_3, 1s);
                     events.ScheduleEvent(EVENT_SHADOW_FISSURE, 25s);
                     events.ScheduleEvent(EVENT_FROST_BLAST, 45s);
-                    if (Is25ManRaid())
-                    {
-                        events.ScheduleEvent(EVENT_CHAINS, 90s);
-                    }
                     break;
                 case EVENT_ENRAGE:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     break;
                 case EVENT_FROST_BOLT_SINGLE:
-                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_FROST_BOLT_SINGLE_10, SPELL_FROST_BOLT_SINGLE_25, SPELL_FROST_BOLT_SINGLE_10, SPELL_FROST_BOLT_SINGLE_25), false);
+                    me->CastSpell(me->GetVictim(), SPELL_FROST_BOLT_SINGLE, false);
                     events.Repeat(2s, 10s);
                     break;
                 case EVENT_FROST_BOLT_MULTI:
-                    me->CastSpell(me, RAID_MODE(SPELL_FROST_BOLT_MULTI_10, SPELL_FROST_BOLT_MULTI_25, SPELL_FROST_BOLT_MULTI_10, SPELL_FROST_BOLT_MULTI_25), false);
+                    me->CastSpell(me, SPELL_FROST_BOLT_MULTI, false);
                     events.Repeat(15s, 30s);
                     break;
                 case EVENT_SHADOW_FISSURE:
@@ -385,21 +373,21 @@ public:
                     if (Unit* target = SelectTarget(SelectTargetMethod::Random, RAID_MODE(1, 0, 0, 0), 0, true))
                     {
                         me->CastSpell(target, SPELL_FROST_BLAST, false);
+                        Talk(SAY_FROST_BLAST);
                     }
-                    Talk(SAY_FROST_BLAST);
                     events.Repeat(45s);
                     break;
-                case EVENT_CHAINS:
+                /* case EVENT_CHAINS:
                     for (uint8 i = 0; i < 3; ++i)
                     {
                         if (Unit* target = SelectTarget(SelectTargetMethod::Random, 1, 200, true, true, -SPELL_CHAINS_OF_KELTHUZAD))
                         {
                             me->CastSpell(target, SPELL_CHAINS_OF_KELTHUZAD, true);
+                            Talk(SAY_CHAIN);
                         }
                     }
-                    Talk(SAY_CHAIN);
                     events.Repeat(90s);
-                    break;
+                    break; */
                 case EVENT_DETONATE_MANA:
                     {
                         std::vector<Unit*> unitList;
@@ -456,7 +444,7 @@ public:
                     break;
                 }
                 case EVENT_SUMMON_GUARDIAN_OF_ICECROWN:
-                    if (Creature* cr = me->SummonCreature(NPC_GUARDIAN_OF_ICECROWN, SpawnPool[RAND(0, 1, 3, 4)]))
+                    if (Creature* cr = me->SummonCreature(NPC_GUARDIAN_OF_ICECROWN_40, SpawnPool[RAND(0, 1, 3, 4)]))
                     {
                         cr->AI()->Talk(EMOTE_GUARDIAN_APPEAR);
                         cr->AI()->AttackStart(me->GetVictim());
@@ -528,12 +516,6 @@ public:
             ScriptedAI::MoveInLineOfSight(who);
         }
 
-        void JustDied(Unit* /*killer*/) override
-        {
-            if (me->GetEntry() == NPC_UNSTOPPABLE_ABOMINATION)
-                me->GetInstanceScript()->SetData(DATA_ABOMINATION_KILLED, 0);
-        }
-
         void AttackStart(Unit* who) override
         {
             ScriptedAI::AttackStart(who);
@@ -551,7 +533,7 @@ public:
                 }
             }
 
-            if (me->GetEntry() != NPC_UNSTOPPABLE_ABOMINATION && me->GetEntry() != NPC_GUARDIAN_OF_ICECROWN)
+            if (me->GetEntry() != NPC_UNSTOPPABLE_ABOMINATION_40 && me->GetEntry() != NPC_GUARDIAN_OF_ICECROWN_40)
             {
                 me->AddThreat(who, 1000000.0f);
             }
@@ -560,26 +542,26 @@ public:
         void JustEngagedWith(Unit*  /*who*/) override
         {
             me->SetInCombatWithZone();
-            if (me->GetEntry() == NPC_UNSTOPPABLE_ABOMINATION)
+            if (me->GetEntry() == NPC_UNSTOPPABLE_ABOMINATION_40)
             {
                 events.ScheduleEvent(EVENT_MINION_FRENZY, 1s);
                 events.ScheduleEvent(EVENT_MINION_MORTAL_WOUND, 5s);
             }
-            else if (me->GetEntry() == NPC_GUARDIAN_OF_ICECROWN)
+            else if (me->GetEntry() == NPC_GUARDIAN_OF_ICECROWN_40)
             {
                 events.ScheduleEvent(EVENT_MINION_BLOOD_TAP, 15s);
             }
         }
 
-        void KilledUnit(Unit* who) override
+        /* void KilledUnit(Unit* who) override
         {
             if (who->IsPlayer())
                 me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
+        } */
 
         void JustReachedHome() override
         {
-            if (me->GetEntry() == NPC_GUARDIAN_OF_ICECROWN)
+            if (me->GetEntry() == NPC_GUARDIAN_OF_ICECROWN_40)
             {
                 me->DespawnOrUnsummon();
             }
@@ -687,4 +669,3 @@ void AddSC_boss_kelthuzad_40()
     // RegisterSpellScript(spell_kelthuzad_frost_blast);
     // RegisterSpellScript(spell_kelthuzad_detonate_mana_aura);
 }
-

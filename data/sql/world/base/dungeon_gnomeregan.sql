@@ -37,7 +37,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6229, 0, 1, 0, 0, 0, 100, 0, 11000, 11000, 17200, 33400, 0, 0, 11, 10887, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Crowd Pummeler 9-60 - Within 0-5 Range - Cast Crowd Pummel'),
 (6229, 0, 2, 0, 9, 0, 100, 0, 0, 0, 15000, 15000, 0, 8, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Crowd Pummeler 9-60 - Within 0-8 Range - Cast Trample'),
 (6229, 0, 3, 0, 0, 0, 100, 0, 3000, 5000, 8000, 12000, 0, 0, 11, 8374, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Crowd Pummeler 9-60 - Within 0-5 Range - Cast Arcing Smash'),
-(6230, 0, 0, 0, 0, 0, 100, 0, 5000, 6000, 6000, 8000, 0, 0, 11, 6533, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Peacekeeper Security Suit - In Combat - Cast Net'),
+(6230, 0, 0, 0, 0, 0, 100, 0, 5000, 6000, 6000, 8000, 0, 0, 11, 6533, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Peacekeeper Security Suit - In Combat - Cast Net'),
 (6230, 0, 1, 0, 0, 0, 50, 0, 5000, 6000, 14000, 16000, 0, 0, 11, 10730, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,      'Peacekeeper Security Suit - Within 0-5 Range - Cast Pacify'),
 (6234, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 14500, 19300, 0, 0, 11, 11825, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Mechanized Guardian - In Combat - Cast Electrified Net'),
 (6235, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Electrocutioner 6000 - On Aggro - Say Line 0'),
@@ -57,7 +57,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (7079, 0, 0, 0, 0, 0, 100, 0, 4000, 12000, 16000, 21000, 0, 0, 11, 21687, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Viscous Fallout - In Combat - Cast Toxic Volley'),
 (7079, 0, 1, 0, 0, 0, 100, 513, 1000, 2000, 0, 0, 0, 0, 75, 10341, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Viscous Fallout - In Combat - Add Aura Radiation Cloud'),
-(7079, 0, 2, 0, 0, 0, 100, 0, 2000, 9000, 11000, 14000, 0, 0, 11, 9459, 64, 0, 0, 0, 0, 17, 0, 5, 0, 0, 0, 0, 0, 0,    'Viscous Fallout - Within 0-5 Range - Cast Corrosive Ooze');
+(7079, 0, 2, 0, 0, 0, 100, 0, 2000, 9000, 11000, 14000, 0, 0, 11, 9459, 0, 0, 0, 0, 0, 17, 0, 5, 0, 0, 0, 0, 0, 0,     'Viscous Fallout - Within 0-5 Range - Cast Corrosive Ooze');
 
 
 -- fix two wounded gnomes that don't stand up on aggro

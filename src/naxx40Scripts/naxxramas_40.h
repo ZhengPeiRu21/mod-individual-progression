@@ -24,21 +24,13 @@ enum NX40Spells
     SPELL_SUMMON_CORPSE_SCRABS_5       = 90001, // Changed from 29105 to Level 60 Mob ID for summon
     SPELL_SUMMON_CORPSE_SCRABS_10      = 90002, // Changed from 29105 to Level 60 Mob ID for summon
     // Grobbulus
-    SPELL_BOMBARD_SLIME                = 90003, // update summon entry
+    SPELL_BOMBARD_SLIME_40             = 90003, // update summon entry
     // Loatheb
-    SPELL_SUMMON_SPORE                 = 90006,
+    SPELL_SUMMON_SPORE_40              = 90006,
     // Maexxna
-    SPELL_WEB_WRAP_SUMMON_40           = 90007,  // custom summon entry: 16486 -> 351075
-
+    SPELL_WEB_WRAP_SUMMON_40           = 90007, // custom summon entry: 16486 -> 351075
     // Heigan
-    SPELL_DISRUPTION             = 55010, // 29310->55010: Mana Burn AoE spell similar to vanilla
-};
-
-enum NX40SpellValues
-{
-    // Anub'Rekhan
-    IMPALE_BP1                      = 3937,
-    IMPALE_BP2                      = 299
+    SPELL_DISRUPTION_40                = 55010  // 29310->55010: Mana Burn AoE spell similar to vanilla
 };
 
 enum NX40Data
@@ -52,22 +44,21 @@ enum NX40GOs
 {
     GO_HEIGAN_EXIT_GATE_40             = 181496,
     GO_HORSEMEN_CHEST_40               = 361000,
-    // Gate to enter Naxx 40 from Strath
-    GO_STRATH_GATE_40                  = 176424
+    GO_STRATH_GATE_40                  = 176424  // Gate to enter Naxx 40 from Strath
 };
 
 enum NX40NPCs
 {
     // Anub'Rekhan
-    NPC_CORPSE_SCARAB               = 351083,
-    NPC_CRYPT_GUARD                 = 351082,
+    NPC_CORPSE_SCARAB_40               = 351083,
+    NPC_CRYPT_GUARD_40                 = 351082,
 
     // Faerlina
-    NPC_NAXXRAMAS_WORSHIPPER            = 351081,
-    NPC_NAXXRAMAS_FOLLOWER              = 351080,
+    NPC_NAXXRAMAS_WORSHIPPER_40        = 351081,
+    NPC_NAXXRAMAS_FOLLOWER_40          = 351080,
 
     // Gluth
-    NPC_ZOMBIE_CHOW                     = 351069,
+    NPC_ZOMBIE_CHOW_40                 = 351069,
 
     // Thaddius
     NPC_THADDIUS_40                    = 351000,
@@ -75,33 +66,33 @@ enum NX40NPCs
     NPC_FEUGEN_40                      = 351002,
 
     // Grobbulus
-    NPC_FALLOUT_SLIME                  = 351067,
-    NPC_SEWAGE_SLIME                   = 351071,
-    NPC_STICHED_GIANT                  = 351027,
+    NPC_FALLOUT_SLIME_40               = 351067,
+    NPC_SEWAGE_SLIME_40                = 351071,
+    NPC_STICHED_GIANT_40               = 351027,
 
     // Noth
-    NPC_PLAGUED_WARRIOR                = 351087,
-    NPC_PLAGUED_CHAMPION               = 351086,
-    NPC_PLAGUED_GUARDIAN               = 351085,
+    NPC_PLAGUED_WARRIOR_40             = 351087,
+    NPC_PLAGUED_CHAMPION_40            = 351086,
+    NPC_PLAGUED_GUARDIAN_40            = 351085,
 
     // Razuvious
     NPC_RAZUVIOUS_40                   = 351036,
-    NPC_DEATH_KNIGHT_UNDERSTUDY        = 351084,
+    NPC_DEATH_KNIGHT_UNDERSTUDY_40     = 351084,
 
     // Gothik
     NPC_GOTHIK_40                      = 351035,
-    NPC_LIVING_TRAINEE                 = 351043,
-    NPC_LIVING_KNIGHT                  = 351044,
-    NPC_LIVING_RIDER                   = 351045,
-    NPC_DEAD_TRAINEE                   = 351046,
-    NPC_DEAD_KNIGHT                    = 351050,
-    NPC_DEAD_HORSE                     = 351051,
-    NPC_DEAD_RIDER                     = 351052,
-    NPC_TRIGGER                        = 351047,
+    NPC_LIVING_TRAINEE_40              = 351043,
+    NPC_LIVING_KNIGHT_40               = 351044,
+    NPC_LIVING_RIDER_40                = 351045,
+    NPC_DEAD_TRAINEE_40                = 351046,
+    NPC_DEAD_KNIGHT_40                 = 351050,
+    NPC_DEAD_HORSE_40                  = 351051,
+    NPC_DEAD_RIDER_40                  = 351052,
+    NPC_TRIGGER_40                     = 351047,
 
     // Maexxna
-    NPC_WEB_WRAP = 351079,
-    NPC_MAEXXNA_SPIDERLING = 351088,
+    NPC_WEB_WRAP_40                    = 351079, // not used
+    NPC_MAEXXNA_SPIDERLING_40          = 351088,
 
     // Four horseman
     NPC_HIGHLORD_MOGRAINE_40           = 351037,
@@ -113,12 +104,11 @@ enum NX40NPCs
     NPC_SAPPHIRON_40                   = 351018,
 
     // Kel'Thuzad
-    NPC_KELTHUZAD_40                   = 351019,
-    // NPC_LICH_KING_40                   = 16980,
-    NPC_SOLDIER_OF_THE_FROZEN_WASTES   = 351073,
-    NPC_UNSTOPPABLE_ABOMINATION        = 351074,
-    NPC_SOUL_WEAVER                    = 351075,
-    NPC_GUARDIAN_OF_ICECROWN           = 351076,
+    NPC_KELTHUZAD_40                      = 351019,
+    NPC_SOLDIER_OF_THE_FROZEN_WASTES_40   = 351073,
+    NPC_UNSTOPPABLE_ABOMINATION_40        = 351074,
+    NPC_SOUL_WEAVER_40                    = 351075,
+    NPC_GUARDIAN_OF_ICECROWN_40           = 351076,
 
     // Frogger
     // NPC_LIVING_POISON_40               = 16027,

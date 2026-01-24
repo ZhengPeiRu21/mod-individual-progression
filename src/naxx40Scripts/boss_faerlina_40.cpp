@@ -36,8 +36,7 @@ enum Spells
     SPELL_POISON_BOLT_VOLLEY            = 28796,
     SPELL_RAIN_OF_FIRE                  = 28794,
     SPELL_FRENZY                        = 28798,
-    SPELL_WIDOWS_EMBRACE                = 28732,
-    SPELL_MINION_WIDOWS_EMBRACE         = 54097
+    SPELL_WIDOWS_EMBRACE                = 28732
 };
 
 enum SpellValues : int32
@@ -55,12 +54,6 @@ enum Groups
     GROUP_FRENZY                        = 1
 };
 
-enum Misc
-{
-    // NPC_NAXXRAMAS_WORSHIPPER            = 16506,
-    // NPC_NAXXRAMAS_FOLLOWER              = 16505
-};
-
 class boss_faerlina_40 : public CreatureScript
 {
 public:
@@ -75,32 +68,31 @@ public:
     {
         boss_faerlina_40AI(Creature* c) : BossAI(c, BOSS_FAERLINA), _introDone(false) { }
 
-        void SummonHelpers()
+        void SummonHelpers_40()
         {
-            me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER, 3362.66f, -3620.97f, 261.08f, 4.57276f);
-            me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER, 3344.3f, -3618.31f, 261.08f, 4.69494f);
-            me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER, 3356.71f, -3620.05f, 261.08f, 4.57276f);
-            me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER, 3350.26f, -3619.11f, 261.08f, 4.67748f);
-            // if (Is25ManRaid())
-            {
-                me->SummonCreature(NPC_NAXXRAMAS_FOLLOWER, 3347.49f, -3617.59f, 261.0f, 4.49f);
-                me->SummonCreature(NPC_NAXXRAMAS_FOLLOWER, 3359.64f, -3619.16f, 261.0f, 4.56f);
-            }
+            me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER_40, 3362.66f, -3620.97f, 261.08f, 4.57276f);
+            me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER_40, 3344.3f, -3618.31f, 261.08f, 4.69494f);
+            me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER_40, 3356.71f, -3620.05f, 261.08f, 4.57276f);
+            me->SummonCreature(NPC_NAXXRAMAS_WORSHIPPER_40, 3350.26f, -3619.11f, 261.08f, 4.67748f);
+            me->SummonCreature(NPC_NAXXRAMAS_FOLLOWER_40, 3347.49f, -3617.59f, 261.0f, 4.49f);
+            me->SummonCreature(NPC_NAXXRAMAS_FOLLOWER_40, 3359.64f, -3619.16f, 261.0f, 4.56f);
         }
 
         void Reset() override
         {
             BossAI::Reset();
             summons.DespawnAll();
-            SummonHelpers();
+            SummonHelpers_40();
         }
 
         void JustEngagedWith(Unit* who) override
         {
             BossAI::JustEngagedWith(who);
-            me->CallForHelp(VISIBLE_RANGE);
-            summons.DoZoneInCombat();
             Talk(SAY_AGGRO);
+
+            scheduler.Schedule(1200ms, [this](TaskContext /*context*/) {
+                this->summons.DoZoneInCombat();
+            });
 
             ScheduleTimedEvent(7s, 15s, [&]{
                 if (!me->HasAura(SPELL_WIDOWS_EMBRACE))
@@ -115,7 +107,7 @@ public:
                 }
             }, 7s, 15s);
 
-            ScheduleTimedEvent(8s, 18s, [&] {              
+            ScheduleTimedEvent(8s, 18s, [&] {
                 if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0))
                 {
                     int32 bp0 = RAIN_OF_FIRE_BP0;
@@ -157,7 +149,7 @@ public:
             if (!urand(0, 3))
                 Talk(SAY_SLAY);
 
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustDied(Unit*  killer) override
@@ -175,7 +167,7 @@ public:
                 {
                     scheduler.RescheduleGroup(GROUP_FRENZY, 1min); // You must sacrifice the worshiper AFTER she enrages if you want to stop her for the full 60 seconds.
                     me->RemoveAurasDueToSpell(SPELL_FRENZY);
-                    instance->SetData(DATA_FRENZY_REMOVED, 0); // achievement
+                    // instance->SetData(DATA_FRENZY_REMOVED, 0); // achievement
                 }
                 else
                     scheduler.RescheduleGroup(GROUP_FRENZY, 30s); //  If you sacrifice the Worshiper before the enrage, it will merely delay the enrage for 30 seconds.

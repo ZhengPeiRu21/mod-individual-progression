@@ -38,9 +38,8 @@ enum Says
 
 enum Spells
 {
-    // SPELL_DISRUPTION                = 29310,
-    SPELL_DECREPIT_FEVER_10         = 29998,
-    SPELL_DECREPIT_FEVER_25         = 55011,
+    // SPELL_DISRUPTION             = 29310,
+    SPELL_DECREPIT_FEVER            = 29998,
     SPELL_PLAGUE_CLOUD              = 29350,
     SPELL_TELEPORT_SELF             = 30211,
 
@@ -101,25 +100,24 @@ public:
 
     struct boss_heigan_40AI : public BossAI
     {
-        explicit boss_heigan_40AI(Creature* c) : BossAI(c, BOSS_HEIGAN)
-        {}
+        explicit boss_heigan_40AI(Creature* c) : BossAI(c, BOSS_HEIGAN) {}
 
-        EventMap events;
-        uint8 currentPhase{};
-        uint8 currentSection{};
-        bool moveRight{};
+        uint8 _currentPhase{};
+        uint8 _currentSection{};
+        bool _moveRight{true};
+        TaskScheduler _eruptionScheduler;
 
         GuidList portedPlayersThisPhase;
 
         void Reset() override
         {
             BossAI::Reset();
-            events.Reset();
-            currentPhase = 0;
-            currentSection = 3;
+            _currentPhase = 0;
+            _currentSection = 3;
+            _moveRight = true;
+            _eruptionScheduler.CancelAll();
             portedPlayersThisPhase.clear();
             KillPlayersInTheTunnel();
-            moveRight = true;
         }
 
         void KilledUnit(Unit* who) override
@@ -128,11 +126,12 @@ public:
                 return;
 
             Talk(SAY_SLAY);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustDied(Unit*  killer) override
         {
+            _eruptionScheduler.CancelAll();
             BossAI::JustDied(killer);
             Talk(EMOTE_DEATH);
         }
@@ -147,20 +146,45 @@ public:
 
         void StartFightPhase(uint8 phase)
         {
-            currentSection = 3;
-            currentPhase = phase;
-            events.Reset();
+            _currentSection = 3;
+            _currentPhase = phase;
+            scheduler.CancelAll();
+            _eruptionScheduler.CancelAll();
+
             if (phase == PHASE_SLOW_DANCE)
             {
                 me->CastStop();
                 me->SetReactState(REACT_AGGRESSIVE);
                 DoZoneInCombat();
-                events.ScheduleEvent(EVENT_DISRUPTION, 12s, 15s);
-                events.ScheduleEvent(EVENT_DECEPIT_FEVER, 17s);
-                events.ScheduleEvent(EVENT_ERUPT_SECTION, 15s);
-                events.ScheduleEvent(EVENT_SWITCH_PHASE, 90s);
-                events.ScheduleEvent(EVENT_TELEPORT_PLAYER, 40s);
-                portedPlayersThisPhase.clear();
+				
+                ScheduleTimedEvent(12s, 15s, [&] {
+                    // DoCastSelf(SPELL_SPELL_DISRUPTION);				
+                    me->CastCustomSpell(SPELL_DISRUPTION_40, SPELLVALUE_RADIUS_MOD, 2500, me, false); // 25yd
+                }, 10s);
+                ScheduleTimedEvent(17s, [&] {
+                    // DoCastSelf(SPELL_DECREPIT_FEVER);
+                    int32 bp1 = 499;
+                    me->CastCustomSpell(me, SPELL_DECREPIT_FEVER, 0, &bp1, 0, false, nullptr, nullptr, ObjectGuid::Empty);				
+                }, 22s, 25s);
+                ScheduleTimedEvent(40s, [&] {
+                    DoEventTeleportPlayer(); // this currently kills the players that get teleported and was not set to repeat, so setting repeat timer really high.
+                }, 600s);
+
+                _eruptionScheduler.Schedule(15s, [this](TaskContext context){
+                    instance->SetData(DATA_HEIGAN_ERUPTION, _currentSection);
+                    if (_currentSection == 3)
+                        _moveRight = false;
+                    else if (_currentSection == 0)
+                        _moveRight = true;
+
+                    _moveRight ? _currentSection++ : _currentSection--;
+                    Talk(SAY_TAUNT);
+                    context.Repeat(10s);
+                }).Schedule(90s, [this](TaskContext /*context*/) {
+                    StartFightPhase(PHASE_FAST_DANCE);
+                });
+
+                portedPlayersThisPhase.clear(); // currently pointless because players that got teleported are dead and the teleport event only happens once
             }
             else // if (phase == PHASE_FAST_DANCE)
             {
@@ -171,11 +195,25 @@ public:
                 me->SetReactState(REACT_PASSIVE);
                 me->CastSpell(me, SPELL_TELEPORT_SELF, false);
                 me->SetFacingTo(2.40f);
-                events.ScheduleEvent(EVENT_PLAGUE_CLOUD, 1s);
-                events.ScheduleEvent(EVENT_ERUPT_SECTION, 7s);
-                events.ScheduleEvent(EVENT_SWITCH_PHASE, 45s);
+
+                scheduler.Schedule(1s, [this](TaskContext /*context*/) {
+                    DoCastSelf(SPELL_PLAGUE_CLOUD);
+                });
+
+                _eruptionScheduler.Schedule(7s, [this](TaskContext context){
+                    instance->SetData(DATA_HEIGAN_ERUPTION, _currentSection);
+                    if (_currentSection == 3)
+                        _moveRight = false;
+                    else if (_currentSection == 0)
+                        _moveRight = true;
+
+                    _moveRight ? _currentSection++ : _currentSection--;
+                    context.Repeat(4s);
+                }).Schedule(45s, [this](TaskContext /*context*/) {
+                    StartFightPhase(PHASE_SLOW_DANCE);
+                    Talk(EMOTE_DANCE_END); // avoid play the emote on aggro
+                });
             }
-            events.ScheduleEvent(EVENT_SAFETY_DANCE, 5s);
         }
 
         bool IsInRoom(Unit* who)
@@ -250,72 +288,7 @@ public:
                     me->CastSpell(victim, SPELL_SUMMON_PLAYER, true);
             }
 
-            events.Update(diff);
-
-            switch (events.ExecuteEvent())
-            {
-                case EVENT_DISRUPTION:
-                    me->CastCustomSpell(SPELL_DISRUPTION, SPELLVALUE_RADIUS_MOD, 2500, me, false); // 25yd
-                    events.Repeat(10s);
-                    break;
-                case EVENT_DECEPIT_FEVER:
-                {
-                    int32 bp1 = 499;
-                    me->CastCustomSpell(me, SPELL_DECREPIT_FEVER_10, 0, &bp1, 0, false, nullptr, nullptr, ObjectGuid::Empty);
-                    events.Repeat(22s, 25s);
-                    break;
-                }
-                case EVENT_PLAGUE_CLOUD:
-                    me->CastSpell(me, SPELL_PLAGUE_CLOUD, false);
-                    break;
-                case EVENT_SWITCH_PHASE:
-                    if (currentPhase == PHASE_SLOW_DANCE)
-                    {
-                        StartFightPhase(PHASE_FAST_DANCE);
-                    }
-                    else
-                    {
-                        StartFightPhase(PHASE_SLOW_DANCE);
-                        Talk(EMOTE_DANCE_END); // avoid play the emote on aggro
-                    }
-                    break;
-                case EVENT_ERUPT_SECTION:
-                {
-                    instance->SetData(DATA_HEIGAN_ERUPTION, currentSection);
-                    if (currentSection == 3)
-                        moveRight = false;
-                    else if (currentSection == 0)
-                        moveRight = true;
-
-                    moveRight ? currentSection++ : currentSection--;
-
-                    if (currentPhase == PHASE_SLOW_DANCE)
-                        Talk(SAY_TAUNT);
-
-                    events.Repeat(currentPhase == PHASE_SLOW_DANCE ? 10s : 4s);
-                    break;
-                }
-                break;
-                case EVENT_SAFETY_DANCE:
-                {
-                    Map::PlayerList const& pList = me->GetMap()->GetPlayers();
-                    for (auto const& itr : pList)
-                    {
-                        if (IsInRoom(itr.GetSource()) && !itr.GetSource()->IsAlive())
-                        {
-                            instance->SetData(DATA_DANCE_FAIL, 0);
-                            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-                            return;
-                        }
-                    }
-                    events.Repeat(5s);
-                    return;
-                }
-                case EVENT_TELEPORT_PLAYER:
-                    DoEventTeleportPlayer();
-                    break;
-            }
-            DoMeleeAttackIfReady();
+            _eruptionScheduler.Update(diff);
         }
     };
 };

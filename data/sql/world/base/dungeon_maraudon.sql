@@ -10,7 +10,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (11685, 0, 0, 0, 0, 0, 100, 0, 7000, 12000, 21000, 25000, 0, 0, 11, 11639, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Maraudine Priest - In Combat - Cast Shadow Word: Pain'),
-(11685, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 0, 20, 11, 16568, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Maraudine Priest - Within 0-20 Range - Cast Mind Flay'),
+(11685, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 0, 20, 11, 16568, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Maraudine Priest - Within 0-20 Range - Cast Mind Flay'),
 (11686, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ghostly Raider - Outside 30 Range - Start Combat Movement'),
 (11686, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Ghostly Raider - Within 5-30 Range - Stop Combat Movement'),
 (11686, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Ghostly Raider - Within 0-5 Range - Start Combat Movement'),
@@ -18,7 +18,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11686, 0, 4, 0, 9, 0, 100, 0, 0, 5000, 8000, 12000, 5, 30, 11, 17174, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Ghostly Raider - Within 5-30 Range - Cast Concussive Shot'),
 (11686, 0, 5, 0, 9, 0, 100, 0, 0, 0, 12000, 25000, 5, 20, 11, 6533, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Ghostly Raider - Within 5-20 Range - Cast Net'),
 (11687, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Ghostly Marauder - Within 0-5 Range - Cast Strike'),
-(11688, 0, 0, 0, 0, 0, 100, 0, 0, 0, 25000, 35000, 0, 0, 11, 21048, 96, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Cursed Centaur - In Combat  - Cast Curse of the Tribes'),
+(11688, 0, 0, 0, 0, 0, 100, 0, 0, 0, 25000, 35000, 0, 0, 11, 21048, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Cursed Centaur - In Combat  - Cast Curse of the Tribes'),
 (11777, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 10000, 0, 10, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Shadowshard Rumbler - Within 0-10 Range - Cast Trample'),
 (11785, 0, 0, 0, 0, 0, 100, 0, 1000, 6000, 15000, 25400, 0, 0, 11, 11020, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Ambereye Basilisk - In Combat - Cast Petrify'),
 (11786, 0, 0, 0, 0, 0, 100, 0, 1000, 6000, 15000, 25400, 0, 0, 11, 11020, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Ambereye Reaver - In Combat - Cast Petrify'),
@@ -54,7 +54,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12206, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 25, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Primordial Behemoth - Outside 25 Range - Start Combat Movement'),
 (12206, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 25, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Primordial Behemoth - Within 5-25 Range - Stop Combat Movement'),
 (12206, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Primordial Behemoth - Within 0-5 Range - Start Combat Movement'),
-(12206, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 5, 25, 11, 21071, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Primordial Behemoth - Within 5-25 Range - Cast Boulder'),
+(12206, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 5, 25, 11, 21071, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Primordial Behemoth - Within 5-25 Range - Cast Boulder'),
 (12206, 0, 4, 0, 9, 0, 100, 0, 0, 0, 8000, 13000, 0, 8, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Primordial Behemoth - Within 0-8 Range - Cast Trample'),
 (12207, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21788, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Thessala Hydra - On Reset - Cast Deadly Poison'),
 (12207, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 15000, 20000, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Thessala Hydra - In Combat - Cast Thrash'),
@@ -97,9 +97,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13601, 0, 3, 0, 0, 0, 100, 0, 5000, 5000, 7000, 8000, 0, 0, 11, 29419, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,    'Tinkerer Gizlock - In Combat - Cast Flash Bomb'),
 (13601, 0, 4, 0, 0, 0, 100, 0, 7000, 8000, 16000, 20000, 0, 0, 11, 21833, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Tinkerer Gizlock - In Combat - Cast Goblin Dragon Gun'),
 (13696, 0, 0, 0, 0, 0, 100, 0, 4000, 11000, 30000, 45000, 0, 5, 11, 5413, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,   'Noxxious Scion - Within 0-5 Range - Cast Noxious Catalyst'),
-(13696, 0, 1, 0, 0, 0, 100, 0, 1000, 2000, 14000, 21000, 0, 0, 11, 21068, 96, 1, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Noxxious Scion - In Combat - Cast Corruption'),
+(13696, 0, 1, 0, 0, 0, 100, 0, 1000, 2000, 14000, 21000, 0, 0, 11, 21068, 32, 1, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Noxxious Scion - In Combat - Cast Corruption'),
 (13718, 0, 0, 0, 0, 0, 100, 0, 5400, 6200, 25900, 34600, 0, 0, 11, 15848, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'The Nameless Prophet - In Combat - Cast Festering Rash'),
-(13718, 0, 1, 0, 0, 0, 100, 0, 3000, 11000, 30000, 30000, 0, 0, 11, 16098, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'The Nameless Prophet - In Combat - Cast Curse of Blood');
+(13718, 0, 1, 0, 0, 0, 100, 0, 3000, 11000, 30000, 30000, 0, 0, 11, 16098, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'The Nameless Prophet - In Combat - Cast Curse of Blood');
 
 
 /* fix patrols */

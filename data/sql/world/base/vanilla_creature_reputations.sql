@@ -294,6 +294,7 @@ UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 6, `RewOnKillRepValue1`
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue2` = 300 WHERE `creature_id`=15339;
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue2` = 150 WHERE `creature_id`=15340;
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 34 WHERE `creature_id`=15341;
+UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue1` = 5 WHERE `creature_id`=15343;
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue2` = 150 WHERE `creature_id`=15348;
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 6, `RewOnKillRepValue1` = 3 WHERE `creature_id`=15355;
 UPDATE `creature_onkill_reputation` SET `RewOnKillRepValue2` = 150 WHERE `creature_id`=15369;

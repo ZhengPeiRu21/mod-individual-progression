@@ -139,10 +139,13 @@ public:
         ChatHandler handler(player->GetSession());
 		uint32 progressionLevel = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 	
-        if (player->GetLevel() <= IP_LEVEL_TBC && progressionLevel < PROGRESSION_TBC_TIER_5 && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  sIndividualProgression->isExcludedFromProgression(player)))
+        if (player->GetLevel() <= IP_LEVEL_TBC)
         {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+            if (progressionLevel < PROGRESSION_TBC_TIER_5 && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  sIndividualProgression->isExcludedFromProgression(player)))
+            {
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+            }
         }
 	    else if (player->GetLevel() == IP_LEVEL_WOTLK && (player->HasItemCount(ITEM_DRAKEFIRE_AMULET) ||  sIndividualProgression->isExcludedFromProgression(player)))
         {
@@ -150,7 +153,7 @@ public:
         }
         else if (player->GetLevel() > IP_LEVEL_TBC && player->GetLevel() < IP_LEVEL_WOTLK)
         {
-            handler.PSendSysMessage("Your level is too high to enter this version of Onyxia\'s Lair.");
+            handler.PSendSysMessage("Your level is too high to enter the level 60 version of Onyxia\'s Lair.");
         }
         else if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
         {
@@ -158,7 +161,7 @@ public:
         }	
         else if (player->GetLevel() <= IP_LEVEL_TBC && progressionLevel > PROGRESSION_TBC_TIER_4) // block Death Knights from getting into Onyxia40
         {
-            handler.PSendSysMessage("Your progression level is too high to enter this version of Onyxia\'s Lair.");
+            handler.PSendSysMessage("Your progression level is too high to enter the level 60 version of Onyxia\'s Lair.");
         }	
         return true;
     }

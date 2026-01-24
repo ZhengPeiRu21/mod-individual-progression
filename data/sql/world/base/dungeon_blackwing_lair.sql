@@ -12,7 +12,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12420, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3000, 4500, 0, 0, 11, 17290, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Blackwing Mage - In Combat - Cast Fireball'),
 (12420, 0, 1, 0, 106, 0, 100, 0, 0, 0, 3000, 6000, 0, 8, 11, 22271, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Blackwing Mage - Within 0-8 Range - Cast Arcane Explosion'),
 (12457, 0, 0, 0, 0, 0, 60, 0, 10000, 10000, 15000, 20000, 0, 0, 11, 22274, 32, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0, 'Blackwing Spellbinder - In Combat - Cast Greater Polymorph'),
-(12457, 0, 1, 0, 0, 0, 60, 0, 6000, 10000, 6000, 10000, 0, 0, 11, 22275, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Blackwing Spellbinder - In Combat - Cast Flamestrike'),
+(12457, 0, 1, 0, 0, 0, 60, 0, 6000, 10000, 6000, 10000, 0, 0, 11, 22275, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Blackwing Spellbinder - In Combat - Cast Flamestrike'),
 (12458, 0, 0, 0, 1, 0, 100, 0, 15000, 35000, 15000, 35000, 0, 0, 11, 22458, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Blackwing Taskmaster - Out of Combat - Cast Healing Circle'),
 (12458, 0, 1, 0, 0, 0, 100, 0, 5000, 8000, 4000, 7000, 0, 0, 11, 17289, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Blackwing Taskmaster - In Combat - Cast Shadow Shock'),
 (12459, 0, 0, 0, 0, 0, 90, 0, 5000, 5000, 5000, 7000, 0, 0, 11, 19717, 0, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,      'Blackwing Warlock - In Combat - Cast Rain of Fire'),

@@ -22,16 +22,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11339, 0, 6, 0, 0, 0, 75, 0, 6000, 12000, 12000, 24000, 0, 0, 11, 24335, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Hakkari Shadow Hunter - Within 0-30 Range - Cast Wyvern Sting'),
 (11339, 0, 7, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Hakkari Shadow Hunter - On Aggro - Say Line 0'),
 (11340, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Hakkari Blood Priest - On Aggro - Say Line 0 (No Repeat)'),
-(11340, 0, 1, 0, 2, 0, 100, 0, 0, 50, 4000, 7000, 0, 0, 11, 24618, 65, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Hakkari Blood Priest - Between 0-50% Health - Cast Drain Life'),
-(11340, 0, 2, 0, 14, 0, 100, 0, 6000, 40, 3000, 6000, 0, 0, 11, 24617, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Hakkari Blood Priest - Friend Missing 6000 Health - Cast Blood Funnel'),
+(11340, 0, 1, 0, 2, 0, 100, 0, 0, 50, 4000, 7000, 0, 0, 11, 24618, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Hakkari Blood Priest - Between 0-50% Health - Cast Drain Life'),
+(11340, 0, 2, 0, 14, 0, 100, 0, 6000, 40, 3000, 6000, 0, 0, 11, 24617, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Hakkari Blood Priest - Friend Missing 6000 Health - Cast Blood Funnel'),
 (11350, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Gurubashi Axe Thrower - Outside 30 Range - Start Combat Movement'),
 (11350, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Gurubashi Axe Thrower - Within 5-30 Range - Stop Combat Movement'),
 (11350, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Gurubashi Axe Thrower - Within 0-5 Range - Start Combat Movement'),
 (11350, 0, 3, 0, 9, 0, 100, 0, 0, 0, 4000, 7000, 5, 30, 11, 16075, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Gurubashi Axe Thrower - Within 5-30 Range - Cast Throw'),
 (11350, 0, 4, 5, 2, 0, 100, 1, 0, 25, 0, 0, 0, 0, 11, 8269, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Gurubashi Axe Thrower - Between 0-25% Health - Cast Frenzy (No Repeat)'),
 (11350, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Gurubashi Axe Thrower - On Frenzy - Say Line 0'),
-(11350, 0, 6, 0, 0, 0, 100, 0, 5000, 5000, 15000, 18000, 0, 0, 11, 24018, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Gurubashi Axe Thrower - In Combat - Cast Axe Flurry'),
-(11350, 0, 7, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Gurubashi Axe Thrower - On Aggro - Say Line 1'),
+(11350, 0, 6, 0, 106, 0, 100, 0, 0, 0, 15000, 18000, 0, 8, 11, 24018, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Gurubashi Axe Thrower - Within 0-8 Range - Cast Axe Flurry'),
+(11350, 0, 7, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                       'Gurubashi Axe Thrower - On Aggro - Say Line 1'),
 (11351, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Gurubashi Headhunter - Outside 30 Range - Start Combat Movement'),
 (11351, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Gurubashi Headhunter - Within 5-30 Range - Stop Combat Movement'),
 (11351, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Gurubashi Headhunter - Within 0-5 Range - Start Combat Movement'),
@@ -55,7 +55,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (11357, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12787, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Son of Hakkar - On Respawn - Cast Thrash Proc'),
 (11357, 0, 1, 0, 0, 0, 100, 0, 4000, 10000, 4000, 10000, 0, 0, 11, 16790, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Son of Hakkar - In Combat - Cast Knockdown'),
-(11357, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 24320, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Son of Hakkar - On Just Died - Cast Poisonous Blood'), -- doesn't work!
+(11357, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 14989, 3, 10000, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Son of Hakkar - On Just Died - Summon Poisonous Cloud'),
 (11359, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Soulflayer - On Respawn - Cast Thrash Proc'),
 (11359, 0, 1, 0, 0, 0, 100, 0, 7000, 7000, 7000, 8000, 0, 0, 11, 22678, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,      'Soulflayer - Within 0-10 Range - Cast Fear'),
 (11359, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2000, 3000, 0, 0, 11, 24619, 256, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Soulflayer - In Combat - Cast Soul Tap'),
@@ -72,7 +72,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11371, 0, 1, 0, 0, 0, 100, 0, 5000, 20000, 5000, 20000, 0, 0, 11, 24002, 32, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,    'Razzashi Serpent - Within 0-5 Range - Cast Tranquilizing Poison'),
 (11371, 0, 2, 0, 0, 0, 100, 0, 8000, 16000, 16000, 24000, 0, 0, 11, 12097, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Razzashi Serpent - Within 0-5 Range - Cast Pierce Armor'),
 (11372, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Razzashi Adder - On Respawn - Cast Thrash Proc'),
-(11372, 0, 1, 0, 0, 0, 100, 0, 5000, 9000, 12000, 18000, 0, 0, 11, 24011, 96, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Razzashi Adder - In Combat - Cast Venom Spit'),
+(11372, 0, 1, 0, 0, 0, 100, 0, 5000, 9000, 12000, 18000, 0, 0, 11, 24011, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Razzashi Adder - In Combat - Cast Venom Spit'),
 (11372, 0, 2, 0, 0, 0, 100, 0, 3000, 3000, 20000, 20000, 0, 0, 11, 24016, 1, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Razzashi Adder - Within 0-5 Range - Cast Exploit Weakness'),
 (11374, 0, 0, 0, 0, 0, 75, 0, 1000, 3000, 3000, 5000, 0, 0, 11, 12097, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Hooktooth Frenzy - Within 0-5 Range - Cast Pierce Armor'),
 --
@@ -80,11 +80,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11830, 0, 1, 0, 0, 0, 80, 0, 8000, 8000, 20000, 27000, 0, 0, 11, 13704, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Hakkari Priest - In Combat - Cast Psychic Scream'),
 (11830, 0, 2, 0, 0, 0, 100, 0, 1000, 1000, 16000, 18000, 0, 0, 11, 24021, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Hakkari Priest - In Combat - Cast Anti-Magic Shield'),
 (11830, 0, 3, 0, 0, 0, 100, 0, 15000, 15000, 30000, 33000, 0, 0, 11, 24022, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Hakkari Priest - In Combat - Cast Cleanse Nova'),
-(11830, 0, 4, 0, 2, 0, 100, 0, 0, 50, 25000, 25000, 0, 0, 11, 22883, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Hakkari Priest - Between 0-50% Health - Cast Heal'),
+(11830, 0, 4, 0, 2, 0, 100, 0, 0, 50, 25000, 25000, 0, 0, 11, 22883, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Hakkari Priest - Between 0-50% Health - Cast Heal'),
 (11831, 0, 0, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Hakkari Witch Doctor - On Aggro - Say Line 0'),
 (11831, 0, 1, 0, 0, 0, 100, 0, 3000, 8000, 5000, 8000, 0, 0, 11, 24053, 32, 4, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,     'Hakkari Witch Doctor - Within 0-20 Range - Cast Hex'),
 (11831, 0, 2, 0, 9, 0, 100, 0, 0, 0, 3000, 5000, 0, 20, 11, 17289, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Hakkari Witch Doctor - In Combat - Cast Shadow Shock'),
-(11831, 0, 3, 0, 0, 0, 100, 0, 5000, 15000, 5000, 10000, 0, 0, 11, 24054, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Hakkari Witch Doctor - In Combat - Cast Shrink'),
+(11831, 0, 3, 0, 0, 0, 100, 0, 5000, 15000, 5000, 10000, 0, 0, 11, 24054, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Hakkari Witch Doctor - In Combat - Cast Shrink'),
 (11831, 0, 4, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 24052, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Hakkari Witch Doctor - On Just Died - Cast Summon Voodoo Spirit'),
 --
 (14532, 0, 0, 0, 9, 0, 100, 0, 0, 0, 20000, 25000, 0, 5, 11, 24596, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Razzashi Venombrood - Within 0-5 Range - Cast Intoxicating Venom'),
@@ -108,8 +108,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15043, 0, 4, 0, 1, 0, 100, 0, 39999, 39999, 40000, 40000, 0, 0, 101, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Send ZG Croclisks toward home position to control wandering range (set home POS)'),
 (15043, 0, 5, 0, 1, 0, 100, 0, 40000, 40000, 40000, 40000, 0, 0, 24, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Send ZG Croclisks toward home position to control wandering range (reset to home POS)'),
 --
-(15111, 0, 0, 0, 0, 0, 100, 0, 3000, 8000, 3000, 8000, 0, 0, 11, 24611, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,     'Mad Servant - In Combat - Cast Fireball'),
-(15111, 0, 1, 0, 0, 0, 100, 0, 7000, 10000, 7000, 10000, 0, 0, 11, 24612, 64, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Mad Servant - In Combat - Cast Flamestrike'),
+(15111, 0, 0, 0, 0, 0, 100, 0, 3000, 8000, 3000, 8000, 0, 0, 11, 24611, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Mad Servant - In Combat - Cast Fireball'),
+(15111, 0, 1, 0, 0, 0, 100, 0, 7000, 10000, 7000, 10000, 0, 0, 11, 24612, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Mad Servant - In Combat - Cast Flamestrike'),
 (15111, 0, 2, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 24621, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Mad Servant - On Just Died - Cast Portal of Madness'),
 (15111, 0, 3, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Mad Servant - On Aggro - Say Line 0');
 

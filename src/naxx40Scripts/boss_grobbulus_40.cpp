@@ -29,12 +29,9 @@ enum Spells
     SPELL_POISON_CLOUD                      = 28240,
     SPELL_MUTATING_INJECTION                = 28169,
     SPELL_MUTATING_EXPLOSION                = 28206,
-    SPELL_SLIME_SPRAY_10                    = 28157,
-    SPELL_SLIME_SPRAY_25                    = 54364,
-    SPELL_POISON_CLOUD_DAMAGE_AURA_10       = 28158,
-    SPELL_POISON_CLOUD_DAMAGE_AURA_25       = 54362,
+    SPELL_SLIME_SPRAY                       = 28157,
+    SPELL_POISON_CLOUD_DAMAGE_AURA          = 28158,
     SPELL_BERSERK                           = 26662,
-    // SPELL_BOMBARD_SLIME                     = 28280
 };
 
 enum Emotes
@@ -50,13 +47,6 @@ enum Events
     EVENT_MUTATING_INJECTION                = 4
 };
 
-enum Misc
-{
-    // NPC_FALLOUT_SLIME                       = 16290,
-    // NPC_SEWAGE_SLIME                        = 16375,
-    // NPC_STICHED_GIANT                       = 16025
-};
-
 class boss_grobbulus_40 : public CreatureScript
 {
 public:
@@ -69,8 +59,7 @@ public:
 
     struct boss_grobbulus_40AI : public BossAI
     {
-        explicit boss_grobbulus_40AI(Creature* c) : BossAI(c, BOSS_GROBBULUS), summons(me)
-        {}
+        explicit boss_grobbulus_40AI(Creature* c) : BossAI(c, BOSS_GROBBULUS), summons(me) {}
 
         EventMap events;
         SummonList summons;
@@ -87,7 +76,7 @@ public:
         void PullChamberAdds()
         {
             std::list<Creature*> StichedGiants;
-            me->GetCreaturesWithEntryInRange(StichedGiants, 300.0f, NPC_STICHED_GIANT);
+            me->GetCreaturesWithEntryInRange(StichedGiants, 300.0f, NPC_STICHED_GIANT_40);
             for (std::list<Creature*>::const_iterator itr = StichedGiants.begin(); itr != StichedGiants.end(); ++itr)
             {
                 (*itr)->ToCreature()->AI()->AttackStart(me->GetVictim());
@@ -102,20 +91,20 @@ public:
             events.ScheduleEvent(EVENT_POISON_CLOUD, 15s);
             events.ScheduleEvent(EVENT_MUTATING_INJECTION, 20s);
             events.ScheduleEvent(EVENT_SLIME_SPRAY, 10s);
-            events.ScheduleEvent(EVENT_BERSERK, RAID_MODE(720s, 540s, 540s, 540s));
+            events.ScheduleEvent(EVENT_BERSERK, 540s);
         }
 
         void SpellHitTarget(Unit* target, SpellInfo const* spellInfo) override
         {
-            if (spellInfo->Id == RAID_MODE(SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25, SPELL_SLIME_SPRAY_10, SPELL_SLIME_SPRAY_25) && target->IsPlayer())
+            if (spellInfo->Id == SPELL_SLIME_SPRAY && target->IsPlayer())
             {
-                me->SummonCreature(NPC_FALLOUT_SLIME, target->GetPositionX(), target->GetPositionY(), target->GetPositionZ());
+                me->SummonCreature(NPC_FALLOUT_SLIME_40, target->GetPositionX(), target->GetPositionY(), target->GetPositionZ());
             }
         }
 
         void JustSummoned(Creature* cr) override
         {
-            if (cr->GetEntry() == NPC_FALLOUT_SLIME)
+            if (cr->GetEntry() == NPC_FALLOUT_SLIME_40)
             {
                 cr->SetInCombatWithZone();
             }
@@ -133,20 +122,14 @@ public:
             summons.DespawnAll();
         }
 
-        void KilledUnit(Unit* who) override
-        {
-            if (who->IsPlayer())
-                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
         void UpdateAI(uint32 diff) override
         {
             dropSludgeTimer += diff;
             if (!me->IsInCombat() && dropSludgeTimer >= 5000)
             {
-                if (me->IsWithinDist3d(3178, -3305, 319, 5.0f) && !summons.HasEntry(NPC_SEWAGE_SLIME))
+                if (me->IsWithinDist3d(3178, -3305, 319, 5.0f) && !summons.HasEntry(NPC_SEWAGE_SLIME_40))
                 {
-                    me->CastSpell(3128.96f + irand(-20, 20), -3312.96f + irand(-20, 20), 293.25f, SPELL_BOMBARD_SLIME, false);
+                    me->CastSpell(3128.96f + irand(-20, 20), -3312.96f + irand(-20, 20), 293.25f, SPELL_BOMBARD_SLIME_40, false);
                 }
                 dropSludgeTimer = 0;
             }
@@ -172,8 +155,8 @@ public:
                     if (Unit* target = me->GetVictim())
                     {
                         int32 bp0 = urand(3200, 4800);
-                        me->CastCustomSpell(target, SPELL_SLIME_SPRAY_10, &bp0, nullptr, nullptr, false);
-                    }                    
+                        me->CastCustomSpell(target, SPELL_SLIME_SPRAY, &bp0, nullptr, nullptr, false);
+                    }
                     events.Repeat(20s);
                     break;
                 case EVENT_MUTATING_INJECTION:
@@ -214,12 +197,6 @@ public:
             me->SetFaction(FACTION_BOOTY_BAY);
         }
 
-        void KilledUnit(Unit* who) override
-        {
-            if (who->IsPlayer())
-                me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
-        }
-
         void UpdateAI(uint32 diff) override
         {
             if (auraVisualTimer) // this has to be delayed to be visible
@@ -227,7 +204,7 @@ public:
                 auraVisualTimer += diff;
                 if (auraVisualTimer >= 1000)
                 {
-                    me->CastSpell(me, (me->GetMap()->Is25ManRaid() ? SPELL_POISON_CLOUD_DAMAGE_AURA_25 : SPELL_POISON_CLOUD_DAMAGE_AURA_10), true);
+                    me->CastSpell(me, SPELL_POISON_CLOUD_DAMAGE_AURA, true);
                     auraVisualTimer = 0;
                 }
             }

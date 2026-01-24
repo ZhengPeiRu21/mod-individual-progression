@@ -9,7 +9,7 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+2,15431,0,0,0,0,0,1,1,1,-4915.32,-1220.84,501.658,4.07551,300,0,0,14355,0,0,0,0,0,'',0),
 (@CGUID+3,15432,0,0,0,0,0,1,1,0,-4913.26,-1222.67,501.654,4.02445,300,0,0,15260,0,0,0,0,0,'',0),
 (@CGUID+4,15434,0,0,0,0,0,1,1,1,-4946.99,-1281.73,501.675,0.977894,300,0,0,13495,0,0,0,0,0,'',0),
-(@CGUID+5,15437,0,0,0,0,0,1,1,1,-4942.68,-1284.58,501.674,1.52846,300,0,0,14355,0,0,0,0,0,'',0),
+(@CGUID+5,15437,0,0,0,0,0,1,1,1,-4940.91,-1282.46,501.672,1.63836,300,0,0,14355,0,0,0,0,0,'',0),   
 (@CGUID+6,15445,0,0,0,0,0,1,1,1,-4944.6,-1283.01,501.674,1.29677,300,0,0,15260,0,0,0,0,0,'',0),
 (@CGUID+7,15446,0,0,0,0,0,1,1,1,-4959.54,-1176.73,501.66,3.66733,300,0,0,13495,0,0,0,0,0,'',0),
 (@CGUID+8,15448,0,0,0,0,0,1,1,1,-4960.88,-1175.1,501.66,3.82756,300,0,0,14355,0,0,0,0,0,'',0),
@@ -45,13 +45,13 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+32,15733,0,0,0,0,0,1,1,0,-4936.65,-1209.73,501.658,3.95796,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
 (@CGUID+33,15734,0,0,0,0,0,1,1,0,-4943.13,-1204.78,501.658,4.62712,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
 (@CGUID+34,15735,0,0,0,0,0,1,1,0,-4936.06,-1214.82,501.639,3.21465,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
-(@CGUID+35,21969,0,0,0,0,0,1,1,0,-4946.71,-1206.24,501.658,5.19933,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
+-- (@CGUID+35,21969,0,0,0,0,0,1,1,0,-4946.71,-1206.24,501.658,5.19933,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0), -- Exodar Commendation Officer
 -- Horde Commendation Npcs
 (@CGUID+36,15736,0,0,1,0,0,1,1,0,1592.17,-4097.91,34.9759,6.25645,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
 (@CGUID+37,15737,0,0,1,0,0,1,1,0,1595.6,-4091.94,35.8097,5.20323,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
 (@CGUID+38,15738,0,0,1,0,0,1,1,0,1598.27,-4090.5,35.8736,5.13568,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
 (@CGUID+39,15739,0,0,1,0,0,1,1,0,1592.84,-4094.01,35.6404,5.82527,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
-(@CGUID+40,21968,0,0,1,0,0,1,1,0,1601.01,-4091.87,35.5195,4.52778,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
+-- (@CGUID+40,21968,0,0,1,0,0,1,1,0,1601.01,-4091.87,35.5195,4.52778,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0), -- Silvermoon City Commendation Officer
 -- After AQ phase, the commendation Npcs move to their respective cities until the end of WotLK expansion, allows players to use up their marks if they have any after AQ
 -- Post AQ Alliance Commendation Npcs
 (@CGUID+41,15731,0,0,1,0,0,1,1,0,9949.44,2497.12,1317.629,4.7139,300,0,0,2614,0,0,0,0,0,'npc_ipp_naxx40',0),
@@ -85,6 +85,7 @@ DELETE FROM `creature_questender` WHERE `quest` IN (8792, 8793, 8794, 8795, 8796
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15700, 8792), (15701, 8795);
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+51 AND @CGUID+58;
+DELETE FROM `creature` WHERE `guid` = 86424; -- placed by AC - copy of 15707
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+51,15702,0,0,1,0,0,1,1,0,-1209.58, 100.22, 134.661, 3.15905,300,0,0,15260,0,0,0,0,0,'',0),
 (@CGUID+52,15703,0,0,0,0,0,1,1,0,1572.58, 272.707, -43.0193, 5.02655,300,0,0,15260,0,0,0,0,0,'',0),
@@ -148,20 +149,104 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_we' WHERE `entry` IN
 15528, 15529, 15532, 15533, 15534, 15535, 15700, 15701, 15702, 15703, 15704, 15707, 15708, 15709, 21155, 21156);
 
 -- Phase AQ War Effort Objects
-DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+1 AND @OGUID+9;
+DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+1 AND @OGUID+20;
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES 
 -- Horde
-(@OGUID+1, 180812, 1, 0, 0, 1, 1, 1590.82, -4155.33, 36.2926, 3.7001, 0, 0, -0.961261, 0.27564, 180, 100, 1, 'gobject_ipp_we', 0, NULL),   -- skins
-(@OGUID+2, 180818, 1, 0, 0, 1, 1, 1637.11, -4147.21, 36.0414, 3.73501, 0, 0, -0.956305, 0.292372, 180, 100, 1, 'gobject_ipp_we', 0, NULL), -- herbs
-(@OGUID+3, 180826, 1, 0, 0, 1, 1, 1579.35, -4109.25, 34.5417, 3.75246, 0, 0, -0.953716, 0.300708, 180, 100, 1, 'gobject_ipp_we', 0, NULL), -- bandages
-(@OGUID+4, 180832, 1, 0, 0, 1, 1, 1619.83, -4092.43, 34.5107, 3.7001, 0, 0, -0.961261, 0.27564, 180, 100, 1, 'gobject_ipp_we', 0, NULL),   -- cooking
-(@OGUID+5, 180838, 1, 0, 0, 1, 1, 1683.11, -4134.35, 39.5419, 3.71755, 0, 0, -0.958819, 0.284016, 180, 100, 1, 'gobject_ipp_we', 0, NULL), -- bars
+(@OGUID+1,  180812, 1, 0, 0, 1, 1, 1590.82, -4155.33, 36.2926, 3.7001, 0, 0, -0.961261, 0.27564, 180, 100, 1, 'gobject_ipp_leather_stage_0', 0, NULL),
+(@OGUID+2,  180818, 1, 0, 0, 1, 1, 1637.11, -4147.21, 36.0414, 3.73501, 0, 0, -0.956305, 0.292372, 180, 100, 1, 'gobject_ipp_herbs_stage_0', 0, NULL), 
+(@OGUID+3,  180826, 1, 0, 0, 1, 1, 1579.35, -4109.25, 34.5417, 3.75246, 0, 0, -0.953716, 0.300708, 180, 100, 1, 'gobject_ipp_bandages_stage_0', 0, NULL),
+(@OGUID+4,  180832, 1, 0, 0, 1, 1, 1619.83, -4092.43, 34.5107, 3.7001, 0, 0, -0.961261, 0.27564, 180, 100, 1, 'gobject_ipp_food_stage_0', 0, NULL),
+(@OGUID+5,  180838, 1, 0, 0, 1, 1, 1683.11, -4134.35, 39.5419, 3.71755, 0, 0, -0.958819, 0.284016, 180, 100, 1, 'gobject_ipp_bars_stage_0', 0, NULL),
+(@OGUID+6,  180813, 1, 0, 0, 1, 1, 1590.88, -4155.33, 36.298, 3.68265, 0, 0, -0.961261, 0.27564, 180, 100, 1, 'gobject_ipp_leather_stage_1', 0, NULL),
+(@OGUID+7,  180819, 1, 0, 0, 1, 1, 1637.1, -4147.25, 36.0531, 3.73501, 0, 0, -0.956305, 0.292372, 180, 100, 1, 'gobject_ipp_herbs_stage_1', 0, NULL),
+(@OGUID+8,  180827, 1, 0, 0, 1, 1, 1579.33, -4109.25, 34.5487, 3.71755, 0, 0, -0.953716, 0.300708, 180, 100, 1, 'gobject_ipp_bandages_stage_1', 0, NULL),
+(@OGUID+9,  180833, 1, 0, 0, 1, 1, 1619.8, -4092.53, 34.4888, 3.7001, 0, 0, -0.961261, 0.27564, 180, 100, 1, 'gobject_ipp_food_stage_1', 0, NULL),
+(@OGUID+10, 180839, 1, 0, 0, 1, 1, 1683.1, -4134.31, 39.539, 3.73501, 0, 0, -0.958819, 0.284016, 180, 100, 1, 'gobject_ipp_bars_stage_1', 0, NULL),
 -- Alliance
-(@OGUID+6, 180598, 0, 0, 0, 1, 1, -4971.55, -1148.57, 501.648, 2.28638, 0, 0, 0.909961, 0.414693, 180, 100, 1, 'gobject_ipp_we', 0, NULL), -- bandages
-(@OGUID+7, 180681, 0, 0, 0, 1, 1, -4958.51, -1179.32, 501.659, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_we', 0, NULL), -- skins
-(@OGUID+8, 180680, 0, 0, 0, 1, 1, -4913.85, -1226, 501.651, 2.25148, 0, 0, 0.902585, 0.430511, 180, 100, 1, 'gobject_ipp_we', 0, NULL),    -- bars
-(@OGUID+9, 180679, 0, 0, 0, 1, 1, -4937.29, -1282.74, 501.672, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_we', 0, NULL); -- cooking and herbs
+(@OGUID+11, 180598, 0, 0, 0, 1, 1, -4971.55, -1148.57, 501.648, 2.28638, 0, 0, 0.909961, 0.414693, 180, 100, 1, 'gobject_ipp_bandages_stage_0', 0, NULL),
+(@OGUID+12, 180681, 0, 0, 0, 1, 1, -4958.51, -1179.32, 501.659, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_leather_stage_0', 0, NULL),
+(@OGUID+13, 180680, 0, 0, 0, 1, 1, -4913.85, -1226, 501.651, 2.25148, 0, 0, 0.902585, 0.430511, 180, 100, 1, 'gobject_ipp_bars_stage_0', 0, NULL),
+(@OGUID+14, 180679, 0, 0, 0, 1, 1, -4937.29, -1282.74, 501.672, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_food_stage_0', 0, NULL),
+(@OGUID+16, 180674, 0, 0, 0, 1, 1, -4968.33, -1152.89, 501.925, 2.26893, 0, 0, 0.909961, 0.414693, 180, 100, 1, 'gobject_ipp_bandages_stage_1', 0, NULL),
+(@OGUID+17, 180692, 0, 0, 0, 1, 1, -4958.51, -1179.32, 501.659, 2.26893, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_leather_stage_1', 0, NULL),
+(@OGUID+18, 180780, 0, 0, 0, 1, 1, -4913.73, -1225.95, 501.651, 2.26893, 0, 0, 0.902585, 0.430511, 180, 100, 1, 'gobject_ipp_bars_stage_1', 0, NULL),
+(@OGUID+19, 180800, 0, 0, 0, 1, 1, -4937.28, -1282.87, 501.672, 2.25147, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_food_stage_1', 0, NULL),
+(@OGUID+20, 180801, 0, 0, 0, 1, 1, -4935.58, -1284.82, 501.671, 2.25147, 0, 0, 0.906308, 0.422618, 180, 100, 1, 'gobject_ipp_herbs_stage_1', 0, NULL);
+
+
+-- New 'Complete the War Effort' quest. 
+DELETE FROM `quest_template` WHERE `ID` IN (108850, 108855);
+INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `QuestSortID`, `QuestInfoID`, `SuggestedGroupNum`, `RequiredFactionId1`, `RequiredFactionId2`, `RequiredFactionValue1`, `RequiredFactionValue2`, `RewardNextQuest`, `RewardXPDifficulty`, `RewardMoney`, `RewardMoneyDifficulty`, `RewardDisplaySpell`, `RewardSpell`, `RewardHonor`, `RewardKillHonor`, 
+`StartItem`, `Flags`, `RequiredPlayerKills`, `RewardItem1`, `RewardAmount1`, `RewardItem2`, `RewardAmount2`, `RewardItem3`, `RewardAmount3`, `RewardItem4`, `RewardAmount4`, `ItemDrop1`, `ItemDropQuantity1`, `ItemDrop2`, `ItemDropQuantity2`, `ItemDrop3`, `ItemDropQuantity3`, `ItemDrop4`, `ItemDropQuantity4`, 
+`RewardChoiceItemID1`, `RewardChoiceItemQuantity1`, `RewardChoiceItemID2`, `RewardChoiceItemQuantity2`, `RewardChoiceItemID3`, `RewardChoiceItemQuantity3`, `RewardChoiceItemID4`, `RewardChoiceItemQuantity4`, `RewardChoiceItemID5`, `RewardChoiceItemQuantity5`, `RewardChoiceItemID6`, `RewardChoiceItemQuantity6`, 
+`POIContinent`, `POIx`, `POIy`, `POIPriority`, `RewardTitle`, `RewardTalents`, `RewardArenaPoints`, `RewardFactionID1`, `RewardFactionValue1`, `RewardFactionOverride1`, `RewardFactionID2`, `RewardFactionValue2`, `RewardFactionOverride2`, `RewardFactionID3`, `RewardFactionValue3`, `RewardFactionOverride3`, `RewardFactionID4`, `RewardFactionValue4`, `RewardFactionOverride4`, `RewardFactionID5`, `RewardFactionValue5`, `RewardFactionOverride5`, 
+`TimeAllowed`, `AllowableRaces`, `LogTitle`, `LogDescription`, `QuestDescription`, `AreaDescription`, `QuestCompletionLog`, `RequiredNpcOrGo1`, `RequiredNpcOrGo2`, `RequiredNpcOrGo3`, `RequiredNpcOrGo4`, `RequiredNpcOrGoCount1`, `RequiredNpcOrGoCount2`, `RequiredNpcOrGoCount3`, `RequiredNpcOrGoCount4`, `RequiredItemId1`, `RequiredItemId2`, `RequiredItemId3`, `RequiredItemId4`, `RequiredItemId5`, `RequiredItemId6`, 
+`RequiredItemCount1`, `RequiredItemCount2`, `RequiredItemCount3`, `RequiredItemCount4`, `RequiredItemCount5`, `RequiredItemCount6`, `Unknown0`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `VerifiedBuild`) VALUES 
+--
+(108850, 0, 60, 50, -365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21513, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1101, 'Complete the War Effort', '', '', NULL, 'Return to Field Marshal Snowfall in Ironforge.', 0, 0, 0, 0, 0, 0, 0, 0, 21436, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, '', '', '', '', 0),
+(108855, 0, 60, 50, -365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21513, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 690, 'Complete the War Effort', '', '', NULL, 'Return to Warlord Gorchuk in Orgrimmar.', 0, 0, 0, 0, 0, 0, 0, 0, 21438, 0, 0, 0, 0, 0, 1000, 0, 0, 0, 0, 0, 0, '', '', '', '', 0);
+
+DELETE FROM `quest_offer_reward` WHERE `ID` IN (108850, 108855);
+INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `Emote2`, `Emote3`, `Emote4`, `EmoteDelay1`, `EmoteDelay2`, `EmoteDelay3`, `EmoteDelay4`, `RewardText`, `VerifiedBuild`) VALUES 
+(108850, 0, 0, 0, 0, 0, 0, 0, 0, 'You are such a selfless person. Thank you very much for your contribution to the war effort. It\'s people like you that are going to make the difference between success and failure at Ahn\'Qiraj. I just hope that all of this will be enough.$B$BThanks again, $N.', 0),
+(108855, 0, 0, 0, 0, 0, 0, 0, 0, 'You are such a selfless person. Thank you very much for your contribution to the war effort. It\'s people like you that are going to make the difference between success and failure at Ahn\'Qiraj. I just hope that all of this will be enough.$B$BThanks again, $N.', 0);
+
+DELETE FROM `quest_template_addon` WHERE `ID` IN (108850, 108855);
+INSERT INTO `quest_template_addon` (`ID`, `MaxLevel`, `AllowableClasses`, `SourceSpellID`, `PrevQuestID`, `NextQuestID`, `ExclusiveGroup`, `RewardMailTemplateID`, `RewardMailDelay`, 
+`RequiredSkillID`, `RequiredSkillPoints`, `RequiredMinRepFaction`, `RequiredMaxRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepValue`, `ProvidedItemCount`, `SpecialFlags`) VALUES 
+(108850, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(108855, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+DELETE FROM `creature_queststarter` WHERE `id` = 15700 AND `quest` = 108855;
+DELETE FROM `creature_queststarter` WHERE `id` = 15701 AND `quest` = 108850;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES 
+(15700, 108855),
+(15701, 108850);
+
+DELETE FROM `creature_questender` WHERE `id` = 15700 AND `quest` = 108855;
+DELETE FROM `creature_questender` WHERE `id` = 15701 AND `quest` = 108850;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES 
+(15700, 108855),
+(15701, 108850);
+
+-- Hide 'Complete the War Effort' quests until the player has completed all collection quests at least once
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (108850, 108855);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+-- Alliance
+(19, 0, 108850, 0, 0, 8, 0, 8492, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_COPPER_BARS_A'),
+(19, 0, 108850, 0, 0, 8, 0, 8494, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_IRON_BARS'),
+(19, 0, 108850, 0, 0, 8, 0, 8499, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_THORIUM_BARS'),
+(19, 0, 108850, 0, 0, 8, 0, 8503, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_STRANGLEKELP'),
+(19, 0, 108850, 0, 0, 8, 0, 8505, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_PURPLE_LOTUS_A'),
+(19, 0, 108850, 0, 0, 8, 0, 8509, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_ARTHAS_TEARS'),
+(19, 0, 108850, 0, 0, 8, 0, 8511, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_LIGHT_LEATHER'),
+(19, 0, 108850, 0, 0, 8, 0, 8513, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_MEDIUM_LEATHER'),
+(19, 0, 108850, 0, 0, 8, 0, 8515, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_THICK_LEATHER_A'),
+(19, 0, 108850, 0, 0, 8, 0, 8517, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_LINEN_BANDAGES'),
+(19, 0, 108850, 0, 0, 8, 0, 8520, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_SILK_BANDAGES'),
+(19, 0, 108850, 0, 0, 8, 0, 8522, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_RUNECLOTH_BANDAGES_A'),
+(19, 0, 108850, 0, 0, 8, 0, 8524, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_RAINBOW_FIN'),
+(19, 0, 108850, 0, 0, 8, 0, 8526, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_ROAST_RAPTOR'),
+(19, 0, 108850, 0, 0, 8, 0, 8528, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_SPOTTED_YELLOWTAIL_A'),
+-- Horde
+(19, 0, 108855, 0, 0, 8, 0, 8532, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_COPPER_BARS_H'),
+(19, 0, 108855, 0, 0, 8, 0, 8542, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_TIN_BARS'),
+(19, 0, 108855, 0, 0, 8, 0, 8545, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_MITHRIL_BARS'),
+(19, 0, 108855, 0, 0, 8, 0, 8549, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_PEACEBLOOM'),
+(19, 0, 108855, 0, 0, 8, 0, 8580, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_FIREBLOOM'),
+(19, 0, 108855, 0, 0, 8, 0, 8582, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_PURPLE_LOTUS_H'),
+(19, 0, 108855, 0, 0, 8, 0, 8588, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_HEAVY_LEATHER'),
+(19, 0, 108855, 0, 0, 8, 0, 8590, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_THICK_LEATHER_H'),
+(19, 0, 108855, 0, 0, 8, 0, 8600, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_RUGGED_LEATHER'),
+(19, 0, 108855, 0, 0, 8, 0, 8604, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_WOOL_BANDAGES'),
+(19, 0, 108855, 0, 0, 8, 0, 8607, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_MAGEWEAVE_BANDAGES'),
+(19, 0, 108855, 0, 0, 8, 0, 8609, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_RUNECLOTH_BANDAGES_H'),
+(19, 0, 108855, 0, 0, 8, 0, 8611, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_LEAN_WOLF_STEAK'),
+(19, 0, 108855, 0, 0, 8, 0, 8613, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_SPOTTED_YELLOWTAIL_H'),
+(19, 0, 108855, 0, 0, 8, 0, 8615, 0, 0, 0, 0, 0, '', 'Quest \'Complete the War Effort\' requires QUEST_BAKED_SALMON');
+
 
 -- Alliance CompletionText fixes
 UPDATE `quest_request_items` SET `CompletionText` = 'I do so hope that you have been successful in gathering the thorium bars that we spoke of earlier.' WHERE `ID` = 8499;

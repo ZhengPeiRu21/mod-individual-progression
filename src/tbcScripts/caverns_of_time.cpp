@@ -24,10 +24,11 @@ public:
         {
             if (player->IsGameMaster())
             {
-                return true;
+                return false;
             }
+            
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_NAXX40);
+            return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_TBC);
         }
 
     };

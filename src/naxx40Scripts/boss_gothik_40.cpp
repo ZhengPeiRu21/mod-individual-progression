@@ -41,8 +41,7 @@ enum Spells
 {
     // Gothik
     SPELL_HARVEST_SOUL              = 28679,
-    SPELL_SHADOW_BOLT_10            = 29317,
-    SPELL_SHADOW_BOLT_25            = 56405,
+    SPELL_SHADOW_BOLT               = 29317,
     // Teleport spells
     SPELL_TELEPORT_DEAD             = 28025,
     SPELL_TELEPORT_LIVE             = 28026,
@@ -71,18 +70,6 @@ enum Spells
     SPELL_UNHOLY_FRENZY             = 55648,
     // Horse
     SPELL_STOMP                     = 27993
-};
-
-enum Misc
-{
-    // NPC_LIVING_TRAINEE              = 16124,
-    // NPC_LIVING_KNIGHT               = 16125,
-    // NPC_LIVING_RIDER                = 16126,
-    // NPC_DEAD_TRAINEE                = 16127,
-    // NPC_DEAD_KNIGHT                 = 16148,
-    // NPC_DEAD_HORSE                  = 16149,
-    // NPC_DEAD_RIDER                  = 16150,
-    // NPC_TRIGGER                     = 16137
 };
 
 enum Events
@@ -117,29 +104,29 @@ enum Events
 
 const uint32 gothikWaves[24][2] =
 {
-    {NPC_LIVING_TRAINEE,    20000},
-    {NPC_LIVING_TRAINEE,    20000},
-    {NPC_LIVING_TRAINEE,    10000},
-    {NPC_LIVING_KNIGHT,     10000},
-    {NPC_LIVING_TRAINEE,    15000},
-    {NPC_LIVING_KNIGHT,     10000},
-    {NPC_LIVING_TRAINEE,    15000},
-    {NPC_LIVING_TRAINEE,    0},
-    {NPC_LIVING_KNIGHT,     10000},
-    {NPC_LIVING_RIDER,      10000},
-    {NPC_LIVING_TRAINEE,    5000},
-    {NPC_LIVING_KNIGHT,     15000},
-    {NPC_LIVING_RIDER,      0},
-    {NPC_LIVING_TRAINEE,    10000},
-    {NPC_LIVING_KNIGHT,     10000},
-    {NPC_LIVING_TRAINEE,    10000},
-    {NPC_LIVING_RIDER,      5000},
-    {NPC_LIVING_KNIGHT,     5000},
-    {NPC_LIVING_TRAINEE,    20000},
-    {NPC_LIVING_RIDER,      0},
-    {NPC_LIVING_KNIGHT,     0},
-    {NPC_LIVING_TRAINEE,    15000},
-    {NPC_LIVING_TRAINEE,    29000},
+    {NPC_LIVING_TRAINEE_40,    20000},
+    {NPC_LIVING_TRAINEE_40,    20000},
+    {NPC_LIVING_TRAINEE_40,    10000},
+    {NPC_LIVING_KNIGHT_40,     10000},
+    {NPC_LIVING_TRAINEE_40,    15000},
+    {NPC_LIVING_KNIGHT_40,     10000},
+    {NPC_LIVING_TRAINEE_40,    15000},
+    {NPC_LIVING_TRAINEE_40,    0},
+    {NPC_LIVING_KNIGHT_40,     10000},
+    {NPC_LIVING_RIDER_40,      10000},
+    {NPC_LIVING_TRAINEE_40,    5000},
+    {NPC_LIVING_KNIGHT_40,     15000},
+    {NPC_LIVING_RIDER_40,      0},
+    {NPC_LIVING_TRAINEE_40,    10000},
+    {NPC_LIVING_KNIGHT_40,     10000},
+    {NPC_LIVING_TRAINEE_40,    10000},
+    {NPC_LIVING_RIDER_40,      5000},
+    {NPC_LIVING_KNIGHT_40,     5000},
+    {NPC_LIVING_TRAINEE_40,    20000},
+    {NPC_LIVING_RIDER_40,      0},
+    {NPC_LIVING_KNIGHT_40,     0},
+    {NPC_LIVING_TRAINEE_40,    15000},
+    {NPC_LIVING_TRAINEE_40,    29000},
     {0, 0}
 };
 
@@ -161,10 +148,6 @@ const Position PosSummonDead[5] =
     {2682.8f, -3304.2f, 268.85f, 3.9f},
     {2664.8f, -3340.7f, 268.23f, 3.7f}
 };
-
-//const Position PosGroundLivingSide = {2691.2f, -3387.0f, 267.68f, 1.52f};
-//const Position PosGroundDeadSide   = {2693.5f, -3334.6f, 267.68f, 4.67f};
-//const Position PosPlatform         = {2640.5f, -3360.6f, 285.26f, 0.0f};
 
 #define POS_Y_GATE  -3360.78f
 #define POS_Y_WEST  -3285.0f
@@ -283,7 +266,6 @@ public:
                     summon->AI()->AttackStart(target);
                     summon->SetInCombatWithZone();
                     summon->SetReactState(REACT_AGGRESSIVE);
-                    summon->CallForHelp(150.0f);
                 }
             }
         }
@@ -299,7 +281,7 @@ public:
                 return;
 
             Talk(SAY_KILL);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustDied(Unit*  killer) override
@@ -309,27 +291,19 @@ public:
             summons.DespawnAll();
         }
 
-        void SummonHelpers(uint32 entry)
+        void SummonHelpers_40(uint32 entry)
         {
             switch (entry)
             {
-                case NPC_LIVING_TRAINEE:
-                    me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[0].GetPositionX(), PosSummonLiving[0].GetPositionY(), PosSummonLiving[0].GetPositionZ(), PosSummonLiving[0].GetOrientation());
-                    me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[1].GetPositionX(), PosSummonLiving[1].GetPositionY(), PosSummonLiving[1].GetPositionZ(), PosSummonLiving[1].GetOrientation());
-                    if (Is25ManRaid())
-                    {
-                        me->SummonCreature(NPC_LIVING_TRAINEE, PosSummonLiving[2].GetPositionX(), PosSummonLiving[2].GetPositionY(), PosSummonLiving[2].GetPositionZ(), PosSummonLiving[2].GetOrientation());
-                    }
+                case NPC_LIVING_TRAINEE_40:
+                    me->SummonCreature(NPC_LIVING_TRAINEE_40, PosSummonLiving[0].GetPositionX(), PosSummonLiving[0].GetPositionY(), PosSummonLiving[0].GetPositionZ(), PosSummonLiving[0].GetOrientation());
+                    me->SummonCreature(NPC_LIVING_TRAINEE_40, PosSummonLiving[1].GetPositionX(), PosSummonLiving[1].GetPositionY(), PosSummonLiving[1].GetPositionZ(), PosSummonLiving[1].GetOrientation());
                     break;
-                case NPC_LIVING_KNIGHT:
-                    me->SummonCreature(NPC_LIVING_KNIGHT, PosSummonLiving[3].GetPositionX(), PosSummonLiving[3].GetPositionY(), PosSummonLiving[3].GetPositionZ(), PosSummonLiving[3].GetOrientation());
-                    if (Is25ManRaid())
-                    {
-                        me->SummonCreature(NPC_LIVING_KNIGHT, PosSummonLiving[5].GetPositionX(), PosSummonLiving[5].GetPositionY(), PosSummonLiving[5].GetPositionZ(), PosSummonLiving[5].GetOrientation());
-                    }
+                case NPC_LIVING_KNIGHT_40:
+                    me->SummonCreature(NPC_LIVING_KNIGHT_40, PosSummonLiving[3].GetPositionX(), PosSummonLiving[3].GetPositionY(), PosSummonLiving[3].GetPositionZ(), PosSummonLiving[3].GetOrientation());
                     break;
-                case NPC_LIVING_RIDER:
-                    me->SummonCreature(NPC_LIVING_RIDER, PosSummonLiving[4].GetPositionX(), PosSummonLiving[4].GetPositionY(), PosSummonLiving[4].GetPositionZ(), PosSummonLiving[4].GetOrientation());
+                case NPC_LIVING_RIDER_40:
+                    me->SummonCreature(NPC_LIVING_RIDER_40, PosSummonLiving[4].GetPositionX(), PosSummonLiving[4].GetPositionY(), PosSummonLiving[4].GetPositionZ(), PosSummonLiving[4].GetOrientation());
                     break;
             }
         }
@@ -400,7 +374,7 @@ public:
                     Talk(SAY_INTRO_4);
                     break;
                 case EVENT_SHADOW_BOLT:
-                    me->CastSpell(me->GetVictim(), RAID_MODE(SPELL_SHADOW_BOLT_10, SPELL_SHADOW_BOLT_25, SPELL_SHADOW_BOLT_10, SPELL_SHADOW_BOLT_25), false);
+                    me->CastSpell(me->GetVictim(), SPELL_SHADOW_BOLT, false);
                     events.Repeat(1s);
                     break;
                 case EVENT_HARVEST_SOUL:
@@ -439,7 +413,7 @@ public:
                 case EVENT_SUMMON_ADDS:
                     if (gothikWaves[waveCount][0])
                     {
-                        SummonHelpers(gothikWaves[waveCount][0]);
+                        SummonHelpers_40(gothikWaves[waveCount][0]);
                         events.Repeat(Milliseconds(gothikWaves[waveCount][1]));
                     }
                     else
@@ -466,6 +440,21 @@ public:
                             go->SetGoState(GO_STATE_ACTIVE);
 
                         gateOpened = true;
+						
+                        summons.DoForAllSummons([&](WorldObject* summon)
+                        {
+                            if (Creature* gothikMinion = summon->ToCreature())
+                                if (gothikMinion->IsAlive())
+                                {
+                                    if (Unit* target = SelectTarget(SelectTargetMethod::MinDistance, 0, 200.0f))
+                                    {
+                                        gothikMinion->AI()->AttackStart(target);
+                                        gothikMinion->SetReactState(REACT_AGGRESSIVE);
+                                        gothikMinion->SetInCombatWithZone();
+                                    }
+                                }
+                        });
+						
                         Talk(EMOTE_GATE_OPENED);
                     }
                     break;
@@ -506,26 +495,26 @@ public:
         {
             switch (me->GetEntry())
             {
-                case NPC_LIVING_TRAINEE:
+                case NPC_LIVING_TRAINEE_40:
                     events.ScheduleEvent(EVENT_DEATH_PLAGUE, 3s);
                     break;
-                case NPC_DEAD_TRAINEE:
+                case NPC_DEAD_TRAINEE_40:
                     events.ScheduleEvent(EVENT_ARCANE_EXPLOSION, 2500ms);
                     break;
-                case NPC_LIVING_KNIGHT:
+                case NPC_LIVING_KNIGHT_40:
                     events.ScheduleEvent(EVENT_SHADOW_MARK, 3s);
                     break;
-                case NPC_DEAD_KNIGHT:
+                case NPC_DEAD_KNIGHT_40:
                     events.ScheduleEvent(EVENT_WHIRLWIND, 2s);
                     break;
-                case NPC_LIVING_RIDER:
+                case NPC_LIVING_RIDER_40:
                     events.ScheduleEvent(EVENT_SHADOW_BOLT_VOLLEY, 3s);
                     break;
-                case NPC_DEAD_RIDER:
+                case NPC_DEAD_RIDER_40:
                     events.ScheduleEvent(EVENT_DRAIN_LIFE, 2000ms, 3500ms);
                     events.ScheduleEvent(EVENT_UNHOLY_FRENZY, 5s, 9s);
                     break;
-                case NPC_DEAD_HORSE:
+                case NPC_DEAD_HORSE_40:
                     events.ScheduleEvent(EVENT_STOMP, 2s, 5s);
                     break;
             }
@@ -535,22 +524,16 @@ public:
         {
             switch (me->GetEntry())
             {
-                case NPC_LIVING_TRAINEE:
+                case NPC_LIVING_TRAINEE_40:
                     DoCastAOE(SPELL_ANCHOR_1_TRAINEE, true);
                     break;
-                case NPC_LIVING_KNIGHT:
+                case NPC_LIVING_KNIGHT_40:
                     DoCastAOE(SPELL_ANCHOR_1_DK, true);
                     break;
-                case NPC_LIVING_RIDER:
+                case NPC_LIVING_RIDER_40:
                     DoCastAOE(SPELL_ANCHOR_1_RIDER, true);
                     break;
             }
-        }
-
-        void KilledUnit(Unit* who) override
-        {
-            if (who->IsPlayer())
-                me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void UpdateAI(uint32 diff) override
@@ -651,7 +634,7 @@ public:
         Creature* SelectRandomSkullPile()
         {
             std::list<Creature*> triggers;
-            me->GetCreatureListWithEntryInGrid(triggers, NPC_TRIGGER, 150.0f);
+            me->GetCreatureListWithEntryInGrid(triggers, NPC_TRIGGER_40, 150.0f);
             // Remove triggers that are on live side or soul triggers on the platform
             triggers.remove_if([](Creature* trigger){
                 return ((trigger->GetPositionY() < POS_Y_GATE) || (trigger->GetPositionZ() > 280.0f));
@@ -668,9 +651,7 @@ public:
         void SpellHit(Unit* /*caster*/, SpellInfo const* spell) override
         {
             if (!spell)
-            {
                 return;
-            }
 
             switch (spell->Id)
             {
@@ -702,14 +683,14 @@ public:
                     }
                     break;
                 case SPELL_SKULLS_TRAINEE:
-                    DoSummon(NPC_DEAD_TRAINEE, me, 0.0f, 15 * IN_MILLISECONDS, TEMPSUMMON_CORPSE_TIMED_DESPAWN);
+                    DoSummon(NPC_DEAD_TRAINEE_40, me, 0.0f, 15 * IN_MILLISECONDS, TEMPSUMMON_CORPSE_TIMED_DESPAWN);
                     break;
                 case SPELL_SKULLS_DK:
-                    DoSummon(NPC_DEAD_KNIGHT, me, 0.0f, 15 * IN_MILLISECONDS, TEMPSUMMON_CORPSE_TIMED_DESPAWN);
+                    DoSummon(NPC_DEAD_KNIGHT_40, me, 0.0f, 15 * IN_MILLISECONDS, TEMPSUMMON_CORPSE_TIMED_DESPAWN);
                     break;
                 case SPELL_SKULLS_RIDER:
-                    DoSummon(NPC_DEAD_RIDER, me, 0.0f, 15 * IN_MILLISECONDS, TEMPSUMMON_CORPSE_TIMED_DESPAWN);
-                    DoSummon(NPC_DEAD_HORSE, me, 0.0f, 15 * IN_MILLISECONDS, TEMPSUMMON_CORPSE_TIMED_DESPAWN);
+                    DoSummon(NPC_DEAD_RIDER_40, me, 0.0f, 15 * IN_MILLISECONDS, TEMPSUMMON_CORPSE_TIMED_DESPAWN);
+                    DoSummon(NPC_DEAD_HORSE_40, me, 0.0f, 15 * IN_MILLISECONDS, TEMPSUMMON_CORPSE_TIMED_DESPAWN);
                     break;
             }
         }

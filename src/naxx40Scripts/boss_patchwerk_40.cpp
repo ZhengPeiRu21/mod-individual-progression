@@ -30,8 +30,7 @@ enum Yells
 
 enum Spells
 {
-    SPELL_HATEFUL_STRIKE_10         = 41926,
-    SPELL_HATEFUL_STRIKE_25         = 59192,
+    SPELL_HATEFUL_STRIKE            = 41926,
     SPELL_FRENZY                    = 28131,
     SPELL_BERSERK                   = 26662,
     SPELL_SLIME_BOLT                = 32309
@@ -43,11 +42,6 @@ enum Events
     EVENT_HATEFUL_STRIKE            = 2,
     EVENT_SLIME_BOLT                = 3,
     EVENT_BERSERK                   = 4
-};
-
-enum Misc
-{
-    ACHIEV_TIMED_START_EVENT        = 10286
 };
 
 class boss_patchwerk_40 : public CreatureScript
@@ -62,8 +56,7 @@ public:
 
     struct boss_patchwerk_40AI : public BossAI
     {
-        explicit boss_patchwerk_40AI(Creature* c) : BossAI(c, BOSS_PATCHWERK)
-        {}
+        explicit boss_patchwerk_40AI(Creature* c) : BossAI(c, BOSS_PATCHWERK) { }
 
         EventMap events;
 
@@ -81,7 +74,7 @@ public:
             if (!urand(0, 3))
                 Talk(SAY_SLAY);
 
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void JustDied(Unit*  killer) override
@@ -96,9 +89,8 @@ public:
             Talk(SAY_AGGRO);
             me->SetInCombatWithZone();
             events.ScheduleEvent(EVENT_HATEFUL_STRIKE, 1200ms);
-            events.ScheduleEvent(EVENT_BERSERK, 7min); // 7 minutes enrange
+            events.ScheduleEvent(EVENT_BERSERK, 7min);
             events.ScheduleEvent(EVENT_HEALTH_CHECK, 1s);
-            // instance->DoStartTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, ACHIEV_TIMED_START_EVENT);
         }
 
         void UpdateAI(uint32 diff) override
@@ -156,7 +148,7 @@ public:
                         if (finalTarget)
                         {
                             int32 dmg = urand(22100,22850);
-                            me->CastCustomSpell(finalTarget, SPELL_HATEFUL_STRIKE_10, &dmg, 0, 0, false);
+                            me->CastCustomSpell(finalTarget, SPELL_HATEFUL_STRIKE, &dmg, 0, 0, false);
                         }
                         events.Repeat(1200ms);
                         break;

@@ -38,13 +38,14 @@ For a more authentic experience, some players may prefer to have pre-3.2 behavio
 This is handled by the client, so I have created an addon that will restore this behavior. The addon can be found here: https://github.com/ZhengPeiRu21/hide-vendor-price
 
 ## Discord (new!)
-[https://discord.gg/dPwQG49q](https://discord.gg/PTXxh3KSgQ)
+[https://discord.gg/PTXxh3KSgQ](https://discord.gg/PTXxh3KSgQ)
 
 ## Thank You
 Special thanks to all contributors of the following projects who made this module possible:
 * AzerothCore and TrinityCore, along with ancestors Mangos, etc.
 * AzerothCore Progression Module for Vanilla content and scripts
-* AzerothCore War Effort Module
+* AzerothCore mod-war-effort
+* AzerothCore mod-pvp-titles
 * Wrath of the Vanilla Module for more Vanilla world adjustments
 * Vmangos for Vanilla game and patch progression data
 * Sogladev for many Naxx 40 scripts and data

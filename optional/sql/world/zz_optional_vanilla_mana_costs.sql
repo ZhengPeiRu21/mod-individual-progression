@@ -1,5 +1,7 @@
-/* In Patch 3.3, the mana costs for many leveling spells was reduced to further speed up and simplify pre-WotLK content. This reverts the costs to 3.0 Mana Costs. No WotLK level spells are affected. */
-/* This file is needed because some people may not want to use the modified spell.dbc file for the server */
+/* This file is required for people that do not want to use a modifed spell.dbc file. */
+
+/* In Patch 3.3, the mana costs for many leveling spells were reduced to further speed up and simplify pre-WotLK content. This reverts the costs to 3.0 Mana Costs. */
+/* No WotLK level spells are affected. */
 
 DELETE FROM `spell_dbc` WHERE `ID` IN (
 2050, 16387, 2052, 2053, 2054, 2055, 10, 2060, 2061, 17, 32796, 8227, 8232, 2090, 2091, 8235, 34861, 34863, 34864, 34865, 53301, 8249, 6201, 6202, 6205, 10312, 6217, 10313, 6219, 10314, 14262, 6222, 6223, 

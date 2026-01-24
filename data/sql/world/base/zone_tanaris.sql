@@ -46,9 +46,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5474, 0, 1, 0, 0, 0, 100, 0, 7000, 19000, 16000, 32000, 0, 0, 11, 10966, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0, 'Dunemaul Brute - In Combat - Cast Uppercut'),
 (5475, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dunemaul Warlock - On Aggro - Say Line 0'),
 (5475, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Dunemaul Warlock - In Combat - Cast Shadow Bolt'),
-(5475, 0, 2, 0, 0, 0, 100, 0, 7000, 11000, 21000, 26000, 0, 0, 11, 2941, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Dunemaul Warlock - In Combat - Cast Immolate'),
-(5475, 0, 3, 0, 0, 0, 100, 0, 3000, 5000, 180000, 190000, 0, 0, 11, 6909, 96, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0, 'Dunemaul Warlock - Within 0-5 Range - Cast Curse of Thorns'),
-(5481, 0, 0, 0, 0, 0, 100, 0, 9000, 28000, 26000, 43000, 0, 0, 11, 11922, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Thistleshrub Dew Collector - In Combat - Cast Entangling Roots'),
+(5475, 0, 2, 0, 0, 0, 100, 0, 7000, 11000, 21000, 26000, 0, 0, 11, 2941, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Dunemaul Warlock - In Combat - Cast Immolate'),
+(5475, 0, 3, 0, 0, 0, 100, 0, 3000, 5000, 180000, 190000, 0, 0, 11, 6909, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0, 'Dunemaul Warlock - Within 0-5 Range - Cast Curse of Thorns'),
+(5481, 0, 0, 0, 0, 0, 100, 0, 9000, 28000, 26000, 43000, 0, 0, 11, 11922, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Thistleshrub Dew Collector - In Combat - Cast Entangling Roots'),
 (5485, 0, 0, 0, 0, 0, 100, 0, 6000, 28000, 13000, 29000, 0, 0, 11, 8376, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Thistleshrub Rootshaper - In Combat - Cast Earthgrab Totem'),
 --
 (5615, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 8218, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Wastewander Rogue - Out of Combat - Cast Sneak'),
@@ -56,9 +56,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5615, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Wastewander Rogue - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5616, 0, 0, 0, 0, 0, 100, 0, 6000, 9000, 7000, 12000, 0, 0, 11, 6713, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Wastewander Thief - Within 0-5 Range - Cast Disarm'),
 (5616, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Wastewander Thief - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(5617, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12746, 64, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Wastewander Shadow Mage - Out of Combat - Cast Summon Voidwalker (No Repeat)'),
+(5617, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12746, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Wastewander Shadow Mage - Out of Combat - Cast Summon Voidwalker (No Repeat)'),
 (5617, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Wastewander Shadow Mage - In Combat - Cast Shadow Bolt'),
-(5617, 0, 2, 0, 0, 0, 100, 0, 6000, 9000, 19000, 26000, 0, 0, 11, 20826, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Wastewander Shadow Mage - In Combat - Cast Immolate'),
+(5617, 0, 2, 0, 0, 0, 100, 0, 6000, 9000, 19000, 26000, 0, 0, 11, 20826, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Wastewander Shadow Mage - In Combat - Cast Immolate'),
 (5617, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Wastewander Shadow Mage - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (5618, 0, 0, 0, 0, 0, 100, 0, 4000, 8000, 7000, 12000, 0, 0, 11, 8629, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Wastewander Bandit - In Combat - Cast Gouge'),
 (5618, 0, 1, 0, 67, 0, 100, 0, 3000, 6000, 6000, 10000, 0, 5, 11, 8721, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Wastewander Bandit - On Behind Target - Cast Backstab'),
@@ -105,14 +105,19 @@ UPDATE `gameobject_template` SET `ScriptName` = "go_cavernsoftimedoor" WHERE `en
 
 UPDATE `creature` SET `position_x` = -8175.67, `position_y` = -4718.28, `position_z` = 26.3489, `orientation` = 1.88496 WHERE `id1` = 15192;
 
-
 -- update Laden Dew Gland drop rate, was 100%
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 8428;
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (5065, 10445);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(19, 0, 5065, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Prospector Ironboot - Hide \'The Lost Tablets of Mosh\'aru\' until the player reaches Pre-AQ'),
+(19, 0, 10445, 0, 0, 8, 0, 66009, 0, 0, 0, 0, 0, '', 'Soridormi - Hide \'The Vials of Eternity\' until the player reaches TBC T2');
+    
 DELETE FROM `creature_text` WHERE `CreatureID` IN (5465, 5471, 5472, 5473, 5474, 5475);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 --
-(5465, 0, 0, '$s becomes enraged!',                              16, 0, 100, 0, 0, 0, 10677, 0, 'Land Rager enrage at 30%'),
+(5465, 0, 0, '$s becomes enraged!',                               16, 0, 100, 0, 0, 0, 10677, 0, 'Land Rager'),
 (5471, 0, 0, 'I\'ll crush you!',                                  12, 0, 100, 0, 0, 0, 1925, 0, 'Dunemaul Ogre'),
 (5471, 0, 1, 'Me smash! You die!',                                12, 0, 100, 0, 0, 0, 1926, 0, 'Dunemaul Ogre'),
 (5471, 0, 2, 'Raaaaaaaaaaaaaaaaaaaaaaaaaaaaaar!!! Me smash $R!',  12, 0, 100, 0, 0, 0, 1927, 0, 'Dunemaul Ogre'),
@@ -128,3 +133,79 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (5475, 0, 0, 'I\'ll crush you!',                                  12, 0, 100, 0, 0, 0, 1925, 0, 'Dunemaul Warlock'),
 (5475, 0, 1, 'Me smash! You die!',                                12, 0, 100, 0, 0, 0, 1926, 0, 'Dunemaul Warlock'),
 (5475, 0, 2, 'Raaaaaaaaaaaaaaaaaaaaaaaaaaaaaar!!! Me smash $R!',  12, 0, 100, 0, 0, 0, 1927, 0, 'Dunemaul Warlock');
+
+
+SET @CGUID     := 659000;
+
+SET @Vixton    := 120278;
+SET @Evee      := 125177;
+SET @Ecton     := 125178;
+
+DELETE FROM `creature` WHERE `guid` IN (@CGUID+41, @CGUID+42);
+DELETE FROM `creature` WHERE `id1` IN (25177, 25178, 26378, @Evee, @Ecton);
+DELETE FROM `creature` WHERE `id1` IN (32359, 32360, 32362, 32407, 33915, 33917, 33920, 33924, 33928, 33929, 33934, 33935, 33939, 34088, 34090, 34093);
+
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+--
+(@CGUID+41, 20278,   1, -7119.02, -3779.06, 8.78404, 0, 180),     -- Vixton Pinchwhistle, WotLK Season 1
+(@CGUID+42, @Vixton, 1, -7119.02, -3779.06, 8.78404, 0, 180),     -- Vixton Pinchwhistle, WotLK Season 2
+--
+(@CGUID+43, @Evee, 1, -7120.75, -3774.16, 9.0363, 0.767945, 180), -- Evee Copperspring, WotLK Season 2
+(@CGUID+44, 25177, 1, -7120.75, -3774.16, 9.0363, 0.767945, 180), -- Evee Copperspring, WotLK Season 3
+(@CGUID+45, 26378, 1, -7120.75, -3774.16, 9.0363, 0.767945, 180), -- Evee Copperspring, WotLK Season 4
+(@CGUID+46, 32362, 1, -7120.75, -3774.16, 9.0363, 0.767945, 180), -- Evee Copperspring, WotLK Season 5
+(@CGUID+47, 33920, 1, -7120.75, -3774.16, 9.0363, 0.767945, 180), -- Evee Copperspring, WotLK Season 6
+(@CGUID+48, 33928, 1, -7120.75, -3774.16, 9.0363, 0.767945, 180), -- Evee Copperspring, WotLK Season 7
+(@CGUID+49, 33935, 1, -7120.75, -3774.16, 9.0363, 0.767945, 180), -- Evee Copperspring, WotLK Season 8
+--
+(@CGUID+50, @Ecton, 1, -7122.35, -3770.56, 9.35682, 0, 180),      -- Ecton Brasstumbler, WotLK Season 3
+(@CGUID+51, 25178,  1, -7122.35, -3770.56, 9.35682, 0, 180),      -- Ecton Brasstumbler, WotLK Season 4
+(@CGUID+52, 32360,  1, -7122.35, -3770.56, 9.35682, 0, 180),      -- Ecton Brasstumbler, WotLK Season 5
+(@CGUID+53, 33917,  1, -7122.35, -3770.56, 9.35682, 0, 180),      -- Ecton Brasstumbler, WotLK Season 6
+(@CGUID+54, 33929,  1, -7122.35, -3770.56, 9.35682, 0, 180),      -- Ecton Brasstumbler, WotLK Season 7
+(@CGUID+55, 33934,  1, -7122.35, -3770.56, 9.35682, 0, 180),      -- Ecton Brasstumbler, WotLK Season 8
+--
+(@CGUID+56, 32359, 1, -7123.33, -3766.68, 9.40339, 0, 180),       -- Argex Irongut, WotLK Season 5
+(@CGUID+57, 33915, 1, -7123.33, -3766.68, 9.40339, 0, 180),       -- Argex Irongut, WotLK Season 6
+(@CGUID+58, 33924, 1, -7123.33, -3766.68, 9.40339, 0, 180),       -- Argex Irongut, WotLK Season 7
+(@CGUID+59, 33939, 1, -7123.33, -3766.68, 9.40339, 0, 180),       -- Argex Irongut, WotLK Season 8
+--
+(@CGUID+60, 34088, 1, -7126.8, -3761.97, 9.49471, 0.820305, 180), -- Blazzek the Biter, WotLK Season 6
+(@CGUID+61, 34090, 1, -7126.8, -3761.97, 9.49471, 0.820305, 180), -- Blazzek the Biter, WotLK Season 7
+(@CGUID+62, 34093, 1, -7126.8, -3761.97, 9.49471, 0.820305, 180); -- Blazzek the Biter, WotLK Season 8
+
+
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S1'   WHERE `guid` IN (@CGUID+41);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S2'   WHERE `guid` IN (@CGUID+42, @CGUID+43);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S3'   WHERE `guid` IN (@CGUID+44, @CGUID+50);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_S4'   WHERE `guid` IN (@CGUID+45, @CGUID+51);
+
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S5' WHERE `guid` IN (@CGUID+46, @CGUID+52, @CGUID+56);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S6' WHERE `guid` IN (@CGUID+47, @CGUID+53, @CGUID+57, @CGUID+60);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S7' WHERE `guid` IN (@CGUID+48, @CGUID+54, @CGUID+58, @CGUID+61);
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_wotlk_S8' WHERE `guid` IN (@CGUID+49, @CGUID+55, @CGUID+59, @CGUID+62);
+
+DELETE FROM `creature_addon` WHERE `guid` BETWEEN @CGUID+41 AND @CGUID+62;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(@CGUID+41, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+42, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+43, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+44, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+45, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+46, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+47, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+48, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+49, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+50, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+51, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+52, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+53, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+54, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+55, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+56, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+57, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+58, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+59, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+60, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+61, 0, 0, 0, 1, 0, 0, NULL),
+(@CGUID+62, 0, 0, 0, 1, 0, 0, NULL);

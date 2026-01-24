@@ -20,7 +20,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2241, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Syndicate Thief - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2244, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 900000, 900000, 0, 0, 11, 13787, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Syndicate Shadow Mage - Out of Cobmat - Cast Demon Armor'),
 (2244, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20791, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Shadow Mage - In Combat - Cast Shadow Bolt'),
-(2244, 0, 2, 0, 0, 0, 100, 0, 2000, 2000, 30000, 30000, 0, 0, 11, 16247, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Syndicate Shadow Mage - In Combat - Cast Curse of Thorns'),
+(2244, 0, 2, 0, 0, 0, 100, 0, 2000, 2000, 30000, 30000, 0, 0, 11, 16247, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Syndicate Shadow Mage - In Combat - Cast Curse of Thorns'),
 (2244, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Syndicate Shadow Mage - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2249, 0, 0, 1, 2, 0, 100, 0, 0, 20, 0, 0, 0, 0, 11, 8599, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Ferocious Yeti - Between 0-20% Health - Cast Enrage'),
 (2249, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ferocious Yeti - On Enrage - Say Line 0'),
@@ -71,12 +71,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2345, 0, 4, 0, 0, 0, 100, 0, 12000, 18000, 30000, 30000, 0, 0, 11, 6685, 1, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Dun Garok Rifleman - Within 0-30 Range - Cast Piercing Shot'),
 (2345, 0, 5, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Dun Garok Rifleman - Between 0-30% Health - Flee For Assist (No Repeat)'),
 (2346, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 3000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Dun Garok Priest - In Combat - Cast Holy Smite'),
-(2346, 0, 1, 0, 74, 0, 100, 0, 0, 0, 15000, 25000, 40, 40, 11, 11642, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Dun Garok Priest - Friendly Between 0-40% Health - Cast Heal'),
+(2346, 0, 1, 0, 74, 0, 100, 0, 0, 0, 15000, 25000, 40, 40, 11, 11642, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Dun Garok Priest - Friendly Between 0-40% Health - Cast Heal'),
 (2346, 0, 2, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Dun Garok Priest - Between 0-30% Health - Flee For Assist (No Repeat)'),
 --
-(2348, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 31000, 36000, 0, 0, 11, 3396, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Elder Moss Creeper - In Combat - Cast Corrosive Poison'),
-(2349, 0, 0, 0, 0, 0, 100, 0, 5000, 16000, 30000, 36000, 0, 0, 11, 3396, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Giant Moss Creeper - In Combat - Cast Corrosive Poison'),
-(2350, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 31000, 36000, 0, 0, 11, 3396, 96, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Forest Moss Creeper - In Combat - Cast Corrosive Poison'),
+(2348, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 31000, 36000, 0, 0, 11, 3396, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Elder Moss Creeper - In Combat - Cast Corrosive Poison'),
+(2349, 0, 0, 0, 0, 0, 100, 0, 5000, 16000, 30000, 36000, 0, 0, 11, 3396, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Giant Moss Creeper - In Combat - Cast Corrosive Poison'),
+(2350, 0, 0, 0, 0, 0, 100, 0, 3000, 5000, 31000, 36000, 0, 0, 11, 3396, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Forest Moss Creeper - In Combat - Cast Corrosive Poison'),
 (2360, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hillsbrad Farmhand - Between 0-30% Health - Flee For Assist (No Repeat)'),
 --
 (2368, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 180000, 180000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Daggerspine Shorestalker - In Combat - Cast Defensive Stance'),
@@ -96,7 +96,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2372, 0, 0, 0, 9, 0, 100, 0, 0, 0, 30000, 30000, 0, 5, 11, 3650, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Mudsnout Gnoll - Within 0-5 Range - Cast Sling Mud'),
 (2372, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Mudsnout Gnoll - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2373, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 20805, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Mudsnout Shaman - In Combat CMC - Cast \'Lightning Bolt\''),
-(2373, 0, 1, 0, 74, 0, 100, 0, 0, 0, 15000, 20000, 40, 40, 11, 939, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Mudsnout Shaman - Friendly Between 0-40% Health - Cast Healing Wave'),
+(2373, 0, 1, 0, 74, 0, 100, 0, 0, 0, 15000, 20000, 40, 40, 11, 939, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Mudsnout Shaman - Friendly Between 0-40% Health - Cast Healing Wave'),
 (2373, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Mudsnout Shaman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (2374, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 3427, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Torn Fin Muckdweller - Within 0-5 Range - Cast Infected Wound'),
@@ -107,7 +107,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2375, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Torn Fin Coastrunner - Within 5-30 Range - Cast Throw'),
 (2375, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Torn Fin Coastrunner - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2376, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9532, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Torn Fin Oracle - In Combat - Cast Lightning Bolt'),
-(2376, 0, 1, 0, 2, 0, 100, 0, 0, 25, 25000, 35000, 0, 0, 11, 939, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Torn Fin Oracle - Between 0-25% Health - Cast Healing Wave'),
+(2376, 0, 1, 0, 2, 0, 100, 0, 0, 25, 25000, 35000, 0, 0, 11, 939, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Torn Fin Oracle - Between 0-25% Health - Cast Healing Wave'),
 (2376, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Torn Fin Oracle - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2377, 0, 0, 0, 106, 0, 100, 0, 0, 0, 12000, 15000, 0, 8, 11, 865, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Torn Fin Tidehunter - Within 0-8 Range - Cast Frost Nova'),
 (2377, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Torn Fin Tidehunter - Between 0-15% Health - Flee For Assist (No Repeat)'),
@@ -136,24 +136,24 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2503, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hillsbrad Foreman - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (7068, 0, 0, 0, 0, 0, 100, 0, 0, 0, 21000, 25000, 0, 0, 11, 15654, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Condemned Acolyte - In Combat - Cast Shadow Word: Pain'),
-(7068, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 40, 40, 11, 25058, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Acolyte - Friendly Between 0-40% Health - Cast Renew'),
+(7068, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 40, 40, 11, 25058, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Acolyte - Friendly Between 0-40% Health - Cast Renew'),
 (7069, 0, 0, 0, 105, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Condemned Monk - Target Casting - Cast Kick'),
 (7069, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Condemned Monk - Target Casting - Cast Pummel'),
 (7070, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 25054, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Condemned Cleric - In Combat - Cast Holy Smite'),
-(7070, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 21000, 40, 40, 11, 15586, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Cleric - Friendly Between 0-40% Health - Cast Heal'),
+(7070, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 21000, 40, 40, 11, 15586, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Cleric - Friendly Between 0-40% Health - Cast Heal'),
 (7071, 0, 0, 0, 9, 0, 100, 0, 0, 0, 14000, 18000, 0, 8, 11, 13005, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Cursed Paladin - Within 0-8 Range - Cast Hammer of Justice'),
 (7072, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15580, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Cursed Justicar - Within 0-5 Range - Cast Strike'),   
-(7073, 0, 0, 0, 14, 0, 100, 0, 3000, 30, 3000, 6000, 0, 0, 11, 15493, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Arados the Damned - Friendly Missing 3000 Health - Cast Holy Light'),
+(7073, 0, 0, 0, 14, 0, 100, 0, 3000, 30, 3000, 6000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Arados the Damned - Friendly Missing 3000 Health - Cast Holy Light'),
 (7073, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 13874, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Arados the Damned - Between 0-30% Health - Cast Divine Shield (No Repeat)'),
 (7075, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12675, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Writhing Mage - In Combat - Cast Frostbolt'),
 (7075, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Writhing Mage - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (607068, 0, 0, 0, 0, 0, 100, 0, 0, 0, 21000, 25000, 0, 0, 11, 15654, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Acolyte - In Combat - Cast Shadow Word: Pain'),
-(607068, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 40, 40, 11, 11640, 96, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Condemned Acolyte - Friendly Between 0-40% Health - Cast Renew'),
+(607068, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 40, 40, 11, 11640, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Condemned Acolyte - Friendly Between 0-40% Health - Cast Renew'),
 (607069, 0, 0, 0, 105, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Monk - Target Casting - Cast Kick'),
 (607069, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Monk - Target Casting - Cast Pummel'),
 (607070, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Condemned Cleric - In Combat - Cast Holy Smite'),
-(607070, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 21000, 40, 40, 11, 15586, 65, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Condemned Cleric - Friendly Between 0-40% Health - Cast Heal'),
+(607070, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 21000, 40, 40, 11, 15586, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Condemned Cleric - Friendly Between 0-40% Health - Cast Heal'),
 (607071, 0, 0, 0, 9, 0, 100, 0, 0, 0, 14000, 18000, 0, 8, 11, 13005, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Cursed Paladin - Within 0-8 Range - Cast Hammer of Justice'),
 (607072, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 15580, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Cursed Justicar - Within 0-5 Range - Cast Strike'),
 (607075, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12675, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Writhing Mage - In Combat - Cast Frostbolt'),
@@ -279,16 +279,16 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 DELETE FROM `creature_template` WHERE `entry` IN (607068, 607069, 607070, 607071, 607072, 607075);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
-`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, 
-`type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, 
-`ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
+`PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
+`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
-(607068, 0, 0, 0, 0, 0, 'Condemned Acolyte', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.3, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 421, 555, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607069, 0, 0, 0, 0, 0, 'Condemned Monk', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.55, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 474, 624, 'SmartAI', 0, 1, 1, 1, 0.25, 1, 0, 0, 1, 8413702, 0, 0, '', 12340),
-(607070, 0, 0, 0, 0, 0, 'Condemned Cleric', NULL, NULL, 0, 32, 33, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.25, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 454, 598, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607071, 0, 0, 0, 0, 0, 'Cursed Paladin', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.8, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 413, 544, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607072, 0, 0, 0, 0, 0, 'Cursed Justicar', NULL, NULL, 0, 32, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.7, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 527, 693, 'SmartAI', 0, 1, 1.1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(607075, 0, 0, 0, 0, 0, 'Writhing Mage', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.75, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 0, 0, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 397, 524, 'SmartAI', 0, 1, 1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
+(607068, 0, 0, 0, 0, 0, 'Condemned Acolyte', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.3, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 421, 555, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607069, 0, 0, 0, 0, 0, 'Condemned Monk', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.55, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 474, 624, 'SmartAI', 0, 1, 1, 1, 0.25, 1, 0, 0, 1, 8413702, 0, 0, '', 12340),
+(607070, 0, 0, 0, 0, 0, 'Condemned Cleric', NULL, NULL, 0, 32, 33, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 2.25, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 454, 598, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607071, 0, 0, 0, 0, 0, 'Cursed Paladin', NULL, NULL, 0, 30, 31, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.8, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 413, 544, 'SmartAI', 0, 1, 1.1, 1, 0.25, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607072, 0, 0, 0, 0, 0, 'Cursed Justicar', NULL, NULL, 0, 32, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.7, 2000, 2000, 1, 1, 1, 32768, 2048, 0, 0, 6, 0, 7073, 0, 0, 0, 0, 527, 693, 'SmartAI', 0, 1, 1.1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
+(607075, 0, 0, 0, 0, 0, 'Writhing Mage', NULL, NULL, 0, 31, 32, 0, 16, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0, 0.75, 2000, 2000, 1, 1, 2, 32768, 2048, 0, 0, 6, 0, 7074, 0, 0, 0, 0, 397, 524, 'SmartAI', 0, 1, 1, 1, 0.2, 1, 0, 0, 1, 8413718, 0, 0, '', 12340);
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN (607068, 607070);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES

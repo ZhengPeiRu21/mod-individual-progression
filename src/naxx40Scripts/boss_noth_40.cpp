@@ -34,10 +34,8 @@ enum Says
 
 enum Spells
 {
-    SPELL_CURSE_OF_THE_PLAGUEBRINGER_10     = 29213,
-    SPELL_CURSE_OF_THE_PLAGUEBRINGER_25     = 54835,
-    SPELL_CRIPPLE_10                        = 29212,
-    SPELL_CRIPPLE_25                        = 54814,
+    SPELL_CURSE_OF_THE_PLAGUEBRINGER        = 29213,
+    SPELL_CRIPPLE                           = 29212,
     SPELL_SUMMON_PLAGUED_WARRIORS           = 29237,
     SPELL_TELEPORT                          = 29216,
     SPELL_TELEPORT_BACK                     = 29231,
@@ -56,13 +54,6 @@ enum Events
     EVENT_SUMMON_PLAGUED_WARRIOR_REAL       = 7,
     EVENT_BALCONY_SUMMON_ANNOUNCE           = 8,
     EVENT_BALCONY_SUMMON_REAL               = 9
-};
-
-enum Misc
-{
-    // NPC_PLAGUED_WARRIOR                     = 16984,
-    // NPC_PLAGUED_CHAMPION                    = 16983,
-    // NPC_PLAGUED_GUARDIAN                    = 16981
 };
 
 const Position summoningPosition[5] =
@@ -88,8 +79,7 @@ public:
 
     struct boss_noth_40AI : public BossAI
     {
-        explicit boss_noth_40AI(Creature* c) : BossAI(c, BOSS_NOTH), summons(me)
-        {}
+        explicit boss_noth_40AI(Creature* c) : BossAI(c, BOSS_NOTH), summons(me) { }
 
         uint8 timesInBalcony;
         EventMap events;
@@ -104,10 +94,7 @@ public:
             events.ScheduleEvent(EVENT_MOVE_TO_BALCONY, 110s);
             events.ScheduleEvent(EVENT_CURSE, 15s);
             events.ScheduleEvent(EVENT_SUMMON_PLAGUED_WARRIOR_ANNOUNCE, 10s);
-            if (Is25ManRaid())
-            {
-                events.ScheduleEvent(EVENT_BLINK, 26s);
-            }
+            events.ScheduleEvent(EVENT_BLINK, 35s);
         }
 
         void StartBalconyPhase()
@@ -186,7 +173,7 @@ public:
                 return;
 
             Talk(SAY_SLAY);
-            instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+            // instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
         }
 
         void UpdateAI(uint32 diff) override
@@ -197,9 +184,10 @@ public:
             if (!UpdateVictim())
                 return;
 
-            events.Update(diff);
             if (me->HasUnitState(UNIT_STATE_CASTING))
                 return;
+
+            events.Update(diff);
 
             switch (events.ExecuteEvent())
             {
@@ -207,9 +195,9 @@ public:
                 case EVENT_CURSE:
                     if (events.GetPhaseMask() == 0)
                     {
-                        me->CastCustomSpell(SPELL_CURSE_OF_THE_PLAGUEBRINGER_10, SPELLVALUE_MAX_TARGETS, 10, me, false); // TODO: Increase to 20 on 40man
+                        me->CastCustomSpell(SPELL_CURSE_OF_THE_PLAGUEBRINGER, SPELLVALUE_MAX_TARGETS, 20, me, false);
                     }
-                    events.Repeat(25s); // 50-60 seconds in 40man
+                    events.Repeat(50s, 60s);
                     break;
                 case EVENT_SUMMON_PLAGUED_WARRIOR_ANNOUNCE:
                     Talk(SAY_SUMMON);
@@ -219,7 +207,7 @@ public:
                     break;
                 case EVENT_SUMMON_PLAGUED_WARRIOR_REAL:
                     me->CastSpell(me, SPELL_SUMMON_PLAGUED_WARRIORS, true);
-                    SummonHelper(NPC_PLAGUED_WARRIOR, RAID_MODE(2, 3, 3, 3));
+                    SummonHelper(NPC_PLAGUED_WARRIOR_40, 3);
                     break;
                 case EVENT_MOVE_TO_BALCONY:
                     Talk(EMOTE_TELEPORT_BALCONY);
@@ -228,7 +216,7 @@ public:
                     break;
                 case EVENT_BLINK:
                     DoResetThreatList();
-                    me->CastSpell(me, RAID_MODE(SPELL_CRIPPLE_10, SPELL_CRIPPLE_25, SPELL_CRIPPLE_10, SPELL_CRIPPLE_25), false);
+                    me->CastSpell(me, SPELL_CRIPPLE, false);
                     me->CastSpell(me, SPELL_BLINK, true);
                     Talk(EMOTE_BLINK);
                     events.Repeat(30s);
@@ -244,14 +232,14 @@ public:
                     switch (timesInBalcony)
                     {
                          case 0:
-                             SummonHelper(NPC_PLAGUED_CHAMPION, RAID_MODE(2, 4, 4, 4));
+                             SummonHelper(NPC_PLAGUED_CHAMPION_40, 4);
                              break;
                          case 1:
-                             SummonHelper(NPC_PLAGUED_CHAMPION, RAID_MODE(1, 2, 2, 2));
-                             SummonHelper(NPC_PLAGUED_GUARDIAN, RAID_MODE(1, 2, 2, 2));
+                             SummonHelper(NPC_PLAGUED_CHAMPION_40, 2);
+                             SummonHelper(NPC_PLAGUED_GUARDIAN_40, 2);
                              break;
                          default:
-                             SummonHelper(NPC_PLAGUED_GUARDIAN, RAID_MODE(2, 4, 4, 4));
+                             SummonHelper(NPC_PLAGUED_GUARDIAN_40, 4);
                              break;
                     }
                     break;

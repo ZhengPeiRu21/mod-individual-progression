@@ -115,6 +115,18 @@ IndividualProgression.QuestXPFix = 1
 #
 IndividualProgression.RequireNaxxStrathEntrance = 0
 
+# IndividualProgression.doableNaxx40Bosses
+#
+#        Description: If enabled, this will make certain bosses in Naxx40 easier.
+#                     - Razuvious will cast disrupting shout instead of mana burn
+#                     - Four Horsemen's ability damage will be much lower. So they can be fought together without a strategy.
+#                     - Gluth will search for a zombie every 9 seconds instead of 3.
+#
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.doableNaxx40Bosses = 0
+
 # IndividualProgression.MoltenCore.ManualRuneHandling
 #
 #        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) 
@@ -190,11 +202,21 @@ IndividualProgression.WarlockDemonTrainers = 0
 #
 IndividualProgression.SimpleConfigOverride = 1
 
+# IndividualProgression.DisableRDF
+#
+#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
+#                     Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
+#
+#        Default:     0 - RDF Enabled
+#                     1 - RDF Disabled
+#
+IndividualProgression.DisableRDF = 0
+
 # IndividualProgression.ProgressionLimit
 #
 #        Description: If enabled, players will not be able to proceed beyond this progression stage.
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
-#                     For example, a value of 6 will limit players to Vanilla content.
+#                     For example, a value of 7 will limit players to Vanilla content.
 #
 #        Default:     0 - Disabled (players may progress up to the maximum progression stage of 18, which is the completion of WotLK content)
 #                     1-17 - Set a lower maximum attainable progression stage 
@@ -273,6 +295,15 @@ IndividualProgression.DeathKnightUnlockProgression = 13
 #
 IndividualProgression.DeathKnightStartingProgression = 13
 
+# IndividualProgression.RequiredZulGurubProgression
+#
+#        Description: The progression stage at which Zul'Gurub will be available
+#
+#        Default:     3 - Zul'Gurub unlocks after BWL (Default, Blizzlike)
+#                     0-12, 14-18 - Set a different required progression stage for Zul'Gurub
+#
+IndividualProgression.RequiredZulGurubProgression = 3
+
 # IndividualProgression.DisableDefaultProgression
 #
 #        Description: Disable the regular progression flow, so progression must be advanced through custom creature progression entries
@@ -306,24 +337,67 @@ IndividualProgression.CustomProgression = ""
 #
 IndividualProgression.AllowEarlyDungeonSet2 = 0
 
-# IndividualProgression.PvPGearRequirements
+# IndividualProgression.TBC.ArenaSeason
 #
-#        Description: Requires players to have earned relevant PvP Titles before high level PvP gear can be equipped
+#        Description: Current TBC arena season id
+#        Default:     1
+#                     1-4
 #
-#        Default:     1 - Enabled
-#                     0 - Disabled
-#
-IndividualProgression.PvPGearRequirements = 1
+IndividualProgression.TBC.ArenaSeason = 1
 
-# IndividualProgression.DisableRDF
+# IndividualProgression.WotLK.ArenaSeason
 #
-#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
-#                     Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
+#        Description: Current WotLK arena season id
+#        Default:     5
+#                     5-8
 #
-#        Default:     0 - RDF Enabled
-#                     1 - RDF Disabled
+IndividualProgression.WotLK.ArenaSeason = 5
+
+# IndividualProgression.VanillaPvPRankRequirement
 #
-IndividualProgression.DisableRDF = 0
+#        Description: Required PvP honor kills during Vanilla for each PvP rank to earn relevant titles and get corresponding items
+#
+IndividualProgression.VanillaPvpKillRequirement.Rank1 = 100
+IndividualProgression.VanillaPvpKillRequirement.Rank2 = 200
+IndividualProgression.VanillaPvpKillRequirement.Rank3 = 400
+IndividualProgression.VanillaPvpKillRequirement.Rank4 = 800
+IndividualProgression.VanillaPvpKillRequirement.Rank5 = 1400
+IndividualProgression.VanillaPvpKillRequirement.Rank6 = 2000
+IndividualProgression.VanillaPvpKillRequirement.Rank7 = 3000
+IndividualProgression.VanillaPvpKillRequirement.Rank8 = 4500
+IndividualProgression.VanillaPvpKillRequirement.Rank9 = 6000
+IndividualProgression.VanillaPvpKillRequirement.Rank10 = 8000
+IndividualProgression.VanillaPvpKillRequirement.Rank11 = 10000
+IndividualProgression.VanillaPvpKillRequirement.Rank12 = 13000
+IndividualProgression.VanillaPvpKillRequirement.Rank13 = 18000
+IndividualProgression.VanillaPvpKillRequirement.Rank14 = 24000
+
+# IndividualProgression.VanillaPvpTitlesPersistAfterVanilla
+#
+#        Description: Players retain their Vanilla PvP titles even after reaching TBC/WotLK
+#
+#        Default:     1 - Enabled (Default, Blizzlike)
+#                     0 - Disabled 
+#
+IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 1
+
+# IndividualProgression.VanillaPvpEarnTitlesAfterVanilla
+#
+#        Description: Players can continue to earn new Vanilla PvP titles even after reaching TBC/WotLK
+#
+#        Default:     0 - Disabled (Default, Blizzlike)
+#                     1 - Enabled
+#
+IndividualProgression.VanillaPvpEarnTitlesAfterVanilla = 0
+
+# IndividualProgression.ExcludedAccountsEarnPvPTitles
+#
+#        Description: Enable / Disable excluded accounts earning pvp titles. This includes playerbots.
+#
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.ExcludedAccountsEarnPvPTitles = 0
 
 # IndividualProgression.ExcludeAccounts
 #
