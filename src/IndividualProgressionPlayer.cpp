@@ -619,7 +619,10 @@ public:
         if (spellID == 620270)
         {
 	        // remove all demon spells
-            CharacterDatabase.Query("DELETE FROM `pet_spell` WHERE `guid` IN (SELECT `ID` FROM `character_pet` WHERE `owner` = {}", playerGUID);
+            if (pet->HasSpell(spellID-600000)
+            {
+                pet->removeSpell(spellID-600000, false);
+            }
 
             // add learned demon spells
             if (player->HasSpell(620270))
