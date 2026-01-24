@@ -374,16 +374,16 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
             }
         }
 
-        // add learned Felhunter demon spells
-        for (uint32 player_Felhunter_SpellID :
+        // add learned Felguard demon spells
+        for (uint32 player_Felguard_SpellID :
         {630154, 630199, 630200,
          630214, 630222, 630224,
          633704, 633705, 633706,
          632234, 632852})
         {
-            if (player->HasSpell(player_Felhunter_SpellID))
+            if (player->HasSpell(player_Felguard_SpellID))
             {
-                pet->learnSpell(player_Felhunter_SpellID - 600000);
+                pet->learnSpell(player_Felguard_SpellID - 600000);
             }
         }
         break;
