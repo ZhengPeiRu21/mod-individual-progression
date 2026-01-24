@@ -362,8 +362,8 @@ UPDATE `quest_template` SET `RewardMoney` = 49900, `RewardHonor` = 2388 WHERE `I
 UPDATE `quest_template` SET `RewardMoney` = 0, `RewardHonor` = 2388 WHERE `ID` IN (13475, 13477); -- repeatable
 UPDATE `quest_template` SET `RewardFactionID1` = 729, `RewardFactionID2` = 510, `RewardFactionID3` = 889 WHERE `ID` IN (13475, 13476); -- For Great Honor
 UPDATE `quest_template` SET `RewardFactionID1` = 730, `RewardFactionID2` = 509, `RewardFactionID3` = 890 WHERE `ID` IN (13477, 13478); -- Concerted Efforts
-UPDATE `quest_template` SET `RewardFactionValue1` = 200, `RewardFactionValue2` = 150, `RewardFactionValue3` = 150 WHERE `ID` IN (13476, 13478); -- first time completion
-UPDATE `quest_template` SET `RewardFactionValue1` = 150, `RewardFactionValue2` = 100, `RewardFactionValue3` = 100 WHERE `ID` IN (13475, 13477); -- repeatable
+UPDATE `quest_template` SET `RewardFactionOverride1` = 20000, `RewardFactionOverride2` = 15000, `RewardFactionOverride3` = 15000 WHERE `ID` IN (13476, 13478); -- first time completion
+UPDATE `quest_template` SET `RewardFactionOverride1` = 15000, `RewardFactionOverride2` = 10000, `RewardFactionOverride3` = 10000 WHERE `ID` IN (13475, 13477); -- repeatable
 
 -- For Great Honor / Concerted Efforts,TBC
 UPDATE `quest_template` SET `RewardMoney` = 119900, `RewardHonor` = 629 WHERE `ID` IN (8367, 8371); -- first time completion
