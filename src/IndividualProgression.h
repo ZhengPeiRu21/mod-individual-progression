@@ -390,6 +390,7 @@ public:
     bool hasCustomProgressionValue(uint32 creatureEntry);
     bool isExcludedFromProgression(Player* player);
     void SyncBotsProgressionToLeader(Group* group);
+    void AddDemonSpells(Pet* pet, Player* player);
     bool isAttuned(Player* player);
     void checkIPPhasing(Player* player, uint32 newArea);
     void checkIPProgression(Player* player);	
