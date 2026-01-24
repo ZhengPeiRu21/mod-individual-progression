@@ -113,6 +113,16 @@ public:
             return;
 
         sIndividualProgression->CheckAdjustments(player);
+
+        Pet* pet = player->GetPet();
+
+        if (!pet || !pet->IsInWorld())
+            return;
+
+        if (pet->getPetType() == HUNTER_PET)
+            return;
+
+        sIndividualProgression->AddDemonSpells(pet, pet->GetOwner());
     }
 
     void OnPlayerEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
@@ -616,6 +626,9 @@ public:
             return;
 
         // add learned demon spells
+        if (pet->getPetType() == HUNTER_PET)
+            return;
+
         sIndividualProgression->AddDemonSpells(pet, player);
     }
 
@@ -753,6 +766,9 @@ public:
         CheckAdjustments(pet);
 
         // add learned demon spells
+        if (pet->getPetType() == HUNTER_PET)
+            return;
+
         sIndividualProgression->AddDemonSpells(pet, pet->GetOwner());
     }
 };
