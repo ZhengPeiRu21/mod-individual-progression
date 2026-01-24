@@ -425,15 +425,6 @@ void IndividualProgression::UpdateProgressionQuests(Player* player)
     }
 }
 
-void IndividualProgression::UpdateWarlockDemonSpells(Player* player)
-{   
-	// remove all demon spells
-
-
-    // add learned demon spells
-
-}
-
 void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16 achievementID)
 {
     AchievementEntry const* entry = sAchievementStore.LookupEntry(achievementID);
