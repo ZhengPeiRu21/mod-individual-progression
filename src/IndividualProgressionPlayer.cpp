@@ -119,9 +119,6 @@ public:
         if (!pet || !pet->IsInWorld())
             return;
 
-        if (pet->getPetType() == HUNTER_PET)
-            return;
-
         sIndividualProgression->AddDemonSpells(pet, pet->GetOwner());
     }
 
@@ -625,13 +622,8 @@ public:
         if (!pet)
             return;
 
-        // add learned demon spells
-        if (pet->getPetType() == HUNTER_PET)
-            return;
-
         sIndividualProgression->AddDemonSpells(pet, player);
     }
-
 };
 
 class IndividualPlayerProgression_AccountScript: public AccountScript
@@ -764,10 +756,6 @@ public:
             return;
 
         CheckAdjustments(pet);
-
-        // add learned demon spells
-        if (pet->getPetType() == HUNTER_PET)
-            return;
 
         sIndividualProgression->AddDemonSpells(pet, pet->GetOwner());
     }
