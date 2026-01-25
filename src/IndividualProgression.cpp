@@ -4,6 +4,7 @@
 
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
+#include "PetDefines.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
@@ -240,12 +241,14 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
     }
 }
 
-void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
+void IndividualProgression::checkDemonSpells(Player* player)
 {
-    if (!player || !player->IsInWorld() || isExcludedFromProgression(player))
+    if (!player || !player->IsInWorld() || isExcludedFromProgression(player) || !WarlockDemonTrainers)
         return;
 
-    if (!pet || !pet->IsInWorld())
+    Pet* pet = player->GetPet();
+
+    if (!pet)
         return;
 
     // only for vanilla and tbc
@@ -257,10 +260,10 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
     case NPC_IMP:
         // remove all Imp demon spells
         for (uint32 Imp_SpellID :
-        {20270, 20312, 20313, 20314, 20315, 20314, 27487, // Grimoire of Firebolt
-         20397, 20318, 20319, 20320, 20321, 27488,        // Grimoire of Blood Pact
-         20322, 20323, 20324, 20326, 20327, 27489,        // Grimoire of Fire Shield
-         20329})                                          // Grimoire of Phase Shift
+        {7799, 7800, 7801, 7802, 11762, 11763, 27267, // Grimoire of Firebolt
+         6307, 7804, 7805, 11766, 11767, 27268,       // Grimoire of Blood Pact
+         2947, 8316, 8317, 11770, 11771, 27269,       // Grimoire of Fire Shield
+         4511})                                       // Grimoire of Phase Shift
         {
             if (pet->HasSpell(Imp_SpellID))
             {
@@ -270,10 +273,10 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
 
         // add learned Imp demon spells
         for (uint32 player_Imp_SpellID :
-        {620270, 620312, 620313, 620314, 620315, 620314, 627487,
-         620397, 620318, 620319, 620320, 620321, 627488,
-         620322, 620323, 620324, 620326, 620327, 627489,
-         620329})
+        {607799, 607800, 607801, 607802, 611762, 611763, 627267, // Grimoire of Firebolt
+         606307, 607804, 607805, 611766, 611767, 627268,         // Grimoire of Blood Pact
+         602947, 608316, 608317, 611770, 611771, 627269,         // Grimoire of Fire Shield
+         604511})                                                // Grimoire of Phase Shift
         {
             if (player->HasSpell(player_Imp_SpellID))
             {
@@ -284,23 +287,28 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
     case NPC_VOIDWALKER:
         // remove all Voidwalker demon spells
         for (uint32 Voidwalker_SpellID :
-        {20317, 20377, 20378, 20379, 20380, 27490,        // Grimoire of Torment
-         20381, 20382, 20383, 20384, 20385, 20386, 27492, // Grimoire of Sacrifice
-         20387, 20388, 20389, 20390, 20391, 20392, 27491, // Grimoire of Consume Shadows
-         20393, 20394, 20395, 20396, 27500, 33703})       // Grimoire of Suffering
+        {7809, 7810, 7811, 11774, 11775, 27270,           // Torment
+         7812, 19438, 19440, 19441, 19442, 19443, 27273,  // Sacrifice
+         17767, 17850, 17851, 17852, 17853, 17854, 27272, // Consume Shadows
+         17735, 17750, 17751, 17752, 27271, 33701})       // Suffering
         {
             if (pet->HasSpell(Voidwalker_SpellID))
             {
                 pet->removeSpell(Voidwalker_SpellID, false);
+                ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Check A|r");
+            }
+            else
+            {
+                ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Check B|r");
             }
         }
 
         // add learned Voidwalker demon spells
         for (uint32 player_Voidwalker_SpellID :
-        {620317, 620377, 620378, 620379, 620380, 627490,
-         620381, 620382, 620383, 620384, 620385, 620386, 627492,
-         620387, 620388, 620389, 620390, 620391, 620392, 627491,
-         620393, 620394, 620395, 620396, 627500, 633703})
+        {607809, 607810, 607811, 611774, 611775, 627270,         // Torment
+         607812, 619438, 619440, 619441, 619442, 619443, 627273, // Sacrifice
+         617767, 617850, 617851, 617852, 617853, 617854, 627272, // Consume Shadows
+         617735, 617750, 617751, 617752, 627271, 633701})        // Suffering
         {
             if (player->HasSpell(player_Voidwalker_SpellID))
             {
@@ -311,9 +319,9 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
     case NPC_SUCCUBUS:
         // remove all Succubus demon spells
         for (uint32 Succubus_SpellID :
-        {20398, 20399, 20400, 20401, 20402, 27493, // Grimoire of Lash of Pain
-         20403, 20404, 20405, 20406, 27494,        // Grimoire of Soothing Kiss
-         20407, 20408})                            // Seduction, Lesser Invisibility,
+        {7815, 7816, 11778, 11779, 11780, 27274, // Grimoire of Lash of Pain
+         6360, 7813, 11784, 11785, 27275,        // Grimoire of Soothing Kiss
+         6358, 7870})                            // Seduction, Lesser Invisibility,
         {
             if (pet->HasSpell(Succubus_SpellID))
             {
@@ -323,9 +331,9 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
 
         // add learned Succubus demon spells
         for (uint32 player_Succubus_SpellID :
-        {620398, 620399, 620400, 620401, 620402, 627493,
-         620403, 620404, 620405, 620406, 627494,
-         620407, 620408})
+        {607815, 607816, 611778, 611779, 611780, 627274, // Grimoire of Lash of Pain
+         606360, 607813, 611784, 611785, 627275,         // Grimoire of Soothing Kiss
+         606358, 607870})                                // Seduction, Lesser Invisibility,
         {
             if (player->HasSpell(player_Succubus_SpellID))
             {
@@ -336,10 +344,10 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
     case NPC_FELHUNTER:
         // remove all Felhunter demon spells
         for (uint32 Felhunter_SpellID :
-        {20426, 20427, 20428, 27495, 27496, // Grimoire of Devour Magic
+        {19731, 19734, 19736, 27276, 27277, // Grimoire of Devour Magic
          20429, 20430, 20431, 20432, 27497, // Grimoire of Tainted Blood
-         20433, 20434,                      // Grimoire of Spell Lock
-         20435})                            // Paranoia
+         19244, 19647,                      // Grimoire of Spell Lock
+         19481})                            // Paranoia
         {
             if (pet->HasSpell(Felhunter_SpellID))
             {
@@ -349,10 +357,10 @@ void IndividualProgression::AddDemonSpells(Pet* pet, Player* player)
 
         // add learned Felhunter demon spells
         for (uint32 player_Felhunter_SpellID :
-        {620426, 620427, 620428, 627495, 627496,
-         620429, 620430, 620431, 620432, 627497,
-         620433, 620434,
-         620435})
+        {619731, 619734, 619736, 627276, 627277, // Grimoire of Devour Magic
+         620429, 620430, 620431, 620432, 627497, // Grimoire of Tainted Blood
+         619244, 619647,                         // Grimoire of Spell Lock
+         619481})                                // Paranoia
         {
             if (player->HasSpell(player_Felhunter_SpellID))
             {
@@ -1349,7 +1357,7 @@ private:
         sIndividualProgression->doableNaxx40Bosses = sConfigMgr->GetOption<bool>("IndividualProgression.doableNaxx40Bosses", false);
         sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
         sIndividualProgression->fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
-        sIndividualProgression->WarlockDemonTrainers = sConfigMgr->GetOption<bool>("IndificualProgression.WarlockDemonTrainers", false);
+        sIndividualProgression->WarlockDemonTrainers = sConfigMgr->GetOption<bool>("IndividualProgression.WarlockDemonTrainers", true);
         sIndividualProgression->simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
         sIndividualProgression->progressionLimit = sConfigMgr->GetOption<uint8>("IndividualProgression.ProgressionLimit", 0);
         sIndividualProgression->startingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.StartingProgression", 0);
