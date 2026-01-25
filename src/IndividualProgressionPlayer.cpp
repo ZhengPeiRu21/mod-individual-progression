@@ -70,6 +70,7 @@ public:
 			
             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
         }
+
     }
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
@@ -113,13 +114,7 @@ public:
             return;
 
         sIndividualProgression->CheckAdjustments(player);
-
-        Pet* pet = player->GetPet();
-
-        if (!pet || !pet->IsInWorld())
-            return;
-
-        sIndividualProgression->AddDemonSpells(pet, pet->GetOwner());
+        sIndividualProgression->checkDemonSpells(player);
     }
 
     void OnPlayerEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
@@ -614,15 +609,10 @@ public:
 
     void OnPlayerLearnSpell(Player* player, uint32 spellID) override
     {
-        if (!player || !player->IsInWorld() || !spellID)
+        if (!player || !player->IsInWorld())
             return;
 
-        Pet* pet = player->GetPet();
-
-        if (!pet)
-            return;
-
-        sIndividualProgression->AddDemonSpells(pet, player);
+        sIndividualProgression->checkDemonSpells(player);
     }
 };
 
@@ -757,7 +747,7 @@ public:
 
         CheckAdjustments(pet);
 
-        sIndividualProgression->AddDemonSpells(pet, pet->GetOwner());
+        sIndividualProgression->checkDemonSpells(pet->GetOwner());
     }
 };
 
