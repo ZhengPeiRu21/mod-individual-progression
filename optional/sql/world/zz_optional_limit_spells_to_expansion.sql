@@ -43,3 +43,14 @@ UPDATE `trainer_spell` SET `ReqLevel` = 71 WHERE `TrainerId` = 33 AND `SpellId` 
 UPDATE `trainer_spell` SET `ReqLevel` = 71 WHERE `TrainerId` = 33 AND `SpellId` = 50768; -- Revive (Rank 2), level 24 -> 71
 UPDATE `trainer_spell` SET `ReqLevel` = 71 WHERE `TrainerId` = 33 AND `SpellId` = 50769; -- Revive (Rank 1), level 12 -> 71
 UPDATE `trainer_spell` SET `ReqLevel` = 71 WHERE `TrainerId` = 33 AND `SpellId` = 62600; -- Savage Defense, level 40 -> 71
+
+-- remove spells from characters who already learned them and shouldn't have them anymore
+DELETE FROM `character_spell` WHERE `spell` = 34428 AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 1 AND `level` < 62);
+DELETE FROM `character_spell` WHERE `spell` = 31789 AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 2 AND `level` < 61);
+DELETE FROM `character_spell` WHERE `spell` IN (53407, 53408, 62124) AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 2 AND `level` < 71);
+DELETE FROM `character_spell` WHERE `spell` = 34074 AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 3 AND `level` < 64);
+DELETE FROM `character_spell` WHERE `spell` IN (34120, 56641) AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 3 AND `level` < 71);
+DELETE FROM `character_spell` WHERE `spell` = 51722 AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 4 AND `level` < 71);
+DELETE FROM `character_spell` WHERE `spell` = 36936 AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 7 AND `level` < 61);
+DELETE FROM `character_spell` WHERE `spell` IN (24398, 33736, 52127, 52129, 52131, 52134, 52136, 52138, 57994, 66842, 66843, 66844) AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 7 AND `level` < 71);
+DELETE FROM `character_spell` WHERE `spell` IN (50764, 50765, 50766, 50767, 50768, 50769, 62600) AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 11 AND `level` < 71);
