@@ -33,9 +33,9 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 (@OGUID+10, 601019, 0, 'A Dusty Tome'),
 (@OGUID+11, 601019, 0, 'A Dusty Tome');
 
-DELETE FROM `pool_template` WHERE `entry` IN ();
+DELETE FROM `pool_template` WHERE `entry` IN (601019);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
-(601010, 1, 'A Dusty Tome - Dire Maul');
+(601019, 1, 'A Dusty Tome - Dire Maul');
 
 
 /* ---- Dire Maul North ----- */
