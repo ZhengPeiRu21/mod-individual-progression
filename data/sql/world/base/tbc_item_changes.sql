@@ -470,7 +470,7 @@ UPDATE `item_template` SET `RequiredReputationRank` = 0 WHERE `entry` = 25829;
 UPDATE `item_template` SET `spellid_2` = 32748 WHERE `entry` = 25834;
 
 /* Plans: Eternium Rod */
-UPDATE `item_template` SET `RequiredSkillRank` = 375 WHERE `entry` = 25847;
+-- UPDATE `item_template` SET `RequiredSkillRank` = 375 WHERE `entry` = 25847; -- requires client edit
 
 /*  Gladiator's Silk Amice  */
 UPDATE `item_template` SET `stat_type4` = 21 WHERE `entry` = 25854;
