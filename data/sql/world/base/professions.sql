@@ -42,9 +42,6 @@ UPDATE `item_template` SET `spellid_1` = 19887, `spellcharges_1` = -1, `spellppm
 INSERT IGNORE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES 
 (16073, 'frFR', 'Livre de cuisine pour artisan', '', 0);
 
--- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
-UPDATE `trainer_spell` SET `ReqSkillRank` = 200 WHERE `SpellID` = 37836;
-
 -- Fishing needs to be learned from Quests and Books, remove from trainers
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (18249, 54083, 54084);
 UPDATE `quest_template` SET `RewardItem2` = 16082, `RewardAmount2` = 1 WHERE `ID` = 6607;
