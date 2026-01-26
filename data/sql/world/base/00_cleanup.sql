@@ -29,6 +29,21 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinc
 
 /* the following edits are temporary */
 
+-- temporary fix until AC fixes it - these npcs lost their vendor gossip option
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (7815, 7820, 8760, 10363, 10437);
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, 
+`OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES 
+(7815, 0, 3, 'Train me.', 3266, 5, 16, 0, 0, 0, 0, '', 0, 0),
+(7815, 1, 1, 'Let me browse your goods.', 8097, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(7820, 0, 3, 'Train me.', 3266, 5, 16, 0, 0, 0, 0, '', 0, 0),
+(7820, 1, 1, 'Let me browse your goods.', 8097, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(8760, 0, 3, 'Train me.', 3266, 5, 16, 0, 0, 0, 0, '', 0, 0),
+(8760, 1, 1, 'Let me browse your goods.', 8097, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(10363, 0, 3, 'Train me.', 3266, 5, 16, 0, 0, 0, 0, '', 0, 0),
+(10363, 1, 1, 'Let me browse your goods.', 8097, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(10437, 0, 1, 'Let me browse your goods.', 8097, 3, 128, 0, 0, 0, 0, '', 0, 0),
+(10437, 1, 3, 'Train me.', 3266, 5, 16, 0, 0, 0, 0, '', 0, 0);
+
 -- remove unused rogue trainer spell lists
 DELETE FROM `trainer_spell` WHERE `TrainerId` = 650; 
 DELETE FROM `creature_default_trainer` WHERE `TrainerId` = 650;
