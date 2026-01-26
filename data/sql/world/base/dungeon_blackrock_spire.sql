@@ -417,30 +417,29 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 (@OGUID+23, 175785, 229, 0, 0, 1, 1, -18.376, -299.271, 31.6183, 0, 0, 0, 0, 0, 300, 0, 1, '', 0, NULL),
 (@OGUID+24, 175785, 229, 0, 0, 1, 1, -16.1217, -492.558, 90.6585, 0, 0, 0, 0, 0, 300, 0, 1, '', 0, NULL);
 
-DELETE FROM `pool_gameobject` WHERE `pool_entry` IN (601001, 601002);
+DELETE FROM `pool_gameobject` WHERE `guid` BETWEEN @OGUID+1 AND @OGUID+24;
 INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
-(@OGUID+1,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+2,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+3,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+4,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+5,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+6,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+7,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+8,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+9,  601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+10, 601001, 0, 'Bijou\'s Belongings'),
-(@OGUID+11, 601001, 0, 'Bijou\'s Belongings'),
+(@OGUID+1,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+2,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+3,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+4,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+5,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+6,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+7,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+8,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+9,  601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+10, 601017, 0, 'Bijou\'s Belongings'),
+(@OGUID+11, 601017, 0, 'Bijou\'s Belongings'),
 --
-(@OGUID+21, 601002, 0, 'Important Blackrock Documents'),
-(@OGUID+22, 601002, 0, 'Important Blackrock Documents'),
-(@OGUID+23, 601002, 0, 'Important Blackrock Documents'),
-(@OGUID+24, 601002, 0, 'Important Blackrock Documents');
+(@OGUID+21, 601018, 0, 'Important Blackrock Documents'),
+(@OGUID+22, 601018, 0, 'Important Blackrock Documents'),
+(@OGUID+23, 601018, 0, 'Important Blackrock Documents'),
+(@OGUID+24, 601018, 0, 'Important Blackrock Documents');
 
-DELETE FROM `pool_template` WHERE `entry` IN (601001, 601002);
+DELETE FROM `pool_template` WHERE `entry` IN (601017, 601018);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
-(601001, 1, 'Bijou\'s Belongings - LBRS'),
-(601002, 1, 'Important Blackrock Documents - LBRS');
-
+(601017, 1, 'Bijou\'s Belongings - LBRS'),
+(601018, 1, 'Important Blackrock Documents - LBRS');
 
 -- fix missing patrols
 DELETE FROM `creature` WHERE `guid` IN (@CGUID+1, @CGUID+2, @CGUID+3, @CGUID+4, @CGUID+5, @CGUID+6, @CGUID+7, @CGUID+8,  @CGUID+9, @CGUID+21, @CGUID+22);
