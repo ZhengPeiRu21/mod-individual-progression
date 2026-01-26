@@ -1,5 +1,41 @@
 SET @CGUID   := 653000;
+SET @OGUID   := 653000;
 SET @WPID    := 6530000;
+
+-- Dusty Tomes
+DELETE FROM `gameobject` WHERE `id` = 179548;
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES
+--
+(@OGUID+1, 179548, 429, 0, 0, 1, 1, 4.36356, -436.696, 16.4123, 0.995107, 0, 0, 0.477277, 0.878753, 7200, 255, 1, '', 0, NULL),
+(@OGUID+2, 179548, 429, 0, 0, 1, 1, -144.107, 742.185, -24.5802, 5.42981, 0, 0, 0.41386, -0.910341, 7200, 255, 1, '', 0, NULL),
+(@OGUID+3, 179548, 429, 0, 0, 1, 1, 512.784, 588.036, -25.4023, 3.28124, 0, 0, -0.997563, 0.0697661, 7200, 255, 1, '', 0, NULL),
+(@OGUID+4, 179548, 429, 0, 0, 1, 1, -108.174, -208.762, -56.0361, 5.85044, 0, 0, 0.214688, -0.976683, 7200, 255, 1, '', 0, NULL),
+(@OGUID+5, 179548, 429, 0, 0, 1, 1, -8.62444, -351.419, -53.8242, 3.01908, 0, 0, 0.998124, 0.0612191, 7200, 255, 1, '', 0, NULL),
+(@OGUID+6, 179548, 429, 0, 0, 1, 1, 837.458, 493.936, 37.3182, 3.81369, 0, 0, 0.944066, -0.329757, 7200, 255, 1, '', 0, NULL),
+(@OGUID+7, 179548, 429, 0, 0, 1, 1, -81.1221, 368.843, -2.37102, 3.29414, 0, 0, 0.997092, -0.076201, 7200, 255, 1, '', 0, NULL),
+(@OGUID+8, 179548, 429, 0, 0, 1, 1, 118.018, -261.472, -4.14639, 0.087266, 0, 0, 0.0436192, 0.999048, 7200, 255, 1, '', 0, NULL),
+(@OGUID+9, 179548, 429, 0, 0, 1, 1, 287.941, 341.455, 2.85298, 4.28258, 0, 0, 0.841636, -0.540046, 7200, 255, 1, '', 0, NULL),
+(@OGUID+10, 179548, 429, 0, 0, 1, 1, 285.164, -431.063, -119.962, -1.58825, 0, 0, 0, 1, 7200, 255, 1, '', 0, NULL),
+(@OGUID+11, 179548, 429, 0, 0, 1, 1, -86.3983, 569.308, 28.6079, 1.78023, 0, 0, 0, 1, 7200, 255, 1, '', 0, NULL);
+
+DELETE FROM `pool_gameobject` WHERE `pool_entry` IN (601019);
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
+(@OGUID+1,  601019, 0, 'A Dusty Tome'),
+(@OGUID+2,  601019, 0, 'A Dusty Tome'),
+(@OGUID+3,  601019, 0, 'A Dusty Tome'),
+(@OGUID+4,  601019, 0, 'A Dusty Tome'),
+(@OGUID+5,  601019, 0, 'A Dusty Tome'),
+(@OGUID+6,  601019, 0, 'A Dusty Tome'),
+(@OGUID+7,  601019, 0, 'A Dusty Tome'),
+(@OGUID+8,  601019, 0, 'A Dusty Tome'),
+(@OGUID+9,  601019, 0, 'A Dusty Tome'),
+(@OGUID+10, 601019, 0, 'A Dusty Tome'),
+(@OGUID+11, 601019, 0, 'A Dusty Tome');
+
+DELETE FROM `pool_template` WHERE `entry` IN (601019);
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
+(601019, 1, 'A Dusty Tome - Dire Maul');
 
 
 /* ---- Dire Maul North ----- */
