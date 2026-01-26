@@ -1,5 +1,5 @@
 /*
-    This optional file sets the required level to train certain class spells to the expansion they were introduced 
+    This optional file sets the required level to train certain class spells to the expansion they were introduced in
     Level 61/71 is required to prevent the spell from being available too early. 
 */
 
