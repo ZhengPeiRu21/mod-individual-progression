@@ -29,6 +29,10 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinc
 
 /* the following edits are temporary */
 
+-- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
+-- no longer needed. you can't get Simple Flour during vanilla.
+UPDATE `trainer_spell` SET `ReqSkillRank` = 1 WHERE `SpellID` = 37836;
+
 -- temporary fix until AC fixes it - these npcs lost their vendor gossip option
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (7815, 7820, 8760, 10363, 10437);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, 
