@@ -131,17 +131,6 @@ public:
         sIndividualProgression->CheckAdjustments(player);
     }
 
-    bool OnPlayerShouldBeRewardedWithMoneyInsteadOfExp(Player* player) override
-    {
-        if (!player || !player->IsInWorld() || !sIndividualProgression->questMoneyAtLevelCap)
-            return false;
-
-        // Player is still in Vanilla content - give money at 60 level cap
-        return ((!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == IP_LEVEL_VANILLA) ||
-                // Player is in TBC content - give money at 70 level cap
-                (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC));
-    }
-
     void OnPlayerQuestComputeXP(Player* player, Quest const* quest, uint32& xpValue) override
     {
         if (!sIndividualProgression->enabled || !quest || !xpValue || !player || !player->IsInWorld())
@@ -328,49 +317,75 @@ public:
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
     {
-        if (!player || !player->IsInWorld() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(player))
+        if (!player || !player->IsInWorld() || !quest || !sIndividualProgression->enabled )
             return;
 
-        switch (quest->GetQuestId())
+        if (sIndividualProgression->questMoneyAtLevelCap)
         {
-            case BANG_A_GONG:
-                if (!sIndividualProgression->disableDefaultProgression)
-                {
-                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
-                    sIndividualProgression->UpdateProgressionQuests(player);
-                }
-                break;
-            case SIMPLY_BANG_A_GONG:
-                if (!sIndividualProgression->disableDefaultProgression)
-                {
-                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
-                    sIndividualProgression->UpdateProgressionQuests(player);
-                }
-                break;
-            case CHAOS_AND_DESTRUCTION:
-                if (!sIndividualProgression->disableDefaultProgression)
-                {
-                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_AQ_WAR);
-                    sIndividualProgression->UpdateProgressionQuests(player);
-                }
-                break;
-            case INTO_THE_BREACH:
-                if (!sIndividualProgression->disableDefaultProgression)
-                {
-                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
-                    sIndividualProgression->UpdateProgressionQuests(player);
-                }
-                break;
-            case QUEST_MORROWGRAIN:
-            case QUEST_TROLL_NECKLACE:
-            case QUEST_DEADWOOD:
-            case QUEST_WINTERFALL:
-                if (sIndividualProgression->repeatableVanillaQuestsXp)
-                {
-                    // Reset the quest status so the player can take it and receive rewards again
-                    player->RemoveRewardedQuest(quest->GetQuestId());
-                }
-                break;
+            int32 moneyRew = 0;
+            int32 XPValue = 0;
+
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == IP_LEVEL_VANILLA)
+            {
+                XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? IP_LEVEL_VANILLA : quest->GetQuestLevel());
+            }
+            else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC)
+		    {
+                XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? IP_LEVEL_TBC : quest->GetQuestLevel());
+		    }
+
+            moneyRew = (XPValue * (6 * COPPER)) * sWorld->getRate(RATE_REWARD_BONUS_MONEY);
+
+            if (moneyRew > 0)
+            {
+                player->ModifyMoney(moneyRew);
+                ChatHandler(player->GetSession()).SendSysMessage("Received bonus gold from: |cffccccccquestMoneyAtLevelCap|r.");
+            }
+        }
+
+        if (!sIndividualProgression->isExcludedFromProgression(player))
+        {
+            switch (quest->GetQuestId())
+            {
+                case BANG_A_GONG:
+                    if (!sIndividualProgression->disableDefaultProgression)
+                    {
+                        sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                        sIndividualProgression->UpdateProgressionQuests(player);
+                    }
+                    break;
+                case SIMPLY_BANG_A_GONG:
+                    if (!sIndividualProgression->disableDefaultProgression)
+                    {
+                        sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                        sIndividualProgression->UpdateProgressionQuests(player);
+                    }
+                    break;
+                case CHAOS_AND_DESTRUCTION:
+                    if (!sIndividualProgression->disableDefaultProgression)
+                    {
+                        sIndividualProgression->UpdateProgressionState(player, PROGRESSION_AQ_WAR);
+                        sIndividualProgression->UpdateProgressionQuests(player);
+                    }
+                    break;
+                case INTO_THE_BREACH:
+                    if (!sIndividualProgression->disableDefaultProgression)
+                    {
+                        sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
+                        sIndividualProgression->UpdateProgressionQuests(player);
+                    }
+                    break;
+                case QUEST_MORROWGRAIN:
+                case QUEST_TROLL_NECKLACE:
+                case QUEST_DEADWOOD:
+                case QUEST_WINTERFALL:
+                    if (sIndividualProgression->repeatableVanillaQuestsXp)
+                    {
+                        // Reset the quest status so the player can take it and receive rewards again
+                        player->RemoveRewardedQuest(quest->GetQuestId());
+                    }
+                    break;
+            }
         }
     }
 
