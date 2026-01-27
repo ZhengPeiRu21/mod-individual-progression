@@ -1177,6 +1177,8 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (12920, @TRAINER_ID+46),
 (12939, @TRAINER_ID+46);
 
+UPDATE `creature_template` SET `npcflag` = 83 WHERE `entry` IN (12920, 12939);
+
 -- Fishing
 DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+47;
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
