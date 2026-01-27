@@ -45,6 +45,7 @@ UPDATE `trainer_spell` SET `ReqLevel` = 71 WHERE `TrainerId` = 33 AND `SpellId` 
 UPDATE `trainer_spell` SET `ReqLevel` = 71 WHERE `TrainerId` = 33 AND `SpellId` = 62600; -- Savage Defense, level 40 -> 71
 
 -- remove spells from characters that had already learned them and shouldn't have them anymore
+USE acore_characters;
 DELETE FROM `character_spell` WHERE `spell` = 34428 AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 1 AND `level` < 62);
 DELETE FROM `character_spell` WHERE `spell` = 31789 AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 2 AND `level` < 61);
 DELETE FROM `character_spell` WHERE `spell` IN (53407, 53408, 62124) AND `guid` IN (SELECT `guid` FROM `characters` WHERE `class` = 2 AND `level` < 71);
