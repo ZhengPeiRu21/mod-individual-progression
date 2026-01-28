@@ -339,7 +339,10 @@ public:
             if (moneyRew > 0)
             {
                 player->ModifyMoney(moneyRew);
-                ChatHandler(player->GetSession()).SendSysMessage("Received bonus gold from: |cffccccccquestMoneyAtLevelCap|r.");
+                uint32 gold = moneyRew / GOLD;
+                uint32 silv = (moneyRew % GOLD) / SILVER;
+                uint32 copp = (moneyRew % GOLD) % SILVER;
+                ChatHandler(player->GetSession()).PSendSysMessage("Received {}g{}s{}c", gold, silv, copp);
             }
         }
 
