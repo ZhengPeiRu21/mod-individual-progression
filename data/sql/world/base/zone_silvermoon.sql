@@ -1,7 +1,12 @@
 -- Alestus <First Aid Trainer> 
 SET @TRAINER_ID   := 600;
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16662);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (16662, @TRAINER_ID+45);
+
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16662, 16679, 16680, 16681);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
+(16662, @TRAINER_ID+45),
+(16679, 3),
+(16680, 3),
+(16681, 3);
 
 /* Restore Blood Knight quests to pre-2.4 state */
 SET @MURU_GUID := 352043;
