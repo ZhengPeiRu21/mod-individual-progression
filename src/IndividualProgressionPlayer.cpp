@@ -342,7 +342,11 @@ public:
                 uint32 gold = moneyRew / GOLD;
                 uint32 silv = (moneyRew % GOLD) / SILVER;
                 uint32 copp = (moneyRew % GOLD) % SILVER;
-                ChatHandler(player->GetSession()).PSendSysMessage("Received {}g{}s{}c", gold, silv, copp);
+
+                if (gold > 0)
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} gold, {} silver, {} copper.", gold, silv, copp);
+                else
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} silver, {} copper.", silv, copp);
             }
         }
 
