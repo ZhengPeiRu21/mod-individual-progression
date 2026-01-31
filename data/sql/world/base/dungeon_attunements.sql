@@ -1,19 +1,3 @@
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (15, 2, 16309, NULL, 2, NULL, 0, NULL);
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (16, 2, 16309, NULL, 2, NULL, 0, NULL);
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (32, 1, 10445, 'You must complete the quest "The Vials of Eternity" and be level 70 before entering The Battle of Mount Hyjal.', 2, NULL, 0, NULL);
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (46, 1, 10901, 'You must complete the quest "The Cudgel of Kar\'desh" and be level 70 before entering Serpentshrine Reservoir.', 2, NULL, 0, NULL);
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (47, 2, 31704, 'You must possess The Tempest Key to enter The Eye.', 2, NULL, 0, NULL);
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (47, 1, 10888, 'You must complete "The Trial of the Naaru: Magtheridon" to enter The Eye.', 2, NULL, 0, NULL);
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (62, 1, 10277, 'You must complete the quest "The Caverns of Time" to enter Old Hillsbrad.', 2, NULL, 0, NULL);
-REPLACE INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES (63, 1, 10277, 'You must complete the quest "The Caverns of Time" to enter Old Hillsbrad.', 2, NULL, 0, NULL);
-
-/* Because you should also be able to enter with the blessed Medallion of Karabor, the quest is checked instead of the item. It's not possible to do a check for item 1 or 2. 
-   This way the requirement_note is still correct, you just don't need the item on you anymore. */
-
-DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` = 64;
-INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES 
-(64, 1, 10985, 'You must possess the Medallion of Karabor to enter the Black Temple.', 2, NULL, 0, NULL);
-
 /* Maraudon Portal Requirement Script */
 UPDATE `gameobject_template` SET `ScriptName` = 'go_mara_portal' WHERE `entry` = 178404;
 
