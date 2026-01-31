@@ -306,8 +306,8 @@ public:
                     currentTarget.Clear();
                     me->GetMotionMaster()->MoveIdle();
                     me->SendMeleeAttackStop(me->GetVictim());
-                    me->HandleEmoteCommand(EMOTE_ONESHOT_LIFTOFF);
                     me->SetDisableGravity(true);
+                    me->HandleEmoteCommand(EMOTE_ONESHOT_LIFTOFF);
                     events.ScheduleEvent(EVENT_FLIGHT_ICEBOLT, 3s);
                     iceboltCount = 3;
                     return;
