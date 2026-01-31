@@ -20,7 +20,8 @@ UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (1383, 
 
 SET @TRAINER_ID   := 600;
 
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1383, 2855, 2857, 3332, 3345, 3347, 3355, 3357, 3363, 3365, 3373, 3399, 3412, 4752, 5811, 7088, 10266, 11017, 11046, 11066);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN 
+(1383, 2855, 2857, 3332, 3345, 3347, 3355, 3357, 3363, 3365, 3373, 3399, 3412, 4752, 5811, 7088, 10266, 11017, 11046, 11066, 23128);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (1383,  @TRAINER_ID+17), -- Snarl <Expert Blacksmith>
 (2855,  @TRAINER_ID+36), -- Snang <Journeyman Tailor>
@@ -41,7 +42,8 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (10266, @TRAINER_ID+16), -- Ug'thok <Journeyman Blacksmith>
 (11017, @TRAINER_ID+28), -- Roxxik <Artisan Engineer>
 (11046, @TRAINER_ID+11), -- Whuut <Journeyman Alchemist>
-(11066, @TRAINER_ID+21); -- Jhag <Journeyman Enchanter>
+(11066, @TRAINER_ID+21), -- Jhag <Journeyman Enchanter>
+(23128, 3);              -- Master Pyreanor <Paladin Trainer>
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2747, 2782, 4118, 4143, 4148, 4151, 4159, 4183, 4265);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
