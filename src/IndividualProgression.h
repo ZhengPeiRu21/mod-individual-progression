@@ -74,6 +74,9 @@ enum ProgressionQuestIDs
     MIGHT_OF_KALIMDOR         = 8742,
     BANG_A_GONG               = 8743,
     INTO_THE_BREACH           = 10259,
+    VIALS_OF_ETERNITY         = 10445,
+    TRIAL_MAGTHERIDON         = 10888,
+    CUDGEL_OF_KARDESH         = 10901,
     BATTLE_UNDERCITY_HORDE    = 13267,
     BATTLE_UNDERCITY_ALLIANCE = 13377,
     SIMPLY_BANG_A_GONG        = 108743,
@@ -183,14 +186,17 @@ enum ProgressionAreas
     AREA_ARGENT_PAVILION                 = 4674
 };
 
+enum DungeonKeys
+{
+    ITEM_DRAKEFIRE_AMULET                = 16309,
+    ITEM_TEMPEST_KEY                     = 31704,
+    ITEM_MEDALLION_OF_KARABOR            = 32649,
+    ITEM_BLESSED_MEDALLION_OF_KARABOR    = 32757
+};
+
 enum ProgressionSettings
 {
     SETTING_PROGRESSION_STATE   = 0
-};
-
-enum DungeonKeys
-{
-    ITEM_DRAKEFIRE_AMULET       = 16309
 };
 
 enum ProgressionState : uint8         // Progression stands for what has been completed
