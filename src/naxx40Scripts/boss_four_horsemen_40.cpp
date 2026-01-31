@@ -231,7 +231,7 @@ public:
                     me->CastSpell(me, SPELL_BERSERK, true);
                     return;
                 case EVENT_PRIMARY_SPELL:
-                    Talk(SAY_TAUNT);
+                    // Talk(SAY_TAUNT); // should be called by instance scripts, see vMangos instance_naxxramas.cpp
                     if (horsemanId == HORSEMAN_ZELIEK)
                     {
                         if (sIndividualProgression->doableNaxx40Bosses)
