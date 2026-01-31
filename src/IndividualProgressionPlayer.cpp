@@ -297,7 +297,7 @@ public:
         }
         if (mapid == MAP_TEMPEST_KEEP)
         {
-            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1)
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
                 return false;
@@ -315,7 +315,7 @@ public:
         }
         if (mapid == MAP_COILFANG_SERPENTSHRINE_CAVERN)
         {
-            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1)
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
                 return false;
@@ -328,7 +328,7 @@ public:
         }
         if (mapid == MAP_THE_BATTLE_FOR_MOUNT_HYJAL)
         {
-            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2)
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
                 return false;
@@ -341,12 +341,12 @@ public:
         }
         if (mapid == MAP_BLACK_TEMPLE)
         {
-            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2)
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
                 return false;
             }
-			else if (!player->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !player->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR)
+			else if (!player->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !player->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must possess the Medallion of Karabor to enter the Black Temple.");
                 return false;
