@@ -29,6 +29,9 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinc
 
 /* the following edits are temporary */
 
+-- remove access requirements from database, this is now done with cpp
+DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` IN (15, 16, 32, 46, 47, 64);
+
 -- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
 -- no longer needed. you can't get Simple Flour during vanilla.
 UPDATE `trainer_spell` SET `ReqSkillRank` = 1 WHERE `SpellID` = 37836;

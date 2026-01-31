@@ -295,7 +295,64 @@ public:
             ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
             return false;
         }
-        
+        if (mapid == MAP_TEMPEST_KEEP)
+        {
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
+                return false;
+            }
+			else if (!player->HasItemCount(ITEM_TEMPEST_KEY))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("You must possess the Tempest Key to enter The Eye.");
+                return false;
+            }
+			else if (player->GetQuestStatus(TRIAL_MAGTHERIDON) != QUEST_STATUS_REWARDED)
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest Trial of the Naaru: Magtheridon to enter The Eye.");
+                return false;
+            }			
+        }
+        if (mapid == MAP_COILFANG_SERPENTSHRINE_CAVERN)
+        {
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
+                return false;
+            }
+			else if (player->GetQuestStatus(CUDGEL_OF_KARDESH) != QUEST_STATUS_REWARDED)
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest The Cudgel of Kar\'desh to enter Serpentshrine Reservoir.");
+                return false;
+            }			
+        }
+        if (mapid == MAP_THE_BATTLE_FOR_MOUNT_HYJAL)
+        {
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
+                return false;
+            }
+			else if (player->GetQuestStatus(VIALS_OF_ETERNITY) != QUEST_STATUS_REWARDED)
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest The Vials of Eternity to enter the Battle of Mount Hyjal.");
+                return false;
+            }			
+        }
+        if (mapid == MAP_BLACK_TEMPLE)
+        {
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
+                return false;
+            }
+			else if (!player->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !player->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("You must possess the Medallion of Karabor to enter the Black Temple.");
+                return false;
+            }
+        }
+
         InstanceTemplate const* instanceTemplate = sObjectMgr->GetInstanceTemplate(mapid);
         if (instanceTemplate)
         {
