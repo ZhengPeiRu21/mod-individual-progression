@@ -11,7 +11,7 @@ UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4609, 
 
 SET @TRAINER_ID   := 600;
 
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (223, 4586, 4591, 4605, 4609, 11044, 11048, 11049, 11067);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (223, 4586, 4591, 4605, 4609, 11044, 11048, 11049, 11067, 20406);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (223,   @TRAINER_ID+31), -- Dan Golthas <Journeyman Leatherworker>
 (4586,  @TRAINER_ID+26), -- Graham Van Talen <Journeyman Engineer>
@@ -21,7 +21,8 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (11044, @TRAINER_ID+11), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
 (11048, @TRAINER_ID+36), -- Victor Ward <Journeyman Tailor>
 (11049, @TRAINER_ID+37), -- Rhiannon Davis <Expert Tailor>
-(11067, @TRAINER_ID+21); -- Malcomb Wynn <Journeyman Enchanter>
+(11067, @TRAINER_ID+21), -- Malcomb Wynn <Journeyman Enchanter>
+(20406, 3);              -- Champion Cyssa Dawnrose <Paladin Trainer>
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2750, 4121, 4130, 4144, 4157, 4188, 4268, 4352);
 INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
