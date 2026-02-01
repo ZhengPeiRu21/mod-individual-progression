@@ -1,7 +1,87 @@
+/*  Hide vendor items until the player has completed the progression level for them */
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (28701);
+
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--   
+(23, 28701, 46897, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46898, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46899, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46900, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46901, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46902, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46903, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46904, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46905, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46906, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46907, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46908, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46909, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46910, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46911, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46912, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46913, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46914, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46915, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46916, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46917, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46918, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46919, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46920, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46921, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46922, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46923, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46924, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46925, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46926, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46927, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46928, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46929, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46930, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46931, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46932, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46933, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46934, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46935, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46936, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46937, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46938, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46939, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46940, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46941, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46942, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46943, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46944, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46945, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46946, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46947, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46948, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46949, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46950, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46951, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46952, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46953, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 46956, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47007, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47008, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47010, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47011, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47012, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47015, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47016, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47017, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47018, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47019, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47020, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47021, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47022, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 47023, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+(23, 28701, 49112, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design');
+    
 -- Restore vendors to use pre-3.2 gems
-UPDATE `npc_vendor` SET `item`=36918 WHERE `item`=36919;
-UPDATE `npc_vendor` SET `item`=36921 WHERE `item`=36922;
-UPDATE `npc_vendor` SET `item`=36924 WHERE `item`=36925;
-UPDATE `npc_vendor` SET `item`=36927 WHERE `item`=36928;
-UPDATE `npc_vendor` SET `item`=36930 WHERE `item`=36931;
-UPDATE `npc_vendor` SET `item`=36933 WHERE `item`=36934;
+UPDATE `npc_vendor` SET `item` = 36918 WHERE `item` = 36919;
+UPDATE `npc_vendor` SET `item` = 36921 WHERE `item` = 36922;
+UPDATE `npc_vendor` SET `item` = 36924 WHERE `item` = 36925;
+UPDATE `npc_vendor` SET `item` = 36927 WHERE `item` = 36928;
+UPDATE `npc_vendor` SET `item` = 36930 WHERE `item` = 36931;
+UPDATE `npc_vendor` SET `item` = 36933 WHERE `item` = 36934;
