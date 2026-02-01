@@ -99,7 +99,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8503, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20793, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Gibblewilt - In Combat - Cast Fireball'),
 (8503, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gibblewilt - Between 0-15% Health - Flee For Assist (No Repeat)');
 
-
 -- fix respawn times
 UPDATE `creature` SET `spawntimesecs` = 270  WHERE `id1` = 808;  -- Grik'nir the Cold
 UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1119; -- Hammerspine
@@ -111,18 +110,8 @@ UPDATE `creature` SET `spawntimesecs` = 270  WHERE `id1` = 6124; -- Captain Beld
 DELETE FROM `creature_questender` WHERE `id` = 460 AND `quest` = 1599;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (460, 1599);
 
--- Beginnings (Warlock)
 DELETE FROM `creature_queststarter` WHERE `id` = 460 AND `quest` = 1599;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (460, 1599);
 
--- Beginnings (Warlock)
 UPDATE `quest_template` SET `Flags` = 8 WHERE `ID` = 1599;
-
--- Beginnings (Warlock)
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` = 1599;
-
--- Thamner Pol <Physician> 
-SET @TRAINER_ID   := 600;
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2326);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
-(2326, @TRAINER_ID+45);
