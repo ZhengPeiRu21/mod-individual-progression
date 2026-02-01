@@ -279,7 +279,6 @@ INSERT INTO `trainer` (`Id`, `Type`, `Requirement`, `Greeting`, `VerifiedBuild`)
 (@TRAINER_ID+45, 2, 0, 'Here, let me show you how to bind those wounds....', 0),
 (@TRAINER_ID+46, 2, 0, 'Here, let me show you how to bind those wounds....', 0),
 (@TRAINER_ID+47, 2, 0, 'I can teach you how to use a fishing pole to catch fish.', 0),
-(@TRAINER_ID+48, 1, 0, 'Hello!  Can I teach you something?', 0),
 --
 (@TRAINER_ID+51, 2, 0, 'Greetings!  Can I teach you how to turn beast hides into armor?', 0);
 
@@ -348,23 +347,38 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 -- Master Alchemy Trainer      - @TRAINER_ID+14 -- 66
 -- Grandmaster Alchemy Trainer - @TRAINER_ID+15
 
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1470, 3603, 16161, 2391, 2837, 3964, 4900, 5177, 16642, 16723, 4160, 4611);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN 
+(1215, 1246, 1470, 2132, 2391, 2837, 3009, 3184, 3347, 3603, 3964, 4160, 4609, 4611, 4900, 5177, 5499, 5500, 11041, 11042, 11044, 11046, 11047, 16161, 16642, 16723);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(1470,  @TRAINER_ID+11), -- Journeyman Alchemist
-(3603,  @TRAINER_ID+11),
-(16161, @TRAINER_ID+11),
+(1215,  @TRAINER_ID+11), -- Alchemist Mallory <Journeyman Alchemist>
+(1246,  @TRAINER_ID+11), -- Vosur Brakthel <Journeyman Alchemist>
+(1470,  @TRAINER_ID+11), -- Ghak Healtouch <Journeyman Alchemist>
+(2132,  @TRAINER_ID+11), -- Carolai Anise <Journeyman Alchemist>
+(3184,  @TRAINER_ID+11), -- Miao'zan <Journeyman Alchemist>
+(3603,  @TRAINER_ID+11), -- Cyndra Kindwhisper <Journeyman Alchemist>
+(5500,  @TRAINER_ID+11), -- Tel'Athir <Journeyman Alchemist>
+(11041, @TRAINER_ID+11), -- Milla Fairancora <Journeyman Alchemist>
+(11044, @TRAINER_ID+11), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
+(11046, @TRAINER_ID+11), -- Whuut <Journeyman Alchemist>
+(11047, @TRAINER_ID+11), -- Kray <Journeyman Alchemist>
+(16161, @TRAINER_ID+11), -- Arcanist Sheynathren <Alchemy Trainer>
 --
-(2391,  @TRAINER_ID+12), -- Expert Alchemist
-(2837,  @TRAINER_ID+12),
-(3964,  @TRAINER_ID+12),
-(4900,  @TRAINER_ID+12),
-(5177,  @TRAINER_ID+12),
-(16642, @TRAINER_ID+12),
-(16723, @TRAINER_ID+12),
+(2391,  @TRAINER_ID+12), -- Serge Hinott <Expert Alchemist>
+(2837,  @TRAINER_ID+12), -- Jaxin Chong <Expert Alchemist>
+(3009,  @TRAINER_ID+12), -- Bena Winterhoof <Expert Alchemist>
+(3347,  @TRAINER_ID+12), -- Yelmak <Expert Alchemist>
+(3964,  @TRAINER_ID+12), -- Kylanna <Expert Alchemist>
+(4609,  @TRAINER_ID+12), -- Doctor Marsh <Expert Alchemist>
+(4900,  @TRAINER_ID+12), -- Alchemist Narett <Expert Alchemist>
+(5177,  @TRAINER_ID+12), -- Tally Berryfizz <Expert Alchemist>
+(5499,  @TRAINER_ID+12), -- Lilyssia Nightbreeze <Expert Alchemist>
+(11042, @TRAINER_ID+12), -- Sylvanna Forestmoon <Expert Alchemist>
+(16642, @TRAINER_ID+12), -- Camberon <Alchemy Trainer>
+(16723, @TRAINER_ID+12), -- Lucc <Alchemy Trainer>
 --
 (4160,  @TRAINER_ID+13), -- Artisan Alchemist
-(4611,  @TRAINER_ID+13);
+(4611,  @TRAINER_ID+13); -- Doctor Herbert Halsey <Artisan Alchemist>
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+16,  @TRAINER_ID+17,  @TRAINER_ID+18);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -506,21 +520,35 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 -- Master Blacksmithing Trainer      - @TRAINER_ID+19 - 58
 -- Grandmaster Blacksmithing Trainer - @TRAINER_ID+20 - 59
 
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1241, 3557, 6299, 15400, 17245, 3136, 4596, 16669, 16724, 4258);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN 
+(514, 957, 1241, 1383, 2998, 3136, 3174, 3355, 3478, 3557, 4258, 4596, 4605, 5511, 6299, 10266, 10276, 10277, 10278, 15400, 16669, 16724, 17245);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(1241,  @TRAINER_ID+16), -- Journeyman Blacksmith
-(3557,  @TRAINER_ID+16),
-(6299,  @TRAINER_ID+16),
-(15400, @TRAINER_ID+16),
-(17245, @TRAINER_ID+16),
+(514,   @TRAINER_ID+16), -- Smith Argus <Journeyman Blacksmith>
+(957,   @TRAINER_ID+16), -- Dane Lindgren <Journeyman Blacksmith>
+(1241,  @TRAINER_ID+16), -- Tognus Flintfire <Journeyman Blacksmith>
+(3174,  @TRAINER_ID+16), -- Dwukk <Journeyman Blacksmith>
+(3557,  @TRAINER_ID+16), -- Guillaume Sorouy <Journeyman Blacksmith>
+(4605,  @TRAINER_ID+16), -- Basil Frye <Journeyman Blacksmith>
+(6299,  @TRAINER_ID+16), -- Delfrum Flintbeard <Journeyman Blacksmith>
+(10266, @TRAINER_ID+16), -- Ug'thok <Journeyman Blacksmith>
+(10277, @TRAINER_ID+16), -- Groum Stonebeard <Journeyman Blacksmith>
+(10278, @TRAINER_ID+16), -- Thrag Stonehoof <Journeyman Blacksmith>
+(15400, @TRAINER_ID+16), -- Arathel Sunforge <Blacksmithing Trainer>
+(17245, @TRAINER_ID+16), -- Blacksmith Calypso <Blacksmithing Trainer & Supplies>
 --
-(3136,  @TRAINER_ID+17), -- Expert Blacksmith
-(4596,  @TRAINER_ID+17),
-(16669, @TRAINER_ID+17),
-(16724, @TRAINER_ID+17),
+(1383,  @TRAINER_ID+17), -- Snarl <Expert Blacksmith>
+(2998,  @TRAINER_ID+17), -- Karn Stonehoof <Expert Blacksmith>
+(3136,  @TRAINER_ID+17), -- Clarise Gnarltree <Expert Blacksmith>
+(3478,  @TRAINER_ID+17), -- Traugh <Expert Blacksmith>
+(4596,  @TRAINER_ID+17), -- James Van Brunt <Expert Blacksmith>
+(5511,  @TRAINER_ID+17), -- Therum Deepforge <Expert Blacksmith>
+(10276, @TRAINER_ID+17), -- Rotgath Stonebeard <Expert Blacksmith>
+(16669, @TRAINER_ID+17), -- Bemarrin <Blacksmithing Trainer>
+(16724, @TRAINER_ID+17), -- Miall <Blacksmithing Trainer>
 --
-(4258,  @TRAINER_ID+18); -- Artisan Blacksmith
+(3355,  @TRAINER_ID+18), -- Saru Steelfury <Artisan Blacksmith>
+(4258,  @TRAINER_ID+18); -- Bengus Deepforge <Artisan Blacksmith>
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+21, @TRAINER_ID+22, @TRAINER_ID+23);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -622,21 +650,33 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 -- Master Enchanting Trainer      - @TRAINER_ID+24 - 95
 -- Grandmaster Enchanting Trainer - @TRAINER_ID+25
 
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3606, 16160, 19251, 4213, 4616, 5157, 7949, 16633, 16725, 11074);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN 
+(1317, 3011, 3345, 3606, 4213, 4616, 5157, 5695, 7949, 11065, 11066, 11067, 11068, 11070, 11071, 11072, 11074, 16160, 16633, 16725, 19251);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(3606,  @TRAINER_ID+21), -- Journeyman Enchanter
-(16160, @TRAINER_ID+21),
-(19251, @TRAINER_ID+21),
+(3606,  @TRAINER_ID+21), -- Alanna Raveneye <Journeyman Enchanter>
+(5695,  @TRAINER_ID+21), -- Vance Undergloom <Journeyman Enchanter>
+(11065, @TRAINER_ID+21), -- Thonys Pillarstone <Journeyman Enchanter>
+(11066, @TRAINER_ID+21), -- Jhag <Journeyman Enchanter>
+(11067, @TRAINER_ID+21), -- Malcomb Wynn <Journeyman Enchanter>
+(11068, @TRAINER_ID+21), -- Betty Quin <Journeyman Enchanter>
+(11070, @TRAINER_ID+21), -- Lalina Summermoon <Journeyman Enchanter>
+(11071, @TRAINER_ID+21), -- Mot Dawnstrider <Journeyman Enchanter>
+(16160, @TRAINER_ID+21), -- Magistrix Eredania <Enchanting Trainer>
+(19251, @TRAINER_ID+21), -- Enchantress Volali <Enchanting Trainer>
 --
-(4213,  @TRAINER_ID+22), -- Expert Enchanter
-(4616,  @TRAINER_ID+22),
-(5157,  @TRAINER_ID+22),
-(7949,  @TRAINER_ID+22),
-(16633, @TRAINER_ID+22),
-(16725, @TRAINER_ID+22),
+(1317,  @TRAINER_ID+22), -- Lucan Cordell <Expert Enchanter>
+(3011,  @TRAINER_ID+22), -- Teg Dawnstrider <Expert Enchanter>
+(3345,  @TRAINER_ID+22), -- Godan <Expert Enchanter>
+(4213,  @TRAINER_ID+22), -- Taladan <Expert Enchanter>
+(4616,  @TRAINER_ID+22), -- Lavinia Crowe <Expert Enchanter>
+(5157,  @TRAINER_ID+22), -- Gimble Thistlefuzz <Expert Enchanter>
+(7949,  @TRAINER_ID+22), -- Xylinnia Starshine <Expert Enchanter>
+(16633, @TRAINER_ID+22), -- Sedana <Enchanting Trainer>
+(16725, @TRAINER_ID+22), -- Nahogg <Enchanting Trainer>
 --
-(11074, @TRAINER_ID+23); -- Artisan Enchanter
+(11072, @TRAINER_ID+23), -- Kitta Firewind <Artisan Enchanter>
+(11074, @TRAINER_ID+23); -- Hgarth <Artisan Enchanter>
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+26, @TRAINER_ID+27, @TRAINER_ID+28);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -742,20 +782,32 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 -- Master Engineering Trainer      - @TRAINER_ID+29 - 62
 -- Grandmaster Engineering Trainer - @TRAINER_ID+30 - 89
 
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1702, 3290, 11037, 17222, 1676, 11031, 16667, 16726, 5174);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN 
+(1676, 1702, 2857, 3290, 3412, 3494, 4586, 5174, 5518, 10993, 11017, 11025, 11026, 11028, 11029, 11031, 11037, 16667, 16726, 17222);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(1702,  @TRAINER_ID+26), -- Journeyman Engineering
-(3290,  @TRAINER_ID+26),
-(11037, @TRAINER_ID+26),
-(17222, @TRAINER_ID+26),
+(1702,  @TRAINER_ID+26), -- Bronk Guzzlegear <Journeyman Engineer>
+(2857,  @TRAINER_ID+26), -- Thund <Journeyman Engineer>
+(3290,  @TRAINER_ID+26), -- Deek Fizzlebizz <Journeyman Engineer>
+(3494,  @TRAINER_ID+26), -- Tinkerwiz <Journeyman Engineer>
+(4586,  @TRAINER_ID+26), -- Graham Van Talen <Journeyman Engineer>
+(10993, @TRAINER_ID+26), -- Twizwick Sprocketgrind <Journeyman Engineer>
+(11025, @TRAINER_ID+26), -- Mukdrak <Journeyman Engineer>
+(11026, @TRAINER_ID+26), -- Sprite Jumpsprocket <Journeyman Engineer>
+(11028, @TRAINER_ID+26), -- Jemma Quikswitch <Journeyman Engineer>
+(11037, @TRAINER_ID+26), -- Jenna Lemkenilli <Journeyman Engineer>
+(17222, @TRAINER_ID+26), -- Artificer Daelo <Engineering Trainer>
 --
-(1676,  @TRAINER_ID+27), -- Expert Engineering
-(11031, @TRAINER_ID+27),
-(16667, @TRAINER_ID+27),
-(16726, @TRAINER_ID+27),
+(1676,  @TRAINER_ID+27), -- Finbus Geargrind <Expert Engineer>
+(3412,  @TRAINER_ID+27), -- Nogg <Expert Engineer>
+(5518,  @TRAINER_ID+27), -- Lilliam Sparkspindle <Expert Engineer>
+(11029, @TRAINER_ID+27), -- Trixie Quikswitch <Expert Engineer>
+(11031, @TRAINER_ID+27), -- Franklin Lloyd <Expert Engineer>
+(16667, @TRAINER_ID+27), -- Danwe <Engineering Trainer>
+(16726, @TRAINER_ID+27), -- Ockil <Engineering Trainer>
 --
-(5174,  @TRAINER_ID+28); -- Artisan Engineering
+(5174,  @TRAINER_ID+28), -- Springspindle Fizzlegear <Artisan Engineer>
+(11017, @TRAINER_ID+28); -- Roxxik <Artisan Engineer>
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+31, @TRAINER_ID+32,@TRAINER_ID+33);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -870,22 +922,39 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 -- Master Leatherworking Trainer      - @TRAINER_ID+34 - 62
 -- Grandmaster Leatherworking Trainer - @TRAINER_ID+35 - 63
 
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3605, 16278, 17442, 1385, 3967, 4588, 5127, 8153, 16688, 16728, 4212);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN 
+(223, 1385, 1466, 1632, 3007, 3008, 3069, 3365, 3549, 3605, 3703, 3967, 4212, 4588, 5127, 5564, 5784, 5811, 8153, 11081, 11083, 11084, 11096, 16278, 16688, 16728, 17442);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(3605,  @TRAINER_ID+31), -- Journeyman Leatherworking
-(16278, @TRAINER_ID+31),
-(17442, @TRAINER_ID+31),
+(223,   @TRAINER_ID+31), -- Dan Golthas <Journeyman Leatherworker>
+(1466,  @TRAINER_ID+31), -- Gretta Finespindle <Journeyman Leatherworker>
+(1632,  @TRAINER_ID+31), -- Adele Fielder <Journeyman Leatherworker>
+(3008,  @TRAINER_ID+31), -- Mak <Journeyman Leatherworker>
+(3069,  @TRAINER_ID+31), -- Chaw Stronghide <Journeyman Leatherworker>
+(3549,  @TRAINER_ID+31), -- Shelene Rhobart <Journeyman Leatherworker>
+(3605,  @TRAINER_ID+31), -- Nadyia Maneweaver <Journeyman Leatherworker>
+(5784,  @TRAINER_ID+31), -- Waldor <Journeyman Leatherworker>
+(5811,  @TRAINER_ID+31), -- Kamari <Journeyman Leatherworker>
+(11083, @TRAINER_ID+31), -- Darianna <Journeyman Leatherworker>
+(11096, @TRAINER_ID+31), -- Randal Worth <Journeyman Leatherworker>
+(16278, @TRAINER_ID+31), -- Sathein <Leatherworking Trainer>
+(17442, @TRAINER_ID+31), -- Moordo <Leatherworking Trainer>
 --
-(1385,  @TRAINER_ID+32), -- Expert Leatherworking
-(3967,  @TRAINER_ID+32),
-(4588,  @TRAINER_ID+32),
-(5127,  @TRAINER_ID+32),
-(8153,  @TRAINER_ID+32),
-(16688, @TRAINER_ID+32),
-(16728, @TRAINER_ID+32),
+(1385,  @TRAINER_ID+32), -- Brawn <Expert Leatherworker>
+(3365,  @TRAINER_ID+32), -- Karolek <Expert Leatherworker>
+(3703,  @TRAINER_ID+32), -- Krulmoo Fullmoon <Expert Leatherworker>
+(3967,  @TRAINER_ID+32), -- Aayndia Floralwind <Expert Leatherworker>
+(4588,  @TRAINER_ID+32), -- Arthur Moore <Expert Leatherworker>
+(5127,  @TRAINER_ID+32), -- Fimble Finespindle <Expert Leatherworker>
+(5564,  @TRAINER_ID+32), -- Simon Tanner <Expert Leatherworker>
+(8153,  @TRAINER_ID+32), -- Narv Hidecrafter <Expert Leathercrafter>
+(11081, @TRAINER_ID+32), -- Faldron <Expert Leatherworker>
+(11084, @TRAINER_ID+32), -- Tarn <Expert Leatherworker>
+(16688, @TRAINER_ID+32), -- Lynalis <Leatherworking Trainer>
+(16728, @TRAINER_ID+32), -- Akham <Leatherworking Trainer>
 --
-(4212,  @TRAINER_ID+33); -- Artisan Leatherworking
+(3007,  @TRAINER_ID+33), -- Una <Artisan Leatherworker>
+(4212,  @TRAINER_ID+33); -- Telonis <Artisan Leatherworker>
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+36, @TRAINER_ID+37, @TRAINER_ID+38);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
@@ -1032,21 +1101,36 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 -- Master Tailoring Trainer      - @TRAINER_ID+39 - 73
 -- Grandmaster Tailoring Trainer - @TRAINER_ID+40 - 72
 
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3523, 4193, 16366, 17487, 2627, 4159, 5153, 16640, 16729, 4576);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN 
+(1103, 1300, 1346, 1703, 2627, 2855, 3004, 3363, 3484, 3523, 3704, 4159, 4193, 4576, 5153, 5567, 11048, 11049, 11050, 11051, 16366, 16640, 16729, 17487);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(3523,  @TRAINER_ID+36), -- Journeyman Tailoring
-(4193,  @TRAINER_ID+36),
-(16366, @TRAINER_ID+36),
-(17487, @TRAINER_ID+36),
+(1103,  @TRAINER_ID+36), -- Eldrin <Journeyman Tailor>
+(1300,  @TRAINER_ID+36), -- Lawrence Schneider <Journeyman Tailor>
+(1703,  @TRAINER_ID+36), -- Uthrar Threx <Journeyman Tailor>
+(2855,  @TRAINER_ID+36), -- Snang <Journeyman Tailor>
+(3484,  @TRAINER_ID+36), -- Kil'hala <Journeyman Tailor>
+(3523,  @TRAINER_ID+36), -- Bowen Brisboise <Journeyman Tailor>
+(4193,  @TRAINER_ID+36), -- Grondal Moonbreeze <Journeyman Tailor>
+(11048, @TRAINER_ID+36), -- Victor Ward <Journeyman Tailor>
+(11050, @TRAINER_ID+36), -- Trianna <Journeyman Tailor>
+(11051, @TRAINER_ID+36), -- Vhan <Journeyman Tailor>
+(16366, @TRAINER_ID+36), -- Sempstress Ambershine <Tailoring Trainer>
+(17487, @TRAINER_ID+36), -- Erin Kelly <Tailoring Trainer>
 --
-(2627,  @TRAINER_ID+37), -- Expert Tailoring
-(4159,  @TRAINER_ID+37),
-(5153,  @TRAINER_ID+37),
-(16640, @TRAINER_ID+37),
-(16729, @TRAINER_ID+37),
+(2627,  @TRAINER_ID+37), -- Grarnik Goodstitch <Expert Tailor>
+(3004,  @TRAINER_ID+37), -- Tepa <Expert Tailor>
+(3363,  @TRAINER_ID+37), -- Magar <Expert Tailor>
+(3704,  @TRAINER_ID+37), -- Mahani <Expert Tailor>
+(4159,  @TRAINER_ID+37), -- Me'lynn <Expert Tailor>
+(5153,  @TRAINER_ID+37), -- Jormund Stonebrow <Expert Tailor>
+(5567,  @TRAINER_ID+37), -- Sellandus <Expert Tailor>
+(11049, @TRAINER_ID+37), -- Rhiannon Davis <Expert Tailor>
+(16640, @TRAINER_ID+37), -- Keelen Sheets <Tailoring Trainer>
+(16729, @TRAINER_ID+37), -- Refik <Tailoring Trainer>
 --
-(4576,  @TRAINER_ID+38); -- Artisan Tailoring
+(1346,  @TRAINER_ID+38), -- Georgio Bolero <Artisan Tailor>
+(4576,  @TRAINER_ID+38); -- Josef Gregorian <Artisan Tailor>
 
 
 /* Gathering Professions */
@@ -1062,9 +1146,9 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2114, 3013, 3185);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(2114, @TRAINER_ID+41),
-(3013, @TRAINER_ID+41),
-(3185, @TRAINER_ID+41);
+(2114, @TRAINER_ID+41), -- Faruza <Apprentice Herbalist>
+(3013, @TRAINER_ID+41), -- Komin Winterhoof <Herbalism Trainer>
+(3185, @TRAINER_ID+41); -- Mishiki <Herbalist>
 
 -- Mining
 DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+42;
@@ -1086,10 +1170,10 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3001, 3175, 3357, 5513);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(3001, @TRAINER_ID+42),
-(3175, @TRAINER_ID+42),
-(3357, @TRAINER_ID+42),
-(5513, @TRAINER_ID+42);
+(3001, @TRAINER_ID+42), -- Brek Stonehoof <Mining Trainer>
+(3175, @TRAINER_ID+42), -- Krunn <Miner>
+(3357, @TRAINER_ID+42), -- Makaru <Mining Trainer>
+(5513, @TRAINER_ID+42); -- Gelman Stonehand <Mining Trainer>
 
 -- Skinning
 DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+43;
@@ -1102,11 +1186,11 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (6289, 6290, 6387, 7088, 7089);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(6289, @TRAINER_ID+43),
-(6290, @TRAINER_ID+43),
-(6387, @TRAINER_ID+43),
-(7088, @TRAINER_ID+43),
-(7089, @TRAINER_ID+43);
+(6289, @TRAINER_ID+43), -- Rand Rhobart <Skinner>
+(6290, @TRAINER_ID+43), -- Yonn Deepcut <Skinner>
+(6387, @TRAINER_ID+43), -- Dranh <Skinner>
+(7088, @TRAINER_ID+43), -- Thuwd <Skinning Trainer>
+(7089, @TRAINER_ID+43); -- Mooranta <Skinning Trainer>
 
 
 /* Secondary Skills */
@@ -1127,11 +1211,11 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1430, 3026, 3399, 5482, 8306);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(1430, @TRAINER_ID+44),
-(3026, @TRAINER_ID+44),
-(3399, @TRAINER_ID+44),
-(5482, @TRAINER_ID+44),
-(8306, @TRAINER_ID+44);
+(1430, @TRAINER_ID+44), -- Tomas <Cook>
+(3026, @TRAINER_ID+44), -- Aska Mistrunner <Cooking Trainer>
+(3399, @TRAINER_ID+44), -- Zamja <Cooking Trainer>
+(5482, @TRAINER_ID+44), -- Stephen Ryback <Cooking Trainer>
+(8306, @TRAINER_ID+44); -- Duhng <Cook>
 
 -- First Aid
 DELETE FROM `trainer_spell` WHERE `TrainerId` IN (@TRAINER_ID+45, @TRAINER_ID+46);
@@ -1152,30 +1236,30 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (2326, 2327, 2329, 2798, 3181, 3373, 4211, 4591, 5150, 5759, 5939, 5943, 6094, 16272, 16662, 16731, 17214, 17424, 19184, 19478, 22477, 12920, 12939);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(2326,  @TRAINER_ID+45),
-(2327,  @TRAINER_ID+45),
-(2329,  @TRAINER_ID+45),
-(2798,  @TRAINER_ID+45),
-(3181,  @TRAINER_ID+45),
-(3373,  @TRAINER_ID+45),
-(4211,  @TRAINER_ID+45),
-(4591,  @TRAINER_ID+45),
-(5150,  @TRAINER_ID+45),
-(5759,  @TRAINER_ID+45),
-(5939,  @TRAINER_ID+45),
-(5943,  @TRAINER_ID+45),
-(6094,  @TRAINER_ID+45),
-(16272, @TRAINER_ID+45),
-(16662, @TRAINER_ID+45),
-(16731, @TRAINER_ID+45),
-(17214, @TRAINER_ID+45),
-(17424, @TRAINER_ID+45),
-(19184, @TRAINER_ID+45),
-(19478, @TRAINER_ID+45),
-(22477, @TRAINER_ID+45),
+(2326,  @TRAINER_ID+45), -- Thamner Pol <Physician> 
+(2327,  @TRAINER_ID+45), -- Shaina Fuller <First Aid Trainer>
+(2329,  @TRAINER_ID+45), -- Michelle Belle <Physician>
+(2798,  @TRAINER_ID+45), -- Pand Stonebinder <First Aid Trainer>
+(3181,  @TRAINER_ID+45), -- Fremal Doohickey <First Aid Trainer>
+(3373,  @TRAINER_ID+45), -- Arnok <First Aid Trainer>
+(4211,  @TRAINER_ID+45), -- Dannelor <First Aid Trainer>
+(4591,  @TRAINER_ID+45), -- Mary Edras <First Aid Trainer>
+(5150,  @TRAINER_ID+45), -- Nissa Firestone <First Aid Trainer>
+(5759,  @TRAINER_ID+45), -- Nurse Neela <First Aid Trainer>
+(5939,  @TRAINER_ID+45), -- Vira Younghoof <First Aid Trainer>
+(5943,  @TRAINER_ID+45), -- Rawrk <First Aid Trainer>
+(6094,  @TRAINER_ID+45), -- Byancie <First Aid Trainer> 
+(16272, @TRAINER_ID+45), -- Kanaria <First Aid Trainer>
+(16662, @TRAINER_ID+45), -- Alestus <First Aid Trainer> 
+(16731, @TRAINER_ID+45), -- Nus <First Aid Trainer>
+(17214, @TRAINER_ID+45), -- Anchorite Fateema <First Aid Trainer>
+(17424, @TRAINER_ID+45), -- Anchorite Paetheus <First Aid Trainer>
+(19184, @TRAINER_ID+45), -- Mildred Fletcher <Physician>
+(19478, @TRAINER_ID+45), -- Fera Palerunner <First Aid Trainer>
+(22477, @TRAINER_ID+45), -- Anchorite Ensham <First Aid Trainer>
 --
-(12920, @TRAINER_ID+46),
-(12939, @TRAINER_ID+46);
+(12920, @TRAINER_ID+46), -- Doctor Gregory Victor <Trauma Surgeon>
+(12939, @TRAINER_ID+46); -- Doctor Gustaf VanHowzen <Trauma Surgeon>
 
 UPDATE `creature_template` SET `npcflag` = 83 WHERE `entry` IN (12920, 12939);
 
@@ -1188,27 +1272,12 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (1651, 3028, 3332, 5493, 5690, 5938);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 --
-(1651, @TRAINER_ID+47),
-(3028, @TRAINER_ID+47),
-(3332, @TRAINER_ID+47),
-(5493, @TRAINER_ID+47),
-(5690, @TRAINER_ID+47),
-(5938, @TRAINER_ID+47);
-
--- Riding
-DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+48;
-INSERT INTO `trainer_spell` (`TrainerId`, `SpellID`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqLevel`) VALUES
-(@TRAINER_ID+48, 33388, 900000, 762, 0, 40),
-(@TRAINER_ID+48, 33391, 9000000, 762, 75, 60);
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3690, 4732, 4752, 4773, 7953);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
---
-(3690, @TRAINER_ID+48),
-(4732, @TRAINER_ID+48),
-(4752, @TRAINER_ID+48),
-(4773, @TRAINER_ID+48),
-(7953, @TRAINER_ID+48);
+(1651, @TRAINER_ID+47), -- Lee Brown <Fisherman>, Elwynn Forest
+(3028, @TRAINER_ID+47), -- Kah Mistrunner <Fishing Trainer>
+(3332, @TRAINER_ID+47), -- Lumak <Fishing Trainer>
+(5493, @TRAINER_ID+47), -- Arnold Leland <Fishing Trainer>
+(5690, @TRAINER_ID+47), -- Clyde Kellen <Fisherman>
+(5938, @TRAINER_ID+47); -- Uthan Stillwater <Fisherman>
 
 -- pre_t4 Leatherworking trainer
 DELETE FROM `trainer_spell` WHERE `TrainerId` = @TRAINER_ID+51;
@@ -1243,3 +1312,65 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (@Barim,   @TRAINER_ID+51),
 (@Brumman, @TRAINER_ID+51),
 (@Grikka,  @TRAINER_ID+51);
+
+
+/* Gossip Menus */
+
+DELETE FROM `gossip_menu_option` WHERE `MenuID` IN 
+(2742, 2745, 2747, 2748, 2750, 2761, 2782, 4110, 4112, 4114, 4116, 4118, 4119, 4121, 4125, 4128, 4130, 4137, 4139, 4143, 4144, 4147, 4148, 
+4151, 4153, 4154, 4155, 4157, 4158, 4159, 4160, 4161, 4165, 4169, 4173, 4181, 4182, 4183, 4187, 4188, 4204, 4207, 4241, 4242, 4262, 4264, 4265, 4266, 4268, 4269, 4344, 4351, 4352);
+
+INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
+(2742, 0, 3, 'Train me.', 3266, 5, 16), -- Groum Stonebeard <Journeyman Blacksmith>
+(2745, 0, 3, 'Train me.', 3266, 5, 16), -- Dane Lindgren <Journeyman Blacksmith>
+(2747, 0, 3, 'Train me.', 3266, 5, 16), -- Ug'thok <Journeyman Blacksmith>
+(2748, 0, 3, 'Train me.', 3266, 5, 16), -- Thrag Stonehoof <Journeyman Blacksmith>
+(2750, 0, 3, 'Train me.', 3266, 5, 16), -- Basil Frye <Journeyman Blacksmith>
+(2761, 0, 3, 'Train me.', 3266, 5, 16), -- Rotgath Stonebeard <Expert Blacksmith>
+(2782, 0, 3, 'Train me.', 3266, 5, 16), -- Snarl <Expert Blacksmith>
+(4110, 0, 3, 'Train me.', 3266, 5, 16), -- Alchemist Mallory <Journeyman Alchemist>
+(4112, 0, 3, 'Train me.', 3266, 5, 16), -- Tel'Athir <Journeyman Alchemist>
+(4114, 0, 3, 'Train me.', 3266, 5, 16), -- Milla Fairancora <Journeyman Alchemist>
+(4116, 0, 3, 'Train me.', 3266, 5, 16), -- Vosur Brakthel <Journeyman Alchemist>
+(4118, 0, 3, 'Train me.', 3266, 5, 16), -- Whuut <Journeyman Alchemist>
+(4119, 0, 3, 'Train me.', 3266, 5, 16), -- Kray <Journeyman Alchemist>
+(4121, 0, 3, 'Train me.', 3266, 5, 16), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
+(4125, 0, 3, 'Train me.', 3266, 5, 16), -- Sylvanna Forestmoon <Expert Alchemist>
+(4128, 0, 3, 'Train me.', 3266, 5, 16), -- Bena Winterhoof <Expert Alchemist>
+(4130, 0, 3, 'Train me.', 3266, 5, 16), -- Doctor Marsh <Expert Alchemist>
+(4137, 0, 3, 'Train me.', 3266, 5, 16), -- Jemma Quikswitch <Journeyman Engineer>
+(4139, 0, 3, 'Train me.', 3266, 5, 16), -- Sprite Jumpsprocket <Journeyman Engineer>
+(4143, 0, 3, 'Train me.', 3266, 5, 16), -- Thund <Journeyman Engineer>
+(4144, 0, 3, 'Train me.', 3266, 5, 16), -- Graham Van Talen <Journeyman Engineer>
+(4147, 0, 3, 'Train me.', 3266, 5, 16), -- Trixie Quikswitch <Expert Engineer>
+(4148, 0, 3, 'Train me.', 3266, 5, 16), -- Nogg <Expert Engineer>
+(4151, 0, 3, 'Train me.', 3266, 5, 16), -- Roxxik <Artisan Engineer>
+(4153, 0, 3, 'Train me.', 3266, 5, 16), -- Betty Quin <Journeyman Enchanter>
+(4154, 0, 3, 'Train me.', 3266, 5, 16), -- Thonys Pillarstone <Journeyman Enchanter>
+(4155, 0, 3, 'Train me.', 3266, 5, 16), -- Lalina Summermoon <Journeyman Enchanter>
+(4157, 0, 3, 'Train me.', 3266, 5, 16), -- Malcomb Wynn <Journeyman Enchanter>
+(4158, 0, 3, 'Train me.', 3266, 5, 16), -- Mot Dawnstrider <Journeyman Enchanter>
+(4159, 0, 3, 'Train me.', 3266, 5, 16), -- Jhag <Journeyman Enchanter>
+(4160, 0, 3, 'Train me.', 3266, 5, 16), -- Gimble Thistlefuzz <Expert Enchanter>
+(4161, 0, 3, 'Train me.', 3266, 5, 16), -- Lucan Cordell <Expert Enchanter>
+(4165, 0, 3, 'Train me.', 3266, 5, 16), -- Teg Dawnstrider <Expert Enchanter>
+(4169, 0, 3, 'Train me.', 3266, 5, 16), -- Kitta Firewind <Enchanting Trainer>
+(4173, 0, 3, 'Train me.', 3266, 5, 16), -- Randal Worth <Journeyman Leatherworker>
+(4181, 0, 3, 'Train me.', 3266, 5, 16), -- Darianna <Journeyman Leatherworker>
+(4182, 0, 3, 'Train me.', 3266, 5, 16), -- Gretta Finespindle <Journeyman Leatherworker>
+(4183, 0, 3, 'Train me.', 3266, 5, 16), -- Kamari <Journeyman Leatherworker>
+(4187, 0, 3, 'Train me.', 3266, 5, 16), -- Mak <Journeyman Leatherworker>
+(4188, 0, 3, 'Train me.', 3266, 5, 16), -- Dan Golthas <Journeyman Leatherworker>
+(4204, 0, 3, 'Train me.', 3266, 5, 16), -- Faldron <Expert Leatherworker>
+(4207, 0, 3, 'Train me.', 3266, 5, 16), -- Tarn <Expert Leatherworker>
+(4241, 0, 3, 'Train me.', 3266, 5, 16), -- Telonis <Artisan Leatherworker>
+(4242, 0, 3, 'Train me.', 3266, 5, 16), -- Una <Artisan Leatherworker>
+(4262, 0, 3, 'Train me.', 3266, 5, 16), -- Lawrence Schneider <Journeyman Tailor>
+(4264, 0, 3, 'Train me.', 3266, 5, 16), -- Uthrar Threx <Journeyman Tailor>
+(4265, 0, 3, 'Train me.', 3266, 5, 16), -- Snang <Journeyman Tailor>
+(4266, 0, 3, 'Train me.', 3266, 5, 16), -- Vhan <Journeyman Tailor>
+(4268, 0, 3, 'Train me.', 3266, 5, 16), -- Victor Ward <Journeyman Tailor>
+(4269, 0, 3, 'Train me.', 3266, 5, 16), -- Trianna <Journeyman Tailor>
+(4344, 0, 3, 'Train me.', 3266, 5, 16), -- Sellandus <Expert Tailor>
+(4351, 0, 3, 'Train me.', 3266, 5, 16), -- Tepa <Expert Tailor>
+(4352, 0, 3, 'Train me.', 3266, 5, 16); -- Rhiannon Davis <Expert Tailor>
