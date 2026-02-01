@@ -9,40 +9,6 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Leatherworker' WHERE `ent
 UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (957, 1300, 11026, 11068, 11096); -- `trainer_type` = 2
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` = 5567; -- Sellandus <Expert Tailor>
 
-SET @TRAINER_ID   := 600;
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (957, 1300, 1317, 1346, 1430, 2327, 5482, 5493, 5499, 5500, 5511, 5513, 5518, 5564, 5567, 11026, 11068, 11096);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
-(957,   @TRAINER_ID+16), -- Dane Lindgren <Journeyman Blacksmith>
-(1300,  @TRAINER_ID+36), -- Lawrence Schneider <Journeyman Tailor>
-(1317,  @TRAINER_ID+22), -- Lucan Cordell <Expert Enchanter>
-(1346,  @TRAINER_ID+38), -- Georgio Bolero <Artisan Tailor>
-(1430,  @TRAINER_ID+44), -- Tomas <Cook>
-(2327,  @TRAINER_ID+45), -- Shaina Fuller <First Aid Trainer>
-(5482,  @TRAINER_ID+44), -- Stephen Ryback <Cooking Trainer>
-(5493,  @TRAINER_ID+47), -- Arnold Leland <Fishing Trainer>
-(5499,  @TRAINER_ID+12), -- Lilyssia Nightbreeze <Expert Alchemist>
-(5500,  @TRAINER_ID+11), -- Tel'Athir <Journeyman Alchemist>
-(5511,  @TRAINER_ID+17), -- Therum Deepforge <Expert Blacksmith>
-(5513,  @TRAINER_ID+42), -- Gelman Stonehand <Mining Trainer>
-(5518,  @TRAINER_ID+27), -- Lilliam Sparkspindle <Expert Engineer>
-(5564,  @TRAINER_ID+32), -- Simon Tanner <Expert Leatherworker>
-(5567,  @TRAINER_ID+37), -- Sellandus <Expert Tailor>
-(11026, @TRAINER_ID+26), -- Sprite Jumpsprocket <Journeyman Engineer>
-(11068, @TRAINER_ID+21), -- Betty Quin <Journeyman Enchanter>
-(11096, @TRAINER_ID+31); -- Randal Worth <Journeyman Leatherworker>
-
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2745, 4112, 4139, 4153, 4161, 4173, 4262, 4344);
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(2745, 0, 3, 'Train me.', 3266, 5, 16), -- Dane Lindgren <Journeyman Blacksmith>
-(4112, 0, 3, 'Train me.', 3266, 5, 16), -- Tel'Athir <Journeyman Alchemist>
-(4139, 0, 3, 'Train me.', 3266, 5, 16), -- Sprite Jumpsprocket <Journeyman Engineer>
-(4153, 0, 3, 'Train me.', 3266, 5, 16), -- Betty Quin <Journeyman Enchanter>
-(4161, 0, 3, 'Train me.', 3266, 5, 16), -- Lucan Cordell <Expert Enchanter>
-(4173, 0, 3, 'Train me.', 3266, 5, 16), -- Randal Worth <Journeyman Leatherworker>
-(4262, 0, 3, 'Train me.', 3266, 5, 16), -- Lawrence Schneider <Journeyman Tailor>
-(4344, 0, 3, 'Train me.', 3266, 5, 16); -- Sellandus <Expert Tailor>
-
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (581, 4146, 4161, 4201, 4203, 4344, 4353); 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
 (15, 581,  0, 7, 164, 50,  'Show menu if blacksmithing is 50 or higher'),  -- Therum Deepforge <Expert Blacksmith>
