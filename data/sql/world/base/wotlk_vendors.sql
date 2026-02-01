@@ -1,5 +1,5 @@
 /*  Hide vendor items until the player has completed the progression level for them */
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (28701);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (28701, 32172);
 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
@@ -76,12 +76,74 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (23, 28701, 47021, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
 (23, 28701, 47022, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
 (23, 28701, 47023, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
-(23, 28701, 49112, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design');
-    
+(23, 28701, 49112, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Timothy Jones - Jewelcrafting Design'),
+--
+(23, 32172, 36918, 0, 1, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Scarlet Ruby'),
+(23, 32172, 36918, 0, 1, 8, 0, 66014, 0, 0, 1, 0, 0, '', 'Harold Winston - Scarlet Ruby'),
+(23, 32172, 36921, 0, 1, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Autumn\'s Glow'),
+(23, 32172, 36921, 0, 1, 8, 0, 66014, 0, 0, 1, 0, 0, '', 'Harold Winston - Autumn\'s Glow'),
+(23, 32172, 36924, 0, 1, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Sky Sapphire'),
+(23, 32172, 36924, 0, 1, 8, 0, 66014, 0, 0, 1, 0, 0, '', 'Harold Winston - Sky Sapphire'),
+(23, 32172, 36927, 0, 1, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Twilight Opal'),
+(23, 32172, 36927, 0, 1, 8, 0, 66014, 0, 0, 1, 0, 0, '', 'Harold Winston - Twilight Opal'),
+(23, 32172, 36930, 0, 1, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Monarch Topaz'),
+(23, 32172, 36930, 0, 1, 8, 0, 66014, 0, 0, 1, 0, 0, '', 'Harold Winston - Monarch Topaz'),
+(23, 32172, 36933, 0, 1, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Forest Emerald'),
+(23, 32172, 36933, 0, 1, 8, 0, 66014, 0, 0, 1, 0, 0, '', 'Harold Winston - Forest Emerald'),
+--
+(23, 32172, 36919, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Cardinal Ruby'),
+(23, 32172, 36922, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Kings Amber'),
+(23, 32172, 36925, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Majestic Zircon'),
+(23, 32172, 36928, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Dreadstone'),
+(23, 32172, 36931, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Ametrine'),
+(23, 32172, 36934, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Eye of Zul'),
+-- (23, 32172, 40585, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Signet of the Kirin Tor'),
+-- (23, 32172, 40586, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Band of the Kirin Tor'),
+-- (23, 32172, 40678, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Pendant of the Outcast Hero'),
+-- (23, 32172, 40679, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Chained Military Gorget'),
+-- (23, 32172, 40680, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Encircling Burnished Gold Chains'),
+-- (23, 32172, 40681, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Lattice Choker of Light'),
+-- (23, 32172, 40717, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Ring of Invincibility'),
+-- (23, 32172, 40718, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Signet of the Impregnable Fortress'),
+-- (23, 32172, 40719, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Band of Channeled Magic'),
+-- (23, 32172, 40720, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Renewal of Life'),
+-- (23, 32172, 44934, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Loop of the Kirin Tor'),
+-- (23, 32172, 44935, 0, 0, 8, 0, 66012, 0, 0, 0, 0, 0, '', 'Harold Winston - Ring of the Kirin Tor'),
+(23, 32172, 45688, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Inscribed Band of the Kirin Tor'),
+(23, 32172, 45689, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Inscribed Loop of the Kirin Tor'),
+(23, 32172, 45690, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Inscribed Ring of the Kirin Tor'),
+(23, 32172, 45691, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Inscribed Signet of the Kirin Tor'),
+(23, 32172, 45819, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Spiked Battleguard Choker'),
+(23, 32172, 45820, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Broach of the Wailing Night'),
+(23, 32172, 45821, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Shard of the Crystal Forest'),
+(23, 32172, 45822, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Evokers Charm'),
+(23, 32172, 45823, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Harold Winston - Frozen Tear of Elune'),
+(23, 32172, 47729, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Bloodshed Band'),
+(23, 32172, 47730, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Dexterous Brightstone Ring'),
+(23, 32172, 47731, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Clutch of Fortification'),
+(23, 32172, 47732, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Band of the Invoker'),
+(23, 32172, 47733, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Heartmender Circle'),
+(23, 32172, 48954, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Etched Band of the Kirin Tor'),
+(23, 32172, 48955, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Etched Loop of the Kirin Tor'),
+(23, 32172, 48956, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Etched Ring of the Kirin Tor'),
+(23, 32172, 48957, 0, 0, 8, 0, 66014, 0, 0, 0, 0, 0, '', 'Harold Winston - Etched Signet of the Kirin Tor'),
+(23, 32172, 51557, 0, 0, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Harold Winston - Runed Signet of the Kirin Tor'),
+(23, 32172, 51558, 0, 0, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Harold Winston - Runed Loop of the Kirin Tor'),
+(23, 32172, 51559, 0, 0, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Harold Winston - Runed Ring of the Kirin Tor'),
+(23, 32172, 51560, 0, 0, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Harold Winston - Runed Band of the Kirin Tor');
+
 -- Restore vendors to use pre-3.2 gems
-UPDATE `npc_vendor` SET `item` = 36918 WHERE `item` = 36919;
-UPDATE `npc_vendor` SET `item` = 36921 WHERE `item` = 36922;
-UPDATE `npc_vendor` SET `item` = 36924 WHERE `item` = 36925;
-UPDATE `npc_vendor` SET `item` = 36927 WHERE `item` = 36928;
-UPDATE `npc_vendor` SET `item` = 36930 WHERE `item` = 36931;
-UPDATE `npc_vendor` SET `item` = 36933 WHERE `item` = 36934;
+DELETE FROM `npc_vendor` WHERE `entry` = 32172 AND `item` IN (36918, 36919, 36921, 36922, 36924, 36925, 36927, 36928, 36930, 36931, 36933, 36934);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES 
+(32172, 0, 36918, 0, 0, 2706, 0),
+(32172, 0, 36919, 0, 0, 2706, 0),
+(32172, 0, 36921, 0, 0, 2706, 0),
+(32172, 0, 36922, 0, 0, 2706, 0),
+(32172, 0, 36924, 0, 0, 2706, 0),
+(32172, 0, 36925, 0, 0, 2706, 0),
+(32172, 0, 36927, 0, 0, 2484, 0),
+(32172, 0, 36928, 0, 0, 2484, 0),
+(32172, 0, 36930, 0, 0, 2484, 0),
+(32172, 0, 36931, 0, 0, 2484, 0),
+(32172, 0, 36933, 0, 0, 2484, 0),
+(32172, 0, 36934, 0, 0, 2484, 0);
