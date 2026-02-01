@@ -29,6 +29,9 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinc
 
 /* the following edits are temporary */
 
+-- remove unused riding spell list
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 648;
+
 -- remove access requirements from database, this is now done with cpp
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` IN (15, 16, 32, 46, 47, 64);
 
