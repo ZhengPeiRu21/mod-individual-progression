@@ -17,10 +17,6 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4241, 0, 7, 165, 125, 'Show menu if leatherworking is 125 or higher'), -- Telonis <Artisan Leatherworker>
 (15, 4349, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');       -- Me'lynn <Expert Tailor>
 
--- Dannelor <First Aid Trainer>
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (4211);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (4211, @TRAINER_ID+45);
-
 -- Batllemasters
 DELETE FROM `creature` WHERE `id1` IN (907, 2302, 5118);
 INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
