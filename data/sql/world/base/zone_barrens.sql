@@ -311,7 +311,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14908, 0, 6, 0, 40, 0, 100, 0, 28, 14908, 0, 0, 0, 0, 80, 1490805, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mogg - On Waypoint 28 Reached - Run Script'),
 (14908, 0, 7, 0, 40, 0, 100, 0, 29, 14908, 0, 0, 0, 0, 80, 1490806, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mogg - On Waypoint 29 Reached - Run Script');
 
-
 DELETE FROM `creature_text` WHERE `CreatureID` IN (3279, 5828);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 (3279, 0, 0, 'A fine trophy your head will make, $R.',                   12, 0, 100, 0, 0, 0, 2229, 0, 'Witchwing Ambusher'),
@@ -319,13 +318,11 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (3279, 0, 2, 'You will be easy prey, $C.',                               12, 0, 100, 0, 0, 0, 2231, 0, 'Witchwing Ambusher'),
 (5828, 0, 0, '%s lets out a tremendous roar, alterting nearby enemies!', 16, 0, 100, 0, 0, 0, 2107, 0, 'Humar the Pridelord');
 
-
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (2783, 4206, 4350);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
 (15, 2783, 0, 7, 164, 50, 'Show menu if blacksmithing is 50 or higher'),  -- Traugh <Expert Blacksmith>
 (15, 4206, 0, 7, 165, 50, 'Show menu if leatherworking is 50 or higher'), -- Krulmoo Fullmoon <Expert Leatherworker>
 (15, 4350, 0, 7, 197, 50, 'Show menu if tailoring is 50 or higher');      -- Mahani <Expert Tailor>
-
 
 UPDATE `creature_template` SET `subname` = 'Blacksmithing Supplier'   WHERE `entry` = 3477;-- Hraq <Blacksmithing Supplier>
 UPDATE `creature_template` SET `subname` = 'Expert Blacksmith'        WHERE `entry` = 3478; -- Traugh <Expert Blacksmith>
@@ -341,19 +338,6 @@ UPDATE `creature_template` SET `subname` = 'Master Goblin Engineer'   WHERE `ent
 
 UPDATE `creature_template` SET `gossip_menu_id` = 0, `npcflag` = 2 WHERE `entry` = 3443; -- Grub
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 4244    WHERE `CreatureID` = 3465;-- Gilthares Firebough
-
-SET @TRAINER_ID   := 600;
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3478, 3484, 3494, 3703, 3704, 5784, 6387, 8306, 8738);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
-(3478, @TRAINER_ID+17), -- Traugh <Expert Blacksmith>
-(3484, @TRAINER_ID+36), -- Kil'hala <Journeyman Tailor>
-(3494, @TRAINER_ID+26), -- Tinkerwiz <Journeyman Engineer>
-(3703, @TRAINER_ID+32), -- Krulmoo Fullmoon <Expert Leatherworker>
-(3704, @TRAINER_ID+37), -- Mahani <Expert Tailor>
-(5784, @TRAINER_ID+31), -- Waldor <Journeyman Leatherworker>
-(6387, @TRAINER_ID+43), -- Dranh <Skinner>
-(8306, @TRAINER_ID+44); -- Duhng <Cook>
 
 /* NPC Grub - not a Vendor in Vanilla */
 DELETE FROM `npc_vendor` WHERE `entry` = 3443;

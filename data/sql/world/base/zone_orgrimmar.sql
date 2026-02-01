@@ -18,45 +18,6 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Enchanter'     WHERE `ent
 UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (1383, 2855, 2857, 3412, 5811, 10266, 11017, 11046, 11066); -- `trainer_type` = 2
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (1383, 3412, 11017);
 
-SET @TRAINER_ID   := 600;
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN 
-(1383, 2855, 2857, 3332, 3345, 3347, 3355, 3357, 3363, 3365, 3373, 3399, 3412, 4752, 5811, 7088, 10266, 11017, 11046, 11066, 23128);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
-(1383,  @TRAINER_ID+17), -- Snarl <Expert Blacksmith>
-(2855,  @TRAINER_ID+36), -- Snang <Journeyman Tailor>
-(2857,  @TRAINER_ID+26), -- Thund <Journeyman Engineer>
-(3332,  @TRAINER_ID+47), -- Lumak <Fishing Trainer>
-(3345,  @TRAINER_ID+22), -- Godan <Expert Enchanter>
-(3347,  @TRAINER_ID+12), -- Yelmak <Expert Alchemist>
-(3355,  @TRAINER_ID+18), -- Saru Steelfury <Artisan Blacksmith>
-(3357,  @TRAINER_ID+42), -- Makaru <Mining Trainer>
-(3363,  @TRAINER_ID+37), -- Magar <Expert Tailor>
-(3365,  @TRAINER_ID+32), -- Karolek <Expert Leatherworker>
-(3373,  @TRAINER_ID+45), -- Arnok <First Aid Trainer>
-(3399,  @TRAINER_ID+44), -- Zamja <Cooking Trainer>
-(3412,  @TRAINER_ID+27), -- Nogg <Expert Engineer>
-(4752,  @TRAINER_ID+48), -- Kildar <Riding Trainer>
-(5811,  @TRAINER_ID+31), -- Kamari <Journeyman Leatherworker>
-(7088,  @TRAINER_ID+43), -- Thuwd <Skinning Trainer>
-(10266, @TRAINER_ID+16), -- Ug'thok <Journeyman Blacksmith>
-(11017, @TRAINER_ID+28), -- Roxxik <Artisan Engineer>
-(11046, @TRAINER_ID+11), -- Whuut <Journeyman Alchemist>
-(11066, @TRAINER_ID+21), -- Jhag <Journeyman Enchanter>
-(23128, 3);              -- Master Pyreanor <Paladin Trainer>
-
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2747, 2782, 4118, 4143, 4148, 4151, 4159, 4183, 4265);
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(2747, 0, 3, 'Train me.', 3266, 5, 16), -- Ug'thok <Journeyman Blacksmith>
-(2782, 0, 3, 'Train me.', 3266, 5, 16), -- Snarl <Expert Blacksmith>
-(4118, 0, 3, 'Train me.', 3266, 5, 16), -- Whuut <Journeyman Alchemist>
-(4143, 0, 3, 'Train me.', 3266, 5, 16), -- Thund <Journeyman Engineer>
-(4148, 0, 3, 'Train me.', 3266, 5, 16), -- Nogg <Expert Engineer>
-(4151, 0, 3, 'Train me.', 3266, 5, 16), -- Roxxik <Artisan Engineer>
-(4159, 0, 3, 'Train me.', 3266, 5, 16), -- Jhag <Journeyman Enchanter>
-(4183, 0, 3, 'Train me.', 3266, 5, 16), -- Kamari <Journeyman Leatherworker>
-(4265, 0, 3, 'Train me.', 3266, 5, 16); -- Snang <Journeyman Tailor>
-
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (1012, 2782, 4126, 4148, 4151, 4168, 4209, 4347);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
 (15, 1012, 0, 7, 164, 125, 'Show menu if blacksmithing is 125 or higher'), -- Saru Steelfury <Artisan Blacksmith>

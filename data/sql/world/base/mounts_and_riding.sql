@@ -26,6 +26,15 @@ DELETE FROM `mail_level_reward` WHERE `level` <= 60;
 UPDATE `mail_level_reward` SET `level` = 71 WHERE `mailTemplateId` IN (285, 284);
 
 -- Riding Skills
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3690, 4732, 4752, 4773, 7953);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
+--
+(3690, 37), -- Kar Stormsinger <Riding Trainer>
+(4732, 37), -- Randal Hunter <Riding Trainer>
+(4752, 37), -- Kildar <Riding Trainer>
+(4773, 37), -- Velma Warnam <Riding Trainer>
+(7953, 37); -- Xar'Ti <Riding Trainer>
+
 UPDATE `trainer_spell` SET `ReqLevel`  = 40, `MoneyCost` = 800000   WHERE `SpellID` = 33388; -- Apprentice Riding
 UPDATE `trainer_spell` SET `ReqLevel`  = 60, `MoneyCost` = 10000000 WHERE `SpellID` = 33391; -- Journeyman Riding
 UPDATE `trainer_spell` SET `ReqLevel`  = 70, `MoneyCost` = 8000000  WHERE `SpellID` = 34090; -- Expert Riding

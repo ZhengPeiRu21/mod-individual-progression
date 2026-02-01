@@ -145,27 +145,6 @@ UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (5500, 5567);
 DELETE FROM `creature_template_addon` WHERE `entry` = 69;  -- Diseased Timber Wolf
 DELETE FROM `creature_template_addon` WHERE `entry` = 299; -- Diseased Young Wolf
 
-SET @TRAINER_ID   := 600;
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (514, 1103, 1215, 1632, 1651, 2329, 4732, 5500, 5567, 11072);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
-(514,   @TRAINER_ID+16), -- Smith Argus <Journeyman Blacksmith>
-(1103,  @TRAINER_ID+36), -- Eldrin <Journeyman Tailor>
-(1215,  @TRAINER_ID+11), -- Alchemist Mallory <Journeyman Alchemist>
-(1632,  @TRAINER_ID+31), -- Adele Fielder <Journeyman Leatherworker>
-(1651,  @TRAINER_ID+47), -- Lee Brown <Fisherman>
-(2329,  @TRAINER_ID+45), -- Michelle Belle <Physician>
-(4732,  @TRAINER_ID+48), -- Randal Hunter <Riding Trainer>
-(5500,  @TRAINER_ID+11), -- Tel'Athir <Journeyman Alchemist>
-(5567,  @TRAINER_ID+37), -- Sellandus <Expert Tailor>
-(11072, @TRAINER_ID+23); -- Kitta Firewind <Enchanting Trainer>
-
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4110, 4112, 4169);
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(4110, 0, 3, 'Train me.', 3266, 5, 16), -- Alchemist Mallory <Journeyman Alchemist>
-(4112, 0, 3, 'Train me.', 3266, 5, 16), -- Tel'Athir <Journeyman Alchemist>
-(4169, 0, 3, 'Train me.', 3266, 5, 16); -- Kitta Firewind <Enchanting Trainer>
-
 -- Wolves Across the Border
 DELETE FROM `quest_offer_reward` WHERE `ID` = 33;
 INSERT INTO `quest_offer_reward` (`ID`, `Emote1`, `RewardText`) VALUES (33, 1, 'You\'ve been busy! I can\'t wait to cook up that wolf meat...$b$bI have some things here you might want - take your pick!');

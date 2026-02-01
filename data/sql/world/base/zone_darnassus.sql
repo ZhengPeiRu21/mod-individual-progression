@@ -8,27 +8,6 @@ UPDATE `creature_template` SET `subname` = 'Expert Leatherworker'     WHERE `ent
 UPDATE `creature_template` SET `npcflag` = 81 WHERE `entry` IN (11041, 11042, 11050, 11070, 11081, 11083); -- `trainer_type` = 2
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4212, 11042, 11081);
 
-SET @TRAINER_ID   := 600;
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (11041, 11042, 11050, 11070, 11081, 11083);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
-(11041, @TRAINER_ID+11), -- Milla Fairancora <Journeyman Alchemist>
-(11042, @TRAINER_ID+12), -- Sylvanna Forestmoon <Expert Alchemist>
-(11050, @TRAINER_ID+36), -- Trianna <Journeyman Tailor>
-(11070, @TRAINER_ID+21), -- Lalina Summermoon <Journeyman Enchanter>
-(11081, @TRAINER_ID+32), -- Faldron <Expert Leatherworker>
-(11083, @TRAINER_ID+31); -- Darianna <Journeyman Leatherworker>
-
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (4114, 4125, 4155, 4181, 4204, 4241, 4269);
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(4114, 0, 3, 'Train me.', 3266, 5, 16), -- Milla Fairancora <Journeyman Alchemist>
-(4125, 0, 3, 'Train me.', 3266, 5, 16), -- Sylvanna Forestmoon <Expert Alchemist>
-(4155, 0, 3, 'Train me.', 3266, 5, 16), -- Lalina Summermoon <Journeyman Enchanter>
-(4181, 0, 3, 'Train me.', 3266, 5, 16), -- Darianna <Journeyman Leatherworker>
-(4204, 0, 3, 'Train me.', 3266, 5, 16), -- Faldron <Expert Leatherworker>
-(4241, 0, 3, 'Train me.', 3266, 5, 16), -- Telonis <Artisan Leatherworker>
-(4269, 0, 3, 'Train me.', 3266, 5, 16); -- Trianna <Journeyman Tailor>
-
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceEntry` = 0 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (4125, 4131, 4163, 4204, 4241, 4349);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
 (15, 4125, 0, 7, 171, 50,  'Show menu if alchemy is 50 or higher'),         -- Sylvanna Forestmoon <Expert Alchemist>

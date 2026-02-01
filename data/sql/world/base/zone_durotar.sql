@@ -260,19 +260,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (123220, 55, 40.7949, -3898.71, 43.2894, NULL, 0, 0, 0, 100, 0),
 (123220, 56, 52.673, -3894.57, 42.6995, NULL, 0, 0, 0, 100, 0);
 
-SET @TRAINER_ID   := 600;
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3174, 3175, 3184, 3185, 5943, 7953, 11025);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
-(3174,  @TRAINER_ID+16), -- Dwukk <Journeyman Blacksmith>
-(3175,  @TRAINER_ID+42), -- Krunn <Miner>
-(3184,  @TRAINER_ID+11), -- Miao'zan <Journeyman Alchemist>
-(3185,  @TRAINER_ID+41), -- Mishiki <Herbalist>
-(5943,  @TRAINER_ID+45), -- Rawrk <First Aid Trainer>
-(7953,  @TRAINER_ID+48), -- Xar'Ti <Riding Trainer>
-(11025, @TRAINER_ID+26); -- Mukdrak <Journeyman Engineer>
-
-
 /* Quests */
 
 -- Cutting Teeth
@@ -295,7 +282,6 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5765, 1485);
 
 DELETE FROM `creature_questender` WHERE `id` = 5765 AND `quest` = 1485;
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (5765, 1485);
-
 
 -- Galgar's Cactus Apple Surprise
 UPDATE `quest_template` SET `Flags` = 8, 

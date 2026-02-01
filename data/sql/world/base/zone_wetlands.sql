@@ -196,7 +196,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14425, 0, 0, 0, 0, 0, 100, 0, 8000, 8000, 8000, 26000, 0, 0, 11, 11977, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Gnawbone - Within 0-5 Range - Cast Rend'),
 (14425, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnawbone - Between 0-15% Health - Flee For Assist (No Repeat)');
 
-
 -- Garneg Charskull, fix respawn time
 UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` = 2108; 
 
@@ -204,11 +203,6 @@ UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` = 2108;
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 3349 AND `Entry` = 1031; -- Crimson Ooze
 UPDATE `creature_loot_template` SET `Chance` = 2  WHERE `Item` = 3349 AND `Entry` = 1032; -- Black Ooze
 UPDATE `creature_loot_template` SET `Chance` = 5  WHERE `Item` = 3349 AND `Entry` = 1033; -- Monstrous Ooze
-
--- Fremal Doohickey <First Aid Trainer>
-SET @TRAINER_ID   := 600;
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (3181);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (3181, @TRAINER_ID+45);
 
 -- missing patrols
 DELETE FROM `pool_creature` WHERE `pool_entry` = 1072; -- remove 22 spawn locations used by AC, we are now using waypoints

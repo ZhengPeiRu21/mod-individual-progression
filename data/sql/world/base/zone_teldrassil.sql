@@ -67,9 +67,3 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14431, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Fury Shelda - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (14432, 0, 0, 0, 0, 0, 80, 0, 2000, 2000, 5000, 5000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Threggil - Within 0-5 Range - Cast Strike'),
 (14432, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Threggil - Between 0-15% Health - Flee For Assist (No Repeat)');
-
-
--- Byancie <First Aid Trainer> 
-SET @TRAINER_ID   := 600;
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (6094);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES (6094, @TRAINER_ID+45);

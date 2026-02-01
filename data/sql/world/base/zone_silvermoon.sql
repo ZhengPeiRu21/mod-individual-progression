@@ -1,8 +1,5 @@
-SET @TRAINER_ID   := 600;
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16662, 16679, 16680, 16681);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16679, 16680, 16681);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES 
-(16662, @TRAINER_ID+45), -- Alestus <First Aid Trainer> 
 (16679, 3), -- Paladin Trainer
 (16680, 3), -- Paladin Trainer
 (16681, 3); -- Paladin Trainer
