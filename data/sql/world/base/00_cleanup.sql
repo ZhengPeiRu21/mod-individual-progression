@@ -29,6 +29,9 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinc
 
 /* the following edits are temporary */
 
+-- no longer hide npc, now hiding vendor items instead
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (28701, 32172);
+
 -- remove unused riding spell list
 DELETE FROM `trainer_spell` WHERE `TrainerId` = 648;
 
