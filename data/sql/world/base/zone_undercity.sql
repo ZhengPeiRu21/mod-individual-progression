@@ -1,39 +1,13 @@
-UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Leatherworker'     WHERE `entry` = 223;   -- Dan Golthas <Journeyman Leatherworker> -- `trainer_type` = 2
-UPDATE `creature_template` SET `npcflag`=83, `subname`='Journeyman Engineer'          WHERE `entry` = 4586;  -- Graham Van Talen <Journeyman Engineer>  -- `trainer_type` = 2
-UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Blacksmith'        WHERE `entry` = 4605;  -- Basil Frye <Journeyman Blacksmith> -- `trainer_type` = 2
-UPDATE `creature_template` SET `npcflag`=81, `subname`='Expert Alchemist'             WHERE `entry` = 4609;  -- Doctor Marsh <Expert Alchemist> -- `trainer_type` = 2
-UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Alchemist Trainer' WHERE `entry` = 11044; -- Doctor Martin Felben <Journeyman Alchemist Trainer> -- `trainer_type` = 2
-UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Tailor'            WHERE `entry` = 11048; -- Victor Ward <Journeyman Tailor> -- `trainer_type` = 2
-UPDATE `creature_template` SET `npcflag`=81, `subname`='Expert Tailor'                WHERE `entry` = 11049; -- Rhiannon Davis <Expert Tailor> -- `trainer_type` = 2
-UPDATE `creature_template` SET `npcflag`=81, `subname`='Journeyman Enchanter'         WHERE `entry` = 11067; -- Malcomb Wynn <Journeyman Enchanter> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag` = 81, `subname` = 'Journeyman Leatherworker'     WHERE `entry` = 223;   -- Dan Golthas <Journeyman Leatherworker> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag` = 83, `subname` = 'Journeyman Engineer'          WHERE `entry` = 4586;  -- Graham Van Talen <Journeyman Engineer>  -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag` = 81, `subname` = 'Journeyman Blacksmith'        WHERE `entry` = 4605;  -- Basil Frye <Journeyman Blacksmith> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag` = 81, `subname` = 'Expert Alchemist'             WHERE `entry` = 4609;  -- Doctor Marsh <Expert Alchemist> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag` = 81, `subname` = 'Journeyman Alchemist Trainer' WHERE `entry` = 11044; -- Doctor Martin Felben <Journeyman Alchemist Trainer> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag` = 81, `subname` = 'Journeyman Tailor'            WHERE `entry` = 11048; -- Victor Ward <Journeyman Tailor> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag` = 81, `subname` = 'Expert Tailor'                WHERE `entry` = 11049; -- Rhiannon Davis <Expert Tailor> -- `trainer_type` = 2
+UPDATE `creature_template` SET `npcflag` = 81, `subname` = 'Journeyman Enchanter'         WHERE `entry` = 11067; -- Malcomb Wynn <Journeyman Enchanter> -- `trainer_type` = 2
 
 UPDATE `creature_template` SET `type_flags` = 134217728 WHERE `entry` IN (4609, 11049);
-
-SET @TRAINER_ID   := 600;
-
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (223, 4586, 4591, 4605, 4609, 11044, 11048, 11049, 11067, 20406);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
-(223,   @TRAINER_ID+31), -- Dan Golthas <Journeyman Leatherworker>
-(4586,  @TRAINER_ID+26), -- Graham Van Talen <Journeyman Engineer>
-(4591,  @TRAINER_ID+45), -- Mary Edras <First Aid Trainer> 
-(4605,  @TRAINER_ID+16), -- Basil Frye <Journeyman Blacksmith>
-(4609,  @TRAINER_ID+12), -- Doctor Marsh <Expert Alchemist>
-(11044, @TRAINER_ID+11), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
-(11048, @TRAINER_ID+36), -- Victor Ward <Journeyman Tailor>
-(11049, @TRAINER_ID+37), -- Rhiannon Davis <Expert Tailor>
-(11067, @TRAINER_ID+21), -- Malcomb Wynn <Journeyman Enchanter>
-(20406, 3);              -- Champion Cyssa Dawnrose <Paladin Trainer>
-
-DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (2750, 4121, 4130, 4144, 4157, 4188, 4268, 4352);
-INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`) VALUES
-(2750, 0, 3, 'Train me.', 3266, 5, 16), -- Basil Frye <Journeyman Blacksmith>
-(4121, 0, 3, 'Train me.', 3266, 5, 16), -- Doctor Martin Felben <Journeyman Alchemist Trainer>
-(4130, 0, 3, 'Train me.', 3266, 5, 16), -- Doctor Marsh <Expert Alchemist>
-(4144, 0, 3, 'Train me.', 3266, 5, 16), -- Graham Van Talen <Journeyman Engineer>
-(4157, 0, 3, 'Train me.', 3266, 5, 16), -- Malcomb Wynn <Journeyman Enchanter>
-(4188, 0, 3, 'Train me.', 3266, 5, 16), -- Dan Golthas <Journeyman Leatherworker>
-(4268, 0, 3, 'Train me.', 3266, 5, 16), -- Victor Ward <Journeyman Tailor>
-(4352, 0, 3, 'Train me.', 3266, 5, 16); -- Rhiannon Davis <Expert Tailor>
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId`=15 AND `SourceEntry`=0 AND `ConditionTypeOrReference`=7 AND `SourceGroup` IN (1022, 4130, 4132, 4166, 4210, 4352, 4354);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES
