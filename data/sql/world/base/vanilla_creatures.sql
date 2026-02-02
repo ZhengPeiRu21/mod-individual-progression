@@ -11942,7 +11942,7 @@ UPDATE `creature_template` SET `speed_walk` = 0.888888, `rank` = 1, `DamageModif
 UPDATE `creature_template` SET `minlevel` = 50, `rank` = 1, `DamageModifier` = 3.5, `HealthModifier` = 3.0, `ManaModifier` = 2.0 WHERE `entry` = 7044;
 
 /*  Scalding Drake  */
-UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 3.6, `HealthModifier` = 3.0, `ManaModifier` = 2.0 WHERE `entry` = 7045;
+UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 3.6, `HealthModifier` = 3.0, `ManaModifier` = 2.0, `MovementType = 0 WHERE `entry` = 7045;
 
 /*  Searscale Drake  */
 UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 3.35, `HealthModifier` = 3.0, `ManaModifier` = 2.0 WHERE `entry` = 7046;
