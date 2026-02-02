@@ -107,6 +107,11 @@ INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `positi
 (@ENTRY*100, 12, 222.2341, -253.12283, 144.81778,  NULL, 0, 'Frostmaw'),
 (@ENTRY*100, 13, 230.49452, -242.26663, 142.41824, NULL, 0, 'Frostmaw');
 
+-- fix Stone Fury waypoints
+DELETE FROM `creature_template_addon` WHERE `entry` = 2258;
+DELETE FROM `creature_addon` WHERE `guid` = 63913;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(63913, 639130, 0, 0, 0, 0, 0, NULL);
 
 -- Jailor Borhuin(2431) and Baron Vardus(2306) - multiple spawn locations 
 DELETE FROM `creature` WHERE `id1` IN (2306, 2431);

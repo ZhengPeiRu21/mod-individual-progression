@@ -1898,6 +1898,9 @@ UPDATE `creature_template` SET `DamageModifier` = 4.4 WHERE `entry` = 17469;
 /*  Lesser Shadow Fissure  */
 UPDATE `creature_template` SET `minlevel` = 70, `maxlevel` = 70, `speed_run` = 0.857143, `DamageModifier` = 0.01 WHERE `entry` = 17471;
 
+/* Murgurgula */
+UPDATE `creature_template` SET `MovementType` = 0 WHERE `entry` = 17475;
+
 /*  Hellfire Imp  */
 UPDATE `creature_template` SET `DamageModifier` = 6.0 WHERE `entry` = 17477;
 

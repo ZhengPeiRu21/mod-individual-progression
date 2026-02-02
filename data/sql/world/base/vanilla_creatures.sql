@@ -3275,7 +3275,7 @@ UPDATE `creature_template` SET `DamageModifier` = 4.5 WHERE `entry` = 1843;
 UPDATE `creature_template` SET `DamageModifier` = 1 WHERE `entry` = 1844;
 
 /*  Foulmane  */
-UPDATE `creature_template` SET `speed_walk` = 0.777776 WHERE `entry` = 1847;
+UPDATE `creature_template` SET `speed_walk` = 0.777776, `MovementType` = 0 WHERE `entry` = 1847;
 
 /*  Dreadwhisper  */
 UPDATE `creature_template` SET `minlevel` = 38, `maxlevel` = 38, `speed_walk` = 1.0, `detection_range` = 18.0 WHERE `entry` = 1849;
@@ -3908,7 +3908,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.4, `BaseAttackTime` = 1000 W
 UPDATE `creature_template` SET `DamageModifier` = 1 WHERE `entry` = 2174;
 
 /*  Shadowclaw  */
-UPDATE `creature_template` SET `DamageModifier` = 1.6 WHERE `entry` = 2175;
+UPDATE `creature_template` SET `DamageModifier` = 1.6, `MovementType` = 0 WHERE `entry` = 2175;
 
 /*  Writhing Highborne  */
 UPDATE `creature_template` SET `ArmorModifier` = 0.85 WHERE `entry` = 2177;
@@ -4043,7 +4043,7 @@ UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 1.9, `HealthModifi
 UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 2.3, `HealthModifier` = 3.0 WHERE `entry` = 2257;
 
 /*  Stone Fury  */
-UPDATE `creature_template` SET `ArmorModifier` = 1.5, `RangeAttackTime` = 1475 WHERE `entry` = 2258;
+UPDATE `creature_template` SET `ArmorModifier` = 1.5, `RangeAttackTime` = 1475, `movementType` = 0 WHERE `entry` = 2258;
 
 /*  Marshal Redpath  */
 UPDATE `creature_template` SET `DamageModifier` = 1.05 WHERE `entry` = 2263;
@@ -4931,7 +4931,7 @@ UPDATE `creature_template` SET `ArmorModifier` = 1.5 WHERE `entry` = 2752;
 UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 1.7, `BaseAttackTime` = 2000, `RangeAttackTime` = 1760 WHERE `entry` = 2753;
 
 /*  Anathemus  */
-UPDATE `creature_template` SET `speed_walk` = 0.777776, `DamageModifier` = 3.833333, `BaseAttackTime` = 3000, `RangeAttackTime` = 1393 WHERE `entry` = 2754;
+UPDATE `creature_template` SET `speed_walk` = 0.777776, `DamageModifier` = 3.833333, `BaseAttackTime` = 3000, `RangeAttackTime` = 1393, `MovementType` = 0 WHERE `entry` = 2754;
 
 /*  Myzrael  */
 UPDATE `creature_template` SET `DamageModifier` = 3.0, `HealthModifier` = 8.0, `RangeAttackTime` = 1338, `mingold` = 129, `maxgold` = 643 WHERE `entry` = 2755;
@@ -11942,7 +11942,7 @@ UPDATE `creature_template` SET `speed_walk` = 0.888888, `rank` = 1, `DamageModif
 UPDATE `creature_template` SET `minlevel` = 50, `rank` = 1, `DamageModifier` = 3.5, `HealthModifier` = 3.0, `ManaModifier` = 2.0 WHERE `entry` = 7044;
 
 /*  Scalding Drake  */
-UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 3.6, `HealthModifier` = 3.0, `ManaModifier` = 2.0 WHERE `entry` = 7045;
+UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 3.6, `HealthModifier` = 3.0, `ManaModifier` = 2.0, `MovementType = 0 WHERE `entry` = 7045;
 
 /*  Searscale Drake  */
 UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 3.35, `HealthModifier` = 3.0, `ManaModifier` = 2.0 WHERE `entry` = 7046;
@@ -13250,7 +13250,7 @@ UPDATE `creature_template` SET `DamageModifier` = 3.15 WHERE `entry` = 8199;
 UPDATE `creature_template` SET `DamageModifier` = 3.25 WHERE `entry` = 8200;
 
 /*  Omgorn the Lost  */
-UPDATE `creature_template` SET `DamageModifier` = 2.538462, `ArmorModifier` = 0.8, `BaseAttackTime` = 2600, `RangeAttackTime` = 1356 WHERE `entry` = 8201;
+UPDATE `creature_template` SET `DamageModifier` = 2.538462, `ArmorModifier` = 0.8, `BaseAttackTime` = 2600, `RangeAttackTime` = 1356, `MovementType` = 0 WHERE `entry` = 8201;
 
 /*  Cyclok the Mad  */
 UPDATE `creature_template` SET `DamageModifier` = 4.45, `BaseAttackTime` = 2000, `RangeAttackTime` = 1375 WHERE `entry` = 8202;
@@ -13328,7 +13328,7 @@ UPDATE `creature_template` SET `RangeAttackTime` = 1356 WHERE `entry` = 8283;
 UPDATE `creature_template` SET `speed_run` = 0.714286, `DamageModifier` = 0.95, `HealthModifier` = 1.2 WHERE `entry` = 8284;
 
 /*  Spiteflayer  */
-UPDATE `creature_template` SET `DamageModifier` = 1 WHERE `entry` = 8299;
+UPDATE `creature_template` SET `DamageModifier` = 1, `MovementType` = 0 WHERE `entry` = 8299;
 
 /*  Ravage  */
 UPDATE `creature_template` SET `DamageModifier` = 1 WHERE `entry` = 8300;
@@ -19495,7 +19495,7 @@ UPDATE `creature_template` SET `minlevel` = 38, `maxlevel` = 38 WHERE `entry` = 
 UPDATE `creature_template` SET `speed_walk` = 0.666668, `mingold` = 66, `maxgold` = 330 WHERE `entry` = 14231;
 
 /*  Dart  */
-UPDATE `creature_template` SET `RangeAttackTime` = 1466 WHERE `entry` = 14232;
+UPDATE `creature_template` SET `RangeAttackTime` = 1466, `MovementType` = 0 WHERE `entry` = 14232;
 
 /*  Ripscale  */
 UPDATE `creature_template` SET `minlevel` = 39, `maxlevel` = 39 WHERE `entry` = 14233;
@@ -19550,6 +19550,9 @@ UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 3.6, `Rang
 
 /*  Scargil  */
 UPDATE `creature_template` SET `ArmorModifier` = 0.9 WHERE `entry` = 14276;
+
+/* Ro'Bark */
+UPDATE `creature_template SET `MovementType` = 0 WHERE `entry` = 14278;
 
 /*  Big Samras  */
 UPDATE `creature_template` SET `ArmorModifier` = 0.35 WHERE `entry` = 14280;
