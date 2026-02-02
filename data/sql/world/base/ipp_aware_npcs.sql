@@ -62,7 +62,7 @@ UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` 
 UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN 
 (15351, 34955, 34988, 34991, 34997, 34998, 35007, 35008, 35017, 35020, 35021, 35023, 35024, 35025, 35598, 35599, 35600, 35602, 35603, 35611);
 UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` IN (347, 2804, 14942, 15007);
-UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_tbc'   WHERE `entry` IN (20385, 20386, 20388);
+UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_tbc'   WHERE `entry` IN (20374, 20381, 20383, 20385, 20386, 20388);
 
 -- Phasing emissaries
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (22013, 22015);
