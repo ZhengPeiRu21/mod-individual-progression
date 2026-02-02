@@ -3908,7 +3908,7 @@ UPDATE `creature_template` SET `DamageModifier` = 0.4, `BaseAttackTime` = 1000 W
 UPDATE `creature_template` SET `DamageModifier` = 1 WHERE `entry` = 2174;
 
 /*  Shadowclaw  */
-UPDATE `creature_template` SET `DamageModifier` = 1.6 WHERE `entry` = 2175;
+UPDATE `creature_template` SET `DamageModifier` = 1.6, `MovementType` = 0 WHERE `entry` = 2175;
 
 /*  Writhing Highborne  */
 UPDATE `creature_template` SET `ArmorModifier` = 0.85 WHERE `entry` = 2177;
