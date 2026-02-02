@@ -41,9 +41,10 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (614942, 14942, 1, 1980.9, -4787.78, 55.8796, 5.13127,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
 (615006, 15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathis Basin Battlemaster>
 
--- hide wotlk battlemasters
+-- hide battlemasters
 UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (34955, 35008, 35017, 35602);
 UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` IN (14942);
+UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_tbc'   WHERE `entry` IN (20385);
 
 -- Master Pyreanor <Paladin Trainer>
 UPDATE `creature` SET `position_x`= 1940.23, `position_y`= -4135.53, `position_z`= 41.1522, `orientation`= 3.12425  WHERE `id1` = 23128;
