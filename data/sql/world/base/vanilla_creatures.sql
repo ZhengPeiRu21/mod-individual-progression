@@ -4043,7 +4043,7 @@ UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 1.9, `HealthModifi
 UPDATE `creature_template` SET `rank` = 1, `DamageModifier` = 2.3, `HealthModifier` = 3.0 WHERE `entry` = 2257;
 
 /*  Stone Fury  */
-UPDATE `creature_template` SET `ArmorModifier` = 1.5, `RangeAttackTime` = 1475 WHERE `entry` = 2258;
+UPDATE `creature_template` SET `ArmorModifier` = 1.5, `RangeAttackTime` = 1475, `movementType` = 0 WHERE `entry` = 2258;
 
 /*  Marshal Redpath  */
 UPDATE `creature_template` SET `DamageModifier` = 1.05 WHERE `entry` = 2263;
