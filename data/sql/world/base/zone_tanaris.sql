@@ -105,7 +105,6 @@ UPDATE `gameobject_template` SET `ScriptName` = "go_cavernsoftimedoor" WHERE `en
 UPDATE `creature` SET `position_x` = -8175.67, `position_y` = -4718.28, `position_z` = 26.3489, `orientation` = 1.88496 WHERE `id1` = 15192;
 
 -- fix Omgorn the Lost waypoints, was placed on wrong continent
-UPDATE `creature_template` SET `MovementType = 0 WHERE `entry` = 8201;
 UPDATE `creature` SET `map` = 1 WHERE `guid` IN (152280, 152281);
 
 -- update Laden Dew Gland drop rate, was 100%
