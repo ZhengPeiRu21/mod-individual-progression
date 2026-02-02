@@ -94,7 +94,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12046, 0, 2, 3, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Gor\'marok the Ravager - Between 0-50% Health - Cast Enrage (No Repeat)'),
 (12046, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gor\'marok the Ravager - On Enrage - Say Line 0');
 
-
 /* Caverns of Time Door */
 DELETE FROM `gameobject` WHERE `guid` = 2993000;
 INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, 
@@ -104,6 +103,10 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 UPDATE `gameobject_template` SET `ScriptName` = "go_cavernsoftimedoor" WHERE `entry` = 176996;
 
 UPDATE `creature` SET `position_x` = -8175.67, `position_y` = -4718.28, `position_z` = 26.3489, `orientation` = 1.88496 WHERE `id1` = 15192;
+
+-- fix Omgorn the Lost waypoints, was placed on wrong continent
+UPDATE `creature_template` SET `MovementType = 0 WHERE `entry` = 8201;
+UPDATE `creature` SET `map` = 1 WHERE `guid` IN (152280, 152281);
 
 -- update Laden Dew Gland drop rate, was 100%
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 8428;
