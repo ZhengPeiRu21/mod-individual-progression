@@ -217,7 +217,6 @@ UPDATE `quest_template` SET `RewardNextQuest` = 1978 WHERE `ID` = 1899;
 
 UPDATE `conditions` SET `ConditionValue1`= 1886,  `comment` = 'Astor Hadren - Show gossip if quest 1886 is taken' WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 126;
 
-
 /* Restore quests for Varimathras */
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (550, 6522, 6521, 1048, 5725);
 
@@ -226,10 +225,10 @@ REPLACE INTO `creature_questender` (`id`, `quest`) VALUES
 (36273, 550), (36273, 6144), (36273, 14351), (36273, 14352), (36273, 14353), (36273, 14355), (36273, 14356);
 
 REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (2215, 550);
-REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (2215, 14351);
-
 UPDATE `quest_template` SET `RewardNextQuest` = 550 WHERE `ID` = 541;
 
+-- REPLACE INTO `creature_queststarter` (`id`, `quest`) VALUES (2215, 14351); -- same quest as 550
+DELETE FROM `creature_queststarter` WHERE `id` = 2215 AND `quest` = 14351;
 
 -- Quest: An Unholy Alliance
 DELETE FROM `creature_loot_template` WHERE `Entry` = 4421 AND `Item` = 49205 AND `Reference` = 0 AND `GroupId` = 0;
@@ -274,13 +273,6 @@ SET `LogDescription`  = "Bring the books Spells of Shadow and Incantations from 
     `QuestDescription` = "Listen up, $c.$b$bYou may not know this, but Orgrimmar's got a problem. Deep in Ragefire Chasm, a sect of the Shadow Council called the Searing Blade performs their sinister work. They're mainly orcs, and I can't trust sensitive information in the hands of the grunts there. That's where you come in.$b$bThey should have two books in their possession. I want them kept out of the hands of the Searing Blade and the Forsaken alike. Bring them to me directly.",
     `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
 WHERE `ID` = 14356;
-
--- Quest: Battle of Hillsbrad
-UPDATE `quest_template`
-SET `LogDescription`  = "Take Darthalia's Sealed Commendation to Varimathras in the Undercity.",
-    `QuestDescription` = "Because you fought with such valor and perseverance in the Battle of Hillsbrad, I have written this commendation, extolling your heroics in combat for the high command to recognize.$b$bTake this sealed commendation to Varimathras in the Undercity.  Go with pride, $c.",
-    `QuestCompletionLog` = "Return to Varimathras at the Royal Quarter in the Undercity."
-WHERE `ID` = 14351;
 
 -- Quest: Into The Scarlet Monastery
 UPDATE `quest_template`
