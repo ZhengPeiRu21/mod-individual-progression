@@ -19495,7 +19495,7 @@ UPDATE `creature_template` SET `minlevel` = 38, `maxlevel` = 38 WHERE `entry` = 
 UPDATE `creature_template` SET `speed_walk` = 0.666668, `mingold` = 66, `maxgold` = 330 WHERE `entry` = 14231;
 
 /*  Dart  */
-UPDATE `creature_template` SET `RangeAttackTime` = 1466 WHERE `entry` = 14232;
+UPDATE `creature_template` SET `RangeAttackTime` = 1466, `MovementType` = 0 WHERE `entry` = 14232;
 
 /*  Ripscale  */
 UPDATE `creature_template` SET `minlevel` = 39, `maxlevel` = 39 WHERE `entry` = 14233;
