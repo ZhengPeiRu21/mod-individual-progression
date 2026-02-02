@@ -3275,7 +3275,7 @@ UPDATE `creature_template` SET `DamageModifier` = 4.5 WHERE `entry` = 1843;
 UPDATE `creature_template` SET `DamageModifier` = 1 WHERE `entry` = 1844;
 
 /*  Foulmane  */
-UPDATE `creature_template` SET `speed_walk` = 0.777776 WHERE `entry` = 1847;
+UPDATE `creature_template` SET `speed_walk` = 0.777776, `MovementType` = 0 WHERE `entry` = 1847;
 
 /*  Dreadwhisper  */
 UPDATE `creature_template` SET `minlevel` = 38, `maxlevel` = 38, `speed_walk` = 1.0, `detection_range` = 18.0 WHERE `entry` = 1849;
