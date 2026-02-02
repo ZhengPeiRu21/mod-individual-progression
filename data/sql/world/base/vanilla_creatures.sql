@@ -13250,7 +13250,7 @@ UPDATE `creature_template` SET `DamageModifier` = 3.15 WHERE `entry` = 8199;
 UPDATE `creature_template` SET `DamageModifier` = 3.25 WHERE `entry` = 8200;
 
 /*  Omgorn the Lost  */
-UPDATE `creature_template` SET `DamageModifier` = 2.538462, `ArmorModifier` = 0.8, `BaseAttackTime` = 2600, `RangeAttackTime` = 1356 WHERE `entry` = 8201;
+UPDATE `creature_template` SET `DamageModifier` = 2.538462, `ArmorModifier` = 0.8, `BaseAttackTime` = 2600, `RangeAttackTime` = 1356, `MovementType` = 0 WHERE `entry` = 8201;
 
 /*  Cyclok the Mad  */
 UPDATE `creature_template` SET `DamageModifier` = 4.45, `BaseAttackTime` = 2000, `RangeAttackTime` = 1375 WHERE `entry` = 8202;
