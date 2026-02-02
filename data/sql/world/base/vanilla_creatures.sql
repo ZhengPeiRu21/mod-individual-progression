@@ -19551,6 +19551,9 @@ UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 3.6, `Rang
 /*  Scargil  */
 UPDATE `creature_template` SET `ArmorModifier` = 0.9 WHERE `entry` = 14276;
 
+/* Ro'Bark */
+UPDATE `creature_template SET `MovementType` = 0 WHERE `entry` = 14278;
+
 /*  Big Samras  */
 UPDATE `creature_template` SET `ArmorModifier` = 0.35 WHERE `entry` = 14280;
 
