@@ -4931,7 +4931,7 @@ UPDATE `creature_template` SET `ArmorModifier` = 1.5 WHERE `entry` = 2752;
 UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 1.7, `BaseAttackTime` = 2000, `RangeAttackTime` = 1760 WHERE `entry` = 2753;
 
 /*  Anathemus  */
-UPDATE `creature_template` SET `speed_walk` = 0.777776, `DamageModifier` = 3.833333, `BaseAttackTime` = 3000, `RangeAttackTime` = 1393 WHERE `entry` = 2754;
+UPDATE `creature_template` SET `speed_walk` = 0.777776, `DamageModifier` = 3.833333, `BaseAttackTime` = 3000, `RangeAttackTime` = 1393, `MovementType` = 0 WHERE `entry` = 2754;
 
 /*  Myzrael  */
 UPDATE `creature_template` SET `DamageModifier` = 3.0, `HealthModifier` = 8.0, `RangeAttackTime` = 1338, `mingold` = 129, `maxgold` = 643 WHERE `entry` = 2755;
