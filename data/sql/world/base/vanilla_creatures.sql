@@ -13328,7 +13328,7 @@ UPDATE `creature_template` SET `RangeAttackTime` = 1356 WHERE `entry` = 8283;
 UPDATE `creature_template` SET `speed_run` = 0.714286, `DamageModifier` = 0.95, `HealthModifier` = 1.2 WHERE `entry` = 8284;
 
 /*  Spiteflayer  */
-UPDATE `creature_template` SET `DamageModifier` = 1 WHERE `entry` = 8299;
+UPDATE `creature_template` SET `DamageModifier` = 1, `MovementType` = 0 WHERE `entry` = 8299;
 
 /*  Ravage  */
 UPDATE `creature_template` SET `DamageModifier` = 1 WHERE `entry` = 8300;
