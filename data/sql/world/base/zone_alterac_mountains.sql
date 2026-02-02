@@ -108,7 +108,6 @@ INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `positi
 (@ENTRY*100, 13, 230.49452, -242.26663, 142.41824, NULL, 0, 'Frostmaw');
 
 -- fix Stone Fury waypoints
-UPDATE `creature_template` SET `movementType` = 0 WHERE `entry` = 2258;
 DELETE FROM `creature_template_addon` WHERE `entry` = 2258;
 
 DELETE FROM `creature_addon` WHERE `guid` = 63913;
