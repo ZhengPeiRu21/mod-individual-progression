@@ -109,7 +109,6 @@ INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `positi
 
 -- fix Stone Fury waypoints
 DELETE FROM `creature_template_addon` WHERE `entry` = 2258;
-
 DELETE FROM `creature_addon` WHERE `guid` = 63913;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (63913, 639130, 0, 0, 0, 0, 0, NULL);
