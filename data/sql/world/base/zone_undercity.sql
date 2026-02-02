@@ -62,16 +62,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (620386, 20386, 0, 1252.89, 314.549, -63.6294, 0.31416, 900);
 
 -- remove vanilla battlemasters placed by AC from game events
-DELETE FROM `game_event_creature` WHERE `guid` IN (208429, 208473, 280484);
-
--- hide battlemasters
-UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_tbc'       WHERE `entry` IN (20386);
-UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_pre_wotlk' WHERE `entry` IN (347, 2804, 15007);
-UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk'     WHERE `entry` IN (35021, 35611);
-
--- remove vanilla battlemasters placed by AC from game events
-DELETE FROM `game_event_creature` WHERE `guid` IN (208451, 208484);
-
+DELETE FROM `game_event_creature` WHERE `guid` IN (208429, 208451, 208473, 280484);
 
 /* Battle for the Undercity - Wrathgate NPCs  */
 

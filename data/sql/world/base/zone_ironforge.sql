@@ -36,5 +36,3 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `pos
 (88249,  35007, 0, 1, -5040.18, -1263.17, 510.325, 4.46067,  120, 1, 1), -- Lixa Felflinger <Battlemaster>
 (208055, 35025, 0, 1, -5036.95, -1264.96, 510.325, 3.85973,  120, 1, 0), -- Lynette Bracer <Isle of Conquest Battlemaster>
 (88248,  35600, 0, 1, -5035.64, -1267.93, 510.324, 3.29044,  300, 1, 1); -- Arcanist Laniria <Wintergrasp Battle-Mage>
-
-UPDATE `creature_template` SET `flags_extra` = 2, `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (15351, 34991, 35007, 35025, 35600);
