@@ -401,9 +401,9 @@ public:
                 uint32 copp = (moneyRew % GOLD) % SILVER;
 
                 if (gold > 0)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Gold, {} Silver, {} Copper.", gold, silv, copp);
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Gold, {} Silver.", gold, silv);
                 else
-                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Silver, {} Copper.", silv, copp);
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Silver.", silv);
             }
         }
 
