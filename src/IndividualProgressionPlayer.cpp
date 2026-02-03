@@ -70,6 +70,7 @@ public:
 			
             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
         }
+
     }
 
     void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
@@ -113,6 +114,7 @@ public:
             return;
 
         sIndividualProgression->CheckAdjustments(player);
+        sIndividualProgression->checkDemonSpells(player);
     }
 
     void OnPlayerEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
@@ -684,6 +686,13 @@ public:
         sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
+    void OnPlayerLearnSpell(Player* player, uint32 spellID) override
+    {
+        if (!player || !player->IsInWorld())
+            return;
+
+        sIndividualProgression->checkDemonSpells(player);
+    }
 };
 
 class IndividualPlayerProgression_AccountScript: public AccountScript
@@ -816,6 +825,8 @@ public:
             return;
 
         CheckAdjustments(pet);
+
+        sIndividualProgression->checkDemonSpells(pet->GetOwner());
     }
 };
 

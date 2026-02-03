@@ -4,6 +4,7 @@
 
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
+#include "PetDefines.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
@@ -237,6 +238,163 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
 
         ForceUpdateProgressionState(member, static_cast<ProgressionState>(refProgress));
         CheckAdjustments(member);
+    }
+}
+
+void IndividualProgression::checkDemonSpells(Player* player)
+{
+    if (!player || !player->IsInWorld() || isExcludedFromProgression(player) || !WarlockDemonTrainers)
+        return;
+
+    Pet* pet = player->GetPet();
+
+    if (!pet)
+        return;
+
+    // only for vanilla and tbc
+    if (player->GetLevel() > 70)
+        return;
+
+    switch (pet->GetEntry())
+    {
+    case NPC_IMP:
+        // remove all Imp demon spells
+        for (uint32 Imp_SpellID :
+        {7799, 7800, 7801, 7802, 11762, 11763, 27267, // Grimoire of Firebolt
+         6307, 7804, 7805, 11766, 11767, 27268,       // Grimoire of Blood Pact
+         2947, 8316, 8317, 11770, 11771, 27269,       // Grimoire of Fire Shield
+         4511})                                       // Grimoire of Phase Shift
+        {
+            if (pet->HasSpell(Imp_SpellID))
+            {
+                pet->removeSpell(Imp_SpellID, false);
+            }
+        }
+
+        // add learned Imp demon spells
+        for (uint32 player_Imp_SpellID :
+        {607799, 607800, 607801, 607802, 611762, 611763, 627267, // Grimoire of Firebolt
+         606307, 607804, 607805, 611766, 611767, 627268,         // Grimoire of Blood Pact
+         602947, 608316, 608317, 611770, 611771, 627269,         // Grimoire of Fire Shield
+         604511})                                                // Grimoire of Phase Shift
+        {
+            if (player->HasSpell(player_Imp_SpellID))
+            {
+                pet->learnSpell(player_Imp_SpellID - 600000);
+            }
+        }
+        break;
+    case NPC_VOIDWALKER:
+        // remove all Voidwalker demon spells
+        for (uint32 Voidwalker_SpellID :
+        {7809, 7810, 7811, 11774, 11775, 27270,           // Torment
+         7812, 19438, 19440, 19441, 19442, 19443, 27273,  // Sacrifice
+         17767, 17850, 17851, 17852, 17853, 17854, 27272, // Consume Shadows
+         17735, 17750, 17751, 17752, 27271, 33701})       // Suffering
+        {
+            if (pet->HasSpell(Voidwalker_SpellID))
+            {
+                pet->removeSpell(Voidwalker_SpellID, false);
+                ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Check A|r");
+            }
+            else
+            {
+                ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Check B|r");
+            }
+        }
+
+        // add learned Voidwalker demon spells
+        for (uint32 player_Voidwalker_SpellID :
+        {607809, 607810, 607811, 611774, 611775, 627270,         // Torment
+         607812, 619438, 619440, 619441, 619442, 619443, 627273, // Sacrifice
+         617767, 617850, 617851, 617852, 617853, 617854, 627272, // Consume Shadows
+         617735, 617750, 617751, 617752, 627271, 633701})        // Suffering
+        {
+            if (player->HasSpell(player_Voidwalker_SpellID))
+            {
+                pet->learnSpell(player_Voidwalker_SpellID - 600000);
+            }
+        }
+        break;
+    case NPC_SUCCUBUS:
+        // remove all Succubus demon spells
+        for (uint32 Succubus_SpellID :
+        {7815, 7816, 11778, 11779, 11780, 27274, // Grimoire of Lash of Pain
+         6360, 7813, 11784, 11785, 27275,        // Grimoire of Soothing Kiss
+         6358, 7870})                            // Seduction, Lesser Invisibility,
+        {
+            if (pet->HasSpell(Succubus_SpellID))
+            {
+                pet->removeSpell(Succubus_SpellID, false);
+            }
+        }
+
+        // add learned Succubus demon spells
+        for (uint32 player_Succubus_SpellID :
+        {607815, 607816, 611778, 611779, 611780, 627274, // Grimoire of Lash of Pain
+         606360, 607813, 611784, 611785, 627275,         // Grimoire of Soothing Kiss
+         606358, 607870})                                // Seduction, Lesser Invisibility,
+        {
+            if (player->HasSpell(player_Succubus_SpellID))
+            {
+                pet->learnSpell(player_Succubus_SpellID - 600000);
+            }
+        }
+        break;
+    case NPC_FELHUNTER:
+        // remove all Felhunter demon spells
+        for (uint32 Felhunter_SpellID :
+        {19731, 19734, 19736, 27276, 27277, // Grimoire of Devour Magic
+         20429, 20430, 20431, 20432, 27497, // Grimoire of Tainted Blood
+         19244, 19647,                      // Grimoire of Spell Lock
+         19481})                            // Paranoia
+        {
+            if (pet->HasSpell(Felhunter_SpellID))
+            {
+                pet->removeSpell(Felhunter_SpellID, false);
+            }
+        }
+
+        // add learned Felhunter demon spells
+        for (uint32 player_Felhunter_SpellID :
+        {619731, 619734, 619736, 627276, 627277, // Grimoire of Devour Magic
+         620429, 620430, 620431, 620432, 627497, // Grimoire of Tainted Blood
+         619244, 619647,                         // Grimoire of Spell Lock
+         619481})                                // Paranoia
+        {
+            if (player->HasSpell(player_Felhunter_SpellID))
+            {
+                pet->learnSpell(player_Felhunter_SpellID - 600000);
+            }
+        }
+        break;
+    case NPC_FELGUARD:
+        // remove all Felguard demon spells
+        for (uint32 Felguard_SpellID :
+        {30154, 30199, 30200, // Grimoire of Intercept
+         30214, 30222, 30224, // Grimoire of Cleave
+         33704, 33705, 33706, // Grimoire of Anguish
+         32234, 32852})       // Avoidance, Demonic Frenzy
+        {
+            if (pet->HasSpell(Felguard_SpellID))
+            {
+                pet->removeSpell(Felguard_SpellID, false);
+            }
+        }
+
+        // add learned Felguard demon spells
+        for (uint32 player_Felguard_SpellID :
+        {630154, 630199, 630200,
+         630214, 630222, 630224,
+         633704, 633705, 633706,
+         632234, 632852})
+        {
+            if (player->HasSpell(player_Felguard_SpellID))
+            {
+                pet->learnSpell(player_Felguard_SpellID - 600000);
+            }
+        }
+        break;
     }
 }
 
@@ -1199,6 +1357,7 @@ private:
         sIndividualProgression->doableNaxx40Bosses = sConfigMgr->GetOption<bool>("IndividualProgression.doableNaxx40Bosses", false);
         sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
         sIndividualProgression->fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
+        sIndividualProgression->WarlockDemonTrainers = sConfigMgr->GetOption<bool>("IndividualProgression.WarlockDemonTrainers", true);
         sIndividualProgression->simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
         sIndividualProgression->progressionLimit = sConfigMgr->GetOption<uint8>("IndividualProgression.ProgressionLimit", 0);
         sIndividualProgression->startingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.StartingProgression", 0);
