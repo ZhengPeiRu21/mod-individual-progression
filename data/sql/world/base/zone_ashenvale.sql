@@ -336,6 +336,25 @@ UPDATE `creature` SET `spawntimesecs` = 37800, `MovementType` = 1, `wander_dista
 UPDATE `creature_loot_template` SET `Chance` = 4 WHERE `Item` = 5366;
 
 /* Freedom to Ruul */
+DELETE FROM `waypoints` WHERE `entry` = 12818;
+INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `point_comment`) VALUES 
+(12818, 1, 3339.1, -693.613, 162.218, NULL, 0, 'Ruul Snowhoof'),
+(12818, 2, 3343.94, -682.272, 163.039, NULL, 0, 'Ruul Snowhoof'),
+(12818, 3, 3381.5, -659.834, 162.487, NULL, 0, 'Ruul Snowhoof'),
+(12818, 4, 3398.88, -639.631, 164.475, NULL, 0, 'Ruul Snowhoof'),
+(12818, 5, 3435.28, -626.7, 169.293, NULL, 0, 'Ruul Snowhoof'),
+(12818, 6, 3448.07, -602.344, 173.647, NULL, 0, 'Ruul Snowhoof'),
+(12818, 7, 3494.7, -562.032, 181.617, NULL, 0, 'Ruul Snowhoof'),
+(12818, 8, 3495.38, -544.667, 185.993, NULL, 0, 'Ruul Snowhoof'),
+(12818, 9, 3498.32, -511.16, 188.352, NULL, 0, 'Ruul Snowhoof'),
+(12818, 10, 3495.54, -495.119, 185.284, NULL, 0, 'Ruul Snowhoof'),
+(12818, 11, 3456.1, -479.545, 170.831, NULL, 0, 'Ruul Snowhoof'),
+(12818, 12, 3431.75, -460.84, 160.697, NULL, 0, 'Ruul Snowhoof'),
+(12818, 13, 3383.33, -423.934, 148.55, NULL, 0, 'Ruul Snowhoof'),
+(12818, 14, 3310.56, -450.354, 150.207, NULL, 0, 'Ruul Snowhoof'),
+(12818, 15, 3281.33, -523.056, 155.155, NULL, 0, 'Ruul Snowhoof'),
+(12818, 16, 3236.17, -518.389, 148.701, NULL, 0, 'Ruul Snowhoof');
+
 UPDATE `creature_template` SET `AIName` =  'SmartAI' WHERE `entry` = 12818;
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 12818;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
