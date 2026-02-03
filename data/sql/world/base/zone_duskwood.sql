@@ -94,7 +94,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1200, 0, 3, 0, 0, 0, 100, 0, 0, 0, 24000, 24000, 0, 0, 11, 3109, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Morbent Fel - In Combat - Cast Presence of Death'),
 (1200, 0, 4, 0, 2, 0, 100, 513, 0, 15, 0, 0, 0, 0, 28, 8909, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Morbent Fel - Between 0-15% Health - Remove Aura Unholy Shield'),
 --
-(1251, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Splinter Fist Firemonger - On Aggro - Say Line 0'),
+(1251, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                       'Splinter Fist Firemonger - On Aggro - Say Line 0'),
 (1251, 0, 1, 0, 0, 0, 100, 0, 1000, 5000, 61000, 71000, 0, 0, 11, 184, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Splinter Fist Firemonger - In Combat - Cast Fire Shield II'),
 (1258, 0, 0, 0, 0, 0, 100, 0, 6000, 8000, 30000, 47000, 0, 0, 11, 3149, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Black Ravager Mastiff - In Combat - Cast Furious Howl'),
 (1258, 0, 1, 0, 0, 0, 100, 0, 9000, 12000, 15000, 25000, 0, 0, 11, 13443, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Black Ravager Mastiff - Within 0-5 Range - Cast Rend'),
