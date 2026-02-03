@@ -5,6 +5,7 @@
 
 -- Warrior
 UPDATE `trainer_spell` SET `ReqLevel` = 62 WHERE `TrainerId` = 1 AND `SpellId` = 34428;  -- Victory Rush, level 6 -> 62
+UPDATE `trainer_spell` SET `ReqLevel` = 62 WHERE `TrainerId` = 2 AND `SpellId` = 34428;  -- Victory Rush, level 6 -> 62
 
 -- Paladin
 UPDATE `trainer_spell` SET `ReqLevel` = 61 WHERE `TrainerId` = 3 AND `SpellId` = 31789;  -- Righteous Defense, level 14 -> 61
