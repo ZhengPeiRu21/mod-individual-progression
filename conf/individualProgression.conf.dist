@@ -410,3 +410,11 @@ IndividualProgression.ExcludeAccounts = 1
 #        Default:     "^RNDBOT.*"
 #
 IndividualProgression.ExcludedAccountsRegex = "^RNDBOT.*"
+
+# IndividualProgression.ExcludedAccountsMaxLevel
+#
+#        Description: Set the maximum level for Excluded Accounts (RNDBOTS)
+#
+#        Default:     80
+#
+IndividualProgression.ExcludedAccountsMaxLevel = 80
