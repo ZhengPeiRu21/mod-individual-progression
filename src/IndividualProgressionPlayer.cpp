@@ -208,15 +208,21 @@ public:
             ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_MOLTEN_CORE);
             return false;
         }
-        if (mapid == MAP_ONYXIAS_LAIR) // needed to prevent summoning invalid characters from inside the instance
+        if (mapid == MAP_ONYXIAS_LAIR)
         {
-			if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && !player->HasItemCount(ITEM_DRAKEFIRE_AMULET)) // Vanilla
+			if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // Vanilla
             {
-                return false;
+                if (player->GetLevel() > IP_LEVEL_TBC)
+                    return false;
+                if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+                    return false;
             }
-			else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() != IP_LEVEL_WOTLK) // WotLK
+			else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // WotLK
             {
-                return false;
+                if (player->GetLevel() != IP_LEVEL_WOTLK)
+                    return false;
+                if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+                    return false;
             }
         }
         if (mapid == MAP_ZUL_GURUB)
