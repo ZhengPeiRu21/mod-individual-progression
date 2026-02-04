@@ -62,7 +62,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `posit
 (620386, 20386, 0, 1252.89, 314.549, -63.6294, 0.31416, 900);
 
 -- remove vanilla battlemasters placed by AC from game events
-DELETE FROM `game_event_creature` WHERE `guid` IN (208429, 208451, 208473, 280484);
+DELETE FROM `game_event_creature` WHERE `guid` IN (208429, 208451, 208473, 208484);
 
 /* Battle for the Undercity - Wrathgate NPCs  */
 
