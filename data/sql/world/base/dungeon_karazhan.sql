@@ -13,7 +13,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (15551, 0, 3, 0, 0, 0, 100, 0, 2000, 11000, 12000, 21000, 0, 0, 11, 18812, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Stable Hand - In Combat - Cast Knockdown'),
 (15551, 0, 4, 0, 0, 0, 100, 0, 2000, 15000, 17000, 28000, 0, 0, 11, 6016, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Spectral Stable Hand - In Combat - Cast Pierce Armor'),
 (15551, 0, 5, 0, 74, 0, 100, 0, 0, 0, 14000, 22000, 70, 40, 11, 29339, 0, 0, 0, 0, 0, 9, 15547, 0, 40, 1, 0, 0, 0, 0, 'Spectral Stable Hand - Spectral Charger below 70% hp - Cast Healing Touch'),
-(15551, 0, 6, 0, 0, 0, 100, 0, 2000, 15000, 21000, 38000, 0, 0, 11, 29340, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Spectral Stable Hand - In Combat - Cast Whip Rage');
+(15551, 0, 6, 0, 0, 0, 100, 0, 0, 0, 21000, 38000, 0, 0, 11, 29340, 0, 0, 0, 0, 0, 9, 15547, 0, 40, 1, 0, 0, 0, 0,    'Spectral Stable Hand - In Combat - Cast Whip Rage');
+
+DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 22) AND (`SourceGroup` IN (6, 7)) AND (`SourceEntry` = 15551) AND (`ConditionTypeOrReference` = 29);
 
 -- Restore Enchanting formula drops to their pre-3.1 rates
 UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` IN (22559, 22561, 22545, 22560);
