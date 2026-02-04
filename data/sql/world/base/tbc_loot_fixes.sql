@@ -1675,6 +1675,9 @@ DELETE FROM `creature_loot_template` WHERE `Item` IN (39534) AND `Entry` IN (178
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (17968);
 
 -- Black Temple, remove reference loot tables added by AC (not used anymore)
+DELETE FROM `creature_loot_template` WHERE `Reference` IN (1564000, 1564001, 1564002);
+DELETE FROM `reference_loot_template` WHERE `entry` IN (1564000, 1564001, 1564002);
+
 DELETE FROM `reference_loot_template` WHERE `entry` IN (34070, 34071, 34072, 34073, 34074, 34076, 34077, 1276883);
 DELETE FROM `creature_loot_template` WHERE `Item` IN (14099, 24092) AND `Entry` IN
 (22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
@@ -2059,6 +2062,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 -- remove unused reference loot tables
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 34054 AND 34062;
+DELETE FROM `reference_loot_template` WHERE `entry` IN (1548000, 1548001);
+DELETE FROM `creature_loot_template` WHERE `Reference` IN (1548000, 1548001);
 
 -- remove unused conditions
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` IN (30282, 30283, 30305, 30306, 30307, 30308, 30323, 30324, 30321, 30322, 30301, 30302, 30303, 30304, 30280, 30281);
