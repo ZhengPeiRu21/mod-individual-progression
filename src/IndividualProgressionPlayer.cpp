@@ -157,7 +157,7 @@ public:
 
         if (sIndividualProgression->isExcludedFromProgression(player))
         {
-            if (player->GetLevel() >= sIndividualProgression->rndbotMaxLevel)
+            if (player->GetLevel() >= sIndividualProgression->ExcludedAccountsMaxLevel)
             {
                 // Still award XP to pets - they won't be able to pass the player's level
                 Pet* pet = player->GetPet();
