@@ -25,15 +25,34 @@ public:
 
     bool OnGossipHello(Player* player, GameObject* /*go*/) override
     {
-        if ((sIndividualProgression->isExcludedFromProgression(player) && (player->GetLevel() <= IP_LEVEL_TBC))  || 
-            ((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED) && (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))))
+        if (player->GetLevel() > IP_LEVEL_TBC)
         {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-
-			if (sIndividualProgression->isAttuned(player) || sIndividualProgression->isExcludedFromProgression(player))
-                player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+            ChatHandler(player->GetSession()).PSendSysMessage("Your level is too high to enter the level 60 version of Naxxramas.");
+            return false;
         }
-        return true;
+
+        if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("Your progression level is too high to enter the level 60 version of Naxxramas.");
+            return false;
+        }
+
+        if (sIndividualProgression->isExcludedFromProgression(player) ||
+            ((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED)))
+        {
+            if (sIndividualProgression->isAttuned(player) || sIndividualProgression->isExcludedFromProgression(player))
+            {
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+                return true;
+            }
+            else
+            {
+                ChatHandler(player->GetSession()).PSendSysMessage("You have not completed the Naxxramas attunement quest.");
+                return false;
+            }
+        }
+        return false;
     }
 };
 
