@@ -217,7 +217,7 @@ public:
                 if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
                     return false;
             }
-			else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // WotLK
+			else // WotLK
             {
                 if (player->GetLevel() != IP_LEVEL_WOTLK)
                     return false;
