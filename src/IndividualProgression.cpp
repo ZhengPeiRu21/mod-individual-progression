@@ -1233,7 +1233,7 @@ private:
         sIndividualProgression->DisableRDF = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
         sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "^RNDBOT.*");
-        sIndividualProgression->rndbotMaxLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.RNDBOTMaxLevel", 80);
+        sIndividualProgression->ExcludedAccountsMaxLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.ExcludedAccountsMaxLevel", 80);
     }
 
     static void LoadXpValues()
