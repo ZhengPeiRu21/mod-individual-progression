@@ -1691,8 +1691,8 @@ DELETE FROM `creature_loot_template` WHERE `Item` IN (32526, 32527, 32528, 32593
 
 -- Black Temple, remove gems added by AC (now added with a referene loot table)
 DELETE FROM `creature_loot_template` WHERE `Item` IN (32227, 32228, 32229, 32230, 32231, 32249) AND `Entry` IN
-(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22879, 22880, 22882, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 22960, 22962, 22963, 22964, 22965, 
-23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
+(22844, 22845, 22846, 22847, 22853, 22855, 22869, 22873, 22874, 22875, 22876, 22877, 22878, 22879, 22880, 22881, 22882, 22884, 22885, 22939, 22945, 22946, 22953, 22954, 22955, 22956, 22957, 22959, 
+ 22960, 22962, 22963, 22964, 22965, 23018, 23028, 23030, 23047, 23049, 23147, 23172, 23196, 23222, 23223, 23232, 23235, 23236, 23237, 23239, 23330, 23337, 23339, 23374, 23394, 23397, 23400, 23402, 23403);
 
 -- Black Temple, remove incorrect items and recipes added by AC
 DELETE FROM `creature_loot_template` WHERE `Item` IN (32589, 32590, 32591, 32592, 32609, 32736, 32739, 32745, 32746, 32748, 32751, 32752, 32755) AND `Entry` IN
@@ -1812,9 +1812,18 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (22853, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 (22855, 34093, 34093, 20, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 (22869, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22873, 34093, 34093, 12, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22874, 34093, 34093, 12, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22875, 34093, 34093, 12, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22876, 34093, 34093, 12, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22877, 34093, 34093, 12, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22878, 34093, 34093, 12, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 (22879, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 (22880, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22881, 34093, 34093, 3,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 (22882, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22884, 34093, 34093, 12, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
+(22885, 34093, 34093, 3,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 (22939, 34093, 34093, 6,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 (22945, 34093, 34093, 15, 0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
 (22946, 34093, 34093, 5,  0, 1, 1, 1, 1, 'ReferenceTable - Epic Quality GEM'),
