@@ -29,7 +29,7 @@ enum Spells
     SPELL_POISON_CLOUD                      = 28240,
     SPELL_MUTATING_INJECTION                = 28169,
     SPELL_MUTATING_EXPLOSION                = 28206,
-    SPELL_SLIME_SPRAY                       = 28157,
+    SPELL_SLIME_SPRAY_40                    = 90008, // 28157, can't be used. it triggers a wotlk SpellScript
     SPELL_POISON_CLOUD_DAMAGE_AURA          = 28158,
     SPELL_BERSERK                           = 26662,
 };
@@ -96,7 +96,7 @@ public:
 
         void SpellHitTarget(Unit* target, SpellInfo const* spellInfo) override
         {
-            if (spellInfo->Id == SPELL_SLIME_SPRAY && target->IsPlayer())
+            if (spellInfo->Id == SPELL_SLIME_SPRAY_40 && target->IsPlayer())
             {
                 me->SummonCreature(NPC_FALLOUT_SLIME_40, target->GetPositionX(), target->GetPositionY(), target->GetPositionZ());
             }
@@ -155,7 +155,7 @@ public:
                     if (Unit* target = me->GetVictim())
                     {
                         int32 bp0 = urand(3200, 4800);
-                        me->CastCustomSpell(target, SPELL_SLIME_SPRAY, &bp0, nullptr, nullptr, false);
+                        me->CastCustomSpell(target, SPELL_SLIME_SPRAY_40, &bp0, nullptr, nullptr, false);
                     }
                     events.Repeat(20s);
                     break;
