@@ -55,7 +55,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (20763, 0, 0, 1, 19, 0, 100, 0, 10425, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,        'Captured Protectorate Vanguard - On Quest Taken - Say Line 0'),
 (20763, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 53, 1, 20763, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Captured Protectorate Vanguard - On Quest Taken - Start Waypoint'),
-(20763, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Captured Protectorate Vanguard - On Quest Taken - Store Targetlist'),
+(20763, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,          'Captured Protectorate Vanguard - On Quest Taken - Store Targetlist'),
 (20763, 0, 3, 0, 40, 0, 100, 512, 16, 20763, 0, 0, 0, 0, 54, 4000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Captured Protectorate Vanguard - On Waypoint 16 Reached - Pause Waypoint'),
 (20763, 0, 4, 5, 40, 0, 100, 512, 17, 20763, 0, 0, 0, 0, 15, 10425, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0, 'Captured Protectorate Vanguard - On Waypoint 17 Reached - Quest Credit'),
 (20763, 0, 5, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Captured Protectorate Vanguard - On Waypoint 17 Reached - Say Line 1'),
