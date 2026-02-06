@@ -9,7 +9,7 @@ private:
     {
         Map const *map = sMapMgr->FindMap(mapid, 0);
         uint32 zoneId = map->GetZoneId(0, x, y, z);
-        return (zoneId == AREA_AZUREMYST_ISLE || zoneId == AREA_BLOODMYST_ISLE || zoneId == AREA_GHOSTLANDS || zoneId == AREA_EVERSONG_WOODS || 
+        return (zoneId == AREA_AZUREMYST_ISLE || zoneId == AREA_BLOODMYST_ISLE || zoneId == AREA_GHOSTLANDS || zoneId == AREA_EVERSONG_WOODS ||
                 zoneId == AREA_THE_EXODAR || zoneId == AREA_SILVERMOON_CITY || zoneId == AREA_AMMEN_VALE || zoneId == AREA_VEILED_SEA);
     }
 
@@ -20,7 +20,7 @@ public:
     {
         if (!sIndividualProgression->enabled)
             return;
-		
+
         if (!player || !player->IsInWorld())
             return;
 
@@ -67,7 +67,7 @@ public:
         {
             if (!player->GetSession())
                 return;
-			
+
             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
         }
     }
@@ -103,7 +103,7 @@ public:
             sIndividualProgression->checkIPProgression(player);
             sIndividualProgression->UpdateProgressionQuests(player);
         }
-        
+
         sIndividualProgression->CheckAdjustments(player);
     }
 
@@ -135,10 +135,10 @@ public:
     {
         if (!sIndividualProgression->enabled || !quest || !xpValue || !player || !player->IsInWorld())
             return;
-		
+
         if (!sIndividualProgression->questXpFix || sIndividualProgression->isExcludedFromProgression(player))
             return;
-		
+
         if (sIndividualProgression->questXpMap.count(quest->GetQuestId()))
         {
             uint32 vanillaXpValue = sIndividualProgression->questXpMap[quest->GetQuestId()];
@@ -332,7 +332,7 @@ public:
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest Trial of the Naaru: Magtheridon to enter The Eye.");
                 return false;
-            }			
+            }
         }
         if (mapid == MAP_COILFANG_SERPENTSHRINE_CAVERN)
         {
@@ -345,7 +345,7 @@ public:
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest The Cudgel of Kar\'desh to enter Serpentshrine Reservoir.");
                 return false;
-            }			
+            }
         }
         if (mapid == MAP_THE_BATTLE_FOR_MOUNT_HYJAL)
         {
@@ -358,7 +358,7 @@ public:
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest The Vials of Eternity to enter the Battle of Mount Hyjal.");
                 return false;
-            }			
+            }
         }
         if (mapid == MAP_BLACK_TEMPLE)
         {
@@ -422,9 +422,11 @@ public:
                 uint32 copp = (moneyRew % GOLD) % SILVER;
 
                 if (gold > 0)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Gold, {} Silver.", gold, silv);
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Gold, {} Silver, {} Copper.", gold, silv, copp);
+                else if (silv > 0)
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Silver, {} Copper.", silv, copp);
                 else
-                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Silver.", silv);
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Copper.", copp);
             }
         }
 
@@ -481,7 +483,7 @@ public:
 
         if (!sIndividualProgression->enabled)
             return true;
-		
+
         Player* otherPlayer = ObjectAccessor::FindPlayerByName(membername, false);
         uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint8 otherPlayerState = otherPlayer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
@@ -611,7 +613,7 @@ public:
         {
             return true;
         }
-        
+
         return (currentState == otherPlayerState);
     }
 
@@ -701,7 +703,7 @@ public:
                 }
             }
         }
-        
+
         sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
