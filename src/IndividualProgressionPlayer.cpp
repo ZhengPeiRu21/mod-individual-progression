@@ -419,14 +419,12 @@ public:
                 player->ModifyMoney(moneyRew);
                 uint32 gold = moneyRew / GOLD;
                 uint32 silv = (moneyRew % GOLD) / SILVER;
-                uint32 copp = (moneyRew % GOLD) % SILVER;
+                // uint32 copp = (moneyRew % GOLD) % SILVER;
 
                 if (gold > 0)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Gold, {} Silver, {} Copper.", gold, silv, copp);
-                else if (silv > 0)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Silver, {} Copper.", silv, copp);
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Gold, {} Silver.", gold, silv);
                 else
-                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Copper.", copp);
+                    ChatHandler(player->GetSession()).PSendSysMessage("Received {} Silver.", silv);
             }
         }
 
