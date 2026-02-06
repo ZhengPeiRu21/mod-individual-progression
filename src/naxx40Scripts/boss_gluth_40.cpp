@@ -187,8 +187,8 @@ public:
                             continue;
 
                         uint32 reduceHp = uint32(zombie->GetMaxHealth() * 0.05f);
-                        if (zombie->GetHealth() > uint32(reduceHp))
-                            zombie->SetHealth(uint32(reduceHp)); // Reduce HP to ~5%
+                        if (zombie->GetHealth() > reduceHp)
+                            zombie->SetHealth(reduceHp); // Reduce HP to ~5%
                         zombie->SetWalk(true);                 // Set to walk
                         zombie->GetMotionMaster()->MoveFollow(me,
                             0.0f,
