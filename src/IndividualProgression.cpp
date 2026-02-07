@@ -29,7 +29,7 @@ bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState
 {
     if (!state || !player || !player->IsInWorld())
         return false;
-    
+
     return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value < state;
 }
 
@@ -175,7 +175,7 @@ bool IndividualProgression::hasCustomProgressionValue(uint32 creatureEntry)
 {
     if (!creatureEntry)
         return false;
-    
+
     if (customProgressionMap.empty())
     {
         return false;
@@ -187,7 +187,7 @@ bool IndividualProgression::isAttuned(Player* player)
 {
     if (!player || !player->IsInWorld())
         return false;
-    
+
     if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) ||
         (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
         (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
@@ -619,7 +619,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->CastSpell(player, IPP_PHASE_III, false);
             }
-            break;      
+            break;
         case AREA_UNDERCITY:
             if ((player->GetQuestStatus(BATTLE_UNDERCITY_HORDE) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(BATTLE_UNDERCITY_ALLIANCE) == QUEST_STATUS_REWARDED))
             {
@@ -719,7 +719,7 @@ void IndividualProgression::checkIPProgression(Player* killer)
 
     if (!killer || !killer->IsInWorld())
         return;
-    
+
     uint8 currentState = killer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
 
     if (killer->HasAchieved(HALION_KILL)) // 4815
@@ -968,7 +968,7 @@ void IndividualProgression::UpdateProgressionQuests(Player* player)
 {
     if (!player || !player->IsInWorld())
         return;
-    
+
 	// remove all hidden progression quests
     for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
     {
@@ -1001,7 +1001,7 @@ void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16
 {
     if (!achievementID || !player || !player->IsInWorld())
         return;
-    
+
     AchievementEntry const* entry = sAchievementStore.LookupEntry(achievementID);
 
     if (entry)
@@ -1169,9 +1169,11 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
             // remove all titles except highest
             for (IppPvPTitles title : pvpTitlesList)
             {
-                if (highestTitle != title.TitleId)
+                const int titleId = title.TitleId;
+
+                if (highestTitle != titleId)
 				{
-                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
+                    player->SetTitle(sCharTitlesStore.LookupEntry(titleId), true);
 				}
             }
 

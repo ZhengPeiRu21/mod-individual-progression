@@ -200,7 +200,7 @@ public:
             });
         }
 
-        void KilledUnit(Unit* who) override
+        void KilledUnit(Unit*) override
         {
             if (roll_chance_i(30))
                 Talk(SAY_SLAY);

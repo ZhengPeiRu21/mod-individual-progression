@@ -163,7 +163,7 @@ public:
                     if (me->CastCustomSpell(me, SPELL_ENRAGE, &bp1, &bp2, 0, true) == SPELL_CAST_OK)
                         events.Repeat(10s);
                     else
-                        events.Repeat(100ms);                   
+                        events.Repeat(100ms);
                     break;
                 }
                 case EVENT_MORTAL_WOUND:
@@ -187,8 +187,8 @@ public:
                             continue;
 
                         uint32 reduceHp = uint32(zombie->GetMaxHealth() * 0.05f);
-                        if (zombie->GetHealth() > int32(reduceHp))
-                            zombie->SetHealth(int32(reduceHp)); // Reduce HP to ~5%
+                        if (zombie->GetHealth() > reduceHp)
+                            zombie->SetHealth(reduceHp); // Reduce HP to ~5%
                         zombie->SetWalk(true);                 // Set to walk
                         zombie->GetMotionMaster()->MoveFollow(me,
                             0.0f,
@@ -218,7 +218,7 @@ public:
                     // Search for nearby alive zombie within a radius
                     std::list<Creature*> zombies;
                     me->GetCreatureListWithEntryInGrid(zombies, NPC_ZOMBIE_CHOW_40, 10.0f);
-					
+
                     for (Creature* z : zombies)
                     {
                         if (!z || !z->IsAlive())

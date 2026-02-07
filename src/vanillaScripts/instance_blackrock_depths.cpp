@@ -15,8 +15,9 @@
  * with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "GameObjectScript.h"
 #include "InstanceScript.h"
-#include "IndividualProgression.h"
+#include "Player.h"
 
 enum
 {
@@ -42,7 +43,7 @@ public:
 
     uint8_t DATA_TYPE_VAULT = 0;
 
-    bool OnGossipHello(Player* player, GameObject* go) override
+    bool OnGossipHello(Player* player, GameObject*) override
     {
         switch (urand(0, 5))
         {
@@ -70,7 +71,7 @@ public:
                     player->SummonGameObject(GO_UGGEL, 831.54f, -339.529f, -46.682f, 0.802851f, 0, 0, 0, 0, 0);
                 }
                 break;
-            case 3:					
+            case 3:
                 if (DATA_TYPE_VAULT == 0)
                 {
                     DATA_TYPE_VAULT = 1;
