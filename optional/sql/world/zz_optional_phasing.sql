@@ -99,6 +99,8 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 30715, -- Feyden Darkin <Inscription Trainer>, Darnassus
 30716, -- Thoth <Inscription Trainer>, Exodar
 30717, -- Elise Brightletter <Inscription Trainer>, Ironforge
+30721, -- Michael Schwan <Master Inscription Trainer>, Honor Hold
+30722, -- Neferatti <Master Inscription Trainer>, Thrallmar
 30723, -- Xantili <Inscription Supplies>, Orgrimmar
 30724, -- Mertle Murkpen <Inscription Supplies>, Thunder Bluff
 30727, -- Lelorian <Inscription Supplies>, Silvermoon
@@ -106,7 +108,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 30730, -- Stanly McCormick <Inscription Supplies>, Stormwind
 30731, -- Illianna Moonscribe <Inscription Supplies>, Darnassus
 30732, -- Sessoh <Inscription Supplies>, Exodar
-30733  -- Thargen Heavyquill <Inscription Supplies>, Ironforge
+30733, -- Thargen Heavyquill <Inscription Supplies>, Ironforge
+30734, -- Jezebel Bican <Inscription Supplies>, Honor Hold
+30735  -- Kul Inkspiller <Inscription Supplies>, Thrallmar
 );
 
 -- Hide Inscription gameobject - Lexicon of Power
