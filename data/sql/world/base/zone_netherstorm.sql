@@ -1,5 +1,7 @@
 -- fix quest 10182, 10305, 10306, 10307
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (19543, 19544, 19545, 19546);
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1954400, 1954500);
+
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -44,7 +46,24 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (19546, 0, 6, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Abjurist Belmara - On Aggro - Cast \'Frost Armor\''),
 (19546, 0, 7, 0, 0, 0, 100, 0, 2000, 5000, 12000, 22000, 0, 0, 11, 17740, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Abjurist Belmara - In Combat - Cast \'Mana Shield\''),
 (19546, 0, 8, 0, 0, 0, 100, 0, 0, 6000, 2500, 8000, 0, 0, 11, 34447, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Abjurist Belmara - In Combat - Cast \'Arcane Missiles\''),
-(19546, 0, 9, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 28, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Abjurist Belmara - On Reset - Remove Aura \'Frost Armor\'');
+(19546, 0, 9, 0, 25, 0, 100, 512, 0, 0, 0, 0, 0, 0, 28, 12544, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Abjurist Belmara - On Reset - Remove Aura \'Frost Armor\''),
+--
+(1954400, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 3.9619,             'Conjurer Luminrath - Script - Set Orientation'),
+(1954400, 9, 1, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Conjurer Luminrath - Script - Say Line'),
+(1954400, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 5, 69, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Conjurer Luminrath - Script - Play Emote Use_standing'),
+(1954400, 9, 3, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Conjurer Luminrath - Script - Play Emote none'),
+(1954400, 9, 4, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Conjurer Luminrath - Script - Say Line 2'),
+(1954400, 9, 5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, 19580, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Conjurer Luminrath - Script - Change Entry to Luminrath with Cape'),
+(1954400, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Conjurer Luminrath - Script - Set Faction'),
+(1954400, 9, 7, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 19548, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,             'Conjurer Luminrath - Script - Give Kill Credit'),
+--
+(1954500, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 66, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1.90241,            'Cohlien Frostweaver - Script - Set Orientation'),
+(1954500, 9, 1, 0, 0, 0, 100, 0, 3000, 3000, 0, 0, 0, 0, 5, 69, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Cohlien Frostweaver - Script - Play Emote Use_standing'),
+(1954500, 9, 2, 0, 0, 0, 100, 0, 3000, 3000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Cohlien Frostweaver - Script - Say Line'),
+(1954500, 9, 3, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Cohlien Frostweaver - Script - Play Emote none'),
+(1954500, 9, 4, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, 19579, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cohlien Frostweaver - Script - Change Entry to Cohlien Frostweaver with Hat'),
+(1954500, 9, 5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Cohlien Frostweaver - Script - Set Faction'),
+(1954500, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 19550, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,             'Cohlien Frostweaver - Script - Give Kill Credit');
 
 -- fix Escape from the Staging Grounds (didn't complete, because closest player was stored as target, now using invoker)
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (20763);
