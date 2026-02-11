@@ -143,9 +143,9 @@ public:
 	
         if (player->GetLevel() <= IP_LEVEL_TBC)
         {
-            if (player->GetLevel() < IP_LEVEL_VANILLA)
+            if (player->GetLevel() < 50)
             {
-                handler.PSendSysMessage("You need to be level 60 to enter Onyxia\'s Lair.");
+                handler.PSendSysMessage("You need to be at least level 50 to enter Onyxia\'s Lair.");
                 return false;
             }
             if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // death knights
