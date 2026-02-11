@@ -153,7 +153,7 @@ public:
                 handler.PSendSysMessage("Your progression level is too high to enter the level 60 version of Onyxia\'s Lair.");
                 return false;
             }
-            if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+            if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET) && !sIndividualProgression->isExcludedFromProgression(player))
             {
                 handler.PSendSysMessage("You must have the Drakefire Amulet in your inventory to enter Onyxia\'s Lair.");
                 return false;
@@ -171,7 +171,7 @@ public:
                 handler.PSendSysMessage("You need to be level 80 to enter Onyxia\'s Lair.");
                 return false;
             }
-            if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+            if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET) && !sIndividualProgression->isExcludedFromProgression(player))
             {
                 handler.PSendSysMessage("You must have the Drakefire Amulet in your inventory to enter Onyxia\'s Lair.");
                 return false;
