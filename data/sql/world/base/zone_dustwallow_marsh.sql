@@ -125,6 +125,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (23873, 0, 0, 0, 0, 0, 100, 0, 4000, 6000, 20000, 22000, 0, 0, 11, 6607, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Goreclaw the Ravenous - In Combat - Cast Lash'),
 (23873, 0, 1, 0, 9, 0, 100, 0, 0, 0, 17600, 17900, 0, 5, 11, 32019, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Goreclaw the Ravenous - Within 0-5 Range - Cast Gore');
 
+
+(4880,0,0,2,19,0,100,512,1270,0,0,0,0,0,80,488000,2,0,0,0,0,1,0,0,0,0,0,0,0,0,'Stinky\'s Escape - H) - Run Script'),
+(4880,0,1,2,19,0,100,512,1222,0,0,0,0,0,80,488000,2,0,0,0,0,1,0,0,0,0,0,0,0,0,'Stinky\'s Escape - A) - Run Script'),
+
+-- quest: Stinky's Escape, fix worldserver error
+UPDATE `smart_scripts` SET `link` = 0 WHERE `entryorguid` = 4880 AND `source_type` = 0 AND `id` IN (0, 1);
+
 UPDATE `creature` SET `spawntimesecs` = 18000, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 14230; -- Burgle Eye
 
 DELETE FROM `creature`       WHERE `id1` = 23589;  -- Defias Rummager
