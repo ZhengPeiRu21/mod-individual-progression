@@ -227,7 +227,7 @@ public:
         {
             if (player->GetLevel() <= IP_LEVEL_TBC) // vanilla version
             {
-                if (player->GetLevel() < IP_LEVEL_VANILLA)
+                if (player->GetLevel() < 50)
                     return false;
                 if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // death knights
                     return false;
