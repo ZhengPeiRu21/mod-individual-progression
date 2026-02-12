@@ -103,9 +103,8 @@ public:
         bool CanBeSeen(Player const* player) override
         {
             if (player->IsGameMaster())
-            {
                 return true;
-            }
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_5);
         }
