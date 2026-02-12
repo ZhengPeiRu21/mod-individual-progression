@@ -45,7 +45,7 @@ public:
             sIndividualProgression->CleanUpVanillaPvpTitles(player);
         }
 
-		if (sIndividualProgression->isExcludedFromProgression(player))
+		if (sIndividualProgression->isExcludedFromProgression(player) && sIndividualProgression->excludeAccounts)
         {
             if (player->GetLevel() <= IP_LEVEL_VANILLA)
             {
@@ -136,7 +136,7 @@ public:
         if (!sIndividualProgression->enabled || !quest || !xpValue || !player || !player->IsInWorld())
             return;
 
-        if (!sIndividualProgression->questXpFix || sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->questXpFix)
             return;
 
         if (sIndividualProgression->questXpMap.count(quest->GetQuestId()))
@@ -430,7 +430,7 @@ public:
             }
         }
 
-        if (!sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->isExcludedFromProgression(player) || !sIndividualProgression->excludeAccounts)
         {
             switch (quest->GetQuestId())
             {
@@ -652,13 +652,12 @@ public:
             sIndividualProgression->checkKillProgression(killer, killed);
             Group* group = killer->GetGroup();
             if (!group)
-            {
                 return;
-            }
+
             for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
             {
                 Player* member = itr->GetSource();
-                if (!member)
+                if (!member || sIndividualProgression->isExcludedFromProgression(member))
                     continue;
 
                 if (killer->IsAtLootRewardDistance(member))
@@ -672,10 +671,11 @@ public:
         if (!player || !player->IsInWorld() || !chance || !roll)
             return false;
 
-        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix || sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix)
             return true;
         if (chance < roll)
             return false;
+
         return true;
     }
 
