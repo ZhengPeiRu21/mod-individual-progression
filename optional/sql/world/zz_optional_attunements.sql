@@ -1,4 +1,4 @@
-/* These attunements are not in the original game, but make progression feel more smooth by requiring players to complete necessary story questlines before entering relevant dungeons */
+/* These attunements are not in the original game. */
 
 DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` IN (20, 26);
 INSERT INTO `dungeon_access_requirements` (`dungeon_access_id`, `requirement_type`, `requirement_id`, `requirement_note`, `faction`, `priority`, `leader_only`, `comment`) VALUES 

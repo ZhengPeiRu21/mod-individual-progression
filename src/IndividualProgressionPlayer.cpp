@@ -225,9 +225,11 @@ public:
         }
         if (mapid == MAP_ONYXIAS_LAIR)
         {
-			if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // Vanilla
+            if (player->GetLevel() <= IP_LEVEL_TBC) // vanilla version
             {
-                if (player->GetLevel() > IP_LEVEL_TBC)
+                if (player->GetLevel() < 50)
+                    return false;
+                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // death knights
                     return false;
                 if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
                     return false;
@@ -236,8 +238,8 @@ public:
             {
                 if (player->GetLevel() != IP_LEVEL_WOTLK)
                     return false;
-                if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
-                    return false;
+                // if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+                //     return false;
             }
         }
         if (mapid == MAP_ZUL_GURUB)
