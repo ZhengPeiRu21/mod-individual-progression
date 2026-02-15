@@ -234,9 +234,10 @@ public:
         }
         if (mapid == MAP_ZUL_GURUB)
         {
+            uint32 PLAYER_PROGRESSION = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
             ProgressionState REQUIRED_ZG_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
 
-            if (!sIndividualProgression->hasPassedProgression(player, REQUIRED_ZG_PROGRESSION))
+            if (PLAYER_PROGRESSION < REQUIRED_ZG_PROGRESSION)
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZG_PROGRESSION);
                 return false;
