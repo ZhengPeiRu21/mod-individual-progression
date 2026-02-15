@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
  */
@@ -31,14 +30,10 @@ public:
                 for (uint8 id = 0; id < bossCount; ++id)
                 {
                     if (id == bossId && newState == DONE)
-                    {
                         continue;
-                    }
 
                     if (instance->GetBossState(id) != DONE)
-                    {
                         return true;
-                    }
                 }
             }
         }
@@ -53,9 +48,7 @@ public:
             if (go->GetEntry() == GO_RIGHT_KAEL_DOOR || go->GetEntry() == GO_LEFT_KAEL_DOOR)
             {
                 if (IsAnyBossAlive(map))
-                {
                     go->SetGoState(GO_STATE_READY);
-                }
             }
         }
     }

@@ -45,7 +45,7 @@ public:
             sIndividualProgression->CleanUpVanillaPvpTitles(player);
         }
 
-		if (sIndividualProgression->isExcludedFromProgression(player))
+		if (sIndividualProgression->isExcludedFromProgression(player) && sIndividualProgression->excludeAccounts)
         {
             if (player->GetLevel() <= IP_LEVEL_VANILLA)
             {
@@ -80,16 +80,12 @@ public:
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
         {
             if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > IP_LEVEL_VANILLA)
-            {
                 maxPlayerLevel = IP_LEVEL_VANILLA;
-            }
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
             if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > IP_LEVEL_TBC)
-            {
                 maxPlayerLevel = IP_LEVEL_TBC;
-            }
         }
     }
 
@@ -136,7 +132,7 @@ public:
         if (!sIndividualProgression->enabled || !quest || !xpValue || !player || !player->IsInWorld())
             return;
 
-        if (!sIndividualProgression->questXpFix || sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->questXpFix)
             return;
 
         if (sIndividualProgression->questXpMap.count(quest->GetQuestId()))
@@ -198,16 +194,10 @@ public:
         if (!player || !player->IsInWorld())
             return false;
 
-        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) ||
-            (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
-            (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
-        {
+        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
@@ -431,7 +421,7 @@ public:
             }
         }
 
-        if (!sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->isExcludedFromProgression(player) || !sIndividualProgression->excludeAccounts)
         {
             switch (quest->GetQuestId())
             {
@@ -653,13 +643,12 @@ public:
             sIndividualProgression->checkKillProgression(killer, killed);
             Group* group = killer->GetGroup();
             if (!group)
-            {
                 return;
-            }
+
             for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
             {
                 Player* member = itr->GetSource();
-                if (!member)
+                if (!member || sIndividualProgression->isExcludedFromProgression(member))
                     continue;
 
                 if (killer->IsAtLootRewardDistance(member))
@@ -673,10 +662,11 @@ public:
         if (!player || !player->IsInWorld() || !chance || !roll)
             return false;
 
-        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix || sIndividualProgression->isExcludedFromProgression(player))
+        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix)
             return true;
         if (chance < roll)
             return false;
+
         return true;
     }
 
@@ -695,13 +685,9 @@ public:
 
                 TeamId teamId = player->GetTeamId(true);
                 if (teamId == TEAM_ALLIANCE)
-                {
                     player->TeleportTo(0, 2270.32f, -5341.56f, 87, 1.34946f); // Light's Hope Chapel
-                }
                 else // Horde
-                {
                     player->TeleportTo(530, 9373.69f, -7168.46f, 9.17572f, 1.04876f); // Eversong Woods
-                }
             }
         }
 
@@ -732,17 +718,13 @@ public:
             if (sIndividualProgression->tbcRacesProgressionLevel)
             {
                 if (highestProgression < sIndividualProgression->tbcRacesProgressionLevel)
-                {
                     return false;
-                }
             }
         }
         if (charClass == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightProgressionLevel)
         {
             if (highestProgression < sIndividualProgression->deathKnightProgressionLevel)
-            {
                 return false;
-            }
         }
         return true;
     }
@@ -776,17 +758,9 @@ private:
             return;
 
         if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC))
-        {
             AdjustVanillaStats(pet);
-        }
         else if (sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5))
-        {
             AdjustTBCStats(pet);
-        }
-        else
-        {
-            return;
-        }
     }
 
     static void AdjustVanillaStats(Pet* pet)
@@ -852,31 +826,24 @@ public:
     {
         // Skip potions, bandages, percentage based heals like Rune Tap, etc.
         if (!sIndividualProgression->enabled || spellInfo->HasAttribute(SPELL_ATTR0_NO_IMMUNITIES) || spellInfo->Mechanic == MECHANIC_BANDAGE)
-        {
             return;
-        }
 
         // Skip percentage based heals or spells already nerfed by damage reduction
         for (uint8 i = 0; i < 3; i++)
         {
             if (spellInfo->Effects[i].Effect == SPELL_EFFECT_HEAL_MAX_HEALTH)
-            {
                 return;
-            }
         }
         if (spellInfo->Id == SPELL_RUNE_TAP || spellInfo->Id == SPELL_LIFE_STEAL || spellInfo->Id == SPELL_CANNIBALISE)
-        {
             return;
-        }
 
         if (!healer)
             return;
 
         bool isPet = healer->GetOwner() && healer->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && healer->GetTypeId() != TYPEID_PLAYER)
-        {
             return;
-        }
+
         Player* player = isPet ? healer->GetOwner()->ToPlayer() : healer->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
@@ -952,22 +919,17 @@ public:
         for (uint8 j = 0; j < MAX_SPELL_EFFECTS; ++j)
         {
             if (spellInfo->Effects[j].Effect == SPELL_EFFECT_APPLY_AURA && spellInfo->Effects[j].ApplyAuraName == SPELL_AURA_PERIODIC_HEAL)
-            {
                 return;
-            }
         }
 
         // Also manually filter cannibalise (forsaken racial). It isn't covered by SPELL_AURA_PERIODIC_HEAL
         if (spellInfo->Id == SPELL_CANNIBALISE)
-        {
             return;
-        }
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
-        {
             return;
-        }
+
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))

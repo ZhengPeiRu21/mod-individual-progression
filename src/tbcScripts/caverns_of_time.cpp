@@ -12,7 +12,6 @@ public:
 
     struct go_cavernsoftimedoorAI : GameObjectAI
     {
-
         explicit go_cavernsoftimedoorAI(GameObject *object) : GameObjectAI(object)
         {
             object->SetGoState(GO_STATE_READY);
@@ -23,9 +22,7 @@ public:
         bool CanBeSeen(Player const* player) override
         {
             if (player->IsGameMaster())
-            {
                 return false;
-            }
             
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             return sIndividualProgression->isBeforeProgression(target, PROGRESSION_PRE_TBC);

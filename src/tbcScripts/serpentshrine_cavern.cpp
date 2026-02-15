@@ -29,14 +29,10 @@ public:
                 for (uint8 id = 0; id <= 4; ++id) // check boss data id 0-4
                 {
                     if (id == bossId && newState == DONE)
-                    {
                         continue;
-                    }
 
                     if (instance->GetBossState(id) != DONE)
-                    {
                         return true;
-                    }
                 }
             }
         }
@@ -51,9 +47,7 @@ public:
             if (go->GetEntry() == GO_LADY_VASHJ_BRIDGE_CONSOLE)
             {
                 if (IsAnyBossAlive(map))
-                {
                     go->SetGameObjectFlag(GO_FLAG_NOT_SELECTABLE);
-                }
             }
         }
     }
