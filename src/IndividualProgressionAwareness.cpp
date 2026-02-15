@@ -530,7 +530,7 @@ public:
             if (sIndividualProgression->isBeforeProgression(target,PROGRESSION_TBC_TIER_3))
                 return true;
             else
-                return false
+                return false;
         }
     };
 
@@ -558,7 +558,7 @@ public:
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_3))
                 return true;
             else
-                return false
+                return false;
         }
     };
 
