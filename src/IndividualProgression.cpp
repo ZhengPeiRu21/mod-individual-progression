@@ -17,7 +17,7 @@ bool IndividualProgression::hasPassedProgression(Player* player, ProgressionStat
     if (!enabled || !state || !player || !player->IsInWorld())
         return false;
 
-    if (progressionLimit && state > progressionLimit)
+    if (progressionLimit && (state > progressionLimit))
         return false;
 
     return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
