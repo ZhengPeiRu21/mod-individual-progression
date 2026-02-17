@@ -1,5 +1,7 @@
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
+#include "SharedDefines.h"
+#include "Player.h"
 
 class IndividualPlayerProgression : public PlayerScript
 {
@@ -45,7 +47,7 @@ public:
             sIndividualProgression->CleanUpVanillaPvpTitles(player);
         }
 
-		if (sIndividualProgression->isExcludedFromProgression(player) && sIndividualProgression->excludeAccounts)
+		if (sIndividualProgression->isExcludedFromProgression(player))
         {
             if (player->GetLevel() <= IP_LEVEL_VANILLA)
             {
@@ -61,6 +63,26 @@ public:
             }
         }
 
+        // Force complete prerequisite for "What tomorrow brings" (scarab lord chain)
+        if(sIndividualProgression->GetProgressionState(player) > PROGRESSION_PRE_AQ)
+        {
+            uint32 questId = 0;
+
+            if (player->GetTeamId() == TEAM_ALLIANCE)
+            {
+                questId = COMPLETE_WAR_EFFORT_ALLY;
+            }
+            else if (player->GetTeamId() == TEAM_HORDE)
+            {
+                questId = COMPLETE_WAR_EFFORT_HORDE;
+            }
+
+            if (questId && !player->GetQuestRewardStatus(questId))
+            {
+                player->CompleteQuest(questId);
+            }
+        }
+
         sIndividualProgression->CheckAdjustments(player);
 
         if (sIndividualProgression->enabled)
@@ -68,7 +90,7 @@ public:
             if (!player->GetSession())
                 return;
 
-            ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
+            // ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
         }
     }
 
@@ -80,12 +102,16 @@ public:
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
         {
             if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > IP_LEVEL_VANILLA)
+            {
                 maxPlayerLevel = IP_LEVEL_VANILLA;
+            }
         }
         else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
             if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > IP_LEVEL_TBC)
+            {
                 maxPlayerLevel = IP_LEVEL_TBC;
+            }
         }
     }
 
@@ -132,7 +158,7 @@ public:
         if (!sIndividualProgression->enabled || !quest || !xpValue || !player || !player->IsInWorld())
             return;
 
-        if (!sIndividualProgression->questXpFix)
+        if (!sIndividualProgression->questXpFix || sIndividualProgression->isExcludedFromProgression(player))
             return;
 
         if (sIndividualProgression->questXpMap.count(quest->GetQuestId()))
@@ -194,10 +220,16 @@ public:
         if (!player || !player->IsInWorld())
             return false;
 
-        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
+        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) ||
+            (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) ||
+            (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
 
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
@@ -208,9 +240,10 @@ public:
         if (!sIndividualProgression->enabled || player->IsGameMaster() || sIndividualProgression->isExcludedFromProgression(player))
             return true;
 
-        if (mapid == MAP_BLACKWING_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_MOLTEN_CORE))
+        if (mapid == MAP_BLACKWING_LAIR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_ONYXIA))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_MOLTEN_CORE);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_MOLTEN_CORE);
             return false;
         }
         if (mapid == MAP_ONYXIAS_LAIR)
@@ -234,23 +267,25 @@ public:
         }
         if (mapid == MAP_ZUL_GURUB)
         {
-            uint32 PLAYER_PROGRESSION = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
             ProgressionState REQUIRED_ZG_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
 
-            if (PLAYER_PROGRESSION < REQUIRED_ZG_PROGRESSION)
+            if (!sIndividualProgression->hasPassedProgression(player, REQUIRED_ZG_PROGRESSION))
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZG_PROGRESSION);
+                ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+                // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZG_PROGRESSION);
                 return false;
             }
         }
         if (mapid == MAP_AHN_QIRAJ_TEMPLE && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_PRE_AQ);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_PRE_AQ);
             return false;
         }
         if (mapid == MAP_RUINS_OF_AHN_QIRAJ && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_PRE_AQ);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_PRE_AQ);
             return false;
         }
         if (mapid == MAP_OUTLAND)
@@ -258,62 +293,74 @@ public:
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             {
                 // The player may be in the Azuremyst area which is on the outlands map - check the area ID
-                return IsTBCRaceStartingZone(mapid, x, y, z);
+                // return IsTBCRaceStartingZone(mapid, x, y, z);
+                ChatHandler(player->GetSession()).PSendSysMessage("This zone is not available in the current Phase.");
+                return false;
             }
             Map const *map = sMapMgr->FindMap(mapid, 0);
             uint32 zoneId = map->GetZoneId(0, x, y, z);
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4) && zoneId == AREA_ISLE_OF_QUEL_DANAS)
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
+                ChatHandler(player->GetSession()).PSendSysMessage("This zone is not available in the current Phase.");
+                // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
                 return false;
             }
         }
         if (mapid == MAP_ZUL_AMAN && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_3))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_3);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_3);
             return false;
         }
         if (mapid == MAP_NORTHREND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_5);
+            ChatHandler(player->GetSession()).PSendSysMessage("This expansion's content is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_5);
             return false;
         }
         if (mapid == MAP_ULDUAR && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_1))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_1);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_1);
             return false;
         }
         if ((mapid == MAP_TRIAL_OF_THE_CHAMPION || mapid == MAP_TRIAL_OF_THE_CRUSADER) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_2);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_2);
             return false;
         }
         // This will also restrict other Frozen Halls dungeons, because Forge of Souls must be completed first to access them
         if ((mapid == MAP_ICECROWN_CITADEL || mapid == MAP_THE_FORGE_OF_SOULS) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_3))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_3);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_3);
             return false;
         }
         if (mapid == MAP_THE_RUBY_SANCTUM && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_WOTLK_TIER_4))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_4);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_WOTLK_TIER_4);
             return false;
         }
         if (mapid == MAP_MAGISTERS_TERRACE && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
             return false;
         }
         if (mapid == MAP_THE_SUNWELL && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
+            ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+            // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
             return false;
         }
         if (mapid == MAP_TEMPEST_KEEP)
         {
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1))
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
+                ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+                // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
                 return false;
             }
 			else if (!player->HasItemCount(ITEM_TEMPEST_KEY))
@@ -331,7 +378,8 @@ public:
         {
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_1))
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
+                ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+                // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
                 return false;
             }
 			else if (player->GetQuestStatus(CUDGEL_OF_KARDESH) != QUEST_STATUS_REWARDED)
@@ -344,7 +392,8 @@ public:
         {
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2))
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
+                ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+                // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
                 return false;
             }
 			else if (player->GetQuestStatus(VIALS_OF_ETERNITY) != QUEST_STATUS_REWARDED)
@@ -357,7 +406,8 @@ public:
         {
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_2))
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
+                ChatHandler(player->GetSession()).PSendSysMessage("This raid is not available in the current Phase.");
+                // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
                 return false;
             }
 			else if (!player->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !player->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
@@ -372,10 +422,12 @@ public:
         {
             if (instanceTemplate->Parent == MAP_OUTLAND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             {
+                ChatHandler(player->GetSession()).PSendSysMessage("This expansion's content is not available in the current Phase.");
                 return false;
             }
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid != MAP_NAXXRAMAS && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
             {
+                ChatHandler(player->GetSession()).PSendSysMessage("This expansion's content is not available in the current Phase.");
                 return false;
             }
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && (!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
@@ -421,7 +473,7 @@ public:
             }
         }
 
-        if (!sIndividualProgression->isExcludedFromProgression(player) || !sIndividualProgression->excludeAccounts)
+        if (!sIndividualProgression->isExcludedFromProgression(player))
         {
             switch (quest->GetQuestId())
             {
@@ -643,12 +695,13 @@ public:
             sIndividualProgression->checkKillProgression(killer, killed);
             Group* group = killer->GetGroup();
             if (!group)
+            {
                 return;
-
+            }
             for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
             {
                 Player* member = itr->GetSource();
-                if (!member || sIndividualProgression->isExcludedFromProgression(member))
+                if (!member)
                     continue;
 
                 if (killer->IsAtLootRewardDistance(member))
@@ -662,11 +715,10 @@ public:
         if (!player || !player->IsInWorld() || !chance || !roll)
             return false;
 
-        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix)
+        if (!sIndividualProgression->enabled || !sIndividualProgression->fishingFix || sIndividualProgression->isExcludedFromProgression(player))
             return true;
         if (chance < roll)
             return false;
-
         return true;
     }
 
@@ -685,9 +737,13 @@ public:
 
                 TeamId teamId = player->GetTeamId(true);
                 if (teamId == TEAM_ALLIANCE)
+                {
                     player->TeleportTo(0, 2270.32f, -5341.56f, 87, 1.34946f); // Light's Hope Chapel
+                }
                 else // Horde
+                {
                     player->TeleportTo(530, 9373.69f, -7168.46f, 9.17572f, 1.04876f); // Eversong Woods
+                }
             }
         }
 
@@ -718,13 +774,17 @@ public:
             if (sIndividualProgression->tbcRacesProgressionLevel)
             {
                 if (highestProgression < sIndividualProgression->tbcRacesProgressionLevel)
+                {
                     return false;
+                }
             }
         }
         if (charClass == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightProgressionLevel)
         {
             if (highestProgression < sIndividualProgression->deathKnightProgressionLevel)
+            {
                 return false;
+            }
         }
         return true;
     }
@@ -758,9 +818,17 @@ private:
             return;
 
         if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC))
+        {
             AdjustVanillaStats(pet);
+        }
         else if (sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5))
+        {
             AdjustTBCStats(pet);
+        }
+        else
+        {
+            return;
+        }
     }
 
     static void AdjustVanillaStats(Pet* pet)
@@ -826,24 +894,31 @@ public:
     {
         // Skip potions, bandages, percentage based heals like Rune Tap, etc.
         if (!sIndividualProgression->enabled || spellInfo->HasAttribute(SPELL_ATTR0_NO_IMMUNITIES) || spellInfo->Mechanic == MECHANIC_BANDAGE)
+        {
             return;
+        }
 
         // Skip percentage based heals or spells already nerfed by damage reduction
         for (uint8 i = 0; i < 3; i++)
         {
             if (spellInfo->Effects[i].Effect == SPELL_EFFECT_HEAL_MAX_HEALTH)
+            {
                 return;
+            }
         }
         if (spellInfo->Id == SPELL_RUNE_TAP || spellInfo->Id == SPELL_LIFE_STEAL || spellInfo->Id == SPELL_CANNIBALISE)
+        {
             return;
+        }
 
         if (!healer)
             return;
 
         bool isPet = healer->GetOwner() && healer->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && healer->GetTypeId() != TYPEID_PLAYER)
+        {
             return;
-
+        }
         Player* player = isPet ? healer->GetOwner()->ToPlayer() : healer->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
@@ -919,17 +994,22 @@ public:
         for (uint8 j = 0; j < MAX_SPELL_EFFECTS; ++j)
         {
             if (spellInfo->Effects[j].Effect == SPELL_EFFECT_APPLY_AURA && spellInfo->Effects[j].ApplyAuraName == SPELL_AURA_PERIODIC_HEAL)
+            {
                 return;
+            }
         }
 
         // Also manually filter cannibalise (forsaken racial). It isn't covered by SPELL_AURA_PERIODIC_HEAL
         if (spellInfo->Id == SPELL_CANNIBALISE)
+        {
             return;
+        }
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;
         if (!isPet && attacker->GetTypeId() != TYPEID_PLAYER)
+        {
             return;
-
+        }
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
