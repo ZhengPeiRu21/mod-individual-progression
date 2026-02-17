@@ -1,9 +1,16 @@
-DELETE FROM `reference_loot_template` WHERE `Entry` IN (34052, 36098, 36196, 36197, 36198, 36199, 50501);
+DELETE FROM `reference_loot_template` WHERE `Entry` IN (34052, 34093, 36098, 36196, 36197, 36198, 36199, 50501);
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36003 AND 36026;
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36101 AND 36111; -- Hyjal
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 36121 AND 36139; -- Black Temple
 
 INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
+--
+(34093, 32227, 0, 0, 0, 1, 1, 1, 1, 'Crimson Spinel'),
+(34093, 32228, 0, 0, 0, 1, 1, 1, 1, 'Empyrean Sapphire'),
+(34093, 32229, 0, 0, 0, 1, 1, 1, 1, 'Lionseye'),
+(34093, 32230, 0, 0, 0, 1, 1, 1, 1, 'Shadowsong Amethyst'),
+(34093, 32231, 0, 0, 0, 1, 1, 1, 1, 'Pyrestone'),
+(34093, 32249, 0, 0, 0, 1, 1, 1, 1, 'Seaspray Emerald'),
 --
 (34052, 30280, 0, 0, 0, 1, 1, 1, 1, 'Pattern: Belt of Blasting'),
 (34052, 30281, 0, 0, 0, 1, 1, 1, 1, 'Pattern: Belt of the Long Road'),
