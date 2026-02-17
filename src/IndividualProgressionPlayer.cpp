@@ -64,15 +64,15 @@ public:
         }
 
         // Force complete prerequisite for "What tomorrow brings" (scarab lord chain)
-        if(sIndividualProgression->GetProgressionState(player) > PROGRESSION_PRE_AQ)
+        if(sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_AQ))
         {
             uint32 questId = 0;
 
-            if (player->GetTeamId() == TEAM_ALLIANCE)
+            if (player->GetTeamId(true) == TEAM_ALLIANCE)
             {
                 questId = COMPLETE_WAR_EFFORT_ALLY;
             }
-            else if (player->GetTeamId() == TEAM_HORDE)
+            else if (player->GetTeamId(true) == TEAM_HORDE)
             {
                 questId = COMPLETE_WAR_EFFORT_HORDE;
             }
@@ -733,7 +733,8 @@ public:
         {
             if (!sIndividualProgression->isExcludedFromProgression(player) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4) && newArea == 4087) // Sun's Reach Harbor
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
+                ChatHandler(player->GetSession()).PSendSysMessage("This zone is not available in the current Phase.");
+                // ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
 
                 TeamId teamId = player->GetTeamId(true);
                 if (teamId == TEAM_ALLIANCE)
