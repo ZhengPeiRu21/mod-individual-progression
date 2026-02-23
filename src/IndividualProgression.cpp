@@ -78,8 +78,9 @@ void IndividualProgression::CheckAdjustments(Player* player) const
     else if (hasPassedProgression(player, PROGRESSION_PRE_TBC) && !hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
     {
         float computedPowerAdjustment = -100.0f * (1.0f - tbcPowerAdjustment);
+        float computedHealthAdjustment = -100.0f * (1.0f - tbcHealthAdjustment);
 
-	    AdjustStats(player, computedPowerAdjustment, tbcHealthAdjustment);
+	    AdjustStats(player, computedPowerAdjustment, computedHealthAdjustment);
     }
     else
     {
@@ -90,9 +91,6 @@ void IndividualProgression::CheckAdjustments(Player* player) const
 void IndividualProgression::AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment)
 {
     if (!player || !player->IsInWorld())
-        return;
-
-    if (!computedPowerAdjustment || !computedHealthAdjustment)
         return;
 
     auto bp1 = static_cast<int32>(computedPowerAdjustment);
