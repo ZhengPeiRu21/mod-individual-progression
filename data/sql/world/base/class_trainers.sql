@@ -118,6 +118,7 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 
 -- Warlock
 DELETE FROM `trainer_spell` WHERE `TrainerId` = 31 AND `SpellId` IN (688, 1710, 23161, 25309, 25311, 28610);
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 32 AND `SpellId` IN (688);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqAbility1`, `ReqAbility2`, `ReqAbility3`, `ReqLevel`, `VerifiedBuild`) VALUES
 -- (31,688,100,0,0,0,0,0,1,0), -- quest, Summon Imp
 -- (31,1710,10000,0,0,0,0,0,40,0), -- quest, Summon Felsteed
