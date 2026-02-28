@@ -1676,7 +1676,8 @@ DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `ConditionTypeO
 
 -- Black Temple, remove reference loot tables added by AC (not used anymore)
 DELETE FROM `creature_loot_template` WHERE `Reference` IN (14099, 1564000, 1564001, 1564002);
-DELETE FROM `reference_loot_template` WHERE `entry` IN (14099, 1564000, 1564001, 1564002);
+DELETE FROM `reference_loot_template` WHERE `entry` IN (14099, 34104, 34105, 34117, 34214, 1564000, 1564001, 1564002);
+
 UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` IN (22848, 22849);
 DELETE FROM `creature_loot_template` WHERE `entry` IN (22848, 22849);
 
@@ -1982,49 +1983,49 @@ DELETE FROM `creature_loot_template` WHERE `Entry` IN (22841, 22871, 22887, 2289
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 --
 (22841, 29434, 0, 100, 0, 1, 0, 2, 2,     'Shade of Akama - Badge of Justice'),
-(22841, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Shade of Akama - (ReferenceTable)'),
-(22841, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Shade of Akama - (ReferenceTable)'),
-(22841, 36125, 36125, 100, 0, 1, 1, 1, 1, 'Shade of Akama - Epic Items (Group 1)'),
-(22841, 36126, 36126, 100, 0, 1, 1, 1, 1, 'Shade of Akama - Epic Items (Group 2)'),
+(22841, 34069, 34069, 10, 0, 1, 0, 1, 1,  'Shade of Akama - (ReferenceTable)'),
+(22841, 190069, 34116, 2, 0, 1, 0, 1, 1,  'Shade of Akama - (ReferenceTable)'),
+(22841, 36125, 36125, 100, 0, 1, 0, 1, 1, 'Shade of Akama - Epic Items (Group 1)'),
+(22841, 36126, 36126, 100, 0, 1, 0, 1, 1, 'Shade of Akama - Epic Items (Group 2)'),
 --
 (22871, 29434, 0, 100, 0, 1, 0, 2, 2,     'Teron Gorefiend - Badge of Justice'),
-(22871, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Teron Gorefiend - (ReferenceTable)'),
-(22871, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Teron Gorefiend - (ReferenceTable)'),
-(22871, 36127, 36127, 100, 0, 1, 1, 1, 1, 'Teron Gorefiend - Epic Items (Group 1)'),
-(22871, 36128, 36128, 100, 0, 1, 1, 1, 1, 'Teron Gorefiend - Epic Items (Group 2)'),
+(22871, 34069, 34069, 10, 0, 1, 0, 1, 1,  'Teron Gorefiend - (ReferenceTable)'),
+(22871, 190069, 34116, 2, 0, 1, 0, 1, 1,  'Teron Gorefiend - (ReferenceTable)'),
+(22871, 36127, 36127, 100, 0, 1, 0, 1, 1, 'Teron Gorefiend - Epic Items (Group 1)'),
+(22871, 36128, 36128, 100, 0, 1, 0, 1, 1, 'Teron Gorefiend - Epic Items (Group 2)'),
 --
 (22887, 29434, 0, 100, 0, 1, 0, 2, 2,     'High Warlord Naj\'entus - Badge of Justice'),
-(22887, 34069, 34069, 2, 0, 1, 2, 1, 1,   'High Warlord Naj\'entus - (ReferenceTable)'),
-(22887, 90069, 34069, 10, 0, 1, 1, 1, 1,  'High Warlord Naj\'entus - (ReferenceTable)'),
-(22887, 36121, 36121, 100, 0, 1, 1, 1, 1, 'High Warlord Naj\'entus - Epic Items (Group 1)'),
-(22887, 36122, 36122, 100, 0, 1, 1, 1, 1, 'High Warlord Naj\'entus - Epic Items (Group 2)'),
+(22887, 34069, 34069, 2, 0, 1, 0, 1, 1,   'High Warlord Naj\'entus - (ReferenceTable)'),
+(22887, 90069, 34116, 10, 0, 1, 0, 1, 1,  'High Warlord Naj\'entus - (ReferenceTable)'),
+(22887, 36121, 36121, 100, 0, 1, 0, 1, 1, 'High Warlord Naj\'entus - Epic Items (Group 1)'),
+(22887, 36122, 36122, 100, 0, 1, 0, 1, 1, 'High Warlord Naj\'entus - Epic Items (Group 2)'),
 --
 (22898, 29434, 0, 100, 0, 1, 0, 2, 2,     'Supremus - Badge of Justice'),
-(22898, 34069, 34069, 10, 0, 1, 1, 1, 1,  'Supremus - (ReferenceTable)'),
-(22898, 190069, 34069, 2, 0, 1, 2, 1, 1,  'Supremus - (ReferenceTable)'),
-(22898, 36123, 36123, 100, 0, 1, 1, 1, 1, 'Supremus - Epic Items (Group 1)'),
-(22898, 36124, 36124, 100, 0, 1, 1, 1, 1, 'Supremus - Epic Items (Group 2)'),
+(22898, 34069, 34069, 10, 0, 1, 0, 1, 1,  'Supremus - (ReferenceTable)'),
+(22898, 190069, 34116, 2, 0, 1, 0, 1, 1,  'Supremus - (ReferenceTable)'),
+(22898, 36123, 36123, 100, 0, 1, 0, 1, 1, 'Supremus - Epic Items (Group 1)'),
+(22898, 36124, 36124, 100, 0, 1, 0, 1, 1, 'Supremus - Epic Items (Group 2)'),
 --
 (22917, 29434, 0, 100, 0, 1, 0, 2, 2,     'Illidan Stormrage - Badge of Justice'),
 (22917, 32837, 0, 4, 0, 1, 1, 1, 1,       'Illidan Stormrage - Warglaive of Azzinoth'),
 (22917, 32838, 0, 4, 0, 1, 2, 1, 1,       'Illidan Stormrage - Warglaive of Azzinoth'),
-(22917, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Illidan Stormrage - (Patterns)'),
-(22917, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Illidan Stormrage - (Patterns)'),
-(22917, 36137, 36137, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - Epic Items (Group 1)'),
-(22917, 36138, 36138, 100, 0, 1, 1, 1, 1, 'Illidan Stormrage - Epic Items (Group 2)'),
-(22917, 36139, 36139, 100, 0, 1, 1, 2, 2, 'Illidan Stormrage - T6 Token'),
+(22917, 34069, 34069, 2, 0, 1, 0, 1, 1,   'Illidan Stormrage - (Patterns)'),
+(22917, 90069, 34116, 10, 0, 1, 0, 1, 1,  'Illidan Stormrage - (Patterns)'),
+(22917, 36137, 36137, 100, 0, 1, 0, 1, 1, 'Illidan Stormrage - Epic Items (Group 1)'),
+(22917, 36138, 36138, 100, 0, 1, 0, 1, 1, 'Illidan Stormrage - Epic Items (Group 2)'),
+(22917, 36139, 36139, 100, 0, 1, 0, 2, 2, 'Illidan Stormrage - T6 Token'),
 --
 (22947, 29434, 0, 100, 0, 1, 0, 2, 2,     'Mother Shahraz - Badge of Justice'),
 (22947, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Mother Shahraz - (ReferenceTable)'),
-(22947, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Mother Shahraz - (ReferenceTable)'),
-(22947, 36133, 36133, 100, 0, 1, 1, 1, 1, 'Mother Shahraz - Epic Items'),
-(22947, 36134, 36134, 100, 0, 1, 1, 2, 2, 'Mother Shahraz - T6 Token'),
+(22947, 90069, 34069, 10, 0, 1, 0, 1, 1,  'Mother Shahraz - (ReferenceTable)'),
+(22947, 36133, 36133, 100, 0, 1, 0, 1, 1, 'Mother Shahraz - Epic Items'),
+(22947, 36134, 36134, 100, 0, 1, 0, 2, 2, 'Mother Shahraz - T6 Token'),
 --
 (22948, 29434, 0, 100, 0, 1, 0, 2, 2,     'Gurtogg Bloodboil - Badge of Justice'),
 (22948, 34069, 34069, 2, 0, 1, 2, 1, 1,   'Gurtogg Bloodboil - (ReferenceTable)'),
-(22948, 90069, 34069, 10, 0, 1, 1, 1, 1,  'Gurtogg Bloodboil - (ReferenceTable)'),
-(22948, 36129, 36129, 100, 0, 1, 1, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 1)'),
-(22948, 36130, 36130, 100, 0, 1, 1, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 2)');
+(22948, 90069, 34069, 10, 0, 1, 0, 1, 1,  'Gurtogg Bloodboil - (ReferenceTable)'),
+(22948, 36129, 36129, 100, 0, 1, 0, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 1)'),
+(22948, 36130, 36130, 100, 0, 1, 0, 1, 1, 'Gurtogg Bloodboil - Epic Items (Group 2)');
 
 -- hide Badge of Justice drops until TBC tier 5
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (22841, 22871, 22887, 22898, 22917, 22947, 22948);
@@ -2046,35 +2047,35 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 --
 (17767, 29434, 0, 100, 0, 1, 0, 2, 2,     'Rage Winterchill - Badge of Justice'),
 (17767, 32459, 0, 100, 1, 1, 0, 1, 1,     'Rage Winterchill - Time-Phased Phylactery'),
-(17767, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Rage Winterchill - Epic Gem Patterns'), -- 36112 in cMangos
-(17767, 36101, 36101, 100, 0, 1, 1, 1, 1, 'Rage Winterchill - Epic Items (Group 1)'),
-(17767, 36102, 36102, 100, 0, 1, 1, 1, 1, 'Rage Winterchill - Epic Items (Group 2)'),
-(17767, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Rage Winterchill - ReferenceTable - Formula, Plans, Schematics'),
+(17767, 34063, 34063, 15, 0, 1, 0, 1, 1,  'Rage Winterchill - Epic Gem Patterns'), -- 36112 in cMangos
+(17767, 36101, 36101, 100, 0, 1, 0, 1, 1, 'Rage Winterchill - Epic Items (Group 1)'),
+(17767, 36102, 36102, 100, 0, 1, 0, 1, 1, 'Rage Winterchill - Epic Items (Group 2)'),
+(17767, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Rage Winterchill - ReferenceTable - Formula, Plans, Schematics'),
 --
 (17808, 29434, 0, 100, 0, 1, 0, 2, 2,     'Anetheron - Badge of Justice'),
-(17808, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Anetheron - Epic Gem Patterns'),
-(17808, 36103, 36103, 100, 0, 1, 1, 1, 1, 'Anetheron - Epic Items (Group 1)'),
-(17808, 36104, 36104, 100, 0, 1, 1, 1, 1, 'Anetheron - Epic Items (Group 2)'),
-(17808, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Anetheron - ReferenceTable - Formula, Plans, Schematics'),
+(17808, 34063, 34063, 15, 0, 1, 0, 1, 1,  'Anetheron - Epic Gem Patterns'),
+(17808, 36103, 36103, 100, 0, 1, 0, 1, 1, 'Anetheron - Epic Items (Group 1)'),
+(17808, 36104, 36104, 100, 0, 1, 0, 1, 1, 'Anetheron - Epic Items (Group 2)'),
+(17808, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Anetheron - ReferenceTable - Formula, Plans, Schematics'),
 --
 (17842, 29434, 0, 100, 0, 1, 0, 2, 2,     'Azgalor - Badge of Justice'),
-(17842, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Azgalor - Epic Gem Patterns'),
-(17842, 36107, 36107, 100, 0, 1, 1, 1, 1, 'Azgalor - Epic Items'),
-(17842, 36108, 36108, 100, 0, 1, 1, 2, 2, 'Azgalor - T6 Token'),
-(17842, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Azgalor - ReferenceTable - Formula, Plans, Schematics'),
+(17842, 34063, 34063, 15, 0, 1, 0, 1, 1,  'Azgalor - Epic Gem Patterns'),
+(17842, 36107, 36107, 100, 0, 1, 0, 1, 1, 'Azgalor - Epic Items'),
+(17842, 36108, 36108, 100, 0, 1, 0, 2, 2, 'Azgalor - T6 Token'),
+(17842, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Azgalor - ReferenceTable - Formula, Plans, Schematics'),
 --
 (17888, 29434, 0, 100, 0, 1, 0, 2, 2,     'Kaz\'rogal - Badge of Justice'),
-(17888, 34063, 34063, 15, 0, 1, 1, 1, 1,  'Kaz\'rogal - Epic Gem Patterns'),
-(17888, 36105, 36105, 100, 0, 1, 1, 1, 1, 'Kaz\'rogal - Epic Items (Group 1)'),
-(17888, 36106, 36106, 100, 0, 1, 1, 1, 1, 'Kaz\'rogal - Epic Items (Group 2)'),
-(17888, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kaz\'rogal - ReferenceTable - Formula, Plans, Schematics'),
+(17888, 34063, 34063, 15, 0, 1, 0, 1, 1,  'Kaz\'rogal - Epic Gem Patterns'),
+(17888, 36105, 36105, 100, 0, 1, 0, 1, 1, 'Kaz\'rogal - Epic Items (Group 1)'),
+(17888, 36106, 36106, 100, 0, 1, 0, 1, 1, 'Kaz\'rogal - Epic Items (Group 2)'),
+(17888, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Kaz\'rogal - ReferenceTable - Formula, Plans, Schematics'),
 --
 (17968, 29434, 0, 100, 0, 1, 0, 3, 3,     'Archimonde - Badge of Justice'),
-(17968, 34063, 34063, 30, 0, 1, 1, 1, 1,  'Archimonde - Epic Gem Patterns'),
-(17968, 36109, 36109, 100, 0, 1, 1, 1, 1, 'Archimonde - Epic Items (Group 1)'),
-(17968, 36110, 36110, 100, 0, 1, 1, 1, 1, 'Archimonde - Epic Items (Group 2)'),
-(17968, 36111, 36111, 100, 0, 1, 1, 2, 2, 'Archimonde - T6 Token'),
-(17968, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Archimonde - ReferenceTable - Formula, Plans, Schematics');
+(17968, 34063, 34063, 30, 0, 1, 0, 1, 1,  'Archimonde - Epic Gem Patterns'),
+(17968, 36109, 36109, 100, 0, 1, 0, 1, 1, 'Archimonde - Epic Items (Group 1)'),
+(17968, 36110, 36110, 100, 0, 1, 0, 1, 1, 'Archimonde - Epic Items (Group 2)'),
+(17968, 36111, 36111, 100, 0, 1, 0, 2, 2, 'Archimonde - T6 Token'),
+(17968, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Archimonde - ReferenceTable - Formula, Plans, Schematics');
 
 -- hide Badge of Justice drops until TBC tier 5
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (17767, 17808, 17842, 17888, 17968);
@@ -2202,15 +2203,15 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 --
 (18805, 21877, 0, 18, 0, 1, 1, 3, 3,      'High Astromancer Solarian - Netherweave Cloth'),
 (18805, 29434, 0, 100, 0, 1, 0, 2, 2,     'High Astromancer Solarian - Badge of Justice'),
-(18805, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Formula, Plans, Schematics'),
-(18805, 36005, 36005, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 1)'),
-(18805, 36006, 36006, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 2)'),
-(18805, 36007, 36007, 100, 0, 1, 1, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 3)'),
+(18805, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'High Astromancer Solarian - ReferenceTable - Formula, Plans, Schematics'),
+(18805, 36005, 36005, 100, 0, 1, 0, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 1)'),
+(18805, 36006, 36006, 100, 0, 1, 0, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 2)'),
+(18805, 36007, 36007, 100, 0, 1, 0, 1, 1, 'High Astromancer Solarian - ReferenceTable - Epic Items (Group 3)'),
 --
 (19516, 29434, 0, 100, 0, 1, 0, 2, 2,     'Void Reaver - Badge of Justice'),
-(19516, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Formula, Plans, Schematics'),
-(19516, 36003, 36003, 100, 0, 1, 1, 1, 1, 'Void Reaver - ReferenceTable - Epic Items (Group 1)'),
-(19516, 36004, 36004, 100, 0, 1, 1, 2, 2, 'Void Reaver - ReferenceTable - Epic Items (Tokens)'),
+(19516, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Void Reaver - ReferenceTable - Formula, Plans, Schematics'),
+(19516, 36003, 36003, 100, 0, 1, 0, 1, 1, 'Void Reaver - ReferenceTable - Epic Items (Group 1)'),
+(19516, 36004, 36004, 100, 0, 1, 0, 2, 2, 'Void Reaver - ReferenceTable - Epic Items (Tokens)'),
 --
 (19622, 21877, 0, 18, 0, 1, 1, 3, 3,      'Kael\'thas Sunstrider - Netherweave Cloth'),
 (19622, 29434, 0, 100, 0, 1, 0, 3, 3,     'Kael\'thas Sunstrider - Badge of Justice'),
@@ -2218,50 +2219,50 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19622, 30183, 0, 100, 0, 1, 0, 2, 2,     'Kael\'thas Sunstrider - Nether Vortex'),
 (19622, 32405, 0, 100, 0, 1, 0, 1, 1,     'Kael\'thas Sunstrider - Verdant Sphere'),
 (19622, 32458, 0, 2, 0, 1, 0, 1, 1,       'Kael\'thas Sunstrider - Ashes of Al\'ar'),
-(19622, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Formula, Plans, Schematics'),
-(19622, 36008, 36008, 100, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Group 1)'),
-(19622, 36009, 36009, 100, 0, 1, 1, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Group 2)'),
-(19622, 36010, 36010, 100, 0, 1, 1, 2, 2, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Tokens)'),
+(19622, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Formula, Plans, Schematics'),
+(19622, 36008, 36008, 100, 0, 1, 0, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Group 1)'),
+(19622, 36009, 36009, 100, 0, 1, 0, 1, 1, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Group 2)'),
+(19622, 36010, 36010, 100, 0, 1, 0, 2, 2, 'Kael\'thas Sunstrider - ReferenceTable - Epic Items (Tokens)'),
 --
 (21212, 21877, 0, 18, 0, 1, 1, 3, 3,      'Lady Vashj - Netherweave Cloth'),
 (21212, 29434, 0, 100, 0, 1, 0, 3, 3,     'Lady Vashj - Badge of Justice'),
 (21212, 29906, 0, 100, 1, 1, 0, 1, 1,     'Lady Vashj - Vashj\'s Vial Remnant'),
 (21212, 30183, 0, 100, 0, 1, 0, 2, 2,     'Lady Vashj - Nether Vortex'),
-(21212, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Formula, Plans, Schematics'),
-(21212, 36024, 36024, 100, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Epic Items (Group 1)'),
-(21212, 36025, 36025, 100, 0, 1, 1, 1, 1, 'Lady Vashj - ReferenceTable - Epic Items (Group 2)'),
-(21212, 36026, 36026, 100, 0, 1, 1, 2, 2, 'Lady Vashj - ReferenceTable - Epic Items (Tokens)'),
+(21212, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Lady Vashj - ReferenceTable - Formula, Plans, Schematics'),
+(21212, 36024, 36024, 100, 0, 1, 0, 1, 1, 'Lady Vashj - ReferenceTable - Epic Items (Group 1)'),
+(21212, 36025, 36025, 100, 0, 1, 0, 1, 1, 'Lady Vashj - ReferenceTable - Epic Items (Group 2)'),
+(21212, 36026, 36026, 100, 0, 1, 0, 2, 2, 'Lady Vashj - ReferenceTable - Epic Items (Tokens)'),
 --
 (21213, 21877, 0, 18, 0, 1, 1, 3, 3,      'Morogrim Tidewalker - Netherweave Cloth'),
 (21213, 29434, 0, 100, 0, 1, 0, 2, 2,     'Morogrim Tidewalker - Badge of Justice'),
-(21213, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Formula, Plans, Schematics'),
-(21213, 36017, 36017, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 1)'),
-(21213, 36018, 36018, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 2)'),
-(21213, 36019, 36019, 100, 0, 1, 1, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 3)'),
+(21213, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Formula, Plans, Schematics'),
+(21213, 36017, 36017, 100, 0, 1, 0, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 1)'),
+(21213, 36018, 36018, 100, 0, 1, 0, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 2)'),
+(21213, 36019, 36019, 100, 0, 1, 0, 1, 1, 'Morogrim Tidewalker - ReferenceTable - Epic Items (Group 3)'),
 --
 (21214, 21877, 0, 18, 0, 1, 1, 3, 3,      'Fathom-Lord Karathress - Netherweave Cloth'),
 (21214, 29434, 0, 100, 0, 1, 0, 2, 2,     'Fathom-Lord Karathress - Badge of Justice'),
-(21214, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Formula, Plans, Schematics'),
-(21214, 36022, 36022, 100, 0, 1, 1, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Epic Items (Group 1)'),
-(21214, 36023, 36023, 100, 0, 1, 1, 2, 2, 'Fathom-Lord Karathress - ReferenceTable - Epic Items (Tokens)'),
+(21214, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Formula, Plans, Schematics'),
+(21214, 36022, 36022, 100, 0, 1, 0, 1, 1, 'Fathom-Lord Karathress - ReferenceTable - Epic Items (Group 1)'),
+(21214, 36023, 36023, 100, 0, 1, 0, 2, 2, 'Fathom-Lord Karathress - ReferenceTable - Epic Items (Tokens)'),
 --
 (21215, 21877, 0, 18, 0, 1, 1, 3, 3,      'Leotheras the Blind - Netherweave Cloth'),
 (21215, 29434, 0, 100, 0, 1, 0, 2, 2,     'Leotheras the Blind - Badge of Justice'),
-(21215, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Leotheras the Blind - ReferenceTable - Formula, Plans, Schematics'),
-(21215, 36020, 36020, 100, 0, 1, 1, 1, 1, 'Leotheras the Blind - ReferenceTable - Epic Items (Group 1)'),
-(21215, 36021, 36021, 100, 0, 1, 1, 2, 2, 'Leotheras the Blind - ReferenceTable - Epic Items (Tokens)'),
+(21215, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Leotheras the Blind - ReferenceTable - Formula, Plans, Schematics'),
+(21215, 36020, 36020, 100, 0, 1, 0, 1, 1, 'Leotheras the Blind - ReferenceTable - Epic Items (Group 1)'),
+(21215, 36021, 36021, 100, 0, 1, 0, 2, 2, 'Leotheras the Blind - ReferenceTable - Epic Items (Tokens)'),
 --
 (21216, 29434, 0, 100, 0, 1, 0, 2, 2,     'Hydross the Unstable - Badge of Justice'),
-(21216, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Formula, Plans, Schematics'),
-(21216, 36011, 36011, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 1)'),
-(21216, 36012, 36012, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 2)'),
-(21216, 36013, 36013, 100, 0, 1, 1, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 3)'),
+(21216, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'Hydross the Unstable - ReferenceTable - Formula, Plans, Schematics'),
+(21216, 36011, 36011, 100, 0, 1, 0, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 1)'),
+(21216, 36012, 36012, 100, 0, 1, 0, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 2)'),
+(21216, 36013, 36013, 100, 0, 1, 0, 1, 1, 'Hydross the Unstable - ReferenceTable - Epic Items (Group 3)'),
 --
 (21217, 29434, 0, 100, 0, 1, 0, 2, 2,     'The Lurker Below - Badge of Justice'),
-(21217, 50501, 50501, 0.2, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Formula, Plans, Schematics'),
-(21217, 36014, 36014, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 1)'),
-(21217, 36015, 36015, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 2)'),
-(21217, 36016, 36016, 100, 0, 1, 1, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 3)');
+(21217, 50501, 50501, 0.2, 0, 1, 0, 1, 1, 'The Lurker Below - ReferenceTable - Formula, Plans, Schematics'),
+(21217, 36014, 36014, 100, 0, 1, 0, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 1)'),
+(21217, 36015, 36015, 100, 0, 1, 0, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 2)'),
+(21217, 36016, 36016, 100, 0, 1, 0, 1, 1, 'The Lurker Below - ReferenceTable - Epic Items (Group 3)');
 
 -- hide Badge of Justice drops until TBC tier 5
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` = 29434 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (18805, 19516, 19622, 21212, 21213, 21214, 21215, 21216, 21217);
