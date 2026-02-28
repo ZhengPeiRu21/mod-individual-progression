@@ -520,7 +520,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (19755, 50501, 50501, 0.03, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19756, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19757, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
-(19759, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
+-- (19759, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19760, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19762, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
 (19765, 50501, 50501, 0.04, 0, 1, 1, 1, 1, 'ReferenceTable - Formula, Plans, Schematics'),
