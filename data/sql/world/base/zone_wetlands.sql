@@ -2,11 +2,11 @@
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1016, 1017, 1018, 1019, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 
 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1057, 
-1111, 1112, 1140, 1157, 1158, 1160, 1259, 1353, 1364, 1418, 2091, 2108, 4040, 12899, 14424, 14425);
+1111, 1112, 1140, 1157, 1158, 1160, 1259, 1353, 1364, 1418, 2091, 2102, 2103, 2108, 4040, 12899, 14424, 14425);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
 (1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1016, 1017, 1018, 1019, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 
 1030, 1031, 1032, 1033, 1034, 1035, 1036, 1037, 1038, 1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1057, 
-1111, 1112, 1140, 1157, 1158, 1160, 1259, 1353, 1364, 1418, 2091, 2108, 4040, 12899, 14424, 14425);
+1111, 1112, 1140, 1157, 1158, 1160, 1259, 1353, 1364, 1418, 2091, 2102, 2103, 2108, 4040, 12899, 14424, 14425);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -116,20 +116,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1050, 0, 0, 0, 0, 0, 100, 0, 5000, 17000, 5000, 21000, 0, 0, 11, 16635, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Scalebane Royal Guard - In Combat - Cast Fire Nova'),
 (1050, 0, 1, 0, 0, 0, 100, 0, 7000, 15000, 7000, 29000, 0, 0, 11, 16856, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Scalebane Royal Guard - Within 0-5 Range - Cast Mortal Strike'),
 --
-(1051, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dark Iron Dwarf - On Aggro - Say Line 0'),
+(1051, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Dwarf - On Aggro - Say Line 0'),
 (1051, 0, 1, 0, 0, 0, 100, 0, 2000, 8000, 18000, 34000, 0, 0, 11, 7891, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Dark Iron Dwarf - In Combat - Cast Gift of Ragnaros'),
 (1051, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dark Iron Dwarf - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(1052, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dark Iron Saboteur - On Aggro - Say Line 2'),
+(1052, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Saboteur - On Aggro - Say Line 2'),
 (1052, 0, 1, 0, 0, 0, 100, 0, 2000, 7000, 18000, 26000, 0, 0, 11, 7891, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Dark Iron Saboteur - In Combat - Cast Gift of Ragnaros'),
 (1052, 0, 2, 3, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 11, 3204, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Dark Iron Saboteur - Between 0-15% Health - Cast Sapper Explode (No Repeat)'),
 (1052, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Saboteur - On Sapper Explode - Say Line 0'),
 (1052, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Saboteur - On Sapper Explode - Say Line 1'),
-(1053, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dark Iron Tunneler - On Aggro - Say Line 0'),
+(1053, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Tunneler - On Aggro - Say Line 0'),
 (1053, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 180000, 180000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Dark Iron Tunneler - In Combat - Cast Defensive Stance'),
 (1053, 0, 2, 0, 0, 0, 100, 512, 2000, 8000, 18000, 22000, 0, 0, 11, 7891, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Dark Iron Tunneler - In Combat - Cast Gift of Ragnaros'),
 (1053, 0, 3, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Dark Iron Tunneler - Within 0-5 Range - Cast Sunder Armor'),
 (1053, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dark Iron Tunneler - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(1054, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dark Iron Demolitionist - On Aggro - Say Line 0'),
+(1054, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Dark Iron Demolitionist - On Aggro - Say Line 0'),
 (1054, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Dark Iron Demolitionist - Outside 30 Range - Start Combat Movement'),
 (1054, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Dark Iron Demolitionist - Within 5-30 Range - Stop Combat Movement'),
 (1054, 0, 3, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Dark Iron Demolitionist - Within 0-5 Range - Start Combat Movement'),
@@ -164,7 +164,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1353, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Sarltooth - On Respawn - Cast Thrash Proc'),
 (1353, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 11000, 28000, 0, 0, 11, 3427, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Sarltooth - Within 0-5 Range - Cast Infected Wound'),
 (1364, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 12746, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Balgaras the Foul - Out of Combat - Cast Summon Voidwalker'),
-(1364, 0, 1, 0, 4, 0, 70, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Balgaras the Foul - On Aggro - Say Line 0'),
+(1364, 0, 1, 0, 4, 0, 70, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Balgaras the Foul - On Aggro - Say Line 0'),
 (1364, 0, 2, 0, 0, 0, 100, 0, 4000, 7000, 21000, 21000, 0, 0, 11, 9081, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Balgaras the Foul - In Combat - Cast Shadow Bolt Volley'),
 (1364, 0, 3, 0, 106, 0, 100, 0, 0, 0, 19000, 38000, 0, 8, 11, 11831, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Balgaras the Foul - Within 0-8 Range - Cast Frost Nova'),
 (1364, 0, 4, 0, 0, 0, 100, 0, 13000, 16000, 182000, 182000, 0, 0, 11, 3586, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Balgaras the Foul - Within 0-5 Range - Cast Volatile Infection'),
@@ -177,12 +177,21 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1418, 0, 4, 0, 0, 0, 100, 0, 10000, 15000, 15000, 35000, 0, 0, 11, 12024, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Bluegill Raider - In Combat - Cast Net'),
 (1418, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Bluegill Raider - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(2091, 0, 0, 0, 4, 0, 25, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Chieftain Nek\'rosh - On Aggro - Say Line 0'),
+(2091, 0, 0, 0, 4, 0, 25, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Chieftain Nek\'rosh - On Aggro - Say Line 0'),
 (2091, 0, 1, 0, 0, 0, 100, 0, 2000, 7000, 12000, 16000, 0, 0, 11, 6192, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Chieftain Nek\'rosh - In Combat - Cast Battle Shout'),
 (2091, 0, 2, 0, 0, 0, 100, 0, 3000, 9000, 6000, 9000, 0, 0, 11, 13730, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Chieftain Nek\'rosh - In Combat - Cast Demoralizing Shout'),
 (2091, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Chieftain Nek\'rosh - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
-(2108, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                         'Garneg Charskull - On Aggro - Say Line 0'),
+(2102, 0, 0, 0, 4, 0, 15, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Dragonmaw Grunt - On Aggro - Say Line 0'),
+(2102, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7300, 20900, 0, 5, 11, 8242, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Dragonmaw Grunt - Within 0-5 Range - Cast Shield Slam'),
+(2102, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dragonmaw Grunt - Between 0-15% Health - Flee For Assist'),
+(2103, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Dragonmaw Scout - On Aggro - Say Line 0'),
+(2103, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Dragonmaw Scout - Outside 30 Range - Start Combat Movement'),
+(2103, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Dragonmaw Scout - Within 5-30 Range - Stop Combat Movement'),
+(2103, 0, 3, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Dragonmaw Scout - Within 0-5 Range - Start Combat Movement'),
+(2103, 0, 4, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Dragonmaw Scout - Within 5-30 Range - Cast Shoot'),
+(2103, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dragonmaw Scout - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2108, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                       'Garneg Charskull - On Aggro - Say Line 0'),
 (2108, 0, 1, 0, 0, 0, 100, 0, 0, 0, 6000, 19000, 0, 0, 11, 15039, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Garneg Charskull - In Combat - Cast Flame Shock'),
 (2108, 0, 2, 0, 0, 0, 100, 0, 2000, 6000, 1000, 7000, 0, 0, 11, 184, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Garneg Charskull - In Combat - Cast Fire Shield II'),
 (2108, 0, 3, 0, 0, 0, 100, 0, 10000, 17000, 33000, 61000, 0, 0, 11, 6725, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Garneg Charskull - In Combat - Cast Flame Spike'),

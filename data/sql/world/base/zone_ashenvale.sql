@@ -355,7 +355,7 @@ INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `positi
 (12818, 15, 3281.33, -523.056, 155.155, NULL, 0, 'Ruul Snowhoof'),
 (12818, 16, 3236.17, -518.389, 148.701, NULL, 0, 'Ruul Snowhoof');
 
-UPDATE `creature_template` SET `AIName` =  'SmartAI' WHERE `entry` = 12818;
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 12818;
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 12818;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -364,23 +364,72 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- 
 (12818, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Ruul Snowhoof - On Respawn - Set Reactstate Passive'),
 (12818, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 3, 12819, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ruul Snowhoof - On Respawn - Morph To Creature Ruul Snowhoof Bear Form'),
-(12818, 0, 2, 3, 19, 0, 100, 0, 6482, 0, 0, 0, 0, 0, 8, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Ruul Snowhoof - On Quest \'Freedom to Ruul Taken\' - Set Reactstate Aggressive'),
-(12818, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Ruul Snowhoof - On Quest \'Freedom to Ruul Taken\' - Set Event Phase 1'),
-(12818, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Ruul Snowhoof - On Quest \'Freedom to Ruul Taken\' - Set Run Off'),
+(12818, 0, 2, 3, 19, 0, 100, 0, 6482, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,            'Ruul Snowhoof - On Quest Taken - Store Targetlist'),
+(12818, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Ruul Snowhoof - On Quest Taken - Set Reactstate Aggressive'),
+(12818, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Ruul Snowhoof - On Quest Taken - Set Event Phase 1'),
+(12818, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Ruul Snowhoof - On Quest Taken - Set Run Off'),
 --
-(12818, 0, 5, 0, 1, 1, 100, 1, 100, 100, 0, 0, 0, 0, 53, 0, 12818, 0, 6482, 10000, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,  'Ruul Snowhoof - Out of Combat - Start Waypoint (Phase 1) (No Repeat)'),
-(12818, 0, 6, 0, 1, 1, 100, 1, 3100, 3100, 0, 0, 0, 0, 54, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Ruul Snowhoof - Out of Combat - Pause Waypoint (Phase 1) (No Repeat)'),
-(12818, 0, 7, 0, 1, 1, 100, 1, 3150, 3150, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,         'Ruul Snowhoof - Out of Combat - Say Line 0 (Phase 1) (No Repeat)'),
-(12818, 0, 8, 0, 1, 1, 100, 513, 5000, 5000, 0, 0, 0, 0, 3, 0, 29421, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ruul Snowhoof - Out of Combat - Morph To Model 29421 (Phase 1) (No Repeat)'),
-(12818, 0, 9, 0, 1, 1, 100, 513, 5000, 5000, 0, 0, 0, 0, 3, 12819, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ruul Snowhoof - Out of Combat - Morph To Creature Ruul Snowhoof Bear Form (Phase 1) (No Repeat)'),
+(12818, 0, 6, 0, 1, 1, 100, 1, 100, 100, 0, 0, 0, 0, 53, 0, 12818, 0, 6482, 10000, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0,  'Ruul Snowhoof - Out of Combat - Start Waypoint'),
+(12818, 0, 7, 0, 1, 1, 100, 1, 3100, 3100, 0, 0, 0, 0, 54, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Ruul Snowhoof - Out of Combat - Pause Waypoint'),
+(12818, 0, 8, 0, 1, 1, 100, 1, 3150, 3150, 0, 0, 0, 0, 1, 0, 1000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,         'Ruul Snowhoof - Out of Combat - Say Line 0'),
+(12818, 0, 9, 0, 1, 1, 100, 513, 5000, 5000, 0, 0, 0, 0, 3, 0, 29421, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ruul Snowhoof - Out of Combat - Morph To Model 29421'),
+(12818, 0, 10, 0, 1, 1, 100, 513, 5000, 5000, 0, 0, 0, 0, 3, 12819, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Ruul Snowhoof - Out of Combat - Morph To Creature Ruul Snowhoof Bear Form'),
 --
-(12818, 0, 10, 0, 60, 1, 100, 1, 40000, 40000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Ursa\' (Phase 1) (No Repeat)'),
-(12818, 0, 11, 0, 60, 1, 100, 1, 44000, 44000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Totemic\' (Phase 1) (No Repeat)'),
-(12818, 0, 12, 0, 60, 1, 100, 1, 48000, 48000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Pathfinder\' (Phase 1) (No Repeat)'),
-(12818, 0, 13, 0, 60, 1, 100, 1, 90000, 90000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Ursa\' (Phase 1) (No Repeat)'),
-(12818, 0, 14, 0, 60, 1, 100, 1, 94000, 94000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Totemic\' (Phase 1) (No Repeat)'),
-(12818, 0, 15, 0, 60, 1, 100, 1, 98000, 98000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,  'Ruul Snowhoof - On Update - Summon Creature \'Thistlefur Pathfinder\' (Phase 1) (No Repeat)'),
+(12818, 0, 11, 0, 60, 1, 100, 1, 40000, 40000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965, 'Ruul Snowhoof - On Update - Summon Creature Thistlefur Ursa'),
+(12818, 0, 12, 0, 60, 1, 100, 1, 44000, 44000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965, 'Ruul Snowhoof - On Update - Summon Creature Thistlefur Totemic'),
+(12818, 0, 13, 0, 60, 1, 100, 1, 48000, 48000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965, 'Ruul Snowhoof - On Update - Summon Creature Thistlefur Pathfinder'),
+(12818, 0, 14, 0, 60, 1, 100, 1, 90000, 90000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,   'Ruul Snowhoof - On Update - Summon Creature Thistlefur Ursa'),
+(12818, 0, 15, 0, 60, 1, 100, 1, 94000, 94000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,   'Ruul Snowhoof - On Update - Summon Creature Thistlefur Totemic'),
+(12818, 0, 16, 0, 60, 1, 100, 1, 98000, 98000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,   'Ruul Snowhoof - On Update - Summon Creature Thistlefur Pathfinder'),
 --
-(12818, 0, 16, 17, 58, 1, 100, 1, 15, 0, 0, 0, 0, 0, 1, 1, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,           'Ruul Snowhoof - On Waypoint Finished - Say Line 1 (Phase 1) (No Repeat)'),
-(12818, 0, 17, 18, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ruul Snowhoof - On Waypoint Finished - Demorph (Phase 1) (No Repeat)'),
-(12818, 0, 18, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 26, 6482, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Ruul Snowhoof - On Waypoint Finished - Quest Complete');
+(12818, 0, 17, 18, 58, 1, 100, 1, 16, 12818, 0, 0, 0, 0, 1, 1, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,       'Ruul Snowhoof - On Waypoint Finished - Say Line 1'),
+(12818, 0, 18, 19, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ruul Snowhoof - On Waypoint Finished - Demorph'),
+(12818, 0, 19, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 15, 6482, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,         'Ruul Snowhoof - On Waypoint Finished - Quest Credit');
+
+/* Torek's Assault - fixed movement speed and added 4 second pause */
+UPDATE `smart_scripts` SET `action_param1` = 0 WHERE `entryorguid` = 1285800 AND `source_type` = 9 AND `id` = 4; 
+UPDATE `creature_template` SET `speed_run` = 0.8 WHERE `entry` IN (12858, 12859); -- was 1.14286
+
+-- formation not working for some reason, I don't understand it.
+-- when disabling the follow, the Splintertree Raiders don't move at all.
+/* DELETE FROM `creature_formations` WHERE `leaderGUID` IN (32373);
+INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
+(32373, 32373, 0, 0, 515, 0, 0),       -- https://www.youtube.com/watch?v=RYpuzb5uYx0
+(32373, 32380, 4, 135, 515, 0, 0),
+(32373, 32378, 4, 180, 515, 0, 0),
+(32373, 32379, 4, 225, 515, 0, 0); */
+
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (12858, 12859);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (12858, 12859);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+-- 
+(12858, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 113, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Torek - On Spawn - Set Faction'),
+(12858, 0, 1, 2, 19, 0, 100, 512, 6544, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,          'Torek - On Quest Accept - Store Party Targetlist'),
+(12858, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 1285800, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Torek - On Quest Accept - Run Script'),
+(12858, 0, 3, 0, 40, 0, 100, 1, 1, 12858, 0, 0, 0, 0, 54, 4000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Torek - On Reached WP1 - Pause WP'),
+(12858, 0, 4, 0, 40, 0, 100, 1, 2, 12858, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,            'Torek - On Reached WP2 - Say Line 1'),
+(12858, 0, 5, 0, 40, 0, 100, 1, 8, 12858, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,            'Torek - On Reached WP8 - Say Line 2'),
+(12858, 0, 6, 0, 40, 0, 100, 1, 19, 12858, 0, 0, 0, 0, 107, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Torek - On Reached WP19 - Summon Group'),
+(12858, 0, 7, 8, 40, 0, 100, 1, 20, 12858, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,           'Torek - On Reached WP20 - Say Line 3'),
+(12858, 0, 8, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 15, 6544, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,          'Torek - On Reached WP20 - Complete Quest'),
+(12858, 0, 9, 10, 40, 0, 100, 1, 21, 12858, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,          'Torek - On Reached WP21 - Say Line 4'),
+(12858, 0, 10, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 54, 60000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Torek - On Reached WP21 - Pause WP'),
+(12858, 0, 11, 12, 40, 0, 100, 512, 22, 12858, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 9, 12859, 0, 100, 0, 0, 0, 0, 0, 'Torek - On Reached WP22 - Set Data on Splintertree Raider'),
+(12858, 0, 12, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Torek - On Reached WP22 - Despawn'),
+(12858, 0, 13, 14, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 9, 12859, 0, 200, 0, 0, 0, 0, 0,       'Torek - On Death - Set Data on Splintertree Raider'),
+(12858, 0, 14, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 6, 6544, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,          'Torek - On Death - Fail Quest'),
+(12858, 0, 15, 0, 9, 0, 100, 0, 0, 0, 15000, 20000, 0, 5, 11, 11977, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Torek - IC - Cast Rend'),
+(12858, 0, 16, 0, 0, 0, 100, 512, 0, 0, 20000, 30000, 0, 0, 11, 8078, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Torek - IC - Cast Thunderclap'),
+(12858, 0, 17, 0, 40, 0, 100, 512, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'On reached WP - Set Home Position'),
+--
+(12859, 0, 0, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 113, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Splintertree Raider - On Spawn - Set Faction'),
+(12859, 0, 1, 2, 38, 0, 100, 512, 1, 1, 0, 0, 0, 0, 2, 83, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Splintertree Raider - On Data Set 1 1 - Set Faction'),
+(12859, 0, 2, 3, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 91, 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Splintertree Raider - On Data Set 1 1 - Set Bytes 1'),
+(12859, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 8, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Splintertree Raider - On Data Set 1 1 - Set Aggresive'),
+(12859, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 19, 12858, 0, 0, 0, 0, 0, 0, 0,         'Splintertree Raider - On Data Set 1 1 - Follow Torek'), -- should be formation instead
+(12859, 0, 5, 0, 7, 0, 100, 512, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 19, 12858, 0, 0, 0, 0, 0, 0, 0,          'Splintertree Raider - On Evade - Follow Torek'), 
+(12859, 0, 6, 0, 38, 0, 100, 512, 2, 2, 0, 0, 0, 0, 41, 1000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Splintertree Raider - On Data Set 2 2 - Despawn'),
+(12859, 0, 7, 0, 1, 0, 100, 512, 1000, 1000, 1000, 1000, 0, 0, 101, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Splintertree Raider - OOC - Set Home Position');

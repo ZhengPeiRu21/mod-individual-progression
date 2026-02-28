@@ -1,6 +1,4 @@
 #include "ScriptMgr.h"
-#include "ScriptedCreature.h"
-#include "SpellAuraDefines.h"
 #include "SpellAuraEffects.h"
 #include "SpellScript.h"
 #include "Player.h"
@@ -9,7 +7,7 @@ class spell_atiesh_breath_of_sargeras : public SpellScript
 {
     PrepareSpellScript(spell_atiesh_breath_of_sargeras);
 
-    void HandleEffect(SpellEffIndex effIndex)
+    void HandleEffect(SpellEffIndex)
     {
         if (Unit* caster = GetCaster())
         {

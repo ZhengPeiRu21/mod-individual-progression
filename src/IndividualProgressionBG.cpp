@@ -1,5 +1,3 @@
-#pragma once
-
 #include "SharedDefines.h"
 #include "Map.h"
 #include "Player.h"
@@ -63,7 +61,7 @@ public:
 
         if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
             return;
-        
+
         const TeamId playerTeamId = player->GetBgTeamId();
 
         uint8_t rewardQuantity = 1;
@@ -92,9 +90,6 @@ public:
             Item* item = Item::CreateItem(rewardItemId, rewardQuantity, player);
 
             uint32_t battlemasterId = static_cast<uint32_t>(Battlemaster::WARSONG_GULCH_ALLIANCE);
-
-            const BattlegroundTeamId battlegroundTeamId = static_cast<BattlegroundTeamId>((battlegroundType << 1) + playerTeamId);
-            const BattlegroundBattlemasterMap::const_iterator battlemasterMapIterator = this->battlemasterMap.find(battlegroundTeamId);
 
             item->SaveToDB(transaction);
             draft.AddItem(item);

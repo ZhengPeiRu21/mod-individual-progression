@@ -194,23 +194,52 @@ public:
         uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         std::string playername = target->GetName();
 
-        if ((location == "naxx" || location == "naxx40") && ((progressionLevel < PROGRESSION_TBC_TIER_5 && sIndividualProgression->isAttuned(target)) || target->IsGameMaster()))
+        if (location == "naxx" || location == "naxx40") 
         {
-            target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            target->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
-            return true;
+			if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= IP_LEVEL_TBC))
+            {
+                if (sIndividualProgression->isAttuned(target) || sIndividualProgression->isExcludedFromProgression(target))
+                {
+                    target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                    target->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
+                    return true;
+                }
+                else
+                {
+                    handler->PSendSysMessage("|cff00ffff{}|r has not completed the Naxxramas attunement quest.", playername);
+                    return false;
+                }
+            }
+            else
+            {
+                handler->PSendSysMessage("|cff00ffff{}|r is not allowed to teleport to |cff00ffff{}|r.", playername, location);
+                return false;
+            }
         }
-        else if ((location == "onyxia" || location == "onyxia40") && ((progressionLevel < PROGRESSION_TBC_TIER_5 && target->HasItemCount(ITEM_DRAKEFIRE_AMULET)) || target->IsGameMaster()))
+        else if (location == "onyxia" || location == "onyxia40")
         {
-            target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            target->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
-            return true;
+            if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= IP_LEVEL_TBC))
+            {
+                if (target->HasItemCount(ITEM_DRAKEFIRE_AMULET) || sIndividualProgression->isExcludedFromProgression(target))
+                {
+                    target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+                    target->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
+                    return true;
+                }
+                else
+                {
+                    handler->PSendSysMessage("|cff00ffff{}|r does not have a Drakefire Amulet.", playername);
+                    return false;
+                }
+            }
+            else
+            {
+                handler->PSendSysMessage("|cff00ffff{}|r is not allowed to teleport to |cff00ffff{}|r.", playername, location);
+                return false;
+            }
         }
-        else
-        {
-            handler->PSendSysMessage("|cff00ffff{}|r is not allowed to teleport to |cff00ffff{}|r.", playername, location);
-            return false;
-        }
+
+        return false;
     }
 };
 

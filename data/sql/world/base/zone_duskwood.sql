@@ -21,7 +21,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (206, 0, 0, 0, 0, 0, 100, 0, 2000, 16000, 17000, 34000, 0, 0, 11, 3427, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Nightbane Vile Fang - Within 0-5 Range - Cast Infected Wound'),
 (210, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 26047, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Bone Chewer - On Respawn - Cast Birth'),
 (210, 0, 1, 0, 0, 0, 100, 0, 2000, 12000, 46000, 66000, 0, 0, 11, 6016, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Bone Chewer - Within 0-5 Range - Cast Pierce Armor'),
-(212, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                          'Splinter Fist Warrior - On Aggro - Say Line 0'),
+(212, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Splinter Fist Warrior - On Aggro - Say Line 0'),
 (212, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 1000, 9000, 0, 0, 11, 5242, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Splinter Fist Warrior - In Combat - Cast Battle Shout'),
 (215, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Defias Night Runner - Out of Combat - Cast Sneak (No Repeat)'),
 (215, 0, 1, 0, 67, 0, 80, 0, 3000, 6000, 5000, 8000, 0, 5, 11, 2589, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Defias Night Runner - Behind Target - Cast Backstab'),
