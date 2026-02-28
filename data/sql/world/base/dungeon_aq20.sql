@@ -338,7 +338,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (15370, 30436, 30436, 100, 0, 1, 0, 1, 1, 'Buru the Gorger - Epic ReferenceTable');
 
 -- remove unused AC reference loot templates
-DELETE FROM `reference_loot_template` WHERE `Entry` IN (34024, 34025);
+DELETE FROM `reference_loot_template` WHERE `Entry` IN (34024, 34025, 34026);
 
 /*
 https://www.azerothcore.org/wiki/conditions#sourcetypeorreferenceid
