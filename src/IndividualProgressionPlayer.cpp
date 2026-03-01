@@ -799,10 +799,10 @@ private:
         auto bp2 = static_cast<int32>(hpAdjustment);
 
         pet->RemoveAura(ABSORB_SPELL);
-        pet->CastCustomSpell(pet, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
+        pet->CastCustomSpell(pet, ABSORB_SPELL, &bp1, nullptr, nullptr, true);
 
         pet->RemoveAura(HP_AURA_SPELL);
-        pet->CastCustomSpell(pet, HP_AURA_SPELL, &bp2, nullptr, nullptr, false);
+        pet->CastCustomSpell(pet, HP_AURA_SPELL, &bp2, nullptr, nullptr, true);
     }
 
 public:
