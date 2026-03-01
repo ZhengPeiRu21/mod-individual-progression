@@ -586,6 +586,12 @@ UPDATE `gameobject` SET `animprogress` = 100, `state` = 1 WHERE `id` = 175531; -
 UPDATE `gameobject` SET `animprogress` = 100, `state` = 1 WHERE `id` = 175532; -- Doodad_DarkIronBrazier05
 UPDATE `gameobject` SET `animprogress` = 100, `state` = 1 WHERE `id` = 175533; -- Doodad_DarkIronBrazier06
 
+/* Bodley - Dungeon Set upgrade quest line */
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (8985);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(19, 0, 8985, 0, 0, 8, 0, 8970, 0, 0, 0, 0, 0, '', 'Quest \'More Components of Importance\' requires \'I See Alcaz Island In Your Future...\' to be completed');
 
 /* important blackrock documents (item 12562) was a dropped item. it shouldn't be. this item can be found as a lootable scroll on the ground within LBRS. */
 DELETE FROM `creature_loot_template` WHERE `Item` = 12562;
