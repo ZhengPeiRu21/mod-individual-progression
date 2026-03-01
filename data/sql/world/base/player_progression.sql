@@ -75,6 +75,7 @@ INSERT INTO `achievement_dbc` (`ID`, `Faction`, `Instance_Id`, `Supercedes`,
 -- https://www.azerothcore.org/wiki/conditions
 DELETE FROM `conditions` WHERE `SourceGroup` = 19768 AND `SourceEntry` = 34689; -- Design: Chaotic Skyfire Diamond
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` IN (16716, 16717, 20404, 20406, 20407, 20408, 22525, 22526, 22527, 22528, 22529);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceEntry` BETWEEN 20652 AND 20675;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
@@ -105,35 +106,30 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 15541, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
 (1, 15542, 20404, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Encrypted Twilight Text will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
 --
-(1, 11880, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'), -- drops in patch 1.8
-(1, 11881, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 11882, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 11883, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 14479, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15201, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15213, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15541, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15542, 20406, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Mantle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
---
-(1, 11880, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'), -- drops in patch 1.8
-(1, 11881, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 11882, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 11883, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 14479, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15201, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15213, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15541, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15542, 20407, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Robe will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
---
-(1, 11880, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'), -- drops in patch 1.8
-(1, 11881, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 11882, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 11883, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 14479, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15201, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15213, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15541, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
-(1, 15542, 20408, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Twilight Cultist Cowl will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15211, 20652, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Azure Templar - Abyssal Cloth Slippers will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15211, 20653, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Azure Templar - Abyssal Plate Gauntlets will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15211, 20654, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Azure Templar - Amethyst War Staff will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15209, 20655, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Crimson Templar - Abyssal Cloth Handwraps will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15209, 20656, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Crimson Templar - Abyssal Mail Sabatons will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15209, 20657, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Crimson Templar - Crystal Tipped Stilettowill only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15212, 20658, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Hoary Templar - Abyssal Leather Boots will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15212, 20659, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Hoary Templar - Abyssal Mail Handguards will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15212, 20660, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Hoary Templar - Stonecutting Glaive will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15307, 20661, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Earthen Templar - Abyssal Leather Gloves will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15307, 20662, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Earthen Templar - Abyssal Plate Greaves will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15307, 20663, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'Earthen Templar - Deep Strike Bow will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15206, 20664, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Cynders - Abyssal Cloth Sash will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15206, 20665, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Cynders - Abyssal Leather Leggings will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15206, 20666, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Cynders - Hardened Steel Warhammer will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15207, 20667, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Fathoms - Abyssal Leather Belt will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15207, 20668, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Fathoms - Abyssal Mail Legguards will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15207, 20669, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Fathoms - Darkstone Claymore will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15208, 20670, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Shards - Abyssal Mail Clutch will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15208, 20671, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Shards - Abyssal Plate Legguards will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15208, 20672, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Shards - Sparkling Crystal Wand will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15220, 20673, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Zephyrs - Abyssal Plate Girdle will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15220, 20674, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Zephyrs - Abyssal Cloth Pants will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
+(1, 15220, 20675, 0, 0, 8, 0, 66003, 0, 0, 0, 0, 0, '', 'The Duke of Zephyrs - Soulrender will only drop if the player has completed PROGRESSION_BLACKWING_LAIR'),
 --
 (1, 8555, 22525, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Crypt Fiend Parts will only drop if the player has completed PROGRESSION_AQ'),
 (1, 8556, 22525, 0, 0, 8, 0, 66006, 0, 0, 0, 0, 0, '', 'Crypt Fiend Parts will only drop if the player has completed PROGRESSION_AQ'),
