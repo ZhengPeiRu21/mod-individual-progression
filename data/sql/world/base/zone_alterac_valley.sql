@@ -432,7 +432,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12159, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Korrak the Bloodrager - On Init - Set Invisible'),
 (12159, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Korrak the Bloodrager - On Respawn - Set visible');
 
-DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+301, @CGUID+307, @CGUID+309, @CGUID+310, @CGUID+315, @CGUID+408, @CGUID+409, @CGUID+415, CGUID+425, CGUID+426);
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+301, @CGUID+307, @CGUID+309, @CGUID+310, @CGUID+315, @CGUID+408, @CGUID+409, @CGUID+415, @CGUID+425, @CGUID+426);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 --
 (@CGUID+301, @WPID+3010, 0, 0, 0, 0, 0, NULL), -- alliance
