@@ -351,35 +351,29 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 /* ORIGINAL VANILLA AV */
 
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+301 AND @CGUID+399;
+DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+401 AND @CGUID+499;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 
 -- alliance
-(@CGUID+301, 13318, 0, 0, 30, 0, 0, 1, 1, 1, 652.073, -117.387, 49.7097, 0.974652, 432000, 0, 1, 31440, 0, 2, 0, 0, 0, '', NULL, 0, NULL), -- Commander Mortimer
-(@CGUID+302, 13319, 0, 0, 30, 0, 0, 1, 1, 1, 672.408, -286.799, 29.7551, 3.61283, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Commander Duffy
-(@CGUID+303, 13320, 0, 0, 30, 0, 0, 1, 1, 1, 214.099, -373.896, 56.4709, 2.26893, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Commander Karl Philips
-(@CGUID+304, 13139, 0, 0, 30, 0, 0, 1, 1, 1, -159.406, -458.363, 40.4791, 1.25664, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Commander Randolph
+(@CGUID+301, 13318, 0, 0, 30, 0, 0, 1, 1, 1, 652.073, -117.387, 49.7097, 0.974652, 432000, 0, 1, 31440, 0, 2, 0, 0, 0, '', NULL, 0, NULL),   -- Commander Mortimer
+(@CGUID+302, 13319, 0, 0, 30, 0, 0, 1, 1, 1, 672.408, -286.799, 29.7551, 3.61283, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Commander Duffy
+(@CGUID+303, 13320, 0, 0, 30, 0, 0, 1, 1, 1, 214.099, -373.896, 56.4709, 2.26893, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Commander Karl Philips
+(@CGUID+304, 13139, 0, 0, 30, 0, 0, 1, 1, 1, -159.406, -458.363, 40.4791, 1.25664, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Commander Randolph
 --
-(@CGUID+305, 13138, 0, 0, 30, 0, 0, 1, 1, 1, 80.9093, -416.985, 50.3501, 1.63834, 432000, 0, 0, 23688, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Lieutenant Spencer
-(@CGUID+306, 13296, 0, 0, 30, 0, 0, 1, 1, 1, 9.62153, -318.631, 17.1601, 6.14356, 432000, 0, 0, 23688, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Lieutenant Largent
-(@CGUID+307, 13297, 0, 0, 30, 0, 0, 1, 1, 1, 16.9644, -300.067, 13.9995, 6.13864, 432000, 0, 1, 23688, 0, 2, 0, 0, 0, '', NULL, 0, NULL),  -- Lieutenant Stouthandle
-(@CGUID+308, 13298, 0, 0, 30, 0, 0, 1, 1, 1, 14.7054, -278.976, 16.1597, 6.10865, 432000, 0, 0, 23688, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Lieutenant Greywand
-(@CGUID+309, 13299, 0, 0, 30, 0, 0, 1, 1, 1, 195.441, -409.387, 42.9829, 2.95387, 432000, 0, 1, 23688, 0, 2, 0, 0, 0, '', NULL, 0, NULL),  -- Lieutenant Lonadin
-(@CGUID+310, 13300, 0, 0, 30, 0, 0, 1, 1, 1, -40.902, -480.168, 44.8062, 2.83775, 432000, 0, 1, 23688, 0, 2, 0, 0, 0, '', NULL, 0, NULL),  -- Lieutenant Mancuso
+(@CGUID+305, 13138, 0, 0, 30, 0, 0, 1, 1, 1, 80.9093, -416.985, 50.3501, 1.63834, 432000, 0, 0, 23688, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Lieutenant Spencer
+(@CGUID+306, 13296, 0, 0, 30, 0, 0, 1, 1, 1, 9.62153, -318.631, 17.1601, 6.14356, 432000, 0, 0, 23688, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Lieutenant Largent
+(@CGUID+307, 13297, 0, 0, 30, 0, 0, 1, 1, 1, 16.9644, -300.067, 13.9995, 6.13864, 432000, 0, 1, 23688, 0, 2, 0, 0, 0, '', NULL, 0, NULL),    -- Lieutenant Stouthandle
+(@CGUID+308, 13298, 0, 0, 30, 0, 0, 1, 1, 1, 14.7054, -278.976, 16.1597, 6.10865, 432000, 0, 0, 23688, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Lieutenant Greywand
+(@CGUID+309, 13299, 0, 0, 30, 0, 0, 1, 1, 1, 195.441, -409.387, 42.9829, 2.95387, 432000, 0, 1, 23688, 0, 2, 0, 0, 0, '', NULL, 0, NULL),    -- Lieutenant Lonadin
+(@CGUID+310, 13300, 0, 0, 30, 0, 0, 1, 1, 1, -40.902, -480.168, 44.8062, 2.83775, 432000, 0, 1, 23688, 0, 2, 0, 0, 0, '', NULL, 0, NULL),    -- Lieutenant Mancuso
 --
-(@CGUID+311, 13437, 0, 0, 30, 0, 0, 1, 1, 1, -1291.28, -266.665, 91.6572, 3.29552, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Wing Commander Ichman
-(@CGUID+312, 13438, 0, 0, 30, 0, 0, 1, 1, 1, -771.787, -367.044, 68.4151, 1.08857, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Wing Commander Slidore
-(@CGUID+313, 13439, 0, 0, 30, 0, 0, 1, 1, 1, -1221.27, -354.514, 57.7049, 4.94094, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Wing Commander Vipore
+(@CGUID+311, 14029, 0, 0, 30, 0, 0, 1, 1, 1, -1291.28, -266.665, 91.6572, 3.29552, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Wing Commander Ichman
+(@CGUID+312, 14030, 0, 0, 30, 0, 0, 1, 1, 1, -771.787, -367.044, 68.4151, 1.08857, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Wing Commander Slidore
+(@CGUID+313, 14031, 0, 0, 30, 0, 0, 1, 1, 1, -1221.27, -354.514, 57.7049, 4.94094, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Wing Commander Vipore
 --
-(@CGUID+314, 13598, 0, 0, 30, 0, 0, 1, 1, 1, 605.644, -33.8735, 41.5053, 5.06927, 430, 0, 0, 7403, 0, 0, 0, 0, 0, '', NULL, 0, NULL),      -- Stormpike Explosives Expert
-(@CGUID+315, 13356, 0, 0, 30, 0, 0, 1, 1, 1, 243.319, -361.115, 43.2876, 4.76966, 432000, 0, 1, 15720, 0, 2, 0, 0, 0, '', NULL, 0, NULL);  -- Stormpike Mine Layer
--- (@CGUID+316, 14187, 0, 0, 30, 0, 0, 1, 1, 1, 648.363, -65.2233, 41.7405, 3.12414, 120, 0, 0, 3052, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Athramanis <Bounty Hunter>
--- (@CGUID+317, 14188, 0, 0, 30, 0, 0, 1, 1, 1, 648.238, -67.8931, 41.7405, 2.60054, 120, 0, 0, 2961, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Dirk Swindle <Bounty Hunter>
--- (@CGUID+318, 13257, 0, 0, 30, 0, 0, 1, 1, 1, 647.61, -61.1548, 41.7405, 4.24115, 720, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Murgot Deepforge
-
-DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+401 AND @CGUID+499;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
-`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+(@CGUID+314, 13598, 0, 0, 30, 0, 0, 1, 1, 1, 605.644, -33.8735, 41.5053, 5.06927, 430, 0, 0, 7403, 0, 0, 0, 0, 0, '', NULL, 0, NULL),        -- Stormpike Explosives Expert
+(@CGUID+315, 13356, 0, 0, 30, 0, 0, 1, 1, 1, 243.319, -361.115, 43.2876, 4.76966, 432000, 0, 1, 15720, 0, 2, 0, 0, 0, '', NULL, 0, NULL),    -- Stormpike Mine Layer
 
 -- horde
 (@CGUID+401, 13152, 0, 0, 30, 0, 0, 1, 1, 0, -1090.32, -349.623, 54.6447, 0.0349066, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Commander Malgor
@@ -394,15 +388,12 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+409, 13146, 0, 0, 30, 0, 0, 1, 1, 0, -587.534, -319.762, 48.3816, 4.31599, 432000, 0, 1, 23688, 0, 2, 0, 0, 0, '', NULL, 0, NULL),   -- Lieutenant Murp
 (@CGUID+410, 13147, 0, 0, 30, 0, 0, 1, 1, 0, -491.384, -176.36, 57.5352, 5.96903, 432000, 0, 0, 23688, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Lieutenant Lewis
 --
-(@CGUID+411, 13179, 0, 0, 30, 0, 0, 1, 1, 0, 210.875, -357.36, 56.4586, 5.67232, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),     -- Wing Commander Guse
-(@CGUID+412, 13180, 0, 0, 30, 0, 0, 1, 1, 0, 324.43, -497.17, 71.1594, 5.06268, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),      -- Wing Commander Jeztor
-(@CGUID+413, 13181, 0, 0, 30, 0, 0, 1, 1, 0, 691.614, -143.899, 56.5425, 2.55334, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Wing Commander Mulverick
+(@CGUID+411, 14026, 0, 0, 30, 0, 0, 1, 1, 0, 210.875, -357.36, 56.4586, 5.67232, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),     -- Wing Commander Guse
+(@CGUID+412, 14027, 0, 0, 30, 0, 0, 1, 1, 0, 691.614, -143.899, 56.5425, 2.55334, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Wing Commander Mulverick
+(@CGUID+413, 14028, 0, 0, 30, 0, 0, 1, 1, 0, 324.43, -497.17, 71.1594, 5.06268, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),      -- Wing Commander Jeztor
 --
 (@CGUID+414, 13597, 0, 0, 30, 0, 0, 1, 1, 0, -1240.5, -318.81, 61.2862, 5.73966, 430, 0, 0, 7403, 0, 0, 0, 0, 0, '', NULL, 0, NULL),         -- Frostwolf Explosives Expert
 (@CGUID+415, 13357, 0, 0, 30, 0, 0, 1, 1, 0, -760.987, -346.56, 67.5161, 1.28253, 432000, 0, 1, 15720, 0, 2, 0, 0, 0, '', NULL, 0, NULL);	 -- Frostwolf Mine Layer
--- (@CGUID+416, 14185, 0, 0, 30, 0, 0, 1, 1, 0, -1271.21, -335.554, 62.4462, 5.75959, 120, 0, 0, 2961, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Najak Hexxen <Bounty Hunter>
--- (@CGUID+417, 14186, 0, 0, 30, 0, 0, 1, 1, 0, -1268.64, -332.688, 62.7388, 5.28835, 120, 0, 0, 3052, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Ravak Grimtotem <Bounty Hunter>
--- (@CGUID+418, 13176, 0, 0, 30, 0, 0, 1, 1, 0, -1251.5, -316.327, 62.6565, 5.02655, 720, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Smith Regzar
 
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+501 AND @CGUID+599;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
@@ -1375,7 +1366,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (12127, 13358, 13359, 14283, 14284);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (12127, 13358, 13359, 14283, 14284);
-
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (112127, 113358, 113359, 114283, 114284);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (112127, 113358, 113359, 114283, 114284);
 
@@ -1384,11 +1374,16 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(12127, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Stormpike Guardsman - On Reset - Set Invisible'), -- disable originals
-(13358, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Stormpike Bowman - On Reset - Set Invisible'),
-(13359, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Frostwolf Bowman - On Reset - Set Invisible'),
-(14283, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Stormpike Owl - On Reset - Set Invisible'),
-(14284, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Stormpike Battleguard - On Reset - Set Invisible'),
+(12127, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Reset - Set Invisible'), -- disable originals
+(12127, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Guardsman - On Reset - Set Faction Friendly'),
+(13358, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Bowman - On Reset - Set Invisible'),
+(13358, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Bowman - On Reset - Set Faction Friendly'),
+(13359, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Frostwolf Bowman - On Reset - Set Invisible'),
+(13359, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Frostwolf Bowman - On Reset - Set Faction Friendly'),
+(14283, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Owl - On Reset - Set Invisible'),
+(14283, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Owl - On Reset - Set Faction Friendly'),
+(14284, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Battleguard - On Reset - Set Invisible'),
+(14284, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Stormpike Battleguard - On Reset - Set Faction Friendly'),
 --
 (112127, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Guardsman - On Aggro - Cast Charge'),
 (112127, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 7000, 9000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Stormpike Guardsman - In Combat - Cast Strike'),
@@ -1404,10 +1399,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (113359, 0, 3, 4, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
 (113359, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf Bowman - Within 0-80 Range - Set Sheath Ranged'),
 (113359, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Bowman - On Evade - Set Sheath Melee (No Repeat)'),
-
 (114283, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Owl - In Combat - Cast Thrash'),
 (114284, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Battleguard - On Aggro - Cast Charge'),
 (114284, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 10000, 14000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Stormpike Battleguard - In Combat - Cast Improved Blocking'),
 (114284, 0, 2, 0, 0, 0, 100, 0, 7000, 10000, 20000, 25000, 0, 0, 11, 16509, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Stormpike Battleguard - In Combat - Cast Rend'),
 (114284, 0, 3, 0, 0, 0, 100, 0, 3000, 5000, 5000, 7000, 0, 0, 11, 22591, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Stormpike Battleguard - In Combat - Cast Strike');
 
+/* MISC */
+
+UPDATE `creature_template` SET `name` = 'Lieutenant Murp' WHERE `entry` = 13146;
