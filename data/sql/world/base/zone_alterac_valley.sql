@@ -370,14 +370,10 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 --
 (@CGUID+311, 13598, 0, 0, 30, 0, 0, 1, 1, 1, 605.644, -33.8735, 41.5053, 5.06927, 430, 0, 0, 7403, 0, 0, 0, 0, 0, '', NULL, 0, NULL),        -- Stormpike Explosives Expert
 (@CGUID+312, 13356, 0, 0, 30, 0, 0, 1, 1, 1, 243.319, -361.115, 43.2876, 4.76966, 432000, 0, 1, 15720, 0, 2, 0, 0, 0, '', NULL, 0, NULL),    -- Stormpike Mine Layer
-
-(@CGUID+313, 14029, 0, 0, 30, 0, 0, 1, 1, 0, -1291.28, -266.665, 91.6572, 3.29552, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Wing Commander Ichman Trigger
-(@CGUID+314, 14030, 0, 0, 30, 0, 0, 1, 1, 0, -771.787, -367.044, 68.4151, 1.08857, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Wing Commander Slidore Trigger
-(@CGUID+315, 14031, 0, 0, 30, 0, 0, 1, 1, 0, -1221.27, -354.514, 57.7049, 4.94094, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),   -- Wing Commander Vipore Trigger
 --
-(@CGUID+316, 113437, 0, 0, 30, 0, 0, 1, 1, 1, -1291.28, -266.665, 91.6572, 3.29552, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Wing Commander Ichman
-(@CGUID+317, 113438, 0, 0, 30, 0, 0, 1, 1, 1, -771.787, -367.044, 68.4151, 1.08857, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Wing Commander Slidore
-(@CGUID+318, 113439, 0, 0, 30, 0, 0, 1, 1, 1, -1221.27, -354.514, 57.7049, 4.94094, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Wing Commander Vipore
+(@CGUID+313, 113437, 0, 0, 30, 0, 0, 1, 1, 1, -1291.28, -266.665, 91.6572, 3.29552, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Wing Commander Ichman
+(@CGUID+314, 113438, 0, 0, 30, 0, 0, 1, 1, 1, -771.787, -367.044, 68.4151, 1.08857, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Wing Commander Slidore
+(@CGUID+315, 113439, 0, 0, 30, 0, 0, 1, 1, 1, -1221.27, -354.514, 57.7049, 4.94094, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),  -- Wing Commander Vipore
 
 -- horde
 (@CGUID+401, 13152, 0, 0, 30, 0, 0, 1, 1, 1, -1090.32, -349.623, 54.6447, 0.0349066, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Commander Malgor
@@ -394,14 +390,10 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 --
 (@CGUID+411, 13597, 0, 0, 30, 0, 0, 1, 1, 1, -1240.5, -318.81, 61.2862, 5.73966, 430, 0, 0, 7403, 0, 0, 0, 0, 0, '', NULL, 0, NULL),         -- Frostwolf Explosives Expert
 (@CGUID+412, 13357, 0, 0, 30, 0, 0, 1, 1, 1, -760.987, -346.56, 67.5161, 1.28253, 432000, 0, 1, 15720, 0, 2, 0, 0, 0, '', NULL, 0, NULL),	 -- Frostwolf Mine Layer
-
-(@CGUID+413, 14026, 0, 0, 30, 0, 0, 1, 1, 0, 210.875, -357.36, 56.4586, 5.67232, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),     -- Wing Commander Guse Trigger
-(@CGUID+414, 14027, 0, 0, 30, 0, 0, 1, 1, 0, 691.614, -143.899, 56.5425, 2.55334, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Wing Commander Mulverick Trigger
-(@CGUID+415, 14028, 0, 0, 30, 0, 0, 1, 1, 0, 324.43, -497.17, 71.1594, 5.06268, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),      -- Wing Commander Jeztor Trigger
 --
-(@CGUID+416, 113179, 0, 0, 30, 0, 0, 1, 1, 1, 210.875, -357.36, 56.4586, 5.67232, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Wing Commander Guse
-(@CGUID+417, 113180, 0, 0, 30, 0, 0, 1, 1, 1, 324.43, -497.17, 71.1594, 5.06268, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),     -- Wing Commander Jeztor
-(@CGUID+418, 113181, 0, 0, 30, 0, 0, 1, 1, 1, 691.614, -143.899, 56.5425, 2.55334, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL);   -- Wing Commander Mulverick
+(@CGUID+413, 113179, 0, 0, 30, 0, 0, 1, 1, 1, 210.875, -357.36, 56.4586, 5.67232, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- Wing Commander Guse
+(@CGUID+414, 113180, 0, 0, 30, 0, 0, 1, 1, 1, 324.43, -497.17, 71.1594, 5.06268, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL),     -- Wing Commander Jeztor
+(@CGUID+415, 113181, 0, 0, 30, 0, 0, 1, 1, 1, 691.614, -143.899, 56.5425, 2.55334, 432000, 0, 0, 30520, 0, 0, 0, 0, 0, '', NULL, 0, NULL);   -- Wing Commander Mulverick
 
 
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+501 AND @CGUID+599;
@@ -1234,7 +1226,6 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (7367, 7368);
 UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (7301, 7302);
 
-
 -- restore vanilla AV quests
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (7181, 7202, 7381, 7382);
 
@@ -1432,9 +1423,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12159, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Korrak the Bloodrager - On Init - Set Invisible'),
 (12159, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Korrak the Bloodrager - On Respawn - Set visible');
 
-
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (12127, 13358, 13359, 14283, 14284, 14026, 14027, 14028, 14029, 14030, 14031);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (12127, 13358, 13359, 14283, 14284, 14026, 14027, 14028, 14029, 14030, 14031);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (12127, 13358, 13359, 14283, 14284);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (12127, 13358, 13359, 14283, 14284);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (112127, 113358, 113359, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (112127, 113358, 113359, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439);
 
@@ -1454,24 +1444,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14284, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Battleguard - On Reset - Set Invisible'),
 (14284, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Battleguard - On Reset - Set Faction Friendly'),
 --
-(14026, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 7302, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Guse Trigger - On Death - Reward Quest Credit'),
-(14027, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 7302, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Mulverick Trigger - On Death - Reward Quest Credit'),
-(14028, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 7302, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Jeztor Trigger - On Death - Reward Quest Credit'),
-(14029, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 7301, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Ichman Trigger - On Death - Reward Quest Credit'),
-(14030, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 7301, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Slidore Trigger - On Death - Reward Quest Credit'),
-(14031, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 7301, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Vipore Trigger - On Death - Reward Quest Credit'),
-
-(113179, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 10, @CGUID+413, 0, 0, 0, 0, 0, 0, 0,          'Wing Commander Guse - On Gossip Hello - Kill Trigger'),
+(113179, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 14026, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Wing Commander Guse - On Gossip Hello - Quest Credit'),
 (113179, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Guse - On Gossip Hello - Force Despawn'),
-(113180, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 10, @CGUID+415, 0, 0, 0, 0, 0, 0, 0,          'Wing Commander Jeztor - On Gossip Hello - Kill Trigger'), 
+(113180, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 14028, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Wing Commander Jeztor - On Gossip Hello - Quest Credit'), 
 (113180, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Jeztor - On Gossip Hello - Force Despawn'),
-(113181, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 10, @CGUID+414, 0, 0, 0, 0, 0, 0, 0,          'Wing Commander Mulverick - On Gossip Hello - Kill Trigger'),
+(113181, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 14027, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Wing Commander Mulverick - On Gossip Hello - Quest Credit'),
 (113181, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Mulverick - On Gossip Hello - Force Despawn'),
-(113437, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 10, @CGUID+313, 0, 0, 0, 0, 0, 0, 0,          'Wing Commander Ichman - On Gossip Hello - Kill Trigger'),
+(113437, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 14029, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Wing Commander Ichman - On Gossip Hello - Quest Credit'),
 (113437, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Ichman - On Gossip Hello - Force Despawn'),
-(113438, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 10, @CGUID+314, 0, 0, 0, 0, 0, 0, 0,          'Wing Commander Slidore - On Gossip Hello - Kill Trigger'),
+(113438, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 14030, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Wing Commander Slidore - On Gossip Hello - Quest Credit'),
 (113438, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Slidore - On Gossip Hello - Force Despawn'),
-(113439, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 10, @CGUID+315, 0, 0, 0, 0, 0, 0, 0,          'Wing Commander Vipore - On Gossip Hello - Kill Trigger'),
+(113439, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 14031, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Wing Commander Vipore - On Gossip Hello - Quest Credit'),
 (113439, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Vipore - On Gossip Hello - Force Despawn'),
 --
 (112127, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Guardsman - On Aggro - Cast Charge'),
