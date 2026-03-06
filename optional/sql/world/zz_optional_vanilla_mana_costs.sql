@@ -1,4 +1,7 @@
-/* This file is required for people that do not want to use a modifed spell.dbc file. */
+/* 
+    This file is only required for people that do not want to use a modifed spell.dbc file for their server, but do want modified mana costs.
+    Don't run this file if you use patch-S or if you don't use a patch at all.
+*/
 
 /* In Patch 3.3, the mana costs for many leveling spells were reduced to further speed up and simplify pre-WotLK content. This reverts the costs to 3.0 Mana Costs. */
 /* No WotLK level spells are affected. */

@@ -39,6 +39,6 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12397 AND `Reference` = 60000;
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
-(12397, 1, 60000, 100, 0, 1, 1, 2, 2, NULL);
+(12397, 1, 60000, 100, 0, 1, 0, 2, 2, NULL);
 
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12397 AND `Item` IN (19133, 19134, 19135, 18546, 18544, 18543, 18204, 17113, 17112, 17111);

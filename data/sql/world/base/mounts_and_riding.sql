@@ -5,6 +5,13 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (6171, 1661), (6179, 
 DELETE FROM `creature_questender` WHERE `id` = 6171 AND `quest` IN (1661, 4485, 4486);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (6171, 1661), (6171, 4485), (6171, 4486);
 
+-- Summon Warhorse - The Thalassian Warhorse (Paladin)
+DELETE FROM `creature_queststarter` WHERE `quest` IN (9712); 
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (17717, 9712);
+
+DELETE FROM `creature_questender` WHERE `id` = 17717 AND `quest` IN (9712);
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES (17717, 9712);
+
 -- Re-enable Summon Felsteed (Warlock)
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (3631, 4487, 4488, 4489, 4490);
 

@@ -799,10 +799,10 @@ private:
         auto bp2 = static_cast<int32>(hpAdjustment);
 
         pet->RemoveAura(ABSORB_SPELL);
-        pet->CastCustomSpell(pet, ABSORB_SPELL, &bp1, nullptr, nullptr, false);
+        pet->CastCustomSpell(pet, ABSORB_SPELL, &bp1, nullptr, nullptr, true);
 
         pet->RemoveAura(HP_AURA_SPELL);
-        pet->CastCustomSpell(pet, HP_AURA_SPELL, &bp2, nullptr, nullptr, false);
+        pet->CastCustomSpell(pet, HP_AURA_SPELL, &bp2, nullptr, nullptr, true);
     }
 
 public:
@@ -847,17 +847,9 @@ public:
         Player* player = isPet ? healer->GetOwner()->ToPlayer() : healer->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
-        {
             heal *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaHealingAdjustment);
-        }
         else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-        {
             heal *= sIndividualProgression->tbcHealingAdjustment;
-        }
-        else
-        {
-            return;
-        }
     }
 
     void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* /*spellInfo*/) override
@@ -872,17 +864,9 @@ public:
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
-        {
             damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
-        }
         else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-        {
             damage *= sIndividualProgression->tbcPowerAdjustment;
-        }
-        else
-        {
-            return;
-        }
     }
 
     void ModifyMeleeDamage(Unit* /*target*/, Unit* attacker, uint32& damage) override
@@ -897,17 +881,9 @@ public:
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
-        {
             damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
-        }
         else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-        {
             damage *= sIndividualProgression->tbcPowerAdjustment;
-        }
-        else
-        {
-            return;
-        }
     }
 
     void ModifyPeriodicDamageAurasTick(Unit* /*target*/, Unit* attacker, uint32& damage, SpellInfo const* spellInfo) override
@@ -933,17 +909,9 @@ public:
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
-        {
             damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
-        }
         else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-        {
             damage *= sIndividualProgression->tbcPowerAdjustment;
-        }
-        else
-        {
-            return;
-        }
     }
 
 };

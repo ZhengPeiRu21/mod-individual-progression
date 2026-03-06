@@ -449,6 +449,14 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+41, 7073,   0, 0, 0, 0, 0, 1, 1, 1, -1329.91, 554.068, 101.125, 5.417,    300, 0, 0, 1, 1, 0, 0, 0, 0, '', NULL, 0, NULL), -- Arados the Damned
 (@CGUID+42, 7074,   0, 0, 0, 0, 0, 1, 1, 1, -1319.54, 554.931, 101.501, 4.222,    300, 0, 0, 1, 1, 0, 0, 0, 0, '', NULL, 0, NULL); -- Judge Thelgram
 
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (7071, 7072, 7073, 7074, 7075) AND `Item` = 22229;
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+(7071, 22229, 0, 20, 1, 1, 0, 1, 1, 'Cursed Paladin - Soul Ashes of the Banished'),
+(7072, 22229, 0, 20, 1, 1, 0, 1, 1, 'Cursed Justicar - Soul Ashes of the Banished'),
+(7073, 22229, 0, 20, 1, 1, 0, 1, 1, 'Arados the Damned - Soul Ashes of the Banished'),
+(7074, 22229, 0, 20, 1, 1, 0, 1, 1, 'Judge Thelgram - Soul Ashes of the Banished'),
+(7075, 22229, 0, 20, 1, 1, 0, 1, 1, 'Writhing Mage - Soul Ashes of the Banished');
+
 SET @IPPPHASE    := 65536; 
 SET @IPPPHASE_II := 131072;
 
