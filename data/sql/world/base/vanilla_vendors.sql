@@ -1489,7 +1489,23 @@ UPDATE `item_template` SET `RequiredReputationFaction` = 889, `RequiredReputatio
 UPDATE `item_template` SET `RequiredReputationFaction` = 889, `RequiredReputationRank` = 7 WHERE `entry` IN
 (19505, 22651, 22673, 22676, 22740, 22741, 22747);
 
+-- Samuel Hawke <League of Arathor Supply Officer>
+UPDATE `item_template` SET `RequiredReputationFaction` = 509, `RequiredReputationRank` = 5 WHERE `entry` IN
+(20041, 20042, 20043, 20044, 20045, 20046, 20047, 20088, 20089, 20090, 20097, 20098, 20099, 20103, 20104, 20105, 20106, 20107, 20108, 20115, 20116, 20117, 20118, 20119, 20120, 20124, 20125, 20126);
+UPDATE `item_template` SET `RequiredReputationFaction` = 509, `RequiredReputationRank` = 6 WHERE `entry` IN
+(20048, 20049, 20050, 20051, 20052, 20053, 20054, 20091, 20092, 20093, 20094, 20095, 20096, 20100, 20101, 20102, 20109, 20110, 20111, 20112, 20113, 20114, 20121, 20122, 20123, 20127, 20128, 20129);
+UPDATE `item_template` SET `RequiredReputationFaction` = 509, `RequiredReputationRank` = 7 WHERE `entry` IN
+(20055, 20056, 20057, 20058, 20059, 20060, 20061, 20069, 20070, 20073);
 
+-- Rutherford Twing <Defilers Supply Officer>
+UPDATE `item_template` SET `RequiredReputationFaction` = 510, `RequiredReputationRank` = 5 WHERE `entry` IN
+(20150, 20151, 20152, 20153, 20163, 20164, 20165, 20166, 20171, 20172, 20173, 20174, 20177, 20178, 20179, 20180, 20190, 20191, 20192, 20193, 20195, 20196, 20197, 20198, 20204, 20205, 20206, 20207);
+UPDATE `item_template` SET `RequiredReputationFaction` = 510, `RequiredReputationRank` = 6 WHERE `entry` IN
+(20154, 20155, 20156, 20157, 20159, 20160, 20161, 20162, 20167, 20168, 20169, 20170, 20181, 20182, 20183, 20185, 20186, 20187, 20188, 20189, 20199, 20200, 20201, 20202, 20208, 20209, 20210, 20211);
+UPDATE `item_template` SET `RequiredReputationFaction` = 510, `RequiredReputationRank` = 7 WHERE `entry` IN
+(20068, 20158, 20175, 20176, 20184, 20194, 20203, 20212, 20214, 20220);
+
+    
 -- these need to be hidden. they cannot get a reputation requirement, because some of these items have the same ID for both alliance and horde.
 -- you can only set 1 reputation requirement for an item.
 -- AB is an exception. all AB items are unique to either faction
