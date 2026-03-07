@@ -339,6 +339,26 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (601010, 1, ''),
 (601011, 1, '');
 
+-- Skullsplitter patrols missing formations
+DELETE FROM `creature` WHERE `guid` IN (1408, 1409, 2516, 2517, 2518, 2539);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+--
+(1408, 780, 0, 0, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.23398, 390, 0, 0, 1357, 1236, 2, 0, 0, 0, '', 0, 0, NULL),
+(1409, 696, 0, 0, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.57862, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(2516, 780, 0, 0, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.0101, 390, 0, 0, 1357, 1236, 2, 0, 0, 0, '', 0, 0, NULL),
+(2517, 667, 0, 0, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.0099, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(2518, 696, 0, 0, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.00976, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(2539, 667, 0, 0, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.5783, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `creature_formations` WHERE `leaderGUID` IN (1408, 2516);
+INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES
+(1408, 1408, 0, 0, 515, 0, 0),
+(1408, 2539, 3, 135, 515, 0, 0),
+(1408, 1409, 3, 225, 515, 0, 0),
+(2516, 2516, 0, 0, 515, 0, 0),
+(2516, 2517, 3, 135, 515, 0, 0),
+(2516, 2518, 3, 225, 515, 0, 0);
 
 -- Drop chance for Pristine Tigress Fang was incorrectly set to 100 - updated to 10
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 3839;
