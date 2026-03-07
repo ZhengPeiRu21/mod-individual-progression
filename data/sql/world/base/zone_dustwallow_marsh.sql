@@ -1,16 +1,16 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (4382, 4397);
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(4323, 4328, 4329, 4331, 4334, 4344, 4345, 4346, 4347, 4348, 4351, 4352, 4356, 4359, 4360, 4361, 4362, 4363, 4364, 4366, 4368, 4370, 4371, 4374, 4376, 4378, 4379, 
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN
+(4323, 4328, 4329, 4331, 4334, 4344, 4345, 4346, 4347, 4348, 4351, 4352, 4356, 4359, 4360, 4361, 4362, 4363, 4364, 4366, 4368, 4370, 4371, 4374, 4376, 4378, 4379,
 4380, 4385, 4387, 4389, 4390, 4392, 4393, 4394, 4401, 4404, 4412, 4414, 4834, 14230, 14232, 14236, 15552, 23592, 23593, 23594, 23595, 23714, 23786, 23841, 23873);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(4323, 4328, 4329, 4331, 4334, 4344, 4345, 4346, 4347, 4348, 4351, 4352, 4356, 4359, 4360, 4361, 4362, 4363, 4364, 4366, 4368, 4370, 4371, 4374, 4376, 4378, 4379, 
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN
+(4323, 4328, 4329, 4331, 4334, 4344, 4345, 4346, 4347, 4348, 4351, 4352, 4356, 4359, 4360, 4361, 4362, 4363, 4364, 4366, 4368, 4370, 4371, 4374, 4376, 4378, 4379,
 4380, 4382, 4385, 4387, 4389, 4390, 4392, 4393, 4394, 4397, 4401, 4404, 4412, 4414, 4834, 14230, 14232, 14236, 15552, 23592, 23593, 23594, 23595, 23714, 23786, 23841, 23873);
 
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
-`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`,
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`,
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`,
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 --
 (4323, 0, 0, 0, 0, 0, 100, 0, 2400, 2700, 9400, 9700, 0, 0, 11, 11985, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Searing Hatchling - In Combat - Cast Fireball'),
 (4328, 0, 1, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 18968, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Firemane Scalebane - In Combat - Cast Fire Shield'),
@@ -161,11 +161,11 @@ UPDATE `creature_template` SET `MovementType` = 0 WHERE `entry` = 4841;
 UPDATE `creature` SET `position_x` = -4019.49, `position_y` = -3537.49, `position_z` = 29.8848, `orientation` = 0.719014, `MovementType` = 2, `currentwaypoint` = 1 WHERE `id1` = 4841;
 
 DELETE FROM `creature_addon` WHERE `guid` = 33909;
-INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (33909, 339090, 0, 0, 0, 0, 0, NULL);
 
 DELETE FROM `waypoint_data` WHERE `id` = 339090;
-INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES
 --
 (339090, 1, -4019.49, -3537.49, 30.6543, NULL, 0, 0, 0, 0, 0),
 (339090, 2, -4026.45, -3546.94, 28.8119, NULL, 0, 0, 0, 0, 0),
@@ -264,7 +264,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 -- fix Firemane Scout patrols
 DELETE FROM `creature` WHERE `guid` IN (31125, 31126, 31338, 31339, 31487, 31488, 31492, 31493, 34008, 34019);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (31125, 4329, 0, 0, 1, 0, 0, 1, 1, 1, -4929.12, -3419.79, 34.505, 0.149126, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
@@ -287,15 +287,15 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (31492, 31492, 0, 0, 515, 0, 0),
 (31492, 31493, 3, 90, 515, 0, 0);
 
-DELETE FROM `creature_addon` WHERE `guid` IN (31125, 31338, 31487, 31492);
-INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+DELETE FROM `creature_addon` WHERE `guid` IN (31125, 31338, 31487, 31492, 34008, 34019);
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (31125,  311250,  0, 0, 1, 0, 0, NULL),
 (31338,  313380,  0, 0, 1, 0, 0, NULL),
 (31487,  314870,  0, 0, 1, 0, 0, NULL),
 (31492,  314920,  0, 0, 1, 0, 0, NULL);
 
 DELETE FROM `waypoint_data` WHERE `id` IN (311250, 313380, 314870, 314920);
-INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES
 --
 (311250, 1, -4929.12, -3419.79, 34.4845, 0, 0, 0, 0, 100, 0),
 (311250, 2, -4910.79, -3419.61, 35.3701, 0, 0, 0, 0, 100, 0),
