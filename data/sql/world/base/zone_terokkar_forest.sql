@@ -48,6 +48,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (22441, 0, 11, 12, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Teribus the Cursed - On Respawn - Set Visible OFF'),
 (22441, 0, 12, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 622441, 122441, 0, 0, 0, 0, 0, 0,       'Teribus the Cursed - On Respawn - Set Visible ON for patrol');
 
+-- fix SMART_ACTION_TALK worldserver errors
+UPDATE `smart_scripts` SET `target_type` = 21, `target_param1` = 40 WHERE `entryorguid` = 1410 AND `source_type` = 0 AND `id` = 3;
+UPDATE `smart_scripts` SET `target_type` = 21, `target_param1` = 40 WHERE `entryorguid` = 16769 AND `source_type` = 0 AND `id` = 17;
+
 DELETE FROM `creature` WHERE `guid` IN (247237, 622441);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
