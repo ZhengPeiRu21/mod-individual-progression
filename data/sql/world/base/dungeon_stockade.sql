@@ -22,7 +22,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1696, 0, 2, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Targorr the Dread - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (1696, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Targorr the Dread - On Enrage - Say Line 0'),
 --
-(1706, 0, 0, 0, 105, 0, 100, 0, 0, 0, 10000, 15000, 0, 5, 11, 1766, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Defias Prisoner - Victim Casting - Cast Kick'),
+(1706, 0, 0, 0, 105, 0, 50, 0, 0, 0, 10000, 15000, 0, 5, 11, 1766, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Defias Prisoner - Victim Casting - Cast Kick'),
 (1706, 0, 1, 0, 0, 0, 100, 0, 5000, 12000, 20000, 33000, 0, 0, 11, 6713, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Defias Prisoner - Within 0-5 Range - Cast Disarm'),
 (1706, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Defias Prisoner - Between 0-15% Health - Flee For Assist'),
 (1706, 0, 3, 0, 11, 0, 100, 513, 1, 34, 0, 0, 0, 0, 2, 17, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Defias Prisoner - On Respawn - Set Faction 17'),
