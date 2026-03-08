@@ -869,17 +869,9 @@ public:
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
-        {
             damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
-        }
         else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-        {
             damage *= sIndividualProgression->tbcPowerAdjustment;
-        }
-        else
-        {
-            return;
-        }
     }
 
 };
