@@ -758,27 +758,15 @@ private:
             return;
 
         if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC))
-            AdjustVanillaStats(pet);
+        {
+            float hpAdjustment = sIndividualProgression->ComputeVanillaAdjustment(pet->GetLevel(), sIndividualProgression->vanillaHealthAdjustment);
+            AdjustStats(pet, hpAdjustment);
+        }
         else if (sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5))
-            AdjustTBCStats(pet);
-    }
-
-    static void AdjustVanillaStats(Pet* pet)
-    {
-        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
-            return;
-
-        float hpAdjustment = sIndividualProgression->ComputeVanillaAdjustment(pet->GetLevel(), sIndividualProgression->vanillaHealthAdjustment);
-        AdjustStats(pet, hpAdjustment);
-    }
-
-    static void AdjustTBCStats(Pet* pet)
-    {
-        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
-            return;
-	
-        float hpAdjustment = sIndividualProgression->ComputeVanillaAdjustment(pet->GetLevel(), sIndividualProgression->tbcHealthAdjustment);
-        AdjustStats(pet, hpAdjustment);
+        {
+            float hpAdjustment = sIndividualProgression->ComputeVanillaAdjustment(pet->GetLevel(), sIndividualProgression->tbcHealthAdjustment);
+            AdjustStats(pet, hpAdjustment);
+        }
     }
 
     static void AdjustStats(Pet* pet, float hpAdjustment)
