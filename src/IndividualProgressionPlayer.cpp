@@ -764,8 +764,7 @@ private:
         }
         else if (sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5))
         {
-            float hpAdjustment = sIndividualProgression->ComputeVanillaAdjustment(pet->GetLevel(), sIndividualProgression->tbcHealthAdjustment);
-            AdjustStats(pet, hpAdjustment);
+            AdjustStats(pet, sIndividualProgression->tbcHealthAdjustment);
         }
     }
 
