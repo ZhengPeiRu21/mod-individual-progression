@@ -63,43 +63,28 @@ void IndividualProgression::CheckAdjustments(Player* player) const
         player->CastSpell(player, RANGED_HASTE_SPELL, false);
     }
 
+    if (hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        return;
+    
     if (!hasPassedProgression(player, PROGRESSION_PRE_TBC))
     {
-        float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-
-        float PowerAdjustmentValue = -100.0f * (1.0f - vanillaPowerAdjustment);
-        float computedPowerAdjustment = player->GetLevel() > 10 ? (PowerAdjustmentValue * adjustmentApplyPercent) : 0;
-
-        float HealthAdjustmentAmount = -100.0f * (1.0f - vanillaHealthAdjustment);
-        float computedHealthAdjustment = player->GetLevel() > 10 ? (HealthAdjustmentAmount * adjustmentApplyPercent) : 0;
-
-	    AdjustStats(player, computedPowerAdjustment, computedHealthAdjustment);
+        float computedHealthAdjustment = ComputeVanillaAdjustment(player->GetLevel(), vanillaHealthAdjustment);
+	    AdjustStats(player, computedHealthAdjustment);	
     }
     else if (hasPassedProgression(player, PROGRESSION_PRE_TBC) && !hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
     {
-        float computedPowerAdjustment = -100.0f * (1.0f - tbcPowerAdjustment);
-        float computedHealthAdjustment = -100.0f * (1.0f - tbcHealthAdjustment);
-
-	    AdjustStats(player, computedPowerAdjustment, computedHealthAdjustment);
-    }
-    else
-    {
-        return;
+	    AdjustStats(player, tbcHealthAdjustment);
     }
 }
 
-void IndividualProgression::AdjustStats(Player* player, float computedPowerAdjustment, float computedHealthAdjustment)
+void IndividualProgression::AdjustStats(Player* player, float computedHealthAdjustment)
 {
-    if (!player || !player->IsInWorld())
+    if (!sIndividualProgression->enabled || !player || !player->IsInWorld())
         return;
 
-    // auto bp1 = static_cast<int32>(computedPowerAdjustment);
-	auto bp0 = static_cast<int32>(computedHealthAdjustment);
+    auto bp0 = static_cast<int32>(computedHealthAdjustment);
 
-    player->RemoveAura(ABSORB_SPELL);
-    // player->CastCustomSpell(player, ABSORB_SPELL, &bp1, nullptr, nullptr, true);
-
-	player->RemoveAura(HP_AURA_SPELL);
+    player->RemoveAura(HP_AURA_SPELL);
     player->CastCustomSpell(player, HP_AURA_SPELL, &bp0, nullptr, nullptr, true);
 }
 
