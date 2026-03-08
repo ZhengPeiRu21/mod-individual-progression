@@ -71,7 +71,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2583, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 18000, 50, 40, 11, 17137, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Stromgarde Troll Hunter - On Friendly Between 0-50% Health - Cast Flash Heal'),
 (2583, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Troll Hunter - On Death - Cross Cast Vengeance'),
 (2584, 0, 0, 0, 1, 0, 100, 1, 2000, 6000, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Stromgarde Defender - Out of Combat - Cast Defensive Stance (No Repeat)'),
-(2584, 0, 1, 0, 105, 0, 100, 0, 7000, 10000, 9000, 13000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Stromgarde Defender - Within 0-5 Range - Cast Shield Bash'),
+(2584, 0, 1, 0, 105, 0, 50, 0, 7000, 10000, 9000, 13000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Stromgarde Defender - Within 0-5 Range - Cast Shield Bash'),
 (2584, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Defender - On Death - Cross Cast Vengeance'),
 (2585, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Vindicator - On Death - Cross Cast Vengeance'),
 (2586, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 22766, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Syndicate Highwayman - Out of Combat - Cast Sneak (No Repeat)'),
@@ -126,7 +126,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4480, 0, 0, 0, 9, 0, 100, 0, 2000, 4000, 6000, 12000, 0, 5, 11, 8379, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Kenata Dabyrie - Within 0-5 Range - Cast Disarm'),
 (4480, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Kenata Dabyrier - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4481, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Marcel Dabyrie - On Aggro - Cast Defensive Stance'),
-(4481, 0, 1, 0, 105, 0, 100, 0, 6000, 11000, 19000, 25000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Marcel Dabyrie - In Combat - Cast Shield Bash'),
+(4481, 0, 1, 0, 105, 0, 50, 0, 6000, 11000, 19000, 25000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Marcel Dabyrie - In Combat - Cast Shield Bash'),
 (4481, 0, 2, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15062, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Marcel Dabyrie - Between 0-50% Health - Cast Shield Wall (No Repeat)'),
 (4481, 0, 3, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Marcel Dabyrie - Between 0-30% Health - Flee For Assist (No Repeat)');
 
