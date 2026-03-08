@@ -758,51 +758,28 @@ private:
             return;
 
         if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC))
-            AdjustVanillaStats(pet);
+        {
+            float adjustmentApplyPercent = (pet->GetLevel() - 10.0f) / 50.0f;
+            float hpAdjustmentValue = -100.0f * (1.0f - sIndividualProgression->vanillaHealthAdjustment);
+            float hpAdjustment = pet->GetLevel() > 10 ? (hpAdjustmentValue * adjustmentApplyPercent) : 0;
+            AdjustStats(pet, hpAdjustment);
+        }
         else if (sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5))
-            AdjustTBCStats(pet);
+        {
+            float hpAdjustmentValue = -100.0f * (1.0f - sIndividualProgression->tbcHealthAdjustment);
+            AdjustStats(pet, hpAdjustmentValue);
+        }
     }
 
-    static void AdjustVanillaStats(Pet* pet)
+    static void AdjustStats(Pet* pet, float hpAdjustment)
     {
         if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
             return;
 
-        float adjustmentValue = -100.0f * (1.0f - sIndividualProgression->vanillaPowerAdjustment);
-        float adjustmentApplyPercent = (pet->GetLevel() - 10.0f) / 50.0f;
-        float computedAdjustment = pet->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-        float hpAdjustmentValue = -100.0f * (1.0f - sIndividualProgression->vanillaHealthAdjustment);
-        float hpAdjustment = pet->GetLevel() > 10 ? (hpAdjustmentValue * adjustmentApplyPercent) : 0;
-        AdjustStats(pet, computedAdjustment, hpAdjustment);
-    }
-
-    static void AdjustTBCStats(Pet* pet)
-    {
-        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
-            return;
-
-        float adjustmentValue = -100.0f * (1.0f - sIndividualProgression->tbcPowerAdjustment);
-        float adjustmentApplyPercent = 1;
-        float computedAdjustment = pet->GetLevel() > 10 ? (adjustmentValue * adjustmentApplyPercent) : 0;
-        float hpAdjustmentValue = -100.0f * (1.0f - sIndividualProgression->tbcHealthAdjustment);
-        float hpAdjustment = pet->GetLevel() > 10 ? (hpAdjustmentValue * adjustmentApplyPercent) : 0;
-        AdjustStats(pet, computedAdjustment, hpAdjustment);
-    }
-
-    static void AdjustStats(Pet* pet, float computedAdjustment, float hpAdjustment)
-    {
-        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
-            return;
-
-        // int32 bp0 = 0; // This would be the damage taken adjustment value, but we are already adjusting health
-        auto bp1 = static_cast<int32>(computedAdjustment);
-        auto bp2 = static_cast<int32>(hpAdjustment);
-
-        pet->RemoveAura(ABSORB_SPELL);
-        pet->CastCustomSpell(pet, ABSORB_SPELL, &bp1, nullptr, nullptr, true);
+        auto bp0 = static_cast<int32>(hpAdjustment);
 
         pet->RemoveAura(HP_AURA_SPELL);
-        pet->CastCustomSpell(pet, HP_AURA_SPELL, &bp2, nullptr, nullptr, true);
+        pet->CastCustomSpell(pet, HP_AURA_SPELL, &bp0, nullptr, nullptr, true);
     }
 
 public:
