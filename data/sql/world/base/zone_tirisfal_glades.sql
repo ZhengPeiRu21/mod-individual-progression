@@ -47,7 +47,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1539, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Neophyte - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1540, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Scarlet Vanguard - On Aggro - Say Line 0'),
 (1540, 0, 1, 0, 0, 0, 100, 0, 1000, 3000, 180000, 184000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Vanguard - In Combat - Cast Defensive Stance'),
-(1540, 0, 2, 0, 105, 0, 100, 0, 0, 0, 9000, 16000, 0, 5, 11, 72, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Scarlet Vanguard - Target Casting - Cast Shield Bash'),
+(1540, 0, 2, 0, 105, 0, 50, 0, 0, 0, 9000, 16000, 0, 5, 11, 72, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,              'Scarlet Vanguard - Target Casting - Cast Shield Bash'),
 (1540, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Vanguard - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (1544, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 324, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Vile Fin Minor Oracle - Out of Combat - Cast Lightning Shield'),
@@ -67,7 +67,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1660, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Scarlet Bodyguard - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1662, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Perrine - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1664, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 182000, 186000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Vachon - In Combat - Cast Defensive Stance'),
-(1664, 0, 1, 0, 105, 0, 100, 0, 0, 0, 16000, 24000, 0, 5, 11, 72, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Captain Vachon - Target Casting - Cast Shield Bash'),
+(1664, 0, 1, 0, 105, 0, 50, 0, 0, 0, 16000, 24000, 0, 5, 11, 72, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Captain Vachon - Target Casting - Cast Shield Bash'),
 (1664, 0, 2, 0, 0, 0, 100, 0, 8000, 14000, 18000, 30000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Captain Vachon - In Combat - Cast Improved Blocking'),
 (1664, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Vachon - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1665, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 240000, 300000, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Captain Melrache - In Combat - Cast Devotion Aura'),
