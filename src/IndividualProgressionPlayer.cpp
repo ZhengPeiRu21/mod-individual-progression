@@ -222,6 +222,8 @@ public:
             {
                 if (player->GetLevel() != IP_LEVEL_WOTLK)
                     return false;
+                // if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+                //     return false;
             }
         }
         if (mapid == MAP_ZUL_GURUB)
@@ -851,8 +853,6 @@ public:
         if (!sIndividualProgression->enabled || !attacker || !damage || !spellInfo)
             return;
 
-        if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-
         // Do not apply reductions to healing auras - these are already modified in the ModifyHeal hook
         for (uint8 j = 0; j < MAX_SPELL_EFFECTS; ++j)
         {
@@ -871,9 +871,17 @@ public:
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
+        {
             damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
+        }
         else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        {
             damage *= sIndividualProgression->tbcPowerAdjustment;
+        }
+        else
+        {
+            return;
+        }
     }
 
 };
