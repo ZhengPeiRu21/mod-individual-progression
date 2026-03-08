@@ -60,7 +60,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (3128, 0, 0, 0, 9, 0, 100, 1, 0, 0, 0, 0, 5, 30, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Kul Tiras Sailor - Between 5-30 Range - Cast Rushing Charge (No Repeat)'),
 (3128, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Kul Tiras Sailor - Between 0-15% Health - Flee For Assist (No Repeat)'),
-(3129, 0, 0, 0, 105, 0, 100, 0, 0, 0, 16000, 32000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Kul Tiras Marine - Target Casting - Cast Shield Bash'),
+(3129, 0, 0, 0, 105, 0, 50, 0, 0, 0, 16000, 32000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Kul Tiras Marine - Target Casting - Cast Shield Bash'),
 (3129, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Kul Tiras Marine - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (3130, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 6000, 11000, 0, 0, 11, 5401, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Thunder Lizard - In Combat - Cast Lizard Bolt'),
@@ -69,7 +69,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3183, 0, 0, 0, 9, 0, 100, 0, 0, 0, 19000, 25000, 0, 30, 11, 172, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Yarrog Baneshadow - Within 0-30 Range - Cast Corruption'),
 (3183, 0, 1, 0, 0, 0, 100, 0, 8000, 12000, 22000, 29000, 0, 0, 11, 348, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Yarrog Baneshadow - In Combat - Cast Immolate'),
 (3192, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 200000, 200000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Lieutenant Benedict - Out of Combat - Cast Defensive Stance'),
-(3192, 0, 1, 0, 105, 0, 100, 0, 0, 0, 20000, 30000, 0, 5, 11, 72, 2, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Lieutenant Benedict - Target Casting - Cast Shield Bash'),
+(3192, 0, 1, 0, 105, 0, 50, 0, 0, 0, 20000, 30000, 0, 5, 11, 72, 2, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Lieutenant Benedict - Target Casting - Cast Shield Bash'),
 (3192, 0, 2, 0, 9, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Lieutenant Benedict - Within 0-5 Range - Cast Improved Blocking'),
 (3192, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Lieutenant Benedict - Between 0-15% Health - Flee For Assist'),
 --
@@ -102,9 +102,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3227, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Corrupted Bloodtalon Scythemaw - On Aggro - Cast Rushing Charge'),
 (3281, 0, 0, 0, 0, 0, 60, 0, 1000, 5000, 1000, 8000, 0, 0, 11, 11918, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Sarkoth - Within 0-5 Range - Cast Poison'),
 (5808, 0, 0, 0, 0, 0, 100, 0, 8000, 25000, 21000, 44000, 0, 0, 11, 8078, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Warlord Kolkanis - In Combat - Cast Thunderclap'),
-(5808, 0, 1, 0, 105, 0, 100, 0, 5000, 20000, 40000, 40000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Warlord Kolkanis - Target Casting - Cast Pummel'),
+(5808, 0, 1, 0, 105, 0, 50, 0, 5000, 20000, 40000, 40000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Warlord Kolkanis - Target Casting - Cast Pummel'),
 (5809, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Watch Commander Zalaphil - Out of Combat - Cast Defensive Stance'),
-(5809, 0, 1, 0, 105, 0, 100, 0, 0, 0, 8000, 20000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Watch Commander Zalaphil - Target Casting - Cast Shield Bash'),
+(5809, 0, 1, 0, 105, 0, 50, 0, 0, 0, 8000, 20000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Watch Commander Zalaphil - Target Casting - Cast Shield Bash'),
 (5809, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Watch Commander Zalaphil - Between 0-15% Health - Flee For Assist'),
 (5822, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9613, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Felweaver Scornn - In Combat - Cast Shadow Bolt'),
 (5822, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Felweaver Scornn - Between 0-15% Health - Flee For Assist (No Repeat)'),
