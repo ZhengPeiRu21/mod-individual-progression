@@ -40,7 +40,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5998, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 12000, 16000, 0, 0, 11, 5115, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Nethergarde Foreman - In Combat - Cast Battle Command'),
 (5998, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Nethergarde Foreman - Between 0-15% Health - Flee For Assist'),
 (5999, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 12000, 15000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Nethergarde Soldier - In Combat - Cast Improved Blocking'),
-(5999, 0, 1, 0, 105, 0, 100, 0, 0, 0, 13000, 16000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Nethergarde Soldier - Target Casting - Cast Shield Bash'),
+(5999, 0, 1, 0, 105, 0, 50, 0, 0, 0, 13000, 16000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Nethergarde Soldier - Target Casting - Cast Shield Bash'),
 --
 (6004, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Shadowsworn Cultist - Outside 30 Range - Start Combat Movement'),
 (6004, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Shadowsworn Cultist - Within 5-30 Range - Stop Combat Movement'),
@@ -48,7 +48,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6004, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 10277, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Shadowsworn Cultist - Within 5-30 Range - Cast Throw'),
 (6004, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Shadowsworn Cultist - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (6005, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Shadowsworn Thug - On Respawn - Cast Thrash Proc'),
-(6005, 0, 1, 0, 105, 0, 100, 0, 0, 0, 8400, 16100, 0, 5, 11, 11978, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Shadowsworn Thug - Target Casting - Cast Kick'),
+(6005, 0, 1, 0, 105, 0, 50, 0, 0, 0, 8400, 16100, 0, 5, 11, 11978, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Shadowsworn Thug - Target Casting - Cast Kick'),
 (6005, 0, 2, 0, 0, 0, 100, 0, 8000, 24000, 13000, 24000, 0, 0, 11, 8646, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Shadowsworn Thug - Within 0-5 Range - Cast Snap Kick'),
 (6006, 0, 0, 0, 0, 0, 100, 0, 7000, 9000, 8000, 15000, 0, 0, 11, 11015, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Shadowsworn Adept - Within 0-5 Range - Cast Blood Leech'),
 (6006, 0, 1, 0, 14, 0, 100, 1, 1200, 10, 0, 0, 0, 0, 11, 7154, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Shadowsworn Adept - Friendly Missing 1200 Health - Cast Dark Offering'),
