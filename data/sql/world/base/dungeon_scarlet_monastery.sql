@@ -123,7 +123,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4298, 0, 0, 0, 0, 0, 100, 0, 8000, 13000, 8000, 19000, 0, 0, 11, 3639, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scarlet Defender - In Combat - Cast Improved Blocking'),
 (4298, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Defender - On Aggro - Say Line 1'),
 (4298, 0, 2, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Scarlet Defender - In Combat - Cast Defensive Stance (No Repeat)'),
-(4298, 0, 3, 0, 105, 0, 100, 0, 4000, 14000, 9000, 18000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Defender - Victim Casting - Cast Shield Bash'),
+(4298, 0, 3, 0, 105, 0, 50, 0, 4000, 14000, 9000, 18000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Scarlet Defender - Victim Casting - Cast Shield Bash'),
 (4298, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Defender - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4298, 0, 5, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Defender - spellhit_target - AshbringerEvent'),
 (4299, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 1006, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Chaplain - On Reset - Cast Inner Fire'),
@@ -157,7 +157,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4306, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Torturer - Between 0-15% Health - Flee For Assist'),
 (4540, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 3391, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Scarlet Monk - On Reset - Cast Thrash'),
 (4540, 0, 1, 0, 4, 0, 20, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Scarlet Monk - On Aggro - Say Line 1'),
-(4540, 0, 2, 0, 105, 0, 100, 0, 3600, 12800, 3600, 12800, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Scarlet Monk - Victim Casting - Cast Kick'),
+(4540, 0, 2, 0, 105, 0, 50, 0, 3600, 12800, 3600, 12800, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Scarlet Monk - Victim Casting - Cast Kick'),
 (4540, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Scarlet Monk - Between 0-15% Health - Flee For Assist'),
 (4540, 0, 4, 0, 8, 0, 100, 769, 28441, 0, 0, 0, 0, 0, 80, 429400, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Scarlet Monk - spellhit_target - AshbringerEvent'),
 --
