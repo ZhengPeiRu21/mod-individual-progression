@@ -78,7 +78,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (10418, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 8, 25, 11, 15749, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Guardsman - Within Range 8-25yd - Cast Shield Charge'),
 (10418, 0, 1, 0, 0, 0, 100, 0, 6000, 6000, 15000, 15000, 0, 0, 11, 6713, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Guardsman - In Combat - Cast Disarm'),
-(10418, 0, 2, 0, 105, 0, 100, 0, 4000, 4000, 8000, 8000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Guardsman - Victim Casting - Cast Shield Bash'),
+(10418, 0, 2, 0, 105, 0, 50, 0, 4000, 4000, 8000, 8000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Guardsman - Victim Casting - Cast Shield Bash'),
 (10418, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Guardsman - Between 0-15% Health - Flee For Assist'),
 (10419, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 12675, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Crimson Conjuror - In Combat - Cast Frostbolt'),
 (10419, 0, 1, 0, 0, 0, 100, 0, 2000, 4000, 5000, 12000, 0, 0, 11, 17195, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Crimson Conjuror - In Combat - Cast Scorch'),
@@ -185,7 +185,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10812, 0, 17, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 36, 10812, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Grand Crusader Dathrohan - Out of Combat - Update Entry'),
 -- https://github.com/vmangos/core/blob/development/src/scripts/eastern_kingdoms/eastern_plaguelands/stratholme/boss_cannon_master_willey.cpp
 (10997, 0, 0, 0, 0, 0, 100, 0, 15000, 20000, 15000, 20000, 0, 0, 11, 10101, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Cannon Master Willey - In Combat - Cast Knock Away'),
-(10997, 0, 1, 0, 105, 0, 100, 0, 5000, 10000, 12000, 18000, 0, 5, 11, 15615, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Cannon Master Willey - In Combat - Cast Pummel'),
+(10997, 0, 1, 0, 105, 0, 50, 0, 5000, 10000, 12000, 18000, 0, 5, 11, 15615, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Cannon Master Willey - In Combat - Cast Pummel'),
 (10997, 0, 2, 0, 0, 0, 100, 0, 5000, 6000, 20000, 20000, 0, 0, 11, 17279, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Cannon Master Willey - In Combat - Cast Summon Crimson Rifleman'),
 (10997, 0, 3, 4, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 17279, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Cannon Master Willey - On Death - Cast Summon Crimson Rifleman'),
 (10997, 0, 4, 5, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 17279, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Cannon Master Willey - On Death - Cast Summon Crimson Rifleman'),
@@ -201,7 +201,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11043, 0, 0, 0, 4, 0, 50, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Crimson Monk - On Aggro - Say Line 0'),
 (11043, 0, 1, 2, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 674, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Crimson Monk - On Respawn - Cast Dual Wield'),
 (11043, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Crimson Monk - On Respawn - Cast Thrash Proc'),
-(11043, 0, 3, 0, 105, 0, 100, 0, 0, 0, 8000, 10000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Monk - Victim Casting - Cast Kick'),
+(11043, 0, 3, 0, 105, 0, 50, 0, 0, 0, 8000, 10000, 0, 5, 11, 11978, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Crimson Monk - Victim Casting - Cast Kick'),
 (11043, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Monk - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (16387, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28340, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Atiesh - On Reset - Cast Unholy Aura'),
