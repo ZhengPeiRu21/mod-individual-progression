@@ -47,7 +47,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7112, 0, 2, 0, 0, 0, 100, 0, 7000, 9000, 15000, 25000, 0, 0, 11, 11980, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Jaedenar Cultist - In Combat - Cast Curse of Weakness'),
 (7112, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Jaedenar Cultist - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (7113, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 13000, 17000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Jaedenar Guardian - In Combat - Cast Improved Blocking'),
-(7113, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Jaedenar Guardian - Within 0-5 Range - Cast Shield Bash'),
+(7113, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Jaedenar Guardian - Within 0-5 Range - Cast Shield Bash'),
 (7114, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 21000, 0, 5, 11, 11977, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Jaedenar Enforcer - Within 0-5 Range - Cast Rend'),
 (7115, 0, 0, 0, 0, 0, 100, 0, 11000, 15000, 12000, 16000, 0, 0, 11, 20832, 0, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0, 'Jaedenar Adept - Within 0-20 Range - Cast Fire Blast'),
 (7115, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Jaedenar Adept - In Combat - Cast Fireball'),
