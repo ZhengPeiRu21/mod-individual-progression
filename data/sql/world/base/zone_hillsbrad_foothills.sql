@@ -39,7 +39,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2267, 0, 0, 0, 9, 0, 100, 0, 0, 0, 45000, 45000, 0, 5, 11, 6016, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Hillsbrad Peasant - Within 0-5 Range - Cast Pierce Armor'),
 (2267, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hillsbrad Peasant - Between 0-30% Health - Flee For Assist (No Repeat)'),
 (2268, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 180000, 180000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Hillsbrad Footman - In Combat - Cast Defensive Stance'),
-(2268, 0, 1, 0, 105, 0, 100, 0, 0, 0, 12000, 15000, 0, 5, 11, 1671, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Hillsbrad Footman - Target Casting - Cast Shield Bash'),
+(2268, 0, 1, 0, 105, 0, 50, 0, 0, 0, 12000, 15000, 0, 5, 11, 1671, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Hillsbrad Footman - Target Casting - Cast Shield Bash'),
 (2268, 0, 2, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hillsbrad Footman - Between 0-30% Health - Flee For Assist (No Repeat)'),
 (2269, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 180000, 180000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Hillsbrad Miner - In Combat - Cast Defensive Stance'),
 (2269, 0, 1, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 7405, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Hillsbrad Miner - Within 0-5 Range - Cast Sunder Armor'),
@@ -47,7 +47,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2270, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hillsbrad Sentry - Between 0-30% Health - Flee For Assist (No Repeat)'),
 --
 (2304, 0, 0, 0, 0, 0, 100, 0, 1000, 3000, 23000, 30000, 0, 0, 11, 7020, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Captain Ironhill - In Combat - Cast Stoneform'),
-(2304, 0, 1, 0, 105, 0, 100, 0, 0, 0, 10000, 14000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Captain Ironhill - Target Casting - Cast Pummel'),
+(2304, 0, 1, 0, 105, 0, 50, 0, 0, 0, 10000, 14000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Captain Ironhill - Target Casting - Cast Pummel'),
 (2304, 0, 2, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Ironhill - Between 0-30% Health - Flee For Assist (No Repeat)'),
 (2305, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 643, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Foreman Bonds - On Respawn - Cast Devotion Aura'),
 (2305, 0, 1, 0, 9, 0, 100, 0, 0, 0, 60000, 60000, 0, 5, 11, 5588, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Foreman Bonds - Within 0-5 Range - Cast Hammer of Justice'),
@@ -80,7 +80,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2360, 0, 0, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Hillsbrad Farmhand - Between 0-30% Health - Flee For Assist (No Repeat)'),
 --
 (2368, 0, 0, 0, 0, 0, 100, 0, 1000, 1000, 180000, 180000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Daggerspine Shorestalker - In Combat - Cast Defensive Stance'),
-(2368, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Daggerspine Shorestalker - Target Casting - Cast Pummel'),
+(2368, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Daggerspine Shorestalker - Target Casting - Cast Pummel'),
 (2368, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Daggerspine Shorestalker - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2369, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Daggerspine Shorehunter - Outside 30 Range - Start Combat Movement'),
 (2369, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Daggerspine Shorehunter - Within 5-30 Range - Stop Combat Movement'),
@@ -137,8 +137,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (7068, 0, 0, 0, 0, 0, 100, 0, 0, 0, 21000, 25000, 0, 0, 11, 15654, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Condemned Acolyte - In Combat - Cast Shadow Word: Pain'),
 (7068, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 40, 40, 11, 25058, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Acolyte - Friendly Between 0-40% Health - Cast Renew'),
-(7069, 0, 0, 0, 105, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Condemned Monk - Target Casting - Cast Kick'),
-(7069, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Condemned Monk - Target Casting - Cast Pummel'),
+(7069, 0, 0, 0, 105, 0, 50, 0, 0, 0, 15000, 21000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Condemned Monk - Target Casting - Cast Kick'),
+(7069, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Condemned Monk - Target Casting - Cast Pummel'),
 (7070, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 25054, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Condemned Cleric - In Combat - Cast Holy Smite'),
 (7070, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 21000, 40, 40, 11, 15586, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Cleric - Friendly Between 0-40% Health - Cast Heal'),
 (7071, 0, 0, 0, 9, 0, 100, 0, 0, 0, 14000, 18000, 0, 8, 11, 13005, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Cursed Paladin - Within 0-8 Range - Cast Hammer of Justice'),
@@ -150,8 +150,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (607068, 0, 0, 0, 0, 0, 100, 0, 0, 0, 21000, 25000, 0, 0, 11, 15654, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Acolyte - In Combat - Cast Shadow Word: Pain'),
 (607068, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 25000, 40, 40, 11, 11640, 32, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Condemned Acolyte - Friendly Between 0-40% Health - Cast Renew'),
-(607069, 0, 0, 0, 105, 0, 100, 0, 0, 0, 15000, 21000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Condemned Monk - Target Casting - Cast Kick'),
-(607069, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Monk - Target Casting - Cast Pummel'),
+(607069, 0, 0, 0, 105, 0, 50, 0, 0, 0, 15000, 21000, 0, 5, 11, 15614, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Condemned Monk - Target Casting - Cast Kick'),
+(607069, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 13000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Condemned Monk - Target Casting - Cast Pummel'),
 (607070, 0, 0, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 9734, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Condemned Cleric - In Combat - Cast Holy Smite'),
 (607070, 0, 1, 0, 74, 0, 100, 0, 0, 0, 18000, 21000, 40, 40, 11, 15586, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Condemned Cleric - Friendly Between 0-40% Health - Cast Heal'),
 (607071, 0, 0, 0, 9, 0, 100, 0, 0, 0, 14000, 18000, 0, 8, 11, 13005, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Cursed Paladin - Within 0-8 Range - Cast Hammer of Justice'),
