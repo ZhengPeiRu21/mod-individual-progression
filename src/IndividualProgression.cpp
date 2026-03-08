@@ -76,7 +76,7 @@ void IndividualProgression::CheckAdjustments(Player* player) const
     else if (hasPassedProgression(player, PROGRESSION_PRE_TBC) && !hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
     {
         float computedHealthAdjustment = -100.0f * (1.0f - tbcHealthAdjustment);
-	    AdjustStats(player, tbcHealthAdjustment);
+	    AdjustStats(player, computedHealthAdjustment);
     }
 }
 
