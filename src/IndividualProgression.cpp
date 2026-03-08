@@ -68,11 +68,14 @@ void IndividualProgression::CheckAdjustments(Player* player) const
     
     if (!hasPassedProgression(player, PROGRESSION_PRE_TBC))
     {
-        float computedHealthAdjustment = ComputeVanillaAdjustment(player->GetLevel(), vanillaHealthAdjustment);
-	    AdjustStats(player, computedHealthAdjustment);	
+        float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
+        float HealthAdjustmentAmount = -100.0f * (1.0f - vanillaHealthAdjustment);
+        float computedHealthAdjustment = player->GetLevel() > 10 ? (HealthAdjustmentAmount * adjustmentApplyPercent) : 0;
+        AdjustStats(player, computedHealthAdjustment);
     }
     else if (hasPassedProgression(player, PROGRESSION_PRE_TBC) && !hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
     {
+        float computedHealthAdjustment = -100.0f * (1.0f - tbcHealthAdjustment);
 	    AdjustStats(player, tbcHealthAdjustment);
     }
 }
