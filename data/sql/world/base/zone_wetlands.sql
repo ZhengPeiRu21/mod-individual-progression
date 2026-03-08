@@ -88,7 +88,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1035, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dragonmaw Swamprunner - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1036, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Dragonmaw Centurion - On Aggro - Say Line 0'),
 (1036, 0, 1, 0, 0, 0, 90, 0, 1000, 3000, 180000, 180000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Dragonmaw Centurion - In Combat - Cast Defensive Stance'),
-(1036, 0, 2, 0, 105, 0, 100, 0, 0, 0, 12000, 14000, 0, 5, 11, 1672, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Dragonmaw Centurion - Target Casting - Cast Shield Bash'),
+(1036, 0, 2, 0, 105, 0, 50, 0, 0, 0, 12000, 14000, 0, 5, 11, 1672, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Dragonmaw Centurion - Target Casting - Cast Shield Bash'),
 (1036, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dragonmaw Centurion - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1037, 0, 0, 0, 0, 0, 100, 0, 9000, 14000, 19000, 38000, 0, 0, 11, 3019, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Dragonmaw Battlemaster - In Combat - Cast Frenzy'),
 (1037, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Dragonmaw Battlemaster - Between 0-15% Health - Flee For Assist (No Repeat)'),
