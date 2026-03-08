@@ -222,8 +222,6 @@ public:
             {
                 if (player->GetLevel() != IP_LEVEL_WOTLK)
                     return false;
-                // if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
-                //     return false;
             }
         }
         if (mapid == MAP_ZUL_GURUB)
