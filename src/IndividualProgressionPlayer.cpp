@@ -759,12 +759,15 @@ private:
 
         if (!sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC))
         {
-            float hpAdjustment = sIndividualProgression->ComputeVanillaAdjustment(pet->GetLevel(), sIndividualProgression->vanillaHealthAdjustment);
+            float adjustmentApplyPercent = (pet->GetLevel() - 10.0f) / 50.0f;
+            float hpAdjustmentValue = -100.0f * (1.0f - sIndividualProgression->vanillaHealthAdjustment);
+            float hpAdjustment = pet->GetLevel() > 10 ? (hpAdjustmentValue * adjustmentApplyPercent) : 0;
             AdjustStats(pet, hpAdjustment);
         }
         else if (sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(pet->GetOwner(), PROGRESSION_TBC_TIER_5))
         {
-            AdjustStats(pet, sIndividualProgression->tbcHealthAdjustment);
+            float hpAdjustmentValue = -100.0f * (1.0f - sIndividualProgression->tbcHealthAdjustment);
+            AdjustStats(pet, hpAdjustmentValue);
         }
     }
 
