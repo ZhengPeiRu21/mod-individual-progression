@@ -41,7 +41,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2743, 0, 0, 0, 0, 0, 100, 0, 7000, 18000, 22000, 23000, 0, 0, 11, 17207, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Shadowforge Warrior - In Combat - Cast Whirlwind'),
 (2743, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shadowforge Warrior - Between 0-15% Health - Flee For Assist'),
 (2893, 0, 0, 0, 0, 0, 100, 0, 4000, 15900, 15700, 26100, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Stonevault Bonesnapper - Within 0-5 Range - Cast Strike'),
-(2893, 0, 1, 0, 105, 0, 100, 0, 9000, 19000, 15000, 25000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Stonevault Bonesnapper - Within 0-5 Range - Cast Pummel'),
+(2893, 0, 1, 0, 105, 0, 50, 0, 9000, 19000, 15000, 25000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Stonevault Bonesnapper - Within 0-5 Range - Cast Pummel'),
 (2893, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stonevault Bonesnapper - Between 0-15% Health - Flee For Assist'),
 (2894, 0, 0, 0, 2, 0, 60, 1, 0, 80, 0, 0, 0, 0, 11, 5605, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stonevault Shaman - Between 0-80% Health - Cast Healing Ward'),
 (2894, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stonevault Shaman - Between 0-15% Health - Flee For Assist'),
