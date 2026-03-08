@@ -15,7 +15,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (587, 0, 0, 0, 0, 0, 100, 0, 8000, 15800, 20000, 32200, 0, 0, 11, 6713, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,       'Bloodscalp Warrior - Within 0-5 Range - Cast Disarm'),
-(587, 0, 1, 0, 105, 0, 100, 0, 0, 0, 15000, 20000, 0, 5, 11, 11972, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Bloodscalp Warrior - Target Casting - Cast Shield Bash'),
+(587, 0, 1, 0, 105, 0, 50, 0, 0, 0, 15000, 20000, 0, 5, 11, 11972, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodscalp Warrior - Target Casting - Cast Shield Bash'),
 (587, 0, 2, 3, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Bloodscalp Warrior - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (587, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodscalp Warrior - On Enrage - Say Line 0'),
 (588, 0, 0, 1, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Bloodscalp Scout - Between 0-30% Health - Cast Enrage (No Repeat)'),
@@ -27,7 +27,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (660, 0, 2, 3, 2, 0, 100, 513, 0, 20, 0, 0, 0, 0, 11, 8599, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Bloodscalp Witch Doctor - Between 0-20% Health - Cast Enrage (No Repeat)'),
 (660, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodscalp Witch Doctor - On Enrage - Say Line 0'),
 (667, 0, 0, 0, 0, 0, 100, 512, 5000, 7000, 23000, 26000, 0, 0, 11, 3148, 2, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Skullsplitter Warrior - Within 0-5 Range - Cast Head Crack'),
-(667, 0, 1, 0, 105, 0, 100, 512, 4000, 5000, 15000, 20000, 0, 5, 11, 11972, 2, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Skullsplitter Warrior - Within 0-5 Range - Cast Shield Bash'),
+(667, 0, 1, 0, 105, 0, 50, 512, 4000, 5000, 15000, 20000, 0, 5, 11, 11972, 2, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Skullsplitter Warrior - Within 0-5 Range - Cast Shield Bash'),
 (667, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                        'Skullsplitter Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (669, 0, 0, 0, 25, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 3621, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Skullsplitter Hunter - On Reset - Cast Skullsplitter Pet'),
 (669, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 12787, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Skullsplitter Hunter - On Reset - Cast Thrash'),
@@ -223,7 +223,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1490, 0, 1, 0, 0, 0, 100, 1, 8000, 45000, 0, 0, 0, 0, 11, 11980, 32, 0, 0, 0, 0, 21, 30, 0, 0, 0, 0, 0, 0, 0,          'Zanzil Witch Doctor - Within 0-30 Range - Cast Curse of Weakness (No Repeat)'),
 (1490, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Zanzil Witch Doctor - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1491, 0, 0, 0, 9, 0, 100, 0, 3000, 30000, 10000, 30000, 0, 5, 11, 9080, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Zanzil Naga - Within 0-5 Range - Cast Hamstring'),
-(1491, 0, 1, 0, 105, 0, 100, 0, 4000, 5000, 10000, 11000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Zanzil Naga - In Combat - Cast Pummel'),
+(1491, 0, 1, 0, 105, 0, 50, 0, 4000, 5000, 10000, 11000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Zanzil Naga - In Combat - Cast Pummel'),
 (1492, 0, 0, 0, 9, 0, 100, 0, 0, 0, 30000, 40000, 0, 8, 11, 5568, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Gorlash - Within 0-8 Range - Cast Trample'), -- https://www.youtube.com/watch?v=KoGj_skDKHw
 (1493, 0, 0, 0, 1, 0, 100, 0, 5000, 10000, 300000, 600000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Mok\'rash - Out of Combat - Say Line 0'),
 --
@@ -238,7 +238,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1562, 0, 1, 0, 0, 0, 100, 0, 1200, 4700, 34200, 36800, 0, 0, 11, 2601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Bloodsail Mage - In Combat - Cast Fire Shield III'),
 (1562, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Bloodsail Mage - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1563, 0, 0, 0, 0, 0, 100, 0, 10600, 12400, 22000, 26200, 0, 0, 11, 6713, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Bloodsail Swashbuckler - Within 0-5 Range - Cast Disarm'),
-(1563, 0, 1, 0, 105, 0, 100, 0, 7000, 11000, 12000, 16000, 0, 5, 11, 1768, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Bloodsail Swashbuckler - Within 0-5 Range - Cast Kick'),
+(1563, 0, 1, 0, 105, 0, 50, 0, 7000, 11000, 12000, 16000, 0, 5, 11, 1768, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Bloodsail Swashbuckler - Within 0-5 Range - Cast Kick'),
 (1563, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Bloodsail Swashbuckler - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1564, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 31, 1, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Bloodsail Warlock - On Reset - Set Phase Random Between 1-2'),
 (1564, 0, 1, 0, 1, 1, 100, 513, 0, 1000, 0, 0, 0, 0, 11, 8722, 3, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Bloodsail Warlock - Out of Combat - Cast Summon Succubus (No Repeat)'),
@@ -270,7 +270,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2546, 0, 0, 0, 0, 0, 100, 0, 0, 500, 1400, 4900, 0, 0, 11, 6192, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Fleet Master Firallon - In Combat - Cast Battle Shout'),
 (2546, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Fleet Master Firallon - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2547, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ironpatch - On Aggro - Cast Defensive Stance'),
-(2547, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Ironpatch - In Combat - Cast Shield Bash'),
+(2547, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Ironpatch - In Combat - Cast Shield Bash'),
 (2547, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Ironpatch - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2548, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Captain Keelhaul - Outside 30 Range - Start Combat Movement'),
 (2548, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Captain Keelhaul - Within 5-30 Range - Stop Combat Movement'),

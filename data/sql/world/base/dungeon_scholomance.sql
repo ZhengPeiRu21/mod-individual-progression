@@ -22,7 +22,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10471, 0, 3, 0, 0, 0, 100, 0, 2000, 11000, 11000, 19000, 0, 0, 11, 17165, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Scholomance Acolyte - In Combat - Cast Mind Flay'),
 (10471, 0, 4, 0, 14, 0, 100, 0, 2000, 40, 6400, 12400, 0, 0, 11, 17613, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Scholomance Acolyte - Friendly Missing Health - Cast Dark Mending'),
 (10472, 0, 0, 0, 0, 0, 100, 0, 1000, 7000, 60000, 60000, 0, 0, 11, 16431, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Scholomance Occultist - In Combat - Cast Bone Armor'),
-(10472, 0, 1, 0, 105, 0, 100, 0, 0, 0, 10000, 20000, 0, 30, 11, 15122, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Scholomance Occultist - Victim Casting - Cast Counterspell'),
+(10472, 0, 1, 0, 105, 0, 50, 0, 0, 0, 10000, 20000, 0, 30, 11, 15122, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Scholomance Occultist - Victim Casting - Cast Counterspell'),
 (10472, 0, 2, 0, 0, 0, 100, 0, 2000, 10000, 11000, 17000, 0, 0, 11, 17228, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scholomance Occultist - In Combat - Cast Shadow Bolt Volley'),
 (10472, 0, 3, 0, 0, 0, 100, 0, 6000, 15000, 13000, 21000, 0, 0, 11, 17243, 320, 0, 0, 0, 0, 5, 20, 0, 1, 0, 0, 0, 0, 0, 'Scholomance Occultist - In Combat - Cast Drain Mana'),
 (10477, 0, 0, 0, 0, 0, 100, 0, 4000, 16000, 10000, 16000, 0, 0, 11, 14887, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Scholomance Necromancer - In Combat - Cast Shadow Bolt Volley'),

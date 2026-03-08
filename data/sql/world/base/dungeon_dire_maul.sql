@@ -56,7 +56,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11441, 0, 1, 0, 0, 0, 100, 0, 8900, 17900, 6200, 16400, 0, 0, 11, 18072, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,       'Gordok Brute - Within 0-10 Range - Cast Uppercut'),
 (11441, 0, 2, 0, 9, 0, 100, 0, 0, 0, 14000, 21000, 0, 5, 11, 22572, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Gordok Brute - Within 0-5 Range - Cast Bruising Blow'),
 (11441, 0, 3, 0, 0, 0, 100, 0, 8000, 17000, 14000, 21000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,         'Gordok Brute - Within 0-5 Range - Cast Backhand'),
-(11441, 0, 4, 0, 105, 0, 100, 0, 0, 0, 10000, 20000, 0, 5, 11, 15615, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Gordok Brute - Target Casting - Cast Pummel'),
+(11441, 0, 4, 0, 105, 0, 50, 0, 0, 0, 10000, 20000, 0, 5, 11, 15615, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,              'Gordok Brute - Target Casting - Cast Pummel'),
 (11441, 0, 5, 6, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 15716, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gordok Brute - Between 0-30% Health - Cast Enrage'),
 (11441, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Gordok Brute - On Enrage - Say Line 1'),
 (11441, 0, 7, 0, 1, 0, 100, 0, 4000, 15000, 20000, 40000, 0, 0, 10, 1, 11, 25, 6, 21, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Gordok Brute - Out of Combat - Play Random Emote'),
@@ -114,7 +114,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13160, 0, 0, 0, 9, 0, 100, 0, 0, 0, 9050, 17500, 0, 5, 11, 5416, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                'Carrion Swarmer - Within 0-5 Range - Cast Venom Sting'),
 --
 (14321, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 8, 25, 11, 15749, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Guard Fengus - Within 8-25 Range - Cast Shield Charge'),
-(14321, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,              'Guard Fengus - Target Casting - Cast Shield Bash'),
+(14321, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Guard Fengus - Target Casting - Cast Shield Bash'),
 (14321, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 8000, 12000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Guard Fengus - Within 0-5 Range - Cast Strike'),
 (14321, 0, 3, 0, 0, 0, 100, 0, 7000, 12000, 12000, 15000, 0, 0, 11, 10101, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,      'Guard Fengus - Within 0-10 Range - Cast Knock Away'),
 (14321, 0, 4, 5, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Guard Fengus - Between Health 0-30% - Cast Frenzy'),
@@ -133,7 +133,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14322, 0, 7, 0, 62, 0, 100, 512, 5721, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stomper Kreeg - On Gossip Select - Close Gossip'),
 --
 (14323, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 8, 25, 11, 15749, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Guard Slip\'kik - Within 8-25 Range - Cast Shield Charge'),
-(14323, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,              'Guard Slip\'kik - Target Casting - Cast Shield Bash'),
+(14323, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Guard Slip\'kik - Target Casting - Cast Shield Bash'),
 (14323, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 8000, 12000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Guard Slip\'kik - Within 0-5 Range - Cast Strike'),
 (14323, 0, 3, 4, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Guard Slip\'kik - Between Health 0-30% - Cast Frenzy'),
 (14323, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Guard Slip\'kik - On Frenzy - Say Line 0'),
@@ -173,7 +173,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14325, 0, 22, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 4, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Captain Kromcrush - On Death - Set Instance Data 4 to 1'),
 --
 (14326, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 8, 25, 11, 15749, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Guard Mol\'dar - Within 8-25 Range - Cast Shield Charge'),
-(14326, 0, 1, 0, 105, 0, 100, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,              'Guard Mol\'dar - Target Casting - Cast Shield Bash'),
+(14326, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Guard Mol\'dar - Target Casting - Cast Shield Bash'),
 (14326, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 8000, 12000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Guard Mol\'dar - Within 0-5 Range - Cast Strike'),
 (14326, 0, 3, 4, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Guard Mol\'dar - Between Health 0-30% - Cast Frenzy'),
 (14326, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Guard Mol\'dar - On Frenzy - Say Line 0'),

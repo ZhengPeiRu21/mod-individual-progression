@@ -27,7 +27,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4436, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Razorfen Quilguard - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4442, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Razorfen Defender - On Aggro - Cast Defensive Stance'),
 (4442, 0, 1, 0, 0, 0, 100, 0, 6000, 14000, 10000, 30000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Razorfen Defender - Within 0-5 Range - Cast Improved Blocking'),
-(4442, 0, 2, 0, 105, 0, 100, 0, 2000, 16000, 10000, 20000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Razorfen Defender - Victim Casting - Cast Shield Bash'),
+(4442, 0, 2, 0, 105, 0, 50, 0, 2000, 16000, 10000, 20000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Razorfen Defender - Victim Casting - Cast Shield Bash'),
 (4442, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Razorfen Defender - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
 (4515, 0, 0, 0, 14, 0, 100, 0, 1000, 40, 14000, 19000, 0, 0, 11, 8362, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Death\'s Head Acolyte - Friendly Missing Health - Cast Renew'),

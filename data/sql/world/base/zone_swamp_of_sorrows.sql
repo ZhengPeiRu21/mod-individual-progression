@@ -15,7 +15,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (744, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Green Scalebane - Within 0-5 Range - Cast Cleave'),
 (745, 0, 0, 0, 0, 0, 100, 0, 1000, 5000, 15000, 25000, 0, 0, 11, 9128, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Scalebane Captain - In Combat - Cast Battle Shout'),
 (745, 0, 1, 0, 9, 0, 100, 0, 0, 0, 9000, 21000, 0, 5, 11, 13730, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Scalebane Captain - Within 0-5 Range - Cast Demoralizing Shout'),
-(745, 0, 2, 0, 105, 0, 100, 0, 0, 0, 13000, 18000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Scalebane Captain - In Combat - Cast Pummel'),
+(745, 0, 2, 0, 105, 0, 50, 0, 0, 0, 13000, 18000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Scalebane Captain - In Combat - Cast Pummel'),
 (746, 0, 0, 0, 0, 0, 100, 0, 5000, 12000, 35000, 40000, 0, 0, 11, 6306, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Elder Dragonkin - In Combat - Cast Acid Splash'),
 (750, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 11000, 0, 5, 11, 9612, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Marsh Inkspewer - Within 0-5 Range - Cast Ink Spray'),
 (750, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Marsh Inkspewer - Between 0-15% Health - Flee For Assist (No Repeat)'),

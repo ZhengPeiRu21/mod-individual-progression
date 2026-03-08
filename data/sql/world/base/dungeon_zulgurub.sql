@@ -99,7 +99,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14825, 0, 3, 0, 0, 0, 100, 0, 7000, 12000, 12000, 17000, 0, 0, 11, 7068, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Withered Mistress - In Combat - Cast Veil of Shadow'),
 (14882, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Atal ai Mistress - On Respawn - Cast Thrash Proc'),
 (14882, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 6000, 8000, 0, 0, 11, 24671, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Atal ai Mistress - Within 0-5 Range - Cast Snap Kick'),
-(14882, 0, 2, 0, 105, 0, 100, 0, 0, 0, 1000, 4000, 0, 5, 11, 15615, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Atal ai Mistress - Within 0-5 Range - Cast Pummel'),
+(14882, 0, 2, 0, 105, 0, 50, 0, 0, 0, 1000, 4000, 0, 5, 11, 15615, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Atal ai Mistress - Within 0-5 Range - Cast Pummel'),
 --
 (15043, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 20000, 25000, 0, 0, 11, 3604, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Zulian Crocolisk - In Combat - Cast Tendon Rip'),
 (15043, 0, 1, 0, 9, 0, 100, 0, 0, 0, 5000, 7000, 0, 5, 11, 13445, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Zulian Crocolisk - In Combat - Cast Rend'),

@@ -67,7 +67,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8978, 0, 4, 0, 0, 0, 100, 0, 7000, 11000, 21000, 36000, 0, 0, 11, 6533, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Thauris Balgarr - In Combat - Cast Net'),
 (8978, 0, 5, 0, 0, 0, 100, 0, 1000, 3000, 19200, 32700, 0, 0, 11, 11802, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Thauris Balgarr - In Combat - Cast Dark Iron Land Mine'), -- test!
 (8979, 0, 0, 0, 0, 0, 100, 0, 6000, 12000, 10000, 17000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Gruklash - Within 0-5 Range - Cast Backhand'),
-(8979, 0, 1, 0, 105, 0, 100, 0, 0, 0, 11000, 15000, 0, 5, 11, 12555, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Gruklash - Target Casting - Cast Pummel'),
+(8979, 0, 1, 0, 105, 0, 50, 0, 0, 0, 11000, 15000, 0, 5, 11, 12555, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Gruklash - Target Casting - Cast Pummel'),
 (8979, 0, 2, 3, 2, 0, 100, 0, 0, 50, 120000, 120000, 0, 0, 11, 8269, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Gruklash - Between 0-50% Health - Cast Frenzy'),
 (8979, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Gruklash - On Frenzy - Say Line 0'),
 (8981, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Malfunctioning Reaver - On Respawn - Cast Thrash Proc'),

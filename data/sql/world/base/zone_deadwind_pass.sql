@@ -31,7 +31,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12379, 0, 1, 2, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Unliving Caretaker - Between 0-30% Health - Cast Enrage (No Repeat)'),
 (12379, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Unliving Caretaker - On Enrage - Say Line 0'),
 (12380, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 9000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Unliving Resident - Within 0-5 Range - Cast Sunder Armor'),
-(12380, 0, 1, 0, 105, 0, 100, 0, 6000, 8000, 6000, 9000, 0, 5, 11, 11978, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Unliving Resident - Target Casting - Cast Kick');
+(12380, 0, 1, 0, 105, 0, 50, 0, 6000, 8000, 6000, 9000, 0, 5, 11, 11978, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Unliving Resident - Target Casting - Cast Kick');
 
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (7371, 7372, 7379);

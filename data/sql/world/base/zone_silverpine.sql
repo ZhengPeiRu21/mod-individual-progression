@@ -60,7 +60,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1894, 0, 1, 2, 1, 0, 100, 512, 5000, 5000, 5000, 5000, 0, 0, 36, 1894, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Pyrewood Sentry - Out of Combat - Update Entry'),
 (1894, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 24085, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Pyrewood Sentry - Out of Combat - Cast Transform Visual'),
 (1894, 0, 3, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Pyrewood Sentry - On Aggro - Cast Defensive Stance'),
-(1894, 0, 4, 0, 105, 0, 100, 0, 0, 0, 20000, 40000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Pyrewood Sentry - Target Casting - Cast Shield Bash'),
+(1894, 0, 4, 0, 105, 0, 50, 0, 0, 0, 20000, 40000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Pyrewood Sentry - Target Casting - Cast Shield Bash'),
 (1894, 0, 5, 0, 0, 0, 100, 0, 2000, 20000, 12000, 30000, 0, 0, 11, 12169, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Pyrewood Sentry - In Combat - Cast Shield Block'),
 (1894, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Pyrewood Sentry - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (1895, 0, 0, 2, 1, 0, 100, 512, 5000, 5000, 5000, 5000, 0, 0, 36, 1896, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Pyrewood Elder - Out of Combat - Update Entry'),

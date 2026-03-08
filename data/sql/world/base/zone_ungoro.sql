@@ -76,7 +76,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9162, 0, 0, 0, 0, 0, 100, 0, 6000, 6000, 20000, 20000, 0, 0, 11, 3604, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Young Diemetradon - Within 0-5 Range - Cast Tendon Rip'),
 (9163, 0, 0, 0, 0, 0, 100, 0, 8000, 8000, 15000, 15000, 0, 0, 11, 13692, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Diemetradon - Within 0-5 Range - Cast Dire Growl'),
 (9164, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Elder Diemetradon - On Respawn - Cast Thrash Proc'),
-(9164, 0, 1, 0, 105, 0, 100, 0, 0, 0, 7000, 9000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,            'Elder Diemetradon - Target Casting - Cast Pummel'),
+(9164, 0, 1, 0, 105, 0, 50, 0, 0, 0, 7000, 9000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,             'Elder Diemetradon - Target Casting - Cast Pummel'),
 --
 (9165, 0, 0, 0, 0, 0, 100, 0, 8000, 8000, 15000, 15000, 0, 0, 11, 5708, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Fledgling Pterrordax - Within 0-5 Range - Cast Swoop'),
 (9166, 0, 0, 0, 0, 0, 100, 0, 8000, 8000, 10000, 14000, 0, 0, 11, 6605, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Pterrordax - In Combat - Cast Terrifying Screech'),

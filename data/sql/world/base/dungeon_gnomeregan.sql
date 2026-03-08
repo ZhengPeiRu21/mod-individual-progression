@@ -46,7 +46,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (6235, 0, 3, 0, 0, 0, 100, 0, 3000, 3000, 21000, 21000, 0, 0, 11, 11085, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Electrocutioner 6000 - In Combat - Cast Chain Bolt'),
 --
 (6391, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 10000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Holdout Warrior - Within 0-5 Range - Cast Strike'),
-(6391, 0, 1, 0, 105, 0, 100, 0, 0, 0, 10000, 12000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Holdout Warrior - Victim Casting - Cast Pummel'),
+(6391, 0, 1, 0, 105, 0, 50, 0, 0, 0, 10000, 12000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,          'Holdout Warrior - Victim Casting - Cast Pummel'),
 (6391, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Holdout Warrior - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (6391, 0, 3, 0, 8, 0, 100, 0, 9798, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Holdout Warrior - On Spellhit Radiation - Say Line 0'),
 (6392, 0, 0, 0, 14, 0, 100, 0, 1500, 40, 14000, 21000, 0, 0, 11, 22167, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Holdout Medic - Friendly Missing Health - Cast Heal'),
