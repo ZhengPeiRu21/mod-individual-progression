@@ -4,7 +4,10 @@ UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Skar\'this the Her
 -- fix reputation gain for creatures in normal Slave Pens
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 4 WHERE `creature_id` = 17938; -- Coilfang Observer
 UPDATE `creature_onkill_reputation` SET `MaxStanding1` = 4 WHERE `creature_id` = 21128; -- Coilfang Ray <Observer's Pet>
-    
+
+-- The Underbog - fix SMART_ACTION_TALK worldserver errors 
+UPDATE `smart_scripts` SET `target_type` = 21, `target_param1` = 40 WHERE `entryorguid` = 17725 AND `source_type` = 0 AND `id` = 0;
+
 -- creatures in normal The Slave Pens should not drop Coilfang Armaments
 DELETE FROM `creature_loot_template` WHERE `Item` = 24368 AND `Entry` IN (17938, 17957, 17958, 17959, 17960, 17961, 21126, 21127);
 
@@ -40,4 +43,3 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (21231, 0, 0, 0, 0, 0, 100, 0, 5000, 12000, 10000, 15000, 0, 0, 11, 38631, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Greyheart Shield-Bearer - In Combat - Cast Avenger\'s Shield'),
 (21231, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 15000, 8, 25, 11, 38630, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Greyheart Shield-Bearer - In Combat - Cast Shield Charge');
-
