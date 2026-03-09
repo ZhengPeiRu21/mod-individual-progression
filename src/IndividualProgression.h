@@ -53,8 +53,8 @@ enum ProgressionBossIDs
 
 enum BuffSpells
 {
-    HP_AURA_SPELL        = 89501,
-    ABSORB_SPELL         = 89505,
+    // HP_AURA_SPELL     = 89501,
+    // ABSORB_SPELL      = 89505,
     RANGED_HASTE_SPELL   = 89507,
     SPELL_RUNE_TAP       = 48982,
     SPELL_LIFE_STEAL     = 20004,
