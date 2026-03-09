@@ -62,33 +62,6 @@ void IndividualProgression::CheckAdjustments(Player* player) const
         player->RemoveAura(RANGED_HASTE_SPELL);
         player->CastSpell(player, RANGED_HASTE_SPELL, false);
     }
-
-    if (hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-        return;
-    
-    if (!hasPassedProgression(player, PROGRESSION_PRE_TBC))
-    {
-        float adjustmentApplyPercent = (player->GetLevel() - 10.0f) / 50.0f;
-        float HealthAdjustmentAmount = -100.0f * (1.0f - vanillaHealthAdjustment);
-        float computedHealthAdjustment = player->GetLevel() > 10 ? (HealthAdjustmentAmount * adjustmentApplyPercent) : 0;
-        AdjustStats(player, computedHealthAdjustment);
-    }
-    else if (hasPassedProgression(player, PROGRESSION_PRE_TBC) && !hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-    {
-        float computedHealthAdjustment = -100.0f * (1.0f - tbcHealthAdjustment);
-	    AdjustStats(player, computedHealthAdjustment);
-    }
-}
-
-void IndividualProgression::AdjustStats(Player* player, float computedHealthAdjustment)
-{
-    if (!sIndividualProgression->enabled || !player || !player->IsInWorld())
-        return;
-
-    auto bp0 = static_cast<int32>(computedHealthAdjustment);
-
-    player->RemoveAura(HP_AURA_SPELL);
-    player->CastCustomSpell(player, HP_AURA_SPELL, &bp0, nullptr, nullptr, true);
 }
 
 float IndividualProgression::ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue)
@@ -97,12 +70,7 @@ float IndividualProgression::ComputeVanillaAdjustment(uint8 playerLevel, float c
     return playerLevel > 10 ? 1.0f - ((1.0f - configAdjustmentValue) * adjustmentApplyPercent) : 1;
 }
 
-/**
- * Gets the highest progression level achieved by an account
- * Note that this method makes a direct, non-sync DB call and should be used sparingly
- *
- * @return progression level
- */
+// Return the highest progression level achieved by an account
 uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
 {
     uint8 progressionLevel = 0;
@@ -210,7 +178,6 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
             continue;
 
         ForceUpdateProgressionState(member, static_cast<ProgressionState>(refProgress));
-        CheckAdjustments(member);
     }
 }
 
@@ -953,7 +920,6 @@ void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16
         return;
     
     player->CompletedAchievement(entry);
-
 }
 
 void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
@@ -1051,10 +1017,8 @@ void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
                 }
             }
         }
-
 		++i;
     }
-
 }
 
 void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
@@ -1128,10 +1092,8 @@ private:
         sIndividualProgression->enabled = sConfigMgr->GetOption<bool>("IndividualProgression.Enable", true);
         sIndividualProgression->vanillaPowerAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.VanillaPowerAdjustment", 1);
         sIndividualProgression->vanillaHealingAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.VanillaHealingAdjustment", 1);
-        sIndividualProgression->vanillaHealthAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.VanillaHealthAdjustment", 1);
         sIndividualProgression->tbcPowerAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.TBCPowerAdjustment", 1);
         sIndividualProgression->tbcHealingAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.TBCHealingAdjustment", 1);
-        sIndividualProgression->tbcHealthAdjustment = sConfigMgr->GetOption<float>("IndividualProgression.TBCHealthAdjustment", 1);
         sIndividualProgression->questXpFix = sConfigMgr->GetOption<bool>("IndividualProgression.QuestXPFix", true);
         sIndividualProgression->requireNaxxStrath = sConfigMgr->GetOption<bool>("IndividualProgression.RequireNaxxStrathEntrance", false);
         sIndividualProgression->doableNaxx40Bosses = sConfigMgr->GetOption<bool>("IndividualProgression.doableNaxx40Bosses", false);
