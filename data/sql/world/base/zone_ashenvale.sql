@@ -356,7 +356,8 @@ INSERT INTO `waypoints` (`entry`, `pointid`, `position_x`, `position_y`, `positi
 (12818, 16, 3236.17, -518.389, 148.701, NULL, 0, 'Ruul Snowhoof');
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 12818;
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 12818;
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (12818);
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1281801, 1281802);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -375,16 +376,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12818, 0, 9, 0, 1, 1, 100, 513, 5000, 5000, 0, 0, 0, 0, 3, 0, 29421, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Ruul Snowhoof - Out of Combat - Morph To Model 29421'),
 (12818, 0, 10, 0, 1, 1, 100, 513, 5000, 5000, 0, 0, 0, 0, 3, 12819, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Ruul Snowhoof - Out of Combat - Morph To Creature Ruul Snowhoof Bear Form'),
 --
-(12818, 0, 11, 0, 60, 1, 100, 1, 40000, 40000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965, 'Ruul Snowhoof - On Update - Summon Creature Thistlefur Ursa'),
-(12818, 0, 12, 0, 60, 1, 100, 1, 44000, 44000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965, 'Ruul Snowhoof - On Update - Summon Creature Thistlefur Totemic'),
-(12818, 0, 13, 0, 60, 1, 100, 1, 48000, 48000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965, 'Ruul Snowhoof - On Update - Summon Creature Thistlefur Pathfinder'),
-(12818, 0, 14, 0, 60, 1, 100, 1, 90000, 90000, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,   'Ruul Snowhoof - On Update - Summon Creature Thistlefur Ursa'),
-(12818, 0, 15, 0, 60, 1, 100, 1, 94000, 94000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,   'Ruul Snowhoof - On Update - Summon Creature Thistlefur Totemic'),
-(12818, 0, 16, 0, 60, 1, 100, 1, 98000, 98000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,   'Ruul Snowhoof - On Update - Summon Creature Thistlefur Pathfinder'),
+(12818, 0, 11, 0, 40, 1, 100, 1, 4, 12818, 0, 0, 0, 0, 80, 1281801, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Ruul Snowhoof - On Waypoint Reached - Run Script'),
+(12818, 0, 12, 0, 40, 1, 100, 1, 7, 12818, 0, 0, 0, 0, 80, 1281802, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Ruul Snowhoof - On Waypoint Reached - Run Script'),
 --
-(12818, 0, 17, 18, 58, 1, 100, 1, 16, 12818, 0, 0, 0, 0, 1, 1, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,       'Ruul Snowhoof - On Waypoint Finished - Say Line 1'),
-(12818, 0, 18, 19, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ruul Snowhoof - On Waypoint Finished - Demorph'),
-(12818, 0, 19, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 15, 6482, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,         'Ruul Snowhoof - On Waypoint Finished - Quest Credit');
+(12818, 0, 13, 14, 58, 1, 100, 1, 16, 12818, 0, 0, 0, 0, 1, 1, 2000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,       'Ruul Snowhoof - On Waypoint Finished - Say Line 1'),
+(12818, 0, 14, 15, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Ruul Snowhoof - On Waypoint Finished - Demorph'),
+(12818, 0, 15, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 15, 6482, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,         'Ruul Snowhoof - On Waypoint Finished - Quest Credit'),
+--
+(1281801, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965,       'Ruul Snowhoof - Actionlist - Summon Creature Thistlefur Ursa'),
+(1281801, 9, 1, 0, 0, 0, 100, 0, 4000, 4000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965, 'Ruul Snowhoof - Actionlist - Summon Creature Thistlefur Totemic'),
+(1281801, 9, 2, 0, 0, 0, 100, 0, 8000, 8000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3439.62, -616.591, 171.968, 4.30965, 'Ruul Snowhoof - Actionlist - Summon Creature Thistlefur Pathfinder'),
+(1281802, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 3921, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,         'Ruul Snowhoof - Actionlist - Summon Creature Thistlefur Ursa'),
+(1281802, 9, 1, 0, 0, 0, 100, 0, 4000, 4000, 0, 0, 0, 0, 12, 3922, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,   'Ruul Snowhoof - Actionlist - Summon Creature Thistlefur Totemic'),
+(1281802, 9, 2, 0, 0, 0, 100, 0, 8000, 8000, 0, 0, 0, 0, 12, 3926, 7, 60000, 1, 1, 0, 8, 0, 0, 0, 0, 3495.9, -526.57, 188.322, 4.62782,   'Ruul Snowhoof - Actionlist - Summon Creature Thistlefur Pathfinder');
 
 /* Torek's Assault - fixed movement speed and added 4 second pause */
 UPDATE `smart_scripts` SET `action_param1` = 0 WHERE `entryorguid` = 1285800 AND `source_type` = 9 AND `id` = 4; 
