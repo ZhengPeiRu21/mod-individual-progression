@@ -47,4 +47,5 @@ Special thanks to all contributors of the following projects who made this modul
 * AzerothCore mod-war-effort
 * AzerothCore mod-pvp-titles
 * vMangos for Vanilla game and patch progression data
+* cMangos for TBC game data
 * Sogladev for Naxx 40 scripts and data
