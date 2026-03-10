@@ -43,11 +43,8 @@ This is handled by the client, so I have created an addon that will restore this
 
 ## Thank You
 Special thanks to all contributors of the following projects who made this module possible:
-* AzerothCore and TrinityCore, along with ancestors Mangos, etc.
-* AzerothCore Progression Module for Vanilla content and scripts
+* AzerothCore and TrinityCore, along with ancestors Mangos.
 * AzerothCore mod-war-effort
 * AzerothCore mod-pvp-titles
-* Wrath of the Vanilla Module for more Vanilla world adjustments
-* Vmangos for Vanilla game and patch progression data
-* Sogladev for many Naxx 40 scripts and data
-* 55Honey for Acore_ZoneDebuff module, used as basis for damage and HP scaling
+* vMangos for Vanilla game and patch progression data
+* Sogladev for Naxx 40 scripts and data
