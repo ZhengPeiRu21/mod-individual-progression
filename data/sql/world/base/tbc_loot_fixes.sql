@@ -1669,8 +1669,8 @@ DELETE FROM `creature_loot_template` WHERE `Item` = 32897 AND `Entry` IN (22963)
 
 
 -- Hyjal, remove item, recipes and reference loot tables added by AC
-DELETE FROM `reference_loot_template` WHERE `entry` IN (34064, 34065, 34066, 34067, 34068, 39534, 1276884);
-DELETE FROM `creature_loot_template` WHERE `Item` IN (39534) AND `Entry` IN (17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
+DELETE FROM `reference_loot_template` WHERE `entry` IN (34064, 34065, 34066, 34067, 34068, 39534, 1276884, 1534000);
+DELETE FROM `creature_loot_template` WHERE `Item` IN (39534, 1534000) AND `Entry` IN (17895, 17897, 17898, 17899, 17905, 17906, 17907, 17908, 17916);
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `ConditionTypeOrReference` = 7 AND `SourceGroup` IN (17968);
 
