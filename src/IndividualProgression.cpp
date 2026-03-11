@@ -62,6 +62,9 @@ void IndividualProgression::CheckAdjustments(Player* player) const
         player->RemoveAura(RANGED_HASTE_SPELL);
         player->CastSpell(player, RANGED_HASTE_SPELL, false);
     }
+
+    player->RemoveAura(HP_AURA_SPELL);
+    player->RemoveAura(ABSORB_SPELL);
 }
 
 float IndividualProgression::ComputeVanillaAdjustment(uint8 playerLevel, float configAdjustmentValue)
