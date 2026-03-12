@@ -240,6 +240,15 @@ IndividualProgression.RepeatableVanillaQuestsXP = 1
 #
 IndividualProgression.TbcRacesUnlockProgression = 0
 
+# IndividualProgression.tbcRacesStartingProgression
+#
+#        Description: The progression stage at which Death Knight characters will begin.
+#
+#        Default:     0 - Draenei and Blood Elves start at progression 0
+#                     8 - Draenei and Blood Elves start at the beginning of TBC
+#
+IndividualProgression.tbcRacesStartingProgression = 0
+
 # IndividualProgression.DeathKnightUnlockProgression
 #
 #        Description: The progression stage at which Death Knight characters can be created.
