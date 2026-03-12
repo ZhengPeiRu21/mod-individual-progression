@@ -255,11 +255,21 @@ public:
         {
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             {
-                // The player may be in the Azuremyst area which is on the outlands map - check the area ID
-                return IsTBCRaceStartingZone(mapid, x, y, z);
+                uint32 accountId = player->GetSession()->GetAccountId();
+                uint8 highestProgression = sIndividualProgression->GetAccountProgression(accountId);
+
+                if ((highestProgression < sIndividualProgression->tbcRacesProgressionLevel) && (player->getRace() != RACE_DRAENEI && player->getRace() != RACE_BLOODELF))
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", sIndividualProgression->tbcRacesProgressionLevel);
+                    return false;
+                }
+                else
+                    return IsTBCRaceStartingZone(mapid, x, y, z);
             }
+            
             Map const *map = sMapMgr->FindMap(mapid, 0);
             uint32 zoneId = map->GetZoneId(0, x, y, z);
+            
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4) && zoneId == AREA_ISLE_OF_QUEL_DANAS)
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
