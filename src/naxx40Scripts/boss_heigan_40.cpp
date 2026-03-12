@@ -156,15 +156,15 @@ public:
                 me->CastStop();
                 me->SetReactState(REACT_AGGRESSIVE);
                 DoZoneInCombat();
-				
+
                 ScheduleTimedEvent(12s, 15s, [&] {
-                    // DoCastSelf(SPELL_SPELL_DISRUPTION);				
+                    // DoCastSelf(SPELL_SPELL_DISRUPTION);
                     me->CastCustomSpell(SPELL_DISRUPTION_40, SPELLVALUE_RADIUS_MOD, 2500, me, false); // 25yd
                 }, 10s);
                 ScheduleTimedEvent(17s, [&] {
                     // DoCastSelf(SPELL_DECREPIT_FEVER);
                     int32 bp1 = 499;
-                    me->CastCustomSpell(me, SPELL_DECREPIT_FEVER, 0, &bp1, 0, false, nullptr, nullptr, ObjectGuid::Empty);				
+                    me->CastCustomSpell(me, SPELL_DECREPIT_FEVER, 0, &bp1, 0, false, nullptr, nullptr, ObjectGuid::Empty);
                 }, 22s, 25s);
                 ScheduleTimedEvent(40s, [&] {
                     DoEventTeleportPlayer(); // this currently kills the players that get teleported and was not set to repeat, so setting repeat timer really high.

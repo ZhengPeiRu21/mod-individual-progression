@@ -186,8 +186,8 @@ public:
         _events.Reset();
         _currentWingTaunt = SAY_FIRST_WING_TAUNT;
         _horsemanLoaded = 0;
-		_thaddiusScreams = false;
-        
+        _thaddiusScreams = false;
+
         // Achievements
         _abominationsKilled = 0;
         _faerlinaAchievement = true;
@@ -262,9 +262,9 @@ public:
     {
         InstanceScript::OnPlayerEnter(player);
         if (_thaddiusScreams == false)
-		{
+        {
             _events.ScheduleEvent(EVENT_THADDIUS_SCREAMS, 2min, 2min + 30s);
-		}
+        }
 
         SetData(DATA_THADDIUS_SCREAMS, 0);
     }
@@ -462,9 +462,9 @@ public:
             case DATA_ABOMINATION_KILLED:
                 ++_abominationsKilled;
                 return;
-			case DATA_THADDIUS_SCREAMS:
-			    _thaddiusScreams = true;
-			    return;
+            case DATA_THADDIUS_SCREAMS:
+                _thaddiusScreams = true;
+                return;
             case DATA_FRENZY_REMOVED:
                 _faerlinaAchievement = false;
                 return;
@@ -610,11 +610,11 @@ public:
                         if (horsemanKilled == 0)
                         {
                             ActivateWingPortal(DATA_HORSEMAN_PORTAL);
-                            break; 
+                            break;
                         }
 
                         if (horsemanKilled != HorsemanCount)
-                            return false; 
+                            return false;
 
                         if (Creature* cr = GetCreature(DATA_BARON_RIVENDARE_BOSS))
                             cr->CastSpell(cr, SPELL_THE_FOUR_HORSEMAN_CREDIT, true);
@@ -743,7 +743,7 @@ private:
     EventMap _events;
     uint8 _currentWingTaunt;
     uint8 _horsemanLoaded;
-	bool _thaddiusScreams;
+    bool _thaddiusScreams;
 
     // GameObjects
     std::set<GameObject*> _heiganEruption[HeiganEruptSectionCount];

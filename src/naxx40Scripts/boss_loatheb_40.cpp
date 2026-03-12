@@ -87,6 +87,12 @@ public:
             instance->SetData(DATA_SPORE_KILLED, 0);
         }
 
+        /* void KilledUnit(Unit* who) override
+        {
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+        } */
+
         void JustEngagedWith(Unit* who) override
         {
             BossAI::JustEngagedWith(who);

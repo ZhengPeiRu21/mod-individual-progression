@@ -248,7 +248,6 @@ class spell_sapphiron_chill_40 : public AuraScript
     }
 };
 
-
 // 28522 - Icebolt
 class spell_sapphiron_icebolt_40 : public SpellScript
 {
@@ -355,7 +354,7 @@ class spell_razuvious_disrupting_shout_40 : public SpellScript
 {
     PrepareSpellScript(spell_razuvious_disrupting_shout_40);
 
-    void CalculateDamage(SpellEffIndex)
+    void CalculateDamage(SpellEffIndex /*effIndex*/)
     {
         Unit* caster = GetCaster();
         if (!caster || (caster->GetMap()->GetDifficulty() != RAID_DIFFICULTY_10MAN_HEROIC))
@@ -453,7 +452,7 @@ class spell_loatheb_corrupted_mind_40 : public SpellScript
 {
     PrepareSpellScript(spell_loatheb_corrupted_mind_40);
 
-    void HandleEffect(SpellEffIndex)
+    void HandleEffect(SpellEffIndex /*effIndex*/)
     {
         if (Unit* caster = GetCaster())
         {

@@ -144,6 +144,12 @@ public:
             summons.Summon(cr);
         }
 
+        /* void KilledUnit(Unit* who) override
+        {
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+        } */
+
         void JustDied(Unit*  killer) override
         {
             BossAI::JustDied(killer);

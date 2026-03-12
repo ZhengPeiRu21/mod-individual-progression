@@ -516,6 +516,12 @@ public:
             ScriptedAI::MoveInLineOfSight(who);
         }
 
+        // void JustDied(Unit* /*killer*/) override
+        // {
+        //     if (me->GetEntry() == NPC_UNSTOPPABLE_ABOMINATION)
+        //         me->GetInstanceScript()->SetData(DATA_ABOMINATION_KILLED, 0);
+        // }
+
         void AttackStart(Unit* who) override
         {
             ScriptedAI::AttackStart(who);
