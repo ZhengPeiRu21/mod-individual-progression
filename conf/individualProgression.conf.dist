@@ -244,7 +244,7 @@ IndividualProgression.TbcRacesUnlockProgression = 0
 
 # IndividualProgression.tbcRacesStartingProgression
 #
-#        Description: The progression stage at which Death Knight characters will begin.
+#        Description: The progression stage at which Draenei and Blood Elf characters will begin.
 #
 #        Default:     0 - Draenei and Blood Elves start at progression 0
 #                     8 - Draenei and Blood Elves start at the beginning of TBC
