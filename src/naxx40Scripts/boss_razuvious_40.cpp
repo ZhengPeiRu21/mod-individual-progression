@@ -200,10 +200,13 @@ public:
             });
         }
 
-        void KilledUnit(Unit*) override
+        void KilledUnit(Unit* /*who*/) override
         {
             if (roll_chance_i(30))
                 Talk(SAY_SLAY);
+
+            /* if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1); */
         }
 
         void DamageTaken(Unit* who, uint32& damage, DamageEffectType, SpellSchoolMask) override
@@ -346,6 +349,12 @@ public:
                     break;
             }
         }
+
+        /* void KilledUnit(Unit* who) override
+        {
+            if (who->IsPlayer())
+                me->GetInstanceScript()->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+        } */
 
         void JustEngagedWith(Unit* who) override
         {

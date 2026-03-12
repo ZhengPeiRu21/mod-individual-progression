@@ -16,6 +16,8 @@
  */
 
 #include "Player.h"
+#include "ScriptMgr.h"
+#include "ScriptedCreature.h"
 #include "SpellScript.h"
 #include "naxxramas.h"
 #include "IndividualProgression.h"
@@ -253,12 +255,10 @@ public:
                     }
                     else if (horsemanId == HORSEMAN_BLAUMEUX)
                     {
-                    {
                         if (!sIndividualProgression->doableNaxx40Bosses)
                         {
                             me->CastSpell(me->GetVictim(), SPELL_BLAUMEUX_VOID_ZONE, false);
                         }
-                    }
                     }
                     else if (horsemanId == HORSEMAN_MOGRAINE)
                     {
@@ -347,7 +347,6 @@ class spell_four_horsemen_mark_aura : public AuraScript
                         break;
                 }
             }
-
 
             if (damage)
             {

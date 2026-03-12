@@ -122,6 +122,12 @@ public:
             summons.DespawnAll();
         }
 
+        /* void KilledUnit(Unit* who) override
+        {
+            if (who->IsPlayer())
+                instance->StorePersistentData(PERSISTENT_DATA_IMMORTAL_FAIL, 1);
+        } */
+
         void UpdateAI(uint32 diff) override
         {
             dropSludgeTimer += diff;

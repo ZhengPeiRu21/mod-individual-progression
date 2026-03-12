@@ -189,6 +189,7 @@ public:
                         uint32 reduceHp = uint32(zombie->GetMaxHealth() * 0.05f);
                         if (zombie->GetHealth() > reduceHp)
                             zombie->SetHealth(reduceHp); // Reduce HP to ~5%
+
                         zombie->SetWalk(true);                 // Set to walk
                         zombie->GetMotionMaster()->MoveFollow(me,
                             0.0f,
@@ -245,7 +246,7 @@ public:
 
                     if (sIndividualProgression->doableNaxx40Bosses)
                         events.Repeat(9s);
-					else
+                    else
                         events.Repeat(3s);
                     break;
                 }
