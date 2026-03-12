@@ -23,7 +23,7 @@ public:
 
         if (!player || !player->IsInWorld())
             return;
-      
+
         if (!sIndividualProgression->isExcludedFromProgression(player))
         {
             sIndividualProgression->checkIPProgression(player);
@@ -66,7 +66,7 @@ public:
         {
             sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
         }
-        
+
         sIndividualProgression->CheckAdjustments(player);
 
         if (sIndividualProgression->enabled)
