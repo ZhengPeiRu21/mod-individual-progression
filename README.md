@@ -42,7 +42,7 @@ This is handled by the client, so I have created an addon that will restore this
 [https://discord.gg/PTXxh3KSgQ](https://discord.gg/PTXxh3KSgQ)
 
 ## Thank You
-Special thanks to all contributors of the following projects who made this module possible:
+Special thanks to all contributors of the following projects and people who made this module possible:
 * AzerothCore and TrinityCore, along with ancestors Mangos.
 * AzerothCore mod-war-effort
 * AzerothCore mod-pvp-titles
