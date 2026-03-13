@@ -40,15 +40,15 @@ public:
         {
             if (player->GetLevel() <= IP_LEVEL_VANILLA)
             {
-                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(0));
+                sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(0));
             }
             else if ((player->GetLevel() > IP_LEVEL_VANILLA) && (player->GetLevel() <= IP_LEVEL_TBC))
             {
-                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(8));
+                sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(8));
             }
             else
             {
-                sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(13));
+                sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(13));
             }
         }
 
