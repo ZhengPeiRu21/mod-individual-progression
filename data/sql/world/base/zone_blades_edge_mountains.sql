@@ -1,5 +1,21 @@
--- fix entry 24039 worldserver console error
-UPDATE `smart_scripts` SET `event_type` = 61, `event_flags` = 0, `event_param1` = 0, `event_param2` = 0 WHERE `entryorguid` = 24039 AND `source_type` = 0 AND `id` = 2;
+/* smart scripts */
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+(19952, 24039);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+(19952, 24039);
+
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(19952, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                 'Bloodmaul Geomancer - On Just Died - Say Line 1'),
+(19952, 0, 1, 0, 4, 0, 35, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                  'Bloodmaul Geomancer - On Aggro - Say Line 0'),
+(19952, 0, 2, 0, 1, 0, 100, 0, 0, 0, 1800000, 1800000, 0, 0, 11, 12544, 33, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Bloodmaul Geomancer - Out of Combat - Keep up Frost Armor'),
+(19952, 0, 3, 0, 0, 0, 100, 0, 0, 0, 2400, 3800, 0, 0, 11, 9053, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Bloodmaul Geomancer - In Combat - Cast Fireball'),
+(24039, 0, 0, 1, 60, 0, 100, 257, 0, 0, 0, 0, 0, 0, 11, 39916, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Sundered Ghost - On Update - Cast Soulgrinder Ghost Transform'),
+(24039, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17321, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Sundered Ghost - On Update - Cast Spirit Spawn-in'),
+(24039, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 50, 0, 0, 0, 0, 0, 0, 0,               'Sundered Ghost - On Update - Attack Start');
 
 -- fix movement for Dreadwing
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = 1582.5800, `position_y` = 5299.3701, `position_z` = 267.8560 WHERE `id1` = 21032;
