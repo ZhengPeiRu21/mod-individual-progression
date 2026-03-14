@@ -1,9 +1,9 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2320, 2407);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2242, 2243, 2245, 2246, 2247, 2253, 2254, 2255, 2256, 2271, 2272, 2287, 2306, 2415, 2417, 2420, 2421, 2422, 2423, 2453, 4504);
+(2242, 2243, 2245, 2246, 2247, 2252, 2253, 2254, 2255, 2256, 2271, 2272, 2287, 2306, 2415, 2417, 2420, 2421, 2422, 2423, 2453, 4504);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2242, 2243, 2245, 2246, 2247, 2253, 2254, 2255, 2256, 2271, 2272, 2287, 2306, 2320, 2407, 2415, 2417, 2420, 2421, 2422, 2423, 2453, 4504);
+(2242, 2243, 2245, 2246, 2247, 2252, 2253, 2254, 2255, 2256, 2271, 2272, 2287, 2306, 2320, 2407, 2415, 2417, 2420, 2421, 2422, 2423, 2453, 4504);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -28,6 +28,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2247, 0, 0, 0, 9, 0, 100, 0, 2000, 13000, 12000, 18000, 0, 5, 11, 17207, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Syndicate Enforcer - Within 0-5 Range - Cast Whirlwind'),
 (2247, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                       'Syndicate Enforcer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 --
+(2252, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Crushridge Ogre - On Aggro - Say Line 0'),
 (2253, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Crushridge Brute - On Aggro - Say Line 0'),
 (2254, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Crushridge Mauler - On Aggro - Say Line 0'),
 (2254, 0, 1, 0, 9, 0, 100, 0, 4100, 9300, 10200, 17900, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Crushridge Mauler - Within 0-5 Range - Cast Strike'),
