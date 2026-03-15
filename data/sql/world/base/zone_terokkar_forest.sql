@@ -61,7 +61,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (21838, 0, 7, 8, 32, 0, 100, 0, 0, 1000000, 0, 0, 0, 0, 28, 40733, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Terokk - On Damaged by \'Ancient Flames\' - Remove Aura \'Divine Shield\' (Phase 1)'), -- Only with Divine Shield
 (21838, 0, 8, 9, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Terokk - On Spellhit \'Ancient Flames\' - Say Line 2'),
 (21838, 0, 9, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28747, 34, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Terokk - On Spellhit \'Ancient Flames\' - Cast \'Frenzy\''),
-(21838, 0, 10, 0, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 19, 23377, 90, 0, 0, 0, 0, 0, 0,                'Terokk - On Evade - Despawn Target'),
+-- (21838, 0, 10, 0, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 19, 23377, 90, 0, 0, 0, 0, 0, 0,             'Terokk - On Evade - Despawn Target'),
+(21838, 0, 10, 0, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 223, 2, 0, 0, 0, 0, 0, 10, 12478, 23377, 0, 0, 0, 0, 0, 0,            'Terokk - On Evade - Do Action on Skyguard Ace Retreat'),
 (21838, 0, 11, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 223, 1, 0, 0, 0, 0, 0, 10, 12478, 23377, 0, 0, 0, 0, 0, 0,            'Terokk - On Just Died - Do Action Terokk Dead');
 
 -- fix SMART_ACTION_TALK worldserver errors
