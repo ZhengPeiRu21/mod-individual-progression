@@ -48,6 +48,22 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (22441, 0, 11, 12, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Teribus the Cursed - On Respawn - Set Visible OFF'),
 (22441, 0, 12, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 622441, 122441, 0, 0, 0, 0, 0, 0,       'Teribus the Cursed - On Respawn - Set Visible ON for patrol');
 
+-- fix Terokk evade issue
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 21838;
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+(21838, 0, 0, 0, 0, 0, 100, 0, 4000, 7000, 10000, 15000, 0, 0, 11, 40721, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Terokk - In Combat - Cast \'Shadow Bolt Volley\''),
+(21838, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 7000, 9000, 0, 0, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Terokk - In Combat - Cast \'Cleave\''),
+(21838, 0, 2, 0, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 2183800, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Terokk - On Just Summoned - Run Script'),
+(21838, 0, 3, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 112, 97, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Terokk - On Aggro - Start Skyguard Ace Event'),
+(21838, 0, 4, 0, 0, 0, 100, 0, 18000, 30000, 16000, 32000, 0, 0, 80, 2183801, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Terokk - In Combat and Outside \'Divine Shield\' Phase - Run Chosen One Script'), -- Only Outside Divine Shield
+(21838, 0, 5, 6, 0, 0, 100, 0, 45000, 60000, 45000, 75000, 0, 0, 11, 40733, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Terokk - In Combat - Cast \'Divine Shield\''),
+(21838, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Terokk - On \'Divine Shield\' Cast - Say Line 1'),
+(21838, 0, 7, 8, 32, 0, 100, 0, 0, 1000000, 0, 0, 0, 0, 28, 40733, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Terokk - On Damaged by \'Ancient Flames\' - Remove Aura \'Divine Shield\' (Phase 1)'), -- Only with Divine Shield
+(21838, 0, 8, 9, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Terokk - On Spellhit \'Ancient Flames\' - Say Line 2'),
+(21838, 0, 9, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 28747, 34, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Terokk - On Spellhit \'Ancient Flames\' - Cast \'Frenzy\''),
+(21838, 0, 10, 0, 7, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 19, 23377, 90, 0, 0, 0, 0, 0, 0,                'Terokk - On Evade - Despawn Target'),
+(21838, 0, 11, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 223, 1, 0, 0, 0, 0, 0, 10, 12478, 23377, 0, 0, 0, 0, 0, 0,            'Terokk - On Just Died - Do Action Terokk Dead');
+
 -- fix SMART_ACTION_TALK worldserver errors
 UPDATE `smart_scripts` SET `target_type` = 21, `target_param1` = 40 WHERE `entryorguid` = 1410 AND `source_type` = 0 AND `id` = 3;
 UPDATE `smart_scripts` SET `target_type` = 21, `target_param1` = 40 WHERE `entryorguid` = 16769 AND `source_type` = 0 AND `id` = 17;
