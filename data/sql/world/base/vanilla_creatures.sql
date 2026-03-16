@@ -13244,7 +13244,7 @@ UPDATE `creature_template` SET `DamageModifier` = 9.0 WHERE `entry` = 8197;
 UPDATE `creature_template` SET `DamageModifier` = 2.9 WHERE `entry` = 8198;
 
 /*  Warleader Krazzilak  */
-UPDATE `creature_template` SET `DamageModifier` = 3.15 WHERE `entry` = 8199;
+UPDATE `creature_template` SET `DamageModifier` = 3.15, `Rank` = 2 WHERE `entry` = 8199;
 
 /*  Jin'Zallah the Sandbringer  */
 UPDATE `creature_template` SET `DamageModifier` = 3.25 WHERE `entry` = 8200;
