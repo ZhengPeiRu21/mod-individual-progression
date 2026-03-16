@@ -1,10 +1,3 @@
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16275, 16679, 16680, 16681);
-INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
-(16275, 3), -- Noellene <Paladin Trainer>
-(16679, 3), -- Osselan <Paladin Trainer>
-(16680, 3), -- Ithelis <Paladin Trainer>
-(16681, 3); -- Champion Bachi <Paladin Trainer>
-
 /* Restore Blood Knight quests to pre-2.4 state */
 SET @MURU_GUID := 352043;
 DELETE FROM `creature` WHERE `guid` = @MURU_GUID;
