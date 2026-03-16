@@ -28,7 +28,7 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 -- (1,34428,100,0,0,0,0,0,6,0), -- optional, Victory Rush, level 6 -> 62
 
 -- Paladin
-DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16275, 16679, 16680, 16681);
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16275, 16679, 16680, 16681, 20406, 23128);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (16275, 3), -- Noellene
 (16679, 3), -- Osselan
