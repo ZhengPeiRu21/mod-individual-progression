@@ -28,6 +28,15 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 -- (1,34428,100,0,0,0,0,0,6,0), -- optional, Victory Rush, level 6 -> 62
 
 -- Paladin
+DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16275, 16679, 16680, 16681, 20406, 23128);
+INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
+(16275, 3), -- Noellene
+(16679, 3), -- Osselan
+(16680, 3), -- Ithelis
+(16681, 3), -- Champion Bachi
+(20406, 3), -- Champion Cyssa Dawnrose
+(23128, 3); -- Master Pyreanor
+
 DELETE FROM `trainer_spell` WHERE `TrainerId` = 3 AND `SpellId` IN (5502, 13820, 23214, 25290, 25291, 25292);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqAbility1`, `ReqAbility2`, `ReqAbility3`, `ReqLevel`, `VerifiedBuild`) VALUES
 -- (3,5502,4000,0,0,0,0,0,20,0), -- quest, Sense Undead
