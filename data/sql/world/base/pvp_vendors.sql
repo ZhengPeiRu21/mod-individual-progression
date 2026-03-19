@@ -51,12 +51,13 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 (@Dirge, 0, 0, 0, 1, 0, 0, NULL),
 (@Rachel, 0, 0, 0, 0, 0, 0, '5301');
 
-DELETE FROM `creature_equip_template` WHERE `CreatureID` IN (@Biggins, @Clate, @Dirge, @Rachel);
+DELETE FROM `creature_equip_template` WHERE `CreatureID` IN (@Biggins, @Clate, @Dirge, @Rachel, @Stonehide);
 INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES 
 (@Biggins, 1, 12744, 0, 0, 18019),
 (@Clate, 1, 5288, 0, 0, 18019),
 (@Dirge, 1, 5305, 1984, 0, 18019),
-(@Rachel, 1, 10613, 143, 0, 18019);
+(@Rachel, 1, 10613, 143, 0, 18019),
+(@Stonehide, 1, 6680, 0, 0, 18019);
 
 DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork, @Rachel, @Biggins, @Karter, @Clate, @Vixton, @Krixel, @Leeni, @Evee, @Ecton, @Dirge);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
