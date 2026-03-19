@@ -41,13 +41,23 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (@Ecton,0,0,0,0,0,'Ecton Brasstumbler','Arena Vendor',NULL,0,70,70,2,35,128,1.05,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,7,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,0,2,'',0),
 (@Dirge,0,0,0,0,0,'Captain Dirgehammer','Armor Quartermaster','',0,65,65,0,1078,4224,1,1.14286,1,1,18,1,0,0,2.2,2000,2000,1,1,1,0,2048,0,0,7,0,0,0,0,0,0,0,0,'',0,1,2,1,1.65,1,0,0,1,0,0,0,'',0);
 
-DELETE FROM `creature_template_addon` WHERE `entry` IN (@Bork, @Biggins, @Karter, @Clate, @Vixton);
+DELETE FROM `creature_template_addon` WHERE `entry` IN (@Bork, @Biggins, @Karter, @Clate, @Vixton, @Dirge, @Rachel);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (@Bork, 0, 0, 0, 0, 0, 0, NULL),
 (@Biggins, 0, 0, 0, 1, 0, 0, NULL),
 (@Karter, 0, 0, 0, 0, 0, 0, NULL),
 (@Clate, 0, 0, 0, 0, 0, 0, NULL),
-(@Vixton, 0, 0, 0, 1, 0, 0, NULL);
+(@Vixton, 0, 0, 0, 1, 0, 0, NULL),
+(@Dirge, 0, 0, 0, 1, 0, 0, NULL),
+(@Rachel, 0, 0, 0, 0, 0, 0, '5301');
+
+DELETE FROM `creature_equip_template` WHERE `CreatureID` IN (@Biggins, @Clate, @Dirge, @Rachel, @Stonehide);
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES 
+(@Biggins, 1, 12744, 0, 0, 18019),
+(@Clate, 1, 5288, 0, 0, 18019),
+(@Dirge, 1, 5305, 1984, 0, 18019),
+(@Rachel, 1, 10613, 143, 0, 18019),
+(@Stonehide, 1, 6680, 0, 0, 18019);
 
 DELETE FROM `creature_template_locale` WHERE `entry` IN (@Stonehide, @Zarg, @Hola, @Bork, @Rachel, @Biggins, @Karter, @Clate, @Vixton, @Krixel, @Leeni, @Evee, @Ecton, @Dirge);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
