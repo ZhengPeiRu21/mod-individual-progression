@@ -18355,9 +18355,6 @@ UPDATE `creature_template` SET `speed_run` = 1.14286, `DamageModifier` = 1.15 WH
 /*  Hraug  */
 UPDATE `creature_template` SET `subname` = 'Demon Trainer', `DamageModifier` = 0.8, `RangeAttackTime` = 2112 WHERE `entry` = 12776;
 
-/*  Captain Dirgehammer  */
-UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 2.2, `ArmorModifier` = 1.65 WHERE `entry` = 26393;
-
 /*  Lieutenant Rachel Vaccar  */
 UPDATE `creature_template` SET `minlevel` = 55, `maxlevel` = 55, `DamageModifier` = 1.05, `ArmorModifier` = 2.6 WHERE `entry` = 12778;
 
