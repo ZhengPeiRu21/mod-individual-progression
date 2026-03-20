@@ -105,9 +105,9 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `pos
 (@CGUID+101, 12799, 1, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),     -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
 (@CGUID+102, @Stonehide, 1, 1, 1657.6, -4191.97, 56.383, 4.52365, 180), -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
 (@CGUID+103, 12793, 1, 1, 1672.24, -4206.81, 56.3827, 3.30568, 180),    -- Brave Stonehide <Officer Accessories Quartermaster>, TBC
-(@CGUID+104, @Zarg, 1, 0, 1641.65, -4197.52, 56.3823, 5.41219, 180),    -- Stone Guard Zarg <Food and Drink>, Vanilla
+(@CGUID+104, @Zarg, 1, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),    -- Stone Guard Zarg <Food and Drink>, Vanilla
 (@CGUID+105, 12794, 1, 1, 1641.65, -4197.52, 56.3823, 5.41219, 180),    -- Stone Guard Zarg <Weapons Quartermaster>, TBC
-(@CGUID+106, @Hola, 1, 0, 1673.9, -4216, 56.3826, 2.93578, 180),        -- First Sergeant Hola'mahi <Reagent Vendor>, Vanilla
+(@CGUID+106, @Hola, 1, 1, 1673.9, -4216, 56.3826, 2.93578, 180),        -- First Sergeant Hola'mahi <Reagent Vendor>, Vanilla
 (@CGUID+107, 12795, 1, 1, 1673.9, -4216, 56.3826, 2.93578, 180),        -- First Sergeant Hola'mahi <Armor Quartermaster>, TBC
 (@CGUID+108, 14581, 1, 1, 1644.52, -4195.26, 56.3826, 5.43078, 180),    -- Sergeant Thunderhorn <Weapons Quartermaster>, Vanilla
 (@CGUID+109, 26396, 1, 1, 1669.09, -4196.78, 56.4831, 4.10416, 180),    -- Sergeant Thunderhorn <Weapons Quartermaster>, TBC
@@ -117,7 +117,7 @@ INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `pos
 (@CGUID+113, 34039, 1, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),     -- Lady Palanseer <Armor Quartermaster>, TBC Season 3
 (@CGUID+114, 34040, 1, 1, 1669.78, -4200.1, 56.3815, 3.61023, 180),     -- Lady Palanseer <Armor Quartermaster>, TBC Season 4
 (@CGUID+115, 12796, 1, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),    -- Raider Bork <Mount Quartermaster>, TBC
-(@CGUID+116, @Bork, 1, 0, 1674.43, -4212.55, 56.3829, 3.00254, 180),    -- Raider Bork <Mount Quartermaster>, Vanilla
+(@CGUID+116, @Bork, 1, 1, 1674.43, -4212.55, 56.3829, 3.00254, 180),    -- Raider Bork <Mount Quartermaster>, Vanilla
 (@CGUID+117, 19850, 1, 0, 1651.85, -4209.56, 55.5382, 5.61086, 180),    -- Councilor Arial D'Anastasis, TBC
 (@CGUID+118, 12788, 1, 1, 1650.95, -4212.82, 55.439, 0.182965, 300),    -- Legionnaire Teena, TBC
 
