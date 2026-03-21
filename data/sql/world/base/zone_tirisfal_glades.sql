@@ -113,10 +113,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 /* Drop chance for Rattlecage Skull was incorrectly set to 15 - updated to 80 */
 UPDATE `creature_loot_template` SET `Chance` = 80 WHERE `Entry` = 1890 AND `Item` = 6281;
 
--- Undertaker Mordo
+-- Undertaker Mordo (not sure why we creating a new version of this guy, we only seem to be moving him)
 DELETE FROM `creature` WHERE `id1` = 1568;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(601568, 1568, 0, 1678.99, 1667.86, 135.855, 3.76991, 300);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(601568, 1568, 0, 1, 1678.99, 1667.86, 135.855, 3.76991, 300);
+
+DELETE FROM `creature_addon` WHERE `guid` IN (29803, 601568);
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(601568, 0, 0, 0, 1, 0, 0, NULL);
 
 -- update npc names
 UPDATE `creature_template` SET `name` = 'Wretched Zombie' WHERE `entry` = 1502; -- Wretched Zombie
