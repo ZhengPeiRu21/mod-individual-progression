@@ -71,10 +71,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10082, 0, 6, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                    'Zerillis - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (10082, 0, 7, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Zerillis - On Initialize - Despawn In 500 ms');
 
-
 /* Restore Mallet requirement to Gong of Zul'Farrak */
 UPDATE `gameobject_template` SET `data0` = 459 WHERE `entry` = 141832;
 
+/* fix skinning loot from scarabs */
+UPDATE `creature_template` SET `skinloot` = 100014 WHERE `entry` = 7269;
 
 SET @CGUID  := 652000;
 SET @WPID   := 6520000;
