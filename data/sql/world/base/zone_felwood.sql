@@ -43,9 +43,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (7111, 0, 2, 0, 0, 0, 100, 0, 9000, 13000, 18000, 22000, 0, 0, 11, 11990, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Jadefire Hellcaller - In Combat - Cast Rain of Fire'),
 --
 (7112, 0, 0, 0, 0, 0, 100, 0, 9000, 14000, 22000, 25000, 0, 0, 11, 11639, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Jaedenar Cultist - In Combat - Cast Shadow Word: Pain'),
-(7112, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,            'Jaedenar Cultist - In Combat - Cast Shadow Bolt'),
+(7112, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Jaedenar Cultist - In Combat - Cast Shadow Bolt'),
 (7112, 0, 2, 0, 0, 0, 100, 0, 7000, 9000, 15000, 25000, 0, 0, 11, 11980, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Jaedenar Cultist - In Combat - Cast Curse of Weakness'),
-(7112, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Jaedenar Cultist - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(7112, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Jaedenar Cultist - Between 0-15% Health - Flee For Assist (No Repeat)'),   
 (7113, 0, 0, 0, 0, 0, 100, 0, 5000, 9000, 13000, 17000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Jaedenar Guardian - In Combat - Cast Improved Blocking'),
 (7113, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Jaedenar Guardian - Within 0-5 Range - Cast Shield Bash'),
 (7114, 0, 0, 0, 9, 0, 100, 0, 0, 0, 17000, 21000, 0, 5, 11, 11977, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Jaedenar Enforcer - Within 0-5 Range - Cast Rend'),
