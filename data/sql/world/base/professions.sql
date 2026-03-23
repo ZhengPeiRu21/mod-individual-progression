@@ -39,7 +39,10 @@ UPDATE `trainer_spell` SET `ReqLevel` = 71 WHERE `SpellID` = 47280;
 DELETE FROM `trainer_spell` WHERE `SpellID` IN (18261, 19886, 54257, 54256);
 UPDATE `quest_template` SET `RewardItem1` = 16073, `RewardAmount1` = 1 WHERE id = 6610;
 UPDATE `item_template` SET `spellid_1` = 19887, `spellcharges_1` = -1, `spellppmRate_1` = -1 WHERE `entry` = 16073;
-INSERT IGNORE INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES 
+
+DELETE FROM `item_template_locale` WHERE `ID` = 16073;
+INSERT INTO `item_template_locale` (`ID`, `locale`, `Name`, `Description`, `VerifiedBuild`) VALUES 
+(16073, 'deDE', 'Fachmannkochbuch', '', 0),
 (16073, 'frFR', 'Livre de cuisine pour artisan', '', 0);
 
 -- Fishing needs to be learned from Quests and Books, remove from trainers
