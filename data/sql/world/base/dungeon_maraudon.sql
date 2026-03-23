@@ -206,7 +206,7 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (@CGUID+31, @CGUID+31, 0, 0, 515, 0, 0),
 (@CGUID+31, @CGUID+32, 4, 180, 515, 0, 0);
 
-DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+1, @CGUID+6, @CGUID+11, @CGUID+16, @CGUID+21, @CGUID+26, @CGUID+31);
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+1, @CGUID+6, @CGUID+11, @CGUID+16, @CGUID+21, @CGUID+26, @CGUID+31, 54684);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (@CGUID+1,  @WPID+10,  0, 0, 0, 0, 0, NULL),
 (@CGUID+6,  @WPID+60,  0, 0, 0, 0, 0, NULL),
@@ -214,9 +214,10 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (@CGUID+16, @WPID+160, 0, 0, 0, 0, 0, NULL),
 (@CGUID+21, @WPID+210, 0, 0, 0, 0, 0, NULL),
 (@CGUID+26, @WPID+260, 0, 0, 0, 0, 0, NULL),
-(@CGUID+31, @WPID+310, 0, 0, 0, 0, 0, NULL);
+(@CGUID+31, @WPID+310, 0, 0, 0, 0, 0, NULL),
+(54684, 546840, 0, 0, 1, 0, 0, NULL);
 
-DELETE FROM `waypoint_data` WHERE `id` IN (546840, @WPID+10, @WPID+60, @WPID+110, @WPID+160, @WPID+210, @WPID+260, @WPID+310);
+DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+10, @WPID+60, @WPID+110, @WPID+160, @WPID+210, @WPID+260, @WPID+310, 546840);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
 --
 (546840, 1, 813.251, -485.585, -54.8048, 0.574534, 0, 0, 0, 100, 0),
