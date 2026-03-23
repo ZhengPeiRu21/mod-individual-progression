@@ -313,10 +313,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-608891, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,   'BRD Bridge Trigger - On Near Player - Set visible Anvilrage Guardsman 91107'),
 (-608891, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,   'BRD Bridge Trigger - On Near Player - Set Faction Anvilrage Guardsman 91107');
 
-DELETE FROM `creature` WHERE `guid` IN (91106, 91107, 608891);
+DELETE FROM `creature` WHERE `guid` IN (90728, 91106, 91107, 608891);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
+(90728,  8911, 0, 0, 230, 0, 0, 1, 1, 0, 754.091, -73.9451, -46.2159, 0.84735, 7200, 0, 1, 7599, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 (91106,  8891, 0, 0, 230, 0, 0, 1, 1, 1, 642.366, -274.516, -43.1092, 0.471239, 7200, 0, 0, 6645, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (91107,  8891, 0, 0, 230, 0, 0, 1, 1, 1, 740.114, -283.345, -42.7508, 2.86234, 7200, 0, 0, 6645, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (608891, 8891, 0, 0, 230, 0, 0, 1, 1, 1, 686.649, -280.075, -43.1966, 0.0844455, 300, 0, 0, 6876, 0, 0, 0, 0, 0, '', 0, 0, NULL);
@@ -365,8 +366,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (108982, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 15533, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Ironhand Guardian - On Spawn - Cast Stoned Visual'),
 (108982, 0, 1, 0, 1, 0, 100, 0, 4000, 8000, 13000, 18000, 0, 0, 11, 15529, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Ironhand Guardian - Out of Combat - Cast Gout of Flame');
 
--- fix Fireguard patrols near Pyromancer Loregrain and in front of the vault.
-DELETE FROM `waypoint_data` WHERE `id` IN (477380, 908280);
+-- fix Fireguard patrols
+DELETE FROM `waypoint_data` WHERE `id` IN (477380, 907280, 908280);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
 --
 (477380, 1, 712.727, -278.328, -43.2147, 0.075571, 0, 0, 0, 100, 0), -- Fireguard Destroyer(8911)
@@ -380,6 +381,25 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (477380, 9, 645.91, -284.733, -43.2395, 0.005052, 0, 0, 0, 100, 0),
 (477380, 10, 660.339, -282.755, -43.2208, 0.10519, 0, 0, 0, 100, 0),
 --
+(907280, 1, 761.283, -65.8021, -46.2337, NULL, 0, 0, 0, 100, 0), -- Fireguard Destroyer(8911)
+(907280, 2, 762.053, -59.3832, -46.2337, NULL, 0, 0, 0, 100, 0),
+(907280, 3, 740.873, -15.4984, -46.2337, NULL, 0, 0, 0, 100, 0),
+(907280, 4, 733.056, -6.43943, -46.1815, NULL, 0, 0, 0, 100, 0),
+(907280, 5, 710.789, -8.89487, -45.9405, NULL, 0, 0, 0, 100, 0),
+(907280, 6, 706.555, 13.0863, -45.5852, NULL, 0, 0, 0, 100, 0),
+(907280, 7, 710.562, 22.7446, -45.4594, NULL, 0, 0, 0, 100, 0),
+(907280, 8, 696.138, 34.8861, -45.467, NULL, 0, 0, 0, 100, 0),
+(907280, 9, 691.576, 46.4976, -45.467, NULL, 0, 0, 0, 100, 0),
+(907280, 10, 696.138, 34.8861, -45.467, NULL, 0, 0, 0, 100, 0),
+(907280, 11, 710.562, 22.7446, -45.4594, NULL, 0, 0, 0, 100, 0),
+(907280, 12, 706.555, 13.0863, -45.5852, NULL, 0, 0, 0, 100, 0),
+(907280, 13, 710.789, -8.89487, -45.9405, NULL, 0, 0, 0, 100, 0),
+(907280, 14, 733.056, -6.43943, -46.1815, NULL, 0, 0, 0, 100, 0),
+(907280, 15, 740.873, -15.4984, -46.2337, NULL, 0, 0, 0, 100, 0),
+(907280, 16, 762.053, -59.3832, -46.2337, NULL, 0, 0, 0, 100, 0),
+(907280, 17, 761.283, -65.8021, -46.2337, NULL, 0, 0, 0, 100, 0),
+(907280, 18, 747.48, -80.9312, -46.2337, NULL, 0, 0, 0, 100, 0),
+--
 (908280, 1, 853.993, -261.658, -49.9364, 1.5072, 0, 0, 0, 100, 0), -- Blazing Fireguard(8910)
 (908280, 2, 853.608, -277.92, -49.9364, 4.93155, 0, 0, 0, 100, 0),
 (908280, 3, 860.549, -295.867, -49.9364, 5.14754, 0, 0, 0, 100, 0),
@@ -388,7 +408,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (908280, 6, 880.836, -310.104, -49.9364, 2.56556, 0, 0, 0, 100, 0),
 (908280, 7, 860.108, -296.642, -49.9364, 2.16697, 0, 0, 0, 100, 0),
 (908280, 8, 854.253, -279.573, -49.9364, 1.9019, 0, 0, 0, 100, 0);
-
 
 -- fix officer patrols in Bael'Gar area
 DELETE FROM `creature` WHERE `guid` IN (
@@ -1017,7 +1036,7 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (45954, 45955, 0, 0, 3, 0, 0),
 (45954, 45956, 0, 0, 3, 0, 0),
 (45954, 45958, 0, 0, 3, 0, 0),
-(45954, 45959, 0, 0, 3, 0, 0);
+(45954, 45959, 0, 0, 3, 0, 0),
 --
 (45850, 45850, 0, 0, 3, 0, 0), -- Blazing Fireguard
 (45850, 45851, 0, 0, 3, 0, 0),
