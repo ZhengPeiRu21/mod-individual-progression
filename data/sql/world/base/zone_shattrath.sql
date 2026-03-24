@@ -59,13 +59,53 @@ DELETE FROM `game_event_creature` WHERE `guid` IN (72252, 72364, 207610, 207611,
 -- remove wotlk battlemaster from Shattrath
 DELETE FROM `creature` WHERE `guid` IN (63451, 88251, 88252, 88254, 207710, 207711);
 
-/* Aldor Rise recruitment event */
+/* Scryer's Tier */
 SET @CGUID    := 672000;
 SET @WPID     := 6720000;
 
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 66736;
+DELETE FROM `creature` WHERE `guid` = 66737;
+
+DELETE FROM `creature_addon` WHERE `guid` = 66736;
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(66736, 667360, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `waypoint_data` WHERE `id` = 667360;
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+--
+(667360, 1, -2110.05, 5512.4, 49.4188, 5.98648, 60000, 0, 0, 100, 0),
+(667360, 2, -2118.73, 5500.46, 50.256, NULL, 0, 0, 0, 100, 0),
+(667360, 3, -2131.23, 5497.21, 50.256, NULL, 0, 0, 0, 100, 0),
+(667360, 4, -2143.73, 5501.71, 50.256, NULL, 0, 0, 0, 100, 0),
+(667360, 5, -2147.42, 5506.02, 50.0932, 3.78736, 60000, 0, 0, 100, 0),
+(667360, 6, -2150.98, 5511.57, 50.2306, NULL, 0, 0, 0, 100, 0),
+(667360, 7, -2151.04, 5526.12, 49.868, 2.84489, 60000, 0, 0, 100, 0),
+(667360, 8, -2142.38, 5538.02, 50.1517, NULL, 0, 0, 0, 100, 0),
+(667360, 9, -2136.23, 5539.93, 49.9353, 1.97222, 60000, 0, 0, 100, 0),
+(667360, 10, -2130.38, 5541.75, 50.0475, NULL, 0, 0, 0, 100, 0),
+(667360, 11, -2118.38, 5537.75, 50.0475, NULL, 0, 0, 0, 100, 0),
+(667360, 12, -2109.88, 5527.25, 50.2975, NULL, 0, 0, 0, 100, 0),
+(667360, 13, -2110.05, 5512.4, 49.4188, NULL, 0, 0, 0, 100, 0);
+
+DELETE FROM `creature` WHERE `guid` IN (@CGUID+17, @CGUID+18, @CGUID+19, @CGUID+20, @CGUID+23, @CGUID+24, @CGUID+25, @CGUID+26);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+--
+(@CGUID+17, 18547, 0, 0, 530, 0, 0, 1, 1, 1, -2107.36, 5641.19, 50.31, 3.25, 300, 0, 0, 3611, 5875, 0, 0, 0, 0, '', 0, 0, NULL), -- Scryer Arcanist
+(@CGUID+18, 18547, 0, 0, 530, 0, 0, 1, 1, 1, -2103.54, 5644.81, 50.31, 1.55, 300, 0, 0, 3611, 5875, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+19, 18547, 0, 0, 530, 0, 0, 1, 1, 1, -2102.45, 5646.07, 50.31, 3.68, 300, 0, 0, 3611, 5875, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+20, 18547, 0, 0, 530, 0, 0, 1, 1, 1, -2089.48, 5639.69, 50.31, 2.98, 300, 0, 0, 3611, 5875, 0, 0, 0, 0, '', 0, 0, NULL),
+--
+(@CGUID+23, 18593, 0, 0, 530, 0, 0, 1, 1, 0, -2104.21, 5646.04, 50.31, 5.69, 300, 0, 0, 4422, 2620, 0, 0, 0, 0, '', 0, 0, NULL), -- Scryer Retainer
+(@CGUID+24, 18593, 0, 0, 530, 0, 0, 1, 1, 0, -2090.77, 5640.86, 50.31, 4.66, 300, 0, 0, 4422, 2620, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+25, 18593, 0, 0, 530, 0, 0, 1, 1, 0, -2091.42, 5639.34, 50.31, 0.42, 300, 0, 0, 4422, 2620, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+26, 18593, 0, 0, 530, 0, 0, 1, 1, 0, -2108.85, 5641.14, 50.31, 6.00, 300, 0, 0, 4422, 2620, 0, 0, 0, 0, '', 0, 0, NULL);
+
+
+/* Aldor Rise */
+
 -- remove creatures placed by AC
-DELETE FROM `creature` WHERE `guid` IN 
-(68495, 68496, 68497, 68498, 68492, 68493, 68494, 68923, 68924, 68925, 68926, 68927, 68928, 68929, 69136, 69137, 69138, 69139);
+DELETE FROM `creature` WHERE `guid` IN (68495, 68496, 68497, 68498, 68492, 68493, 68494, 68923, 68924, 68925, 68926, 68927, 68928, 68929, 69136, 69137, 69138, 69139);
 
 DELETE FROM `creature` WHERE `id1` IN (19346, 19377, 19378);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+12;
