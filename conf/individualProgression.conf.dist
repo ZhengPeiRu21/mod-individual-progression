@@ -318,6 +318,16 @@ IndividualProgression.CustomProgression = ""
 #
 IndividualProgression.AllowEarlyDungeonSet2 = 0
 
+# IndividualProgression.AllowEarlyScourgeBosses
+#
+#        Description: The Scourge Invasion adds 6 dungeon bosses that are only available during progression tier 6. Players are not likely to go back to low level dungeons at this point.
+#                     When enabled, this allows these bosses to be fought early, before they're made obsolete.
+#
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.AllowEarlyScourgeBosses = 0
+
 # IndividualProgression.TBC.ArenaSeason
 #
 #        Description: Current TBC arena season id

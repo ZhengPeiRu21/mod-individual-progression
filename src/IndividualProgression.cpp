@@ -613,41 +613,14 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                     break;
                 }
             }
-            if (mapid == MAP_SHADOWFANG_KEEP)
+            if ((mapid == MAP_SHADOWFANG_KEEP) ||
+                (mapid == MAP_RAZORFEN_DOWNS)  ||
+                (mapid == MAP_SCARLET_MONASTERY) ||
+                (mapid == MAP_SCHOLOMANCE) ||
+                (mapid == MAP_STRATHOLME) ||
+                (mapid == MAP_DIRE_MAUL))
             {
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
-                {
-                    player->CastSpell(player, IPP_PHASE, false);
-                    break;
-                }
-            }
-            if (mapid == MAP_RAZORFEN_DOWNS)
-            {
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
-                {
-                    player->CastSpell(player, IPP_PHASE, false);
-                    break;
-                }
-            }
-            if (mapid == MAP_SCARLET_MONASTERY)
-            {
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
-                {
-                    player->CastSpell(player, IPP_PHASE, false);
-                    break;
-                }
-            }
-            if (mapid == MAP_STRATHOLME)
-            {
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
-                {
-                    player->CastSpell(player, IPP_PHASE, false);
-                    break;
-                }
-            }
-            if (mapid == MAP_DIRE_MAUL)
-            {
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40))
+                if (earlyScourgeBosses || (sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ) && sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
                 {
                     player->CastSpell(player, IPP_PHASE, false);
                     break;
@@ -1115,6 +1088,7 @@ private:
         sIndividualProgression->RequiredZulGurubProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.RequiredZulGurubProgression", 3);
         sIndividualProgression->LoadCustomProgressionEntries(sConfigMgr->GetOption<std::string>("IndividualProgression.CustomProgression", ""));
         sIndividualProgression->earlyDungeonSet2 = sConfigMgr->GetOption<bool>("IndividualProgression.AllowEarlyDungeonSet2", false);
+        sIndividualProgression->earlyScourgeBosses = sConfigMgr->GetOption<bool>("IndividualProgression.AllowEarlyScourgeBosses", false);
 		sIndividualProgression->tbcArenaSeason = sConfigMgr->GetOption<uint8>("IndividualProgression.TBC.ArenaSeason", 1);
 		sIndividualProgression->wotlkArenaSeason = sConfigMgr->GetOption<uint8>("IndividualProgression.WotLK.ArenaSeason", 5);
         sIndividualProgression->VanillaPvpKillRank1 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank1", 100);
