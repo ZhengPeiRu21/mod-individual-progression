@@ -1,9 +1,15 @@
 /*  Hide vendor items until the player has completed the progression level for them */
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (18525, 27667);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `SourceGroup` IN (18525, 27667);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `SourceEntry` IN (34200, 34201, 51809);
 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
---   
+--
+(23, 18756, 51809, 0, 0, 8, 0, 66013, 0, 0, 0, 0, 0, '', 'Haris Pilton will not sell Portable Hole until the player has completed PROGRESSION_TBC_TIER_5'),
+(23, 17585, 34201, 0, 0, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'Urgronn will not sell Pattern: Netherscale Ammo Pouch until the player has completed PROGRESSION_TBC_TIER_3'),
+(23, 17657, 34201, 0, 0, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'Ulrike will not sell Pattern: Netherscale Ammo Pouch until the player has completed PROGRESSION_TBC_TIER_3'),
+(23, 21655, 34200, 0, 0, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'Nakodu will not sell Pattern: Quiver of a Thousand Feathers until the player has completed PROGRESSION_TBC_TIER_3'),
+--
 (23, 18525, 30183, 0, 0, 8, 0, 66009, 0, 0, 0, 0, 0, '', 'G\'eras - Nether Vortex available at TBC tier 2'),
 (23, 18525, 33192, 0, 0, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'G\'eras - Carved Witch Doctor\'s Stick available at TBC tier 4'),
 (23, 18525, 33207, 0, 0, 8, 0, 66011, 0, 0, 0, 0, 0, '', 'G\'eras - Implacable Guardian Sabatons available at TBC tier 4'),
