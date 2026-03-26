@@ -140,6 +140,7 @@ enum ProgressionAchievements
 enum ProgressionAreas
 {
     AREA_THE_DARK_PORTAL                 = 72,
+    AREA_RUINS_OF_LORDAERON_B            = 153,
     AREA_DREADMAUL_ROCK                  = 249,
     AREA_RUINS_OF_THAURISSAN             = 250,
     AREA_BLACKROCK_MOUNTAIN              = 254,

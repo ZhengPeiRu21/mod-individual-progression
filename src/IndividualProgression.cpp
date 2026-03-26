@@ -318,7 +318,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE, false);
             }
             break;
-        case AREA_RUINS_OF_LORDAERON:
+        case AREA_RUINS_OF_LORDAERON_B:
             if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_AQ)) && (sIndividualProgression->isBeforeProgression(player, PROGRESSION_NAXX40)))
             {
                 player->CastSpell(player, IPP_PHASE, false);
