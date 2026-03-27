@@ -2,10 +2,10 @@
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2581);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 
-2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2764, 2765, 2779, 2793, 4063, 4479, 4480, 4481);
+2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2611, 2764, 2765, 2779, 2793, 4063, 4479, 4480, 4481);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
 (2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 
-2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2764, 2765, 2779, 2793, 4063, 4479, 4480, 4481);
+2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2611, 2764, 2765, 2779, 2793, 4063, 4479, 4480, 4481);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -117,6 +117,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2607, 0, 0, 0, 9, 0, 100, 0, 3000, 5000, 12000, 15000, 0, 10, 11, 13730, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Prince Galen Trollbane - Within 0-10 Range - Cast Demoralizing Shout'),
 (2607, 0, 1, 0, 9, 0, 100, 0, 2000, 4000, 6000, 12000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Prince Galen Trollbane - Within 0-5 Range - Cast Sunder Armor'),
 (2607, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Prince Galen Trollbane - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2611, 0, 0, 0, 0, 0, 100, 0, 12400, 16200, 23500, 31400, 0, 0, 11, 6524, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Fozruk - In Combat - Cast Ground Tremor'),
+(2611, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10700, 20900, 0, 5, 11, 5568, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Fozruk - In Combat - Cast Trample'),
 (2764, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Sleeby - On Aggro - Say Line 0'),
 (2764, 0, 1, 0, 14, 0, 100, 0, 900, 30, 18000, 21000, 0, 0, 11, 10577, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Sleeby - Friendly missing 900 Health - Cast Heal'),
 (2764, 0, 2, 0, 2, 0, 100, 1, 0, 30, 22000, 28000, 0, 0, 11, 10577, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Sleeby - Between 0-30% Health - Cast Heal'),
