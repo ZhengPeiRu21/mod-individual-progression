@@ -18,7 +18,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5232, 0, 1, 0, 0, 0, 100, 0, 3000, 5000, 12000, 17000, 0, 0, 11, 10966, 2, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0,     'Gordunni Brute -  Within 0-10 Range - Cast Uppercut'),
 (5234, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                         'Gordunni Mauler - On Aggro - Say Line 0'),
 (5234, 0, 1, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gordunni Mauler - On Reset - Cast Thrash'),
-(5236, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Gordunni Shaman - On Aggro - Say Line 0'),
+(5236, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                         'Gordunni Shaman - On Aggro - Say Line 0'),
 (5236, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 600000, 600000, 0, 0, 11, 19514, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Gordunni Shaman - Out of Combat - Cast Lightning Shield'),
 (5236, 0, 2, 0, 16, 0, 100, 0, 19514, 30, 15000, 30000, 0, 0, 11, 19514, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Gordunni Shaman - On Friendly Unit Missing Buff - Cast Lightning Shield'),
 (5236, 0, 3, 0, 14, 0, 100, 0, 1200, 40, 14000, 18000, 0, 0, 11, 8005, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Gordunni Shaman - On Friendly missing 1200 health - Cast Healing Wave'),
