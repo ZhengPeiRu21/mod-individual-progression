@@ -2,10 +2,10 @@
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2581);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 
-2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2779, 2793, 4479, 4480, 4481);
+2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2764, 2765, 2779, 2793, 4063, 4479, 4480, 4481);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
 (2554, 2555, 2556, 2558, 2560, 2561, 2562, 2563, 2564, 2565, 2566, 2567, 2569, 2570, 2571, 2573, 2574, 2580, 2581, 2582, 2583, 2584, 2585, 2586, 2587, 2588, 2589, 
-2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2779, 2793, 4479, 4480, 4481);
+2590, 2591, 2595, 2596, 2598, 2604, 2606, 2607, 2764, 2765, 2779, 2793, 4063, 4479, 4480, 4481);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -68,7 +68,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2580, 0, 0, 0, 0, 0, 100, 0, 9000, 15000, 39000, 65000, 0, 0, 11, 8139, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Elder Mesa Buzzard - In Combat - Cast Fevered Fatigue'),
 (2582, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Dabyrie Laborer - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2583, 0, 0, 0, 0, 0, 100, 0, 2000, 5000, 19000, 23000, 0, 0, 11, 2767, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Stromgarde Troll Hunter - In Combat - Cast Shadow Word: Pain'),
-(2583, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 18000, 50, 40, 11, 17137, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Stromgarde Troll Hunter - On Friendly Between 0-50% Health - Cast Flash Heal'),
+(2583, 0, 1, 0, 74, 0, 100, 0, 0, 0, 12000, 18000, 50, 40, 11, 17137, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Stromgarde Troll Hunter - On Friendly Between 0-50% Health - Cast Flash Heal'),
 (2583, 0, 2, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 86, 8602, 2, 9, 2585, 0, 15, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Stromgarde Troll Hunter - On Death - Cross Cast Vengeance'),
 (2584, 0, 0, 0, 1, 0, 100, 1, 2000, 6000, 0, 0, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Stromgarde Defender - Out of Combat - Cast Defensive Stance (No Repeat)'),
 (2584, 0, 1, 0, 105, 0, 50, 0, 7000, 10000, 9000, 13000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Stromgarde Defender - Within 0-5 Range - Cast Shield Bash'),
@@ -117,10 +117,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2607, 0, 0, 0, 9, 0, 100, 0, 3000, 5000, 12000, 15000, 0, 10, 11, 13730, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Prince Galen Trollbane - Within 0-10 Range - Cast Demoralizing Shout'),
 (2607, 0, 1, 0, 9, 0, 100, 0, 2000, 4000, 6000, 12000, 0, 5, 11, 11971, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Prince Galen Trollbane - Within 0-5 Range - Cast Sunder Armor'),
 (2607, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Prince Galen Trollbane - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2764, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Sleeby - On Aggro - Say Line 0'),
+(2764, 0, 1, 0, 14, 0, 100, 0, 900, 30, 18000, 21000, 0, 0, 11, 10577, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,      'Sleeby - Friendly missing 900 Health - Cast Heal'),
+(2764, 0, 2, 0, 2, 0, 100, 1, 0, 30, 22000, 28000, 0, 0, 11, 10577, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Sleeby - Between 0-30% Health - Cast Heal'),
+(2764, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Sleeby - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(2765, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Znort - On Aggro - Say Line 0'),
+(2765, 0, 1, 0, 9, 0, 60, 0, 0, 0, 5000, 10000, 0, 5, 11, 845, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Znort - In Combat - Cast Cleave'),
+(2765, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Znort - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2779, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Prince Nazjak - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (2793, 0, 0, 0, 4, 0, 30, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                      'Kor gresh Coldrage - On Aggro - Say Line 0'),
 (2793, 0, 1, 0, 106, 0, 100, 0, 8000, 12000, 48000, 53000, 0, 10, 11, 865, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Kor gresh Coldrage - Within 0-10 Range - Cast Frost Nova'),
 (2793, 0, 2, 0, 0, 0, 100, 0, 1000, 7000, 48000, 55000, 0, 0, 11, 4320, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Kor gresh Coldrage - In Combat - Cast Trelanes Freezing Touch'),
+(4063, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                     'Feeboz - On Aggro - Say Line 0'),
+(4063, 0, 1, 0, 0, 0, 100, 0, 0, 0, 3000, 4000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Feeboz - In Combat - Cast Fireball'),
+(4063, 0, 2, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Feeboz - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (4479, 0, 0, 0, 9, 0, 100, 0, 3000, 6000, 12000, 13000, 0, 10, 11, 3583, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Fardel Dabyrie - Within 0-10 Range - Cast Deadly Poison'),
 (4479, 0, 1, 0, 2, 0, 100, 1, 0, 20, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Fardel Dabyrie - Between 0-20% Health - Flee For Assist'),
 (4480, 0, 0, 0, 9, 0, 100, 0, 2000, 4000, 6000, 12000, 0, 5, 11, 8379, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Kenata Dabyrie - Within 0-5 Range - Cast Disarm'),
@@ -129,7 +139,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4481, 0, 1, 0, 105, 0, 50, 0, 6000, 11000, 19000, 25000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,  'Marcel Dabyrie - In Combat - Cast Shield Bash'),
 (4481, 0, 2, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 11, 15062, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Marcel Dabyrie - Between 0-50% Health - Cast Shield Wall (No Repeat)'),
 (4481, 0, 3, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Marcel Dabyrie - Between 0-30% Health - Flee For Assist (No Repeat)');
-
 
 -- multiple spawn locations for Prince Nazjak
 DELETE FROM `creature` WHERE `id1` IN (2779);
