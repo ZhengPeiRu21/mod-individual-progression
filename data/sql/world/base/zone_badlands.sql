@@ -1,9 +1,9 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2753, 2754);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2716, 2717, 2718, 2719, 2720, 2739, 2740, 2742, 2743, 2893, 2894, 2906, 2907);
+(2701, 2716, 2717, 2718, 2719, 2720, 2739, 2740, 2742, 2743, 2893, 2894, 2906, 2907);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2716, 2717, 2718, 2719, 2720, 2739, 2740, 2742, 2743, 2753, 2754, 2893, 2894, 2906, 2907);
+(2701, 2716, 2717, 2718, 2719, 2720, 2739, 2740, 2742, 2743, 2753, 2754, 2893, 2894, 2906, 2907);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
