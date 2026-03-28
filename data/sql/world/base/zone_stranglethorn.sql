@@ -107,12 +107,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (702, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodscalp Scavenger - On Enrage - Say Line 0'),
 --
 (709, 0, 0, 0, 9, 0, 100, 512, 2000, 3000, 10000, 11000, 0, 5, 11, 8147, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Mosh\'Ogg Warmonger - Within 0-5 Range - Cast Thunderclap'),
-(709, 0, 1, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Mosh\'Ogg Warmonger - On Aggro - Say Line 0'),
-(710, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Mosh\'Ogg Spellcrafter - On Aggro - Say Line 0'),
+(709, 0, 1, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                         'Mosh\'Ogg Warmonger - On Aggro - Say Line 0'),
+(710, 0, 0, 0, 4, 0, 15, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                         'Mosh\'Ogg Spellcrafter - On Aggro - Say Line 0'),
 (710, 0, 1, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 12544, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Mosh\'Ogg Spellcrafter - Out of Combat - Cast Frost Armor'),
 (710, 0, 2, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 9053, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,               'Mosh\'Ogg Spellcrafter - In Combat - Cast Fireball'),
 (710, 0, 3, 0, 0, 0, 100, 0, 5000, 9000, 12000, 15000, 0, 0, 11, 11829, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,      'Mosh\'Ogg Spellcrafter - In Combat - Cast Flamestrike'),
-(723, 0, 0, 0, 4, 0, 80, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                           'Mosh\'Ogg Butcher - On Aggro - Say Line 0'),
+(723, 0, 0, 0, 4, 0, 80, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                         'Mosh\'Ogg Butcher - On Aggro - Say Line 0'),
 (723, 0, 1, 0, 9, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Mosh\'Ogg Butcher - Within 0-5 Range - Cast Cleave'),
 --
 (728, 0, 0, 0, 0, 0, 90, 0, 9000, 9000, 28000, 28000, 0, 0, 11, 3147, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,        'Bhag\'thera - Within 0-5 Range - Cast Rend Flesh'),

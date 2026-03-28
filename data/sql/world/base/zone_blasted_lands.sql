@@ -115,7 +115,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12396, 0, 4, 5, 8, 0, 100, 0, 23019, 0, 0, 0, 0, 0, 50, 179644, 180, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Doomguard Commander - On Spellhit \'Crystal Prison Dummy DND\' - Summon Gameobject \'Imprisoned Doomguard\''),
 (12396, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Doomguard Commander - On Spellhit \'Crystal Prison Dummy DND\' - Despawn Instant');
 
-
 -- Portal Seeker missing waypoints
 DELETE FROM `creature` WHERE `guid` = 605981;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
@@ -143,12 +142,10 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (6059810, 13, -11370.7, -2855.8, 4.71995, NULL, 0, 0, 0, 100, 0),
 (6059810, 14, -11358.6, -2796.98, 5.47431, NULL, 0, 0, 0, 100, 0);
 
-
 -- Quest: Into the Breach
 SET @CGUID       := 656000;
 SET @WPID        := 6560000;
 SET @IPPPHASE_II := 131072;
-
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+212;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
@@ -231,7 +228,6 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+211, 19567, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11798.8, -3208.15, -30.3542, 2.06588, 300, 0, 0, 5975, 0, 0, 0, 0, 0, '', NULL, 0, NULL),        -- Watcher Theronus
 (@CGUID+212, 19942, 0, 0, 0, 0, 0, 1, @IPPPHASE_II, 1, -11796, -3192.45, -28.6508, 3.2903, 300, 0, 0, 5228, 0, 0, 0, 0, 0, '', NULL, 0, NULL);           -- Agent Proudwell
 
-
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (@CGUID+6, @CGUID+7, @CGUID+8, @CGUID+200, @CGUID+203, @CGUID+206);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
 (@CGUID+6, @CGUID+6, 0, 0, 2, 0, 0),
@@ -254,7 +250,6 @@ INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, 
 (@CGUID+206, @CGUID+207, 3, 90, 516, 0, 0),
 (@CGUID+206, @CGUID+208, 3, 270, 516, 0, 0);
 
-
 UPDATE `creature_template` SET `faction` = 1767 WHERE `entry` = 19567;
 UPDATE `creature_template` SET `DamageModifier` = 2.6, `unit_flags` = 33040 WHERE `entry` = 19385;
 UPDATE `creature_template` SET `unit_class` = 8 WHERE `entry` IN (19566, 19567);
@@ -266,9 +261,8 @@ UPDATE `creature_template` SET `flags_extra` = 134217728 WHERE `entry` IN (19288
 UPDATE `creature_template` SET `detection_range` = 40 WHERE `entry` IN (19287, 19566, 19567);
 UPDATE `creature_template` SET `detection_range` = 30 WHERE `entry` IN (19285, 19290, 19365, 19366);
 
-
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-656006, -656007, -656008);
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (18966, 18969, 19288, 19287, 19365, 19385, 19391, 19566, 19567);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-656006, -656007, -656008);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (18966, 18969, 19288, 19287, 19365, 19385, 19391, 19566, 19567);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, 
 `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
@@ -295,9 +289,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-656008, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+27, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
 (-656008, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+28, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
 --
-(19288, 0, 0, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - In Combat - Cast Shadow Bolt'),
-(19288, 0, 1, 0, 0, 0, 100, 0, 12000, 16000, 10000, 13000, 0, 0, 11, 16583, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - In Combat - Cast Shadow Shock'),
-(19288, 0, 2, 0, 0, 0, 100, 0, 9000, 14000, 11000, 15000, 0, 0, 11, 9081, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Dreadknight - In Combat - Cast Shadow Bolt Volley'),
+(19288, 0, 6, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Dreadknight - In Combat - Cast Shadow Bolt'),
+(19288, 0, 7, 0, 0, 0, 100, 0, 12000, 16000, 10000, 13000, 0, 0, 11, 16583, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - In Combat - Cast Shadow Shock'),
+(19288, 0, 8, 0, 0, 0, 100, 0, 9000, 14000, 11000, 15000, 0, 0, 11, 9081, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Dreadknight - In Combat - Cast Shadow Bolt Volley'),
 --
 (19365, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Argent Bowman - Outside 30 Range - Start Combat Movement'),
 (19365, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Argent Bowman - Within 5-30 Range - Stop Combat Movement'),
@@ -306,15 +300,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (18966, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Justinius the Harbinger - On Aggro - Say Line 0'),
 (18966, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33554, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Justinius the Harbinger - In Combat - Cast Judgement of Command'),
-(18966, 0, 2, 0, 14, 0, 100, 0, 2500, 40, 18000, 21000, 0, 0, 11, 33641, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Justinius the Harbinger - Friendly Missing 2500 Health - Cast Flash of Light'),
+(18966, 0, 2, 0, 14, 0, 100, 0, 2500, 40, 18000, 21000, 0, 0, 11, 33641, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Justinius the Harbinger - Friendly Missing 2500 Health - Cast Flash of Light'),
 --
-(18969, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33643, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Melgromm Highmountain - Within 0-30 Range - Cast Chain Lightning'),
+(18969, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33643, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Melgromm Highmountain - Within 0-30 Range - Cast Chain Lightning'),
 (18969, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 22885, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Melgromm Highmountain - Within 0-20 Range - Cast Earth Shock'),
 --
 (19385, 0, 0, 0, 0, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Lord Marshal Raynor - Within 0-5 Range - Cast Cleave'),
 --
-(19287, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 12000, 24000, 0, 0, 11, 11829, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Invading Voidwalker - Within 0-30 Range - Cast Flamestrike'),
-(19287, 0, 1, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Invading Voidwalker - In Combat - Cast Shadow Bolt'),
+(19287, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 12000, 24000, 0, 0, 11, 11829, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Invading Voidwalker - Within 0-30 Range - Cast Flamestrike'),
+(19287, 0, 1, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Invading Voidwalker - In Combat - Cast Shadow Bolt'),
 --
 (19391, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 10000, 15000, 0, 0, 11, 3551, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Felguard Lieutenant - Within 0-5 Range - Cast Skull Crack'),
 --
@@ -322,7 +316,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (19566, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 20823, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Nethergarde Advisor - In Combat - Cast Fireball'),
 (19567, 0, 0, 0, 106, 0, 100, 0, 0, 0, 2800, 5200, 0, 8, 11, 15453, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Watcher Theronus - Within 0-8 Range - Cast Arcane Explosion'),
 (19567, 0, 1, 0, 0, 0, 100, 0, 0, 0, 2000, 2000, 0, 0, 11, 16799, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Watcher Theronus - In Combat - Cast Frostbolt');
-
 
 DELETE FROM `creature_addon` WHERE `guid` IN 
 (@CGUID+4, @CGUID+5, @CGUID+6, @CGUID+7, @CGUID+8, @CGUID+9, @CGUID+10, @CGUID+11, @CGUID+12, @CGUID+13, @CGUID+14, @CGUID+15, 
@@ -352,7 +345,6 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (@CGUID+200, @WPID+2000, 0, 0, 0, 0, 0, NULL),
 (@CGUID+203, @WPID+2030, 0, 0, 0, 0, 0, NULL),
 (@CGUID+206, @WPID+2060, 0, 0, 0, 0, 0, NULL);
-
 
 DELETE FROM `waypoint_data` WHERE `id` IN 
 (@WPID+40, @WPID+50, @WPID+60, @WPID+70, @WPID+80, @WPID+90, @WPID+100, @WPID+110, @WPID+120, @WPID+130, @WPID+140, @WPID+150, 
