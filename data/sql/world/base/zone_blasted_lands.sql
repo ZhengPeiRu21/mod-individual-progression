@@ -289,9 +289,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-656008, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+27, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
 (-656008, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 10, @CGUID+28, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - On Death - Despawn Portal Hound'),
 --
-(19288, 0, 6, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Dreadknight - In Combat - Cast Shadow Bolt'),
+(19288, 0, 6, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Dreadknight - In Combat - Cast Shadow Bolt'),
 (19288, 0, 7, 0, 0, 0, 100, 0, 12000, 16000, 10000, 13000, 0, 0, 11, 16583, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Dreadknight - In Combat - Cast Shadow Shock'),
-(19288, 0, 8, 0, 0, 0, 100, 0, 9000, 14000, 11000, 15000, 0, 0, 11, 9081, 65, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Dreadknight - In Combat - Cast Shadow Bolt Volley'),
+(19288, 0, 8, 0, 0, 0, 100, 0, 9000, 14000, 11000, 15000, 0, 0, 11, 9081, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Dreadknight - In Combat - Cast Shadow Bolt Volley'),
 --
 (19365, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Argent Bowman - Outside 30 Range - Start Combat Movement'),
 (19365, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Argent Bowman - Within 5-30 Range - Stop Combat Movement'),
@@ -300,15 +300,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (18966, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Justinius the Harbinger - On Aggro - Say Line 0'),
 (18966, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33554, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Justinius the Harbinger - In Combat - Cast Judgement of Command'),
-(18966, 0, 2, 0, 14, 0, 100, 0, 2500, 40, 18000, 21000, 0, 0, 11, 33641, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,    'Justinius the Harbinger - Friendly Missing 2500 Health - Cast Flash of Light'),
+(18966, 0, 2, 0, 14, 0, 100, 0, 2500, 40, 18000, 21000, 0, 0, 11, 33641, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,     'Justinius the Harbinger - Friendly Missing 2500 Health - Cast Flash of Light'),
 --
-(18969, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33643, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Melgromm Highmountain - Within 0-30 Range - Cast Chain Lightning'),
+(18969, 0, 0, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 33643, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Melgromm Highmountain - Within 0-30 Range - Cast Chain Lightning'),
 (18969, 0, 1, 0, 0, 0, 100, 0, 5000, 10000, 10000, 20000, 0, 0, 11, 22885, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Melgromm Highmountain - Within 0-20 Range - Cast Earth Shock'),
 --
 (19385, 0, 0, 0, 0, 0, 100, 0, 4850, 18250, 4850, 18250, 0, 0, 11, 40504, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Lord Marshal Raynor - Within 0-5 Range - Cast Cleave'),
 --
-(19287, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 12000, 24000, 0, 0, 11, 11829, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Invading Voidwalker - Within 0-30 Range - Cast Flamestrike'),
-(19287, 0, 1, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Invading Voidwalker - In Combat - Cast Shadow Bolt'),
+(19287, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 12000, 24000, 0, 0, 11, 11829, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Invading Voidwalker - Within 0-30 Range - Cast Flamestrike'),
+(19287, 0, 1, 0, 0, 0, 100, 0, 0, 0, 5000, 10000, 0, 0, 11, 20825, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Invading Voidwalker - In Combat - Cast Shadow Bolt'),
 --
 (19391, 0, 0, 0, 0, 0, 100, 0, 3000, 6000, 10000, 15000, 0, 0, 11, 3551, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Felguard Lieutenant - Within 0-5 Range - Cast Skull Crack'),
 --
