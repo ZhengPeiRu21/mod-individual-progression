@@ -65,6 +65,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1954500, 9, 5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Cohlien Frostweaver - Script - Set Faction'),
 (1954500, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 19550, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,             'Cohlien Frostweaver - Script - Give Kill Credit');
 
+-- fix creature placed under ground
+UPDATE `creature` SET `position_x` = 2246.56, `position_y` = 2294.01, `position_z` = 86.2593 WHERE `guid` = 67476;
+
 -- fix Escape from the Staging Grounds (didn't complete, because closest player was stored as target, now using invoker)
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (20763);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
@@ -85,9 +88,48 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (20763, 0, 10, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 6, 10425, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,       'Captured Protectorate Vanguard - On Just Died - Fail Quest'),
 (20763, 0, 11, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 81, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Captured Protectorate Vanguard - On Respawn - Set Npc Flag');
 
--- fix creature placed under ground
-UPDATE `creature` SET `position_x` = 2246.56, `position_y` = 2294.01, `position_z` = 86.2593 WHERE `guid` = 67476;
+-- add waypoints for Summoner Kanthin
+DELETE FROM `creature` WHERE `id1` IN (19657, 19653);
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+--
+(70089, 19653, 0, 0, 530, 0, 0, 1, 1, 0, 2948.9099, 2280.3501, 161.7080, 5.9072, 300, 0, 0, 2530, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Glacius
+(70141, 19657, 0, 0, 530, 0, 0, 1, 1, 0, 2952.3401, 2280.5801, 161.7080, 5.9091, 300, 0, 1, 5409, 3080, 2, 0, 0, 0, '', 0, 0, NULL); -- Summoner Kanthin
 
+DELETE FROM `creature_formations` WHERE `leaderGUID` IN (70141);
+INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
+(70141, 70141, 0, 0,  515, 0, 0),  -- Summoner Kanthin
+(70141, 70089, 4, 225, 515, 0, 0); -- Glacius
+
+DELETE FROM `creature_addon` WHERE `guid` IN (70141);
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(70141, 701410, 0, 0, 0, 0, 0, '');
+
+DELETE FROM `waypoint_data` WHERE `id` IN (701410);
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+--
+(701410, 1, 2952.34, 2280.58, 161.708, NULL, 0, 0, 0, 100, 0),
+(701410, 2, 2963.22, 2285.29, 161.715, NULL, 0, 0, 0, 100, 0),
+(701410, 3, 2972.13, 2290.53, 161.709, NULL, 0, 0, 0, 100, 0),
+(701410, 4, 2981.27, 2296.16, 161.709, NULL, 0, 0, 0, 100, 0),
+(701410, 5, 2985.89, 2298.46, 161.709, NULL, 0, 0, 0, 100, 0),
+(701410, 6, 2991.7, 2294.17, 161.709, NULL, 0, 0, 0, 100, 0),
+(701410, 7, 2998.74, 2293.21, 161.706, NULL, 0, 0, 0, 100, 0),
+(701410, 8, 3005.23, 2292.41, 161.537, NULL, 0, 0, 0, 100, 0),
+(701410, 9, 3011.54, 2291.28, 160.931, NULL, 0, 0, 0, 100, 0),
+(701410, 10, 3012.24, 2298.92, 161.379, NULL, 0, 0, 0, 100, 0),
+(701410, 11, 3011.92, 2302.38, 161.554, NULL, 0, 0, 0, 100, 0),
+(701410, 12, 3012.24, 2298.92, 161.379, NULL, 0, 0, 0, 100, 0),
+(701410, 13, 3011.54, 2291.28, 160.931, NULL, 0, 0, 0, 100, 0),
+(701410, 14, 3005.23, 2292.41, 161.537, NULL, 0, 0, 0, 100, 0),
+(701410, 15, 2998.74, 2293.21, 161.706, NULL, 0, 0, 0, 100, 0),
+(701410, 16, 2991.7, 2294.17, 161.709, NULL, 0, 0, 0, 100, 0),
+(701410, 17, 2985.89, 2298.46, 161.709, NULL, 0, 0, 0, 100, 0),
+(701410, 18, 2981.27, 2296.16, 161.709, NULL, 0, 0, 0, 100, 0),
+(701410, 19, 2972.13, 2290.53, 161.709, NULL, 0, 0, 0, 100, 0),
+(701410, 20, 2963.22, 2285.29, 161.715, NULL, 0, 0, 0, 100, 0);
+
+-- Arena vendors
 SET @CGUID      := 659000;
 
 SET @Vixton     := 120278;
