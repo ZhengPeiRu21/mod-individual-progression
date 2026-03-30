@@ -195,24 +195,11 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 
     switch (newArea) {
         case AREA_DARKSHORE:
-            if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_GROVE_OF_THE_ANCIENTS:
-            if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_WILDBEND_RIVER:
-            if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_TWILIGHT_VALE:
+        case AREA_SCARAB_WALL:
+        case AREA_SCARAB_DAIS:
             if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
             {
                 player->CastSpell(player, IPP_PHASE, false);
@@ -228,38 +215,8 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE_II, false);
             }
             break;
-        case AREA_SCARAB_WALL:
-            if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_SCARAB_DAIS:
-            if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_HIVE_ASHI:
-            if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            else if (hasPassedProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE_II, false);
-            }
-            break;
         case AREA_HIVE_ZORA:
-            if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            else if (hasPassedProgression(player, PROGRESSION_AQ_WAR))
-            {
-                player->CastSpell(player, IPP_PHASE_II, false);
-            }
-            break;
         case AREA_HIVE_REGAL:
             if (hasPassedProgression(player, PROGRESSION_PRE_AQ) && isBeforeProgression(player, PROGRESSION_AQ_WAR))
             {
@@ -271,29 +228,9 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             }
             break;
         case AREA_BOUGH_SHADOW:
-            if (hasPassedProgression(player, PROGRESSION_ONYXIA))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_SERADANE:
-            if (hasPassedProgression(player, PROGRESSION_ONYXIA))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_DREAM_BOUGH:
-            if (hasPassedProgression(player, PROGRESSION_ONYXIA))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_JADEMIR_LAKE:
-            if (hasPassedProgression(player, PROGRESSION_ONYXIA))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_TWILIGHT_GROVE:
             if (hasPassedProgression(player, PROGRESSION_ONYXIA))
             {
@@ -301,96 +238,40 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             }
             break;
         case AREA_DUROTAR:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_ROCKTUSK_FARM:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_TIRISFAL_GLADES:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_RUINS_OF_LORDAERON_B:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_MULGORE:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_VALLEY_OF_HEROES:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_ELWYNN_FOREST:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_DUN_MOROGH:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_TELDRASSIL:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_EASTERN_PLAGUELANDS:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_PESTILENT_SCAR:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_THE_MARRIS_STEAD:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_BLASTED_LANDS:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_RISE_OF_THE_DEFILER:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_DREADMAUL_HOLD:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         case AREA_DREADMAUL_POST:
+        case AREA_SERPENTS_COIL:
+        case AREA_TANARIS:
+        case AREA_GADGETZAN:
+        case AREA_ABYSSAL_SANDS:
+        case AREA_BROKEN_PILLAR:
+        case AREA_WINTERSPRING:
+        case AREA_TIMBERMAW_POST:
+        case AREA_FROSTSABER_ROCK:
+        case AREA_ICE_THISTLE_HILLS:
+        case AREA_MAZTHORIL:
+        case AREA_AZSHARA:
+        case AREA_HALDARR_ENCAMPMENT:
+        case AREA_THE_SHATTERED_STRAND:
+        case AREA_SOUTHRIDGE_BEACH:
+        case AREA_BURNING_STEPPES:
+        case AREA_DRACO_DAR:
+        case AREA_BLACKROCK_MOUNTAIN:
+        case AREA_DREADMAUL_ROCK:
+        case AREA_RUINS_OF_THAURISSAN:
             if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
             {
                 player->CastSpell(player, IPP_PHASE, false);
@@ -404,120 +285,6 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             else if (hasPassedProgression(player, PROGRESSION_NAXX40) && isBeforeProgression(player, PROGRESSION_PRE_TBC))
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
-            }
-            break;
-        case AREA_SERPENTS_COIL:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_TANARIS:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_GADGETZAN:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_ABYSSAL_SANDS:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_BROKEN_PILLAR:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_WINTERSPRING:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_TIMBERMAW_POST:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_FROSTSABER_ROCK:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_ICE_THISTLE_HILLS:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_MAZTHORIL:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_AZSHARA:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_HALDARR_ENCAMPMENT:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_THE_SHATTERED_STRAND:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_SOUTHRIDGE_BEACH:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_BURNING_STEPPES:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_DRACO_DAR:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_BLACKROCK_MOUNTAIN:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_DREADMAUL_ROCK:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
-        case AREA_RUINS_OF_THAURISSAN:
-            if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
             }
             break;
         case AREA_PURGATION_ISLE:
