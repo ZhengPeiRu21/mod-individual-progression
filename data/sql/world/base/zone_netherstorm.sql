@@ -65,7 +65,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1954500, 9, 5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Cohlien Frostweaver - Script - Set Faction'),
 (1954500, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 19550, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,             'Cohlien Frostweaver - Script - Give Kill Credit');
 
--- fix creature placed under ground
+-- fix creatures placed under ground
+UPDATE `creature` SET `position_x` = 2185.01, `position_y` = 2281.85, `position_z` = 76.2261 WHERE `guid` = 67474;
 UPDATE `creature` SET `position_x` = 2246.56, `position_y` = 2294.01, `position_z` = 86.2593 WHERE `guid` = 67476;
 
 -- fix Escape from the Staging Grounds (didn't complete, because closest player was stored as target, now using invoker)
