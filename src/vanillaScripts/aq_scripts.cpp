@@ -311,7 +311,7 @@ public:
         bool CanBeSeen(Player const* player) override
         {
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            
+
             if (!target)
                 return false;
 

@@ -109,7 +109,7 @@ IndividualProgression.doableNaxx40Bosses = 0
 
 # IndividualProgression.MoltenCore.ManualRuneHandling
 #
-#        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence) 
+#        Description: Defines whether Molten Core runes are handled manually (dousing through Aqual Quintessence)
 #                     or automatic when bosses are defeated (WotLK default)
 #
 #        Default:     1 - Enabled (requires dousing)
@@ -174,7 +174,7 @@ IndividualProgression.SimpleConfigOverride = 1
 
 # IndividualProgression.DisableRDF
 #
-#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression. 
+#        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression.
 #                     Queuing for specific dungeons and Holiday Events will still be possible. (Use DungeonFinder.OptionsMask in worldserver.conf to completely disable the LFG tool.)
 #
 #        Default:     0 - RDF Enabled
@@ -213,7 +213,7 @@ IndividualProgression.RepeatableVanillaQuestsXP = 1
 #                     For example, a value of 7 will limit players to Vanilla content.
 #
 #        Default:     0 - Disabled (players may progress up to the maximum progression stage of 18, which is the completion of WotLK content)
-#                     1-17 - Set a lower maximum attainable progression stage 
+#                     1-17 - Set a lower maximum attainable progression stage
 #
 IndividualProgression.ProgressionLimit = 0
 
@@ -368,7 +368,7 @@ IndividualProgression.VanillaPvpKillRequirement.Rank14 = 24000
 #        Description: Players retain their Vanilla PvP titles even after reaching TBC/WotLK
 #
 #        Default:     1 - Enabled (Default, Blizzlike)
-#                     0 - Disabled 
+#                     0 - Disabled
 #
 IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 1
 

@@ -528,7 +528,7 @@ void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16
     AchievementEntry const* entry = sAchievementStore.LookupEntry(achievementID);
     if (!entry)
         return;
-    
+
     player->CompletedAchievement(entry);
 }
 
