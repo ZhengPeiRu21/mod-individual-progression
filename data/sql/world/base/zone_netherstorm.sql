@@ -147,7 +147,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (2028103, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 17, 469, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                               'Script9 - Set Emote State'),
 (2028103, 9, 1, 0, 0, 0, 100, 1, 8000, 8000, 0, 0, 0, 0, 12, 20403, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
-(2028103, 9, 2, 0, 0, 0, 100, 0, 8000, 8000, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                            'Script9 - Talk');
+(2028103, 9, 2, 0, 0, 0, 100, 0, 12000, 12000, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Script9 - Talk');
 
 DELETE FROM `creature_text` WHERE `CreatureID` = 20281;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
