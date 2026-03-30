@@ -135,12 +135,12 @@ public:
     onyxia_entrance_trigger() : AreaTriggerScript("onyxia_entrance_trigger") { }
 
     bool OnTrigger(Player* player, AreaTrigger const* /*areaTrigger*/) override
-    {       
+    {
         if (!player || !player->IsInWorld())
             return false;
 
         ChatHandler handler(player->GetSession());
-	
+
         if (player->GetLevel() <= IP_LEVEL_TBC)
         {
             if (player->GetLevel() < 50)
@@ -176,7 +176,7 @@ public:
                 handler.PSendSysMessage("You must have the Drakefire Amulet in your inventory to enter Onyxia\'s Lair.");
                 return false;
             } */
-			
+
             player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
             return true;
         }

@@ -322,7 +322,7 @@ public:
                 if (GameObject* rune = instance->GetGameObject(_runesGUIDs[bossId]))
                 {
                     if (sConfigMgr->GetOption<int>("IndividualProgression.MoltenCore.ManualRuneHandling", 1) == 1)
-                    {		
+                    {
                         if (GameObject* circle = instance->GetGameObject(_circlesGUIDs[bossId]))
                         {
                             rune->SetGoState(GO_STATE_ACTIVE);

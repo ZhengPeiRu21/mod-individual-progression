@@ -206,7 +206,7 @@ enum ProgressionState : uint8         // Progression stands for what has been co
     PROGRESSION_MOLTEN_CORE     = 1,  // BWL available
     PROGRESSION_ONYXIA          = 2,
     PROGRESSION_BLACKWING_LAIR  = 3,  // ZG, AQ War effort, AQ quest line
-    PROGRESSION_PRE_AQ          = 4,  // AQ gates open, raids available, AQ outdoors war 
+    PROGRESSION_PRE_AQ          = 4,  // AQ gates open, raids available, AQ outdoors war
     PROGRESSION_AQ_WAR          = 5,  // AQ gates open, raids, Field Duty quests and all Cenarion Hold npcs available
     PROGRESSION_AQ              = 6,  // Naxx40 and Scourge Invasion
     PROGRESSION_NAXX40          = 7,  // Into the Breach
@@ -396,7 +396,7 @@ public:
     void SyncBotsProgressionToLeader(Group* group);
     bool isAttuned(Player* player);
     void checkIPPhasing(Player* player, uint32 newArea);
-    void checkIPProgression(Player* player);	
+    void checkIPProgression(Player* player);
     void UpdateProgressionQuests(Player* player);
     void UpdateProgressionAchievements(Player* player, uint16 achievementID);
     void checkKillProgression(Player* player, Creature* killed);
