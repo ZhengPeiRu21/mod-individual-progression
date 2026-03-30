@@ -34,7 +34,7 @@ public:
     {
         if (!currentState || !progressionLevel || !target || !target->IsInWorld())
             return;
-	
+
         uint16 playerGUID = target->GetGUID().GetCounter();
 
         for (uint8 i = progressionLevel; i < currentState; ++i)
@@ -97,7 +97,7 @@ public:
     static bool HandleGetIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player)
     {
         player = PlayerIdentifier::FromTargetOrSelf(handler);
-		
+
         if (!player)
         {
             handler->SendSysMessage("Player not found.");
@@ -116,7 +116,7 @@ public:
     {
 	    if (!progressionLevel && progressionLevel != 0)
             return false;
-	
+
         if (progressionLevel > PROGRESSION_WOTLK_TIER_5)
         {
             handler->SendSysMessage("Invalid Progression Level.");
@@ -154,7 +154,7 @@ public:
         }
 
         Group* group = player->GetGroup();
-		
+
         std::string playername = player->GetName();
         uint32 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         uint32 currentArea = player->GetAreaId();
@@ -194,7 +194,7 @@ public:
         uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
         std::string playername = target->GetName();
 
-        if (location == "naxx" || location == "naxx40") 
+        if (location == "naxx" || location == "naxx40")
         {
 			if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= IP_LEVEL_TBC))
             {

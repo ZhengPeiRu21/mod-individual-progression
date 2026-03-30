@@ -56,7 +56,7 @@ public:
         {
             sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->tbcRacesStartingProgression));
         }
-        
+
         if (player->getClass() == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression)))
         {
             sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->deathKnightStartingProgression));
@@ -266,10 +266,10 @@ public:
                 else
                     return IsTBCRaceStartingZone(mapid, x, y, z);
             }
-            
+
             Map const *map = sMapMgr->FindMap(mapid, 0);
             uint32 zoneId = map->GetZoneId(0, x, y, z);
-            
+
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_4) && zoneId == AREA_ISLE_OF_QUEL_DANAS)
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_4);
@@ -828,9 +828,13 @@ public:
             heal *= sIndividualProgression->tbcHealingAdjustment;
     }
 
-    void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* /*spellInfo*/) override
+    void ModifySpellDamageTaken(Unit* /*target*/, Unit* attacker, int32& damage, SpellInfo const* spellInfo) override
     {
         if (!sIndividualProgression->enabled || !attacker || !damage)
+            return;
+
+        // 22482 - Blade Flurry extra attack (Rogue); 12723 - Sweeping Strikes extra attack (Warrior)
+        if (spellInfo && (spellInfo->Id == 22482 || spellInfo->Id == 12723))
             return;
 
         bool isPet = attacker->GetOwner() && attacker->GetOwner()->GetTypeId() == TYPEID_PLAYER;

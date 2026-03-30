@@ -63,7 +63,7 @@ public:
             // if (!instance->GetData(DATA_UBRS_DOOR_OPEN))
             // {
             //     DoCastSelf(68378 /* Berserk */);
-            // }            
+            // }
         }
 
         void UpdateAI(uint32 diff) override

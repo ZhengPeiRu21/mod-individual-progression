@@ -42,9 +42,9 @@ public:
         {
             if (player->IsGameMaster())
                 return true;
-            
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ) && !sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
                 return true;
             else
@@ -71,9 +71,9 @@ public:
         {
             if (player->IsGameMaster())
                 return true;
-            
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ) && !sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40))
                 return true;
             else
@@ -102,7 +102,7 @@ public:
                 return true;
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
                 return true;
             else
@@ -269,9 +269,9 @@ public:
         {
             if (player->IsGameMaster())
                 return true;
-			
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-			
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR) && !sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ))
                 return true;
             else
@@ -326,9 +326,9 @@ public:
         {
             if (player->IsGameMaster())
                 return true;
-            
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_BLACKWING_LAIR) && !sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
                 return true;
             else
@@ -355,9 +355,9 @@ public:
         {
             if (player->IsGameMaster())
                 return true;
-            
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_AQ) && !sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ_WAR))
                 return true;
             else
@@ -384,9 +384,9 @@ public:
         {
             if (player->IsGameMaster())
                 return true;
-			
+
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-			
+
             if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ) && !sIndividualProgression->hasPassedProgression(target, PROGRESSION_NAXX40))
                 return true;
             else
@@ -469,8 +469,8 @@ public:
         {
             if (player->IsGameMaster() || !sIndividualProgression->enabled)
                 return true;
-            
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());            
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
             if (sIndividualProgression->isBeforeProgression(target,PROGRESSION_PRE_TBC))
                 return true;
             else
