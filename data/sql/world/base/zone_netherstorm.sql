@@ -70,7 +70,7 @@ UPDATE `creature` SET `position_x` = 2185.01, `position_y` = 2281.85, `position_
 UPDATE `creature` SET `position_x` = 2246.56, `position_y` = 2294.01, `position_z` = 86.2593 WHERE `guid` = 67476;
 UPDATE `creature` SET `position_x` = 2189.28, `position_y` = 2225.27, `position_z` = 82.2145 WHERE `guid` = 67480;
 
--- fix Escape from the Staging Grounds (didn't complete, because closest player was stored as target, now using invoker)
+-- fix quest: Escape from the Staging Grounds (didn't complete, because closest player was stored as target, now using invoker)
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (20763);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -89,6 +89,78 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (20763, 0, 9, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Captured Protectorate Vanguard - On Waypoint 18 Reached - Despawn In 3000 ms'),
 (20763, 0, 10, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 6, 10425, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,       'Captured Protectorate Vanguard - On Just Died - Fail Quest'),
 (20763, 0, 11, 0, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 81, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Captured Protectorate Vanguard - On Respawn - Set Npc Flag');
+
+-- fix quest: Sabotage the Warp-Gate! (had wrong text and wrong spawn location for creatures)
+-- still has issue with quest npc running off to attack creature spawns and then complaining he's under attack
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (20281);
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (2028100, 2028101, 2028102, 2028103);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+-- 
+(20281, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 18, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'On Respawn - Set Flag'),
+(20281, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 81, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'On Respawn - Set NPC Flag'),
+--
+(20281, 0, 2, 0, 19, 0, 100, 0, 10310, 0, 0, 0, 0, 0, 80, 2028100, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'On Quest Accept - Run Script 2028100'),
+--
+(20281, 0, 3, 4, 40, 0, 100, 0, 5, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'On WP Reached - Talk'),
+(20281, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 54, 7000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'On WP Reached - WP Pause'),
+--
+(20281, 0, 5, 6, 40, 0, 100, 0, 6, 0, 0, 0, 0, 0, 54, 40000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'On WP Reached - WP Pause'),
+(20281, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 2028101, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'On WP Reached - Run Script 2028101'),
+(20281, 0, 7, 17, 56, 0, 100, 0, 6, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'On WP Resume - Talk'),
+--
+(20281, 0, 8, 9, 40, 0, 100, 0, 9, 0, 0, 0, 0, 0, 54, 40000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'On WP Reached - WP Pause'),
+(20281, 0, 9, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 2028102, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'On WP Reached - Run Script 2028102'),
+(20281, 0, 10, 17, 56, 0, 100, 0, 9, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'On WP Resume - Talk'),
+--
+(20281, 0, 11, 12, 40, 0, 100, 0, 12, 0, 0, 0, 0, 0, 54, 40000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'On WP Reached - WP Pause'),
+(20281, 0, 12, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 2028103, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'On WP Reached - Run Script 2028103'),
+(20281, 0, 13, 17, 56, 0, 100, 0, 12, 0, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'On WP Resume - Talk'),
+--
+(20281, 0, 14, 0, 40, 0, 100, 0, 14, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 20296, 100, 0, 0, 0, 0, 0, 0,  'On WP Reached - Set Data'),
+(20281, 0, 15, 0, 40, 0, 100, 0, 15, 0, 0, 0, 0, 0, 1, 6, 0, 0, 0, 0, 0, 12, 16777215, 0, 0, 0, 0, 0, 0, 0,  'On WP Reached - Talk'),
+(20281, 0, 16, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'On Aggro - Talk'),
+(20281, 0, 17, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Linked - Remove Emote State'),
+--
+(2028100, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                  'Script9 - On Quest Accept - Talk'),
+(2028100, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                               'Script9 - On Quest Accept - Remove Flag'),
+(2028100, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                 'Script9 - On Quest Accept - Set NPC Flag'),
+(2028100, 9, 3, 0, 0, 0, 100, 0, 10000, 10000, 0, 0, 0, 0, 53, 2, 20281, 0, 10310, 5000, 2, 7, 0, 0, 0, 0, 0, 0, 0, 0,              'Script9 - On Quest Accept - Start WP'),
+(2028100, 9, 4, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                  'Script9 - On Quest Accept - Talk'),
+--
+(2028101, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 17, 469, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                               'Script9 - Set Emote State'),
+(2028101, 9, 1, 0, 0, 0, 100, 1, 8000, 8000, 0, 0, 0, 0, 12, 20399, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028101, 9, 2, 0, 0, 0, 100, 1, 2000, 2000, 0, 0, 0, 0, 12, 20399, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028101, 9, 3, 0, 0, 0, 100, 1, 2000, 2000, 0, 0, 0, 0, 12, 20399, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028101, 9, 4, 0, 0, 0, 100, 1, 2000, 2000, 0, 0, 0, 0, 12, 20399, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028101, 9, 5, 0, 0, 0, 100, 1, 2000, 2000, 0, 0, 0, 0, 12, 20399, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028101, 9, 6, 0, 0, 0, 100, 1, 2000, 2000, 0, 0, 0, 0, 12, 20399, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028101, 9, 7, 0, 0, 0, 100, 1, 2000, 2000, 0, 0, 0, 0, 12, 20399, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028101, 9, 8, 0, 0, 0, 100, 1, 2000, 2000, 0, 0, 0, 0, 12, 20399, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+--
+(2028102, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 17, 469, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                               'Script9 - Set Emote State'),
+(2028102, 9, 1, 0, 0, 0, 100, 1, 8000, 8000, 0, 0, 0, 0, 12, 20402, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028102, 9, 2, 0, 0, 0, 100, 1, 6000, 6000, 0, 0, 0, 0, 12, 20402, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028102, 9, 3, 0, 0, 0, 100, 1, 6000, 6000, 0, 0, 0, 0, 12, 20402, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+--
+(2028103, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 17, 469, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                               'Script9 - Set Emote State'),
+(2028103, 9, 1, 0, 0, 0, 100, 1, 8000, 8000, 0, 0, 0, 0, 12, 20403, 4, 40000, 0, 1, 0, 8, 0, 0, 0, 0, 3021.84, 2718.74, 115.038, 0, 'Script9 - Summon Creature'),
+(2028103, 9, 2, 0, 0, 0, 100, 0, 8000, 8000, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                            'Script9 - Talk');
+
+DELETE FROM `creature_text` WHERE `CreatureID` = 20281;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+--
+(20281, 0, 0, 'Let\'s proceed at a brisk pace.', 12, 0, 100, 0, 0, 0, 17941, 0, 'Drijya'),
+(20281, 1, 0, 'We\'ll start at that first energy pylon, straight ahead. Remember, try to keep them off of me.', 12, 0, 100, 25, 0, 0, 17942, 0, 'Drijya'),
+(20281, 2, 0, 'I\'m done with this pylon. On to the next.', 12, 0, 100, 0, 0, 0, 17943, 0, 'Drijya'),
+(20281, 3, 0, 'Alright, pylon two down. Now for the heat manifold.', 12, 0, 100, 0, 0, 0, 17944, 0, 'Drijya'),
+(20281, 4, 0, 'That should do it. The teleporter should blow any second now!', 12, 0, 100, 0, 0, 0, 17945, 0, 'Drijya'),
+(20281, 5, 0, 'Ok, let\'s get out of here!', 12, 0, 100, 0, 0, 0, 17946, 0, 'Drijya'),
+(20281, 6, 0, 'Thank you, $N! I couldn\'t have done it without you. You\'ll let Gahruj know?', 12, 0, 100, 0, 0, 0, 17949, 0, 'Drijya'),
+(20281, 7, 0, 'Keep them off me!', 12, 0, 100, 0, 0, 0, 17950, 0, 'Drijya'),
+(20281, 8, 0, 'Very well.  Before we head down there, take a moment to prepare yourself.', 12, 0, 100, 0, 0, 0, 17940, 0, 'Drijya');
 
 -- add waypoints for Summoner Kanthin
 DELETE FROM `creature` WHERE `id1` IN (19657, 19653);
