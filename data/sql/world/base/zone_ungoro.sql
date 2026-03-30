@@ -88,6 +88,25 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9622, 0, 0, 0, 0, 0, 100, 0, 4000, 4000, 8000, 12000, 0, 0, 11, 8374, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'U\'cha - Within 0-5 Range - Cast Arcing Smash'),
 (9622, 0, 1, 0, 0, 0, 100, 0, 7000, 7000, 10000, 50000, 0, 0, 11, 11428, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'U\'cha - Within 0-5 Range - Cast Knockdown');
 
+-- fix `Making Sense of It` quest credit issue. (not rewarding everyone in the party)
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` = 9117;
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` = 911700;
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(9117, 0, 0, 1, 19, 0, 100, 0, 4321, 0, 0, 0, 0, 0, 64, 1, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,          'J.D. Collie - On Quest Taken - Store Targetlist'),
+(9117, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 911700, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'J.D. Collie - On Quest \'Making Sense of It\' Taken - Run Script'),
+(9117, 0, 2, 0, 62, 0, 100, 0, 2184, 3, 0, 0, 0, 0, 11, 15211, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'J.D. Collie - On Gossip Option 3 Selected - Cast \'Create Pylon User\'s Manual\''),
+(9117, 0, 3, 0, 20, 0, 100, 0, 3941, 0, 0, 0, 0, 0, 80, 911701, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'J.D. Collie - On Quest \'A Gnome\'s Assistance\' Finished - Run Script'),
+(9117, 0, 4, 0, 40, 0, 100, 0, 1, 911700, 0, 0, 0, 0, 80, 911702, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'J.D. Collie - On Waypoint 1 Reached - Run Script'),
+(9117, 0, 5, 0, 40, 0, 100, 0, 2, 911700, 0, 0, 0, 0, 80, 911703, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'J.D. Collie - On Waypoint 2 Reached - Run Script'),
+--
+(911700, 9, 0, 0, 0, 0, 100, 0, 6000, 6000, 0, 0, 0, 0, 5, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'J.D. Collie - On Script - Play Emote 6'),
+(911700, 9, 1, 0, 0, 0, 100, 0, 4000, 4000, 0, 0, 0, 0, 5, 22, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'J.D. Collie - On Script - Play Emote 22'),
+(911700, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'J.D. Collie - On Script - Say Line 0'),
+(911700, 9, 3, 0, 0, 0, 100, 0, 10000, 10000, 0, 0, 0, 0, 15, 4321, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0, 'J.D. Collie - On Script - Quest Credit \'Making Sense of It\'');
 
 UPDATE `creature` SET `spawntimesecs` = 54000  WHERE `id1` = 6581; -- Ravasaur Matriarch
 UPDATE `creature` SET `spawntimesecs` = 47000  WHERE `id1` = 6582; -- Clutchmother Zavas
