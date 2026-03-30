@@ -68,6 +68,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- fix creatures placed under ground
 UPDATE `creature` SET `position_x` = 2185.01, `position_y` = 2281.85, `position_z` = 76.2261 WHERE `guid` = 67474;
 UPDATE `creature` SET `position_x` = 2246.56, `position_y` = 2294.01, `position_z` = 86.2593 WHERE `guid` = 67476;
+UPDATE `creature` SET `position_x` = 2189.28, `position_y` = 2225.27, `position_z` = 82.2145 WHERE `guid` = 67480;
 
 -- fix Escape from the Staging Grounds (didn't complete, because closest player was stored as target, now using invoker)
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (20763);
