@@ -1172,7 +1172,7 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
 `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
-`RegenHealth`, CreatureImmunitiesId, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+`RegenHealth`, `CreatureImmunitiesId`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
 (112051,0,0,0,0,0,'Frostwolf Legionnaire',NULL,NULL,0,57,57,0,1214,0,1,1.14286,1,1,18,0,0,1.7,2000,2000,1,1,1,4096,2048,0,0,7,0,12051,12051,0,0,0,83,416,'SmartAI',1,1,0.6,1,1,1,0,0,1,0,0,'',0),
 (112127,0,0,0,0,0,'Stormpike Guardsman',NULL,NULL,0,57,57,0,1216,0,1,1.14286,1,1,18,0,0,1.6,2000,2000,1,1,1,4096,2048,0,0,7,0,12127,12127,0,0,0,83,772,'SmartAI',0,1,0.6,1,1,1,0,0,1,0,0,'',0),
