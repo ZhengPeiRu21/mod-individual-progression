@@ -1,5 +1,6 @@
 -- Mechanic Immunities copied from VMangos (2025) 
 
+/*
 UPDATE `creature_template` SET `mechanic_immune_mask` = 8405008 WHERE `entry` = 36;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 8602131 WHERE `entry` = 48;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 646013727 WHERE `entry` = 92;
@@ -1057,5 +1058,4 @@ UPDATE `creature_template` SET `mechanic_immune_mask` = 1055616595 WHERE `entry`
 UPDATE `creature_template` SET `mechanic_immune_mask` = 646016863 WHERE `entry` = 17003;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 1022042625 WHERE `entry` = 17055;
 UPDATE `creature_template` SET `mechanic_immune_mask` = 17 WHERE `entry` = 17765;
-
-
+*/
