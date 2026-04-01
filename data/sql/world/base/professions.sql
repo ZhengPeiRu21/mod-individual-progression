@@ -159,16 +159,16 @@ SET @Grikka  := 121087;
 /* Add copies with script npc_ipp_tbc_pre_t4 */
 DELETE FROM `creature_template` WHERE `entry` IN (@Darmari, @Barim, @Brumman, @Grikka);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
-`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
 `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
-`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+`RegenHealth`, `CreatureImmunitiesId`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
-(@Darmari,0,0,0,0,0,'Darmari','Master Leatherworking Trainer',NULL,7816,63,63,0,1818,81,1,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,33024,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1.05,1,1,1,0,0,1,0,0,2,'npc_ipp_tbc_pre_t4',0),
-(@Barim,0,0,0,0,0,'Barim Spilthoof','Master Leatherworking Trainer',NULL,7816,60,60,0,29,209,1,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1.02,1,1,1,0,0,1,0,0,2,'npc_ipp_tbc_pre_t4',0),
-(@Brumman,0,0,0,0,0,'Brumman','Master Leatherworking Trainer',NULL,0,60,60,0,1737,209,1,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,512,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1.02,1,1,1,0,0,1,0,0,2,'npc_ipp_tbc_pre_t4',0),
-(@Grikka,0,0,0,0,0,'Grikka','Master Leatherworking Trainer',NULL,0,60,60,0,1735,80,1.125,1.14286,1,1,20,1,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1.25,1,1,1,0,0,1,0,0,2,'npc_ipp_tbc_pre_t4',0);
-
+(@Darmari,0,0,0,0,0,'Darmari','Master Leatherworking Trainer',NULL,7816,63,63,0,1818,81,1,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,33024,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1.05,1,1,1,0,0,1,0,2,'npc_ipp_tbc_pre_t4',0),
+(@Barim,0,0,0,0,0,'Barim Spilthoof','Master Leatherworking Trainer',NULL,7816,60,60,0,29,209,1,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,512,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1.02,1,1,1,0,0,1,0,2,'npc_ipp_tbc_pre_t4',0),
+(@Brumman,0,0,0,0,0,'Brumman','Master Leatherworking Trainer',NULL,0,60,60,0,1737,209,1,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,512,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1.02,1,1,1,0,0,1,0,2,'npc_ipp_tbc_pre_t4',0),
+(@Grikka,0,0,0,0,0,'Grikka','Master Leatherworking Trainer',NULL,0,60,60,0,1735,80,1.125,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,1.25,1,1,1,0,0,1,0,2,'npc_ipp_tbc_pre_t4',0);
+    
 DELETE FROM `creature_template_addon` WHERE `entry` IN (@Darmari, @Barim, @Brumman, @Grikka);
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (@Darmari, 0, 0, 0, 1, 0, 0, NULL),
