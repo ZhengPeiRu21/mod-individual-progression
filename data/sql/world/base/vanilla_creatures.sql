@@ -19312,7 +19312,7 @@ UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 6.131261, 
 UPDATE `creature_template` SET `speed_walk` = 1.0, `DamageModifier` = 6.518010, `ArmorModifier` = 1.25, `RangeAttackTime` = 1283, `unit_class` = 2 WHERE `entry` = 13958;
 
 /*  Alterac Yeti  */
-UPDATE `creature_template` SET `DamageModifier` = 5.9, `ArmorModifier` = 1.15, `mingold` = 157, `maxgold` = 3066, `speed_walk` = 0.5, `mechanic_immune_mask` = 72785 WHERE `entry` = 13959;
+UPDATE `creature_template` SET `DamageModifier` = 5.9, `ArmorModifier` = 1.15, `mingold` = 157, `maxgold` = 3066, `speed_walk` = 0.5 WHERE `entry` = 13959;
 
 /*  Tortured Drake  */
 UPDATE `creature_template` SET `minlevel` = 40, `maxlevel` = 40, `DamageModifier` = 0.15 WHERE `entry` = 13976;
