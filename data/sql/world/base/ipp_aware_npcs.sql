@@ -81,15 +81,13 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN 
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN 
 (17076, 19475, 24932, 24938, 25115, 25134, 25135, 25136, 25137, 25138, 25141, 25142, 25143, 25153, 25155, 25167, 25885, 27666);
 
-UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (27667);
+UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (27667); -- 00_cleanup
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t3' WHERE `entry` IN (27667);
 
 -- TBC, Terrace of Light, phasing T5 game objects
-UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entry` IN
-(187056,  -- Shattrath portal to Isle of Quel'Danas
- 187345,  -- Sunwell Plateau model
- 187356,  -- Shattered Sun Banner
- 187357); -- Shattered Sun Banner
+UPDATE `gameobject_template` SET `ScriptName` = '' WHERE `entry` IN (187356, 187357); -- 00_cleanup
+UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entry` = 187345; -- Sunwell Plateau model
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `guid` IN (47205, 47206); -- Shattered Sun Banners
 
 -- TBC, Isle of Quel'Danas
 -- UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `guid` IN ();
@@ -103,7 +101,7 @@ UPDATE `creature` SET `phaseMask` = @IPPPHASE_IV  WHERE `guid` IN (984, 12719, 6
 																   94420, 94422, 94423, 94424, 94425, 94426, 94427, 94428, 94429, 94430, 94431, 
 																   94432, 94433, 94434, 94435, 94436, 94437, 94438);
 
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_mana_cells' WHERE `guid` IN (27755);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_mana_cells' WHERE `guid` IN (27755, 47196);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_charitable_donation' WHERE `guid` IN (27862);
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P2' WHERE `guid` IN (27829, 27832, 27833, 27839);
