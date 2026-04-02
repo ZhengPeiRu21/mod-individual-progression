@@ -88,7 +88,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t3' WHERE `entry` IN 
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entry` IN
 (187056,  -- Shattrath portal to Isle of Quel'Danas
  187345,  -- Sunwell Plateau model
- 187356,  -- Shattered Sun Bannerd
+ 187356,  -- Shattered Sun Banner
  187357); -- Shattered Sun Banner
 
 -- TBC, Isle of Quel'Danas
