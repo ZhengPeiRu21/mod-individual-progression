@@ -1,6 +1,7 @@
 SET @IPPPHASE     := 65536;  -- this method of phasing is useful for aggressive creatures
 SET @IPPPHASE_II  := 131072;
 SET @IPPPHASE_III := 262144;
+SET @IPPPHASE_IV  := 524288;
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN 
 (16841, 19254, 16840, 20026, 20027, 20053, 20054, 20069, 18542, 20080, 20081, 20082, 21643, 20130, 19934, 19936, 19950, 19951, 19959, 22889, 22902, 22835, 22837);
@@ -47,7 +48,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `guid` IN
 (45603, 45606, 45607, 45764, 45765, 45766, 45767, 45768, 45769, 45770, 45771, 45838, 45839, 45840);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602); -- The Shaper's Terrace (Un'Goro)
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_ulduar' WHERE `entry` IN (34252);
 
@@ -87,8 +88,27 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t3' WHERE `entry` IN 
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entry` IN
 (187056,  -- Shattrath portal to Isle of Quel'Danas
  187345,  -- Sunwell Plateau model
- 187356,  -- Shattered Sun Banner
+ 187356,  -- Shattered Sun Bannerd
  187357); -- Shattered Sun Banner
+
+-- TBC, Isle of Quel'Danas
+-- UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `guid` IN ();
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II  WHERE `guid` IN (54113, 54114, 54143, 54165, 54176, 54177, 54178, 54181, 54182, 54183, 54184, 54185, 56315, 65680, 65681,
+                                                                   71925, 71926, 76576, 76577, 76578, 76581, 76582, 78387, 93950, 93951, 93952, 93853, 93953);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (65682, 65683, 65684, 65685, 65686, 65687, 65688, 65689, 65690, 65691, 65692, 65693, 65694, 65695, 65696, 65697, 65698, 65699, 65700, 65702, 
+                                                                   71927, 71928, 72677, 72989, 76579, 76580, 77479, 78385, 78386, 78388, 78389, 
+																   93955, 93956, 93957, 93958, 93959, 93690, 93961, 93964);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_IV  WHERE `guid` IN (984, 12719, 62847, 83998, 94377, 94378, 94379, 94380, 94381, 94382, 94383, 94384, 94385, 94386, 94387, 
+                                                                   94401, 94402, 94403, 94406, 94407, 94408, 94409, 94410, 94411, 94412, 94413, 94414, 94415, 94417, 94418, 94419, 
+																   94420, 94422, 94423, 94424, 94425, 94426, 94427, 94428, 94429, 94430, 94431, 
+																   94432, 94433, 94434, 94435, 94436, 94437, 94438);
+
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_mana_cells' WHERE `guid` IN (27755);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_charitable_donation' WHERE `guid` IN (27862);
+
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P2' WHERE `guid` IN (27829, 27832, 27833, 27839);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P3' WHERE `guid` IN (27810, 27811, 27834, 27835, 27837, 27838, 27840, 27841, 27842, 27843, 27844);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P4' WHERE `guid` IN (27827, 27828, 27830, 27831, 27836, 27845, 27861);
 
 -- Dragons of Nightmare
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN (14887, 14888, 14889, 14890);
