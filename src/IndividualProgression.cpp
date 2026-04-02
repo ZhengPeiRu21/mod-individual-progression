@@ -11,7 +11,6 @@ IndividualProgression* IndividualProgression::instance()
     return &instance;
 }
 
-
 bool IndividualProgression::hasPassedProgression(Player* player, ProgressionState state) const
 {
     if (!enabled || !state || !player || !player->IsInWorld())
@@ -192,6 +191,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
     player->RemoveAura(IPP_PHASE);
     player->RemoveAura(IPP_PHASE_II);
     player->RemoveAura(IPP_PHASE_III);
+    player->RemoveAura(IPP_PHASE_IV);
 
     switch (newArea) {
         case AREA_DARKSHORE:
@@ -277,6 +277,62 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE, false);
             }
             break;
+        case AREA_ARGENT_TOURNAMENT_GROUNDS:
+        case AREA_ARGENT_SUNREAVER_PAVILION:
+        case AREA_ARGENT_SILVER_COVENANT_PAVILION:
+        case AREA_THE_RING_OF_CHAMPIONS:
+        case AREA_THE_ASPIRANTS_RING:
+        case AREA_THE_ARGENT_VALIANTS_RING:
+        case AREA_THE_ALLIANCE_VALIANTS_RING:
+        case AREA_THE_HORDE_VALIANTS_RING:
+        case AREA_ARGENT_PAVILION:
+            if (hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2))
+            {
+                player->CastSpell(player, IPP_PHASE, false);
+            }
+            break;
+        case AREA_SUNWELL_PLATEAU:
+        case AREA_ISLE_OF_QUEL_DANAS:
+        case AREA_MAGISTERS_TERRACE:
+        case AREA_SHATTERED_SUN_STAGING:
+        case AREA_SUNS_REACH_SANCTUM:
+        case AREA_SUNS_REACH_HARBOR:
+        case AREA_SUNS_REACH_ARMORY:
+        case AREA_DAWNSTAR_VILLAGE:
+        case AREA_THE_DAWNING_SQUARE:
+            player->RemoveAura(SONG_OF_VICTORY);
+
+            if (player->GetReputationRank(FACTION_SHATTERED_SUN) < REP_FRIENDLY)
+            {
+                player->CastSpell(player, IPP_PHASE, false);
+            }
+            else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_FRIENDLY)
+            {
+                 player->CastSpell(player, IPP_PHASE, false);
+                 player->CastSpell(player, IPP_PHASE_II, false);
+            }
+            else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_HONORED)
+            {
+                player->CastSpell(player, IPP_PHASE, false);
+                player->CastSpell(player, IPP_PHASE_II, false);
+                player->CastSpell(player, IPP_PHASE_III, false);
+            }
+            else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
+            {
+                 player->CastSpell(player, IPP_PHASE, false);
+                 player->CastSpell(player, IPP_PHASE_II, false);
+                 player->CastSpell(player, IPP_PHASE_III, false);
+                 player->CastSpell(player, IPP_PHASE_IV, false);
+
+                 if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED)
+                 {
+                     player->CastSpell(player, SONG_OF_VICTORY, false);
+                 }
+            }
+            break;
+			
         case AREA_THE_DARK_PORTAL:
             if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
             {
@@ -341,20 +397,6 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE_II, false);
             }
             break;
-        case AREA_ARGENT_TOURNAMENT_GROUNDS:
-        case AREA_ARGENT_SUNREAVER_PAVILION:
-        case AREA_ARGENT_SILVER_COVENANT_PAVILION:
-        case AREA_THE_RING_OF_CHAMPIONS:
-        case AREA_THE_ASPIRANTS_RING:
-        case AREA_THE_ARGENT_VALIANTS_RING:
-        case AREA_THE_ALLIANCE_VALIANTS_RING:
-        case AREA_THE_HORDE_VALIANTS_RING:
-        case AREA_ARGENT_PAVILION:
-            if (hasPassedProgression(player, PROGRESSION_WOTLK_TIER_2))
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            break;
         default:
 
             uint32 mapid = player->GetMapId();
@@ -378,6 +420,17 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                     player->CastSpell(player, IPP_PHASE_II, false);
                     player->CastSpell(player, IPP_PHASE_III, false);
                     break;
+                }
+            }
+            if (mapid == MAP_MAGISTERS_TERRACE)
+            {
+                player->RemoveAura(SONG_OF_VICTORY);
+
+                if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
+                    player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
+                    player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED)
+                {
+                    player->CastSpell(player, SONG_OF_VICTORY, false);
                 }
             }
             if ((mapid == MAP_SHADOWFANG_KEEP) ||
