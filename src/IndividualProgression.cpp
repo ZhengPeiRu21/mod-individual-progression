@@ -420,7 +420,7 @@ void IndividualProgression::checkIPProgression(Player* killer)
         { KEL_THUZAD_40_KILL, PROGRESSION_NAXX40         },
         { C_THUN_KILL,        PROGRESSION_AQ             },
         { NEFARIAN_KILL,      PROGRESSION_BLACKWING_LAIR },
-        { ONYXIAS_KILL,       PROGRESSION_ONYXIA         },
+        { ONYXIA_KILL,        PROGRESSION_ONYXIA         },
         { RAGNAROS_KILL,      PROGRESSION_MOLTEN_CORE    }
     };
 
