@@ -123,7 +123,7 @@ enum ProgressionAchievements
 {
     KEL_THUZAD_40_KILL   = 533,
     KEL_THUZAD_KILL      = 575, // WotLK
-    ONYXIAS_KILL         = 684,
+    ONYXIA_KILL          = 684,
     NEFARIAN_KILL        = 685,
     RAGNAROS_KILL        = 686,
     C_THUN_KILL          = 687,
