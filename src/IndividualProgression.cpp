@@ -303,7 +303,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE, false);
             }
             break;
-        case AREA_TERRACE_OF_LIGHT:
+        case AREA_SHATTRATH_CITY:
             if (hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
             {
                 player->CastSpell(player, IPP_PHASE, false);
