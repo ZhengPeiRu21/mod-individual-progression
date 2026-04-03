@@ -181,7 +181,6 @@ enum ProgressionAreas
     AREA_HIVE_REGAL                      = 2744,
     AREA_VEILED_SEA                      = 3479,
 	AREA_AMMEN_VALE                      = 3526,
-    AREA_TERRACE_OF_LIGHT                = 3897,
     AREA_ARGENT_SUNREAVER_PAVILION       = 4666,
     AREA_ARGENT_SILVER_COVENANT_PAVILION = 4667,
     AREA_ARGENT_PAVILION                 = 4674
