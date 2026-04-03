@@ -540,7 +540,6 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (18537, 1, 0, 'We may be few, Socrethar, but our faith is strong.  Something you will never understand.  Now that custom has been served, prepare to meet your end.', 12, 0, 100, 0, 0, 0, 18391, 0, ''),
 (18537, 2, 0, 'How... how could you?!', 12, 0, 100, 0, 0, 0, 18393, 0, ''),
 (18537, 3, 0, 'Socrethar is clouding your mind, Kaylaan!  You do not mean these words!  I remember training you when you were but a youngling.  Your will was strong even then!', 12, 0, 100, 0, 0, 0, 18397, 0, ''),
-
 (18537, 4, 0, 'Well, out with it, neophyte...', 12, 0, 100, 0, 0, 0, 16565, 0, ''),
 (18537, 5, 0, 'It is exactly as I expected, soldier. They know we watch them closely.', 12, 0, 100, 0, 0, 0, 16566, 0, 'Adyen the Lightwarden'),
 (18537, 6, 0, 'They mask their intentions with meaningless movements to confuse us.', 12, 0, 100, 0, 0, 0, 16567, 0, 'Adyen the Lightwarden'),
