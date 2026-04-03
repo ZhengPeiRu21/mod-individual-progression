@@ -3,7 +3,7 @@ INSERT INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxlev
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `family`, `type`, `type_flags`, `lootid`, `skinloot`, `PetSpellDataId`, `mingold`, `maxgold`,
 `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `movementId`, `RegenHealth`, `CreatureImmunitiesId`, `flags_extra`, `ScriptName`) VALUES
 --
-(301000, "Onyxia", "", 63, 63, 103, 1.0, 1.28571, 20.0, 3, 0, 15.05, 2000, 2000, 1.0, 1.0, 1, 64, 2048, 0, 2, 108, 301000, 10184, 0, 914892, 1066294, '', 0, 1.0, 330.0, 1.0, 1.0, 1.0, 0, 1, -327, 1073742337, 'boss_onyxia_40'),
+(301000, "Onyxia", "", 63, 63, 103, 1.0, 1.28571, 20.0, 3, 0, 15.05, 2000, 2000, 1.0, 1.0, 1, 64, 2048, 0, 2, 108, 301000, 10184, 0, 914892, 1066294, '', 0, 1.0, 330.0, 1.0, 1.0, 1.0, 0, 1, -327, 513, 'boss_onyxia_40'),
 (301001, "Onyxian Whelp", "", 56, 57, 16, 1.11111, 1.14286, 18.0, 0, 0, 3.7, 2000, 2000, 1.0, 1.0, 1, 0, 2048, 0, 2, 8, 0, 0, 0, 0, 0, '', 1, 1.0, 1.0, 1.0, 1.0, 1.0, 0, 1, 0, 0, ''),
 (301002, "Onyxian Warder", "", 60, 63, 103, 0.888888, 1.14286, 20.0, 1, 0, 9.8, 2000, 2000, 1.0, 1.0, 1, 64, 2048, 0, 2, 8, 301002, 12129, 0, 1185, 4741, 'SmartAI', 1, 1.0, 25.0, 1.0, 1.0, 1.0, 0, 1, -273, 0, '');
 
