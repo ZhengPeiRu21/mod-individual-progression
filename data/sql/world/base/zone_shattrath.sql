@@ -56,7 +56,7 @@ DELETE FROM `creature` WHERE `guid` IN (63451, 88251, 88252, 88254, 207710, 2077
 SET @CGUID    := 672000;
 SET @WPID     := 6720000;
 
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 66736;
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 0 WHERE `guid` = 66736;
 DELETE FROM `creature` WHERE `guid` = 66737;
 
 DELETE FROM `creature_addon` WHERE `guid` = 66736;
@@ -105,22 +105,22 @@ DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+12;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
-(68962,     19346, 0, 0, 530, 0, 0, 1, 1, 0, -1763.29, 5730.82, 127.663, 4.27606, 300, 0, 1, 6986, 0, 2, 0, 0, 0, '', 0, 0, NULL),      -- Harbring Erothem
-(69109,     19377, 0, 0, 530, 0, 0, 1, 1, 1, -1978.8900, 5673.5498, 117.6500, 3.75246, 300, 0, 1, 6986, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Neophyte Nemarn
-(69110,     19378, 0, 0, 530, 0, 0, 1, 1, 1, -1729.16, 5813.11, 148.757, 1.0821, 300, 0, 1, 4422, 2620, 2, 0, 0, 0, '', 0, 0, NULL),    -- Anchorite Nindumen
+(68962,     19346, 0, 0, 530, 0, 0, 1, 1, 0, -1763.29, 5730.82, 127.663, 4.27606, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', 0, 0, NULL),      -- Harbring Erothem
+(69109,     19377, 0, 0, 530, 0, 0, 1, 1, 1, -1978.8900, 5673.5498, 117.6500, 3.75246, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Neophyte Nemarn
+(69110,     19378, 0, 0, 530, 0, 0, 1, 1, 1, -1729.16, 5813.11, 148.757, 1.0821, 300, 0, 0, 4422, 2620, 2, 0, 0, 0, '', 0, 0, NULL),    -- Anchorite Nindumen
 --
-(@CGUID+1,  19153, 0, 0, 530, 0, 0, 1, 1, 1, -1793.7200, 5629.2598, 130.8950, 1.2901, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+2,  19153, 0, 0, 530, 0, 0, 1, 1, 1, -1794.1899, 5612.8599, 130.8950, 1.0829, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+3,  19153, 0, 0, 530, 0, 0, 1, 1, 1, -1805.9500, 5622.2402, 130.8950, 1.1808, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+4,  19153, 0, 0, 530, 0, 0, 1, 1, 1, -1799.0601, 5611.7202, 130.8950, 1.2887, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+5,  19337, 0, 0, 530, 0, 0, 1, 1, 1, -1789.2000, 5624.5000, 130.8950, 1.8921, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+6,  19337, 0, 0, 530, 0, 0, 1, 1, 1, -1802.3101, 5625.4702, 130.8950, 1.2240, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+7,  19337, 0, 0, 530, 0, 0, 1, 1, 1, -1805.6100, 5617.3198, 130.8950, 1.2529, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+8,  19337, 0, 0, 530, 0, 0, 1, 1, 1, -1801.1100, 5631.8599, 130.8950, 1.2802, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+9,  19390, 0, 0, 530, 0, 0, 1, 1, 1, -1803.7100, 5612.8501, 130.8730, 1.1850, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+10, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1797.2100, 5626.5498, 130.8870, 1.3349, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+11, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1793.7900, 5622.9902, 130.8900, 1.3154, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+12, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1801.9000, 5620.6802, 130.8920, 1.3707, 200, 0, 1, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL);
+(@CGUID+1,  19153, 0, 0, 530, 0, 0, 1, 1, 1, -1793.7200, 5629.2598, 130.8950, 1.2901, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+2,  19153, 0, 0, 530, 0, 0, 1, 1, 1, -1794.1899, 5612.8599, 130.8950, 1.0829, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+3,  19153, 0, 0, 530, 0, 0, 1, 1, 1, -1805.9500, 5622.2402, 130.8950, 1.1808, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+4,  19153, 0, 0, 530, 0, 0, 1, 1, 1, -1799.0601, 5611.7202, 130.8950, 1.2887, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+5,  19337, 0, 0, 530, 0, 0, 1, 1, 1, -1789.2000, 5624.5000, 130.8950, 1.8921, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+6,  19337, 0, 0, 530, 0, 0, 1, 1, 1, -1802.3101, 5625.4702, 130.8950, 1.2240, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+7,  19337, 0, 0, 530, 0, 0, 1, 1, 1, -1805.6100, 5617.3198, 130.8950, 1.2529, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+8,  19337, 0, 0, 530, 0, 0, 1, 1, 1, -1801.1100, 5631.8599, 130.8950, 1.2802, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+9,  19390, 0, 0, 530, 0, 0, 1, 1, 1, -1803.7100, 5612.8501, 130.8730, 1.1850, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+10, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1797.2100, 5626.5498, 130.8870, 1.3349, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+11, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1793.7900, 5622.9902, 130.8900, 1.3154, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+12, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1801.9000, 5620.6802, 130.8920, 1.3707, 200, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL);
 
 
 DELETE FROM `creature_addon` WHERE `guid` IN (68962, 69109, 69110);
@@ -475,43 +475,43 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (19346, 0, 9, 10, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6720100, 0, 0, 0, 0, 0, 10, 672010, 19390, 0, 0, 0, 0, 0, 0,      'Harbinger Erothem - On Waypoint Reached - Movement Resume Mounted Neophyte'),
 (19346, 0, 10, 11, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6720110, 0, 0, 0, 0, 0, 10, 672011, 19390, 0, 0, 0, 0, 0, 0,     'Harbinger Erothem - On Waypoint Reached - Movement Resume Mounted Neophyte'),
 (19346, 0, 11, 12, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 6720120, 0, 0, 0, 0, 0, 10, 672012, 19390, 0, 0, 0, 0, 0, 0,     'Harbinger Erothem - On Waypoint Reached - Movement Resume Mounted Neophyte'),
-(19346, 0, 12, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 691100, 0, 0, 0, 0, 0, 10, 69110, 19378, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Movement Resume Anchorite Nindumen'),
+(19346, 0, 12, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 691100, 0, 0, 0, 0, 0, 10, 69110, 19378, 0, 0, 0, 0, 0, 0,        'Harbinger Erothem - On Waypoint Reached - Movement Resume Anchorite Nindumen'),
 --
-(19346, 0, 13, 0, 108, 0, 100, 0, 2,  689620, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 3'), -- speech
-(19346, 0, 14, 0, 108, 0, 100, 0, 3,  689620, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 4'),
-(19346, 0, 15, 0, 108, 0, 100, 0, 4,  689620, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 5'),
-(19346, 0, 16, 0, 108, 0, 100, 0, 5,  689620, 0, 0, 0, 0, 1, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 6'),
-(19346, 0, 17, 0, 108, 0, 100, 0, 6,  689620, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 7'),
-(19346, 0, 18, 0, 108, 0, 100, 0, 7,  689620, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 8'),
-(19346, 0, 19, 0, 108, 0, 100, 0, 13, 689620, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 0'), -- I have a request
-(19346, 0, 20, 0, 108, 0, 100, 0, 14, 689620, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 1'), -- We've just sent
-(19346, 0, 21, 0, 108, 0, 100, 0, 16, 689620, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Say Line 2'), -- May it be so.
-(19346, 0, 22, 0,  25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Reset - Set Active'),
+(19346, 0, 13, 0, 108, 0, 100, 1, 2,  689620, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 3'), -- speech
+(19346, 0, 14, 0, 108, 0, 100, 1, 3,  689620, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 4'),
+(19346, 0, 15, 0, 108, 0, 100, 1, 4,  689620, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 5'),
+(19346, 0, 16, 0, 108, 0, 100, 1, 5,  689620, 0, 0, 0, 0, 1, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 6'),
+(19346, 0, 17, 0, 108, 0, 100, 1, 6,  689620, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 7'),
+(19346, 0, 18, 0, 108, 0, 100, 1, 7,  689620, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 8'),
+(19346, 0, 19, 0, 108, 0, 100, 1, 13, 689620, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 0'), -- I have a request
+(19346, 0, 20, 0, 108, 0, 100, 1, 14, 689620, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 1'), -- We've just sent
+(19346, 0, 21, 0, 108, 0, 100, 1, 16, 689620, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 2'), -- May it be so.
+(19346, 0, 22, 0,  25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Harbinger Erothem - On Reset - Set Active'),
 --
-(19377, 0, 0,  0, 108, 0, 100, 0, 12, 691090, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - OneShotBow'),
-(19377, 0, 1,  0, 108, 0, 100, 0, 13, 691090, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 0'),
-(19377, 0, 2,  0, 108, 0, 100, 0, 14, 691090, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 4'),
-(19377, 0, 3,  0, 108, 0, 100, 0, 15, 691090, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 1'),
-(19377, 0, 4,  0, 108, 0, 100, 0, 16, 691090, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 2'),
-(19377, 0, 5,  0, 108, 0, 100, 0, 17, 691090, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 3'),
-(19377, 0, 6,  0, 108, 0, 100, 0, 18, 691090, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 5'),
-(19377, 0, 7,  0, 108, 0, 100, 0, 19, 691090, 0, 0, 0, 0, 1, 6, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 6'),
-(19377, 0, 8,  0, 108, 0, 100, 0, 20, 691090, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 7'),
-(19377, 0, 9,  0, 108, 0, 100, 0, 21, 691090, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 8'),
-(19377, 0, 10, 0, 108, 0, 100, 0, 22, 691090, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 4'),
-(19377, 0, 11, 0, 108, 0, 100, 0, 23, 691090, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - OneShotBow'),
+(19377, 0, 0,  0, 108, 0, 100, 1, 12, 691090, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - OneShotBow'),
+(19377, 0, 1,  0, 108, 0, 100, 1, 13, 691090, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 0'),
+(19377, 0, 2,  0, 108, 0, 100, 1, 14, 691090, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 4'),
+(19377, 0, 3,  0, 108, 0, 100, 1, 15, 691090, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 1'),
+(19377, 0, 4,  0, 108, 0, 100, 1, 16, 691090, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 2'),
+(19377, 0, 5,  0, 108, 0, 100, 1, 17, 691090, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 3'),
+(19377, 0, 6,  0, 108, 0, 100, 1, 18, 691090, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 5'),
+(19377, 0, 7,  0, 108, 0, 100, 1, 19, 691090, 0, 0, 0, 0, 1, 6, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 6'),
+(19377, 0, 8,  0, 108, 0, 100, 1, 20, 691090, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 7'),
+(19377, 0, 9,  0, 108, 0, 100, 1, 21, 691090, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 10, 66696, 18537, 0, 0, 0, 0, 0, 0, 'Adyen the Lightwarden - On Waypoint Reached - Say Line 8'),
+(19377, 0, 10, 0, 108, 0, 100, 1, 22, 691090, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - Say Line 4'),
+(19377, 0, 11, 0, 108, 0, 100, 1, 23, 691090, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Neophyte Nemarn - On Waypoint Reached - OneShotBow'),
 --
-(19378, 0, 0, 0, 108, 0, 100, 0, 2,  691100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 0'),
-(19378, 0, 1, 0, 108, 0, 100, 0, 3,  691100, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 1'),
-(19378, 0, 2, 0, 108, 0, 100, 0, 8,  691100, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 2'),
-(19378, 0, 3, 0, 108, 0, 100, 0, 9,  691100, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 3'),
-(19378, 0, 4, 0, 108, 0, 100, 0, 10, 691100, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 4'),
-(19378, 0, 5, 0, 108, 0, 100, 0, 11, 691100, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 5'),
-(19378, 0, 6, 0, 108, 0, 100, 0, 12, 691100, 0, 0, 0, 0, 1, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 6'),
-(19378, 0, 7, 0, 108, 0, 100, 0, 13, 691100, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 7'),
-(19378, 0, 8, 0, 108, 0, 100, 0, 14, 691100, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Anchorite Nindumen - On Waypoint Reached - Say Line 8'),
-(19378, 0, 9, 0, 108, 0, 100, 0, 19, 691100, 0, 0, 0, 0, 235, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Anchorite Nindumen - On Waypoint Reached - Movement Pause'),
-(19378, 0, 10, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Anchorite Nindumen - On Reset - Set Active');
+(19378, 0, 0, 0, 108, 0, 100, 0, 2,  691100, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 0'),
+(19378, 0, 1, 0, 108, 0, 100, 0, 3,  691100, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 1'),
+(19378, 0, 2, 0, 108, 0, 100, 0, 8,  691100, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 2'),
+(19378, 0, 3, 0, 108, 0, 100, 0, 9,  691100, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 3'),
+(19378, 0, 4, 0, 108, 0, 100, 0, 10, 691100, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 4'),
+(19378, 0, 5, 0, 108, 0, 100, 0, 11, 691100, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 5'),
+(19378, 0, 6, 0, 108, 0, 100, 0, 12, 691100, 0, 0, 0, 0, 1, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 6'),
+(19378, 0, 7, 0, 108, 0, 100, 0, 13, 691100, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 7'),
+(19378, 0, 8, 0, 108, 0, 100, 0, 14, 691100, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Anchorite Nindumen - On Waypoint Reached - Say Line 8'),
+(19378, 0, 9, 0, 108, 0, 100, 0, 19, 691100, 0, 0, 0, 0, 235, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anchorite Nindumen - On Waypoint Reached - Movement Pause'),
+(19378, 0, 10, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Anchorite Nindumen - On Reset - Set Active');
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (18537, 19346, 19377);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
