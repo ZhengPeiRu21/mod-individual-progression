@@ -43,9 +43,9 @@ public:
             {
                 sIndividualProgression->RemovePlayerAchievement(playerGUID, RAGNAROS_KILL);
             }
-            else if (i == 1 && target->HasAchieved(ONYXIAS_KILL)) // 684
+            else if (i == 1 && target->HasAchieved(ONYXIA_KILL)) // 684
             {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, ONYXIAS_KILL);
+                sIndividualProgression->RemovePlayerAchievement(playerGUID, ONYXIA_KILL);
             }
             else if (i == 2 && target->HasAchieved(NEFARIAN_KILL)) // 685
             {
