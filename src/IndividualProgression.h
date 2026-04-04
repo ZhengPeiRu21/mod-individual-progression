@@ -182,6 +182,7 @@ enum ProgressionAreas
     AREA_HIVE_REGAL                      = 2744,
     AREA_VEILED_SEA                      = 3479,
 	AREA_AMMEN_VALE                      = 3526,
+    AREA_TERRACE_OF_LIGHT                = 3897,
     AREA_ARGENT_SUNREAVER_PAVILION       = 4666,
     AREA_ARGENT_SILVER_COVENANT_PAVILION = 4667,
     AREA_ARGENT_PAVILION                 = 4674
@@ -205,6 +206,8 @@ enum ShatteredSunOffensive
     AREA_DAWNSTAR_VILLAGE                = 4089,
     AREA_THE_DAWNING_SQUARE              = 4090,
     QUEST_MANA_CELLS                     = 11513,
+    QUEST_REDISCOVERING_ROOTS            = 11521,
+    QUEST_DONT_STOP_NOW                  = 11536,
     QUEST_CRUSH_DAWNBLADE                = 11540,
     QUEST_GREENGILL_COAST                = 11541,
     QUEST_ENEMY_AT_BAY                   = 11543,
