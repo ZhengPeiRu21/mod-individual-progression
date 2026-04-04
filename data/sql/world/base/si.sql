@@ -121,43 +121,42 @@ DELETE FROM `creature_template` WHERE `entry` IN
  @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LORD_BLACKWOOD);
  
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
-`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
 `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
-`RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+`RegenHealth`, `CreatureImmunitiesId`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
-(@ARGENT_RECRUITER, 0, 0, 0, 0, 0, 'Argent Recruiter', 'The Argent Dawn', NULL, 0, 55, 55, 0, 814, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3, 2000, 1900, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 16, 0, 2, '', 12340),
-(@ARGENT_SCOUT, 0, 0, 0, 0, 0, 'Argent Scout', 'The Argent Dawn', NULL, 0, 55, 55, 0, 814, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 1, 0, 2, '', 12340),
-(@ARGENT_EMISSARY, 0, 0, 0, 0, 0, 'Argent Emissary', 'The Argent Dawn', NULL, 7164, 55, 55, 0, 814, 3, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 16, 0, 2, '', 12340),
-(@ARGENT_MESSENGER, 0, 0, 0, 0, 0, 'Argent Messenger', 'The Argent Dawn', NULL, 7164, 55, 55, 0, 814, 1, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.95, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 1, 0, 2, '', 12340),
-(@ARGENT_QUARTERMASTER, 0, 0, 0, 0, 0, 'Argent Quartermaster', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 794, 3, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@ARGENT_OUTFITTER, 0, 0, 0, 0, 0, 'Argent Outfitter', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 814, 131, 1, 1.14286, 1, 1, 18, 1, 0, 0, 3, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 1, 0, 2, '', 12340),
-(@KEEPER_OF_THE_ROLLS, 0, 0, 0, 0, 0, 'Keeper of the Rolls', 'The Argent Dawn', NULL, 0, 55, 55, 0, 814, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.05, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@COMMANDER_THOMAS, 0, 0, 0, 0, 0, 'Commander Thomas Helleran', 'The Argent Dawn', NULL, 0, 55, 55, 0, 814, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 2.05, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@LIEUTENANT_ORRIN, 0, 0, 0, 0, 0, 'Lieutenant Orrin', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 5.95, 2000, 1500, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 1, 75, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@LIEUTENANT_NEVELL, 0, 0, 0, 0, 0, 'Lieutenant Nevell', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.15, 2000, 1900, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@LIEUTENANT_LISANDE, 0, 0, 0, 0, 0, 'Lieutenant Lisande', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.15, 2000, 1900, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@LIEUTENANT_DAGEL, 0, 0, 0, 0, 0, 'Lieutenant Dagel', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.15, 2000, 1900, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@LIEUTENANT_RUKAG, 0, 0, 0, 0, 0, 'Lieutenant Rukag', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 5.95, 2000, 1500, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 1, 75, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@LIEUTENANT_BEITHA, 0, 0, 0, 0, 0, 'Lieutenant Beitha', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.15, 2000, 1900, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 2, '', 12340),
+(@ARGENT_RECRUITER, 0, 0, 0, 0, 0, 'Argent Recruiter', 'The Argent Dawn', NULL, 0, 55, 55, 0, 814, 2, 1, 1.14286, 1, 1, 18, 0, 0, 3, 2000, 1900, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@ARGENT_SCOUT, 0, 0, 0, 0, 0, 'Argent Scout', 'The Argent Dawn', NULL, 0, 55, 55, 0, 814, 2, 1, 1.14286, 1, 1, 18, 0, 0, 3, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@ARGENT_EMISSARY, 0, 0, 0, 0, 0, 'Argent Emissary', 'The Argent Dawn', NULL, 7164, 55, 55, 0, 814, 3, 1, 1.14286, 1, 1, 18, 0, 0, 3, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@ARGENT_MESSENGER, 0, 0, 0, 0, 0, 'Argent Messenger', 'The Argent Dawn', NULL, 7164, 55, 55, 0, 814, 1, 1, 1.14286, 1, 1, 18, 0, 0, 2.95, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@ARGENT_QUARTERMASTER, 0, 0, 0, 0, 0, 'Argent Quartermaster', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 794, 3, 1, 1.14286, 1, 1, 18, 0, 0, 3.1, 2000, 2000, 1, 1, 1, 33280, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@ARGENT_OUTFITTER, 0, 0, 0, 0, 0, 'Argent Outfitter', 'The Argent Dawn', NULL, 7165, 55, 55, 0, 814, 131, 1, 1.14286, 1, 1, 18, 0, 0, 3, 2000, 2000, 1, 1, 1, 512, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 2, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@KEEPER_OF_THE_ROLLS, 0, 0, 0, 0, 0, 'Keeper of the Rolls', 'The Argent Dawn', NULL, 0, 55, 55, 0, 814, 2, 1, 1.14286, 1, 1, 18, 0, 0, 0.05, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@COMMANDER_THOMAS, 0, 0, 0, 0, 0, 'Commander Thomas Helleran', 'The Argent Dawn', NULL, 0, 55, 55, 0, 814, 2, 1, 1.14286, 1, 1, 18, 0, 0, 2.05, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 2, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@LIEUTENANT_ORRIN, 0, 0, 0, 0, 0, 'Lieutenant Orrin', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 0, 0, 5.95, 2000, 1500, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 1, 75, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@LIEUTENANT_NEVELL, 0, 0, 0, 0, 0, 'Lieutenant Nevell', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 0, 0, 0.15, 2000, 1900, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@LIEUTENANT_LISANDE, 0, 0, 0, 0, 0, 'Lieutenant Lisande', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 0, 0, 0.15, 2000, 1900, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@LIEUTENANT_DAGEL, 0, 0, 0, 0, 0, 'Lieutenant Dagel', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 0, 0, 0.15, 2000, 1900, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@LIEUTENANT_RUKAG, 0, 0, 0, 0, 0, 'Lieutenant Rukag', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 0, 0, 5.95, 2000, 1500, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 1, 75, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
+(@LIEUTENANT_BEITHA, 0, 0, 0, 0, 0, 'Lieutenant Beitha', 'The Argent Dawn', NULL, 0, 10, 10, 0, 794, 2, 1, 1.14286, 1, 1, 18, 0, 0, 0.15, 2000, 1900, 1, 1, 2, 0, 2048, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 2, '', 0),
 --
-(@SEVER, 0, 0, 0, 0, 0, 'Sever', NULL, NULL, 0, 25, 25, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 14682, 0, 0, 0, 0, 64, 151, '', 0, 1, 9, 1, 1, 1, 0, 0, 1, 12585040, 0, 0, '', 12340),
-(@BALZAPHON, 0, 0, 0, 0, 0, 'Balzaphon', NULL, NULL, 0, 60, 60, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 4, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 14684, 0, 0, 0, 0, 2275, 2984, '', 0, 1, 6, 6, 1.1, 1, 0, 0, 1, 8415248, 0, 0, '', 12340),
-(@LADY_FALTHERESS, 0, 0, 0, 0, 0, 'Lady Falther\'ess', NULL, NULL, 0, 40, 40, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 5, 5, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 14686, 0, 0, 0, 0, 208, 378, '', 0, 1, 8, 4, 1, 1, 0, 0, 1, 12601360, 0, 0, '', 12340),
-(@REVANCHION, 0, 0, 0, 0, 0, 'Revanchion', NULL, NULL, 0, 60, 60, 0, 21, 0, 1.11111, 1.14286, 1, 1, 20, 1, 1, 0, 8, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 14690, 0, 0, 0, 0, 0, 0, '', 0, 1, 10, 2, 1.35, 1, 0, 0, 1, 46156048, 0, 0, '', 12340),
-(@SCORN, 0, 0, 0, 0, 0, 'Scorn', NULL, NULL, 0, 34, 34, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 5.05, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 14693, 0, 0, 0, 0, 238, 657, '', 0, 1, 8, 6, 0.9, 1, 0, 0, 1, 12585296, 0, 0, '', 12340),
-(@LORD_BLACKWOOD, 0, 0, 0, 0, 0, 'Lord Blackwood', NULL, NULL, 0, 60, 60, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 1, 0, 6, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 14695, 0, 0, 0, 0, 1041, 1871, '', 0, 1, 10, 1, 1.1, 1, 0, 0, 1, 41962576, 0, 0, '', 12340),
+(@SEVER, 0, 0, 0, 0, 0, 'Sever', NULL, NULL, 0, 25, 25, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 0, 5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 14682, 0, 0, 0, 0, 64, 151, '', 0, 1, 9, 1, 1, 1, 0, 0, 1, -103, 0, '', 0),
+(@BALZAPHON, 0, 0, 0, 0, 0, 'Balzaphon', NULL, NULL, 0, 60, 60, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 0, 4, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 14684, 0, 0, 0, 0, 2275, 2984, '', 0, 1, 6, 6, 1.1, 1, 0, 0, 1, -107, 0, '', 0),
+(@LADY_FALTHERESS, 0, 0, 0, 0, 0, 'Lady Falther\'ess', NULL, NULL, 0, 40, 40, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 5, 5, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 14686, 0, 0, 0, 0, 208, 378, '', 0, 1, 8, 4, 1, 1, 0, 0, 1, -93, 0, '', 0),
+(@REVANCHION, 0, 0, 0, 0, 0, 'Revanchion', NULL, NULL, 0, 60, 60, 0, 21, 0, 1.11111, 1.14286, 1, 1, 20, 1, 0, 8, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 14690, 0, 0, 0, 0, 0, 0, '', 0, 1, 10, 2, 1.35, 1, 0, 0, 1, -107, 0, '', 0),
+(@SCORN, 0, 0, 0, 0, 0, 'Scorn', NULL, NULL, 0, 34, 34, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 0, 5.05, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 14693, 0, 0, 0, 0, 238, 657, '', 0, 1, 8, 6, 0.9, 1, 0, 0, 1, -108, 0, '', 0),
+(@LORD_BLACKWOOD, 0, 0, 0, 0, 0, 'Lord Blackwood', NULL, NULL, 0, 60, 60, 0, 21, 0, 1, 1.14286, 1, 1, 20, 1, 0, 6, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 14695, 0, 0, 0, 0, 1041, 1871, '', 0, 1, 10, 1, 1.1, 1, 0, 0, 1, -93, 0, '', 0),
 --
-(@NECROTIC_SHARD, 0, 0, 0, 0, 0, 'Necrotic Shard', NULL, NULL, 0, 70, 70, 0, 1630, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 260, 2048, 0, 0, 10, 1024, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 0.75, 1, 0, 1, 0, 0, 1, 0, 0, 2, '', 12340),
-(@SHADOW_OF_DOOM, 0, 0, 0, 0, 0, 'Shadow of Doom', '', NULL, 0, 60, 60, 0, 2145, 0, 1, 1.14286, 1, 1, 4, 1, 1, 0, 9, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 16143, 0, 0, 0, 0, 186, 615, '', 0, 1, 20, 1, 1, 1, 0, 0, 1, 8405524, 0, 0, '', 12340),
-(@CULTIST_ENGINEER, 0, 0, 0, 0, 0, 'Cultist Engineer', '', NULL, 66000, 60, 60, 0, 190, 1, 1, 1.14286, 1, 1, 18, 1, 0, 0, 0.05, 2000, 2000, 1, 1, 1, 514, 2048, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 0.25, 0, 0, 1, 0, 0, 4194304, '', 12340),
-(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 'Ghoul Berserker', NULL, NULL, 0, 59, 60, 0, 1630, 0, 0.777776, 1.14286, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16141, 0, 0, 0, 0, 144, 659, '', 0, 1, 2.7, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340),
-(@SPECTRAL_SOLDIER, 0, 0, 0, 0, 0, 'Spectral Soldier', '', NULL, 0, 59, 60, 0, 1630, 0, 1.11111, 1.14286, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16298, 0, 0, 0, 0, 148, 660, '', 1, 1, 2.7, 1, 1.05, 1, 0, 0, 1, 8405008, 0, 0, '', 12340),
-(@SKELETAL_SHOCKTROOPER, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper', '', NULL, 0, 59, 60, 0, 1630, 0, 1, 1.19048, 1, 1, 4, 1, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16299, 0, 0, 0, 0, 144, 658, '', 1, 1, 2.7, 1, 1, 1, 0, 0, 1, 8602129, 0, 2048, '', 12340),
-(@LUMBERING_HORROR, 0, 0, 0, 0, 0, 'Lumbering Horror', NULL, NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 14697, 0, 0, 0, 0, 271, 503, '', 0, 1, 5.4, 1, 1, 1, 0, 0, 1, 8388624, 0, 0, '', 12340),
-(@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 'Spirit of the Damned', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 0.992063, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16379, 0, 0, 0, 0, 0, 0, '', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8413718, 0, 0, '', 12340),
-(@BONE_WITCH, 0, 0, 0, 0, 0, 'Bone Witch', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 1, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16380, 0, 0, 0, 0, 482, 558, '', 1, 1, 5, 1, 1, 1, 0, 0, 1, 8602129, 0, 0, '', 12340);
-
+(@NECROTIC_SHARD, 0, 0, 0, 0, 0, 'Necrotic Shard', NULL, NULL, 0, 70, 70, 0, 1630, 0, 1, 1, 1, 1, 0, 0, 0, 1, 2000, 2000, 1, 1, 1, 260, 2048, 0, 0, 10, 1024, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 0.75, 1, 0, 1, 0, 0, 1, 0, 2, '', 0),
+(@SHADOW_OF_DOOM, 0, 0, 0, 0, 0, 'Shadow of Doom', '', NULL, 0, 60, 60, 0, 2145, 0, 1, 1.14286, 1, 1, 4, 1, 0, 9, 2000, 2000, 1, 1, 2, 0, 2048, 0, 0, 6, 0, 16143, 0, 0, 0, 0, 186, 615, '', 0, 1, 20, 1, 1, 1, 0, 0, 1, -114, 0, '', 0),
+(@CULTIST_ENGINEER, 0, 0, 0, 0, 0, 'Cultist Engineer', '', NULL, 66000, 60, 60, 0, 190, 1, 1, 1.14286, 1, 1, 18, 0, 0, 0.05, 2000, 2000, 1, 1, 1, 514, 2048, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, '', 1, 1, 1, 1, 1, 0.25, 0, 0, 1, 1771, 0, '', 0),
+(@GHOUL_BERSERKER, 0, 0, 0, 0, 0, 'Ghoul Berserker', NULL, NULL, 0, 59, 60, 0, 1630, 0, 0.777776, 1.14286, 1, 1, 4, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16141, 0, 0, 0, 0, 144, 659, '', 0, 1, 2.7, 1, 1, 1, 0, 0, 1, -93, 0, '', 0),
+(@SPECTRAL_SOLDIER, 0, 0, 0, 0, 0, 'Spectral Soldier', '', NULL, 0, 59, 60, 0, 1630, 0, 1.11111, 1.14286, 1, 1, 4, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16298, 0, 0, 0, 0, 148, 660, '', 1, 1, 2.7, 1, 1.05, 1, 0, 0, 1, -93, 0, '', 0),
+(@SKELETAL_SHOCKTROOPER, 0, 0, 0, 0, 0, 'Skeletal Shocktrooper', '', NULL, 0, 59, 60, 0, 1630, 0, 1, 1.19048, 1, 1, 4, 0, 0, 1, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16299, 0, 0, 0, 0, 144, 658, '', 1, 1, 2.7, 1, 1, 1, 0, 0, 1, -122, 2048, '', 0),
+(@LUMBERING_HORROR, 0, 0, 0, 0, 0, 'Lumbering Horror', NULL, NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 14697, 0, 0, 0, 0, 271, 503, '', 0, 1, 5.4, 1, 1, 1, 0, 0, 1, -93, 0, '', 0),
+(@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 'Spirit of the Damned', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 0.992063, 1, 1, 4, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16379, 0, 0, 0, 0, 0, 0, '', 1, 1, 5, 1, 1, 1, 0, 0, 1, -114, 0, '', 0),
+(@BONE_WITCH, 0, 0, 0, 0, 0, 'Bone Witch', '', NULL, 0, 61, 61, 0, 1630, 0, 1, 1.14286, 1, 1, 4, 4, 0, 1.5, 2000, 2000, 1, 1, 1, 0, 2048, 0, 0, 6, 0, 16380, 0, 0, 0, 0, 482, 558, '', 1, 1, 5, 1, 1, 1, 0, 0, 1, -124, 0, '', 0);
 
 DELETE FROM `creature_template_addon` WHERE `entry` IN 
 (@LORD_BLACKWOOD, @NECROTIC_SHARD, @CULTIST_ENGINEER, @LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
@@ -171,7 +170,6 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 (@SKELETAL_SHOCKTROOPER, 0, 0, 0, 0, 0, 0, ''),
 (@SPIRIT_OF_THE_DAMNED, 0, 0, 0, 0, 0, 0, ''),
 (@BONE_WITCH, 0, 0, 0, 0, 0, 0, '');
-
 
 DELETE FROM `creature_template_locale` WHERE `entry` IN 
 (@ARGENT_RECRUITER, @ARGENT_SCOUT, @ARGENT_EMISSARY, @ARGENT_MESSENGER, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER, @KEEPER_OF_THE_ROLLS,
@@ -412,7 +410,6 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (@NECROTIC_SHARD, 'zhCN', '死灵碎片', '', 18019),
 (@NECROTIC_SHARD, 'zhTW', '亡域水晶裂片', '', 18019);
 
-
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN 
 (@ARGENT_RECRUITER, @ARGENT_SCOUT, @ARGENT_EMISSARY, @ARGENT_MESSENGER, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER, @KEEPER_OF_THE_ROLLS,
  @COMMANDER_THOMAS, @LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA,
@@ -449,7 +446,6 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@ARGENT_OUTFITTER, 0, 16337, 1, 1, 12340),
 (@NECROTIC_SHARD, 0, 16135, 1, 1, 12340);
 
-
 DELETE FROM `creature_template_spell` WHERE `CreatureID` IN 
 (@SEVER, @BALZAPHON, @REVANCHION, @SHADOW_OF_DOOM, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `VerifiedBuild`) VALUES
@@ -472,7 +468,6 @@ INSERT INTO `creature_template_spell` (`CreatureID`, `Index`, `Spell`, `Verified
 (@BONE_WITCH, 0, 13748, 12340),
 (@BONE_WITCH, 1, 17014, 12340),
 (@BONE_WITCH, 2, 28265, 12340);
-
 
 -- Necrotic Shards 256+4
 UPDATE `creature_template` SET `unit_flags` = 260 WHERE `entry` = @NECROTIC_SHARD;

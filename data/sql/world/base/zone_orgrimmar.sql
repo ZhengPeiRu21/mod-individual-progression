@@ -72,7 +72,8 @@ UPDATE `creature_template_locale` SET `Title` = NULL WHERE `entry` = 12788;
 DELETE FROM `npc_vendor` WHERE `entry`= 12788; -- was placed in battlegrounds during Vanilla and TBC. needs to be hidden until wotlk
 
 -- Nazgrel <Advisor to Thrall>
-UPDATE `creature_template` SET `scale`=0.7, `npcflag`=2, `faction`=29, `gossip_menu_id`=0 WHERE `entry`=3230;
+UPDATE `creature_template` SET `npcflag` = 2, `faction` = 29, `gossip_menu_id` = 0 WHERE `entry` = 3230;
+UPDATE `creature_template_model` SET `DisplayScale` = 0.7 WHERE `CreatureID` = 3230;
 
 -- remove civilian flag
 UPDATE `creature_template` SET `flags_extra` = 0 WHERE `entry` IN (14392, 14720); -- Overlord Runthak / High Overlord Saurfang
