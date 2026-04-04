@@ -257,6 +257,70 @@ public:
     }
 };
 
+class gobject_ioq_rediscovering_roots : public GameObjectScript
+{
+public:
+    gobject_ioq_rediscovering_roots() : GameObjectScript("gobject_ioq_rediscovering_roots") { }
+
+    struct gobject_ioq_rediscovering_rootsAI: GameObjectAI
+    {
+        explicit gobject_ioq_rediscovering_rootsAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            if (player->IsGameMaster())
+                return true;
+
+            if (!target)
+                return false;
+
+            if (target->GetQuestStatus(QUEST_REDISCOVERING_ROOTS) == QUEST_STATUS_REWARDED)
+                return true;
+            else
+                return false;
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ioq_rediscovering_rootsAI(object);
+    }
+};
+
+class gobject_ioq_dont_stop_now : public GameObjectScript
+{
+public:
+    gobject_ioq_dont_stop_now() : GameObjectScript("gobject_ioq_dont_stop_now") { }
+
+    struct gobject_ioq_dont_stop_nowAI: GameObjectAI
+    {
+        explicit gobject_ioq_dont_stop_nowAI(GameObject* object) : GameObjectAI(object) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            if (player->IsGameMaster())
+                return true;
+
+            if (!target)
+                return false;
+
+            if (target->GetQuestStatus(QUEST_DONT_STOP_NOW) == QUEST_STATUS_REWARDED)
+                return true;
+            else
+                return false;
+        }
+    };
+
+    GameObjectAI* GetAI(GameObject* object) const override
+    {
+        return new gobject_ioq_dont_stop_nowAI(object);
+    }
+};
+
 // Add all scripts in one
 void AddSC_mod_individual_progression_ioq()
 {
@@ -268,4 +332,6 @@ void AddSC_mod_individual_progression_ioq()
     new gobject_ioq_P4();
     new gobject_ioq_mana_cells();
     new gobject_ioq_charitable_donation();
+    new gobject_ioq_rediscovering_roots();
+    new gobject_ioq_dont_stop_now();
 }
