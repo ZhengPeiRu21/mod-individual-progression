@@ -47,7 +47,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_naxx40' WHERE `entry` IN
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_naxx40' WHERE `guid` IN
 (45603, 45606, 45607, 45764, 45765, 45766, 45767, 45768, 45769, 45770, 45771, 45838, 45839, 45840);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602, 29611, 34084);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (28602); -- The Shaper's Terrace (Un'Goro)
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk_ulduar' WHERE `entry` IN (34252);
 
