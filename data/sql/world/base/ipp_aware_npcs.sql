@@ -101,11 +101,16 @@ UPDATE `creature` SET `phaseMask` = @IPPPHASE_IV  WHERE `guid` IN (984, 12719, 6
 																   94420, 94422, 94423, 94424, 94425, 94426, 94427, 94428, 94429, 94430, 94431, 
 																   94432, 94433, 94434, 94435, 94436, 94437, 94438);
 
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (59473, 59515, 62841, 62842, 62843, 62844); -- Bridge Marksman Target Bunny
+
+
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_mana_cells' WHERE `guid` IN (27755, 47196);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_dont_stop_now' WHERE `guid` IN (27811);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_charitable_donation' WHERE `guid` IN (27862);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_rediscovering_roots' WHERE `guid` IN (5300290);
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P2' WHERE `guid` IN (27829, 27832, 27833, 27839);
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P3' WHERE `guid` IN (27810, 27811, 27834, 27835, 27837, 27838, 27840, 27841, 27842, 27843, 27844);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P3' WHERE `guid` IN (27810, 27834, 27835, 27837, 27838, 27840, 27841, 27842, 27843, 27844);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P4' WHERE `guid` IN (27827, 27828, 27830, 27831, 27836, 27845, 27861);
 
 -- Dragons of Nightmare
