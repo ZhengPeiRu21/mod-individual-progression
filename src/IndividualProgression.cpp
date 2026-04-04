@@ -302,22 +302,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_THE_DAWNING_SQUARE:
             player->RemoveAura(SONG_OF_VICTORY);
 
-            if (player->GetReputationRank(FACTION_SHATTERED_SUN) < REP_FRIENDLY)
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-            }
-            else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_FRIENDLY)
-            {
-                 player->CastSpell(player, IPP_PHASE, false);
-                 player->CastSpell(player, IPP_PHASE_II, false);
-            }
-            else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_HONORED)
-            {
-                player->CastSpell(player, IPP_PHASE, false);
-                player->CastSpell(player, IPP_PHASE_II, false);
-                player->CastSpell(player, IPP_PHASE_III, false);
-            }
-            else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
+            if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
             {
                  player->CastSpell(player, IPP_PHASE, false);
                  player->CastSpell(player, IPP_PHASE_II, false);
@@ -331,8 +316,22 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                      player->CastSpell(player, SONG_OF_VICTORY, false);
                  }
             }
-            break;
-			
+            else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_HONORED)
+            {
+                player->CastSpell(player, IPP_PHASE, false);
+                player->CastSpell(player, IPP_PHASE_II, false);
+                player->CastSpell(player, IPP_PHASE_III, false);
+            }
+            else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_FRIENDLY)
+            {
+                player->CastSpell(player, IPP_PHASE, false);
+                player->CastSpell(player, IPP_PHASE_II, false);
+            }
+            else // if (player->GetReputationRank(FACTION_SHATTERED_SUN) < REP_FRIENDLY)
+            {
+                player->CastSpell(player, IPP_PHASE, false);
+            }
+            break;		
         case AREA_THE_DARK_PORTAL:
             if (hasPassedProgression(player, PROGRESSION_AQ) && isBeforeProgression(player, PROGRESSION_NAXX40))
             {
