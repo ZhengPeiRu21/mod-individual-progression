@@ -1,15 +1,15 @@
 -- Add Archmage Tarsis Kir-Moldir
-UPDATE `creature_template` SET `gossip_menu_id` = 7229, `npcflag` = 1, `unit_flags` = 512 WHERE (`entry` = 16381);
+UPDATE `creature_template` SET `gossip_menu_id` = 7229, `npcflag` = 1, `unit_flags` = 512 WHERE `entry` = 16381;
 DELETE FROM `creature_template_addon` WHERE `entry` = 16381;
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (16381, 0, 0, 3, 0, 0, 0, '');
 -- fix: archmage not sitting properly, wrong animation (sleep) to dead
-UPDATE `creature_template_addon` SET `bytes1` = 7, `bytes2` = 1 WHERE (`entry` = 16381);
-UPDATE `smart_scripts` SET `action_param1` = 7 WHERE (`entryorguid` = 16381) AND (`source_type` = 0) AND (`id` = 2);
-UPDATE `creature_template` SET `scale` = 1.2 WHERE (`entry` = 16381);
+UPDATE `creature_template_addon` SET `bytes1` = 7, `bytes2` = 1 WHERE `entry` = 16381;
+UPDATE `smart_scripts` SET `action_param1` = 7 WHERE `entryorguid` = 16381 AND `source_type` = 0 AND `id` = 2;
+UPDATE `creature_template_model` SET `DisplayScale` = 1.2 WHERE `CreatureID` = 16381;
 
 -- CreatureText
-DELETE FROM `creature_text` WHERE `CreatureID`=16381;
+DELETE FROM `creature_text` WHERE `CreatureID` = 16381;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 (16381, 0, 0, '%s gets to one knee.', 16, 0, 100, 0, 0, 0, 12295, 0, 'Archmage Tarsis Kir-Moldir - kneels'),
 (16381, 1, 0, '%s sits down.', 16, 0, 100, 0, 0, 0, 12296, 0, 'Archmage Tarsis Kir-Moldir - sits down'),
