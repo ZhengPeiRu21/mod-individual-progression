@@ -12,10 +12,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -44,10 +44,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -76,10 +76,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -108,10 +108,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -140,10 +140,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -172,10 +172,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -204,10 +204,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -236,10 +236,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -268,10 +268,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -300,10 +300,10 @@ public:
 
         bool CanBeSeen(Player const* player) override
         {
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-
             if (player->IsGameMaster())
                 return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             if (!target)
                 return false;
@@ -324,11 +324,11 @@ public:
 // Add all scripts in one
 void AddSC_mod_individual_progression_ioq()
 {
-    new gobject_ioq_before_P2();
-    new gobject_ioq_P2();
+    // new gobject_ioq_before_P2();
     new gobject_ioq_before_P3();
+    // new gobject_ioq_before_P4();
+    new gobject_ioq_P2();
     new gobject_ioq_P3();
-    new gobject_ioq_before_P4();
     new gobject_ioq_P4();
     new gobject_ioq_mana_cells();
     new gobject_ioq_charitable_donation();
