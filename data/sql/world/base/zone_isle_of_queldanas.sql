@@ -1,7 +1,15 @@
+-- https://www.wowhead.com/tbc/guide/isle-of-queldanas-overview-burning-crusade-classic#quests-and-phases
+
+-- disable the Isle of Quel'Danas event added by AC
 DELETE FROM `game_event_creature`       WHERE `eventEntry` BETWEEN 101 AND 115;
 DELETE FROM `game_event_creature_quest` WHERE `eventEntry` BETWEEN 101 AND 115;
 DELETE FROM `game_event_gameobject`     WHERE `eventEntry` BETWEEN 101 AND 115;
 DELETE FROM `game_event_npc_vendor`     WHERE `eventEntry` BETWEEN 101 AND 115;
+DELETE FROM `game_event_creature`       WHERE `eventEntry` IN (-102, -103, -107, -110);
+DELETE FROM `game_event_gameobject`     WHERE `eventEntry` IN (-107);
+
+DELETE FROM `creature_addon` WHERE `guid` IN (93966, 93967, 5300476, @WPID+26);
+DELETE FROM `waypoint_data`  WHERE `id`   IN (939660, 969670, @WPID+260);
 
 -- archers should have bow equiped
 UPDATE `creature_addon` SET `bytes2` = 2 WHERE `guid` IN
@@ -92,6 +100,7 @@ UPDATE `quest_template_addon` SET `PrevQuestID` = 11542 WHERE `ID` = 11543;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 11520 WHERE `ID` = 11541;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 11545 WHERE `ID` = 11548;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 11513 WHERE `ID` = 11547;
+
 
 DELETE FROM `npc_vendor` WHERE `entry` IN (24975, 25046, 25950);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
@@ -214,3 +223,102 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (25950, 0, 35769, 0, 0, 0),
 (25950, 0, 37504, 0, 0, 0);
 
+
+SET @CGUID    := 673000;
+SET @WPID     := 6730000;
+
+DELETE FROM `creature` WHERE `id1` IN (25001, 25002, 25003);
+-- DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+99;
+INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+--
+(@CGUID+1,  25003, 0, 0, 530, 0, 0, 1, 1, 1, 12583.2998, -6916.2798, 4.6855, 6.2606, 300, 0, 1, 7084, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+--
+(@CGUID+11, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12488.7002, -6887.3398, 16.4079, 1.255, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Abyssal Flamewalker
+(@CGUID+12, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12519.5000, -6911.1299, 16.7992, 5.978, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+13, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12579.0996, -6974.5400, 15.9850, 3.398, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+14, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12683.0996, -7043.1602, 19.7468, 4.362, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+15, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12636.7998, -7073.2402, 16.4142, 1.162, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+16, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12692.0000, -7107.3999, 19.4216, 6.032, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+17, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12663.7002, -7082.5098, 19.4874, 4.049, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+18, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12641.0000, -7043.3901, 19.3265, 0.182, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+19, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12657.0000, -6979.9102, 14.6574, 4.108, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+20, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12703.9004, -6920.8301, 13.7406, 0.871, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+21, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12696.0000, -7010.1401, 21.2508, 1.211, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+22, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12606.0996, -6987.6499, 17.0318, 5.598, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+23, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12636.7002, -7014.6802, 20.3199, 2.344, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+24, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12565.7998, -6827.3701, 16.3403, 4.864, 300, 0, 1, 7181, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+25, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12590.0996, -6857.1499, 4.81390, 4.638, 300, 0, 1, 7181, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+26, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12728.2002, -6945.3799, 14.3328, 1.624, 300, 0, 1, 7181, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+
+(@CGUID+31, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12588.4004, -6923.1099, 4.6006, 0.3888, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL), -- Unleashed Hellion
+(@CGUID+32, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12588.5996, -6910.2202, 4.6023, 5.6902, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+33, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12572.2998, -6915.2300, 4.6023, 6.1929, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+34, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12702.0000, -6950.8101, 15.646, 0.6632, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+35, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12696.2002, -6942.9800, 15.642, 0.5236, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+36, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12701.0996, -6983.3101, 25.601, 6.1173, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+37, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12683.2002, -6957.7202, 36.253, 3.7768, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+38, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12673.0996, -6943.6899, 36.339, 5.4629, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+39, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12704.0000, -6972.1802, 36.231, 0.3529, 300, 0, 0, 5589, 3155, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+40, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12689.7998, -6983.5601, 15.571, 5.2478, 300, 3, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+41, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12657.7002, -7019.8999, 21.819, 2.5726, 300, 3, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+42, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12587.0996, -6946.1099, 4.6400, 1.5590, 300, 3, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+43, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12616.7998, -6947.3101, 4.6006, 1.5590, 300, 3, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+44, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12612.9004, -7022.4199, 18.695, 1.2354, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+45, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12674.9004, -7100.2500, 18.686, 1.3909, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+46, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12652.2998, -7074.3901, 18.134, 5.4522, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+47, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12601.7002, -6888.8901, 4.6026, 0.7492, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+48, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12638.7998, -6858.7598, 4.7259, 0.7492, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+49, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12663.4004, -6881.7900, 4.7259, 3.3568, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+50, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12563.5000, -6830.9702, 16.428, 3.3568, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+51, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12616.2002, -6820.6802, 14.008, 1.1206, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+52, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12539.5000, -6943.2500, 16.586, 4.6426, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL);
+
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_V WHERE `guid` IN (@CGUID+14, @CGUID+15, @CGUID+16, @CGUID+17, @CGUID+18, @CGUID+19, @CGUID+20, @CGUID+21, @CGUID+22, @CGUID+23, @CGUID+26);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_V WHERE `guid` IN (@CGUID+34, @CGUID+35, @CGUID+36, @CGUID+37, @CGUID+38, @CGUID+39, @CGUID+40, @CGUID+41, @CGUID+44, @CGUID+45, @CGUID+46);
+
+UPDATE `creature_template` SET `CreatureImmunitiesId` = 0 WHERE `entry` = 25001; -- can't be immune to fire, else Abyssal Transformation won't work
+
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+1, @CGUID+24, @CGUID+25, @CGUID+26);
+INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+--
+(@CGUID+1,  @WPID+10,  0, 0, 0, 0, 0, NULL),
+(@CGUID+24, @WPID+240, 0, 0, 0, 0, 0, NULL),
+(@CGUID+25, @WPID+250, 0, 0, 0, 0, 0, NULL),
+(@CGUID+26, @WPID+260, 0, 0, 0, 0, 0, NULL);
+
+DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+10, @WPID+240, @WPID+250, @WPID+260);
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
+--
+(@WPID+10, 1, 12612.6, -6916.94, 4.72594, NULL, 0, 0, 0, 100, 0),
+(@WPID+10, 2, 12639.3, -6917.03, 4.72594, NULL, 8000, 0, 0, 100, 0),
+(@WPID+10, 3, 12612.6, -6916.94, 4.72594, NULL, 0, 0, 0, 100, 0),
+(@WPID+10, 4, 12589.8, -6916, 4.72634, 6.26056, 10000, 0, 0, 100, 0),
+--
+(@WPID+240, 1, 12565.8, -6827.37, 16.3403, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 2, 12584, -6834.42, 14.1357, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 3, 12591.6, -6835.22, 13.6321, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 4, 12607.5, -6830.54, 13.5435, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 5, 12616, -6826.48, 13.3063, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 6, 12625.1, -6825.82, 13.0271, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 7, 12616, -6826.48, 13.3063, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 8, 12607.5, -6830.54, 13.5435, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 9, 12591.6, -6835.22, 13.6321, NULL, 0, 0, 0, 100, 0),
+(@WPID+240, 10, 12584, -6834.42, 14.1357, NULL, 0, 0, 0, 100, 0),
+--
+(@WPID+250, 1, 12590.1, -6857.15, 4.8139, NULL, 0, 0, 0, 100, 0),
+(@WPID+250, 2, 12614.5, -6866.54, 5.22594, NULL, 0, 0, 0, 100, 0),
+(@WPID+250, 3, 12633.2, -6875.46, 5.14763, NULL, 0, 0, 0, 100, 0),
+(@WPID+250, 4, 12641.7, -6889.07, 5.10094, NULL, 0, 0, 0, 100, 0),
+(@WPID+250, 5, 12633.2, -6875.46, 5.14763, NULL, 0, 0, 0, 100, 0),
+(@WPID+250, 6, 12614.5, -6866.54, 5.22594, NULL, 0, 0, 0, 100, 0),
+--
+(@WPID+260, 1, 12728.2, -6945.38, 14.3328, NULL, 0, 0, 0, 100, 0),
+(@WPID+260, 2, 12728, -6963.33, 17.2544, NULL, 0, 0, 0, 100, 0),
+(@WPID+260, 3, 12723.1, -6977.58, 18.9559, NULL, 0, 0, 0, 100, 0),
+(@WPID+260, 4, 12728, -6963.33, 17.2544, NULL, 0, 0, 0, 100, 0);
+
+-- hide shop Smith Hauthaa until quest "Don't Stop Now..." has been completed
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 9087 AND `ConditionTypeOrReference` = 8;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+(15, 9087, 0, 0, 0, 8, 0, 11536, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Dont Stop Now\' to be complete');
