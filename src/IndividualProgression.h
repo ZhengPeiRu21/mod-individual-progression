@@ -62,7 +62,9 @@ enum BuffSpells
     IPP_PHASE            = 89509,
     IPP_PHASE_II         = 89511,
     IPP_PHASE_III        = 89513,
-    IPP_PHASE_IV         = 89515
+    IPP_PHASE_IV         = 89515,
+    IPP_PHASE_V          = 89517,
+    IPP_PHASE_VI         = 89519	
 };
 
 enum ProgressionQuestIDs
@@ -205,6 +207,7 @@ enum ShatteredSunOffensive
     AREA_SUNS_REACH_ARMORY               = 4088,
     AREA_DAWNSTAR_VILLAGE                = 4089,
     AREA_THE_DAWNING_SQUARE              = 4090,
+    AREA_SUNWELL_PLATEAU_B               = 4094,
     QUEST_MANA_CELLS                     = 11513,
     QUEST_REDISCOVERING_ROOTS            = 11521,
     QUEST_DONT_STOP_NOW                  = 11536,
