@@ -4,7 +4,6 @@
     WotLK removed this and changed all these items to have the same amount of damage and healing done. Removing the distinction between dps and healer caster items.
 */
 
--- restore "Increased healing done and damage done for all magical spells and effects." for vanilla and TBC items
 DELETE FROM `spell_dbc` WHERE `ID` IN 
 (7678, 7679, 7680, 7681, 7685, 7686, 7687, 7688, 7689, 7696, 7700, 7701, 7702, 7703, 7706, 7707, 7708, 7709, 7710, 9294, 9295, 9296, 9298, 9304, 9305, 9306, 9307, 9308, 9314, 9315, 9316, 9317, 9318, 
 9325, 9326, 9327, 9328, 9342, 9343, 9344, 9345, 9346, 9357, 9358, 9359, 9361, 9393, 9394, 9395, 9396, 9397, 9398, 9400, 9401, 9402, 9403, 9404, 9406, 9407, 9408, 9411, 9412, 9413, 9414, 9415, 9416, 9417, 
