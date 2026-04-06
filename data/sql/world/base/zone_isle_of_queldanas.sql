@@ -17,6 +17,9 @@ UPDATE `creature_addon` SET `bytes2` = 2 WHERE `guid` IN
 65680, 65681, 65682, 65683, 65684, 65685, 65686, 65687, 65688, 65689, 65690, 65691, 65692, 65693, 65694, 65695, 65696, 65697, 65698, 65699, 65700, 65701, 65702, 
 94407, 94408, 94409, 94410, 94411, 94412, 94413, 94414, 94415, 94416, 94417, 94418, 94419, 94420, 94422, 94423, 94424, 94425, 94426, 94427, 94428, 94429, 94430, 94431);
 
+-- face Drill Sergeant Bahduum towards troops
+UPDATE `creature` SET `orientation` = 3.74933 WHERE `guid` = 93949;
+
 DELETE FROM `creature_queststarter` WHERE `id` IN (24932, 24965, 24967, 24975, 25034, 25046, 25057, 25061, 25069, 25088, 25108, 25112, 25133, 25163);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES 
 (24932, 11513), -- Intercepting the Mana Cells
@@ -100,7 +103,6 @@ UPDATE `quest_template_addon` SET `PrevQuestID` = 11542 WHERE `ID` = 11543;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 11520 WHERE `ID` = 11541;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 11545 WHERE `ID` = 11548;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 11513 WHERE `ID` = 11547;
-
 
 DELETE FROM `npc_vendor` WHERE `entry` IN (24975, 25046, 25950);
 INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`) VALUES
@@ -224,14 +226,22 @@ INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `Exte
 (25950, 0, 37504, 0, 0, 0);
 
 
-SET @CGUID    := 673000;
-SET @WPID     := 6730000;
+SET @CGUID  := 673000;
+SET @WPID   := 6730000;
+
+SET @IPPPHASE_III := 262144;
+SET @IPPPHASE_V   := 1048576;
 
 DELETE FROM `creature` WHERE `id1` IN (25001, 25002, 25003);
--- DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+99;
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+2 AND @CGUID+5;
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
-(@CGUID+1,  25003, 0, 0, 530, 0, 0, 1, 1, 1, 12583.2998, -6916.2798, 4.6855, 6.2606, 300, 0, 1, 7084, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+1,  25003, 0, 0, 530, 0, 0, 1, 1, 1, 12583.2998, -6916.2798, 4.6855, 6.2606, 300, 0, 1, 7084, 0, 2, 0, 0, 0, '', NULL, 0, NULL), -- Emissary of Hate
+--
+(@CGUID+2,  25115, 0, 0, 530, 0, 0, 1, 1, 1, 12803.5000, -6910.7900, 41.1986, 1.62, 45, 0, 1, 7084, 0, 2, 0, 0, 0, '', NULL, 0, NULL),   -- Shattered Sun Warrior
+(@CGUID+3,  25115, 0, 0, 530, 0, 0, 1, 1, 1, 12804.7998, -6908.0898, 41.1986, 1.82, 50, 0, 1, 7084, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+4,  25115, 0, 0, 530, 0, 0, 1, 1, 1, 12805.7002, -6907.1201, 41.1986, 2.20, 45, 0, 1, 7084, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+5,  25115, 0, 0, 530, 0, 0, 1, 1, 1, 12805.7998, -6911.7300, 41.2819, 2.19, 50, 0, 1, 7084, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
 --
 (@CGUID+11, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12488.7002, -6887.3398, 16.4079, 1.255, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Abyssal Flamewalker
 (@CGUID+12, 25001, 0, 0, 530, 0, 0, 1, 1, 0, 12519.5000, -6911.1299, 16.7992, 5.978, 300, 0, 0, 7181, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
@@ -273,26 +283,55 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+51, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12616.2002, -6820.6802, 14.008, 1.1206, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+52, 25002, 0, 0, 530, 0, 0, 1, 1, 1, 12539.5000, -6943.2500, 16.586, 4.6426, 300, 5, 0, 5589, 3155, 1, 0, 0, 0, '', NULL, 0, NULL);
 
-UPDATE `creature` SET `phaseMask` = @IPPPHASE_V WHERE `guid` IN (@CGUID+14, @CGUID+15, @CGUID+16, @CGUID+17, @CGUID+18, @CGUID+19, @CGUID+20, @CGUID+21, @CGUID+22, @CGUID+23, @CGUID+26);
-UPDATE `creature` SET `phaseMask` = @IPPPHASE_V WHERE `guid` IN (@CGUID+34, @CGUID+35, @CGUID+36, @CGUID+37, @CGUID+38, @CGUID+39, @CGUID+40, @CGUID+41, @CGUID+44, @CGUID+45, @CGUID+46);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (@CGUID+2, @CGUID+3, @CGUID+4, @CGUID+5);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_V   WHERE `guid` IN (@CGUID+14, @CGUID+15, @CGUID+16, @CGUID+17, @CGUID+18, @CGUID+19, @CGUID+20, @CGUID+21, @CGUID+22, @CGUID+23, @CGUID+26);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_V   WHERE `guid` IN (@CGUID+34, @CGUID+35, @CGUID+36, @CGUID+37, @CGUID+38, @CGUID+39, @CGUID+40, @CGUID+41, @CGUID+44, @CGUID+45, @CGUID+46);
 
 UPDATE `creature_template` SET `CreatureImmunitiesId` = 0 WHERE `entry` = 25001; -- can't be immune to fire, else Abyssal Transformation won't work
 
-DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+1, @CGUID+24, @CGUID+25, @CGUID+26);
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+1, @CGUID+2, @CGUID+3, @CGUID+4, @CGUID+5, @CGUID+24, @CGUID+25, @CGUID+26);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 --
-(@CGUID+1,  @WPID+10,  0, 0, 0, 0, 0, NULL),
+(@CGUID+1,  @WPID+10,  0, 0, 1, 0, 0, NULL),
+(@CGUID+2,  @WPID+20,  0, 0, 1, 0, 0, NULL),
+(@CGUID+3,  @WPID+20,  0, 0, 1, 0, 0, NULL),
+(@CGUID+4,  @WPID+40,  0, 0, 1, 0, 0, NULL),
+(@CGUID+5,  @WPID+40,  0, 0, 1, 0, 0, NULL),
 (@CGUID+24, @WPID+240, 0, 0, 0, 0, 0, NULL),
 (@CGUID+25, @WPID+250, 0, 0, 0, 0, 0, NULL),
 (@CGUID+26, @WPID+260, 0, 0, 0, 0, 0, NULL);
 
-DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+10, @WPID+240, @WPID+250, @WPID+260);
+DELETE FROM `waypoint_data` WHERE `id` IN (@WPID+10, @WPID+20, @WPID+40, @WPID+240, @WPID+250, @WPID+260);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
 --
 (@WPID+10, 1, 12612.6, -6916.94, 4.72594, NULL, 0, 0, 0, 100, 0),
 (@WPID+10, 2, 12639.3, -6917.03, 4.72594, NULL, 8000, 0, 0, 100, 0),
 (@WPID+10, 3, 12612.6, -6916.94, 4.72594, NULL, 0, 0, 0, 100, 0),
 (@WPID+10, 4, 12589.8, -6916, 4.72634, 6.26056, 10000, 0, 0, 100, 0),
+--
+(@WPID+20, 1,  12801.3, -6901.13, 40.2997, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 2,  12808.4, -6886.84, 40.2948, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 3,  12803.4, -6871.79, 40.2948, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 4,  12790.4, -6864.35, 40.2948, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 5,  12774.3, -6867.68, 40.2948, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 6,  12780.7, -6876.71, 40.3011, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 7,  12776.0, -6882.20, 39.6299, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 8,  12777.7, -6892.68, 35.8354, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 9,  12787.4, -6897.39, 31.5905, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 10, 12792.6, -6893.43, 30.8971, NULL, 0, 1, 0, 100, 0),
+(@WPID+20, 11, 12790.7, -6890.53, 31.7543, NULL, 4000, 0, 0, 100, 0),
+--
+(@WPID+40, 1,  12801.3, -6901.13, 40.2997, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 2,  12808.4, -6886.84, 40.2948, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 3,  12803.4, -6871.79, 40.2948, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 4,  12790.4, -6864.35, 40.2948, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 5,  12774.3, -6867.68, 40.2948, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 6,  12780.7, -6876.71, 40.3011, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 7,  12787.9, -6873.48, 39.4877, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 8,  12798.2, -6880.22, 35.1038, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 9,  12798.6, -6888.07, 31.8676, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 10, 12792.6, -6893.43, 30.8971, NULL, 0, 1, 0, 100, 0),
+(@WPID+40, 11, 12790.7, -6890.53, 31.7543, NULL, 4000, 0, 0, 100, 0),
 --
 (@WPID+240, 1, 12565.8, -6827.37, 16.3403, NULL, 0, 0, 0, 100, 0),
 (@WPID+240, 2, 12584, -6834.42, 14.1357, NULL, 0, 0, 0, 100, 0),
@@ -317,8 +356,45 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (@WPID+260, 3, 12723.1, -6977.58, 18.9559, NULL, 0, 0, 0, 100, 0),
 (@WPID+260, 4, 12728, -6963.33, 17.2544, NULL, 0, 0, 0, 100, 0);
 
--- hide shop Smith Hauthaa until quest "Don't Stop Now..." has been completed
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` = 9087 AND `ConditionTypeOrReference` = 8;
+-- hide shop menu until after the player has helped the npc
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` IN (9087, 9198) AND `ConditionTypeOrReference` = 8;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
-(15, 9087, 0, 0, 0, 8, 0, 11536, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Dont Stop Now\' to be complete');
+(15, 9087, 0, 0, 0, 8, 0, 11536, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Dont Stop Now\' to be complete'),
+(15, 9198, 0, 0, 0, 8, 0, 11521, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Rediscovering Your Roots\' to be complete');
+
+-- Shattered Sun Warriors coming out of the portal AFTER phase 2
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-673002, -673003, -673004, -673005);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(-673002, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 34427, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Shattered Sun Warrior - On spawn - Cast Ethereal Teleport'),
+(-673002, 0, 1, 2, 108, 0, 100, 0, 11, 6730020, 0, 0, 0, 0, 5, 432, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Shattered Sun Warrior - On Waypoint Reached - Emote Use'),
+(-673002, 0, 2, 0, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Shattered Sun Warrior - On Waypoint Reached - Despawn'),
+(-673002, 0, 3, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511510, 2511513, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673002, 0, 4, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511520, 2511523, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673002, 0, 5, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511530, 2511533, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673002, 0, 6, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511540, 2511543, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673003, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 34427, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Shattered Sun Warrior - On spawn - Cast Ethereal Teleport'),
+(-673003, 0, 1, 2, 108, 0, 100, 0, 11, 6730020, 0, 0, 0, 0, 5, 432, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Shattered Sun Warrior - On Waypoint Reached - Emote Use'),
+(-673003, 0, 2, 0, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Shattered Sun Warrior - On Waypoint Reached - Despawn'),
+(-673003, 0, 3, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511510, 2511513, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673003, 0, 4, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511520, 2511523, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673003, 0, 5, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511530, 2511533, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673003, 0, 6, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511540, 2511543, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673004, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 34427, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Shattered Sun Warrior - On spawn - Cast Ethereal Teleport'),
+(-673004, 0, 1, 2, 108, 0, 100, 0, 11, 6730040, 0, 0, 0, 0, 5, 432, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Shattered Sun Warrior - On Waypoint Reached - Emote Use'),
+(-673004, 0, 2, 0, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Shattered Sun Warrior - On Waypoint Reached - Despawn'),
+(-673004, 0, 3, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511510, 2511513, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673004, 0, 4, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511520, 2511523, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673004, 0, 5, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511530, 2511533, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673004, 0, 6, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511540, 2511543, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673005, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 34427, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Shattered Sun Warrior - On spawn - Cast Ethereal Teleport'),
+(-673005, 0, 1, 2, 108, 0, 100, 0, 11, 6730040, 0, 0, 0, 0, 5, 432, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Shattered Sun Warrior - On Waypoint Reached - Emote Use'),
+(-673005, 0, 2, 0, 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Shattered Sun Warrior - On Waypoint Reached - Despawn'),
+(-673005, 0, 3, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511510, 2511513, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673005, 0, 4, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511520, 2511523, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673005, 0, 5, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511530, 2511533, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
+(-673005, 0, 6, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511540, 2511543, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script');
