@@ -61,7 +61,10 @@ enum BuffSpells
     SPELL_CANNIBALISE    = 20578,
     IPP_PHASE            = 89509,
     IPP_PHASE_II         = 89511,
-    IPP_PHASE_III        = 89513
+    IPP_PHASE_III        = 89513,
+    IPP_PHASE_IV         = 89515,
+    IPP_PHASE_V          = 89517,
+    IPP_PHASE_VI         = 89519	
 };
 
 enum ProgressionQuestIDs
@@ -181,6 +184,7 @@ enum ProgressionAreas
     AREA_HIVE_REGAL                      = 2744,
     AREA_VEILED_SEA                      = 3479,
 	AREA_AMMEN_VALE                      = 3526,
+    AREA_TERRACE_OF_LIGHT                = 3897,
     AREA_ARGENT_SUNREAVER_PAVILION       = 4666,
     AREA_ARGENT_SILVER_COVENANT_PAVILION = 4667,
     AREA_ARGENT_PAVILION                 = 4674
@@ -192,6 +196,26 @@ enum DungeonKeys
     ITEM_TEMPEST_KEY                     = 31704,
     ITEM_MEDALLION_OF_KARABOR            = 32649,
     ITEM_BLESSED_MEDALLION_OF_KARABOR    = 32757
+};
+
+enum ShatteredSunOffensive
+{
+    FACTION_SHATTERED_SUN                = 1077,
+    AREA_SHATTERED_SUN_STAGING           = 4085,
+    AREA_SUNS_REACH_SANCTUM              = 4086,
+    AREA_SUNS_REACH_HARBOR               = 4087,
+    AREA_SUNS_REACH_ARMORY               = 4088,
+    AREA_DAWNSTAR_VILLAGE                = 4089,
+    AREA_THE_DAWNING_SQUARE              = 4090,
+    AREA_SUNWELL_PLATEAU_B               = 4094,
+    QUEST_MANA_CELLS                     = 11513,
+    QUEST_REDISCOVERING_ROOTS            = 11521,
+    QUEST_DONT_STOP_NOW                  = 11536,
+    QUEST_CRUSH_DAWNBLADE                = 11540,
+    QUEST_GREENGILL_COAST                = 11541,
+    QUEST_ENEMY_AT_BAY                   = 11543,
+    QUEST_CHARITABLE_DONATION            = 11545,
+    SONG_OF_VICTORY                      = 46302
 };
 
 enum ProgressionSettings

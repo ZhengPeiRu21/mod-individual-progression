@@ -52,6 +52,10 @@ DELETE FROM `game_event_creature` WHERE `guid` IN (72252, 72364, 207610, 207611,
 -- remove wotlk battlemaster from Shattrath
 DELETE FROM `creature` WHERE `guid` IN (63451, 88251, 88252, 88254, 207710, 207711);
 
+-- change Shattered Sun Marksmen into Warriors. Marksmen refuse to use waypoints to run towards the Quel'Danas portal
+UPDATE `creature` SET `id1` = 25115 WHERE `guid` IN (165106, 165107, 165108, 165109);
+
+
 /* Scryer's Tier */
 SET @CGUID    := 672000;
 SET @WPID     := 6720000;
@@ -121,7 +125,6 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+10, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1797.2100, 5626.5498, 130.8870, 1.3349, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+11, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1793.7900, 5622.9902, 130.8900, 1.3154, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+12, 19390, 0, 0, 530, 0, 0, 1, 1, 1, -1801.9000, 5620.6802, 130.8920, 1.3707, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL);
-
 
 DELETE FROM `creature_addon` WHERE `guid` IN (68962, 69109, 69110);
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+12;
