@@ -597,9 +597,7 @@ class spell_thaddius_pos_neg_charge : public SpellScript
                 if (Player* target = ihit->ToPlayer())
                 {
                     if (target->HasAura(GetTriggeringSpell()->Id))
-                    {
                         ++count;
-                    }
                 }
             }
         }
@@ -627,11 +625,10 @@ class spell_thaddius_pos_neg_charge : public SpellScript
         else if (target->GetInstanceScript())
         {
             target->GetInstanceScript()->SetData(DATA_CHARGES_CROSSED, 0);
-        }
-        // Adjust damage to 2000 from 4500 for naxx40
-        if (target->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
-            SetHitDamage(2000);
+
+            // Adjust damage to 2000 from 4500 for naxx40
+            if (target->GetMap()->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
+                SetHitDamage(2000);
         }
     }
 
