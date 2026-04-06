@@ -12,10 +12,10 @@ Place patch-U.mpq from the dbc.7z file in the client 'data' folder. This is a vi
 Credit to slendydaddy for HD Vanilla loading screen art.
 
 ---------------------------------------------------
-To restore Vanilla and TBC crafting, recipes, and reagents:
+To restore Vanilla and TBC spells, crafting, recipes, and reagents:
 ---------------------------------------------------
-SkillLine.dbc, SkillLineAbility.dbc and SkillRaceClassInfo.dbc are for use by the server. 
-Place these files in the server 'data/dbc' folder overwriting the existing files.
+SkillLine.dbc, SkillLineAbility.dbc, SkillRaceClassInfo.dbc and SpellItemEnchantment.dbc are for use by the server. 
+Place these files, from the dbc.7z, in the server 'data/dbc' folder overwriting the existing files.
 
 ---------------------------------------------------
 To have adjusted mana costs during Vanilla and TBC:
