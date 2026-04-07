@@ -192,6 +192,8 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
     player->RemoveAura(IPP_PHASE_II);
     player->RemoveAura(IPP_PHASE_III);
     player->RemoveAura(IPP_PHASE_IV);
+    player->RemoveAura(IPP_PHASE_V);
+    player->RemoveAura(IPP_PHASE_VI);
 
     switch (newArea) {
         case AREA_DARKSHORE:
@@ -304,10 +306,9 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 
             if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
             {
-                 player->CastSpell(player, IPP_PHASE, false);
-                 player->CastSpell(player, IPP_PHASE_II, false);
-                 player->CastSpell(player, IPP_PHASE_III, false);
-                 player->CastSpell(player, IPP_PHASE_IV, false);
+                player->CastSpell(player, IPP_PHASE_II, false);
+                player->CastSpell(player, IPP_PHASE_III, false);
+                player->CastSpell(player, IPP_PHASE_IV, false);
 
                  if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
@@ -318,18 +319,21 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             }
             else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_HONORED)
             {
-                player->CastSpell(player, IPP_PHASE, false);
                 player->CastSpell(player, IPP_PHASE_II, false);
                 player->CastSpell(player, IPP_PHASE_III, false);
+                player->CastSpell(player, IPP_PHASE_VI, false);
             }
             else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_FRIENDLY)
             {
-                player->CastSpell(player, IPP_PHASE, false);
                 player->CastSpell(player, IPP_PHASE_II, false);
+                player->CastSpell(player, IPP_PHASE_V, false);
+                player->CastSpell(player, IPP_PHASE_VI, false);
             }
             else // if (player->GetReputationRank(FACTION_SHATTERED_SUN) < REP_FRIENDLY)
             {
                 player->CastSpell(player, IPP_PHASE, false);
+                player->CastSpell(player, IPP_PHASE_V, false);
+                player->CastSpell(player, IPP_PHASE_VI, false);
             }
             break;		
         case AREA_THE_DARK_PORTAL:
