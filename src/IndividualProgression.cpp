@@ -294,6 +294,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             }
             break;
         case AREA_SUNWELL_PLATEAU:
+        case AREA_SUNWELL_PLATEAU_B:
         case AREA_ISLE_OF_QUEL_DANAS:
         case AREA_MAGISTERS_TERRACE:
         case AREA_SHATTERED_SUN_STAGING:
