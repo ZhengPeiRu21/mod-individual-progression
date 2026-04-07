@@ -359,13 +359,13 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE_II, false);
                 player->CastSpell(player, IPP_PHASE_III, false);
                 player->CastSpell(player, IPP_PHASE_IV, false);
-				
-                 if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED)
-                 {
-                     player->CastSpell(player, SONG_OF_VICTORY, false);
-                 }
+
+                if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
+                    player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
+                    player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED)
+                {
+                    player->CastSpell(player, SONG_OF_VICTORY, false);
+                }
             }
             else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_HONORED)
             {
