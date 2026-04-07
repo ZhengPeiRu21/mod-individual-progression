@@ -416,7 +416,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             if (hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
             {
                 player->CastSpell(player, IPP_PHASE, false);
-            }		
+            }
             if (player->GetQuestStatus(QUEST_MANA_CELLS) == QUEST_STATUS_REWARDED)
             {
                 player->CastSpell(player, IPP_PHASE_III, false);
