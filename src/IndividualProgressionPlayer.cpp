@@ -137,7 +137,7 @@ public:
             uint32 vanillaXpValue = sIndividualProgression->questXpMap[quest->GetQuestId()];
             if (player)
             {
-                uint32 originalXpValue = quest->XPValue(quest->GetQuestId() == -1 ? player->GetLevel() : quest->GetQuestLevel());
+                uint32 originalXpValue = quest->XPValue(quest->GetQuestLevel() == -1 ? player->GetLevel() : quest->GetQuestLevel());
                 xpValue *= vanillaXpValue * 1.0 / originalXpValue;
             }
         }
