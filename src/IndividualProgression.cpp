@@ -421,6 +421,10 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->CastSpell(player, IPP_PHASE_III, false);
             }
+            if (player->GetQuestStatus(QUEST_MANA_CELLS) == QUEST_STATUS_REWARDED)
+            {
+                player->CastSpell(player, IPP_PHASE_III, false);
+            }           
             break;
         case AREA_FOREST_SONG:
             if (hasPassedProgression(player, PROGRESSION_PRE_TBC))
