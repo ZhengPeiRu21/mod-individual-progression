@@ -558,7 +558,6 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
     if (hasCustomProgressionValue(entry))
     {
         UpdateProgressionState(killer, static_cast<ProgressionState>(customProgressionMap[entry]));
-        // UpdateProgressionQuests(killer);
         return;
     }
 
@@ -589,44 +588,12 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
     {
         ProgressionState prog = bossKill->second;
         if (!progressionLimit || (progressionLimit >= prog))
-        {
             UpdateProgressionState(killer, prog);
-            // UpdateProgressionQuests(killer);
-        }
+
         if (entry == KELTHUZAD_40)
             UpdateProgressionAchievements(killer, KEL_THUZAD_40_KILL);
     }
 }
-
-/* void IndividualProgression::UpdateProgressionQuests(Player* player)
-{
-    if (!player || !player->IsInWorld())
-        return;
-
-    // Determine player's progression by checking rewarded hidden progression quests (66000 + level)
-    uint8 highestProgression = GetPlayerProgressionFromQuests(player);
-
-	// remove all hidden progression quests (we'll rebuild them according to highestProgression)
-    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
-    {
-        uint32 PROGRESSION_QUEST = 66000 + i;
-        if (player->GetQuestStatus(PROGRESSION_QUEST) == QUEST_STATUS_REWARDED)
-            player->RemoveRewardedQuest(PROGRESSION_QUEST);
-    }
-
-    // add hidden progression quests up to highestProgression
-    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= highestProgression; ++i)
-    {
-        uint32 PROGRESSION_QUEST = 66000 + i;
-        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
-        if (quest)
-        {
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_QUEST);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
-    }
-} */
 
 void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16 achievementID)
 {
