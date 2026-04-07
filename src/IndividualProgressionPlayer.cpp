@@ -721,7 +721,7 @@ public:
 class IndividualPlayerProgression_AccountScript : public AccountScript
 {
 public:
-    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript") {}
+    IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript") { }
 
     bool CanAccountCreateCharacter(uint32 accountId, uint8 charRace, uint8 charClass) override
     {
@@ -755,7 +755,7 @@ public:
 class IndividualPlayerProgression_GroupScript : public GroupScript
 {
 public:
-    IndividualPlayerProgression_GroupScript() : GroupScript("IndividualPlayerProgression_GroupScript") {}
+    IndividualPlayerProgression_GroupScript() : GroupScript("IndividualPlayerProgression_GroupScript") { }
 
     void OnAddMember(Group* group, ObjectGuid guid) override
     {
@@ -773,9 +773,9 @@ public:
 class IndividualPlayerProgression_UnitScript : public UnitScript
 {
 public:
-    IndividualPlayerProgression_UnitScript() : UnitScript("IndividualPlayerProgression_UnitScript") {}
+    IndividualPlayerProgression_UnitScript() : UnitScript("IndividualPlayerProgression_UnitScript") { }
 
-    void ModifyHealReceived(Unit* /*target*/, Unit* healer, uint32& heal, SpellInfo const* spellInfo) override
+    void ModifyHealReceived(Unit* /*target*/, Unit *healer, uint32 &heal, SpellInfo const *spellInfo) override
     {
         // Skip potions, bandages, percentage based heals like Rune Tap, etc.
         if (!sIndividualProgression->enabled || spellInfo->HasAttribute(SPELL_ATTR0_NO_IMMUNITIES) || spellInfo->Mechanic == MECHANIC_BANDAGE)
