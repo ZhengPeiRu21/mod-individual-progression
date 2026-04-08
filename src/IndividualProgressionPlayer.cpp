@@ -461,8 +461,8 @@ public:
             return true;
 
         Player* otherPlayer = ObjectAccessor::FindPlayerByName(membername, false);
-        uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
-        uint8 otherPlayerState = otherPlayer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        uint8 currentState = sIndividualProgression->GetPlayerProgressionFromQuests(player);
+        uint8 otherPlayerState = sIndividualProgression->GetPlayerProgressionFromQuests(otherPlayer);
 
         if (sIndividualProgression->enforceGroupRules) // enforceGroupRules enabled
         {
@@ -572,8 +572,8 @@ public:
             return false;
 
         Player* groupLeader = ObjectAccessor::FindPlayerByLowGUID(group->GetLeaderGUID().GetCounter());
-        uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
-        uint8 groupLeaderState = groupLeader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        uint8 currentState = sIndividualProgression->GetPlayerProgressionFromQuests(player);
+        uint8 groupLeaderState = sIndividualProgression->GetPlayerProgressionFromQuests(groupLeader);
 
         if (!sIndividualProgression->enabled)
             return true;
