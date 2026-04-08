@@ -25,10 +25,7 @@ public:
             return;
 
         if (!sIndividualProgression->isExcludedFromProgression(player))
-        {
             sIndividualProgression->checkIPProgression(player);
-            sIndividualProgression->UpdateProgressionQuests(player);
-        }
 
         if (sIndividualProgression->ExcludedAccountsEarnPvPTitles || !sIndividualProgression->isExcludedFromProgression(player))
         {
@@ -39,17 +36,11 @@ public:
 		if (sIndividualProgression->isExcludedFromProgression(player) && sIndividualProgression->excludeAccounts)
         {
             if (player->GetLevel() <= IP_LEVEL_VANILLA)
-            {
                 sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(0));
-            }
             else if ((player->GetLevel() > IP_LEVEL_VANILLA) && (player->GetLevel() <= IP_LEVEL_TBC))
-            {
                 sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(8));
-            }
             else
-            {
                 sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(13));
-            }
         }
 
         if ((player->getRace() == RACE_DRAENEI || player->getRace() == RACE_BLOODELF) && sIndividualProgression->tbcRacesStartingProgression && !sIndividualProgression->hasPassedProgression(player, static_cast<ProgressionState>(sIndividualProgression->tbcRacesStartingProgression)))
@@ -101,10 +92,7 @@ public:
             return;
 
         if (!sIndividualProgression->isExcludedFromProgression(player))
-        {
             sIndividualProgression->checkIPProgression(player);
-            sIndividualProgression->UpdateProgressionQuests(player);
-        }
 
         sIndividualProgression->CheckAdjustments(player);
     }
@@ -232,7 +220,7 @@ public:
                 if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
                     return false;
             }
-			else // WotLK
+ 			else // WotLK
             {
                 if (player->GetLevel() != IP_LEVEL_WOTLK)
                     return false;
@@ -240,7 +228,7 @@ public:
         }
         if (mapid == MAP_ZUL_GURUB)
         {
-            uint32 PLAYER_PROGRESSION = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+            uint32 PLAYER_PROGRESSION = sIndividualProgression->GetPlayerProgressionFromQuests(player);
             ProgressionState REQUIRED_ZG_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
 
             if (PLAYER_PROGRESSION < REQUIRED_ZG_PROGRESSION)
@@ -332,12 +320,12 @@ public:
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
                 return false;
             }
-			else if (!player->HasItemCount(ITEM_TEMPEST_KEY))
+ 			else if (!player->HasItemCount(ITEM_TEMPEST_KEY))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must possess the Tempest Key to enter The Eye.");
                 return false;
             }
-			else if (player->GetQuestStatus(TRIAL_MAGTHERIDON) != QUEST_STATUS_REWARDED)
+ 			else if (player->GetQuestStatus(TRIAL_MAGTHERIDON) != QUEST_STATUS_REWARDED)
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest Trial of the Naaru: Magtheridon to enter The Eye.");
                 return false;
@@ -350,7 +338,7 @@ public:
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_1);
                 return false;
             }
-			else if (player->GetQuestStatus(CUDGEL_OF_KARDESH) != QUEST_STATUS_REWARDED)
+ 			else if (player->GetQuestStatus(CUDGEL_OF_KARDESH) != QUEST_STATUS_REWARDED)
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest The Cudgel of Kar\'desh to enter Serpentshrine Reservoir.");
                 return false;
@@ -363,7 +351,7 @@ public:
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
                 return false;
             }
-			else if (player->GetQuestStatus(VIALS_OF_ETERNITY) != QUEST_STATUS_REWARDED)
+ 			else if (player->GetQuestStatus(VIALS_OF_ETERNITY) != QUEST_STATUS_REWARDED)
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must complete the quest The Vials of Eternity to enter the Battle of Mount Hyjal.");
                 return false;
@@ -376,7 +364,7 @@ public:
                 ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_2);
                 return false;
             }
-			else if (!player->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !player->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
+ 			else if (!player->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !player->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
             {
                 ChatHandler(player->GetSession()).PSendSysMessage("You must possess the Medallion of Karabor to enter the Black Temple.");
                 return false;
@@ -387,24 +375,21 @@ public:
         if (instanceTemplate)
         {
             if (instanceTemplate->Parent == MAP_OUTLAND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
-            {
                 return false;
-            }
+
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid != MAP_NAXXRAMAS && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-            {
                 return false;
-            }
+
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && (!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
-            {
                 return false;
-            }
         }
+
         return true;
     }
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
     {
-        if (!player || !player->IsInWorld() || !quest || !sIndividualProgression->enabled )
+        if (!player || !player->IsInWorld() || !quest || !sIndividualProgression->enabled)
             return;
 
         if (sIndividualProgression->questMoneyAtLevelCap)
@@ -413,13 +398,9 @@ public:
             int32 XPValue = 0;
 
             if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == IP_LEVEL_VANILLA)
-            {
                 XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? IP_LEVEL_VANILLA : quest->GetQuestLevel());
-            }
             else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC)
-		    {
                 XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? IP_LEVEL_TBC : quest->GetQuestLevel());
-		    }
 
             moneyRew = (XPValue * (6 * COPPER)) * sWorld->getRate(RATE_REWARD_BONUS_MONEY);
 
@@ -441,44 +422,32 @@ public:
         {
             switch (quest->GetQuestId())
             {
-                case BANG_A_GONG:
-                    if (!sIndividualProgression->disableDefaultProgression)
-                    {
-                        sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
-                        sIndividualProgression->UpdateProgressionQuests(player);
-                    }
-                    break;
-                case SIMPLY_BANG_A_GONG:
-                    if (!sIndividualProgression->disableDefaultProgression)
-                    {
-                        sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
-                        sIndividualProgression->UpdateProgressionQuests(player);
-                    }
-                    break;
-                case CHAOS_AND_DESTRUCTION:
-                    if (!sIndividualProgression->disableDefaultProgression)
-                    {
-                        sIndividualProgression->UpdateProgressionState(player, PROGRESSION_AQ_WAR);
-                        sIndividualProgression->UpdateProgressionQuests(player);
-                    }
-                    break;
-                case INTO_THE_BREACH:
-                    if (!sIndividualProgression->disableDefaultProgression)
-                    {
-                        sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
-                        sIndividualProgression->UpdateProgressionQuests(player);
-                    }
-                    break;
-                case QUEST_MORROWGRAIN:
-                case QUEST_TROLL_NECKLACE:
-                case QUEST_DEADWOOD:
-                case QUEST_WINTERFALL:
-                    if (sIndividualProgression->repeatableVanillaQuestsXp)
-                    {
-                        // Reset the quest status so the player can take it and receive rewards again
-                        player->RemoveRewardedQuest(quest->GetQuestId());
-                    }
-                    break;
+            case BANG_A_GONG:
+                if (!sIndividualProgression->disableDefaultProgression)
+                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                break;
+            case SIMPLY_BANG_A_GONG:
+                if (!sIndividualProgression->disableDefaultProgression)
+                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_AQ);
+                break;
+            case CHAOS_AND_DESTRUCTION:
+                if (!sIndividualProgression->disableDefaultProgression)
+                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_AQ_WAR);
+                break;
+            case INTO_THE_BREACH:
+                if (!sIndividualProgression->disableDefaultProgression)
+                    sIndividualProgression->UpdateProgressionState(player, PROGRESSION_PRE_TBC);
+                break;
+            case QUEST_MORROWGRAIN:
+            case QUEST_TROLL_NECKLACE:
+            case QUEST_DEADWOOD:
+            case QUEST_WINTERFALL:
+                if (sIndividualProgression->repeatableVanillaQuestsXp)
+                {
+                    // Reset the quest status so the player can take it and receive rewards again
+                    player->RemoveRewardedQuest(quest->GetQuestId());
+                }
+                break;
             }
         }
     }
@@ -668,27 +637,27 @@ public:
 
         switch (killed->GetEntry())
         {
-            case RHAHK_ZOR:
-                killer->RemoveAura(IPP_PHASE);
-                killer->RemoveAura(IPP_PHASE_II);
-                killer->RemoveAura(IPP_PHASE_III);
-                killer->CastSpell(killer, IPP_PHASE, false);
-                break;
-            case SNEED:
-                killer->RemoveAura(IPP_PHASE);
-                killer->RemoveAura(IPP_PHASE_II);
-                killer->RemoveAura(IPP_PHASE_III);
-	            killer->CastSpell(killer, IPP_PHASE, false);
-                killer->CastSpell(killer, IPP_PHASE_II, false);
-                break;
-            case GILNID:
-                killer->RemoveAura(IPP_PHASE);
-                killer->RemoveAura(IPP_PHASE_II);
-                killer->RemoveAura(IPP_PHASE_III);
-	            killer->CastSpell(killer, IPP_PHASE, false);
-                killer->CastSpell(killer, IPP_PHASE_II, false);
-                killer->CastSpell(killer, IPP_PHASE_III, false);
-                break;
+        case RHAHK_ZOR:
+            killer->RemoveAura(IPP_PHASE);
+            killer->RemoveAura(IPP_PHASE_II);
+            killer->RemoveAura(IPP_PHASE_III);
+            killer->CastSpell(killer, IPP_PHASE, false);
+            break;
+        case SNEED:
+            killer->RemoveAura(IPP_PHASE);
+            killer->RemoveAura(IPP_PHASE_II);
+            killer->RemoveAura(IPP_PHASE_III);
+            killer->CastSpell(killer, IPP_PHASE, false);
+            killer->CastSpell(killer, IPP_PHASE_II, false);
+            break;
+        case GILNID:
+            killer->RemoveAura(IPP_PHASE);
+            killer->RemoveAura(IPP_PHASE_II);
+            killer->RemoveAura(IPP_PHASE_III);
+            killer->CastSpell(killer, IPP_PHASE, false);
+            killer->CastSpell(killer, IPP_PHASE_II, false);
+            killer->CastSpell(killer, IPP_PHASE_III, false);
+            break;
         }
 
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
@@ -749,7 +718,7 @@ public:
 
 };
 
-class IndividualPlayerProgression_AccountScript: public AccountScript
+class IndividualPlayerProgression_AccountScript : public AccountScript
 {
 public:
     IndividualPlayerProgression_AccountScript() : AccountScript("IndividualProgression_AccountScript") { }
@@ -786,7 +755,7 @@ public:
 class IndividualPlayerProgression_GroupScript : public GroupScript
 {
 public:
-    IndividualPlayerProgression_GroupScript() : GroupScript("IndividualPlayerProgression_GroupScript") {}
+    IndividualPlayerProgression_GroupScript() : GroupScript("IndividualPlayerProgression_GroupScript") { }
 
     void OnAddMember(Group* group, ObjectGuid guid) override
     {

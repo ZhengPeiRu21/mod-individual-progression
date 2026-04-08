@@ -1,4 +1,3 @@
-#include "Chat.h"
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "Tokenize.h"
@@ -32,7 +31,7 @@ public:
 
     static void CheckProgressionAchievements(Player* target, uint8 currentState, uint32 progressionLevel)
     {
-        if (!currentState || !progressionLevel || !target || !target->IsInWorld())
+        if (!currentState || (!progressionLevel && progressionLevel != 0) || !target || !target->IsInWorld())
             return;
 
         uint16 playerGUID = target->GetGUID().GetCounter();
@@ -105,7 +104,7 @@ public:
         }
 
         Player* target = player->GetConnectedPlayer();
-        uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        uint32 progressionLevel = sIndividualProgression->GetPlayerProgressionFromQuests(target);
         std::string playername = target->GetName();
 
         handler->PSendSysMessage("Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
@@ -126,8 +125,7 @@ public:
         player = PlayerIdentifier::FromTargetOrSelf(handler);
         Player* target = player->GetConnectedPlayer();
         std::string playername = target->GetName();
-        // uint16 playerGUID = target->GetGUID().GetCounter();
-        uint8 currentState = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        uint8 currentState = sIndividualProgression->GetPlayerProgressionFromQuests(target);
         uint32 currentArea = target->GetAreaId();
 
         if (progressionLevel < currentState)
@@ -136,7 +134,6 @@ public:
         }
 
         sIndividualProgression->ForceUpdateProgressionState(target, static_cast<ProgressionState>(progressionLevel));
-        sIndividualProgression->UpdateProgressionQuests(target);
         sIndividualProgression->checkIPPhasing(target, currentArea);
 
         handler->PSendSysMessage("Updated Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
@@ -156,7 +153,7 @@ public:
         Group* group = player->GetGroup();
 
         std::string playername = player->GetName();
-        uint32 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        uint32 currentState = sIndividualProgression->GetPlayerProgressionFromQuests(player);
         uint32 currentArea = player->GetAreaId();
 
         if (!group)
@@ -172,7 +169,6 @@ public:
                 continue;
 
             sIndividualProgression->ForceUpdateProgressionState(member, static_cast<ProgressionState>(currentState));
-            sIndividualProgression->UpdateProgressionQuests(member);
             sIndividualProgression->CheckAdjustments(member);
             sIndividualProgression->checkIPPhasing(member, currentArea);
         }
@@ -191,12 +187,12 @@ public:
 
         player = PlayerIdentifier::FromTargetOrSelf(handler);
         Player* target = player->GetConnectedPlayer();
-        uint32 progressionLevel = target->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+        uint32 progressionLevel = sIndividualProgression->GetPlayerProgressionFromQuests(target);
         std::string playername = target->GetName();
 
         if (location == "naxx" || location == "naxx40")
         {
-			if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= IP_LEVEL_TBC))
+ 			if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= IP_LEVEL_TBC))
             {
                 if (sIndividualProgression->isAttuned(target) || sIndividualProgression->isExcludedFromProgression(target))
                 {

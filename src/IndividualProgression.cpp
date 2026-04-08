@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
- */
+    Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
+*/
 
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
@@ -11,6 +11,21 @@ IndividualProgression* IndividualProgression::instance()
     return &instance;
 }
 
+uint8 IndividualProgression::GetPlayerProgressionFromQuests(Player* player) const
+{
+    if (!player || !player->IsInWorld())
+        return 0;
+
+    uint8 progressionLevel = 0;
+    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
+    {
+        uint32 PROGRESSION_QUEST = 66000 + i;
+        if (player->GetQuestStatus(PROGRESSION_QUEST) == QUEST_STATUS_REWARDED)
+            progressionLevel = i;
+    }
+    return progressionLevel;
+}
+
 bool IndividualProgression::hasPassedProgression(Player* player, ProgressionState state) const
 {
     if (!enabled || !state || !player || !player->IsInWorld())
@@ -19,7 +34,7 @@ bool IndividualProgression::hasPassedProgression(Player* player, ProgressionStat
     if (progressionLimit && (state > progressionLimit))
         return false;
 
-    return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value >= state;
+    return sIndividualProgression->GetPlayerProgressionFromQuests(player) >= state;
 }
 
 bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState state)
@@ -27,7 +42,7 @@ bool IndividualProgression::isBeforeProgression(Player* player, ProgressionState
     if (!state || !player || !player->IsInWorld())
         return false;
 
-    return player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value < state;
+    return sIndividualProgression->GetPlayerProgressionFromQuests(player) < state;
 }
 
 void IndividualProgression::UpdateProgressionState(Player* player, ProgressionState newState) const
@@ -38,16 +53,48 @@ void IndividualProgression::UpdateProgressionState(Player* player, ProgressionSt
     if (progressionLimit && newState > progressionLimit)
         return;
 
-    uint8 currentState = player->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+    uint8 currentState = GetPlayerProgressionFromQuests(player);
     if (newState > currentState)
     {
-        player->UpdatePlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE, newState);
+        uint32 PROGRESSION_QUEST = 66000 + newState;
+        if (player->GetQuestStatus(PROGRESSION_QUEST) != QUEST_STATUS_REWARDED)
+        {
+            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
+            if (quest)
+            {
+                player->AddQuest(quest, nullptr);
+                player->CompleteQuest(PROGRESSION_QUEST);
+                player->RewardQuest(quest, 0, player, false, false);
+            }
+        }
     }
 }
 
 void IndividualProgression::ForceUpdateProgressionState(Player* player, ProgressionState newState)
 {
-    player->UpdatePlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE, newState);
+    if (!player || !player->IsInWorld())
+        return;
+
+    // remove all hidden progression quests first
+    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
+    {
+        uint32 PROGRESSION_QUEST = 66000 + i;
+        if (player->GetQuestStatus(PROGRESSION_QUEST) == QUEST_STATUS_REWARDED)
+            player->RemoveRewardedQuest(PROGRESSION_QUEST);
+    }
+
+    // if newState is non-zero, add the corresponding progression quest
+    if (newState)
+    {
+        uint32 PROGRESSION_QUEST = 66000 + newState;
+        Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
+        if (quest)
+        {
+            player->AddQuest(quest, nullptr);
+            player->CompleteQuest(PROGRESSION_QUEST);
+            player->RewardQuest(quest, 0, player, false, false);
+        }
+    }
 }
 
 void IndividualProgression::CheckAdjustments(Player* player) const
@@ -76,22 +123,24 @@ float IndividualProgression::ComputeVanillaAdjustment(uint8 playerLevel, float c
 uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
 {
     uint8 progressionLevel = 0;
-    if (!sWorld->getBoolConfig(CONFIG_PLAYER_SETTINGS_ENABLED))
-        return 0; // Prevent crash if player settings are not enabled
 
-    QueryResult result = CharacterDatabase.Query("SELECT `data` FROM `character_settings` WHERE `source` = 'mod-individual-progression' AND `guid` IN (SELECT `guid` FROM `characters` WHERE `account` = {});", accountId);
+    uint32 minQuest = 66000 + PROGRESSION_MOLTEN_CORE;
+    uint32 maxQuest = 66000 + PROGRESSION_WOTLK_TIER_5;
+
+    // Query rewarded hidden progression quests for all characters on the account
+    QueryResult result = CharacterDatabase.Query(
+        "SELECT cc.quest FROM character_quest cc JOIN characters c ON cc.guid = c.guid "
+        "WHERE c.account = {} AND cc.quest BETWEEN {} AND {} AND cc.status = {};",
+        accountId, minQuest, maxQuest, QUEST_STATUS_REWARDED);
+
     if (result)
     {
         do
         {
-            std::string dataOne;
-            std::stringstream dataString((*result)[0].Get<std::string>());
-            dataString>>dataOne;
-            uint8 resultValue = atoi(dataOne.c_str());
-            if (resultValue > progressionLevel)
-            {
-                progressionLevel = resultValue;
-            }
+            uint32 questId = (*result)[0].Get<uint32>();
+            uint8 level = uint8(questId - 66000);
+            if (level > progressionLevel)
+                progressionLevel = level;
         } while (result->NextRow());
     }
     return progressionLevel;
@@ -168,7 +217,7 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
     if (!leader || isExcludedFromProgression(leader))
         return;
 
-    uint8 refProgress = leader->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+    uint8 refProgress = GetPlayerProgressionFromQuests(leader);
 
     if (!refProgress)
         return;
@@ -311,12 +360,12 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE_III, false);
                 player->CastSpell(player, IPP_PHASE_IV, false);
 
-                 if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED)
-                 {
-                     player->CastSpell(player, SONG_OF_VICTORY, false);
-                 }
+                if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
+                    player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
+                    player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED)
+                {
+                    player->CastSpell(player, SONG_OF_VICTORY, false);
+                }
             }
             else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_HONORED)
             {
@@ -371,7 +420,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             if (player->GetQuestStatus(QUEST_MANA_CELLS) == QUEST_STATUS_REWARDED)
             {
                 player->CastSpell(player, IPP_PHASE_III, false);
-            }           
+            }
             break;
         case AREA_FOREST_SONG:
             if (hasPassedProgression(player, PROGRESSION_PRE_TBC))
@@ -465,7 +514,7 @@ void IndividualProgression::checkIPProgression(Player* killer)
     if (!killer || !killer->IsInWorld())
         return;
 
-    uint8 currentState = killer->GetPlayerSetting("mod-individual-progression", SETTING_PROGRESSION_STATE).value;
+    uint8 currentState = GetPlayerProgressionFromQuests(killer);
 
     static const std::vector<std::pair<uint16, ProgressionState>> achievementMap =
     {
@@ -539,45 +588,10 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
     {
         ProgressionState prog = bossKill->second;
         if (!progressionLimit || (progressionLimit >= prog))
-        {
             UpdateProgressionState(killer, prog);
-            UpdateProgressionQuests(killer);
-        }
+
         if (entry == KELTHUZAD_40)
             UpdateProgressionAchievements(killer, KEL_THUZAD_40_KILL);
-    }
-}
-
-void IndividualProgression::UpdateProgressionQuests(Player* player)
-{
-    if (!player || !player->IsInWorld())
-        return;
-
-	// remove all hidden progression quests
-    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
-    {
-        uint32 PROGRESSION_QUEST = 66000;
-        PROGRESSION_QUEST = PROGRESSION_QUEST + i;
-
-        if (player->GetQuestStatus(PROGRESSION_QUEST) == QUEST_STATUS_REWARDED)
-            player->RemoveRewardedQuest(PROGRESSION_QUEST);
-    }
-
-    // add hidden progression quests
-    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= PROGRESSION_WOTLK_TIER_5; ++i)
-    {
-		ProgressionState PROGRESSION_STATE = static_cast<ProgressionState>(i);
-        uint32 PROGRESSION_QUEST = 66000;
-        PROGRESSION_QUEST = PROGRESSION_QUEST + i;
-
-        if ((sIndividualProgression->hasPassedProgression(player, PROGRESSION_STATE)) && (player->GetQuestStatus(PROGRESSION_QUEST) != QUEST_STATUS_REWARDED))
-        {
-            Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
-
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_QUEST);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
     }
 }
 
