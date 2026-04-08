@@ -30,7 +30,7 @@ public:
     }
 
     static void CheckProgressionAchievements(Player* target, uint8 currentState, uint32 progressionLevel)
-    {       
+    {
         if (!currentState || (!progressionLevel && progressionLevel != 0) || !target || !target->IsInWorld())
             return;
 
