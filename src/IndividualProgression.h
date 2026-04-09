@@ -172,6 +172,7 @@ enum ProgressionAreas
     AREA_MAZTHORIL                       = 2245,
     AREA_ICE_THISTLE_HILLS               = 2247,
     AREA_THE_MARRIS_STEAD                = 2260,
+    AREA_CORINS_CROSSING                 = 2264,
     AREA_LIGHTS_HOPE                     = 2268,
     AREA_FOREST_SONG                     = 2358,
     AREA_DRACO_DAR                       = 2421,
