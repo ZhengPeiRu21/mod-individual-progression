@@ -58,9 +58,6 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (15813,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein'),
 (15818,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein');
 
--- undo phasing
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (15599, 18594, 19227, 25167, 27666, 27667);
-
 -- unused "Increased healing done and damage done"
 DELETE FROM `spell_dbc` WHERE `ID` IN 
 (7675, 7676, 7677, 18047, 18048, 22748, 23796, 25067, 25179, 26225, 26690, 27925, 28151, 

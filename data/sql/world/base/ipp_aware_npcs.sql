@@ -80,11 +80,12 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN 
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `entry` IN (18754, 18771, 19187, 21087);
 
 -- TBC, phasing Shattered Sun offensive NPCs in Shattrath
-UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (24938, 25115); -- temporary, can be removed later on
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (15599, 18594, 19227, 25167, 27666); -- 00_cleanup, undo previous method of phasing
+UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (24938, 25115, 27667); -- 00_cleanup
+
 UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1`  IN (17076, 19475, 24932, 25134, 25135, 25136, 25137, 25138, 25141, 25142, 25143, 25153, 25155, 25167, 25885, 27666);
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (165102, 165103, 165104, 165105, 165106, 165107, 165108, 165109);
 
-UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (27667); -- 00_cleanup
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t3' WHERE `entry` IN (27667);
 
 -- TBC, Terrace of Light, phasing T5 game objects
