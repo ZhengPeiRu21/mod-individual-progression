@@ -300,6 +300,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_EASTERN_PLAGUELANDS:
         case AREA_PESTILENT_SCAR:
         case AREA_THE_MARRIS_STEAD:
+        case AREA_CORINS_CROSSING:
         case AREA_BLASTED_LANDS:
         case AREA_RISE_OF_THE_DEFILER:
         case AREA_DREADMAUL_HOLD:
