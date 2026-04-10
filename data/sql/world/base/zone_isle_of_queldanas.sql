@@ -411,8 +411,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (24918, 0, 2, 0, 0, 0, 100, 0, 8000, 12000, 18000, 22000, 0, 0, 11, 35871, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Felblood Initiate - In Combat - Cast \'Spellbreaker\''),
 (24918, 0, 3, 0, 8, 0, 100, 512, 44937, 0, 0, 0, 0, 0, 36, 24955, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Felblood Initiate - On Spellhit \'Fel Siphon\' - Update Template To \'Emaciated Felblood\''),
 (24918, 0, 4, 0, 1, 0, 25, 0, 0, 0, 30000, 30000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Felblood Initiate - Out of Combat - Random Yell'),
-(24918, 0, 5, 0, 1, 0, 100, 0, 1000, 2000, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 11, 24933, 25, 0, 0, 0, 0, 0, 0,     'Felblood Initiate - Out of Combat - Cast Felblood Channel'); 
--- should be spell 46319, but that one doesn't work at all. this one has issues too. only works for 1 of them, don't know why
+(24918, 0, 5, 0, 1, 0, 100, 0, 0, 0, 15000, 45000, 0, 0, 11, 46319, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Felblood Initiate - Out of Combat - Cast \'Felblood Channel\'');
 
 DELETE FROM `creature_text` WHERE `CreatureID` = 24918;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
@@ -431,6 +430,7 @@ SET @WPID     := 6730000;
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN 97023 AND 97035; 
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN 97073 AND 97081;
 
+DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+171 AND @CGUID+175;
 DELETE FROM `creature` WHERE `id1` IN (22323, 24918, 24919);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
@@ -497,7 +497,13 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (@CGUID+159, 24919, 0, 0, 530, 0, 0, 1, 1, 1, 789.620, 2469.27, 289.315, 3.03, 300, 0, 1, 5409, 3080, 2, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+160, 24919, 0, 0, 530, 0, 0, 1, 1, 1, 819.469, 2269.54, 279.311, 3.71, 300, 0, 1, 5409, 3080, 2, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+161, 24919, 0, 0, 530, 0, 0, 1, 1, 1, 712.838, 2563.02, 279.908, 1.07, 300, 0, 1, 5409, 3080, 2, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+162, 24919, 0, 0, 530, 0, 0, 1, 1, 1, 796.451, 2239.10, 281.465, 1.07, 300, 0, 1, 5409, 3080, 2, 0, 0, 0, '', 0, 0, NULL);
+(@CGUID+162, 24919, 0, 0, 530, 0, 0, 1, 1, 1, 796.451, 2239.10, 281.465, 1.07, 300, 0, 1, 5409, 3080, 2, 0, 0, 0, '', 0, 0, NULL),
+--
+(@CGUID+171, 25953, 0, 0, 530, 0, 0, 1, 1, 0, 735.538, 2444.05, 288.98, 3.85718, 360, 0, 0, 29, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+172, 25953, 0, 0, 530, 0, 0, 1, 1, 0, 687.177, 2352.59, 287.359, 3.56047, 360, 0, 0, 29, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+173, 25953, 0, 0, 530, 0, 0, 1, 1, 0, 805.793, 2270.14, 288.513, 5.35816, 360, 0, 0, 29, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+174, 25953, 0, 0, 530, 0, 0, 1, 1, 0, 682.854, 2448.49, 286.943, 4.38078, 360, 0, 0, 29, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+175, 25953, 0, 0, 530, 0, 0, 1, 1, 0, 739.496, 2355.65, 288.63, 4.06662, 360, 0, 0, 29, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN @CGUID+124 AND @CGUID+129;
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN @CGUID+158 AND @CGUID+162;
