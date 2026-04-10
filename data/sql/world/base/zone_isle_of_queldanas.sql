@@ -28,6 +28,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (24965, 11525), -- Further Conversions (repeatable)
 (24967, 11496), -- The Sanctum Wards
 (24967, 11523), -- Arm the Wards! (repeatable)
+(24967, 11526), -- The Missing Magistrix
 (24975, 11520), -- Discovering Your Roots
 (24975, 11521), -- Rediscovering Your Roots (repeatable)
 (24975, 11546), -- Open for Business (repeatable) (after construction of alchemy lab)
