@@ -129,9 +129,8 @@ uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
 
     // Query rewarded hidden progression quests for all characters on the account
     QueryResult result = CharacterDatabase.Query(
-        "SELECT cc.quest FROM character_quest cc JOIN characters c ON cc.guid = c.guid "
-        "WHERE c.account = {} AND cc.quest BETWEEN {} AND {} AND cc.status = {};",
-        accountId, minQuest, maxQuest, QUEST_STATUS_REWARDED);
+        "SELECT cc.quest FROM character_queststatus_rewarded cc JOIN characters c ON cc.guid = c.guid WHERE c.account = {} AND cc.quest BETWEEN {} AND {};",
+        accountId, minQuest, maxQuest);
 
     if (result)
     {
