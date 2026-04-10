@@ -55,6 +55,8 @@ DELETE FROM `creature_questender` WHERE `id` IN (24932, 24965, 24967, 24975, 250
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES 
 (24932, 11513), -- Intercepting the Mana Cells
 (24932, 11514), -- Maintaining the Sunwell Portal (repeatable)
+(24932, 11517), -- Report to Nasuun
+-- (24932, 11534), -- Report to Nasuun
 (24965, 11524), -- Erratic Behavior
 (24965, 11525), -- Further Conversions (repeatable)
 (24967, 11496), -- The Sanctum Wards
@@ -63,7 +65,6 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (24975, 11521), -- Rediscovering Your Roots (repeatable)
 (24975, 11546), -- Open for Business
 (25034, 11517), -- Report to Nasuun
--- (25034, 11534), -- Report to Nasuun
 (25046, 11535), -- Making Ready
 (25046, 11536), -- Don't Stop Now.... (repeatable)
 (25046, 11544), -- Ata'mal Armaments
