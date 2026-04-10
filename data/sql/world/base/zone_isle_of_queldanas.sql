@@ -64,7 +64,6 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (24975, 11520), -- Discovering Your Roots
 (24975, 11521), -- Rediscovering Your Roots (repeatable)
 (24975, 11546), -- Open for Business
-(25034, 11517), -- Report to Nasuun
 (25046, 11535), -- Making Ready
 (25046, 11536), -- Don't Stop Now.... (repeatable)
 (25046, 11544), -- Ata'mal Armaments
