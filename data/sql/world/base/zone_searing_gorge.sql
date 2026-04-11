@@ -66,6 +66,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14621, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Overseer Maltorius - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 /* fix quest: Rise. Obsidion! */
+UPDATE `creature_template` SET `flags_extra` = 0  WHERE `entry` = 8400; -- Obsidion
+
 DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (839101);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (8391, 8400);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
