@@ -1,9 +1,9 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (5857, 8279);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(5833, 5839, 5840, 5844, 5846, 5852, 5854, 5855, 5856, 5858, 5860, 5861, 5862, 8280, 8282, 8283, 8400, 8637, 9318, 14621);
+(5833, 5839, 5840, 5844, 5846, 5852, 5854, 5855, 5856, 5858, 5860, 5861, 5862, 8280, 8282, 8283, 8637, 9318, 14621);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(5833, 5839, 5840, 5844, 5846, 5852, 5854, 5855, 5856, 5857, 5858, 5860, 5861, 5862, 8279, 8280, 8282, 8283, 8400, 8637, 9318, 14621);
+(5833, 5839, 5840, 5844, 5846, 5852, 5854, 5855, 5856, 5857, 5858, 5860, 5861, 5862, 8279, 8280, 8282, 8283, 8637, 9318, 14621);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -55,12 +55,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8283, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 6660, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Slave Master Blackheart - Within 5-30 Range - Cast Shoot'),
 (8283, 0, 4, 0, 0, 0, 100, 0, 0, 5000, 15000, 25000, 0, 0, 11, 6533, 32, 0, 0, 0, 0, 21, 20, 0, 0, 0, 0, 0, 0, 0,      'Slave Master Blackheart - Within 0-20 Range - Cast Net'),
 (8283, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 39, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Slave Master Blackheart - Between 0-15% Health - Call For Help'),
-(8400, 0, 0, 1, 38, 0, 100, 512, 1, 1, 0, 0, 0, 0, 19, 256, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0,                  'Obsidion - On Data Set - Remove Unattackable Flags'),
-(8400, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 91, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Obsidion - Linked with Previous Event - Set Bytes_1'),
-(8400, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 100, 0, 0, 0, 0, 0, 0, 0,                 'Obsidion - Linked with Previous Event - Attack'),
-(8400, 0, 3, 0, 7, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Obsidion - On Evade - Despawn'),
-(8400, 0, 4, 0, 0, 0, 100, 512, 7000, 11000, 12000, 16000, 0, 0, 11, 12734, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Obsidion - In Combat - Cast Ground Smash'),
-(8400, 0, 5, 0, 9, 0, 100, 512, 0, 0, 15000, 21000, 0, 5, 11, 10101, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Obsidion - Within 0-5 Range - Cast Knock Away'),
 --
 (8637, 0, 0, 0, 9, 0, 100, 0, 0, 0, 5000, 8000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Dark Iron Watchman - Within 0-5 Range - Cast Strike'),
 (9318, 0, 0, 0, 0, 0, 100, 0, 0, 0, 6000, 9000, 0, 0, 11, 11985, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Incendosaur - In Combat - Cast Fireball'),
@@ -71,6 +65,41 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14621, 0, 3, 0, 0, 0, 100, 0, 9000, 13000, 13000, 16000, 0, 0, 11, 13323, 33, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0, 'Overseer Maltorius - Between 5-30% Health - Cast Polymorph'),
 (14621, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Overseer Maltorius - Between 0-15% Health - Flee For Assist (No Repeat)');
 
+/* fix quest: Rise. Obsidion! */
+UPDATE `creature_template` SET `flags_extra` = 0  WHERE `entry` = 8400; -- Obsidion
+
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (839101);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (8391, 8400);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(8391, 0, 0, 0, 25, 0, 100, 257, 0, 0, 0, 0, 0, 0, 80, 839101, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Lathoric the Black - On Reset - Run Script 839101'),
+(8391, 0, 1, 0, 1, 0, 100, 1, 8000, 8000, 0, 0, 0, 0, 1, 0, 5000, 0, 0, 0, 0, 19, 8421, 100, 0, 0, 0, 0, 0, 0,        'Lathoric the Black - OOC - Say (Dorius)'),
+(8391, 0, 2, 0, 52, 0, 100, 0, 0, 8421, 0, 0, 0, 0, 1, 1, 5000, 0, 0, 0, 0, 19, 8421, 100, 0, 0, 0, 0, 0, 0,          'Lathoric the Black - On Text Over - Say (Dorius)'),
+(8391, 0, 3, 0, 52, 0, 100, 0, 1, 8421, 0, 0, 0, 0, 1, 2, 5000, 0, 0, 0, 0, 19, 8421, 100, 0, 0, 0, 0, 0, 0,          'Lathoric the Black - On Text Over - Say (Dorius)'),
+(8391, 0, 4, 0, 52, 0, 100, 0, 2, 8421, 0, 0, 0, 0, 1, 3, 5000, 0, 0, 0, 0, 19, 8421, 100, 0, 0, 0, 0, 0, 0,          'Lathoric the Black - On Text Over - Say (Dorius)'),
+(8391, 0, 5, 0, 52, 0, 100, 0, 3, 8421, 0, 0, 0, 0, 1, 4, 5000, 0, 0, 0, 0, 19, 8421, 100, 0, 0, 0, 0, 0, 0,          'Lathoric the Black - On Text Over - Say (Dorius)'),
+(8391, 0, 6, 0, 52, 0, 100, 0, 4, 8421, 0, 0, 0, 0, 1, 0, 5000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lathoric the Black - On Text Over - Say'),
+(8391, 0, 7, 0, 52, 0, 100, 0, 0, 8391, 0, 0, 0, 0, 1, 1, 2000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lathoric the Black - On Text Over - Say'),
+(8391, 0, 8, 9, 52, 0, 100, 512, 1, 8391, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 10, 5799, 8400, 0, 0, 0, 0, 0, 0,         'Lathoric the Black - On Text Over - Send Data to Obsidion'),
+(8391, 0, 9, 10, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 19, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Lathoric the Black - Linked - Remove Unit Flags'),
+(8391, 0, 10, 11, 61, 0, 100, 513, 0, 0, 0, 0, 0, 0, 8, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Lathoric the Black - Linked - Set React State Aggressive'),
+(8391, 0, 11, 0, 61, 0, 100, 513, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 100, 0, 0, 0, 0, 0, 0, 0,               'Lathoric the Black - Linked - Attack Nearest Player'),
+(8391, 0, 12, 0, 7, 0, 100, 513, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Lathoric the Black - On Evade - Despawn'),
+--
+(8400, 0, 0, 1, 38, 0, 100, 512, 1, 1, 0, 0, 0, 0, 19, 256, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Obsidion - On Data Set - Remove Unattackable Flags'),
+(8400, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 91, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Obsidion - Linked - Set Bytes_1'),
+(8400, 0, 2, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 100, 0, 0, 0, 0, 0, 0, 0,                'Obsidion - Linked - Attack Nearest Player'),
+(8400, 0, 3, 0, 7, 0, 100, 512, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Obsidion - On Evade - Despawn'),
+(8400, 0, 4, 0, 0, 0, 100, 512, 7000, 11000, 12000, 16000, 0, 0, 11, 12734, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Obsidion - In Combat - Cast Ground Smash'),
+(8400, 0, 5, 0, 9, 0, 100, 512, 0, 0, 15000, 21000, 0, 5, 11, 10101, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,        'Obsidion - Within 0-5 Range - Cast Knock Away'),
+--
+(839101, 9, 0, 0, 0, 0, 100, 257, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, -6475.47, -1242.28, 180.19, 3.58,          'Script9 - On Reset - Move to Altar of Suntara'),
+(839101, 9, 1, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 12, 8421, 3, 45000, 0, 0, 0, 8, 0, 0, 0, 0, -6481.13, -1237.45, 180.068, 5.10443, 'Script9 - On Reset - Spawn Dorius'),
+(839101, 9, 2, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                   'Script9 - On Reset - Set React State Passive'),
+(839101, 9, 3, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                  'Script9 - On Reset - Set Walk');
 
 /* Anvilrage Overseers and Anvilrage Wardens were replaced with new non-elite mobs in 2.3 - restore the originals */
 UPDATE `creature` SET `id1` = 8889 WHERE `id1` = 24818;
