@@ -152,7 +152,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2028104, 9, 2, 0, 0, 0, 100, 0, 6000, 6000, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                            'Script9 - Talk'); -- let's get out of here
 
 UPDATE `creature_template` SET `detection_range` = 10, `MovementType` = 0 WHERE `entry` = 20281;
-UPDATE `creature` SET `MovementType` = 2 WHERE `id1` = 20281;
+UPDATE `creature` SET `MovementType` = 0 WHERE `id1` = 20281;
 DELETE FROM `waypoints` WHERE `entry` = 20281;
 
 DELETE FROM `creature_addon` WHERE `guid` IN (72042);
