@@ -883,7 +883,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 DELETE FROM `creature_loot_template`  WHERE `Reference` IN (34349, 60001) AND `Entry` = 31311;
 DELETE FROM `reference_loot_template` WHERE `Entry` = 60001; -- 00_cleanup
-
+DELETE FROM `conditions` WHERE `SourceEntry` IN (40753, 45624, 47241) AND `SourceGroup` IN (60001);
 
 -- tier 7 raid bosses, Naxxramas
 DELETE FROM `creature_loot_template` WHERE `Item` IN (40753, 45624, 47241) AND `Entry` IN 
@@ -994,7 +994,6 @@ INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, 
 DELETE FROM `conditions` WHERE `SourceEntry` IN (40753, 45624, 47241) AND `SourceGroup` IN 
 (15928, 15931, 15932, 15936, 15952, 15953, 15954, 15956, 15989, 15990, 16011, 16028, 16060, 16061, 29249, 29268, 29278, 29324, 29373, 29417, 29448, 29615, 29701, 29718, 29940, 29955, 29991, 30061);
 DELETE FROM `conditions` WHERE `SourceEntry` IN (40753, 45624, 47241) AND `SourceGroup` IN (25192, 25193, 26094, 26097);
-DELETE FROM `conditions` WHERE `SourceEntry` IN (40753, 45624, 47241) AND `SourceGroup` IN (60001);
 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
@@ -1127,12 +1126,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (4, 26097, 40753, 0, 0, 8, 0, 66015, 0, 0, 1, 0, 0, '', 'Emblem of Valor will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_2'),
 (4, 26097, 45624, 0, 1, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Emblem of Conquest will only drop if the player has completed PROGRESSION_WOTLK_TIER_2'),
 (4, 26097, 45624, 0, 1, 8, 0, 66016, 0, 0, 1, 0, 0, '', 'Emblem of Conquest will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_3'),
-(4, 26097, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3'),
---
-(10, 60001, 40753, 0, 0, 8, 0, 66015, 0, 0, 1, 0, 0, '', 'Emblem of Valor will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_2'),
-(10, 60001, 45624, 0, 1, 8, 0, 66015, 0, 0, 0, 0, 0, '', 'Emblem of Conquest will only drop if the player has completed PROGRESSION_WOTLK_TIER_2'),
-(10, 60001, 45624, 0, 1, 8, 0, 66016, 0, 0, 1, 0, 0, '', 'Emblem of Conquest will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_3'),
-(10, 60001, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3');
+(4, 26097, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3');
 
 
 -- tier 8 raid bosses, Ulduar
