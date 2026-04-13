@@ -802,7 +802,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (5, 52676, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3');
 
 -- Obsidian Sanctum
-DELETE FROM `creature_loot_template` WHERE `Item` IN (40752, 40753, 45624, 47241) AND `entry` IN (28860, 30449, 30451, 30452, 31311, 31520, 31534, 31535);
+DELETE FROM `creature_loot_template` WHERE `Item` IN (40752, 40753, 45624, 47241) AND `Entry` IN (28860, 30449, 30451, 30452, 31311, 31520, 31534, 31535);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 --
 (28860, 40752, 0, 100, 0, 1, 0, 1, 1, 'Sartharion - Emblem of Heroism'),
@@ -881,12 +881,12 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (1, 31535, 45624, 0, 1, 8, 0, 66016, 0, 0, 1, 0, 0, '', 'Emblem of Conquest will only drop if the player has NOT completed PROGRESSION_WOTLK_TIER_3'),
 (1, 31535, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3');
 
-DELETE FROM `creature_loot_template`  WHERE `Reference` IN (34349, 60001) AND `entry` = 31311;
+DELETE FROM `creature_loot_template`  WHERE `Reference` IN (34349, 60001) AND `Entry` = 31311;
 DELETE FROM `reference_loot_template` WHERE `Entry` = 60001; -- 00_cleanup
 
 
 -- tier 7 raid bosses, Naxxramas
-DELETE FROM `creature_loot_template` WHERE `Item` IN (40753, 45624, 47241) AND `entry` IN 
+DELETE FROM `creature_loot_template` WHERE `Item` IN (40753, 45624, 47241) AND `Entry` IN 
 (15928, 15931, 15932, 15936, 15952, 15953, 15954, 15956, 15989, 15990, 16011, 16028, 16060, 16061, 29249, 29268, 29278, 29324, 29373, 29417, 29448, 29615, 29701, 29718, 29940, 29955, 29991, 30061);
 
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
@@ -976,7 +976,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (30061, 45624, 0, 100, 0, 1, 0, 2, 2, 'Kel\'Thuzad (1) - Emblem of Conquest'),
 (30061, 47241, 0, 100, 0, 1, 0, 2, 2, 'Kel\'Thuzad (1) - Emblem of Triumph');
 
-DELETE FROM `gameobject_loot_template` WHERE `Item` IN (40753, 45624, 47241) AND `entry` IN (25192, 25193, 26094, 26097);
+DELETE FROM `gameobject_loot_template` WHERE `Item` IN (40753, 45624, 47241) AND `Entry` IN (25192, 25193, 26094, 26097);
 INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 (25192, 40753, 0, 100, 0, 1, 0, 1, 1, 'Four Horsemen Chest'),
 (25192, 45624, 0, 100, 0, 1, 0, 1, 1, 'Four Horsemen Chest'),
@@ -1136,7 +1136,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 
 -- tier 8 raid bosses, Ulduar
-DELETE FROM `creature_loot_template` WHERE `Item` IN (45624, 47241) AND `entry` IN 
+DELETE FROM `creature_loot_template` WHERE `Item` IN (45624, 47241) AND `Entry` IN 
 (32857, 32867, 32927, 33118, 33186, 33190, 33271, 33288, 33293, 33449, 33515, 33692, 33693, 33694, 33724, 33885, 33955, 33993, 33994, 34175);
 
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
@@ -1182,7 +1182,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (34175, 45624, 0, 100, 0, 1, 0, 1, 1, 'Auriaya (1) - Emblem of Conquest'),
 (34175, 47241, 0, 100, 0, 1, 0, 1, 1, 'Auriaya (1) - Emblem of Triumph');
 
-DELETE FROM `gameobject_loot_template` WHERE `Item` IN (45624, 47241) AND `entry` IN 
+DELETE FROM `gameobject_loot_template` WHERE `Item` IN (45624, 47241) AND `Entry` IN 
 (26929, 26946, 26955, 26956, 26959, 26960, 26961, 26962, 26963, 26967, 26974, 27030, 27061, 27068, 27073, 27074, 27078, 27079, 27080, 27081, 27085, 27086);
 
 INSERT INTO `gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
