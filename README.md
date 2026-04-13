@@ -19,6 +19,7 @@ Lower-level content added in later expansions that is not "catch-up" content has
 * Optional power and healing adjustment for Vanilla and TBC content to simulate the original world difficulty.
 * WotLK emblems drop based on your progression.
 * Original vanilla AV
+* Isle of Quel'Danas Progression
 * Playerbots support
 
 For a complete list of changes, please see [here](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Changes).
