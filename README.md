@@ -13,7 +13,7 @@ Note that this module either requires many players working together, or adjustme
 Lower-level content added in later expansions that is not "catch-up" content has NOT been removed. This includes Draenei and Blood Elf starting zones, Inscription and Jewelcrafting skills, new quests and hubs added to the Vanilla world in TBC, and so on. I feel this content does not negatively impact the player journey like "catch-up" content. Some of this content can optionally be phased until the appropriate patch in which it was introduced for those who prefer an even more authentic Vanilla world - see the optional SQL files for more details.
 
 ## Some Included Features
-* NPCs and Game Objects are aware of individual player progress, visible based on player progression to each player
+* NPCs and Game Objects are aware of individual player progress, visible depending on player progression
 * Restoration of content that was removed, nerfed or released in a later patch. Such as the original Naxxramas, Onyxia and TBC Attunement quests, elite creatures in outdoor areas and riding skills.
 * Overhaul of vanilla creatures and quests. (Smart AI, quest drop chances, creature respawn times, patrols and spawn locations have all been restored.)
 * Optional power and healing adjustment for Vanilla and TBC content to simulate the original world difficulty.
