@@ -802,6 +802,13 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (5, 52676, 47241, 0, 0, 8, 0, 66016, 0, 0, 0, 0, 0, '', 'Emblem of Triumph will only drop if the player has completed PROGRESSION_WOTLK_TIER_3');
 
 -- Obsidian Sanctum
+UPDATE `creature_template` SET `lootid` = 30451 WHERE `entry` = 30451; -- temporary
+UPDATE `creature_template` SET `lootid` = 31520 WHERE `entry` = 31520; -- temporary
+UPDATE `creature_template` SET `lootid` = 30449 WHERE `entry` = 30449; -- temporary
+UPDATE `creature_template` SET `lootid` = 31535 WHERE `entry` = 31535; -- temporary
+UPDATE `creature_template` SET `lootid` = 30452 WHERE `entry` = 30452; -- temporary
+UPDATE `creature_template` SET `lootid` = 31534 WHERE `entry` = 31534; -- temporary
+
 DELETE FROM `creature_loot_template` WHERE `Item` IN (40752, 40753, 45624, 47241) AND `Entry` IN (28860, 30449, 30451, 30452, 31311, 31520, 31534, 31535);
 INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
 --
