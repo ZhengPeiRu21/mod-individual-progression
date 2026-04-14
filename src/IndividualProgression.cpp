@@ -867,7 +867,7 @@ public:
         if (sIndividualProgression->DisableRDF)
             sWorld->setIntConfig(CONFIG_LFG_OPTIONSMASK, 4);
 
-        if (IndividualProgression.DisableQuestMarkers)
+        if (sIndividualProgression->DisableQuestMarkers)
         {
             sWorld->setBoolConfig(CONFIG_OBJECT_QUEST_MARKERS, false);
             sWorld->setBoolConfig(CONFIG_OBJECT_SPARKLES, false);
