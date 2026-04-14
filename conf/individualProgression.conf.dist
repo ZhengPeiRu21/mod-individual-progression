@@ -162,10 +162,9 @@ IndividualProgression.FishingFix = 1
 #                     For more advanced individual tuning, disable this option and change the respective values in worldserver.conf
 #
 #                     Changed options include:
-#                     Water Breath Timer to 1 Minute (Vanilla value, changed to 3 Minutes in WotLK)
-#                     Disable Quest Object sparkle and object quest markers (added in patch 2.3)
-#                     Enable PlayerSettings (required by Individual Progression module)
-#                     Do not enforce DBC Item Attributes, so that Vanilla item changes can override client values
+#                     - Water Breath Timer to 1 Minute (Vanilla value, changed to 3 Minutes in WotLK)
+#                     - Enable PlayerSettings (required by Individual Progression module)
+#                     - Do not enforce DBC Item Attributes, so that Vanilla item changes can override client values
 #
 #        Default:     1 - Enabled
 #                     0 - Disabled
