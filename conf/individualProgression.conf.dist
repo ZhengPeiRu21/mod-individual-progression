@@ -171,6 +171,15 @@ IndividualProgression.FishingFix = 1
 #
 IndividualProgression.SimpleConfigOverride = 1
 
+# IndividualProgression.DisableQuestMarkers
+#
+#        Description: Disable Quest Object markers and sparkles (added in patch 2.3)
+#
+#        Default:     1 - Markers and Sparkles Disabled
+#                     0 - Markers and Sparkles Enabled
+#
+IndividualProgression.DisableQuestMarkers = 1
+
 # IndividualProgression.DisableRDF
 #
 #        Description: Enable or disable the Random Dungeon Finder feature within the context of Individual Progression.
