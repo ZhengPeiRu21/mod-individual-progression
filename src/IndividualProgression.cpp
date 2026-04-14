@@ -818,6 +818,7 @@ private:
         sIndividualProgression->VanillaPvpTitlesEarnPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpEarnTitlesAfterVanilla", false);
         sIndividualProgression->ExcludedAccountsEarnPvPTitles = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludedAccountsEarnPvPTitles", false);
         sIndividualProgression->DisableRDF = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
+        sIndividualProgression->DisableQuestMarkers = sConfigMgr->GetOption<bool>("IndividualProgression.DisableQuestMarkers", true);
         sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "^RNDBOT.*");
         sIndividualProgression->ExcludedAccountsMaxLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.ExcludedAccountsMaxLevel", 80);
@@ -865,6 +866,12 @@ public:
 
         if (sIndividualProgression->DisableRDF)
             sWorld->setIntConfig(CONFIG_LFG_OPTIONSMASK, 4);
+
+        if (IndividualProgression.DisableQuestMarkers)
+        {
+            sWorld->setBoolConfig(CONFIG_OBJECT_QUEST_MARKERS, false);
+            sWorld->setBoolConfig(CONFIG_OBJECT_SPARKLES, false);
+        }
     }
 };
 
