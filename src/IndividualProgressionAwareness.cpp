@@ -256,6 +256,38 @@ public:
     }
 };
 
+class npc_ipp_zg : public CreatureScript
+{
+public:
+    npc_ipp_zg() : CreatureScript("npc_ipp_zg") { }
+
+    struct npc_ipp_zgAI: ScriptedAI
+    {
+        explicit npc_ipp_zgAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+                return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            uint32 PLAYER_PROGRESSION = sIndividualProgression->GetPlayerProgressionFromQuests(target);
+            ProgressionState REQUIRED_ZG_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
+
+            if (PLAYER_PROGRESSION >= REQUIRED_ZG_PROGRESSION)
+                return true;
+            else
+                return false;
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_zgAI(creature);
+    }
+};
+
 class npc_ipp_we : public CreatureScript
 {
 public:
@@ -776,6 +808,7 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_tbc_t4();         // Shattered Sun
     new gobject_ipp_wotlk();
     new npc_ipp_preaq();              // Cenarion Hold NPCs
+    new npc_ipp_zg();
     new npc_ipp_we();                 // War Effort NPCs in cities
     new npc_ipp_aq();
     new npc_ipp_aqwewar();            // only visible during AQ war effort and AQ war
