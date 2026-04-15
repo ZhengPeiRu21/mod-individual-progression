@@ -157,14 +157,14 @@ IndividualProgression.FishingFix = 1
 
 # IndividualProgression.SimpleConfigOverride
 #
-#        Description: If enabled, allow IndividualProgression module to set several AzerothCore values to suit individual progression
-#                     Many of these config options were added with IndividualProgression in mind.
-#                     For more advanced individual tuning, disable this option and change the respective values in worldserver.conf
+#        Description: If enabled, it will allow this module to set a few AzerothCore config values.
+#                     The first two are required for this module.
+#                     If you don't want the reduced water breath timer, you need to disable this option and set the first 2 options in worldserver.conf yourself.
 #
 #                     Changed options include:
-#                     - Water Breath Timer to 1 Minute (Vanilla value, changed to 3 Minutes in WotLK)
 #                     - Enable PlayerSettings (required by Individual Progression module)
 #                     - Do not enforce DBC Item Attributes, so that Vanilla item changes can override client values
+#                     - Water Breath Timer to 1 Minute (Vanilla value, changed to 3 Minutes in WotLK)
 #
 #        Default:     1 - Enabled
 #                     0 - Disabled
@@ -192,11 +192,8 @@ IndividualProgression.DisableRDF = 0
 
 # IndividualProgression.QuestMoneyAtLevelCap
 #
-#        Description: If enabled, players at the level cap for the current progression stage will receive
-#                     extra money when completing quests, as if they were level 80. This feature was added in patch 1.10
-#                     so it is a Vanilla feature.
-#                     Disable to not grant extra money at progression stage level cap. (Please note that completing quests at the level cap of the server,
-#                     configured in worldserver.conf will always provide extra money, as hard-coded in AzerothCore.)
+#        Description: If enabled, players at the level cap for the current progression stage will receive extra money when completing quests. This feature was added in patch 1.10
+#                     (Please note that completing quests at the level cap of the server, configured in worldserver.conf will always provide extra money, as hard-coded in AzerothCore.)
 #
 #        Default:     1 - Enabled
 #                     0 - Disabled
@@ -239,7 +236,7 @@ IndividualProgression.StartingProgression = 0
 # IndividualProgression.TbcRacesUnlockProgression
 #
 #        Description: The progression stage at which TBC races (Draenei and Blood Elves) will be unlocked.
-#                     Races will be unlocked when the player reaches this level with any character on the account.
+#                     Races will be unlocked when the player reaches this level with any character on their account.
 #                     Disable to have TBC races available by default.
 #                     Please refer to IndividualProgression.h/ProgressionState enum for progression stage values.
 #                     Players cannot visit TBC starting zones until TBC races are available to them.
@@ -262,12 +259,11 @@ IndividualProgression.tbcRacesStartingProgression = 0
 # IndividualProgression.DeathKnightUnlockProgression
 #
 #        Description: The progression stage at which Death Knight characters can be created.
-#                     Death Knights will be available when the player reaches this level with any character on the account.
-#                     Disable to not let Individual Progression influence DK creation.
+#                     Death Knights will be available when the player reaches this level with any character on their account.
+#                     Disable to have the Death Knight class available by default.
 #                     Please note that all other Death Knight creation restrictions from worldserver.conf still apply.
 #                     The default value is to not allow Death Knight creation until TBC content is cleared.
-#                     This is due to the game not having a proper progression balancing for Death Knights until WotLK,
-#                     but please adjust as desired.
+#                     This is due to the game not having proper progression balancing for Death Knights until WotLK.
 #
 #        Default:     13 - TBC must be completed to create Death Knights
 #                     0 - Death Knights always available to be created
@@ -318,8 +314,7 @@ IndividualProgression.CustomProgression = ""
 # IndividualProgression.AllowEarlyDungeonSet2
 #
 #        Description: Dungeon Set 2 was introduced in patch 1.10 and requires completing some AQ content that is normally not available until a later phase
-#                     When enabled, this allows the relevant content to be accessed early so that Dungeon Set 2 can be acquired before it is made obsolete
-#                     by raid gear.
+#                     When enabled, this allows the relevant content to be accessed early so that Dungeon Set 2 can be acquired before it is made obsolete by raid gear.
 #
 #        Default:     0 - Disabled
 #                     1 - Enabled
