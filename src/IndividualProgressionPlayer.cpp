@@ -221,7 +221,7 @@ public:
                 {
                     if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
                     {
-                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available until you reach |cff00ffff{}|r progression.", PROGRESSION_PRE_TBC);
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
                         spell->cancel();
                     }
                 }
