@@ -196,6 +196,39 @@ public:
             return false;
     }
 
+    void OnPlayerSpellCast(Player* player, Spell* spell, bool skipCheck) override
+    {
+        if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !spell)
+            return;
+
+        if (sIndividualProgression->isExcludedFromProgression(player)) // bots don't cast lower ranks of spells
+            return;
+
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // no need to check spells if player is not in WotlK
+            return;
+
+        if (player->getClass() == CLASS_MAGE)
+        {
+            std::array<uint16, 17> Vanilla_Mage_Spells =
+            {
+                116, 205, 837, 7322, 8406, 8407, 8408, 10179, 10180, 10181, 25304, 25306, // Frostbolt ranks 1-12
+                120, 8492, 10159, 10160, 10161 // Cone of Cold ranks 1-5
+            };
+
+            for (uint16 spellId : Vanilla_Mage_Spells)
+            {
+                if (spell->GetSpellInfo()->Id == spellId)
+                {
+                    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available until you reach |cff00ffff{}|r progression.", PROGRESSION_PRE_TBC);
+                        spell->cancel();
+                    }
+                }
+            }
+        }
+    }
+
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
     {
         if (!player || !player->IsInWorld())
