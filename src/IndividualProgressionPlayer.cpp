@@ -209,9 +209,9 @@ public:
 
         if (player->getClass() == CLASS_MAGE)
         {
-            std::array<uint16, 17> Vanilla_Mage_Spells =
+            std::array<uint16, 16> Vanilla_Mage_Spells =
             {
-                116, 205, 837, 7322, 8406, 8407, 8408, 10179, 10180, 10181, 25304, 25306, // Frostbolt ranks 1-12
+                116, 205, 837, 7322, 8406, 8407, 8408, 10179, 10180, 10181, 25304,  // Frostbolt ranks 1-11
                 120, 8492, 10159, 10160, 10161 // Cone of Cold ranks 1-5
             };
 
