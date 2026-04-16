@@ -113,7 +113,7 @@ public:
         sIndividualProgression->CheckAdjustments(player);
     }
 
-    void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool /*applySickness*/) override
+    void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool& /*applySickness*/) override
     {
         if (!player || !player->IsInWorld())
             return;
