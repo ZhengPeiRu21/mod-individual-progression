@@ -113,9 +113,9 @@ UPDATE `creature` SET `phaseMask` = @IPPPHASE_VI  WHERE `guid` IN (5300295, 5300
                                                                    5300389, 5300390, 5300391, 5300392, 5300393, 5300394, 5300395, 5300396, 5300398, 5300399, 5300400, 5300409, 5300410, 5300413, 5300415);
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_mana_cells' WHERE `guid` IN (27755, 47196);
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_dont_stop_now' WHERE `guid` IN (27811);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_making_ready' WHERE `guid` IN (27811);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_charitable_donation' WHERE `guid` IN (27862);
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_rediscovering_roots' WHERE `guid` IN (5300290);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_discovering_roots' WHERE `guid` IN (5300290);
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P2' WHERE `guid` IN (27829, 27832, 27833, 27839);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P3' WHERE `guid` IN (27810, 27834, 27835, 27837, 27838, 27840, 27841, 27842, 27843, 27844);
