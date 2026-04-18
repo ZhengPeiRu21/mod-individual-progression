@@ -354,15 +354,16 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_THE_DAWNING_SQUARE:
             player->RemoveAura(SONG_OF_VICTORY);
 
-            if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
+            if (isExcludedFromProgression(player) || player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
                 player->CastSpell(player, IPP_PHASE_III, false);
                 player->CastSpell(player, IPP_PHASE_IV, false);
 
-                if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
-                    player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
-                    player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED)
+                if (isExcludedFromProgression(player) ||
+                    (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED))
                 {
                     player->CastSpell(player, SONG_OF_VICTORY, false);
                 }
@@ -479,13 +480,14 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                     break;
                 }
             }
-            if (mapid == MAP_MAGISTERS_TERRACE)
+            if (mapid == MAP_MAGISTERS_TERRACE || mapid == MAP_THE_SUNWELL)
             {
                 player->RemoveAura(SONG_OF_VICTORY);
 
-                if (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
-                    player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
-                    player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED)
+                if (isExcludedFromProgression(player) ||
+                    (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED))
                 {
                     player->CastSpell(player, SONG_OF_VICTORY, false);
                 }

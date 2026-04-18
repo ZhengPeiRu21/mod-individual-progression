@@ -361,8 +361,8 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` IN (9087, 9198) AND `ConditionTypeOrReference` = 8;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
-(15, 9087, 0, 0, 0, 8, 0, 11536, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Dont Stop Now\' to be complete'),
-(15, 9198, 0, 0, 0, 8, 0, 11521, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Rediscovering Your Roots\' to be complete');
+(15, 9087, 0, 0, 0, 8, 0, 11535, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Making Ready\' to be complete'),
+(15, 9198, 0, 0, 0, 8, 0, 11520, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Discovering Your Roots\' to be complete');
 
 -- Shattered Sun Warriors coming out of the portal AFTER phase 2
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-673002, -673003, -673004, -673005);
