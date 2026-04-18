@@ -360,9 +360,11 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 -- hide shop menu until after the player has helped the npc
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 15 AND `SourceGroup` IN (9087, 9198) AND `ConditionTypeOrReference` = 8;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
-`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 (15, 9087, 0, 0, 0, 8, 0, 11535, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Making Ready\' to be complete'),
 (15, 9198, 0, 0, 0, 8, 0, 11520, 0, 0, 0, 0, 0, '', 'Trade Option requires quest \'Discovering Your Roots\' to be complete');
+
+UPDATE `creature_template` SET `gossip_menu_id` = 9087 WHERE `entry` = 27667; -- Anwehu
 
 -- Shattered Sun Warriors coming out of the portal AFTER phase 2
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-673002, -673003, -673004, -673005);
