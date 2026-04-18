@@ -654,7 +654,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@SKELETAL_SHOCKTROOPER, 0, 3, 0, 8, 0, 100, 0, 17680, 0, 0, 0, 0, 0, 41, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Skeletal Shocktrooper - On Spellhit Spirit Spawn-out - Despawn In 3000 ms');
 
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND  `SourceGroup` = 9 AND `SourceEntry` = 4543;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND  `SourceGroup` = 9 AND `SourceEntry` = 4543; -- 00_cleanup
 
 DELETE FROM `creature_addon` WHERE `guid` IN (660595);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
