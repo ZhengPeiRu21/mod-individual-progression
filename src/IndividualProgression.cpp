@@ -480,7 +480,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                     break;
                 }
             }
-            if (mapid == MAP_MAGISTERS_TERRACE)
+            if (mapid == MAP_MAGISTERS_TERRACE || mapid == MAP_THE_SUNWELL)
             {
                 player->RemoveAura(SONG_OF_VICTORY);
 
