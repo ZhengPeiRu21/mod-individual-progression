@@ -321,6 +321,38 @@ public:
     }
 };
 
+class npc_ioq_making_ready : public CreatureScript
+{
+public:
+    npc_ioq_making_ready() : CreatureScript("npc_ioq_making_ready") { }
+
+    struct npc_ioq_making_readyAI: ScriptedAI
+    {
+        explicit npc_ioq_making_readyAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+                return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            if (!target)
+                return false;
+
+            if (target->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED)
+                return true;
+            else
+                return false;
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ioq_making_readyAI(creature);
+    }
+};
+
 // Add all scripts in one
 void AddSC_mod_individual_progression_ioq()
 {
@@ -334,4 +366,5 @@ void AddSC_mod_individual_progression_ioq()
     new gobject_ioq_charitable_donation();
     new gobject_ioq_discovering_roots();
     new gobject_ioq_making_ready();
+    new npc_ioq_making_ready();
 }
