@@ -86,8 +86,6 @@ UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (24938, 25115, 27667); -- 0
 UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1`  IN (17076, 19475, 24932, 25134, 25135, 25136, 25137, 25138, 25141, 25142, 25143, 25153, 25155, 25167, 25885, 27666);
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (165102, 165103, 165104, 165105, 165106, 165107, 165108, 165109);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t3' WHERE `entry` IN (27667);
-
 -- TBC, Terrace of Light, phasing T5 game objects
 UPDATE `gameobject_template` SET `ScriptName` = '' WHERE `entry` IN (187356, 187357); -- 00_cleanup
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entry` = 187345; -- Sunwell Plateau model
@@ -116,6 +114,7 @@ UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_mana_cells' WHERE `guid` IN 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_making_ready' WHERE `guid` IN (27811);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_charitable_donation' WHERE `guid` IN (27862);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_discovering_roots' WHERE `guid` IN (5300290);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ioq_making_ready' WHERE `entry` IN (27667);
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P2' WHERE `guid` IN (27829, 27832, 27833, 27839);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P3' WHERE `guid` IN (27810, 27834, 27835, 27837, 27838, 27840, 27841, 27842, 27843, 27844);

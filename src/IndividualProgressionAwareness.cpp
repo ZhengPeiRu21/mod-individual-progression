@@ -544,34 +544,6 @@ public:
     }
 };
 
-class npc_ipp_tbc_t3 : public CreatureScript
-{
-public:
-    npc_ipp_tbc_t3() : CreatureScript("npc_ipp_tbc_t3") { }
-
-    struct npc_ipp_tbc_t3AI: ScriptedAI
-    {
-        explicit npc_ipp_tbc_t3AI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-                return true;
-
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_2))
-                return true;
-            else
-                return false;
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_ipp_tbc_t3AI(creature);
-    }
-};
-
 class npc_ipp_tbc_pre_t4 : public CreatureScript
 {
 public:
@@ -818,7 +790,6 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_naxx40();
     new npc_ipp_pre_tbc();            // Vanilla pvp vendors
     new npc_ipp_tbc();
-    new npc_ipp_tbc_t3();
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();
     new npc_ipp_pre_wotlk();
