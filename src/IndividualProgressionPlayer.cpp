@@ -219,7 +219,7 @@ public:
             {
                 if (spell->GetSpellInfo()->Id == spellId)
                 {
-                    if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
+                    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
                     {
                         ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
                         spell->cancel();
