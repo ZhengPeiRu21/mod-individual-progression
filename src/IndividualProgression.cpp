@@ -744,7 +744,7 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
             for (IppPvPTitles title : pvpTitlesList)
             {
                 if (kills >= title.RequiredKills)
-                {   
+                {
                     player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
                     highestTitle = title.TitleId;
 
