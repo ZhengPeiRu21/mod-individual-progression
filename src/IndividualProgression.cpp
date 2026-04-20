@@ -744,9 +744,15 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
             for (IppPvPTitles title : pvpTitlesList)
             {
                 if (kills >= title.RequiredKills)
-                {
+                {   
                     player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
                     highestTitle = title.TitleId;
+
+                    if (teamId == 0)
+                        player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId + 4);
+                    else // teamId == 1
+                        player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId - 10);
+                    
                     break;
                 }
             }
