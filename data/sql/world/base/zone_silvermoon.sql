@@ -1,8 +1,8 @@
 -- Restore M'uru
 SET @MURU_GUID := 352043;
 DELETE FROM `creature` WHERE `guid` = @MURU_GUID;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `ScriptName`) VALUES
-(@MURU_GUID, 17544, 530, 9850.99, -7522.666, -9.157837, 1.537163, 'npc_ipp_tbc_pre_t5');
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES
+(@MURU_GUID, 17544, 530, 9850.99, -7522.666, -9.157837, 1.537163);
 
 UPDATE `creature_template` SET `rank` = 3, `type_flags` = 4 WHERE `entry` = 17544; -- M'uru
 
@@ -119,16 +119,16 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (19, 0, 109684, 0, 0, 8, 0, 66012, 0, 0, 1, 0, 0, '', 'pre-2.4 Blood Knight quest only available before TBC stage 5');
 
 -- Blood Elf Magisters
-UPDATE `creature` SET `position_x` = 9866.592, `position_y` = -7522.500, `position_z` = -0.49, `orientation` = 3.1878, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96982;
-UPDATE `creature` SET `position_x` = 9860.192, `position_y` = -7504.500, `position_z` = -4.00, `orientation` = 4.2694, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96980;
-UPDATE `creature` SET `position_x` = 9850.753, `position_y` = -7537.921, `position_z` = -0.49, `orientation` = 1.5488, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96981;
-UPDATE `creature` SET `position_x` = 9835.078, `position_y` = -7522.500, `position_z` = -0.49, `orientation` = 0.0015, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96979;
-UPDATE `creature` SET `position_x` = 9841.158, `position_y` = -7504.500, `position_z` = -4.00, `orientation` = 5.3532, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96978;
+UPDATE `creature` SET `position_x` = 9866.592, `position_y` = -7522.500, `position_z` = -0.49, `orientation` = 3.1878 WHERE `guid` = 96982;
+UPDATE `creature` SET `position_x` = 9860.192, `position_y` = -7504.500, `position_z` = -4.00, `orientation` = 4.2694 WHERE `guid` = 96980;
+UPDATE `creature` SET `position_x` = 9850.753, `position_y` = -7537.921, `position_z` = -0.49, `orientation` = 1.5488 WHERE `guid` = 96981;
+UPDATE `creature` SET `position_x` = 9835.078, `position_y` = -7522.500, `position_z` = -0.49, `orientation` = 0.0015 WHERE `guid` = 96979;
+UPDATE `creature` SET `position_x` = 9841.158, `position_y` = -7504.500, `position_z` = -4.00, `orientation` = 5.3532 WHERE `guid` = 96978;
 
 UPDATE `creature_addon` SET `bytes1` = 0, `bytes2` = 0, `emote` = 0 WHERE `guid` IN (96978, 96979, 96980, 96981, 96982);
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` = 17845;
-DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-96982, -96980, -96981, -96979,-96978) AND `source_type` = 0 AND `action_param1` = 31324;
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-96982, -96980, -96981, -96979, -96978) AND `source_type` = 0 AND `action_param1` = 31324;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, 
 `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
