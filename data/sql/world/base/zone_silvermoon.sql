@@ -12,11 +12,11 @@ UPDATE `quest_template` SET `LogDescription` = "Use the Shimmering Vessel on M'u
 UPDATE `quest_template` SET `QuestDescription` = "Do not think me unduly harsh, $N. Stillblade knew well what he was being sent to do. He understood and accepted his duty and is an example for all aspiring Blood Knights.$B$BMy words are no eulogy, $N. Stillblade's service to us is far from over and you will be the instrument of his resurrection.$B$BYour education in the use of the Light has focused on mere charms and parlor tricks thus far. The time has come for you to learn of the nature and breadth of our power. Seek out Magister Astalor Bloodsworn." WHERE `ID` = 9681;
 
 -- Blood Elf Magisters
-UPDATE `creature` SET `position_x` = 9866.592, `position_y` = -7522.429688, `position_z` = -0.490965, `orientation` = 3.187847 WHERE `guid` = 96982;
-UPDATE `creature` SET `position_x` = 9860.192383, `position_y` = -7504.206055, `position_z` = -4.002384, `orientation` = 4.269403 WHERE `guid` = 96980;
-UPDATE `creature` SET `position_x` = 9850.7529, `position_y` = -7537.9208, `position_z` = -0.49, `orientation` = 1.548791 WHERE `guid` = 96981;
-UPDATE `creature` SET `position_x` = 9835.078, `position_y` = -7522.6352, `position_z` = -0.49134, `orientation` = 0.001539 WHERE `guid` = 96979;
-UPDATE `creature` SET `position_x` = 9841.158, `position_y` = -7504.5, `position_z` = -4.007, `orientation` = 5.3532 WHERE `guid` = 96978;
+UPDATE `creature` SET `position_x` = 9866.592, `position_y` = -7522.430, `position_z` = -0.49, `orientation` = 3.1878, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96982;
+UPDATE `creature` SET `position_x` = 9860.192, `position_y` = -7504.206, `position_z` = -4.00, `orientation` = 4.2694, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96980;
+UPDATE `creature` SET `position_x` = 9850.753, `position_y` = -7537.921, `position_z` = -0.49, `orientation` = 1.5488, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96981;
+UPDATE `creature` SET `position_x` = 9835.078, `position_y` = -7522.635, `position_z` = -0.49, `orientation` = 0.0015, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96979;
+UPDATE `creature` SET `position_x` = 9841.158, `position_y` = -7504.500, `position_z` = -4.01, `orientation` = 5.3532, `ScriptName` = 'npc_ipp_tbc_pre_t5' WHERE `guid` = 96978;
 
 UPDATE `creature_addon` SET `bytes1` = 0, `bytes2` = 0, `emote` = 0 WHERE `guid` IN (96978, 96979, 96980, 96981, 96982);
 
