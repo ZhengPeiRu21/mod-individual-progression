@@ -287,6 +287,12 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE, false);
             }
             break;
+        case AREA_SILVERMOON_CITY:
+            if (isBeforeProgression(player, PROGRESSION_TBC_TIER_4))
+            {
+                player->CastSpell(player, IPP_PHASE_II, false);
+            }
+            break;
         case AREA_DUROTAR:
         case AREA_ROCKTUSK_FARM:
         case AREA_TIRISFAL_GLADES:

@@ -86,6 +86,9 @@ UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (24938, 25115, 27667); -- 0
 UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1`  IN (17076, 19475, 24932, 25134, 25135, 25136, 25137, 25138, 25141, 25142, 25143, 25153, 25155, 25167, 25885, 27666);
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (165102, 165103, 165104, 165105, 165106, 165107, 165108, 165109);
 
+-- Silvermoon City, M'uru
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II WHERE `guid` IN (96982, 96980, 96981, 96979, 96978, 352043);
+
 -- TBC, Terrace of Light, phasing T5 game objects
 UPDATE `gameobject_template` SET `ScriptName` = '' WHERE `entry` IN (187356, 187357); -- 00_cleanup
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc_t4' WHERE `entry` = 187345; -- Sunwell Plateau model
