@@ -600,34 +600,6 @@ public:
     }
 };
 
-class npc_ipp_tbc_pre_t5 : public CreatureScript
-{
-public:
-    npc_ipp_tbc_pre_t5() : CreatureScript("npc_ipp_tbc_pre_t5") { }
-
-    struct npc_ipp_tbc_pre_t5AI: ScriptedAI
-    {
-        explicit npc_ipp_tbc_pre_t5AI(Creature* creature) : ScriptedAI(creature) { };
-
-        bool CanBeSeen(Player const* player) override
-        {
-            if (player->IsGameMaster() || !sIndividualProgression->enabled)
-                return true;
-
-            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            if (sIndividualProgression->isBeforeProgression(target,PROGRESSION_TBC_TIER_4))
-                return true;
-            else
-                return false;
-        }
-    };
-
-    CreatureAI* GetAI(Creature* creature) const override
-    {
-        return new npc_ipp_tbc_pre_t5AI(creature);
-    }
-};
-
 class npc_ipp_pre_wotlk : public CreatureScript
 {
 public:
@@ -821,7 +793,6 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_tbc_pre_t4();
     new npc_ipp_tbc_t4();
     new npc_ipp_pre_wotlk();
-    new npc_ipp_tbc_pre_t5();         // M'uru, Silvermoon City
     new npc_ipp_wotlk();
     new npc_ipp_wotlk_ulduar();
     new npc_ipp_wotlk_totc();
