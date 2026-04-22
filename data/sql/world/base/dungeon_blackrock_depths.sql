@@ -53,11 +53,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (8896, 0, 8, 0, 0, 0, 10, 0, 5000, 10000, 120000, 120000, 0, 0, 11, 3604, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,  'Shadowforge Peasant - Within 0-5 Range - Cast Tendon Rip'),
 (8896, 0, 9, 0, 74, 0, 100, 0, 0, 00, 20000, 25000, 50, 40, 11, 11642, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,       'Shadowforge Peasant - Friendly Between 0-50% Health - Cast Heal'),
 (8896, 0, 10, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Shadowforge Peasant - Between 0-15% Health - Flee For Assist'),
+--
 (8897, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Doomforge Craftsman - Outside 30 Range - Start Combat Movement'),
 (8897, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Doomforge Craftsman - Within 5-30 Range - Stop Combat Movement'),
 (8897, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Doomforge Craftsman - Within 0-5 Range - Start Combat Movement'),
 (8897, 0, 3, 0, 9, 0, 100, 0, 0, 0, 2000, 4000, 5, 30, 11, 9143, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Doomforge Craftsman - In Combat - Cast Bomb'),
-(8897, 0, 4, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Doomforge Craftsman - Between 0-15% Health - Flee For Assist (No Repeat)'),
+(8897, 0, 4, 0, 74, 0, 100, 0, 0, 0, 20000, 20000, 50, 20, 11, 13951, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Doomforge Craftsman - Warbringer Contruct below 50% hp - Cast Rebuild'),
+(8897, 0, 5, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Doomforge Craftsman - Between 0-15% Health - Flee For Assist (No Repeat)'),
+--
 (8898, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8258, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Anvilrage Marshal - On Aggro - Cast Devotion Aura'),
 (8898, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6000, 8000, 0, 5, 11, 13953, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Anvilrage Marshal - Within 0-5 Range - Cast Holy Strike'),
 (8898, 0, 2, 0, 14, 0, 100, 0, 3000, 40, 3000, 6000, 0, 0, 11, 15493, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Anvilrage Marshal - Friendly Missing 3000 Health - Cast Holy Light'),
@@ -288,9 +291,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9956, 0, 5, 0, 9, 0, 100, 0, 0, 0, 12000, 15000, 0, 5, 11, 9080, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Shadowforge Flame Keeper - Within 0-5 Range - Cast Hamstring'),
 (9956, 0, 6, 0, 9, 0, 100, 0, 0, 0, 7000, 12000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Shadowforge Flame Keeper - Within 0-5 Range - Cast Strike'),
 (9956, 0, 7, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Shadowforge Flame Keeper - Between 0-15% Health - Flee For Assist (No Repeat)'),
-
 (10043, 0, 0, 0, 0, 0, 100, 0, 10000, 20000, 10000, 20000, 0, 0, 11, 15692, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0, 'Ribbly\'s Crony - Within 0-5 Range - Cast Eviscerate'),
 (10043, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 6000, 9000, 0, 0, 11, 15581, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Ribbly\'s Crony - Within 0-5 Range - Cast Sinister Strike');
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 13 AND `SourceGroup` = 1 AND `SourceEntry` = 13951;
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`,
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+(13, 1, 13951, 0, 0, 31, 0, 3, 8905, 0, 0, 0, 0, "", "Set Warbringer Construct as target for Rebuild spell");
 
 -- fix bridge ambush
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-91106, -91107, -608891);
