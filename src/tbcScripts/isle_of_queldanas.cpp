@@ -257,14 +257,14 @@ public:
     }
 };
 
-class gobject_ioq_rediscovering_roots : public GameObjectScript
+class gobject_ioq_discovering_roots : public GameObjectScript
 {
 public:
-    gobject_ioq_rediscovering_roots() : GameObjectScript("gobject_ioq_rediscovering_roots") { }
+    gobject_ioq_discovering_roots() : GameObjectScript("gobject_ioq_discovering_roots") { }
 
-    struct gobject_ioq_rediscovering_rootsAI: GameObjectAI
+    struct gobject_ioq_discovering_rootsAI: GameObjectAI
     {
-        explicit gobject_ioq_rediscovering_rootsAI(GameObject* object) : GameObjectAI(object) { };
+        explicit gobject_ioq_discovering_rootsAI(GameObject* object) : GameObjectAI(object) { };
 
         bool CanBeSeen(Player const* player) override
         {
@@ -276,7 +276,7 @@ public:
             if (!target)
                 return false;
 
-            if (target->GetQuestStatus(QUEST_REDISCOVERING_ROOTS) == QUEST_STATUS_REWARDED)
+            if (target->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED)
                 return true;
             else
                 return false;
@@ -285,18 +285,18 @@ public:
 
     GameObjectAI* GetAI(GameObject* object) const override
     {
-        return new gobject_ioq_rediscovering_rootsAI(object);
+        return new gobject_ioq_discovering_rootsAI(object);
     }
 };
 
-class gobject_ioq_dont_stop_now : public GameObjectScript
+class gobject_ioq_making_ready : public GameObjectScript
 {
 public:
-    gobject_ioq_dont_stop_now() : GameObjectScript("gobject_ioq_dont_stop_now") { }
+    gobject_ioq_making_ready() : GameObjectScript("gobject_ioq_making_ready") { }
 
-    struct gobject_ioq_dont_stop_nowAI: GameObjectAI
+    struct gobject_ioq_making_readyAI: GameObjectAI
     {
-        explicit gobject_ioq_dont_stop_nowAI(GameObject* object) : GameObjectAI(object) { };
+        explicit gobject_ioq_making_readyAI(GameObject* object) : GameObjectAI(object) { };
 
         bool CanBeSeen(Player const* player) override
         {
@@ -308,7 +308,7 @@ public:
             if (!target)
                 return false;
 
-            if (target->GetQuestStatus(QUEST_DONT_STOP_NOW) == QUEST_STATUS_REWARDED)
+            if (target->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED)
                 return true;
             else
                 return false;
@@ -317,7 +317,39 @@ public:
 
     GameObjectAI* GetAI(GameObject* object) const override
     {
-        return new gobject_ioq_dont_stop_nowAI(object);
+        return new gobject_ioq_making_readyAI(object);
+    }
+};
+
+class npc_ioq_making_ready : public CreatureScript
+{
+public:
+    npc_ioq_making_ready() : CreatureScript("npc_ioq_making_ready") { }
+
+    struct npc_ioq_making_readyAI: ScriptedAI
+    {
+        explicit npc_ioq_making_readyAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+                return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            if (!target)
+                return false;
+
+            if (target->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED)
+                return true;
+            else
+                return false;
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ioq_making_readyAI(creature);
     }
 };
 
@@ -332,6 +364,7 @@ void AddSC_mod_individual_progression_ioq()
     new gobject_ioq_P4();
     new gobject_ioq_mana_cells();
     new gobject_ioq_charitable_donation();
-    new gobject_ioq_rediscovering_roots();
-    new gobject_ioq_dont_stop_now();
+    new gobject_ioq_discovering_roots();
+    new gobject_ioq_making_ready();
+    new npc_ioq_making_ready();
 }

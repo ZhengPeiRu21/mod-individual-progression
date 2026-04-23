@@ -13,7 +13,7 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN
 (19915, 19909, 19911, 26012, 26007, 26075, 26307, 26309, 26760, 19912, 19859, 19860, 19861, 20499, 20497, 30610, 30611, 32832);
 
 -- Stormwind
-UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1` = 1749;  -- Lady Katrana Prestor
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II  WHERE `id1` = 1749;  -- Lady Katrana Prestor
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 29611; -- King Varian Wrynn
 
 -- Orgrimmar
@@ -86,7 +86,8 @@ UPDATE `creature` SET `phaseMask` = 1 WHERE `id1` IN (24938, 25115, 27667); -- 0
 UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id1`  IN (17076, 19475, 24932, 25134, 25135, 25136, 25137, 25138, 25141, 25142, 25143, 25153, 25155, 25167, 25885, 27666);
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (165102, 165103, 165104, 165105, 165106, 165107, 165108, 165109);
 
-UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t3' WHERE `entry` IN (27667);
+-- Silvermoon City, M'uru
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II WHERE `guid` IN (96982, 96980, 96981, 96979, 96978, 352043);
 
 -- TBC, Terrace of Light, phasing T5 game objects
 UPDATE `gameobject_template` SET `ScriptName` = '' WHERE `entry` IN (187356, 187357); -- 00_cleanup
@@ -113,9 +114,10 @@ UPDATE `creature` SET `phaseMask` = @IPPPHASE_VI  WHERE `guid` IN (5300295, 5300
                                                                    5300389, 5300390, 5300391, 5300392, 5300393, 5300394, 5300395, 5300396, 5300398, 5300399, 5300400, 5300409, 5300410, 5300413, 5300415);
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_mana_cells' WHERE `guid` IN (27755, 47196);
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_dont_stop_now' WHERE `guid` IN (27811);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_making_ready' WHERE `guid` IN (27811);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_charitable_donation' WHERE `guid` IN (27862);
-UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_rediscovering_roots' WHERE `guid` IN (5300290);
+UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_discovering_roots' WHERE `guid` IN (5300290);
+UPDATE `creature_template` SET `ScriptName` = 'npc_ioq_making_ready' WHERE `entry` IN (27667);
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P2' WHERE `guid` IN (27829, 27832, 27833, 27839);
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ioq_P3' WHERE `guid` IN (27810, 27834, 27835, 27837, 27838, 27840, 27841, 27842, 27843, 27844);

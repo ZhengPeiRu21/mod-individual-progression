@@ -22,7 +22,7 @@ Lower-level content added in later expansions that is not "catch-up" content has
 * Isle of Quel'Danas Progression
 * Playerbots support
 
-For a complete list of changes, please see [here](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Changes).
+Here you can find a list of all the [changes](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Changes) and [progression tiers](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/List-of-Progression-Tiers).
 
 Options are provided that allow changes to the player experience, based on preference. Please see the config file.
 
