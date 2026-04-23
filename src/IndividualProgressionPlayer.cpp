@@ -69,7 +69,7 @@ public:
         }
     }
 
-    void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
+    /* void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
     {
         if (!sIndividualProgression->enabled || !maxPlayerLevel || !player || !player->IsInWorld() || sIndividualProgression->isExcludedFromProgression(player))
             return;
@@ -84,7 +84,7 @@ public:
             if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > IP_LEVEL_TBC)
                 maxPlayerLevel = IP_LEVEL_TBC;
         }
-    }
+    } */
 
     void OnPlayerMapChanged(Player* player) override
     {
