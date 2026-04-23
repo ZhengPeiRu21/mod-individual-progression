@@ -438,7 +438,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_STORMWIND_CITY:
             if (!hasPassedProgression(player, PROGRESSION_PRE_TBC))
             {
-                player->CastSpell(player, IPP_PHASE, false);
+                player->CastSpell(player, IPP_PHASE_II, false);
             }
             else if (hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
             {
