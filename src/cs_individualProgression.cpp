@@ -173,7 +173,7 @@ public:
             sIndividualProgression->checkIPPhasing(member, currentArea);
         }
 
-        handler->PSendSysMessage("Updated Progression Level for all bots = |cff00ffff{}|r", currentState);
+        handler->PSendSysMessage("Updated Progression Level for all RND bots = |cff00ffff{}|r", currentState);
         return true;
     }
 
