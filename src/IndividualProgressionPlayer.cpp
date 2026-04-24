@@ -196,6 +196,424 @@ public:
             return false;
     }
 
+    void OnPlayerSpellCast(Player* player, Spell* spell, bool skipCheck) override
+    {
+        if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !spell)
+            return;
+
+        if (sIndividualProgression->isExcludedFromProgression(player)) // bots don't cast lower ranks of spells
+            return;
+
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // no need to check spells if player is not in WotlK
+            return;
+
+        if (!player->getClass())
+            return;
+
+        if (player->getClass() == CLASS_DRUID)
+        {
+            if (spell->GetSpellInfo()->SchoolMask == 8) // Nature
+            {
+                static constexpr std::array<uint16, 59> Druid_SM_8 =
+                {
+                    5185, 5186, 5187, 5188, 5189, 6778, 8903, 9758, 9888, 9889, 25297, // Healing Touch ranks 1-11
+                    774, 1058, 1430, 2090, 2091, 3627, 8910, 9839, 9840, 9841, 25299, // Rejuvenation ranks 1-11
+                    8936, 8938, 8939, 8940, 8941, 9750, 9856, 9857, 9858, // Regrowth ranks 1-9
+                    5176, 5177, 5178, 5179, 5180, 6780, 8905, 9912, // Wrath ranks 1-8
+                    339, 1062, 5195, 5196, 9852, 9853, // Entangling Roots 1-6
+                    5570, 24974, 24975, 24976, 24977, // Insect Swarm ranks 1-5
+                    740, 8918, 9862, 9863, // Tranquility ranks 1-4
+                    2908, 8955, 9901, // Soothe Animal ranks 1-3
+                    2637, 18657 // Hibernate ranks 1-2
+                };
+
+                for (uint16 spellId : Druid_SM_8)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+
+            if (spell->GetSpellInfo()->SchoolMask == 64) // Arcane
+            {
+                static constexpr std::array<uint16, 20> Druid_SM_64 =
+                {
+                    8921, 8924, 8925, 8926, 8927, 8928, 8929, 9833, 9834, 9835, // Moonfire ranks 1-10
+                    2912, 8949, 8950, 8951, 9875, 9876, 25298, // Starfire ranks 1-7
+                    16914, 17401, 17402 // Hurricane ranks 1-3
+                };
+
+                for (uint16 spellId : Druid_SM_64)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (player->getClass() == CLASS_HUNTER)
+        {
+            if (spell->GetSpellInfo()->SchoolMask == 1 || spell->GetSpellInfo()->SchoolMask == 4)  // Physical + Fire
+            {
+                static constexpr std::array<uint16, 34> Hunter_SM_1_4 =
+                {
+                    19434, 20900, 20901, 20902, 20903, 20904, // Aimed Shot ranks 1-6
+                    19306, 20909, 20910, // Counterattack ranks 1-3
+                    13813, 14316, 14317, // Explosive Trap ranks 1-3
+                    13795, 14302, 14303, 14304, 14305, // Immolation Trap ranks 1-5
+                    1495, 14269, 14270, 14271, // Mongoose Bite ranks 1-4
+                    2643, 14288, 14289, 14290, 25294, // Multi-Shot ranks 1-5
+                    2973, 14260, 14261, 14262, 14263, 14264, 14265, 14266 // Raptor Strike ranks 1-8
+                };
+
+                for (uint16 spellId : Hunter_SM_1_4)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+
+            if (spell->GetSpellInfo()->SchoolMask == 8 || spell->GetSpellInfo()->SchoolMask == 16 || spell->GetSpellInfo()->SchoolMask == 64)  // Nature + Frost + Arcane
+            {
+                static constexpr std::array<uint16, 37> Hunter_SM_8_16_64 =
+                {
+                    1978, 13549, 13550, 13551, 13552, 13553, 13554, 13555, 25295, // Serpent Sting ranks 1-9
+                    3044, 14281, 14282, 14283, 14284, 14285, 14286, 14287, // Arcane Shot ranks 1-8
+                    136, 3111, 3661, 3662, 13542, 13543, 13544, // Mend Pet ranks 1-7
+                    1130, 14323, 14324, // Hunter's Mark ranks 1-3
+                    1510, 14294, 14295, // Volley ranks 1-3
+                    19386, 24132, 24133, // Wyvern Sting ranks 1-3
+                    1499, 14310, // Freezing Trap ranks 1-2
+                    1513, 14326 // Scare Beast ranks 1-2
+                };
+
+                for (uint16 spellId : Hunter_SM_8_16_64)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+        }
+
+        else if (player->getClass() == CLASS_MAGE)
+        {
+            if (spell->GetSpellInfo()->SchoolMask == 4)  // Fire
+            {
+                static constexpr std::array<uint16, 50> Mage_SM_4 =
+                {
+                    11113, 13018, 13019, 13020, 13021, // Blast Wave ranks 1-5
+                    2136, 2137, 2138, 8412, 8413, 10197, 10199, // Fire Blast ranks 1-7
+                    543, 8457, 8458, 10223, 10225, // Fire Ward ranks 1-5
+                    133, 143, 145, 3140, 8400, 8401, 8402, 10148, 10149, 10150, 10151, 25306, // Fireball ranks 1-12
+                    2120, 2121, 8422, 8423, 10215, 10216, // Flamestrike ranks 1-6
+                    11366, 12505, 12522, 12523, 12524, 12525, 12526, 18809, // Pyroblast ranks 1-8
+                    2948, 8444, 8445, 8446, 10205, 10206, 10207 // Scorch ranks 1-7
+                };
+
+                for (uint16 spellId : Mage_SM_4)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        // ChatHandler(player->GetSession()).PSendSysMessage("spell = {}", spellId);
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+
+            if (spell->GetSpellInfo()->SchoolMask == 16) // Frost
+            {
+                static constexpr std::array<uint16, 39> Mage_SM_16 =
+                {
+                    10, 6141, 8427, 10185, 10186, 10187, // Blizzard ranks 1-6
+                    120, 8492, 10159, 10160, 10161, // Cone of Cold ranks 1-5
+                    122, 865, 6131, 10230, // Frost Nova ranks 1-4
+                    6143, 8461, 8462, 10177, 28609, // Frost Ward ranks 1-5
+                    116, 205, 837, 7322, 8406, 8407, 8408, 10179, 10180, 10181, 25304, // Frostbolt ranks 1-11
+                    7302, 7320, 10219, 10220, // Ice Armor ranks 1-4
+                    11426, 13031, 13032, 13033 // Ice Barrier ranks 1-4
+                };
+
+                for (uint16 spellId : Mage_SM_16)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        // ChatHandler(player->GetSession()).PSendSysMessage("spell = {}", spellId);
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+
+            if (spell->GetSpellInfo()->SchoolMask == 64) // Arcane
+            {
+                static constexpr std::array<uint16, 39> Mage_SM_64 =
+                {
+                    1008, 8455, 10169, 10170, // Amplify Magic ranks 1-4
+                    1449, 8437, 8438, 8439, 10201, 10202, // Arcane Explosion ranks 1-6
+                    5143, 5144, 5145, 8416, 8417, 10211, 10212, 25345, // Arcane Missiles ranks 1-8
+                    759, 3552, 10053, 10054, // Conjure Mana Gem ranks 1-4
+                    604, 8450, 8451, 10173, 10174,  // Dampen Magic ranks 1-5
+                    6117, 22782, 22783, // Mage Armor ranks 1-3
+                    1463, 8494, 8495, 10191, 10192, 10193, // Mana Shield ranks 1-6
+                    118, 12824, 12825, // Polymorph ranks 1-3
+                };
+
+                for (uint16 spellId : Mage_SM_64)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        // ChatHandler(player->GetSession()).PSendSysMessage("spell = {}", spellId);
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+        }
+
+        else if (player->getClass() == CLASS_PALADIN)
+        {
+            if (spell->GetSpellInfo()->SchoolMask == 2) // Holy
+            {
+                static constexpr std::array<uint16, 42> Paladin_SM_2 =
+                {
+                    635, 639, 347, 1026, 1042, 3472, 10328, 10329, 25292, // Holy Light ranks 1-9
+                    19750, 19939, 19940, 19941, 19942, 19943, // Flash of Light ranks 1-6
+                    879, 5614, 5615, 10312, 10313, 10314, // Exorcism ranks 1-6
+                    26573, 20116, 20922, 20923, 20924, // Consecration ranks 1-5
+                    24275, 24274, 24239, // Hammer of Wrath ranks 1-3
+                    20473, 20929, 20930, // Holy Shock ranks 1-3
+                    20925, 20927, 20928, // Holy Shield ranks 1-3
+                    853, 5588, 5589, // Hammer of Justice ranks 1-3
+                    2812, 10318, // Holy Wrath ranks 1-2
+                    1022, 5599 // Hand of Protection ranks 1-2
+                };
+
+                for (uint16 spellId : Paladin_SM_2)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+        }
+
+        else if (player->getClass() == CLASS_PRIEST)
+        {
+            if (spell->GetSpellInfo()->SchoolMask == 2)
+            {
+                static constexpr std::array<uint16, 77> Priest_SM_2 =
+                {
+                    2061, 9472, 9473, 9474, 10915, 10916, 10917, // Flash Heal ranks 1-7
+                    139, 6074, 6075, 6076, 6077, 6078, 10927, 10928, 10929, 25315, // Renew ranks 1-10
+                    17, 592, 600, 3747, 6065, 6066, 10898, 10899, 10900, 10901, // Power Word: Shield ranks 1-10
+                    14914, 15262, 15263, 15264, 15265, 15266, 15267, 15261,  // Holy Fire ranks 1-8
+                    15237, 15430, 15431, 27799, 27800, 27801, // Holy Nova ranks 1-6
+                    588, 7128, 602, 1006, 10951, 10952, // Inner Fire ranks 1-6
+                    2054, 2055, 6063, 6064, // Heal ranks 1-4
+                    585, 591, 598, 984, 1004, 6060, 10933, 10934, // Smite ranks 1-8
+                    2060, 10963, 10964, 10965, 25314, // Greater Heal ranks 1-5
+                    596, 996, 10960, 10961, 25316, // Prayer of Healing ranks 1-5
+                    2050, 2052, 2053, // Lesser Heal ranks 1-3
+                    9484, 9485, // Shackle Undead ranks 1-2
+                    724, 27870, 27871  // Lightwell rank 1-3
+                };
+
+                for (uint16 spellId : Priest_SM_2)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+
+            if (spell->GetSpellInfo()->SchoolMask == 32) // Shadow
+            {
+                static constexpr std::array<uint16, 32> Priest_SM_32 =
+                {
+                    8092, 8102, 8103, 8104, 8105, 8106, 10945, 10946, 10947, // Mind Blast ranks 1-9
+                    589, 594, 970, 992, 2767, 10892, 10893, 10894, // Shadow Word: Pain ranks 1-8
+                    15407, 17311, 17312, 17313, 17314, 18807, // Mind Flay ranks 1-6
+                    2944, 19276, 19277, 19278, 19279, 19280, // Devouring Plague ranks 1-6
+                    8122, 8124, 10888 // Psychic Scream ranks 1-3
+                };
+
+                for (uint16 spellId : Priest_SM_32)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+        }
+
+        else if (player->getClass() == CLASS_SHAMAN)
+        {
+            if (spell->GetSpellInfo()->SchoolMask == 4) // Fire
+            {
+                static constexpr std::array<uint16, 34> Shaman_SM_4 =
+                {
+                    1535, 8498, 8499, 11314, 11315, // Fire Nova ranks 1-5
+                    8050, 8052, 8053, 10447, 10448, 28228, // Flame Shock ranks 1-6
+                    8227, 8249, 10526, 16387, // Flametongue Totem ranks 1-4
+                    8024, 8027, 8030, 16339, 16341, 16342, // Flametongue Weapon ranks 1-6
+                    8181, 10478, 10479, // Frost Resistance Totem ranks 1-3
+                    8190, 10585, 10586, 10587, // Magma Totem ranks 1-4
+                    3599, 6363, 6364, 6365, 10437, 10438 // Searing Totem ranks 1-6
+                };
+
+                for (uint16 spellId : Shaman_SM_4)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+
+            if (spell->GetSpellInfo()->SchoolMask == 8) // Nature
+            {
+                static constexpr std::array<uint16, 61> Shaman_SM_8 =
+                {
+                    1064, 10622, 10623, // Chain Heal ranks 1-3
+                    421, 930, 2860, 10605, // Chain Lightning ranks 1-4
+                    8042, 8044, 8045, 8046, 10412, 10413, 10414, // Earth Shock ranks 1-7
+                    331, 332, 547, 913, 939, 959, 8005, 10395, 10396, 25357, // Healing Wave ranks 1-10
+                    8004, 8008, 8010, 10466, 10467, 10468, // Lesser Healing Wave ranks 1-6
+                    403, 529, 548, 915, 943, 6041, 10391, 10392, 15207, 15208, // Lightning Bolt ranks 1-10
+                    10595, 10600, 10601, // Nature Resistance Totem ranks 1-3
+                    8017, 8018, 8019, // Rockbiter Weapon ranks 1-3
+                    5730, 6390, 6391, 6392, 10427, 10428, // Stoneclaw Totem ranks 1-6
+                    8075, 8160, 8161, 10442, 25361, // Strength of Earth Totem ranks 1-5
+                    8232, 8235, 10486, 16362 // Windfury Weapon ranks 1-4
+                };
+
+                for (uint16 spellId : Shaman_SM_8)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+
+            if (spell->GetSpellInfo()->SchoolMask == 16) // Frost
+            {
+                static constexpr std::array<uint16, 21> Shaman_SM_16 =
+                {
+                    8184, 10537, 10538, // Fire Resistance Totem ranks 1-3
+                    8056, 8058, 10472, 10473, // Frost Shock ranks 1-4
+                    8033, 8038, 10456, 16355, 16356, // Frostbrand Weapon ranks 1-5
+                    5394, 6375, 6377, 10462, 10463, // Healing Stream Totem ranks 1-5
+                    5675, 10495, 10496, 10497 // Mana Spring Totem ranks 1-4
+                };
+
+                for (uint16 spellId : Shaman_SM_16)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+        }
+
+        else if (player->getClass() == CLASS_WARLOCK)
+        {
+            if (spell->GetSpellInfo()->SchoolMask == 4) // Fire
+            {
+                static constexpr std::array<uint16, 27> Warlock_SM_4 =
+                {
+                    348, 707, 1094, 2941, 11665, 11667, 11668, 25309, // Immolate ranks 1-8
+                    5676, 17919, 17920, 17921, 17922, 17923, // Searing Pain ranks 1-6
+                    5740, 6219, 11677, 11678, // Rain of Fire ranks 1-4
+                    6366, 17951, 17952, 17953, // Create Firestone ranks 1-4
+                    1949, 11683, 11684, // Hellfire ranks 1-3
+                    6353, 17924 // Soul Fire ranks 1-2
+                };
+
+                for (uint16 spellId : Warlock_SM_4)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+
+            if (spell->GetSpellInfo()->SchoolMask == 32) // Shadow
+            {
+                static constexpr std::array<uint16, 74> Warlock_SM_32 =
+                {
+                    686, 695, 705, 1088, 1106, 7641, 11659, 11660, 11661, 25307, // Shadow Bolt ranks 1-10
+                    172, 6222, 6223, 7648, 11671, 11672, 25311, // Corruption ranks 1-7
+                    980, 1014, 6217, 11711, 11712, 11713, // Curse of Agony ranks 1-6
+                    702, 1108, 6205, 7646, 11707, 11708, // Curse of Weakness ranks 1-6
+                    1490, 11721, 11722, // Curse of Elements ranks 1-3
+                    689, 699, 709, 7651, 11699, 11700, // Drain Life ranks 1-6
+                    1120, 8288, 8289, 11675, // Drain Soul ranks 1-4
+                    17877, 18867, 18868, 18869, 18870, 18871, // Shadowburn ranks 1-6
+                    6229, 11739, 11740, 28610, // Shadow Ward ranks 1-4
+                    706, 1086, 11733, 11734, 11735, // Demon Armor ranks 1-5
+                    6201, 6202, 5699, 11729, 11730, // Create Healthstone ranks 1-5
+                    2362, 17727, 17728, // Create Spellstone ranks 1-3
+                    6789, 17925, 17926, // Death Coil ranks 1-3
+                    1098, 11725, // Enslave Demon ranks 1-2
+                    1714, // Curse of Tongues rank 1
+                    5484, // Howl of Terror rank 1
+                    710, // Banish rank 1
+                    603 // Curse of Doom rank 1
+                };
+
+                for (uint16 spellId : Warlock_SM_32)
+                {
+                    if (spell->GetSpellInfo()->Id == spellId)
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("This spell is not available during WotLK.");
+                        spell->cancel();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
     {
         if (!player || !player->IsInWorld())
