@@ -76,6 +76,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1732, 0, 4, 0, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, -102.2, -660.64, 7.43, 0,        'Defias Squallshaper - Is Summoned - Move Point'),
 (1763, 0, 0, 0, 0, 0, 100, 0, 2000, 3000, 23000, 44000, 0, 0, 11, 5213, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Gilnid - Within 0-5 Range - Cast Molten Metal'),
 (1763, 0, 1, 0, 1, 0, 100, 0, 120000, 120000, 120000, 120000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Gilnid - Out of Combat - Say Line 0'),
+(1763, 0, 2, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 14, 26182, 16399, 0, 0, 0, 0, 0, 0,             'Gilnid - On Just Died - Activate Gameobject'),
 (3586, 0, 0, 0, 37, 0, 60, 2, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Miner Johnson - On AI Init - Despawn (Normal Dungeon)'),
 (3586, 0, 1, 0, 0, 0, 100, 0, 1000, 7000, 34000, 56000, 0, 0, 11, 12097, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,   'Miner Johnson - Within 0-5 Range - Cast Pierce Armor'),
 (3947, 0, 0, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Goblin Shipbuilder - Between 0-15% Health - Flee For Assist (No Repeat)'),
