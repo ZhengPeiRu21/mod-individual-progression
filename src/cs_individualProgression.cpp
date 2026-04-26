@@ -192,7 +192,7 @@ public:
             return false;
         }
 
-        static constexpr std::array<uint32, 5> Faction_Checklist =
+        static constexpr std::array<uint32, 14> Faction_Checklist =
         {
             59,   // Thorium Brotherhood
             270,  // Zandalar Tribe
