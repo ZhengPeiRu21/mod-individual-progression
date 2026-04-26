@@ -442,6 +442,6 @@ IndividualProgression.EnableSetRepCommand = 0
 #                     Valid faction ids are: 
 #                     see also: https://www.wowhead.com/wotlk/factions
 #
-#        Default:     "59|270|349|529|576|609|749|909|933|970|1011|1015|1077"
+#        Default:     "59|270|349|529|576|609|749|909|933|942|970|1011|1015|1077"
 #
-IndividualProgression.sharedFactionIdsRegex = "59|270|349|529|576|609|749|909|933|970|1011|1015|1077"
+IndividualProgression.sharedFactionIdsRegex = "59|270|349|529|576|609|749|909|933|942|970|1011|1015|1077"
