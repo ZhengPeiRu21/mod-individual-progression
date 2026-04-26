@@ -425,7 +425,7 @@ IndividualProgression.ExcludedAccountsMaxLevel = 80
 
 # IndividualProgression.EnableSetRepCommand
 #
-#        Description: Enable the .ip setrep command for normal AND gm account
+#        Description: Enable the .ip setrep command for normal AND gm accounts
 #                     This command will set the reputation of certain factions to the same value as the character that has the highest value on your account.
 #                     This will only work for factions that are shared between Alliance and Horde with several exceptions like Aldor/Scryers.
 #                     Use IndividualProgression.sharedFactionIdsRegex to set the allowed factions players can share with the characters on their account.
@@ -437,9 +437,9 @@ IndividualProgression.EnableSetRepCommand = 0
 
 # IndividualProgression.sharedFactionIdsRegex
 #
-#        Description: This is a list of faction ids that the player can share with other charactesr on his account.
+#        Description: This is a list of faction ids that the player can share with other characters on their account.
 #                     EnableSetRepCommand needs to be enabled.
-#                     Valid faction ids are: 
+#                     Valid faction ids are: 59|270|349|529|576|609|749|909|933|942|970|1011|1015|1077
 #                     see also: https://www.wowhead.com/wotlk/factions
 #
 #        Default:     "59|270|349|529|576|609|749|909|933|942|970|1011|1015|1077"
