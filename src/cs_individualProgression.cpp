@@ -19,6 +19,7 @@ public:
             { "set",    HandleSetIndividualProgressionCommand,    SEC_GAMEMASTER,    Console::Yes },
             { "tele",   HandleTeleIndividualProgressionCommand,   SEC_GAMEMASTER,    Console::Yes },
             { "setbot", HandleSetBotIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
+            { "setrep", HandleSetRepIndividualProgressionCommand, SEC_GAMEMASTER,    Console::Yes },
         };
 
         static ChatCommandTable commandTable =
@@ -173,8 +174,43 @@ public:
             sIndividualProgression->checkIPPhasing(member, currentArea);
         }
 
-        handler->PSendSysMessage("Updated Progression Level for all RND bots = |cff00ffff{}|r", currentState);
+        handler->PSendSysMessage("Updated Progression Level for all bots = |cff00ffff{}|r", currentState);
         return true;
+    }
+
+    static bool HandleSetRepIndividualProgressionCommand(ChatHandler* handler)
+    {
+        Player* player = handler->GetSession()->GetPlayer();
+        uint32 accountId = handler->GetSession()->GetAccountId();
+
+        if (!player || !accountId)
+            return false;
+
+        if (!sIndividualProgression->EnableSetRepCommand)
+        {
+            handler->SendSysMessage("The .ip setrep command is currently disabled.");
+            return false;
+        }
+
+        static constexpr std::array<uint32, 5> Faction_Checklist =
+        {
+            270, // Zandalar Tribe
+            529, // Argent Dawn
+            576, // Timbermaw Hold
+            970, // Sporeggar
+            1077 // Shattered Sun Offensive
+        };
+
+        std::regex sharedFactionIdsRegex(sIndividualProgression->sharedFactionIdsRegex);
+
+        for (uint32 factionId : Faction_Checklist)
+        {
+            if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
+            {
+                sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+                return true;
+            }
+        }
     }
 
     static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, std::string location)
