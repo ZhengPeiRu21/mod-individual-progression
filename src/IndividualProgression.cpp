@@ -179,7 +179,7 @@ void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 acc
         std::string factionName = sFactionStore.LookupEntry(factionId)->name[0];
         FactionEntry const* factionEntry = sFactionStore.LookupEntry(factionId);
 
-        player->GetReputationMgr().SetReputation(factionEntry, static_cast<float>(curRep));
+        player->GetReputationMgr().SetReputation(factionEntry, static_cast<float>(newRep));
         ChatHandler(player->GetSession()).PSendSysMessage("New {} Reputation = {}", factionName, newRep);
     }
 }
