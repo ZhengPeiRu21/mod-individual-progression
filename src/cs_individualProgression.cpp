@@ -194,11 +194,20 @@ public:
 
         static constexpr std::array<uint32, 5> Faction_Checklist =
         {
-            270, // Zandalar Tribe
-            529, // Argent Dawn
-            576, // Timbermaw Hold
-            970, // Sporeggar
-            1077 // Shattered Sun Offensive
+            59,   // Thorium Brotherhood
+            270,  // Zandalar Tribe
+            349,  // Ravenholdt
+            529,  // Argent Dawn
+            576,  // Timbermaw Hold
+            609,  // Cenarion Circle
+            749,  // Hydraxian Waterlords
+            909,  // Darkmoon Faire
+            933,  // The Consortium
+            942,  // Cenarion Expedition
+            970,  // Sporeggar
+            1011, // Lower City
+            1015, // Netherwing
+            1077  // Shattered Sun Offensive
         };
 
         std::regex sharedFactionIdsRegex(sIndividualProgression->sharedFactionIdsRegex);
