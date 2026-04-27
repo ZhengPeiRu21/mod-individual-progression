@@ -182,60 +182,103 @@ public:
     {
         Player* player = handler->GetSession()->GetPlayer();
         uint32 accountId = handler->GetSession()->GetAccountId();
-
+        
         if (!player || !accountId)
             return false;
 
+        Group* group = player->GetGroup();
+        
         if (!sIndividualProgression->EnableSetRepCommand)
         {
             handler->SendSysMessage("The .ip setrep command is currently disabled.");
             return false;
         }
+        
+        if (!group)
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("You need to be in a group to use this command.");
+            return false;
+        }
 
-        static constexpr std::array<uint32, 33> Faction_Checklist =
+        static constexpr std::array<uint32, 22> Shared_Checklist =
         {
             59,   // Thorium Brotherhood
             270,  // Zandalar Tribe
             349,  // Ravenholdt
             529,  // Argent Dawn
             576,  // Timbermaw Hold
-            589,  // Wintersaber Trainers
             609,  // Cenarion Circle
-            729,  // Frostwolf Clan
-            730,  // Stormpike Guard
             749,  // Hydraxian Waterlords
-            889,  // Warsong Outriders
-            890,  // Silverwing Sentinels
             909,  // Darkmoon Faire
             933,  // The Consortium
             942,  // Cenarion Expedition
-            946,  // Honor Hold
-            947,  // Thrallmar
             970,  // Sporeggar
             989,  // Keepers of Time
             1011, // Lower City
             1015, // Netherwing
-            1037, // Alliance Vanguard
             1038, // Ogri'la
-            1052, // Horde Expedition
             1073, // The Kalu'ak
             1077, // Shattered Sun Offensive
             1090, // Kirin Tor
             1091, // The Wyrmrest Accord
-            1094, // The Silver Covenant
             1098, // Knights of the Ebon Blade
             1119, // The Sons of Hodir
-            1124, // The Sunreavers
             1156  // The Ashen Verdict
+        };
+
+        static constexpr std::array<uint32, 7> Alliance_Checklist =
+        {
+            509,  // The League of Arathor
+            589,  // Wintersaber Trainers
+            730,  // Stormpike Guard
+            890,  // Silverwing Sentinels
+            946,  // Honor Hold
+            1037, // Alliance Vanguard
+            1094  // The Silver Covenant
+        };
+
+        static constexpr std::array<uint32, 6> Horde_Checklist =
+        {
+            510,  // The Defilers
+            729,  // Frostwolf Clan
+            889,  // Warsong Outriders
+            947,  // Thrallmar
+            1052, // Horde Expedition
+            1124  // The Sunreavers
         };
 
         std::regex sharedFactionIdsRegex(sIndividualProgression->sharedFactionIdsRegex);
 
-        for (uint32 factionId : Faction_Checklist)
+        TeamId teamId = player->GetTeamId(true);
+        if (teamId == TEAM_ALLIANCE)
         {
-            if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
-                sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+            for (uint32 factionId : Shared_Checklist)
+            {
+                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
+                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+            }
+
+            for (uint32 factionId : Alliance_Checklist)
+            {
+                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
+                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+            }
         }
+        if (teamId == TEAM_HORDE)
+        {
+            for (uint32 factionId : Shared_Checklist)
+            {
+                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
+                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+            }
+
+            for (uint32 factionId : Horde_Checklist)
+            {
+                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
+                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+            }
+        }
+
         return true;
     }
 
