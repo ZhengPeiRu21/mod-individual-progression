@@ -4,6 +4,7 @@
 
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
+#include "ReputationMgr.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
@@ -143,6 +144,45 @@ uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
         } while (result->NextRow());
     }
     return progressionLevel;
+}
+
+void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 accountId, Player* player)
+{
+    if (!factionId || !accountId || !player || !player->IsInWorld())
+        return;
+
+    Group* group = player->GetGroup();
+    uint32 account = player->GetSession()->GetAccountId();
+
+    if (!group)
+        return;
+
+    uint32 curRep = player->GetReputationMgr().GetReputation(factionId);
+    uint32 newRep = 0;
+
+    for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
+    {
+        Player* member = itr->GetSource();
+        if (!member || member->GetSession()->GetAccountId() != accountId)
+            continue;
+
+        uint32 repAmount = member->GetReputationMgr().GetReputation(factionId);
+
+        if (repAmount > newRep)
+            newRep = repAmount;
+    }
+
+    // ChatHandler(player->GetSession()).PSendSysMessage("Current {} Reputation = {}", factionId, curRep);
+    // ChatHandler(player->GetSession()).PSendSysMessage("Highest {} Reputation = {}", factionId, newRep);
+
+    if (newRep > curRep)
+    {
+        std::string factionName = sFactionStore.LookupEntry(factionId)->name[0];
+        uint32 addRep = newRep - curRep;
+
+        player->GetReputationMgr().ModifyReputation(sFactionStore.LookupEntry(factionId), addRep);
+        ChatHandler(player->GetSession()).PSendSysMessage("New {} Reputation = {}", factionName, newRep);
+    }
 }
 
 void IndividualProgression::RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId)
@@ -806,8 +846,8 @@ private:
         sIndividualProgression->LoadCustomProgressionEntries(sConfigMgr->GetOption<std::string>("IndividualProgression.CustomProgression", ""));
         sIndividualProgression->earlyDungeonSet2 = sConfigMgr->GetOption<bool>("IndividualProgression.AllowEarlyDungeonSet2", false);
         sIndividualProgression->earlyScourgeBosses = sConfigMgr->GetOption<bool>("IndividualProgression.AllowEarlyScourgeBosses", false);
-		sIndividualProgression->tbcArenaSeason = sConfigMgr->GetOption<uint8>("IndividualProgression.TBC.ArenaSeason", 1);
-		sIndividualProgression->wotlkArenaSeason = sConfigMgr->GetOption<uint8>("IndividualProgression.WotLK.ArenaSeason", 5);
+        sIndividualProgression->tbcArenaSeason = sConfigMgr->GetOption<uint8>("IndividualProgression.TBC.ArenaSeason", 1);
+        sIndividualProgression->wotlkArenaSeason = sConfigMgr->GetOption<uint8>("IndividualProgression.WotLK.ArenaSeason", 5);
         sIndividualProgression->VanillaPvpKillRank1 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank1", 100);
         sIndividualProgression->VanillaPvpKillRank2 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank2", 200);
         sIndividualProgression->VanillaPvpKillRank3 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank3", 400);
@@ -829,6 +869,7 @@ private:
         sIndividualProgression->DisableQuestMarkers = sConfigMgr->GetOption<bool>("IndividualProgression.DisableQuestMarkers", true);
         sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "^RNDBOT.*");
+        sIndividualProgression->sharedFactionIdsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.sharedFactionIdsRegex", "59|270|349|509|510|529|576|589|609|729|730|749|889|890|909");
         sIndividualProgression->ExcludedAccountsMaxLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.ExcludedAccountsMaxLevel", 80);
     }
 
