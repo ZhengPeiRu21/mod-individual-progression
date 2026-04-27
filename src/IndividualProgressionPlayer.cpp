@@ -1153,14 +1153,20 @@ public:
         {
             return true;
         }
+
+        // Check if the account is excluded from progression (bots)
+        std::string accountName;
+        bool accountNameFound = AccountMgr::GetName(accountId, accountName);
+        std::regex excludedAccountsRegex(sIndividualProgression->excludedAccountsRegex);
+  
+        if (accountNameFound && std::regex_match(accountName, excludedAccountsRegex))
+			return true;
+
         uint8 highestProgression = sIndividualProgression->GetAccountProgression(accountId);
         if (charRace == RACE_DRAENEI || charRace == RACE_BLOODELF)
         {
-            if (sIndividualProgression->tbcRacesProgressionLevel)
-            {
-                if (highestProgression < sIndividualProgression->tbcRacesProgressionLevel)
-                    return false;
-            }
+            if (highestProgression < sIndividualProgression->tbcRacesProgressionLevel)
+                return false;
         }
         if (charClass == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightProgressionLevel)
         {
