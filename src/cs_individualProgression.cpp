@@ -234,11 +234,9 @@ public:
         for (uint32 factionId : Faction_Checklist)
         {
             if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
-            {
                 sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
-                return true;
-            }
         }
+        return true;
     }
 
     static bool HandleTeleIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player, std::string location)
