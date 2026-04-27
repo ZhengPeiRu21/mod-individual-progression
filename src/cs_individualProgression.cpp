@@ -192,22 +192,41 @@ public:
             return false;
         }
 
-        static constexpr std::array<uint32, 14> Faction_Checklist =
+        static constexpr std::array<uint32, 33> Faction_Checklist =
         {
             59,   // Thorium Brotherhood
             270,  // Zandalar Tribe
             349,  // Ravenholdt
             529,  // Argent Dawn
             576,  // Timbermaw Hold
+            589,  // Wintersaber Trainers
             609,  // Cenarion Circle
+            729,  // Frostwolf Clan
+            730,  // Stormpike Guard
             749,  // Hydraxian Waterlords
+            889,  // Warsong Outriders
+            890,  // Silverwing Sentinels
             909,  // Darkmoon Faire
             933,  // The Consortium
             942,  // Cenarion Expedition
+            946,  // Honor Hold
+            947,  // Thrallmar
             970,  // Sporeggar
+            989,  // Keepers of Time
             1011, // Lower City
             1015, // Netherwing
-            1077  // Shattered Sun Offensive
+            1037, // Alliance Vanguard
+            1038, // Ogri'la
+            1052, // Horde Expedition
+            1073, // The Kalu'ak
+            1077, // Shattered Sun Offensive
+            1090, // Kirin Tor
+            1091, // The Wyrmrest Accord
+            1094, // The Silver Covenant
+            1098, // Knights of the Ebon Blade
+            1119, // The Sons of Hodir
+            1124, // The Sunreavers
+            1156  // The Ashen Verdict
         };
 
         std::regex sharedFactionIdsRegex(sIndividualProgression->sharedFactionIdsRegex);
