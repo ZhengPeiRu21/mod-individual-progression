@@ -151,35 +151,36 @@ void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 acc
     if (!factionId || !accountId || !player || !player->IsInWorld())
         return;
 
+    Group* group = player->GetGroup();
+    uint32 account = player->GetSession()->GetAccountId();
+
+    if (!group)
+        return;
+
     uint32 curRep = player->GetReputationMgr().GetReputation(factionId);
     uint32 newRep = 0;
 
-    if (!curRep)
-        curRep = 0;
-
-    // Query reputation value for all characters on the account
-    QueryResult result = CharacterDatabase.Query(
-        "SELECT standing FROM character_reputation WHERE faction = {} AND guid IN(SELECT guid FROM characters WHERE ACCOUNT = {});",
-        factionId, accountId);
-
-    // set current reputation to the highest reputation value found on the account for the given faction
-    if (result)
+    for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
     {
-        do
-        {
-            uint32 repAmount = (*result)[0].Get<uint32>();
+        Player* member = itr->GetSource();
+        if (!member || member->GetSession()->GetAccountId() != accountId)
+            continue;
 
-            if (repAmount > newRep)
-                newRep = repAmount;
-        } while (result->NextRow());
+        uint32 repAmount = member->GetReputationMgr().GetReputation(factionId);
+
+        if (repAmount > newRep)
+            newRep = repAmount;
     }
+
+    // ChatHandler(player->GetSession()).PSendSysMessage("Current {} Reputation = {}", factionId, curRep);
+    // ChatHandler(player->GetSession()).PSendSysMessage("Highest {} Reputation = {}", factionId, newRep);
 
     if (newRep > curRep)
     {
         std::string factionName = sFactionStore.LookupEntry(factionId)->name[0];
-        FactionEntry const* factionEntry = sFactionStore.LookupEntry(factionId);
+        uint32 addRep = newRep - curRep;
 
-        player->GetReputationMgr().SetReputation(factionEntry, static_cast<float>(newRep));
+        player->GetReputationMgr().ModifyReputation(sFactionStore.LookupEntry(factionId), addRep);
         ChatHandler(player->GetSession()).PSendSysMessage("New {} Reputation = {}", factionName, newRep);
     }
 }
