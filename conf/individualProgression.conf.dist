@@ -422,3 +422,30 @@ IndividualProgression.ExcludedAccountsRegex = "^RNDBOT.*"
 #        Default:     80
 #
 IndividualProgression.ExcludedAccountsMaxLevel = 80
+
+# IndividualProgression.EnableSetRepCommand
+#
+#        Description: Enable the .ip setrep command for normal AND gm accounts
+#                     This command will set the reputation of certain factions to the same value as the character that has the highest value on your account.
+#                     This will only work for factions that are shared between Alliance and Horde with several exceptions like Aldor/Scryers.
+#                     Use IndividualProgression.sharedFactionIdsRegex to set the allowed factions players can share with the characters on their account.
+#
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.EnableSetRepCommand = 0
+
+# IndividualProgression.sharedFactionIdsRegex
+#
+#        Description: This is a list of faction ids that the player can share with other characters on their account.
+#                     EnableSetRepCommand needs to be enabled.
+#                     Valid faction ids are: 
+#                     - vanilla = 59|270|349|509|510|529|576|589|609|729|730|749|889|890|909
+#                     - tbc     = 933|942|946|947|970|989|1011|1015|1038|1077
+#                     - wotlk   = 1037|1052|1073|1090|1091|1094|1098|1119|1124|1156
+#
+#                     see also: https://www.wowhead.com/wotlk/factions
+#
+#        Default:     "59|270|349|509|510|529|576|589|609|729|730|749|889|890|909"
+#
+IndividualProgression.sharedFactionIdsRegex = "59|270|349|509|510|529|576|589|609|729|730|749|889|890|909"
