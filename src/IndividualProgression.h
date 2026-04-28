@@ -422,6 +422,7 @@ public:
     void checkIPProgression(Player* player);
     void UpdateProgressionAchievements(Player* player, uint16 achievementID);
     void checkKillProgression(Player* player, Creature* killed);
+	void UpdateAccountReputation(uint32 factionId, uint32 accountId, Player* player);
     void CleanUpVanillaPvpTitles(Player* player);
     void AwardEarnedVanillaPvpTitles(Player* player);
     static void LoadCustomProgressionEntries(const std::string& customProgressionString);
