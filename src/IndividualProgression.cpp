@@ -782,37 +782,39 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
             { VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
 		};
 
-	    if (!hasPassedProgression(player, PROGRESSION_PRE_TBC) || VanillaPvpTitlesEarnPostVanilla)
+        int highestTitle = -1;
+
+        // add highest title
+        for (IppPvPTitles title : pvpTitlesList)
         {
-            int highestTitle = -1;
-
-            // add highest title
-            for (IppPvPTitles title : pvpTitlesList)
+            if (kills >= title.RequiredKills)
             {
-                if (kills >= title.RequiredKills)
-                {
-                    player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
-                    highestTitle = title.TitleId;
-                    break;
-                }
+                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
+                highestTitle = title.TitleId;
+					
+                if (teamId == 0)
+                    player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId + 4);
+                else // teamId == 1
+                    player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId - 10);
+							
+                break;
             }
-
-			const uint32_t chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
-			// PvP Titles go from 1 to 28.
-			const bool usesPvPTitle = chosenTitleId != 0 && chosenTitleId < 29;
-
-            // remove all titles except highest
-            for (IppPvPTitles title : pvpTitlesList)
-            {
-                const int titleId = title.TitleId;
-
-                if (highestTitle != titleId)
-                    player->SetTitle(sCharTitlesStore.LookupEntry(titleId), true);
-            }
-
-			if (highestTitle != -1 && usesPvPTitle)
-				player->SetCurrentTitle(sCharTitlesStore.LookupEntry(highestTitle));
         }
+
+        const uint32_t chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
+        const bool usesPvPTitle = ((chosenTitleId != 0 && chosenTitleId < 29) || isExcludedFromProgression(player)); // PvP Titles go from 1 to 28.
+
+        // remove all titles except highest
+        for (IppPvPTitles title : pvpTitlesList)
+        {
+            const int titleId = title.TitleId;
+
+            if (highestTitle != titleId)
+                player->SetTitle(sCharTitlesStore.LookupEntry(titleId), true);
+        }
+
+        if (highestTitle != -1 && usesPvPTitle)
+            player->SetCurrentTitle(sCharTitlesStore.LookupEntry(highestTitle));
     }
 }
 
