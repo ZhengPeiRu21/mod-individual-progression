@@ -181,7 +181,7 @@ void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 acc
         uint32 addRep = newRep - curRep;
 
         player->GetReputationMgr().ModifyReputation(sFactionStore.LookupEntry(factionId), addRep);
-        ChatHandler(player->GetSession()).PSendSysMessage("New {} Reputation = {}", factionName, newRep);
+        ChatHandler(player->GetSession()).PSendSysMessage("{} reputation increased by {}", factionName, addRep);
     }
 }
 
