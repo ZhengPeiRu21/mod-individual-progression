@@ -200,7 +200,7 @@ public:
             return false;
         }
 
-        static constexpr std::array<uint32, 22> Shared_Checklist =
+        static constexpr std::array<uint32, 26> Shared_Checklist =
         {
             59,   // Thorium Brotherhood
             270,  // Zandalar Tribe
@@ -212,10 +212,14 @@ public:
             909,  // Darkmoon Faire
             933,  // The Consortium
             942,  // Cenarion Expedition
+            967,  // The Violet Eye
             970,  // Sporeggar
             989,  // Keepers of Time
+            990,  // The Scale of the Sands
             1011, // Lower City
+            1012, // Ashtongue Deathsworn
             1015, // Netherwing
+            1031, // Sha'tari Skyguard
             1038, // Ogri'la
             1073, // The Kalu'ak
             1077, // Shattered Sun Offensive
@@ -226,22 +230,25 @@ public:
             1156  // The Ashen Verdict
         };
 
-        static constexpr std::array<uint32, 7> Alliance_Checklist =
+        static constexpr std::array<uint32, 8> Alliance_Checklist =
         {
             509,  // The League of Arathor
             589,  // Wintersaber Trainers
             730,  // Stormpike Guard
             890,  // Silverwing Sentinels
             946,  // Honor Hold
+            978,  // Kurenai
             1037, // Alliance Vanguard
             1094  // The Silver Covenant
         };
 
-        static constexpr std::array<uint32, 6> Horde_Checklist =
+        static constexpr std::array<uint32, 8> Horde_Checklist =
         {
             510,  // The Defilers
             729,  // Frostwolf Clan
             889,  // Warsong Outriders
+            922,  // Tranquillien
+            941,  // Mag'har
             947,  // Thrallmar
             1052, // Horde Expedition
             1124  // The Sunreavers
