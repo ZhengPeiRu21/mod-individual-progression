@@ -428,7 +428,7 @@ IndividualProgression.ExcludedAccountsMaxLevel = 80
 #        Description: Enable the .ip setrep command for normal AND gm accounts
 #                     This command will set the reputation of certain factions to the same value as the character that has the highest value on your account.
 #                     This will not work for factions like Aldor/Scryers, because characters could have made different choices.
-#                     To avoid abuse this command will by default not work for factions you aren't already honored with.
+#                     To avoid abuse this command will by default not work for factions you aren't already neutral/friend/honored with. (depending on the faction)
 #                     Use IndividualProgression.sharedFactionIdsRegex to set the allowed factions players can share with the characters on their account.
 #
 #        Default:     0 - Disabled
