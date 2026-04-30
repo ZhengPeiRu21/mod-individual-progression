@@ -276,42 +276,42 @@ public:
 
         std::regex sharedFactionIdsRegex(sIndividualProgression->sharedFactionIdsRegex);
         TeamId teamId = player->GetTeamId(true);
-        
+
+        for (uint32 factionId : Shared_Honored_Checklist)
+        {
+            if (sIndividualProgression->LimitedSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
+                continue;
+
+            if ((factionId == 910 || factionId == 932 || factionId == 934) && player->GetReputationRank(factionId) < REP_HONORED) // Skip if not Honored
+                continue;
+
+            if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
+                sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+        }
+
+        for (uint32 factionId : Shared_Friendly_Checklist)
+        {
+            if (sIndividualProgression->LimitedSetRepCommand && player->GetReputationRank(factionId) < REP_FRIENDLY)
+                continue;
+
+            if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
+                sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+        }
+
+        for (uint32 factionId : Shared_Neutral_Checklist)
+        {
+            if (sIndividualProgression->LimitedSetRepCommand && player->GetReputationRank(factionId) < REP_NEUTRAL)
+                continue;
+
+            if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
+                sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
+        }
+
         if (teamId == TEAM_ALLIANCE)
         {
-            for (uint32 factionId : Shared_Honored_Checklist)
-            {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
-                    continue;
-
-                if ((factionId == 910 || factionId == 932 || factionId == 934) && player->GetReputationRank(factionId) < REP_HONORED) // Skip if not Honored
-                    continue;
-
-                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
-                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
-            }
-
-            for (uint32 factionId : Shared_Friendly_Checklist)
-            {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_FRIENDLY)
-                    continue;
-
-                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
-                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
-            }
-
-            for (uint32 factionId : Shared_Neutral_Checklist)
-            {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_NEUTRAL)
-                    continue;
-
-                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
-                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
-            }
-
             for (uint32 factionId : Alliance_Honored_Checklist)
             {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
+                if (sIndividualProgression->LimitedSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
                     continue;
 
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
@@ -320,40 +320,19 @@ public:
 
             for (uint32 factionId : Alliance_Neutral_Checklist)
             {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_NEUTRAL)
+                if (sIndividualProgression->LimitedSetRepCommand && player->GetReputationRank(factionId) < REP_NEUTRAL)
                     continue;
 
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
         }
-        
+
         if (teamId == TEAM_HORDE)
         {
-            for (uint32 factionId : Shared_Honored_Checklist)
-            {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
-                    continue;
-
-                if ((factionId == 910 || factionId == 932 || factionId == 934) && player->GetReputationRank(factionId) < REP_HONORED) // Skip if not Honored
-                    continue;
-                
-                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
-                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
-            }
-
-            for (uint32 factionId : Shared_Neutral_Checklist)
-            {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_NEUTRAL)
-                    continue;
-
-                if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
-                    sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
-            }
-
             for (uint32 factionId : Horde_Honored_Checklist)
             {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
+                if (sIndividualProgression->LimitedSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
                     continue;
 
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
@@ -362,7 +341,7 @@ public:
 
             for (uint32 factionId : Horde_Neutral_Checklist)
             {
-                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_NEUTRAL)
+                if (sIndividualProgression->LimitedSetRepCommand && player->GetReputationRank(factionId) < REP_NEUTRAL)
                     continue;
 
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
