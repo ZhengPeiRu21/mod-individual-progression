@@ -181,15 +181,15 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 --
 (@CGUID+313, 0, 0, 1, 0, 0, 0, NULL),    -- Wing Commander Ichman, sitting
 -- (@CGUID+314, 0, 0, 1, 0, 0, 0, NULL), -- Wing Commander Slidore, stands
-(@CGUID+315, 0, 0, 1, 0, 0, 0, NULL),    -- Wing Commander Vipore, sitting (not working for some reason)
+(@CGUID+315, 0, 0, 1, 0, 0, 0, NULL),    -- Wing Commander Vipore, sitting
 (@CGUID+413, 0, 0, 3, 0, 0, 0, NULL),    -- Wing Commander Guse, sleeping
 (@CGUID+414, 0, 0, 3, 0, 0, 0, NULL),    -- Wing Commander Jeztor, sleeping
-(@CGUID+415, 0, 0, 3, 0, 0, 0, NULL);    -- Wing Commander Mulverick, sleeping (not working for some reason)
+(@CGUID+415, 0, 0, 3, 0, 0, 0, NULL);    -- Wing Commander Mulverick, sleeping
 
 DELETE FROM `creature_addon` WHERE `guid` IN 
-(@CGUID+301, @CGUID+307, @CGUID+309, @CGUID+310, @CGUID+312, @CGUID+315, @CGUID+626, @CGUID+627, @CGUID+628, @CGUID+629, @CGUID+630, @CGUID+645,
+(@CGUID+301, @CGUID+307, @CGUID+309, @CGUID+310, @CGUID+312, @CGUID+626, @CGUID+627, @CGUID+628, @CGUID+629, @CGUID+630, @CGUID+645,
  @CGUID+647, @CGUID+649, @CGUID+651, @CGUID+653, @CGUID+655, @CGUID+657, @CGUID+659, @CGUID+661, @CGUID+662, @CGUID+683, @CGUID+684,
- @CGUID+408, @CGUID+409, @CGUID+412, @CGUID+415, @CGUID+732, @CGUID+734, @CGUID+736, @CGUID+738, @CGUID+740, @CGUID+742, @CGUID+744, @CGUID+745, 
+ @CGUID+408, @CGUID+409, @CGUID+412, @CGUID+732, @CGUID+734, @CGUID+736, @CGUID+738, @CGUID+740, @CGUID+742, @CGUID+744, @CGUID+745, 
  @CGUID+746, @CGUID+747, @CGUID+748, @CGUID+749, @CGUID+751, @CGUID+753, @CGUID+755, @CGUID+757, @CGUID+759, @CGUID+761, @CGUID+763);
 
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
@@ -1186,12 +1186,18 @@ DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 28 AND `SourceEntry` 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
-(28, 0, 18142, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Severed Night Elf Head only drops inside Alterac Valley Battleground'),
-(28, 0, 18143, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tuft of Gnome Hair only drops inside Alterac Valley Battleground'),
-(28, 0, 18144, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Human Bone Chip only drops inside Alterac Valley Battleground'),
-(28, 0, 18145, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tauren Hoof only drops inside Alterac Valley Battleground'),
-(28, 0, 18146, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Darkspear Troll Mojo only drops inside Alterac Valley Battleground'),
-(28, 0, 18147, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Forsaken Heart only drops inside Alterac Valley Battleground');
+(28, 0, 18142, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',  'Severed Night Elf Head only drops inside Alterac Valley Battleground'),
+(28, 0, 18142, 0, 1, 16, 0, 8, 0, 0, 0, 0, 0, '',   'Severed Night Elf Head only drops from Night Elves'),
+(28, 0, 18143, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',  'Tuft of Gnome Hair only drops inside Alterac Valley Battleground'),
+(28, 0, 18143, 0, 1, 16, 0, 64, 0, 0, 0, 0, 0, '',  'Tuft of Gnome Hair only drops from Gnomes'),
+(28, 0, 18144, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',  'Human Bone Chip only drops inside Alterac Valley Battleground'),
+(28, 0, 18144, 0, 1, 16, 0, 1, 0, 0, 0, 0, 0, '',   'Human Bone Chip only drops from Humans'),
+(28, 0, 18145, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',  'Tauren Hoof only drops inside Alterac Valley Battleground'),
+(28, 0, 18145, 0, 1, 16, 0, 32, 0, 0, 0, 0, 0, '',  'Tauren Hoof only drops from Taurens'),
+(28, 0, 18146, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',  'Darkspear Troll Mojo only drops inside Alterac Valley Battleground'),
+(28, 0, 18146, 0, 1, 16, 0, 128, 0, 0, 0, 0, 0, '', 'Darkspear Troll Mojo only drops from Trolls'),
+(28, 0, 18147, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',  'Forsaken Heart only drops inside Alterac Valley Battleground'),
+(28, 0, 18147, 0, 1, 16, 0, 16, 0, 0, 0, 0, 0, '',  'Forsaken Heart only drops from Forsaken');
 
 
 /* CREATURE COPIES */
@@ -1494,18 +1500,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (112127, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 7000, 9000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Stormpike Guardsman - In Combat - Cast Strike'),
 
 (113358, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(113358, 0, 1, 0, 9, 1, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
--- (113358, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stormpike Bowman - Out of Combat - Stop Attacking'),
--- (113358, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Bowman - On Aggro - Cast Shoot'),
--- (113358, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Stormpike Bowman - Within 0-80 Range - Set Sheath Ranged'),
--- (113358, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Bowman - On Evade - Set Sheath Melee (No Repeat)'),
+(113358, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
+(113358, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2300, 3900, 0, 0, 11, 22121, 64, 0, 0, 0, 0, 21, 80, 0, 0, 0, 0, 0, 0, 0,        'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
 
 (113359, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(113359, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
--- (113359, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Frostwolf Bowman - Out of Combat - Stop Attacking'),
--- (113359, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bowman - On Aggro - Cast Shoot'),
--- (113359, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf Bowman - Within 0-80 Range - Set Sheath Ranged'),
--- (113359, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Bowman - On Evade - Set Sheath Melee (No Repeat)'),
+(113359, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
+(113359, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2300, 3900, 0, 0, 11, 22121, 64, 0, 0, 0, 0, 21, 80, 0, 0, 0, 0, 0, 0, 0,        'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
 
 (114282, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bloodhound - In Combat - Cast Thrash'),
 (114283, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Owl - In Combat - Cast Thrash'),
@@ -1517,7 +1517,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (122766, 0, 0, 1, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (122766, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stormpike Bowman - Out of Combat - Stop Attacking'),
 (122766, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Bowman - On Aggro - Cast Shoot'),
-(122766, 0, 3, 4, 9, 1, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
+(122766, 0, 3, 4, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
 (122766, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Stormpike Bowman - Within 0-80 Range - Set Sheath Ranged'),
 (122766, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Bowman - On Evade - Set Sheath Melee (No Repeat)'),
 (122739, 0, 0, 1, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
@@ -1529,7 +1529,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (132089, 0, 0, 1, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (132089, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stormpike Bowman - Out of Combat - Stop Attacking'),
 (132089, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Bowman - On Aggro - Cast Shoot'),
-(132089, 0, 3, 4, 9, 1, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
+(132089, 0, 3, 4, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
 (132089, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Stormpike Bowman - Within 0-80 Range - Set Sheath Ranged'),
 (132089, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Bowman - On Evade - Set Sheath Melee (No Repeat)'),
 (131978, 0, 0, 1, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
