@@ -218,11 +218,12 @@ public:
             1156  // The Ashen Verdict
         };
 
-        static constexpr std::array<uint32, 6> Shared_Friendly_Checklist =
+        static constexpr std::array<uint32, 7> Shared_Friendly_Checklist =
         {
             59,   // Thorium Brotherhood
             529,  // Argent Dawn
             609,  // Cenarion Circle
+            935,  // The Sha'tar
             1031, // Sha'tari Skyguard
             1038, // Ogri'la
             1098  // Knights of the Ebon Blade
