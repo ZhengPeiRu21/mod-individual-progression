@@ -261,12 +261,18 @@ public:
         {
             for (uint32 factionId : Shared_Checklist)
             {
+                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
+                    continue;
+                
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
 
             for (uint32 factionId : Alliance_Checklist)
             {
+                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
+                    continue;
+                
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
@@ -275,12 +281,18 @@ public:
         {
             for (uint32 factionId : Shared_Checklist)
             {
+                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
+                    continue;
+                
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
 
             for (uint32 factionId : Horde_Checklist)
             {
+                if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
+                    continue;
+                
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
