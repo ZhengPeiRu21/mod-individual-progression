@@ -452,7 +452,7 @@ IndividualProgression.HonoredSetRepCommand = 1
 #        Description: This is a list of faction ids that the player can share with other characters on their account.
 #                     EnableSetRepCommand needs to be enabled.
 #                     Valid faction ids are: 
-#                     - vanilla = 59|270|349|509|510|529|576|589|609|729|730|749|889|890|909
+#                     - vanilla = 59|270|349|509|510|529|576|589|609|729|730|749|889|890|909|910
 #                     - tbc     = 922|932|933|934|935|941|942|946|947|967|970|978|989|990|1011|1012|1015|1031|1038|1077
 #                     - wotlk   = 1037|1052|1073|1090|1091|1094|1098|1119|1124|1156
 #
