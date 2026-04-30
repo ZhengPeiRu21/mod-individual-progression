@@ -200,36 +200,35 @@ public:
             return false;
         }
 
-        static constexpr std::array<uint32, 14> Shared_Honored_Checklist =
+        static constexpr std::array<uint32, 10> Shared_Honored_Checklist =
         {
+            910,  // Brood of Nozdormu
             932,  // The Aldor
             933,  // The Consortium
             934,  // The Scryers
             942,  // Cenarion Expedition
-            967,  // The Violet Eye
             989,  // Keepers of Time
-            990,  // The Scale of the Sands
             1011, // Lower City
-            1012, // Ashtongue Deathsworn
             1073, // The Kalu'ak
             1090, // Kirin Tor
-            1091, // The Wyrmrest Accord
-            1119, // The Sons of Hodir
-            1156  // The Ashen Verdict
+            1098  // Knights of the Ebon Blade
         };
 
-        static constexpr std::array<uint32, 7> Shared_Friendly_Checklist =
+        static constexpr std::array<uint32, 10> Shared_Friendly_Checklist =
         {
             59,   // Thorium Brotherhood
             529,  // Argent Dawn
             609,  // Cenarion Circle
             935,  // The Sha'tar
+            967,  // The Violet Eye
+            990,  // The Scale of the Sands
+            1012, // Ashtongue Deathsworn
             1031, // Sha'tari Skyguard
-            1038, // Ogri'la
-            1098  // Knights of the Ebon Blade
+            1091, // The Wyrmrest Accord
+            1119  // The Sons of Hodir
         };
 
-        static constexpr std::array<uint32, 8> Shared_Neutral_Checklist =
+        static constexpr std::array<uint32, 10> Shared_Neutral_Checklist =
         {
             270,  // Zandalar Tribe
             349,  // Ravenholdt
@@ -238,7 +237,9 @@ public:
             909,  // Darkmoon Faire
             970,  // Sporeggar
             1015, // Netherwing
-            1077  // Shattered Sun Offensive
+            1038, // Ogri'la
+            1077, // Shattered Sun Offensive
+            1156  // The Ashen Verdict
         };
 
         static constexpr std::array<uint32, 4> Alliance_Honored_Checklist =
@@ -275,7 +276,7 @@ public:
 
         std::regex sharedFactionIdsRegex(sIndividualProgression->sharedFactionIdsRegex);
         TeamId teamId = player->GetTeamId(true);
-
+        
         if (teamId == TEAM_ALLIANCE)
         {
             for (uint32 factionId : Shared_Honored_Checklist)
@@ -283,9 +284,9 @@ public:
                 if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
                     continue;
 
-                if ((factionId == 932 || factionId == 934) && player->GetReputationRank(factionId) < REP_HONORED) // Skip Aldor and Scryers if not Honored, as they are mutually exclusive factions
+                if ((factionId == 910 || factionId == 932 || factionId == 934) && player->GetReputationRank(factionId) < REP_HONORED) // Skip if not Honored
                     continue;
-                
+
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
@@ -294,7 +295,7 @@ public:
             {
                 if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_FRIENDLY)
                     continue;
-               
+
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
@@ -326,7 +327,7 @@ public:
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
         }
-
+        
         if (teamId == TEAM_HORDE)
         {
             for (uint32 factionId : Shared_Honored_Checklist)
@@ -334,6 +335,9 @@ public:
                 if (sIndividualProgression->HonoredSetRepCommand && player->GetReputationRank(factionId) < REP_HONORED)
                     continue;
 
+                if ((factionId == 910 || factionId == 932 || factionId == 934) && player->GetReputationRank(factionId) < REP_HONORED) // Skip if not Honored
+                    continue;
+                
                 if (std::regex_match(std::to_string(factionId), sharedFactionIdsRegex))
                     sIndividualProgression->UpdateAccountReputation(factionId, accountId, player);
             }
