@@ -439,7 +439,7 @@ IndividualProgression.EnableSetRepCommand = 0
 # IndividualProgression.HonoredSetRepCommand
 #
 #        Description: To avoid abuse, the player needs to be at least honored already with a faction to gain reputation for it.
-#                     This will help prevent a group of 5 characters to hand in a quest 1 by 1 and use the '.ip set' command in between each time to get 5x the reputation.
+#                     This will help prevent a group of 5 characters to hand in a quest 1 by 1 and use the '.ip setrep' command in between each time to get 5x the reputation.
 #                     Needing to be honored means you already did most quests or already put in some reputation grind yourself.
 #                     (There are a few exceptions like the Cenarion Expedition, that many players will not do quests for until they are honored.)
 #
