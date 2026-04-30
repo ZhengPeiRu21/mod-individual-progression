@@ -441,6 +441,7 @@ IndividualProgression.EnableSetRepCommand = 0
 #                     This will help prevent a group of 5 characters to hand in a quest 1 by 1 and use the '.ip setrep' command in between each time to get 5x the reputation.
 #                     Needing to be honored means you already did most quests or already put in some reputation grind yourself.
 #                     PvP factions will require neutral reputation, so they are not effected. (see: cs_individualProgression.cpp for the full list)
+#                     The Aldor, The Scryers and the Brood of Nozdormu are exceptions. You need to be honored with them, even if this setting is disabled.
 #
 #        Default:     1 - Enabled
 #                     0 - Disabled
