@@ -427,13 +427,26 @@ IndividualProgression.ExcludedAccountsMaxLevel = 80
 #
 #        Description: Enable the .ip setrep command for normal AND gm accounts
 #                     This command will set the reputation of certain factions to the same value as the character that has the highest value on your account.
-#                     This will not work for factions like Aldor/Scryers, because characters could have made different choices.
+#                     This will not work for factionss like Aldor/Scryers, because characters could have made different choices.
+#                     To avoid abuse this command will by default not work for factions you aren't already honored with.
 #                     Use IndividualProgression.sharedFactionIdsRegex to set the allowed factions players can share with the characters on their account.
 #
 #        Default:     0 - Disabled
 #                     1 - Enabled
 #
 IndividualProgression.EnableSetRepCommand = 0
+
+# IndividualProgression.HonoredSetRepCommand
+#
+#        Description: To avoid abuse, the player needs to be at least honored already with a faction to gain reputation for it.
+#                     This will help prevent a group of 5 characters to hand in a quest 1 by 1 and use the '.ip set' command in between each time to get 5x the reputation.
+#                     Needing to be honored means you already did most quests or already put in some reputation grind yourself.
+#                     (There are a few exceptions like the Cenarion Expedition, that many players will not do quests for until they are honored.)
+#
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+IndividualProgression.HonoredSetRepCommand = 1
 
 # IndividualProgression.sharedFactionIdsRegex
 #
