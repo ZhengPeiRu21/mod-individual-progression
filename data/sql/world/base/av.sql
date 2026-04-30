@@ -1107,13 +1107,14 @@ DELETE FROM `creature_queststarter` WHERE `id` = 12096 AND `quest` = 7122;
 DELETE FROM `creature_queststarter` WHERE `id` = 12097 AND `quest` = 7124;
 DELETE FROM `creature_queststarter` WHERE `id` IN (13153, 13154, 13319, 13320, 13377, 13597, 13598, 14185, 14186, 14187, 14188);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-
 (12096, 7122), -- Capture a Mine (alliance)
 (12097, 7124), -- Capture a Mine (horde)
 (13153, 7302), -- Fallen Sky Lords (Commander Mulfort, horde)
 (13154, 7281), -- Brotherly Love (Commander Louis Philips, horde)
+(13154, 7363), -- The Human Condition
 (13319, 7301), -- Fallen Sky Lords (Commander Duffy, alliance)
 (13320, 7282), -- Brotherly Love (Commander Karl Philips, alliance)
+(13320, 7366), -- The Archbishop's Mercy
 (13377, 6861), -- Zinfizzlex's Portable Shredder Unit (horde)
 (13377, 6862), -- Zinfizzlex's Portable Shredder Unit (alliance)
 (13597, 7368), -- Defusing the Threat (horde)
@@ -1123,14 +1124,23 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (14187, 7365), -- Staghelm's Requiem
 (14188, 7364); -- Gnomeregan Bounty
 
-DELETE FROM `creature_questender` WHERE `id` IN (13153, 13154, 13319, 13320, 13377, 13597, 13598, 14185, 14186, 14187, 14188);
+DELETE FROM `gameobject_queststarter` WHERE `quest` IN (7401, 7402);
+INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES 
+(179438, 7401), -- Wanted: Dwarves!
+(179437, 7402); -- WANTED: Orcs!
+
+DELETE FROM `creature_questender` WHERE `id` IN (13153, 13154, 13319, 13320, 13377, 13447, 13448, 13597, 13598, 14185, 14186, 14187, 14188);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (13153, 7302), -- Fallen Sky Lords (Commander Mulfort, horde)
 (13154, 7281), -- Brotherly Love (Commander Louis Philips, horde)
+(13154, 7363), -- The Human Condition
 (13319, 7301), -- Fallen Sky Lords  (Commander Duffy, alliance)
 (13320, 7282), -- Brotherly Love (Commander Karl Philips, alliance)
+(13320, 7366), -- The Archbishop's Mercy
 (13377, 6861), -- Zinfizzlex's Portable Shredder Unit (horde)
 (13377, 6862), -- Zinfizzlex's Portable Shredder Unit (alliance)
+(13447, 7402), -- WANTED: Orcs!
+(13448, 7401), -- Wanted: Dwarves!
 (13597, 7368), -- Defusing the Threat (horde)
 (13598, 7367), -- Defusing the Threat (alliance)
 (14185, 7361), -- Favor amongst the Darkspear
@@ -1139,10 +1149,10 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (14188, 7364); -- Gnomeregan Bounty
 
 UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (7367, 7368);
-UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (7301, 7302);
+UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (7301, 7302); -- QUEST_SPECIAL_FLAGS_EXPLORATION_OR_EVENT
 
 -- restore vanilla AV quests
-DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (7181, 7202, 7381, 7382);
+DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (7181, 7202, 7381, 7382); -- Korrak quests
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` IN (7181, 7202, 7381, 7382, 8271, 8272);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
@@ -1160,8 +1170,28 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7181 WHERE `ID` = 7381;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7202 WHERE `ID` = 7382;
+UPDATE `quest_template_addon` SET `SpecialFlags` = 0   WHERE `ID` IN (7081, 7082, 7181, 7381, 7202, 7382);
 
-UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `id` IN (7081, 7082, 7181, 7381, 7202, 7382);
+DELETE FROM `player_loot_template` WHERE `Item` IN (18142, 18143, 18144, 18145, 18146, 18147);
+INSERT INTO `player_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+--
+(0, 18142, 0, 100, 0, 1, 0, 1, 1, 'Alterac Valley - Alliance - Severed Night Elf Head'),
+(0, 18143, 0, 100, 0, 1, 0, 1, 1, 'Alterac Valley - Alliance - Tuft of Gnome Hair'),
+(0, 18144, 0, 100, 0, 1, 0, 1, 1, 'Alterac Valley - Alliance - Human Bone Chip'),
+(0, 18145, 0, 100, 0, 1, 0, 1, 1, 'Alterac Valley - Horde - Tauren Hoof'),
+(0, 18146, 0, 100, 0, 1, 0, 1, 1, 'Alterac Valley - Horde - Darkspear Troll Mojo'),
+(0, 18147, 0, 100, 0, 1, 0, 1, 1, 'Alterac Valley - Horde - Forsaken Heart');
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 28 AND `SourceEntry` IN (18142, 18143, 18144, 18145, 18146, 18147);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
+--
+(28, 0, 18142, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Severed Night Elf Head only drops inside Alterac Valley Battleground'),
+(28, 0, 18143, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tuft of Gnome Hair only drops inside Alterac Valley Battleground'),
+(28, 0, 18144, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Human Bone Chip only drops inside Alterac Valley Battleground'),
+(28, 0, 18145, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tauren Hoof only drops inside Alterac Valley Battleground'),
+(28, 0, 18146, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Darkspear Troll Mojo only drops inside Alterac Valley Battleground'),
+(28, 0, 18147, 0, 0, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Forsaken Heart only drops inside Alterac Valley Battleground');
 
 
 /* CREATURE COPIES */
@@ -1462,10 +1492,21 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (112051, 0, 0, 0, 0, 0, 100, 0, 9000, 13000, 18000, 34000, 0, 0, 11, 11977, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Frostwolf Legionnaire - In Combat - Cast Rend'),
 (112127, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Guardsman - On Aggro - Cast Charge'),
 (112127, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 7000, 9000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Stormpike Guardsman - In Combat - Cast Strike'),
+
 (113358, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (113358, 0, 1, 0, 9, 1, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
+-- (113358, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stormpike Bowman - Out of Combat - Stop Attacking'),
+-- (113358, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Bowman - On Aggro - Cast Shoot'),
+-- (113358, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Stormpike Bowman - Within 0-80 Range - Set Sheath Ranged'),
+-- (113358, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Bowman - On Evade - Set Sheath Melee (No Repeat)'),
+
 (113359, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (113359, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
+-- (113359, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Frostwolf Bowman - Out of Combat - Stop Attacking'),
+-- (113359, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bowman - On Aggro - Cast Shoot'),
+-- (113359, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf Bowman - Within 0-80 Range - Set Sheath Ranged'),
+-- (113359, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Bowman - On Evade - Set Sheath Melee (No Repeat)'),
+
 (114282, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bloodhound - In Combat - Cast Thrash'),
 (114283, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Owl - In Combat - Cast Thrash'),
 (114284, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Battleguard - On Aggro - Cast Charge'),
