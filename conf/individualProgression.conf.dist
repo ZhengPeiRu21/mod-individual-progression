@@ -438,10 +438,10 @@ IndividualProgression.EnableSetRepCommand = 0
 
 # IndividualProgression.HonoredSetRepCommand
 #
-#        Description: To avoid abuse, the player needs to be at least honored already with a faction to gain reputation for it.
+#        Description: To avoid abuse, the player needs to be at least neutral/friend/honored already with a faction to gain reputation for it. (depending on the faction)
 #                     This will help prevent a group of 5 characters to hand in a quest 1 by 1 and use the '.ip setrep' command in between each time to get 5x the reputation.
 #                     Needing to be honored means you already did most quests or already put in some reputation grind yourself.
-#                     (There are a few exceptions like the Cenarion Expedition, that many players will not do quests for until they are honored.)
+#                     PvP factions will require neutral reputation, so they are not effected. (see: cs_individualProgression.cpp for the full list)
 #
 #        Default:     1 - Enabled
 #                     0 - Disabled
@@ -454,7 +454,7 @@ IndividualProgression.HonoredSetRepCommand = 1
 #                     EnableSetRepCommand needs to be enabled.
 #                     Valid faction ids are: 
 #                     - vanilla = 59|270|349|509|510|529|576|589|609|729|730|749|889|890|909
-#                     - tbc     = 922|933|941|942|946|947|967|970|978|989|990|1011|1012|1015|1031|1038|1077
+#                     - tbc     = 922|932|933|934|941|942|946|947|967|970|978|989|990|1011|1012|1015|1031|1038|1077
 #                     - wotlk   = 1037|1052|1073|1090|1091|1094|1098|1119|1124|1156
 #
 #                     see also: https://www.wowhead.com/wotlk/factions
