@@ -1057,31 +1057,72 @@ public:
         if (!sIndividualProgression->enabled || !killed || !killer || !killer->IsInWorld())
             return;
 
-        switch (killed->GetEntry())
+        if (killer->GetMap()->GetId() == MAP_DEADMINES)
         {
-        case RHAHK_ZOR:
-            killer->RemoveAura(IPP_PHASE);
-            killer->RemoveAura(IPP_PHASE_II);
-            killer->RemoveAura(IPP_PHASE_III);
-            killer->CastSpell(killer, IPP_PHASE, false);
-            break;
-        case SNEED:
-            killer->RemoveAura(IPP_PHASE);
-            killer->RemoveAura(IPP_PHASE_II);
-            killer->RemoveAura(IPP_PHASE_III);
-            killer->CastSpell(killer, IPP_PHASE, false);
-            killer->CastSpell(killer, IPP_PHASE_II, false);
-            break;
-        case GILNID:
-            killer->RemoveAura(IPP_PHASE);
-            killer->RemoveAura(IPP_PHASE_II);
-            killer->RemoveAura(IPP_PHASE_III);
-            killer->CastSpell(killer, IPP_PHASE, false);
-            killer->CastSpell(killer, IPP_PHASE_II, false);
-            killer->CastSpell(killer, IPP_PHASE_III, false);
-            break;
+            switch (killed->GetEntry())
+            {
+            case RHAHK_ZOR:
+                killer->RemoveAura(IPP_PHASE);
+                killer->RemoveAura(IPP_PHASE_II);
+                killer->RemoveAura(IPP_PHASE_III);
+                killer->CastSpell(killer, IPP_PHASE, false);
+                break;
+            case SNEED:
+                killer->RemoveAura(IPP_PHASE);
+                killer->RemoveAura(IPP_PHASE_II);
+                killer->RemoveAura(IPP_PHASE_III);
+                killer->CastSpell(killer, IPP_PHASE, false);
+                killer->CastSpell(killer, IPP_PHASE_II, false);
+                break;
+            case GILNID:
+                killer->RemoveAura(IPP_PHASE);
+                killer->RemoveAura(IPP_PHASE_II);
+                killer->RemoveAura(IPP_PHASE_III);
+                killer->CastSpell(killer, IPP_PHASE, false);
+                killer->CastSpell(killer, IPP_PHASE_II, false);
+                killer->CastSpell(killer, IPP_PHASE_III, false);
+                break;
+            }
         }
 
+        if (killer->GetMap()->GetId() == MAP_ALTERAC_VALLEY)
+        {
+            static constexpr std::array<uint32, 20> AV_commanders =
+            {
+                13137, // Lieutenant Rugba
+                13138, // Lieutenant Spencer
+                13139, // Commander Randolph
+                13140, // Commander Dardosh
+                13143, // Lieutenant Stronghoof
+                13144, // Lieutenant Vol'talar
+                13145, // Lieutenant Grummus
+                13146, // Lieutenant Murp
+                13147, // Lieutenant Lewis
+                13152, // Commander Malgor
+                13153, // Commander Mulfort
+                13154, // Commander Louis Philips
+                13296, // Lieutenant Largent
+                13297, // Lieutenant Stouthandle
+                13298, // Lieutenant Greywand
+                13299, // Lieutenant Lonadin
+                13300, // Lieutenant Mancuso
+                13318, // Commander Mortimer
+                13319, // Commander Duffy
+                13320  // Commander Karl Philips
+            };
+
+            for (uint32 commanderId : AV_commanders)
+            {
+                if (killed->GetEntry() == commanderId)
+                {
+                    TeamId teamId = killer->GetTeamId(true);
+
+                    if (Battleground* bg = killer->GetBattleground())
+                        bg->RewardHonorToTeam(198, teamId);
+                }
+            }
+        }
+        
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
             sIndividualProgression->checkKillProgression(killer, killed);
