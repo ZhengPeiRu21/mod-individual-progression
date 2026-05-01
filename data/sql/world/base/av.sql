@@ -1112,6 +1112,7 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (13153, 7302), -- Fallen Sky Lords (Commander Mulfort, horde)
 (13154, 7281), -- Brotherly Love (Commander Louis Philips, horde)
 (13154, 7363), -- The Human Condition
+(13154, 7423), -- I've Got A Fever For More Bone Chips (repeatable)
 (13319, 7301), -- Fallen Sky Lords (Commander Duffy, alliance)
 (13320, 7282), -- Brotherly Love (Commander Karl Philips, alliance)
 (13320, 7366), -- The Archbishop's Mercy
