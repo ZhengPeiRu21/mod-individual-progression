@@ -1331,6 +1331,9 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 (13530, 17423, 0, 100, 0, 1, 0, 1, 1, 'Storm Crystal'),
 (13256, 17423, 0, 100, 0, 1, 0, 1, 1, 'Storm Crystal');
 
+UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` IN (13777, 22759); -- cleanup
+DELETE FROM `creature_loot_template` WHERE `Entry` IN (12047, 13216); -- cleanup
+
 
 /* CREATURE COPIES */
 
