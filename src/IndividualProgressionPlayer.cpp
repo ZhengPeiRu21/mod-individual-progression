@@ -101,12 +101,12 @@ public:
         sIndividualProgression->CheckAdjustments(player);
     }
 
-    void OnPlayerUpdateZone(Player* player, uint32 newZone, uint32 /*newArea*/) override
+    void OnPlayerUpdateZone(Player* player, uint32 /*newZone*/, uint32 newArea) override
     {
-        if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !newZone)
+        if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !newArea)
             return;
-		
-        sIndividualProgression->checkIPPhasing(player, newZone);
+
+        sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
     void OnPlayerEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
