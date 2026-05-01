@@ -1105,24 +1105,33 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 DELETE FROM `creature_queststarter` WHERE `id` = 12096 AND `quest` = 7122;
 DELETE FROM `creature_queststarter` WHERE `id` = 12097 AND `quest` = 7124;
-DELETE FROM `creature_queststarter` WHERE `id` IN (13153, 13154, 13319, 13320, 13377, 13597, 13598, 14185, 14186, 14187, 14188);
+DELETE FROM `creature_queststarter` WHERE `id` IN (13153, 13154, 13319, 13320, 13377, 13447, 13448, 13597, 13598, 14185, 14186, 14187, 14188);
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (12096, 7122), -- Capture a Mine (alliance)
 (12097, 7124), -- Capture a Mine (horde)
 (13153, 7302), -- Fallen Sky Lords (Commander Mulfort, horde)
 (13154, 7281), -- Brotherly Love (Commander Louis Philips, horde)
 (13154, 7363), -- The Human Condition
+
+
 (13319, 7301), -- Fallen Sky Lords (Commander Duffy, alliance)
 (13320, 7282), -- Brotherly Love (Commander Karl Philips, alliance)
 (13320, 7366), -- The Archbishop's Mercy
+(13320, 7426), -- One Man's Love (repeatable)
 (13377, 6861), -- Zinfizzlex's Portable Shredder Unit (horde)
 (13377, 6862), -- Zinfizzlex's Portable Shredder Unit (alliance)
+(13447, 7428), -- Wanted: MORE ORCS! (repeatable)
+(13448, 7427), -- Wanted: MORE DWARVES! (repeatable)
 (13597, 7368), -- Defusing the Threat (horde)
 (13598, 7367), -- Defusing the Threat (alliance)
 (14185, 7361), -- Favor amongst the Darkspear
+(14185, 7421), -- Darkspear Defense (repeatable)
 (14186, 7362), -- Ally of the Tauren
+(14186, 7422), -- Tuft it Out (repeatable)
 (14187, 7365), -- Staghelm's Requiem
-(14188, 7364); -- Gnomeregan Bounty
+(14187, 7425), -- Staghelm's Mojo Jamboree (repeatable)
+(14188, 7364), -- Gnomeregan Bounty
+(14188, 7424); -- What the Hoof? (repeatable)
 
 DELETE FROM `gameobject_queststarter` WHERE `quest` IN (7401, 7402);
 INSERT INTO `gameobject_queststarter` (`id`, `quest`) VALUES 
@@ -1134,22 +1143,38 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (13153, 7302), -- Fallen Sky Lords (Commander Mulfort, horde)
 (13154, 7281), -- Brotherly Love (Commander Louis Philips, horde)
 (13154, 7363), -- The Human Condition
+(13154, 7423), -- I've Got A Fever For More Bone Chips (repeatable)
 (13319, 7301), -- Fallen Sky Lords  (Commander Duffy, alliance)
 (13320, 7282), -- Brotherly Love (Commander Karl Philips, alliance)
 (13320, 7366), -- The Archbishop's Mercy
+(13320, 7426), -- One Man's Love (repeatable)
 (13377, 6861), -- Zinfizzlex's Portable Shredder Unit (horde)
 (13377, 6862), -- Zinfizzlex's Portable Shredder Unit (alliance)
 (13447, 7402), -- WANTED: Orcs!
+(13447, 7428), -- Wanted: MORE ORCS! (repeatable)
 (13448, 7401), -- Wanted: Dwarves!
+(13448, 7427), -- Wanted: MORE DWARVES! (repeatable)
 (13597, 7368), -- Defusing the Threat (horde)
 (13598, 7367), -- Defusing the Threat (alliance)
 (14185, 7361), -- Favor amongst the Darkspear
+(14185, 7421), -- Darkspear Defense (repeatable)
 (14186, 7362), -- Ally of the Tauren
+(14186, 7422), -- Tuft it Out (repeatable)
 (14187, 7365), -- Staghelm's Requiem
+(14187, 7425), -- Staghelm's Mojo Jamboree (repeatable)
 (14188, 7364); -- Gnomeregan Bounty
 
-UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (7367, 7368);
+UPDATE `quest_template_addon` SET `SpecialFlags` = 0 WHERE `ID` IN (7361, 7362, 7363, 7364, 7365, 7366, 7367, 7368, 7401, 7402); -- not repeatable quests
 UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` IN (7301, 7302); -- QUEST_SPECIAL_FLAGS_EXPLORATION_OR_EVENT
+
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7361 WHERE `ID` = 7421; -- Darkspear Defense
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7362 WHERE `ID` = 7422; -- Tuft it Out
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7363 WHERE `ID` = 7423; -- I've Got A Fever For More Bone Chips
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7364 WHERE `ID` = 7424; -- What the Hoof?
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7365 WHERE `ID` = 7425; -- Staghelm's Mojo Jamboree
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7366 WHERE `ID` = 7426; -- One Man's Love
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7401 WHERE `ID` = 7427; -- Wanted: MORE DWARVES!
+UPDATE `quest_template_addon` SET `PrevQuestID` = 7402 WHERE `ID` = 7428; -- Wanted: MORE ORCS!
 
 -- restore vanilla AV quests
 DELETE FROM `disables` WHERE `sourceType` = 1 AND `entry` IN (7181, 7202, 7381, 7382); -- Korrak quests
@@ -1188,30 +1213,32 @@ DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 28 AND `SourceEntry` 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
-(28, 0, 18142, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Severed Night Elf Head only drops inside Alterac Valley Battleground'),
-(28, 0, 18143, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tuft of Gnome Hair only drops inside Alterac Valley Battleground'),
-(28, 0, 18144, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Human Bone Chip only drops inside Alterac Valley Battleground'),
+(28, 1, 18142, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Severed Night Elf Head only drops inside Alterac Valley Battleground'),
+(28, 1, 18143, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tuft of Gnome Hair only drops inside Alterac Valley Battleground'),
+(28, 1, 18144, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Human Bone Chip only drops inside Alterac Valley Battleground'),
 (28, 0, 18145, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tauren Hoof only drops inside Alterac Valley Battleground'),
 (28, 0, 18146, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Darkspear Troll Mojo only drops inside Alterac Valley Battleground'),
 (28, 0, 18147, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Forsaken Heart only drops inside Alterac Valley Battleground'),
-(28, 0, 18206, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Dwarf Spine only drops inside Alterac Valley Battleground'),
+(28, 1, 18206, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Dwarf Spine only drops inside Alterac Valley Battleground'),
 (28, 0, 18207, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Orc Tooth only drops inside Alterac Valley Battleground');
 
 
 /* CREATURE COPIES */
 
 -- IP disables the originals so that copies can be placed manually. This allows IP to have control over them, to add waypoints as an example.
-DELETE FROM `creature_template` WHERE `entry` IN (112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
+DELETE FROM `creature_template` WHERE `entry` IN (110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
 `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
 `RegenHealth`, `CreatureImmunitiesId`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
 --
+(110981,0,0,0,0,0,'Frostwolf',NULL,NULL,0,50,51,0,1275,0,1,2.57143,1,1,18,0,0,1,2000,2000,1,1,1,0,2048,0,1,1,1,10981,0,10981,13040,0,0,0,'SmartAI',1,1,1.02,1,1,1,0,0,1,0,0,'',0),
+(110990,0,0,0,0,0,'Alterac Ram',NULL,NULL,0,50,51,0,1274,0,1,2.57143,1,1,18,0,0,1,2000,2000,1,1,1,0,2048,0,0,1,0,10990,0,10990,0,0,63,316,'SmartAI',1,1,1.3,1,1,1,0,0,1,0,0,'',0),
 (112051,0,0,0,0,0,'Frostwolf Legionnaire',NULL,NULL,0,57,57,0,1214,0,1,1.14286,1,1,18,0,0,1.7,2000,2000,1,1,1,4096,2048,0,0,7,0,12051,12051,0,0,0,83,416,'SmartAI',1,1,0.6,1,1,1,0,0,1,0,0,'',0),
 (112127,0,0,0,0,0,'Stormpike Guardsman',NULL,NULL,0,57,57,0,1216,0,1,1.14286,1,1,18,0,0,1.6,2000,2000,1,1,1,4096,2048,0,0,7,0,12127,12127,0,0,0,83,772,'SmartAI',0,1,0.6,1,1,1,0,0,1,0,0,'',0),
-(113358,0,0,0,0,0,'Stormpike Bowman',NULL,NULL,0,59,60,0,1216,0,1,1.14286,1,1,18,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,13358,0,0,0,65,648,'SmartAI',0,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
-(113359,0,0,0,0,0,'Frostwolf Bowman',NULL,NULL,0,59,60,0,1214,0,1,1.14286,1,1,18,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,13359,0,0,0,65,765,'SmartAI',1,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
+(113358,0,0,0,0,0,'Stormpike Bowman',NULL,NULL,0,59,60,0,1216,0,1,1.14286,1,1,80,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,13358,0,0,0,65,648,'SmartAI',0,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
+(113359,0,0,0,0,0,'Frostwolf Bowman',NULL,NULL,0,59,60,0,1214,0,1,1.14286,1,1,80,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,13359,0,0,0,65,765,'SmartAI',1,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
 (114282,0,0,0,0,0,'Frostwolf Bloodhound',NULL,NULL,0,53,54,0,1214,0,1,1.14286,1,1,18,0,0,1,2000,2000,1,1,1,4096,2048,0,1,1,0,14282,0,14282,0,0,0,0,'SmartAI',1,1,0.4,1,1,1,0,0,1,0,0,'',0),
 (114283,0,0,0,0,0,'Stormpike Owl',NULL,NULL,0,53,54,0,1216,0,1,1.14286,1,1,18,0,0,1,2000,2000,1,1,1,4096,2048,0,26,1,1,14283,0,100003,13264,0,63,316,'SmartAI',0,1,0.4,1,1,1,0,0,1,0,0,'',0),
 (114284,0,0,0,0,0,'Stormpike Battleguard',NULL,NULL,0,61,61,0,1216,0,1,1.14286,1,1,20,1,0,7.4,2000,2000,1,1,1,4608,2048,0,0,7,0,14284,0,0,0,0,432,569,'SmartAI',1,1,6,1,1,1,0,0,1,0,0,'',0),
@@ -1237,9 +1264,24 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 (131978, 0, 0, 0, 2, 0, 0, NULL),
 (132089, 0, 0, 0, 2, 0, 0, NULL);
 
-DELETE FROM `creature_template_locale` WHERE `entry` IN (112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
+DELETE FROM `creature_template_locale` WHERE `entry` IN (110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 --
+(110981, 'esES', 'Lobo Gélido', '', 18019),
+(110981, 'esMX', 'Lobo Gélido', '', 18019),
+(110981, 'frFR', 'Loup de givre', '', 18019),
+(110981, 'koKR', '서리늑대', '', 18019),
+(110981, 'ruRU', 'Северный волк', '', 18019),
+(110981, 'zhCN', '霜狼', '', 18019),
+(110981, 'zhTW', '霜狼', '', 18019),
+(110990, 'deDE', 'Alteracwidder', '', 18019),
+(110990, 'esES', 'Carnero de Alterac', '', 18019),
+(110990, 'esMX', 'Carnero de Alterac', '', 18019),
+(110990, 'frFR', 'Bélier d\'Alterac', '', 18019),
+(110990, 'koKR', '알터랙 산양', '', 18019),
+(110990, 'ruRU', 'Альтеракский баран', '', 18019),
+(110990, 'zhCN', '奥特兰克山羊', '', 18019),
+(110990, 'zhTW', '奧特蘭克山羊', '', 18019),
 (112051, 'deDE', 'Legionär der Frostwölfe', '', 18019),
 (112051, 'esES', 'Legionario Lobo Gélido', '', 18019),
 (112051, 'esMX', 'Legionario Lobo Gélido', '', 18019),
@@ -1379,9 +1421,11 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (131978, 'zhCN', '霜狼弓箭手', '', 18019),
 (131978, 'zhTW', '霜狼弓箭手', '', 18019);
 
-DELETE FROM `creature_template_model` WHERE `CreatureID` IN (112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
 --
+(110981, 0, 10278, 1, 1, 12340),
+(110990, 0, 13340, 1, 1, 12340),
 (112051, 0, 12949, 1, 1, 12340),
 (112051, 1, 12950, 1, 1, 12340),
 (112051, 2, 12951, 1, 1, 12340),
@@ -1452,9 +1496,9 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 /* SMART SCRIPTS */
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(12051, 12127, 12159, 13358, 13359, 14282, 14283, 14284, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
+(10981, 10990, 12051, 12127, 12159, 13358, 13359, 14282, 14283, 14284, 110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(12051, 12127, 12159, 13358, 13359, 14282, 14283, 14284, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
+(10981, 10990, 12051, 12127, 12159, 13358, 13359, 14282, 14283, 14284, 110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -1465,7 +1509,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (12159, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Korrak the Bloodrager - On Init - Set Invisible'),
 (12159, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Korrak the Bloodrager - On Respawn - Set visible'),
 --
-(12051, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Legionnaire - On Reset - Set Invisible'), -- disable originals
+(10981, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf - On Reset - Set Invisible'), -- disable originals
+(10981, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf - On Reset - Set Faction Friendly'),
+(10990, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Alterac Ram - On Reset - Set Invisible'),
+(10990, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Alterac Ram - On Reset - Set Faction Friendly'),
+(12051, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Legionnaire - On Reset - Set Invisible'),
 (12051, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Legionnaire - On Reset - Set Faction Friendly'),
 (12127, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Guardsman - On Reset - Set Invisible'),
 (12127, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Guardsman - On Reset - Set Faction Friendly'),
@@ -1493,17 +1541,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (113439, 0, 0, 1, 64, 0, 100, 0, 0, 0, 0, 0, 0, 0, 33, 14031, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Wing Commander Vipore - On Gossip Hello - Quest Credit'),
 (113439, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 2000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wing Commander Vipore - On Gossip Hello - Force Despawn'),
 --
+(110981, 0, 0, 0, 0, 0, 100, 0, 8700, 12700, 18400, 34200, 0, 0, 11, 13443, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Frostwolf - In Combat - Cast Rend'),
+(110981, 0, 1, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 89, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf - Out of Combat - Use Random movement'),
+(110990, 0, 0, 0, 4, 0, 100, 1, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Alterac Ram - On Aggro - Cast Charge'),
+(110990, 0, 1, 0, 0, 0, 100, 0, 8700, 12700, 18400, 34200, 0, 0, 11, 13443, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Alterac Ram - In Combat - Cast Rend'),
+(110990, 0, 2, 0, 1, 0, 100, 0, 0, 0, 0, 0, 0, 0, 89, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Alterac Ram - Out of Combat - Use random movement'),
 (112051, 0, 0, 0, 0, 0, 100, 0, 9000, 13000, 18000, 34000, 0, 0, 11, 11977, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Frostwolf Legionnaire - In Combat - Cast Rend'),
 (112127, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Guardsman - On Aggro - Cast Charge'),
 (112127, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 7000, 9000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Stormpike Guardsman - In Combat - Cast Strike'),
 
 (113358, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (113358, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
-(113358, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2300, 3900, 0, 0, 11, 22121, 64, 0, 0, 0, 0, 21, 80, 0, 0, 0, 0, 0, 0, 0,        'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
-
 (113359, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (113359, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
-(113359, 0, 2, 0, 0, 0, 100, 0, 0, 0, 2300, 3900, 0, 0, 11, 22121, 64, 0, 0, 0, 0, 21, 80, 0, 0, 0, 0, 0, 0, 0,        'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
 
 (114282, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bloodhound - In Combat - Cast Thrash'),
 (114283, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Owl - In Combat - Cast Thrash'),
@@ -1512,30 +1562,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (114284, 0, 2, 0, 0, 0, 100, 0, 7000, 10000, 20000, 25000, 0, 0, 11, 16509, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Stormpike Battleguard - In Combat - Cast Rend'),
 (114284, 0, 3, 0, 0, 0, 100, 0, 3000, 5000, 5000, 7000, 0, 0, 11, 22591, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Stormpike Battleguard - In Combat - Cast Strike'),
 --
-(122766, 0, 0, 1, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(122766, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stormpike Bowman - Out of Combat - Stop Attacking'),
-(122766, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Bowman - On Aggro - Cast Shoot'),
-(122766, 0, 3, 4, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
-(122766, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Stormpike Bowman - Within 0-80 Range - Set Sheath Ranged'),
-(122766, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Bowman - On Evade - Set Sheath Melee (No Repeat)'),
-(122739, 0, 0, 1, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(122739, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Frostwolf Bowman - Out of Combat - Stop Attacking'),
-(122739, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bowman - On Aggro - Cast Shoot'),
-(122739, 0, 3, 4, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
-(122739, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf Bowman - Within 0-80 Range - Set Sheath Ranged'),
-(122739, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Bowman - On Evade - Set Sheath Melee (No Repeat)'),
-(132089, 0, 0, 1, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(132089, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Stormpike Bowman - Out of Combat - Stop Attacking'),
-(132089, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Bowman - On Aggro - Cast Shoot'),
-(132089, 0, 3, 4, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
-(132089, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Stormpike Bowman - Within 0-80 Range - Set Sheath Ranged'),
-(132089, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Bowman - On Evade - Set Sheath Melee (No Repeat)'),
-(131978, 0, 0, 1, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(131978, 0, 1, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Frostwolf Bowman - Out of Combat - Stop Attacking'),
-(131978, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bowman - On Aggro - Cast Shoot'),
-(131978, 0, 3, 4, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
-(131978, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 40, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf Bowman - Within 0-80 Range - Set Sheath Ranged'),
-(131978, 0, 5, 0, 7, 0, 100, 1, 0, 0, 0, 0, 0, 0, 40, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Bowman - On Evade - Set Sheath Melee (No Repeat)');
+(122766, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
+(122766, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
+(122739, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
+(122739, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
+(132089, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
+(132089, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
+(131978, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
+(131978, 0, 1, 0, 9, 0, 100, 0, 0, 0, 2300, 3900, 0, 80, 11, 22121, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Frostwolf Bowman - Within 0-80 Range - Cast Shoot');
 
 /* MISC */
 UPDATE `creature_template` SET `name` = 'Lieutenant Murp' WHERE `entry` = 13146;
