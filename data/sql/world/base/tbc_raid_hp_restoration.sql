@@ -303,6 +303,7 @@ UPDATE `creature_template` SET `HealthModifier` = 750 WHERE `entry` = 22947; -- 
 UPDATE `creature_template` SET `HealthModifier` = 0.5 WHERE `entry` = 23498; -- Parasitic Shadowfiend
 UPDATE `creature_template` SET `HealthModifier` = 132 WHERE `entry` = 22841; -- Shade of Akama
 UPDATE `creature_template` SET `HealthModifier` = 3   WHERE `entry` = 23375; -- Shadow Demon
+UPDATE `creature_template` SET `HealthModifier` = 8.5 WHERE `entry` = 23111; -- Shadowy Construct
 UPDATE `creature_template` SET `HealthModifier` = 600 WHERE `entry` = 22898; -- Supremus
 UPDATE `creature_template` SET `HealthModifier` = 825 WHERE `entry` = 22871; -- Teron Gorefiend
 UPDATE `creature_template` SET `HealthModifier` = 250 WHERE `entry` = 22952; -- Veras Darkshadow
@@ -373,7 +374,6 @@ UPDATE `creature_template` SET `HealthModifier` = 20  WHERE `entry` = 23083; -- 
 UPDATE `creature_template` SET `HealthModifier` = 5   WHERE `entry` = 23047; -- Shadowmoon Soldier
 UPDATE `creature_template` SET `HealthModifier` = 10  WHERE `entry` = 22946; -- Shadowmoon War Hound
 UPDATE `creature_template` SET `HealthModifier` = 50  WHERE `entry` = 23049; -- Shadowmoon Weapon Master
-UPDATE `creature_template` SET `HealthModifier` = 8.5 WHERE `entry` = 23111; -- Shadowy Construct
 UPDATE `creature_template` SET `HealthModifier` = 50  WHERE `entry` = 22956; -- Sister of Pain
 UPDATE `creature_template` SET `HealthModifier` = 50  WHERE `entry` = 22964; -- Sister of Pleasure
 UPDATE `creature_template` SET `HealthModifier` = 15  WHERE `entry` = 22848; -- Storm Fury
@@ -399,6 +399,7 @@ UPDATE `creature_template` SET `HealthModifier` = 1.3 WHERE `entry` = 23410; -- 
 UPDATE `creature_template` SET `HealthModifier` = 220  WHERE `entry` = 23574; -- Akil'zon <Eagle Avatar>
 UPDATE `creature_template` SET `HealthModifier` = 17.5 WHERE `entry` = 24240; -- Alyson Antille
 UPDATE `creature_template` SET `HealthModifier` = 1    WHERE `entry` = 23878; -- Amani Bear Spirit
+UPDATE `creature_template` SET `HealthModifier` = 1    WHERE `entry` = 23598; -- Amani Dragonhawk Hatchling
 UPDATE `creature_template` SET `HealthModifier` = 1    WHERE `entry` = 23879; -- Amani Dragonhawk Spirit
 UPDATE `creature_template` SET `HealthModifier` = 1    WHERE `entry` = 23880; -- Amani Eagle Spirit
 UPDATE `creature_template` SET `HealthModifier` = 1    WHERE `entry` = 23877; -- Amani Lynx Spirit
@@ -425,7 +426,6 @@ UPDATE `creature_template` SET `HealthModifier` = 12  WHERE `entry` = 23584; -- 
 UPDATE `creature_template` SET `HealthModifier` = 6   WHERE `entry` = 24217; -- Amani Bear Mount
 UPDATE `creature_template` SET `HealthModifier` = 4   WHERE `entry` = 24047; -- Amani Crocolisk
 UPDATE `creature_template` SET `HealthModifier` = 3   WHERE `entry` = 23834; -- Amani Dragonhawk
-UPDATE `creature_template` SET `HealthModifier` = 1   WHERE `entry` = 23598; -- Amani Dragonhawk Hatchling
 UPDATE `creature_template` SET `HealthModifier` = 1   WHERE `entry` = 24159; -- Amani Eagle
 UPDATE `creature_template` SET `HealthModifier` = 8   WHERE `entry` = 24530; -- Amani Elder Lynx
 UPDATE `creature_template` SET `HealthModifier` = 8   WHERE `entry` = 24043; -- Amani Lynx
@@ -482,9 +482,10 @@ UPDATE `creature_template` SET `HealthModifier` = 475  WHERE `entry` = 25165; --
 UPDATE `creature_template` SET `HealthModifier` = 360  WHERE `entry` = 25741; -- M'uru
 UPDATE `creature_template` SET `HealthModifier` = 475  WHERE `entry` = 24892; -- Sathrovarr the Corruptor
 UPDATE `creature_template` SET `HealthModifier` = 19   WHERE `entry` = 25798; -- Shadowsword Berserker
-UPDATE `creature_template` SET `HealthModifier` = 20   WHERE `entry` = 25799;-- Shadowsword Fury Mage
+UPDATE `creature_template` SET `HealthModifier` = 20   WHERE `entry` = 25799; -- Shadowsword Fury Mage
 UPDATE `creature_template` SET `HealthModifier` = 2.86 WHERE `entry` = 25502; -- Shield Orb
 UPDATE `creature_template` SET `HealthModifier` = 20   WHERE `entry` = 25708; -- Sinister Reflection
+UPDATE `creature_template` SET `HealthModifier` = 5    WHERE `entry` = 25268; -- Unyielding Dead
 UPDATE `creature_template` SET `HealthModifier` = 25   WHERE `entry` = 25772; -- Void Sentinel
 UPDATE `creature_template` SET `HealthModifier` = 7.2445 WHERE `entry` = 25824; -- Void Spawn
 
@@ -516,7 +517,6 @@ UPDATE `creature_template` SET `HealthModifier` = 35  WHERE `entry` = 25370; -- 
 UPDATE `creature_template` SET `HealthModifier` = 3   WHERE `entry` = 25372; -- Sunblade Scout
 UPDATE `creature_template` SET `HealthModifier` = 35  WHERE `entry` = 25368; -- Sunblade Slayer
 UPDATE `creature_template` SET `HealthModifier` = 35  WHERE `entry` = 25369; -- Sunblade Vindicator
-UPDATE `creature_template` SET `HealthModifier` = 5   WHERE `entry` = 25268; -- Unyielding Dead
 UPDATE `creature_template` SET `HealthModifier` = 0.26 WHERE `entry` = 25598; -- Volatile Felfire Fiend
 UPDATE `creature_template` SET `HealthModifier` = 2   WHERE `entry` = 25851; -- Volatile Fiend
 
