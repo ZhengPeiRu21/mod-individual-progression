@@ -32,13 +32,13 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 DELETE FROM `creature` WHERE `id1` = 3230 AND `map`= 1;
 DELETE FROM `creature` WHERE `guid` IN (10299, 203492, 203493, 203494, 203495);
 DELETE FROM `creature` WHERE `id1` IN (3890, 14720, 14942, 15006);
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
-(603230, 3230,  1, 1938.55, -4133.22, 41.1424, 4.07636, 300), -- Nazgrel <Advisor to Thrall>
-(10299,  3296,  1, 1620.45, -4252.84, 47.5273, 3.7001,  300), -- Orgrimmar Grunt
-(603890, 3890,  1, 1991.89, -4793.95, 56.0462, 3.27581, 300), -- Brakgul Deathbringer <Warsong Gulch Battlemaster>
-(614720, 14720, 1, 1565.79, -4395.27, 6.9866, 3.35103,  600), -- High Overlord Saurfang
-(614942, 14942, 1, 1980.9, -4787.78, 55.8796, 5.13127,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
-(615006, 15006, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathis Basin Battlemaster>
+INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+(603230, 3230,  1, 1, 1938.55, -4133.22, 41.1424, 4.07636, 300), -- Nazgrel <Advisor to Thrall>
+(10299,  3296,  1, 1, 1620.45, -4252.84, 47.5273, 3.7001,  300), -- Orgrimmar Grunt
+(603890, 3890,  1, 1, 1991.89, -4793.95, 56.0462, 3.27581, 300), -- Brakgul Deathbringer <Warsong Gulch Battlemaster>
+(614720, 14720, 1, 1, 1565.79, -4395.27, 6.9866, 3.35103,  600), -- High Overlord Saurfang
+(614942, 14942, 1, 1, 1980.9, -4787.78, 55.8796, 5.13127,  600), -- Kartra Bloodsnarl <Alterac Valley Battlemaster>
+(615006, 15006, 1, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathis Basin Battlemaster>
 
 -- Master Pyreanor <Paladin Trainer>
 UPDATE `creature` SET `position_x`= 1940.23, `position_y`= -4135.53, `position_z`= 41.1522, `orientation`= 3.12425  WHERE `id1` = 23128;
