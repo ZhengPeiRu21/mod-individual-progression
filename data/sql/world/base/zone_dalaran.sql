@@ -46,3 +46,14 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 -- remove event entries added by AC
 DELETE FROM `creature_addon` WHERE `guid` IN (85064, 85208, 85209, 85210);
 DELETE FROM `game_event_creature` WHERE `guid` IN (85064, 85208, 85209, 85210, 152021, 152024, 152025, 208485, 208490, 208493, 208495, 208497, 208502, 208505, 208507);
+
+-- smart scripts, fix worldconsole errors
+DELETE FROM `smart_scripts` WHERE `event_type` = 10 AND `target_type` = 7 AND `entryorguid` IN (28715, 28997, 29491);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(28715, 0, 0, 0, 10, 0, 100, 0, 1, 20, 30000, 120000, 1, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Endora Moorehead - OOC LOS - Say Line'),
+(28997, 0, 0, 0, 10, 0, 100, 0, 1, 20, 30000, 120000, 1, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Griselda Hunderland - OOC LOS - Say Line'),
+(29491, 0, 0, 0, 10, 0, 100, 0, 1, 20, 30000, 120000, 1, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Karandonna - OOC LOS - Say Line');
