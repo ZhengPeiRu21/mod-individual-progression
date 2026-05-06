@@ -1211,18 +1211,30 @@ INSERT INTO `player_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Que
 (1, 18206, 0, 25, 0, 1, 1, 1, 1, 'Alterac Valley - Alliance - Dwarf Spine'),
 (0, 18207, 0, 25, 0, 1, 2, 1, 1, 'Alterac Valley - Horde - Orc Tooth');
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 28 AND `SourceEntry` IN (18142, 18143, 18144, 18145, 18146, 18147, 18206, 18207);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 28 AND `SourceEntry` IN (17306, 17423, 18142, 18143, 18144, 18145, 18146, 18147, 18206, 18207);
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES 
 --
-(28, 1, 18142, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Severed Night Elf Head only drops inside Alterac Valley Battleground'),
-(28, 1, 18143, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tuft of Gnome Hair only drops inside Alterac Valley Battleground'),
-(28, 1, 18144, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Human Bone Chip only drops inside Alterac Valley Battleground'),
-(28, 0, 18145, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Tauren Hoof only drops inside Alterac Valley Battleground'),
-(28, 0, 18146, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Darkspear Troll Mojo only drops inside Alterac Valley Battleground'),
-(28, 0, 18147, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Forsaken Heart only drops inside Alterac Valley Battleground'),
-(28, 1, 18206, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Dwarf Spine only drops inside Alterac Valley Battleground'),
-(28, 0, 18207, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '', 'Orc Tooth only drops inside Alterac Valley Battleground');
+(28, 1, 17306, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Stormpike Soldiers Blood only drops inside Alterac Valley Battleground'),
+(28, 1, 17306, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Stormpike Soldiers Blood only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 0, 17423, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Storm Crystal only drops inside Alterac Valley Battleground'),
+(28, 0, 17423, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Storm Crystal only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 1, 18142, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Severed Night Elf Head only drops inside Alterac Valley Battleground'),
+(28, 1, 18142, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Severed Night Elf Head only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 1, 18143, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Tuft of Gnome Hair only drops inside Alterac Valley Battleground'),
+(28, 1, 18143, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Tuft of Gnome Hair only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 1, 18144, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Human Bone Chip only drops inside Alterac Valley Battleground'),
+(28, 1, 18144, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Human Bone Chip only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 0, 18145, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Tauren Hoof only drops inside Alterac Valley Battleground'),
+(28, 0, 18145, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Tauren Hoof only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 0, 18146, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Darkspear Troll Mojo only drops inside Alterac Valley Battleground'),
+(28, 0, 18146, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Darkspear Troll Mojo only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 0, 18147, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Forsaken Heart only drops inside Alterac Valley Battleground'),
+(28, 0, 18147, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Forsaken Heart only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 1, 18206, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Dwarf Spine only drops inside Alterac Valley Battleground'),
+(28, 1, 18206, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Dwarf Spine only drops if the player has NOT completed PROGRESSION_PRE_TBC'),
+(28, 0, 18207, 0, 1, 22, 0, 30, 0, 0, 0, 0, 0, '',   'Orc Tooth only drops inside Alterac Valley Battleground'),
+(28, 0, 18207, 0, 1, 8, 0, 66008, 0, 0, 1, 0, 0, '', 'Orc Tooth only drops if the player has NOT completed PROGRESSION_PRE_TBC');
 
 -- only drop Stormpike Soldiers Blood from alliance creatures + correct drop rate and amount
 DELETE FROM `creature_loot_template` WHERE `Item` = 17306;
