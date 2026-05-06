@@ -1356,16 +1356,16 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (110990,0,0,0,0,0,'Alterac Ram',NULL,NULL,0,50,51,0,1274,0,1,2.57143,1,1,18,0,0,1,2000,2000,1,1,1,0,2048,0,0,1,0,10990,0,10990,0,0,63,316,'SmartAI',1,1,1.3,1,1,1,0,0,1,0,0,'',0),
 (112051,0,0,0,0,0,'Frostwolf Legionnaire',NULL,NULL,0,57,57,0,1214,0,1,1.14286,1,1,18,0,0,1.7,2000,2000,1,1,1,4096,2048,0,0,7,0,12051,12051,0,0,0,83,416,'SmartAI',1,1,0.6,1,1,1,0,0,1,0,0,'',0),
 (112127,0,0,0,0,0,'Stormpike Guardsman',NULL,NULL,0,57,57,0,1216,0,1,1.14286,1,1,18,0,0,1.6,2000,2000,1,1,1,4096,2048,0,0,7,0,12127,12127,0,0,0,83,772,'SmartAI',0,1,0.6,1,1,1,0,0,1,0,0,'',0),
-(113358,0,0,0,0,0,'Stormpike Bowman',NULL,NULL,0,59,60,0,1216,0,1,1.14286,1,1,80,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,13358,0,0,0,65,648,'SmartAI',0,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
-(113359,0,0,0,0,0,'Frostwolf Bowman',NULL,NULL,0,59,60,0,1214,0,1,1.14286,1,1,80,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,13359,0,0,0,65,765,'SmartAI',1,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
 (114282,0,0,0,0,0,'Frostwolf Bloodhound',NULL,NULL,0,53,54,0,1214,0,1,1.14286,1,1,18,0,0,1,2000,2000,1,1,1,4096,2048,0,1,1,0,14282,0,14282,0,0,0,0,'SmartAI',1,1,0.4,1,1,1,0,0,1,0,0,'',0),
 (114283,0,0,0,0,0,'Stormpike Owl',NULL,NULL,0,53,54,0,1216,0,1,1.14286,1,1,18,0,0,1,2000,2000,1,1,1,4096,2048,0,26,1,1,14283,0,100003,13264,0,63,316,'SmartAI',0,1,0.4,1,1,1,0,0,1,0,0,'',0),
 (114284,0,0,0,0,0,'Stormpike Battleguard',NULL,NULL,0,61,61,0,1216,0,1,1.14286,1,1,20,1,0,7.4,2000,2000,1,1,1,4608,2048,0,0,7,0,14284,0,0,0,0,432,569,'SmartAI',1,1,6,1,1,1,0,0,1,0,0,'',0),
+(113358,122766,132089,0,0,0,'Stormpike Bowman',NULL,NULL,0,59,60,0,1216,0,1,1.14286,1,1,80,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,13358,0,0,0,65,648,'SmartAI',0,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
+(113359,122739,131978,0,0,0,'Frostwolf Bowman',NULL,NULL,0,59,60,0,1214,0,1,1.14286,1,1,80,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,13359,0,0,0,65,765,'SmartAI',1,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
 --
-(122739,0,0,0,0,0,'Frostwolf Bowman','',NULL,0,69,70,0,1214,0,1.27,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,13359,0,0,0,524,694,'SmartAI',1,1,1.5,1.5,1,1,0,0,1,0,0,'',0), -- TBC
-(122766,0,0,0,0,0,'Stormpike Bowman','',NULL,0,69,70,0,1216,0,1.27,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,13358,0,0,0,520,688,'SmartAI',0,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
-(131978,0,0,0,0,0,'Frostwolf Bowman','','',0,79,80,0,1214,0,1.27,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,13359,0,0,0,0,0,'SmartAI',1,1,1.95,1.5,1,1,0,0,1,0,0,'',0), -- WOTLK
-(132089,0,0,0,0,0,'Stormpike Bowman','','',0,79,80,0,1216,0,1.27,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,13358,0,0,0,0,0,'SmartAI',0,1,1.95,1.5,1,1,0,0,1,0,0,'',0),
+(122739,0,0,0,0,0,'Frostwolf Bowman (1)','',NULL,0,69,70,0,1214,0,1.27,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,13359,0,0,0,524,694,'',1,1,1.5,1.5,1,1,0,0,1,0,0,'',0), -- TBC
+(122766,0,0,0,0,0,'Stormpike Bowman (1)','',NULL,0,69,70,0,1216,0,1.27,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,13358,0,0,0,520,688,'',0,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
+(131978,0,0,0,0,0,'Frostwolf Bowman (2)','','',0,79,80,0,1214,0,1.27,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,13359,0,0,0,0,0,'',1,1,1.95,1.5,1,1,0,0,1,0,0,'',0), -- WOTLK
+(132089,0,0,0,0,0,'Stormpike Bowman (2)','','',0,79,80,0,1216,0,1.27,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,13358,0,0,0,0,0,'',0,1,1.95,1.5,1,1,0,0,1,0,0,'',0),
 --
 (110987,122750,132021,0,0,0,'Irondeep Trogg',NULL,NULL,0,52,53,0,59,0,1,1.14286,1,1,18,0,0,0.5,2000,2000,1,1,1,0,2048,0,0,7,0,0,10987,0,0,0,152,761,'SmartAI',1,1,0.5,1.5,1,1,0,0,1,0,0,'',0),
 (111600,122747,132018,0,0,0,'Irondeep Shaman',NULL,NULL,0,53,54,0,59,0,1,1.14286,1,1,18,0,0,0.5,2000,2000,1,1,2,0,2048,0,0,7,0,0,11600,0,0,0,0,0,'SmartAI',1,1,0.5,1.5,0.95,1,0,0,1,0,0,'',0),
@@ -1513,7 +1513,7 @@ INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `b
 
 
 DELETE FROM `creature_template_locale` WHERE `entry` IN 
-(110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089,
+(110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 
 110982, 111603, 111604, 113087, 113089, 113096, 113097, 113316, 113317, 110987, 111600, 111602, 113080, 113081, 113098, 113099, 113396, 113397);
 
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
@@ -1638,39 +1638,6 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (113439, 'ruRU', 'Командир звена Сквороц', '', 18019),
 (113439, 'zhCN', '空军指挥官维波里', '', 18019),
 (113439, 'zhTW', '空軍指揮官維波里', '', 18019),
---
-(122766, 'deDE', 'Bogenschütze der Sturmlanzen', '', 18019),
-(122766, 'esES', 'Arquero Pico Tormenta', '', 18019),
-(122766, 'esMX', 'Arquero Pico Tormenta', '', 18019),
-(122766, 'frFR', 'Franc-archer foudrepique', '', 18019),
-(122766, 'koKR', '스톰파이크 궁병', '', 18019),
-(122766, 'ruRU', 'Лучник из клана Грозовой Вершины', '', 0),
-(122766, 'zhCN', '联盟弓箭手', '', 18019),
-(122766, 'zhTW', '雷矛弓箭手', '', 18019),
-(122739, 'deDE', 'Bogenschütze der Frostwölfe', '', 18019),
-(122739, 'esES', 'Arquero Lobo Gélido', '', 18019),
-(122739, 'esMX', 'Arquero Lobo Gélido', '', 18019),
-(122739, 'frFR', 'Franc-archer loup-de-givre', '', 18019),
-(122739, 'koKR', '서리늑대 궁병', '', 18019),
-(122739, 'ruRU', 'Лучник из клана Северного Волка', '', 0),
-(122739, 'zhCN', '霜狼弓箭手', '', 18019),
-(122739, 'zhTW', '霜狼弓箭手', '', 18019),
-(132089, 'deDE', 'Bogenschütze der Sturmlanzen', '', 18019),
-(132089, 'esES', 'Arquero Pico Tormenta', '', 18019),
-(132089, 'esMX', 'Arquero Pico Tormenta', '', 18019),
-(132089, 'frFR', 'Franc-archer foudrepique', '', 18019),
-(132089, 'koKR', '스톰파이크 궁병', '', 18019),
-(132089, 'ruRU', 'Лучник из клана Грозовой Вершины', '', 0),
-(132089, 'zhCN', '联盟弓箭手', '', 18019),
-(132089, 'zhTW', '雷矛弓箭手', '', 18019),
-(131978, 'deDE', 'Bogenschütze der Frostwölfe', '', 18019),
-(131978, 'esES', 'Arquero Lobo Gélido', '', 18019),
-(131978, 'esMX', 'Arquero Lobo Gélido', '', 18019),
-(131978, 'frFR', 'Franc-archer loup-de-givre', '', 18019),
-(131978, 'koKR', '서리늑대 궁병', '', 18019),
-(131978, 'ruRU', 'Лучник из клана Северного Волка', '', 0),
-(131978, 'zhCN', '霜狼弓箭手', '', 18019),
-(131978, 'zhTW', '霜狼弓箭手', '', 18019),
 --
 (110982, 'deDE', 'Gezücht der Weißstoppel', '', 18019), -- vanilla
 (110982, 'esES', 'Alimaña Mostacho Blanco', '', 18019),
@@ -2058,13 +2025,13 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 /* SMART SCRIPTS */
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(10981, 10982, 10987, 10990, 11600, 11602, 11603, 11604, 12051, 12127, 12159, 13080, 13081, 13087, 13089, 13096, 13097, 13098, 13099, 13316, 13317, 13358, 13359, 13396, 13397, 14282, 14283, 14284, 
-110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089,
+(10981, 10982, 10987, 10990, 11600, 11602, 11603, 11604, 11605, 12051, 12127, 12159, 13080, 13081, 13087, 13089, 13096, 13097, 13098, 13099, 13316, 13317, 13358, 13359, 13396, 13397, 14282, 14283, 14284, 
+110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 
 110982, 111603, 111604, 113087, 113089, 113096, 113097, 113316, 113317, 110987, 111600, 111602, 113080, 113081, 113098, 113099, 113396, 113397);
 
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(10981, 10982, 10987, 10990, 11600, 11602, 11603, 11604, 12051, 12127, 12159, 13080, 13081, 13087, 13089, 13096, 13097, 13098, 13099, 13316, 13317, 13358, 13359, 13396, 13397, 14282, 14283, 14284, 
-110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089,
+(10981, 10982, 10987, 10990, 11600, 11602, 11603, 11604, 11605, 12051, 12127, 12159, 13080, 13081, 13087, 13089, 13096, 13097, 13098, 13099, 13316, 13317, 13358, 13359, 13396, 13397, 14282, 14283, 14284, 
+110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 
 110982, 111603, 111604, 113087, 113089, 113096, 113097, 113316, 113317, 110987, 111600, 111602, 113080, 113081, 113098, 113099, 113396, 113397);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
@@ -2107,6 +2074,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11603, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Whitewhisker Digger - On Reset - Set Faction Friendly'),
 (11604, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Whitewhisker Geomancer - On Reset - Set Invisible'),
 (11604, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Whitewhisker Geomancer - On Reset - Set Faction Friendly'),
+(11605, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Whitewhisker Overseer - On Reset - Set Invisible'),
+(11605, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Whitewhisker Overseer - On Reset - Set Faction Friendly'),
 (13080, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Irondeep Guard - On Reset - Set Invisible'),
 (13080, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Irondeep Guard - On Reset - Set Faction Friendly'),
 (13081, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Irondeep Raider - On Reset - Set Invisible'),
@@ -2153,25 +2122,26 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (112051, 0, 0, 0, 0, 0, 100, 0, 9000, 13000, 18000, 34000, 0, 0, 11, 11977, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Frostwolf Legionnaire - In Combat - Cast Rend'),
 (112127, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Guardsman - On Aggro - Cast Charge'),
 (112127, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 7000, 9000, 0, 0, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Stormpike Guardsman - In Combat - Cast Strike'),
+--
 (113358, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (113358, 0, 1, 0, 10, 0, 100, 0, 0, 80, 2300, 3900, 1, 0, 11, 22121, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
+(113358, 0, 2, 3, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Stormpike Bowman - bunker/tower destroyed - Set Invisible'), -- check if AC archer is gone
+(113358, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Stormpike Bowman - bunker/tower destroyed - Set Faction Friendly'),
+(113358, 0, 4, 5, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,           'Stormpike Bowman - bunker/tower retaken - Set visible'), -- check if AC archer is back
+(113358, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Bowman - bunker/tower retaken - Reset Faction'),
 (113359, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (113359, 0, 1, 0, 10, 0, 100, 0, 0, 80, 2300, 3900, 1, 0, 11, 22121, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
+(113359, 0, 2, 3, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Frostwolf Bowman - bunker/tower destroyed - Set Invisible'),
+(113359, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf Bowman - bunker/tower destroyed - Set Faction Friendly'),
+(113359, 0, 4, 5, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,           'Frostwolf Bowman - bunker/tower retaken - Set visible'),
+(113359, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Bowman - bunker/tower retaken - Reset Faction'),
+--
 (114282, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bloodhound - In Combat - Cast Thrash'),
 (114283, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Owl - In Combat - Cast Thrash'),
 (114284, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 22120, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Battleguard - On Aggro - Cast Charge'),
 (114284, 0, 1, 0, 0, 0, 100, 0, 4000, 6000, 10000, 14000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Stormpike Battleguard - In Combat - Cast Improved Blocking'),
 (114284, 0, 2, 0, 0, 0, 100, 0, 7000, 10000, 20000, 25000, 0, 0, 11, 16509, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Stormpike Battleguard - In Combat - Cast Rend'),
 (114284, 0, 3, 0, 0, 0, 100, 0, 3000, 5000, 5000, 7000, 0, 0, 11, 22591, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Stormpike Battleguard - In Combat - Cast Strike'),
---
-(122766, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(122766, 0, 1, 0, 10, 0, 100, 0, 0, 80, 2300, 3900, 1, 0, 11, 22121, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
-(122739, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(122739, 0, 1, 0, 10, 0, 100, 0, 0, 80, 2300, 3900, 1, 0, 11, 22121, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
-(132089, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(132089, 0, 1, 0, 10, 0, 100, 0, 0, 80, 2300, 3900, 1, 0, 11, 22121, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
-(131978, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
-(131978, 0, 1, 0, 10, 0, 100, 0, 0, 80, 2300, 3900, 1, 0, 11, 22121, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
 --
 (110982, 0, 0, 0, 9, 0, 100, 0, 0, 0, 3000, 6000, 0, 5, 11, 17230, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Whitewhisker Vermin - Within 0-5 Range - Cast Infected Wound'),
 (111603, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10200, 17900, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Whitewhisker Digger - Within 0-5 Range - Cast Strike'),
@@ -3286,6 +3256,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11657, 0, 0, 0, 0, 0, 100, 0, 0, 0, 3400, 4800, 0, 0, 11, 15537, 64, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Morloch - Combat - Cast Shadow Bolt'), -- Irondeep Mine
 (11657, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 120000, 130000, 0, 0, 11, 12741, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Morloch - Combat - Cast Curse of Weakness'),
 (11657, 0, 2, 0, 0, 0, 100, 0, 11000, 14000, 9000, 15000, 0, 0, 11, 17228, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Morloch - Combat - Cast Shadow Bolt Volley'),
+(11657, 0, 3, 4, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 110987, 0, 200, 2, 0, 0, 0, 0,              'Morloch - AI Init - Respawn Irondeep Trogg'),
+(11657, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 111600, 0, 200, 2, 0, 0, 0, 0,              'Morloch - AI Init - Respawn Irondeep Shaman'),
+(11657, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 111602, 0, 200, 2, 0, 0, 0, 0,              'Morloch - AI Init - Respawn Irondeep Skullthumper'),
 --
 (13078, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 9000, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Umi Thorson - Within 0-5 Range - Cast Strike'),
 (13078, 0, 1, 0, 9, 0, 100, 0, 0, 0, 16000, 21000, 0, 5, 11, 8147, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Umi Thorson - Within 0-5 Range - Cast Thunderclap'),
@@ -3304,6 +3277,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11677, 0, 1, 0, 9, 0, 100, 0, 0, 0, 6000, 9000, 0, 5, 11, 14516, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Taskmaster Snivvle - Within 0-5 Range - Cast Strike'),
 (11677, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Taskmaster Snivvle - On Reset - Cast Thrash'),
 (11677, 0, 3, 0, 2, 0, 100, 1, 0, 30, 30000, 35000, 0, 0, 11, 16170, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Taskmaster Snivvle - Between 0-30% Health - Cast Bloodlust (No Repeat)'),
+(11677, 0, 4, 5, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 110982, 0, 200, 2, 0, 0, 0, 0,              'Taskmaster Snivvle - AI Init - Respawn Whitewhisker Vermin'),
+(11677, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 111603, 0, 200, 2, 0, 0, 0, 0,              'Taskmaster Snivvle - AI Init - Respawn Whitewhisker Digger'),
+(11677, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 111604, 0, 200, 2, 0, 0, 0, 0,              'Taskmaster Snivvle - AI Init - Respawn Whitewhisker Geomancer'),
 --
 (13086, 0, 0, 0, 105, 0, 50, 0, 0, 0, 13000, 16000, 0, 5, 11, 15655, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Aggi Rumblestomp - On Target Casting - Cast Shield Slam'),
 (13086, 0, 1, 0, 0, 0, 100, 0, 8000, 11000, 12000, 15000, 0, 0, 11, 12169, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aggi Rumblestomp - In Combat - Cast Shield Block'),
@@ -3316,3 +3292,34 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13088, 0, 2, 3, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 113089, 0, 200, 2, 0, 0, 0, 0,              'Masha Swiftcut - AI Init - Respawn Coldmine Guard'),
 (13088, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 113097, 0, 200, 2, 0, 0, 0, 0,              'Masha Swiftcut - AI Init - Respawn Coldmine Surveyor'),
 (13088, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 9, 113316, 0, 200, 2, 0, 0, 0, 0,              'Masha Swiftcut - AI Init - Respawn Coldmine Peon');
+
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 29 AND `ConditionTypeOrReference` = 29 AND `SourceEntry` IN 
+(110982, 111603, 111604, 113089, 113097, 113316, 113087, 113096, 113317, 110987, 111600, 111602, 113081, 113099, 113397, 113080, 113098, 113396);
+
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+--
+(29, 0, 110982, 0, 0, 29, 0, 11677, 200, 0, 0, 0, 0, '', 'Whitewhisker Vermin respawns only if Taskmaster Snivvle is alive'), -- Coldtooth Mine
+(29, 0, 111603, 0, 0, 29, 0, 11677, 200, 0, 0, 0, 0, '', 'Whitewhisker Digger respawns only if Taskmaster Snivvle is alive'),
+(29, 0, 111604, 0, 0, 29, 0, 11677, 200, 0, 0, 0, 0, '', 'Whitewhisker Geomancer respawns only if Taskmaster Snivvle is alive'),
+--
+(29, 0, 113089, 0, 0, 29, 0, 13088, 200, 0, 0, 0, 0, '', 'Coldmine Guard respawns only if Masha Swiftcut is alive'),
+(29, 0, 113097, 0, 0, 29, 0, 13088, 200, 0, 0, 0, 0, '', 'Coldmine Surveyor respawns only if Masha Swiftcut is alive'),
+(29, 0, 113316, 0, 0, 29, 0, 13088, 200, 0, 0, 0, 0, '', 'Coldmine Peon respawns only if Masha Swiftcut is alive'),
+--
+(29, 0, 113087, 0, 0, 29, 0, 13086, 200, 0, 0, 0, 0, '', 'Coldmine Invader respawns only if Aggi Rumblestomp is alive'),
+(29, 0, 113096, 0, 0, 29, 0, 13086, 200, 0, 0, 0, 0, '', 'Coldmine Explorer respawns only if Aggi Rumblestomp is alive'),
+(29, 0, 113317, 0, 0, 29, 0, 13086, 200, 0, 0, 0, 0, '', 'Coldmine Miner respawns only if Aggi Rumblestomp is alive'),
+--
+(29, 0, 110987, 0, 0, 29, 0, 11657, 200, 0, 0, 0, 0, '', 'Irondeep Trogg respawns only if Morloch is alive'), -- Irondeep Mine
+(29, 0, 111600, 0, 0, 29, 0, 11657, 200, 0, 0, 0, 0, '', 'Irondeep Shaman respawns only if Morloch is alive'),
+(29, 0, 111602, 0, 0, 29, 0, 11657, 200, 0, 0, 0, 0, '', 'Irondeep Skullthumper respawns only if Morloch is alive'),
+--
+(29, 0, 113081, 0, 0, 29, 0, 13079, 200, 0, 0, 0, 0, '', 'Irondeep Raider respawns only if Keetar is alive'),
+(29, 0, 113099, 0, 0, 29, 0, 13079, 200, 0, 0, 0, 0, '', 'Irondeep Explorer respawns only if Keetar is alive'),
+(29, 0, 113397, 0, 0, 29, 0, 13079, 200, 0, 0, 0, 0, '', 'Irondeep Peon respawns only if Keetar is alive'),
+--
+(29, 0, 113080, 0, 0, 29, 0, 13078, 200, 0, 0, 0, 0, '', 'Irondeep Guard respawns only if Umi Thorson is alive'),
+(29, 0, 113098, 0, 0, 29, 0, 13078, 200, 0, 0, 0, 0, '', 'Irondeep Surveyor respawns only if Umi Thorson is alive'),
+(29, 0, 113396, 0, 0, 29, 0, 13078, 200, 0, 0, 0, 0, '', 'Irondeep Miner respawns only if Umi Thorson is alive');
