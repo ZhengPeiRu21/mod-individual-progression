@@ -393,6 +393,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_ISLE_OF_QUEL_DANAS:
         case AREA_MAGISTERS_TERRACE:
         case AREA_SHATTERED_SUN_STAGING:
+        case AREA_SILVERMOONS_PRIDE:
         case AREA_SUNS_REACH_SANCTUM:
         case AREA_SUNS_REACH_HARBOR:
         case AREA_SUNS_REACH_ARMORY:
