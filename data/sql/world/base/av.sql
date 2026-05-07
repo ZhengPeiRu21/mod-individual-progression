@@ -2137,16 +2137,10 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (113358, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Stormpike Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (113358, 0, 1, 0, 10, 0, 100, 0, 0, 80, 2300, 3900, 1, 0, 11, 22121, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Stormpike Bowman - Within 0-80 Range - Cast Shoot'),
-(113358, 0, 2, 3, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Stormpike Bowman - bunker/tower destroyed - Set Invisible'), -- check if AC archer is gone
-(113358, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Stormpike Bowman - bunker/tower destroyed - Set Faction Friendly'),
-(113358, 0, 4, 5, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,           'Stormpike Bowman - bunker/tower retaken - Set visible'), -- check if AC archer is back
-(113358, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Stormpike Bowman - bunker/tower retaken - Reset Faction'),
+(113358, 0, 2, 0, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Stormpike Bowman - bunker/tower destroyed - Force Despawn'), -- check if AC archer is gone
 (113359, 0, 0, 0, 1, 0, 100, 513, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Frostwolf Bowman - Out of Combat - Disable Combat Movement (No Repeat)'),
 (113359, 0, 1, 0, 10, 0, 100, 0, 0, 80, 2300, 3900, 1, 0, 11, 22121, 64, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,        'Frostwolf Bowman - Within 0-80 Range - Cast Shoot'),
-(113359, 0, 2, 3, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Frostwolf Bowman - bunker/tower destroyed - Set Invisible'),
-(113359, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf Bowman - bunker/tower destroyed - Set Faction Friendly'),
-(113359, 0, 4, 5, 104, 0, 100, 0, 0, 13358, 1, 20, 2000, 0, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,           'Frostwolf Bowman - bunker/tower retaken - Set visible'),
-(113359, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Bowman - bunker/tower retaken - Reset Faction'),
+(113359, 0, 2, 0, 104, 0, 100, 0, 0, 13359, 1, 20, 2000, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Frostwolf Bowman - bunker/tower destroyed - Force Despawn'), -- check if AC archer is gone
 --
 (114282, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Frostwolf Bloodhound - In Combat - Cast Thrash'),
 (114283, 0, 0, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Stormpike Owl - In Combat - Cast Thrash'),
@@ -3307,7 +3301,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 29 AND `ConditionTypeOrReference` = 29 AND `SourceEntry` IN 
-(110982, 111603, 111604, 113089, 113097, 113316, 113087, 113096, 113317, 110987, 111600, 111602, 113081, 113099, 113397, 113080, 113098, 113396);
+(110982, 111603, 111604, 113089, 113097, 113316, 113087, 113096, 113317, 110987, 111600, 111602, 113081, 113099, 113397, 113080, 113098, 113396, 113358, 113359);
 
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
@@ -3334,4 +3328,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 --
 (29, 0, 113080, 0, 0, 29, 0, 13078, 200, 0, 0, 0, 0, '', 'Irondeep Guard respawns only if Umi Thorson is alive'),
 (29, 0, 113098, 0, 0, 29, 0, 13078, 200, 0, 0, 0, 0, '', 'Irondeep Surveyor respawns only if Umi Thorson is alive'),
-(29, 0, 113396, 0, 0, 29, 0, 13078, 200, 0, 0, 0, 0, '', 'Irondeep Miner respawns only if Umi Thorson is alive');
+(29, 0, 113396, 0, 0, 29, 0, 13078, 200, 0, 0, 0, 0, '', 'Irondeep Miner respawns only if Umi Thorson is alive'),
+--
+(29, 0, 113358, 0, 0, 29, 0, 13358, 20, 0, 0, 0, 0, '', 'Stormpike Bowman respawns only if bunker is under alliance control'), -- check if AC archer is alive
+(29, 0, 113359, 0, 0, 29, 0, 13359, 20, 0, 0, 0, 0, '', 'Frostwolf Bowman respawns only if bunker is under horde control');
