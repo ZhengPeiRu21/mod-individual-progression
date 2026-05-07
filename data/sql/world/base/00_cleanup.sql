@@ -28,35 +28,6 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinc
 
 /* the following edits are temporary */
 
--- no longer hide npc, now hiding vendor items instead
-UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN 
-(28701,  -- Timothy Jones <Grand Master Jewelcrafting Trainer>
- 32172); -- Harold Winston <Jewelry Vendor>
-
--- remove unused riding spell list
-DELETE FROM `trainer_spell` WHERE `TrainerId` = 648;
-
--- remove access requirements from database, this is now done with cpp
-DELETE FROM `dungeon_access_requirements` WHERE `dungeon_access_id` IN (15, 16, 32, 46, 47, 64);
-
--- Make Spice Bread learnable for completion's sake, but only after reaching a level when it will no longer allow skipping early cooking
--- no longer needed. you can't get Simple Flour during vanilla.
-UPDATE `trainer_spell` SET `ReqSkillRank` = 1 WHERE `SpellID` = 37836;
-
--- undo Replace orc guards with pre-wrathgate abomination guards -- 00_cleanup
-UPDATE `creature` SET `id1` = 36213, `equipment_id` = 1 WHERE `guid` IN 
-(17669, 28481, 28485, 28486, 28487, 28488, 28489, 28490, 33823, 33831, 34102, 34103, 34104, 34105, 34106, 38296, 38297, 38298, 38299, 38301, 38302, 38305, 
-39019, 39020, 39022, 39023, 39024, 39025, 39026, 41884, 41887, 41888, 41889, 41890, 41891, 41892, 41956, 41960, 41961, 41964, 79264, 79265, 79266, 79267);
-UPDATE `creature` SET `equipment_id` = 0 WHERE `guid` IN (34103, 34104, 38297);
-
--- Restore conversation between Faranell and Wrathgate NPC Kraggosh - 00_cleanup
-UPDATE `creature_template` SET `AINAME` = 'SmartAI' WHERE `entry` = 2055;
-
--- restore AC entries that were wrongly overwritten by AQ war bosses
-DELETE FROM `pool_template` WHERE `entry` IN (15813, 15818);
-INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
-(15813,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein'),
-(15818,1,'Thousand Needles - Ore Pool - Iron Deposit / Silver Vein / Gold Vein');
 
 -- unused "Increased healing done and damage done"
 DELETE FROM `spell_dbc` WHERE `ID` IN 
@@ -90,3 +61,7 @@ DELETE FROM `spell_dbc` WHERE `ID` IN
 81058, 81059, 81060, 81061, 81062, 81063, 81064, 81065, 81066, 81067, 81068, 81069, 81070, 81071, 81072, 81073, 81074, 81075, 81076, 81077, 81078, 81079, 81080, 81081, 81082, 81083, 81084, 81085, 81086, 
 81087, 81088, 81089, 81090, 81091, 81092, 81093, 81094, 81095, 81096, 81097, 81098, 81099, 81100, 81101, 81102, 81103, 81104, 81105, 81106, 81107, 81108, 81109, 81110, 81111, 81112, 81113, 81114, 81115, 
 81116, 81117, 81118, 81119, 81120, 81121, 81122, 81123, 81124, 81125, 81126, 81127, 81128, 81129, 81130, 81131, 81132, 81133, 81134, 81135, 81136, 81137, 81138, 81139);
+
+-- remove vanilla AV landmines, default is no landmines
+SET @OGUID := 657000;
+DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+101 AND @OGUID+499;
