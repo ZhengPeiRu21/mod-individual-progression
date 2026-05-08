@@ -190,6 +190,18 @@ IndividualProgression.DisableQuestMarkers = 1
 #
 IndividualProgression.DisableRDF = 0
 
+# IndividualProgression.MaxMonsterSight
+#
+#        Description: Enable or disable Max Monster Sight.
+#                     The AC default setting is 50 yards. Enabling this will increase the range to 80 yards.
+#                     The reason behind this are the tower and bunker archers in Alterac Valley. 
+#                     These archers should have a 80 yard ranged attack.
+#
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+IndividualProgression.MaxMonsterSight = 1
+
 # IndividualProgression.QuestMoneyAtLevelCap
 #
 #        Description: If enabled, players at the level cap for the current progression stage will receive extra money when completing quests. This feature was added in patch 1.10
