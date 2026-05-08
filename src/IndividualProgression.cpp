@@ -153,8 +153,12 @@ void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 acc
 
     Group* group = player->GetGroup();
     uint32 account = player->GetSession()->GetAccountId();
+    std::string factionName = sFactionStore.LookupEntry(factionId)->name[0];
 
     if (!group)
+        return;
+
+    if (player->GetReputationRank(factionId) < REP_NEUTRAL) // don't increase rep unless the player is at least neutral with the faction
         return;
 
     uint32 curRep = player->GetReputationMgr().GetReputation(factionId);
@@ -166,22 +170,24 @@ void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 acc
         if (!member || member->GetSession()->GetAccountId() != accountId)
             continue;
 
+        if (member->GetReputationRank(factionId) < REP_NEUTRAL)
+            continue;
+
         uint32 repAmount = member->GetReputationMgr().GetReputation(factionId);
 
         if (repAmount > newRep)
             newRep = repAmount;
     }
 
-    // ChatHandler(player->GetSession()).PSendSysMessage("Current {} Reputation = {}", factionId, curRep);
-    // ChatHandler(player->GetSession()).PSendSysMessage("Highest {} Reputation = {}", factionId, newRep);
+    ChatHandler(player->GetSession()).PSendSysMessage("Current {} Rep = {} ({})", factionId, curRep, factionName);
+    ChatHandler(player->GetSession()).PSendSysMessage("Highest {} Rep = {} ({})", factionId, newRep, factionName);
 
     if (newRep > curRep)
     {
-        std::string factionName = sFactionStore.LookupEntry(factionId)->name[0];
         uint32 addRep = newRep - curRep;
 
         player->GetReputationMgr().ModifyReputation(sFactionStore.LookupEntry(factionId), addRep);
-        ChatHandler(player->GetSession()).PSendSysMessage("Reputation with {} increased by {}.", factionName, addRep);
+        // ChatHandler(player->GetSession()).PSendSysMessage("Reputation with {} increased by {}.", factionName, addRep);
     }
 }
 
