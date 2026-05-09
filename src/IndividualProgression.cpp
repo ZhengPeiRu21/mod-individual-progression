@@ -929,7 +929,7 @@ public:
         }
 
         if (sIndividualProgression->MaxMonsterSight)
-            sWorld->setIntConfig(CONFIG_SIGHT_MONSTER, 80.0f);
+            sWorld->setFloatConfig(CONFIG_SIGHT_MONSTER, 80.0f);
         
         if (sIndividualProgression->DisableRDF)
             sWorld->setIntConfig(CONFIG_LFG_OPTIONSMASK, 4);
