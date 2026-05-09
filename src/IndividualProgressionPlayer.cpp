@@ -1139,17 +1139,17 @@ public:
 
                     if (killed->GetEntry() == COLOSSUS_ZORA)
                     {
-                        if (member->hasQuest(QUEST_COLOSSUS_ZORA))
+                        if (member->hasQuest(QUEST_COLOSSUS_ZORA) && member->GetQuestStatus(QUEST_COLOSSUS_ZORA) != QUEST_STATUS_COMPLETE)
                             member->CompleteQuest(QUEST_COLOSSUS_ZORA);
                     }
                     else if (killed->GetEntry() == COLOSSUS_REGAL)
                     {
-                        if (member->hasQuest(QUEST_COLOSSUS_REGAL))
+                        if (member->hasQuest(QUEST_COLOSSUS_REGAL) && member->GetQuestStatus(QUEST_COLOSSUS_REGAL) != QUEST_STATUS_COMPLETE)
                             member->CompleteQuest(QUEST_COLOSSUS_REGAL);
                     }
                     else if (killed->GetEntry() == COLOSSUS_ASHI)
                     {
-                        if (member->hasQuest(QUEST_COLOSSUS_ASHI))
+                        if (member->hasQuest(QUEST_COLOSSUS_ASHI) && member->GetQuestStatus(QUEST_COLOSSUS_ASHI) != QUEST_STATUS_COMPLETE)
                             member->CompleteQuest(QUEST_COLOSSUS_ASHI);
                     }
                 }
