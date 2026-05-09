@@ -1125,11 +1125,39 @@ public:
         
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
-            sIndividualProgression->checkKillProgression(killer, killed);
             Group* group = killer->GetGroup();
             if (!group)
                 return;
 
+            if (killed->GetEntry() == COLOSSUS_ZORA || killed->GetEntry() == COLOSSUS_REGAL || killed->GetEntry() == COLOSSUS_ASHI)
+            {
+                for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+                {
+                    Player* member = itr->GetSource();
+                    if (!member || sIndividualProgression->isExcludedFromProgression(member))
+                        continue;
+
+                    if (killed->GetEntry() == COLOSSUS_ZORA)
+                    {
+                        if (member->hasQuest(QUEST_COLOSSUS_ZORA) && member->GetQuestStatus(QUEST_COLOSSUS_ZORA) != QUEST_STATUS_COMPLETE)
+                            member->CompleteQuest(QUEST_COLOSSUS_ZORA);
+                    }
+                    else if (killed->GetEntry() == COLOSSUS_REGAL)
+                    {
+                        if (member->hasQuest(QUEST_COLOSSUS_REGAL) && member->GetQuestStatus(QUEST_COLOSSUS_REGAL) != QUEST_STATUS_COMPLETE)
+                            member->CompleteQuest(QUEST_COLOSSUS_REGAL);
+                    }
+                    else if (killed->GetEntry() == COLOSSUS_ASHI)
+                    {
+                        if (member->hasQuest(QUEST_COLOSSUS_ASHI) && member->GetQuestStatus(QUEST_COLOSSUS_ASHI) != QUEST_STATUS_COMPLETE)
+                            member->CompleteQuest(QUEST_COLOSSUS_ASHI);
+                    }
+                }
+                return;
+            }
+
+            sIndividualProgression->checkKillProgression(killer, killed);
+            
             for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
             {
                 Player* member = itr->GetSource();
