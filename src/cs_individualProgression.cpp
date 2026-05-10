@@ -367,7 +367,7 @@ public:
 
         if (location == "naxx" || location == "naxx40")
         {
- 			if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= IP_LEVEL_TBC))
+ 			if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= 70))
             {
                 if (sIndividualProgression->isAttuned(target) || sIndividualProgression->isExcludedFromProgression(target))
                 {
@@ -389,7 +389,7 @@ public:
         }
         else if (location == "onyxia" || location == "onyxia40")
         {
-            if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= IP_LEVEL_TBC))
+            if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= 70))
             {
                 if (target->HasItemCount(ITEM_DRAKEFIRE_AMULET) || sIndividualProgression->isExcludedFromProgression(target))
                 {
