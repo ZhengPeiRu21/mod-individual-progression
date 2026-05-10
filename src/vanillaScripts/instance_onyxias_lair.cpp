@@ -141,7 +141,7 @@ public:
 
         ChatHandler handler(player->GetSession());
 
-        if (player->GetLevel() <= IP_LEVEL_TBC)
+        if (player->GetLevel() <= 70)
         {
             if (player->GetLevel() < 50)
             {
@@ -164,9 +164,9 @@ public:
             return true;
 
         }
-	    else // (player->GetLevel() > IP_LEVEL_TBC)
+	    else // (player->GetLevel() > 70)
         {
-            if (player->GetLevel() != IP_LEVEL_WOTLK)
+            if (player->GetLevel() != 80)
             {
                 handler.PSendSysMessage("You need to be level 80 to enter Onyxia\'s Lair.");
                 return false;
