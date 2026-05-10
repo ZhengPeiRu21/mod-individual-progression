@@ -5581,22 +5581,14 @@ INSERT INTO `creature_model_info` (`DisplayID`, `BoundingRadius`, `CombatReach`,
 (16608, 0.3672, 1.8, 0, 0),
 (16609, 0, 0, 0, 0);
 
-DELETE FROM `creature_template_resistance` WHERE `CreatureID` IN (16157, 16158, 16448, 16449, 16451, 16452, 16453, 16861, 
-@CENTRY+0,  @CENTRY+1,  @CENTRY+2,  @CENTRY+3,  @CENTRY+4,  @CENTRY+5,  @CENTRY+6,  @CENTRY+7,  @CENTRY+8,  @CENTRY+9,  @CENTRY+10, @CENTRY+11, @CENTRY+12, 
-@CENTRY+13, @CENTRY+14, @CENTRY+15, @CENTRY+16, @CENTRY+17, @CENTRY+18, @CENTRY+19, @CENTRY+20, @CENTRY+21, @CENTRY+22, @CENTRY+23, @CENTRY+24, @CENTRY+27, 
-@CENTRY+28, @CENTRY+29, @CENTRY+30, @CENTRY+35, @CENTRY+36, @CENTRY+37, @CENTRY+38, @CENTRY+39, @CENTRY+40, @CENTRY+41, @CENTRY+44, @CENTRY+45, @CENTRY+48, 
-@CENTRY+49, @CENTRY+50, @CENTRY+51, @CENTRY+52, @CENTRY+53, @CENTRY+54, @CENTRY+55, @CENTRY+56, @CENTRY+57, @CENTRY+58, @CENTRY+59, @CENTRY+60, @CENTRY+61, 
-@CENTRY+62, @CENTRY+63, @CENTRY+64, @CENTRY+65, @CENTRY+68, @CENTRY+70, @CENTRY+77, @CENTRY+78, @CENTRY+80, @CENTRY+82, @CENTRY+85, @CENTRY+86, @CENTRY+87, @CENTRY+91);
+DELETE FROM `creature_template_resistance` WHERE `CreatureID` IN
+(@CENTRY+0,  @CENTRY+1,  @CENTRY+2,  @CENTRY+3,  @CENTRY+4,  @CENTRY+5,  @CENTRY+6,  @CENTRY+7,  @CENTRY+8,  @CENTRY+9,  @CENTRY+10, @CENTRY+11, @CENTRY+12, 
+ @CENTRY+13, @CENTRY+14, @CENTRY+15, @CENTRY+16, @CENTRY+17, @CENTRY+18, @CENTRY+19, @CENTRY+20, @CENTRY+21, @CENTRY+22, @CENTRY+23, @CENTRY+24, @CENTRY+27, 
+ @CENTRY+28, @CENTRY+29, @CENTRY+30, @CENTRY+35, @CENTRY+36, @CENTRY+37, @CENTRY+38, @CENTRY+39, @CENTRY+40, @CENTRY+41, @CENTRY+44, @CENTRY+45, @CENTRY+48, 
+ @CENTRY+49, @CENTRY+50, @CENTRY+51, @CENTRY+52, @CENTRY+53, @CENTRY+54, @CENTRY+55, @CENTRY+56, @CENTRY+57, @CENTRY+58, @CENTRY+59, @CENTRY+60, @CENTRY+61, 
+ @CENTRY+62, @CENTRY+63, @CENTRY+64, @CENTRY+65, @CENTRY+68, @CENTRY+70, @CENTRY+77, @CENTRY+78, @CENTRY+80, @CENTRY+82, @CENTRY+85, @CENTRY+86, @CENTRY+87, @CENTRY+91);
 
 INSERT INTO `creature_template_resistance` (`Resistance`, `CreatureID`, `School`) VALUES
-(5,    16448,       2), (5,    16448,       3), (5,    16448,       4), (5,    16448,       5), (5,    16448,       6),
-(5,    16449,       2), (5,    16449,       3), (5,    16449,       4), (5,    16449,       5), (5,    16449,       6),
-(10,   16451,       2), (10,   16451,       3), (10,   16451,       4), (10,   16451,       5), (10,   16451,       6),
-(10,   16452,       2), (10,   16452,       3), (10,   16452,       4), (10,   16452,       5), (10,   16452,       6),
-(5,    16453,       2), (5,    16453,       3), (5,    16453,       4), (5,    16453,       5), (5,    16453,       6),
-(5,    16157,       2), (5,    16157,       3), (5,    16157,       4), (5,    16157,       5), (5,    16157,       6),
-(5,    16158,       2), (5,    16158,       3), (5,    16158,       4), (5,    16158,       5), (5,    16158,       6),
-(5,    16861,       2), (5,    16861,       3), (5,    16861,       4), (5,    16861,       5), (5,    16861,       6),
 (15,   @CENTRY+0,   2), (15,   @CENTRY+0,   3), (15,   @CENTRY+0,   4), (15,   @CENTRY+0,   5), (15,   @CENTRY+0,   6),
 (15,   @CENTRY+1,   2), (15,   @CENTRY+1,   3), (15,   @CENTRY+1,   4), (15,   @CENTRY+1,   5), (15,   @CENTRY+1,   6),
 (15,   @CENTRY+2,   2), (15,   @CENTRY+2,   3), (15,   @CENTRY+2,   4), (15,   @CENTRY+2,   5), (15,   @CENTRY+2,   6),
