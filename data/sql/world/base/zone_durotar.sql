@@ -101,6 +101,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3226, 0, 0, 0, 9, 0, 100, 0, 0, 0, 30000, 35000, 0, 5, 11, 5413, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Corrupted Scorpid - Within 0-5 Range - Cast Noxious Catalyst'),
 (3227, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 6268, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Corrupted Bloodtalon Scythemaw - On Aggro - Cast Rushing Charge'),
 (3281, 0, 0, 0, 0, 0, 60, 0, 1000, 5000, 1000, 8000, 0, 0, 11, 11918, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,      'Sarkoth - Within 0-5 Range - Cast Poison'),
+--
 (5808, 0, 0, 0, 0, 0, 100, 0, 8000, 25000, 21000, 44000, 0, 0, 11, 8078, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Warlord Kolkanis - In Combat - Cast Thunderclap'),
 (5808, 0, 1, 0, 105, 0, 50, 0, 5000, 20000, 40000, 40000, 0, 5, 11, 12555, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,   'Warlord Kolkanis - Target Casting - Cast Pummel'),
 (5809, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 90000, 90000, 0, 0, 11, 7164, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Watch Commander Zalaphil - Out of Combat - Cast Defensive Stance'),
