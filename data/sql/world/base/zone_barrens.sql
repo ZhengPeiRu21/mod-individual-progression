@@ -157,7 +157,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (3380, 0, 2, 0, 0, 0, 70, 1, 0, 0, 15000, 15000, 0, 0, 11, 980, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Burning Blade Acolyte - In Combat - Cast Curse of Agony'),
 (3380, 0, 3, 0, 2, 0, 80, 0, 0, 50, 13000, 13000, 0, 0, 11, 689, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Burning Blade Acolyte - Between 0-50% Health - Cast Drain Life'),
 (3381, 0, 0, 0, 0, 0, 100, 0, 7000, 14000, 10000, 16000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0,     'Southsea Brigand - Within 0-5 Range  - Cast Backhand'),
-(3381, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Southsea Brigand - Between 0-15% Health - Flee For Assist (No Repeat)'),   
+(3381, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Southsea Brigand - Between 0-15% Health - Flee For Assist (No Repeat)'),
 (3382, 0, 0, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Southsea Cannoneer - Outside 30 Range - Start Combat Movement'),
 (3382, 0, 1, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Southsea Cannoneer - Within 5-30 Range - Stop Combat Movement'),
 (3382, 0, 2, 0, 9, 0, 100, 0, 0, 0, 4000, 4000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Southsea Cannoneer - Within 0-5 Range - Start Combat Movement'),
