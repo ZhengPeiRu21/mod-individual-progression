@@ -25,7 +25,7 @@ public:
 
     bool OnGossipHello(Player* player, GameObject* /*go*/) override
     {
-        if (player->GetLevel() > IP_LEVEL_TBC)
+        if (player->GetLevel() > 70)
         {
             ChatHandler(player->GetSession()).PSendSysMessage("Your level is too high to enter the level 60 version of Naxxramas.");
             return false;
