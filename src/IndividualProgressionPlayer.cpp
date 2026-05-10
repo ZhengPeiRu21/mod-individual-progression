@@ -194,7 +194,7 @@ public:
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || player->GetLevel() < 70) // no need to check spells if player is not in WotlK
             return;
 
-        if (!player->getClass())
+        if (player->getClass() == CLASS_WARRIOR || player->getClass() == CLASS_ROGUE || player->getClass() == CLASS_DEATH_KNIGHT)
             return;
 
         if (player->getClass() == CLASS_DRUID)
