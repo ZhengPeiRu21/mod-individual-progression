@@ -208,7 +208,7 @@ public:
         if (sIndividualProgression->isExcludedFromProgression(player)) // bots don't cast lower ranks of spells
             return;
 
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // no need to check spells if player is not in WotlK
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || player->GetLevel() < 70) // no need to check spells if player is not in WotlK
             return;
 
         if (!player->getClass())
