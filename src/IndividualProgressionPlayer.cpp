@@ -36,9 +36,9 @@ public:
 
 		if (sIndividualProgression->isExcludedFromProgression(player) && sIndividualProgression->excludeAccounts)
         {
-            if (player->GetLevel() <= IP_LEVEL_VANILLA)
+            if (player->GetLevel() <= 60)
                 sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(0));
-            else if ((player->GetLevel() > IP_LEVEL_VANILLA) && (player->GetLevel() <= IP_LEVEL_TBC))
+            else if ((player->GetLevel() > 60) && (player->GetLevel() <= 70))
                 sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(8));
             else
                 sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(13));
@@ -72,23 +72,6 @@ public:
             ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00Individual Progression: |cffccccccenabled|r");
         }
     }
-
-    /* void OnPlayerSetMaxLevel(Player* player, uint32& maxPlayerLevel) override
-    {
-        if (!sIndividualProgression->enabled || !maxPlayerLevel || !player || !player->IsInWorld() || sIndividualProgression->isExcludedFromProgression(player))
-            return;
-
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
-        {
-            if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > IP_LEVEL_VANILLA)
-                maxPlayerLevel = IP_LEVEL_VANILLA;
-        }
-        else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
-        {
-            if (sWorld->getIntConfig(CONFIG_MAX_PLAYER_LEVEL) > IP_LEVEL_TBC)
-                maxPlayerLevel = IP_LEVEL_TBC;
-        }
-    } */
 
     void OnPlayerMapChanged(Player* player) override
     {
@@ -164,7 +147,7 @@ public:
         else
         {
             // Player is still in Vanilla content - do not give XP past level 60
-            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() >= IP_LEVEL_VANILLA)
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() >= 60)
             {
                 // Still award XP to pets - they won't be able to pass the player's level
                 Pet* pet = player->GetPet();
@@ -174,7 +157,7 @@ public:
                 amount = 0;
             }
             // Player is in TBC content - do not give XP past level 70
-            else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() >= IP_LEVEL_TBC)
+            else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() >= 70)
             {
                 // Still award XP to pets - they won't be able to pass the player's level
                 Pet* pet = player->GetPet();
@@ -208,7 +191,7 @@ public:
         if (sIndividualProgression->isExcludedFromProgression(player)) // bots don't cast lower ranks of spells
             return;
 
-        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // no need to check spells if player is not in WotlK
+        if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) || player->GetLevel() < 70) // no need to check spells if player is not in WotlK
             return;
 
         if (!player->getClass())
@@ -633,7 +616,7 @@ public:
         }
         if (mapid == MAP_ONYXIAS_LAIR)
         {
-            if (player->GetLevel() <= IP_LEVEL_TBC) // vanilla version
+            if (player->GetLevel() <= 70) // vanilla version
             {
                 if (player->GetLevel() < 50)
                     return false;
@@ -644,7 +627,7 @@ public:
             }
  			else // WotLK
             {
-                if (player->GetLevel() != IP_LEVEL_WOTLK)
+                if (player->GetLevel() != 80)
                     return false;
             }
         }
@@ -802,7 +785,7 @@ public:
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid != MAP_NAXXRAMAS && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
                 return false;
 
-            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= IP_LEVEL_TBC && (!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
+            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= 70 && (!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
                 return false;
         }
 
@@ -819,10 +802,10 @@ public:
             int32 moneyRew = 0;
             int32 XPValue = 0;
 
-            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == IP_LEVEL_VANILLA)
-                XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? IP_LEVEL_VANILLA : quest->GetQuestLevel());
-            else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == IP_LEVEL_TBC)
-                XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? IP_LEVEL_TBC : quest->GetQuestLevel());
+            if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && player->GetLevel() == 60)
+                XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? 60 : quest->GetQuestLevel());
+            else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) && player->GetLevel() == 70)
+                XPValue = quest->XPValue(quest->GetQuestLevel() == -1 ? 70 : quest->GetQuestLevel());
 
             moneyRew = (XPValue * (6 * COPPER)) * sWorld->getRate(RATE_REWARD_BONUS_MONEY);
 
@@ -894,7 +877,7 @@ public:
                 {
                     if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)) // player is in vanilla
                     {
-                        if (otherPlayer->GetLevel() <= IP_LEVEL_VANILLA)
+                        if (otherPlayer->GetLevel() <= 60)
                         {
                             return true;
                         }
@@ -906,7 +889,7 @@ public:
                     }
                     else if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // player is in TBC
                     {
-                        if ((otherPlayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPlayer->GetLevel() <= IP_LEVEL_TBC))
+                        if ((otherPlayer->GetLevel() > 60) && (otherPlayer->GetLevel() <= 70))
                         {
                             return true;
                         }
@@ -918,7 +901,7 @@ public:
                     }
                     else // player is in WotLK
                     {
-                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC)
+                        if (otherPlayer->GetLevel() > 70)
                         {
                             return true;
                         }
@@ -938,9 +921,9 @@ public:
             {
                 if (sIndividualProgression->isExcludedFromProgression(otherPlayer)) // RNDbot
                 {
-                    if (player->GetLevel() <= IP_LEVEL_VANILLA) // player is in vanilla
+                    if (player->GetLevel() <= 60) // player is in vanilla
                     {
-                        if (otherPlayer->GetLevel() <= IP_LEVEL_VANILLA)
+                        if (otherPlayer->GetLevel() <= 60)
                         {
                             return true;
                         }
@@ -950,9 +933,9 @@ public:
                             return false;
                         }
                     }
-                    else if (player->GetLevel() <= IP_LEVEL_TBC) // player is in TBC
+                    else if (player->GetLevel() <= 70) // player is in TBC
                     {
-                        if ((otherPlayer->GetLevel() > IP_LEVEL_VANILLA) && (otherPlayer->GetLevel() <= IP_LEVEL_TBC))
+                        if ((otherPlayer->GetLevel() > 60) && (otherPlayer->GetLevel() <= 70))
                         {
                             return true;
                         }
@@ -964,7 +947,7 @@ public:
                     }
                     else // player is in WotLK
                     {
-                        if (otherPlayer->GetLevel() > IP_LEVEL_TBC)
+                        if (otherPlayer->GetLevel() > 70)
                         {
                             return true;
                         }
@@ -1126,6 +1109,7 @@ public:
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
             Group* group = killer->GetGroup();
+
             if (!group)
                 return;
 
@@ -1148,7 +1132,7 @@ public:
             }
 
             sIndividualProgression->checkKillProgression(killer, killed);
-            
+
             for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
             {
                 Player* member = itr->GetSource();
