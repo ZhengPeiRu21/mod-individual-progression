@@ -206,7 +206,6 @@ public:
             932,  // The Aldor
             933,  // The Consortium
             934,  // The Scryers
-            942,  // Cenarion Expedition
             989,  // Keepers of Time
             1011, // Lower City
             1073, // The Kalu'ak
@@ -220,6 +219,7 @@ public:
             529,  // Argent Dawn
             609,  // Cenarion Circle
             935,  // The Sha'tar
+            942,  // Cenarion Expedition
             967,  // The Violet Eye
             990,  // The Scale of the Sands
             1012, // Ashtongue Deathsworn
