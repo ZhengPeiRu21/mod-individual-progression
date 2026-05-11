@@ -800,12 +800,12 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
                 highestTitle = title.TitleId;
 					
                 constexpr int ALLIANCE_PVP_RANK_OFFSET = 4; // rank 1-4 are not used, need to add 4 to align with rank 1 = title ID 5
-                constexpr int HORDE_PVP_RANK_OFFSET = 10;  // horde titles start at ID 15, need to add 10 to align with rank 1 = title ID 15
+                constexpr int HORDE_PVP_RANK_OFFSET = 10;  // horde titles start at ID 15, need to subtract 10 to align with rank 1 = title ID 5
 
                 if (teamId == TEAM_ALLIANCE)
                     player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId + ALLIANCE_PVP_RANK_OFFSET);
                 else // teamId == TEAM_HORDE
-                    player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId + HORDE_PVP_RANK_OFFSET);
+                    player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId - HORDE_PVP_RANK_OFFSET);
 							
                 break;
             }
