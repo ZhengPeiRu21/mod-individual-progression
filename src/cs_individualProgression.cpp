@@ -200,7 +200,7 @@ public:
             return false;
         }
 
-        static constexpr std::array<uint32, 10> Shared_Honored_Checklist =
+        static constexpr std::array<uint32, 9> Shared_Honored_Checklist =
         {
             910,  // Brood of Nozdormu
             932,  // The Aldor
@@ -213,7 +213,7 @@ public:
             1098  // Knights of the Ebon Blade
         };
 
-        static constexpr std::array<uint32, 10> Shared_Friendly_Checklist =
+        static constexpr std::array<uint32, 11> Shared_Friendly_Checklist =
         {
             59,   // Thorium Brotherhood
             529,  // Argent Dawn
