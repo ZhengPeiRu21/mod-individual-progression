@@ -1,4 +1,5 @@
 -- This will apply the patch 3.0.2 nerfs to the max health of TBC raid creatures
+-- only run this if you want a weaker version of TBC raid creatures.
 
 /* KARAZHAN BOSSES AND BOSS ADDS */
 
