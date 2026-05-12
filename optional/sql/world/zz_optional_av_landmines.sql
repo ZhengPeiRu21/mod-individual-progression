@@ -1,6 +1,6 @@
 /*
     This optional file adds landmines to the vanilla version of Alterac Valley
-    Please note that RNDbots are not aware of the existence of these mines. They will not avoid areas that have many mines.
+    Please note that bots are not aware of the existence of these mines. They will not avoid areas that have many mines.
     You can only see the landmines of your own faction.
 */
 
