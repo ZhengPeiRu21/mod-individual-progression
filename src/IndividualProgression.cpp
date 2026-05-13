@@ -273,6 +273,15 @@ bool IndividualProgression::isNormalAccount(Player* player)
     return true;
 }
 
+bool IndividualProgression::isPlayerInDungeonOrRaid(Player* player)
+{
+    if (!player || !player->IsInWorld())
+        return false;
+
+    Map const* map = player->GetMap();
+    return (map && (map->IsDungeon() || map->IsRaid()));
+}
+
 void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
 {
     if (!group)
@@ -904,7 +913,7 @@ private:
         sIndividualProgression->DisableRDF = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
         sIndividualProgression->DisableQuestMarkers = sConfigMgr->GetOption<bool>("IndividualProgression.DisableQuestMarkers", true);
         sIndividualProgression->MaxMonsterSight = sConfigMgr->GetOption<bool>("IndividualProgression.MaxMonsterSight", true);
-//        sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
+        sIndividualProgression->BotOnlyAdjustments = sConfigMgr->GetOption<bool>("IndividualProgression.BotOnlyAdjustments", false);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "");
         sIndividualProgression->botAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.BotAccountsRegex", "^RNDBOT.*");
         sIndividualProgression->EnableSetRepCommand = sConfigMgr->GetOption<bool>("IndividualProgression.EnableSetRepCommand", false);
