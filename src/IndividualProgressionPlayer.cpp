@@ -1275,6 +1275,12 @@ public:
 
         Player* player = isPet ? healer->GetOwner()->ToPlayer() : healer->ToPlayer();
 
+        if (sIndividualProgression->BotOnlyAdjustments)
+        {
+            if (!sIndividualProgression->isBotAccount(player) && sIndividualProgression->isPlayerInDungeonOrRaid(player))
+                return;
+        }
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             heal *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaHealingAdjustment);
         else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
@@ -1296,6 +1302,12 @@ public:
 
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
 
+        if (sIndividualProgression->BotOnlyAdjustments)
+        {
+            if (!sIndividualProgression->isBotAccount(player) && sIndividualProgression->isPlayerInDungeonOrRaid(player))
+                return;
+        }
+
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
         else if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC) && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
@@ -1312,6 +1324,12 @@ public:
             return;
 
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
+
+        if (sIndividualProgression->BotOnlyAdjustments)
+        {
+            if (!sIndividualProgression->isBotAccount(player) && sIndividualProgression->isPlayerInDungeonOrRaid(player))
+                return;
+        }
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
@@ -1340,6 +1358,12 @@ public:
             return;
 
         Player* player = isPet ? attacker->GetOwner()->ToPlayer() : attacker->ToPlayer();
+
+        if (sIndividualProgression->BotOnlyAdjustments)
+        {
+            if (!sIndividualProgression->isBotAccount(player) && sIndividualProgression->isPlayerInDungeonOrRaid(player))
+                return;
+        }
 
         if (!sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
             damage *= sIndividualProgression->ComputeVanillaAdjustment(player->GetLevel(), sIndividualProgression->vanillaPowerAdjustment);
