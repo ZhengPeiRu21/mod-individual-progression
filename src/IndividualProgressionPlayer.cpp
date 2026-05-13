@@ -86,7 +86,7 @@ public:
         if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !newArea)
             return;
 
-        if (!sIndividualProgression->isExcludedAccount(player))
+        if (sIndividualProgression->isNormalAccount(player))
             sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
