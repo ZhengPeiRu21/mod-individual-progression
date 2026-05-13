@@ -238,15 +238,39 @@ bool IndividualProgression::isAttuned(Player* player)
         return false;
 }
 
-bool IndividualProgression::isExcludedFromProgression(Player* player)
+bool IndividualProgression::isExcludedAccount(Player* player)
 {
-    if (!player || !sIndividualProgression->excludeAccounts)
+    if (!player)
         return false;
 
     std::string accountName;
     bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
     std::regex excludedAccountsRegex(sIndividualProgression->excludedAccountsRegex);
+
     return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
+}
+
+bool IndividualProgression::isBotAccount(Player* player)
+{
+    if (!player)
+        return false;
+
+    std::string accountName;
+    bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
+    std::regex botAccountsRegex(sIndividualProgression->botAccountsRegex);
+
+    return (accountNameFound && std::regex_match(accountName, botAccountsRegex));
+}
+
+bool IndividualProgression::isNormalAccount(Player* player)
+{
+    if (!player)
+        return false;
+
+    if (sIndividualProgression->isExcludedAccount(player) || sIndividualProgression->isBotAccount(player))
+        return false;
+
+    return true;
 }
 
 void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
@@ -259,7 +283,7 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
         return;
 
     Player* leader = ObjectAccessor::FindPlayer(leaderGuid);
-    if (!leader || isExcludedFromProgression(leader))
+    if (!leader || isExcludedAccount(leader))
         return;
 
     uint8 refProgress = GetPlayerProgressionFromQuests(leader);
@@ -270,7 +294,7 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
     for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
     {
         Player* member = itr->GetSource();
-        if (!member || !isExcludedFromProgression(member))
+        if (!member || !isExcludedAccount(member))
             continue;
 
         ForceUpdateProgressionState(member, static_cast<ProgressionState>(refProgress));
@@ -407,13 +431,13 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_THE_DAWNING_SQUARE:
             player->RemoveAura(SONG_OF_VICTORY);
 
-            if (isExcludedFromProgression(player) || player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
+            if (isExcludedAccount(player) || player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
                 player->CastSpell(player, IPP_PHASE_III, false);
                 player->CastSpell(player, IPP_PHASE_IV, false);
 
-                if (isExcludedFromProgression(player) ||
+                if (isExcludedAccount(player) ||
                     (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED))
@@ -537,7 +561,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->RemoveAura(SONG_OF_VICTORY);
 
-                if (isExcludedFromProgression(player) ||
+                if (isExcludedAccount(player) ||
                     (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED))
@@ -812,7 +836,7 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
         }
 
         const uint32_t chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
-        const bool usesPvPTitle = ((chosenTitleId != 0 && chosenTitleId < 29) || isExcludedFromProgression(player)); // PvP Titles go from 1 to 28.
+        const bool usesPvPTitle = ((chosenTitleId != 0 && chosenTitleId < 29) || isExcludedAccount(player)); // PvP Titles go from 1 to 28.
 
         // remove all titles except highest
         for (IppPvPTitles title : pvpTitlesList)
@@ -876,16 +900,17 @@ private:
         sIndividualProgression->VanillaPvpKillRank14 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank14", 24000);
         sIndividualProgression->VanillaPvpTitlesKeepPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpTitlesPersistAfterVanilla", true);
         sIndividualProgression->VanillaPvpTitlesEarnPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpEarnTitlesAfterVanilla", false);
-        sIndividualProgression->ExcludedAccountsEarnPvPTitles = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludedAccountsEarnPvPTitles", false);
+        sIndividualProgression->BotAccountsEarnPvPTitles = sConfigMgr->GetOption<bool>("IndividualProgression.BotAccountsEarnPvPTitles", false);
         sIndividualProgression->DisableRDF = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
         sIndividualProgression->DisableQuestMarkers = sConfigMgr->GetOption<bool>("IndividualProgression.DisableQuestMarkers", true);
         sIndividualProgression->MaxMonsterSight = sConfigMgr->GetOption<bool>("IndividualProgression.MaxMonsterSight", true);
-        sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
-        sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "^RNDBOT.*");
+//        sIndividualProgression->excludeAccounts = sConfigMgr->GetOption<bool>("IndividualProgression.ExcludeAccounts", true);
+        sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "");
+        sIndividualProgression->botAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.BotAccountsRegex", "^RNDBOT.*");
         sIndividualProgression->EnableSetRepCommand = sConfigMgr->GetOption<bool>("IndividualProgression.EnableSetRepCommand", false);
         sIndividualProgression->LimitedSetRepCommand = sConfigMgr->GetOption<bool>("IndividualProgression.LimitedSetRepCommand", true);
         sIndividualProgression->sharedFactionIdsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.sharedFactionIdsRegex", "59|270|349|509|510|529|576|589|609|729|730|749|889|890|909");
-        sIndividualProgression->ExcludedAccountsMaxLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.ExcludedAccountsMaxLevel", 80);
+        sIndividualProgression->BotAccountsMaxLevel = sConfigMgr->GetOption<uint8>("IndividualProgression.BotAccountsMaxLevel", 80);
     }
 
     static void LoadXpValues()
