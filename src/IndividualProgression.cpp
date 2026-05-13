@@ -292,7 +292,7 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
         return;
 
     Player* leader = ObjectAccessor::FindPlayer(leaderGuid);
-    if (!leader || isExcludedAccount(leader))
+    if (!leader || !isNormalAccount(leader))
         return;
 
     uint8 refProgress = GetPlayerProgressionFromQuests(leader);
@@ -303,7 +303,7 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
     for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
     {
         Player* member = itr->GetSource();
-        if (!member || !isExcludedAccount(member))
+        if (!member || isNormalAccount(member))
             continue;
 
         ForceUpdateProgressionState(member, static_cast<ProgressionState>(refProgress));
@@ -440,13 +440,13 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_THE_DAWNING_SQUARE:
             player->RemoveAura(SONG_OF_VICTORY);
 
-            if (isExcludedAccount(player) || player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
+            if (isBotAccount(player) || player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
                 player->CastSpell(player, IPP_PHASE_III, false);
                 player->CastSpell(player, IPP_PHASE_IV, false);
 
-                if (isExcludedAccount(player) ||
+                if (isBotAccount(player) ||
                     (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED))
@@ -570,7 +570,7 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             {
                 player->RemoveAura(SONG_OF_VICTORY);
 
-                if (isExcludedAccount(player) ||
+                if (isBotAccount(player) ||
                     (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED))
@@ -845,7 +845,7 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
         }
 
         const uint32_t chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
-        const bool usesPvPTitle = ((chosenTitleId != 0 && chosenTitleId < 29) || isExcludedAccount(player)); // PvP Titles go from 1 to 28.
+        const bool usesPvPTitle = ((chosenTitleId != 0 && chosenTitleId < 29) || isBotAccount(player)); // PvP Titles go from 1 to 28.
 
         // remove all titles except highest
         for (IppPvPTitles title : pvpTitlesList)
