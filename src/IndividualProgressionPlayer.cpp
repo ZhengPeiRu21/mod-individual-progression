@@ -915,7 +915,7 @@ public:
                     return (currentState == otherPlayerState);
                 }
             }
-            else if (sIndividualProgression->isExcludedAccount(player))
+            else // if (sIndividualProgression->isExcludedAccount(player))
             {
                 if (!sIndividualProgression->isNormalAccount(otherPlayer)) // other player is either excluded or a RNDbot
                 {
