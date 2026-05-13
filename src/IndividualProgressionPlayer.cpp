@@ -86,8 +86,7 @@ public:
         if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !newArea)
             return;
 
-        if (sIndividualProgression->isNormalAccount(player))
-            sIndividualProgression->checkIPPhasing(player, newArea);
+        sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
     void OnPlayerEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
