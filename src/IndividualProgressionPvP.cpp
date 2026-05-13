@@ -15,7 +15,7 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 			uint32 PVP_RANK6_QUEST = 66106;
 
-            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target) || sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC))
+            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isBotAccount(target) || sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC))
                 return false;
 
             if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED)
@@ -45,7 +45,7 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 			uint32 PVP_RANK6_QUEST = 66106;
 
-            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isExcludedFromProgression(target) || sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC))
+            if (player->IsGameMaster() || !sIndividualProgression->enabled || sIndividualProgression->isBotAccount(target) || sIndividualProgression->hasPassedProgression(target, PROGRESSION_PRE_TBC))
                 return true;
 
             if (target->GetQuestStatus(PVP_RANK6_QUEST) == QUEST_STATUS_REWARDED)
