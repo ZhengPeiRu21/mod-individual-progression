@@ -37,10 +37,9 @@ public:
             return false;
         }
 
-        if (sIndividualProgression->isExcludedFromProgression(player) ||
-            ((!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED)))
+        if (!sIndividualProgression->requireNaxxStrath || player->GetQuestStatus(NAXX40_ENTRANCE_FLAG) == QUEST_STATUS_REWARDED)
         {
-            if (sIndividualProgression->isAttuned(player) || sIndividualProgression->isExcludedFromProgression(player))
+            if (sIndividualProgression->isAttuned(player))
             {
                 player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
                 player->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
