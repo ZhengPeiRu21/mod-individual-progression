@@ -2236,6 +2236,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (113397, 0, 0, 0, 9, 0, 100, 0, 0, 0, 6000, 15000, 0, 5, 11, 15572, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Irondeep Peon - In Combat - Cast Sunder Armor');
 
 /* MISC */
+UPDATE `creature_template` SET `name` = 'Commander Dardosh' WHERE `entry` = 13140;
 UPDATE `creature_template` SET `name` = 'Lieutenant Murp' WHERE `entry` = 13146;
 
 SET @CGUID    := 674000;
