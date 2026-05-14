@@ -26,13 +26,18 @@ DELETE FROM `creature_template_movement` WHERE `CreatureID` IN (122441);
 INSERT INTO `creature_template_movement` (`CreatureId`, `Ground`, `Swim`, `Flight`, `Rooted`, `Chase`, `Random`, `InteractionPauseTimer`) VALUES 
 (122441, 1, 0, 1, 0, 0, 0, NULL);
 
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (22441);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (22441);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (5355, 22441);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (5355, 22441);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(5355, 0, 0, 0, 9, 0, 100, 0, 0, 0, 3000, 6000, 0, 5, 11, 11976, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Firewing Defender - Within 0-5 Range - Cast Strike'),
+(5355, 0, 1, 0, 0, 0, 100, 0, 6000, 8000, 12000, 18000, 0, 0, 11, 33483, 1, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Firewing Defender - In Combat - Cast Mana Tap'),
+(5355, 0, 2, 0, 0, 0, 100, 0, 8000, 13000, 1300, 18000, 0, 0, 11, 33390, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Firewing Defender - In Combat - Cast Arcane Torrent'),
+(5355, 0, 3, 0, 4, 0, 30, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                       'Firewing Defender - On Agro - Say'),
 --
 (22441, 0, 0, 1, 38, 0, 100, 512, 1, 1, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Teribus the Cursed - On Data Set - Set Active'),
 (22441, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Teribus the Cursed - On Data Set - Set Visible ON'),
