@@ -75,7 +75,7 @@ IndividualProgression.TBCHealingAdjustment = 1
 
 # IndividualProgression.BotOnlyAdjustments
 #
-#        Description: In dungeons and raids, the Vanilla and TBC adjustments effect bots only.
+#        Description: In dungeons and raids, the Vanilla and TBC adjustments effect RNDbots only.
 #                     Make dungeons and raids harder without effecting real players.
 #
 #        Default:     0 - Disabled
