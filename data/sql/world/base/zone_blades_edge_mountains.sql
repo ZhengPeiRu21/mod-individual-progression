@@ -1,6 +1,6 @@
 /* smart scripts */
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN  (19948, 19952, 19957, 19993, 19994, 19998, 22160, 22384, 24039);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (19948, 19952, 19957, 19993, 19994, 19998, 22160, 22384, 24039);
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN  (19948, 19952, 19957, 19992, 19993, 19994, 19998, 20765, 22160, 22384, 24039);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (19948, 19952, 19957, 19992, 19993, 19994, 19998, 20765, 22160, 22384, 24039);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -19,6 +19,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (19957, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodmaul Brewmaster - On Just Died - Say text 1'),
 (19957, 0, 1, 0, 4, 0, 35, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Bloodmaul Brewmaster - On Aggro - Say text 0'),
 (19957, 0, 2, 0, 0, 0, 85, 0, 6000, 6000, 30000, 35000, 0, 0, 11, 37591, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,      'Bloodmaul Brewmaster - In Combat - Cast Drunken Haze'),
+(19992, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodmaul Shaman - On Just Died - Say text 1'),
+(19992, 0, 1, 0, 1, 0, 100, 0, 0, 0, 60000, 60000, 0, 0, 11, 12550, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Bloodmaul Shaman - Out Of Combat - Cast Lightning Shield'),
+(19992, 0, 2, 0, 4, 0, 35, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Bloodmaul Shaman - On Aggro - Say text 0'),
+(19992, 0, 3, 0, 0, 0, 50, 0, 6000, 6000, 50000, 50000, 0, 0, 11, 15038, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Bloodmaul Shaman - In Combat - Cast Scorching Totem'),
+(19992, 0, 4, 0, 0, 0, 100, 0, 12000, 12000, 45000, 45000, 0, 0, 11, 15869, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Bloodmaul Shaman - In Combat - Cast Superior Healing Ward'),
 (19993, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodmaul Mauler - On Death - Say text 1'),
 (19993, 0, 1, 0, 4, 0, 35, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Bloodmaul Mauler - On Aggro - Say text 0'),
 (19993, 0, 2, 0, 2, 0, 100, 0, 10000, 12000, 10000, 12000, 0, 0, 11, 37786, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Bloodmaul Mauler - In Combat - Cast Bloodmaul Rage'),
@@ -33,10 +38,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (19998, 0, 1, 0, 1, 0, 100, 0, 0, 0, 60000, 60000, 0, 0, 11, 12550, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Bladespire Shaman - Out Of Combat - Cast Lightning Shield'),
 (19998, 0, 2, 0, 4, 0, 35, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Bladespire Shaman - On Aggro - Say text 0'),
 (19998, 0, 3, 0, 0, 0, 100, 0, 2000, 4000, 8000, 12000, 0, 0, 11, 26098, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Bladespire Shaman - In Combat - Cast Lightning Bolt'),
+(20765, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bladespire Crusher - On Death - Say text 1 CONDITIONED'),
+(20765, 0, 1, 0, 4, 0, 35, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                          'Bladespire Crusher - on Aggro - Say Text 0'),
+(20765, 0, 2, 0, 0, 0, 100, 0, 3000, 5000, 10000, 20000, 0, 0, 11, 15496, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Bladespire Crusher - In Combat - Cast Cleave'),
+(20765, 0, 3, 4, 2, 0, 100, 0, 0, 30, 35000, 45000, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Bladespire Crusher - HP below 30% - Cast Enrage'),
+(20765, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Bladespire Crusher - HP below 30% - Say text 2'),
 (22160, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodmaul Taskmaster - On Death - Say text 1'),
 (22160, 0, 1, 0, 4, 0, 35, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                        'Bloodmaul Taskmaster - On Aggro - Say Text 0'),
 (22160, 0, 2, 3, 0, 0, 100, 0, 10000, 12000, 10000, 12000, 0, 0, 11, 37786, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Bloodmaul Taskmaster - In Combat - Cast Bloodmaul Rage'),
-(22160, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                        'Bloodmaul Taskmaster - On Enrage - Say text 2'),
+(22160, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Bloodmaul Taskmaster - On Enrage - Say text 2'),
 (22160, 0, 4, 0, 1, 0, 100, 0, 5000, 5000, 3000, 5000, 0, 0, 10, 1, 11, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Bloodmaul Taskmaster - Out of Combat - play random emotes'),
 (22160, 0, 5, 0, 9, 0, 50, 0, 0, 0, 60000, 90000, 0, 5, 11, 37592, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,             'Bloodmaul Taskmaster - Within 5 Range - Cast Knockdown'),
 (22384, 0, 0, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                         'Bloodmaul Soothsayer - On Death - Say text 1'),
@@ -49,6 +59,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (24039, 0, 0, 1, 60, 0, 100, 257, 0, 0, 0, 0, 0, 0, 11, 39916, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Sundered Ghost - On Update - Cast Soulgrinder Ghost Transform'),
 (24039, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 17321, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Sundered Ghost - On Update - Cast Spirit Spawn-in'),
 (24039, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 50, 0, 0, 0, 0, 0, 0, 0,                     'Sundered Ghost - On Update - Attack Start');
+
+-- fix worldserver error, wrong target type
+UPDATE `smart_scripts` SET `target_type` = 1 WHERE `entryorguid` = 19747 AND `event_type` = 4 AND `id` = 15;
 
 -- fix movement for Dreadwing
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = 1582.5800, `position_y` = 5299.3701, `position_z` = 267.8560 WHERE `id1` = 21032;
