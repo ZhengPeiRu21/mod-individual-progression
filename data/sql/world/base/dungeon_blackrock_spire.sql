@@ -161,7 +161,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (9259, 0, 2, 3, 2, 0, 100, 0, 0, 30, 30000, 35000, 0, 0, 11, 8269, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Firebrand Grunt - Between 0-30% Health - Cast Frenzy'),
 (9259, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Firebrand Grunt - On Frenzy - Say Line 0'),
 (9259, 0, 4, 0, 0, 0, 100, 0, 5000, 5000, 6000, 10000, 0, 0, 11, 13737, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,     'Firebrand Grunt - Within 0-5 Range - Cast Mortal Strike'),
-(9259, 0, 5, 0, 0, 0, 100, 0, 20000, 20000, 30000, 30000, 0, 0, 11, 15128, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Grunt - In Combat - Cast Mark of Flames'),   
+(9259, 0, 5, 0, 0, 0, 100, 0, 20000, 20000, 30000, 30000, 0, 0, 11, 15128, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Grunt - In Combat - Cast Mark of Flames'),
 (9260, 0, 0, 0, 0, 0, 100, 0, 1000, 5000, 10000, 15000, 0, 0, 11, 3248, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Firebrand Legionnaire - In Combat - Cast Improved Blocking'),
 (9260, 0, 1, 0, 105, 0, 50, 0, 0, 0, 6000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,           'Firebrand Legionnaire - Target Casting - Cast Shield Bash'),
 (9260, 0, 2, 0, 0, 0, 100, 0, 20000, 20000, 30000, 30000, 0, 0, 11, 15128, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Firebrand Legionnaire - In Combat - Cast Mark of Flames'),
