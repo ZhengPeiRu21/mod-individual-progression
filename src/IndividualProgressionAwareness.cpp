@@ -475,7 +475,7 @@ public:
                 return true;
 
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
-            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ))
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_AQ) || sIndividualProgression->isExcludedAccount(target))
                 return true;
             else
                 return false;

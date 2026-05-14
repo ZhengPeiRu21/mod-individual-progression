@@ -166,7 +166,7 @@ public:
         for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
         {
             Player* member = itr->GetSource();
-            if (!member || !sIndividualProgression->isExcludedFromProgression(member))
+            if (!member || sIndividualProgression->isNormalAccount(member))
                 continue;
 
             sIndividualProgression->ForceUpdateProgressionState(member, static_cast<ProgressionState>(currentState));
@@ -367,9 +367,9 @@ public:
 
         if (location == "naxx" || location == "naxx40")
         {
- 			if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= 70))
+ 			if (target->GetLevel() <= 70 && ((progressionLevel < PROGRESSION_TBC_TIER_5) || sIndividualProgression->isExcludedAccount(target)))
             {
-                if (sIndividualProgression->isAttuned(target) || sIndividualProgression->isExcludedFromProgression(target))
+                if (sIndividualProgression->isAttuned(target))
                 {
                     target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
                     target->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
@@ -389,9 +389,9 @@ public:
         }
         else if (location == "onyxia" || location == "onyxia40")
         {
-            if ((progressionLevel < PROGRESSION_TBC_TIER_5) && (target->GetLevel() <= 70))
+            if (target->GetLevel() <= 70 && ((progressionLevel < PROGRESSION_TBC_TIER_5) || sIndividualProgression->isExcludedAccount(target)))
             {
-                if (target->HasItemCount(ITEM_DRAKEFIRE_AMULET) || sIndividualProgression->isExcludedFromProgression(target))
+                if (target->HasItemCount(ITEM_DRAKEFIRE_AMULET))
                 {
                     target->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
                     target->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);

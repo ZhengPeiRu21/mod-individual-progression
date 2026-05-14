@@ -73,6 +73,16 @@ IndividualProgression.TBCPowerAdjustment = 1
 #
 IndividualProgression.TBCHealingAdjustment = 1
 
+# IndividualProgression.BotOnlyAdjustments
+#
+#        Description: In dungeons and raids, the Vanilla and TBC adjustments effect RNDbots only.
+#                     Make dungeons and raids harder without effecting real players.
+#
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.BotOnlyAdjustments = 0
+
 # IndividualProgression.QuestXPFix
 #
 #        Description: Quest XP for Vanilla and TBC quests was boosted as a catchup mechanism in patches 2.3.0 and 3.0.2
@@ -396,44 +406,43 @@ IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 1
 #
 IndividualProgression.VanillaPvpEarnTitlesAfterVanilla = 0
 
-# IndividualProgression.ExcludedAccountsEarnPvPTitles
+# IndividualProgression.BotAccountsEarnPvPTitles
 #
-#        Description: Enable / Disable excluded accounts earning pvp titles. This includes playerbots.
+#        Description: Enable / Disable bot accounts earning pvp titles.
 #
 #        Default:     0 - Disabled
 #                     1 - Enabled
 #
-IndividualProgression.ExcludedAccountsEarnPvPTitles = 0
+IndividualProgression.BotAccountsEarnPvPTitles = 0
 
-# IndividualProgression.ExcludeAccounts
+# IndividualProgression.BotAccountsMaxLevel
 #
-#        Description: Enable or disable the exclusion of accounts from Individual Progression.
-#                     This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
+#        Description: Set the maximum level for bot accounts
 #
-#        Default:     1 - Enabled
-#                     0 - Disabled
+#        Default:     80
 #
-IndividualProgression.ExcludeAccounts = 1
+IndividualProgression.BotAccountsMaxLevel = 80
 
-# IndividualProgression.ExcludedAccountsRegex
+# IndividualProgression.BotAccountsRegex
 #
 #        Description: A regular expression to match account names that should be excluded from Individual Progression.
-#                     Only used if ExcludeAccounts is enabled.
-#                     This is useful for accounts that are used for bots, testing, or other purposes where progression should not be enforced.
+#                     This is for accounts that are used for bots.
 #                     If the Playerbots module is enabled, "^RNDBOT.*" will exclude randombots from Individual Progression.
 #                     To add more accounts you need to use capital letters and this format: "(^RNDBOT.*|TEST1|TEST2)"
 #
 #        Default:     "^RNDBOT.*"
 #
-IndividualProgression.ExcludedAccountsRegex = "^RNDBOT.*"
+IndividualProgression.BotAccountsRegex = "^RNDBOT.*"
 
-# IndividualProgression.ExcludedAccountsMaxLevel
+# IndividualProgression.ExcludedAccountsRegex
 #
-#        Description: Set the maximum level for Excluded Accounts (RNDBOTS)
+#        Description: A regular expression to match account names that should be excluded from Individual Progression.
+#                     This is useful for accounts that are used for testing or other purposes where progression should not be enforced.
+#                     To add more accounts you need to use capital letters and this format: "(ACCOUNTA|ACCOUNTB)"
 #
-#        Default:     80
+#        Default:     ""
 #
-IndividualProgression.ExcludedAccountsMaxLevel = 80
+IndividualProgression.ExcludedAccountsRegex = ""
 
 # IndividualProgression.EnableSetRepCommand
 #
