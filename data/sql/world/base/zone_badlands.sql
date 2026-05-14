@@ -1,9 +1,9 @@
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = '' WHERE `entry` IN (2753, 2754);
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(2701, 2716, 2717, 2718, 2719, 2720, 2739, 2740, 2742, 2743, 2893, 2894, 2906, 2907);
+(2701, 2715, 2716, 2717, 2718, 2719, 2720, 2739, 2740, 2742, 2743, 2893, 2894, 2906, 2907);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(2701, 2716, 2717, 2718, 2719, 2720, 2739, 2740, 2742, 2743, 2753, 2754, 2893, 2894, 2906, 2907);
+(2701, 2715, 2716, 2717, 2718, 2719, 2720, 2739, 2740, 2742, 2743, 2753, 2754, 2893, 2894, 2906, 2907);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -11,6 +11,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
 (2701, 0, 0, 0, 4, 0, 10, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                      'Dustbelcher Ogre - On Aggro - Say Line 0'),
+(2715, 0, 0, 0, 4, 0, 10, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 21, 40, 0, 0, 0, 0, 0, 0, 0,                      'Dustbelcher Brute - On Aggro - Say Line 0'),
 (2716, 0, 0, 0, 9, 0, 100, 0, 0, 0, 3000, 3000, 30, 60, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Dustbelcher Wyrmhunter - Outside 30 Range - Start Combat Movement'),
 (2716, 0, 1, 0, 9, 0, 100, 0, 0, 0, 3000, 3000, 5, 30, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Dustbelcher Wyrmhunter - Within 5-30 Range - Stop Combat Movement'),
 (2716, 0, 2, 0, 9, 0, 100, 0, 0, 0, 3000, 3000, 0, 5, 21, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Dustbelcher Wyrmhunter - Within 0-5 Range - Start Combat Movement'),
