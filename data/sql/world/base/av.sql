@@ -2051,9 +2051,14 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(12159, 0, 0, 1, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Korrak the Bloodrager - On Init - Despawn'),
-(12159, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Korrak the Bloodrager - On Init - Set Invisible'),
-(12159, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Korrak the Bloodrager - On Respawn - Set visible'),
+(12159, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Korrak the Bloodrager - On Respawn - Set Invisible'),
+(12159, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Korrak the Bloodrager - On Respawn - Set Faction Friendly'),
+(12159, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 58502, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Korrak the Bloodrager - On Respawn - Cast 2 hour buff'),
+(12159, 0, 3, 4, 16, 0, 100, 0, 58502, 1, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Korrak the Bloodrager - On Missing buff - Set visible'),
+(12159, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Korrak the Bloodrager - On Missing buff - Reset Faction'),
+(12159, 0, 5, 6, 9, 0, 100, 0, 0, 0, 7000, 10000, 0, 10, 11, 20276, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Korrak the Bloodrager - Within 0-10 Range - Cast Knockdown'),
+(12159, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 13, 0, 30, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,                    'Korrak the Bloodrager - On Knockdown - Reduce Aggro'),
+(12159, 0, 7, 0, 0, 0, 100, 0, 9000, 12000, 8000, 11000, 0, 0, 11, 19129, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Korrak the Bloodrager - In Combat - Cast Massive Tremor'),
 --
 (10981, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf - On Reset - Set Invisible'), -- disable originals
 (10981, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf - On Reset - Set Faction Friendly'),
