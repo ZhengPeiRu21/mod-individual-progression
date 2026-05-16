@@ -1,5 +1,5 @@
 /*
-   Latest version of Patch-V is required for this to work.
+   Latest version of Patch-V/Patch-S is required for this to work.
    Re-route The Bravery to follow the pre-WotLK path to Menethil Harbor. The Northspear, now departs from Stormwind instead of Menethil Harbor.
    This restores the separation between the Kalimdor and Eastern Kingdom starting areas and the notorious 'Wetlands run' for players trying to change continents early.
    If not run, The Bravery will go directly to Stormwind Harbor.
