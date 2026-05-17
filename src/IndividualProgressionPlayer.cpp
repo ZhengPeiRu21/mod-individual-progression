@@ -25,12 +25,6 @@ public:
         if (!player || !player->IsInWorld())
             return;
 
-        if (!sIndividualProgression->isBotAccount(player) || sIndividualProgression->BotAccountsEarnPvPTitles)
-        {
-            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
-            sIndividualProgression->CleanUpVanillaPvpTitles(player);
-        }
-
         if (!sIndividualProgression->isNormalAccount(player)) // bot or exluded account
         {
             if (player->GetLevel() <= 60)
@@ -56,9 +50,10 @@ public:
             {
                 sIndividualProgression->UpdateProgressionState(player, static_cast<ProgressionState>(sIndividualProgression->startingProgression));
             }
+
+            sIndividualProgression->checkIPProgression(player);
         }
 
-        sIndividualProgression->checkIPProgression(player);
         sIndividualProgression->CheckAdjustments(player);
 
         if (sIndividualProgression->enabled)
@@ -78,6 +73,12 @@ public:
         if (sIndividualProgression->isNormalAccount(player))
             sIndividualProgression->checkIPProgression(player);
 
+        if (!sIndividualProgression->isBotAccount(player) || sIndividualProgression->BotAccountsEarnPvPTitles)
+        {
+            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
+            sIndividualProgression->CleanUpVanillaPvpTitles(player);
+        }
+        
         sIndividualProgression->CheckAdjustments(player);
     }
 
