@@ -5733,7 +5733,7 @@ INSERT INTO `creature_template_movement` (`CreatureId`, `Ground`, `Swim`, `Fligh
 (@CENTRY+72, 1, 1, 0, 0, 0, 0, 0);
 
 -- Kel'Thuzad, Disable combat/assistance for creatures in the alcoves
-UPDATE `creature_template` SET `unit_flags` = 768 WHERE `entry` IN (@CENTRY+73, @CENTRY+74, @CENTRY+75);
+UPDATE `creature_template` SET `unit_flags` = 512 WHERE `entry` IN (@CENTRY+73, @CENTRY+74, @CENTRY+75);
 
 -- Deathknight Understudy, add spells while mind controlled, taunt and bone barrier
 DELETE FROM `creature_template_spell` WHERE (`CreatureID` = @CENTRY+84);
