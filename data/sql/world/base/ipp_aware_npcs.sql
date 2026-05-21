@@ -73,10 +73,10 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_tbc' WHERE `entry` IN (185106, 185107);
 UPDATE `gameobject_template` SET `ScriptName` = 'gobject_ipp_wotlk' WHERE `entry` IN (195532, 195533);
 
--- Phasing Zul'Aman quest npcs until TBC T4.
--- UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t3' WHERE `entry` IN (23761);
+-- Phasing Zul'Aman quest npcs
+UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_za' WHERE `entry` IN (23559, 23761);
 
--- Phasing TBC vendors and trainers - Copies are added to replace them until TBC T4.
+-- Phasing TBC vendors and trainers - Copies are added to replace them.
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc_t3' WHERE `entry` IN (18754, 18771, 19187, 21087);
 
 -- TBC, phasing Shattered Sun offensive NPCs in Shattrath
