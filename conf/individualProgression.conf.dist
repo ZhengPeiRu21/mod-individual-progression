@@ -136,21 +136,6 @@ IndividualProgression.MoltenCore.ManualRuneHandling = 1
 #
 IndividualProgression.MoltenCore.AqualEssenceCooldownReduction = 0
 
-# IndividualProgression.ZulAman.RequiredProgression
-#
-#        Description: The progression stage required to enter Zul'Aman.
-#                     This changes only the Zul'Aman entrance requirement.
-#                     It does not alter the player's actual progression state,
-#                     boss progression, achievements, Sunwell unlocks, Isle of Quel'Danas,
-#                     or any other Individual Progression flow.
-#
-#        Default:     11 - Zul'Aman opens after Hyjal/Black Temple tier, preserving current behavior.
-#                     9  - Zul'Aman opens after Karazhan / Prince Malchezaar.
-#                     8  - Zul'Aman opens as soon as the player reaches the first TBC raid tier.
-#                     0-18 - Set a different entrance requirement.
-#
-IndividualProgression.ZulAman.RequiredProgression = 11
-
 # IndividualProgression.SerpentshrineCavern.RequireAllBosses
 #
 #        Description: Requires all bosses being killed before accessing Vashj's console panel.
@@ -325,6 +310,17 @@ IndividualProgression.DeathKnightStartingProgression = 13
 #                     0-18 - Set a different required progression stage for Zul'Gurub
 #
 IndividualProgression.RequiredZulGurubProgression = 3
+
+# IndividualProgression.RequiredZulAmanProgression
+#
+#        Description: The progression stage at which Zul'Aman will be available
+#
+#        Default:     12 - Zul'Aman opens after Black Temple (Default, Blizzlike)
+#                     9  - Zul'Aman opens after Karazhan / Prince Malchezaar.
+#                     8  - Zul'Aman opens at the beginning of TBC.
+#                     0-18 - Set a different required progression stage for Zul'Aman
+#
+IndividualProgression.RequiredZulAmanProgression = 12
 
 # IndividualProgression.DisableDefaultProgression
 #
