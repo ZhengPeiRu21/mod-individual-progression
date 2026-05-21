@@ -316,7 +316,7 @@ IndividualProgression.RequiredZulGurubProgression = 3
 #        Description: The progression stage at which Zul'Aman will be available
 #
 #        Default:     12 - Zul'Aman opens after Black Temple (Default, Blizzlike)
-#                     9  - Zul'Aman opens after Karazhan / Prince Malchezaar.
+#        Suggested:   9  - Zul'Aman opens after Karazhan / Prince Malchezaar.
 #                     0-18 - Set a different required progression stage for Zul'Aman
 #
 IndividualProgression.RequiredZulAmanProgression = 12
