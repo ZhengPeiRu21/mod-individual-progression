@@ -617,7 +617,7 @@ public:
             Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
 
             uint32 PLAYER_PROGRESSION = sIndividualProgression->GetPlayerProgressionFromQuests(target);
-            ProgressionState REQUIRED_ZA_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
+            ProgressionState REQUIRED_ZA_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulAmanProgression);
 
             if (PLAYER_PROGRESSION >= REQUIRED_ZA_PROGRESSION)
                 return true;
