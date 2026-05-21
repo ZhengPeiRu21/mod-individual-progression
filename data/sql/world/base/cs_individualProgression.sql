@@ -5,4 +5,4 @@ INSERT INTO `command` (`name`, `security`, `help`) VALUES
 ('ip setbot', 0, 'Syntax: .ip setbot\nSets all bots in the group to your progression level.'),
 ('ip setrep', 0, 'Syntax: .ip setrep\nSets your reputation of certain factions to the same value as the character that has the highest value on your account.'),
 ('ip tele', 2, 'Syntax: .ip tele $location\nTeleports the player to the given location.'),
-('ip pvp', 0, 'Syntax: .ip pvp\nShows your or your targets pvp rank/kills information.');
+('ip pvp', 0, 'Syntax: .ip pvp [$player]\nShows the current PvP rank and kills for yourself, your target, or a named player.');
