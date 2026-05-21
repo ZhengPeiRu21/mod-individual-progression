@@ -600,6 +600,38 @@ public:
     }
 };
 
+class npc_ipp_za : public CreatureScript
+{
+public:
+    npc_ipp_za() : CreatureScript("npc_ipp_za") { }
+
+    struct npc_ipp_zaAI: ScriptedAI
+    {
+        explicit npc_ipp_zaAI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+                return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+
+            uint32 PLAYER_PROGRESSION = sIndividualProgression->GetPlayerProgressionFromQuests(target);
+            ProgressionState REQUIRED_ZA_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulGurubProgression);
+
+            if (PLAYER_PROGRESSION >= REQUIRED_ZA_PROGRESSION)
+                return true;
+            else
+                return false;
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_zaAI(creature);
+    }
+};
+
 class npc_ipp_pre_wotlk : public CreatureScript
 {
 public:
@@ -792,6 +824,7 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_tbc();
     new npc_ipp_tbc_pre_t3();         // TBC leatherworking vendors
     new npc_ipp_tbc_t3();             // TBC leatherworking vendors
+    new npc_ipp_za();
     new npc_ipp_pre_wotlk();
     new npc_ipp_wotlk();
     new npc_ipp_wotlk_ulduar();
