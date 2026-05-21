@@ -681,12 +681,12 @@ public:
         }
         if (mapid == MAP_ZUL_AMAN)
         {
-            uint8 requiredZulAmanProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.ZulAman.RequiredProgression", 11);
-            ProgressionState requiredProgression = static_cast<ProgressionState>(requiredZulAmanProgression);
+            uint32 PLAYER_PROGRESSION = sIndividualProgression->GetPlayerProgressionFromQuests(player);
+            ProgressionState REQUIRED_ZA_PROGRESSION = static_cast<ProgressionState>(sIndividualProgression->RequiredZulAmanProgression);
 
-            if (!sIndividualProgression->hasPassedProgression(player, requiredProgression))
+            if (PLAYER_PROGRESSION < REQUIRED_ZA_PROGRESSION)
             {
-                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", requiredZulAmanProgression);
+                ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", REQUIRED_ZA_PROGRESSION);
                 return false;
             }
         }
