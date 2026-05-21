@@ -232,7 +232,7 @@ enum ProgressionState : uint8         // Progression stands for what has been co
     PROGRESSION_PRE_TBC         = 8,  // Karazhan, Gruul's Lair, Magtheridon's Lair
     PROGRESSION_TBC_TIER_1      = 9,  // Serpentshrine Cavern, Tempest Keep
     PROGRESSION_TBC_TIER_2      = 10, // Hyjal Summit and Black Temple
-    // PROGRESSION_TBC_TIER_3   = 11, // Zul'Aman
+//  PROGRESSION_TBC_TIER_3      = 11, // Zul'Aman
     PROGRESSION_TBC_TIER_4      = 12, // Sunwell Plateau
     PROGRESSION_TBC_TIER_5      = 13, // WotLK Naxx, EoE, OS
     PROGRESSION_WOTLK_TIER_1    = 14, // Ulduar
