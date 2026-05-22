@@ -311,6 +311,16 @@ IndividualProgression.DeathKnightStartingProgression = 13
 #
 IndividualProgression.RequiredZulGurubProgression = 3
 
+# IndividualProgression.RequiredZulAmanProgression
+#
+#        Description: The progression stage at which Zul'Aman will be available
+#
+#        Default:     12 - Zul'Aman opens after Black Temple (Default, Blizzlike)
+#        Suggested:   9  - Zul'Aman opens after Karazhan / Prince Malchezaar.
+#                     0-18 - Set a different required progression stage for Zul'Aman
+#
+IndividualProgression.RequiredZulAmanProgression = 12
+
 # IndividualProgression.DisableDefaultProgression
 #
 #        Description: Disable the regular progression flow, so progression must be advanced through custom creature progression entries

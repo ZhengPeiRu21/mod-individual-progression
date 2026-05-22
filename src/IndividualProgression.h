@@ -232,7 +232,7 @@ enum ProgressionState : uint8         // Progression stands for what has been co
     PROGRESSION_PRE_TBC         = 8,  // Karazhan, Gruul's Lair, Magtheridon's Lair
     PROGRESSION_TBC_TIER_1      = 9,  // Serpentshrine Cavern, Tempest Keep
     PROGRESSION_TBC_TIER_2      = 10, // Hyjal Summit and Black Temple
-    PROGRESSION_TBC_TIER_3      = 11, // Zul'Aman
+//  PROGRESSION_TBC_TIER_3      = 11, // Zul'Aman
     PROGRESSION_TBC_TIER_4      = 12, // Sunwell Plateau
     PROGRESSION_TBC_TIER_5      = 13, // WotLK Naxx, EoE, OS
     PROGRESSION_WOTLK_TIER_1    = 14, // Ulduar
@@ -401,7 +401,7 @@ public:
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, tbcPowerAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment;
     bool enabled, questXpFix, enforceGroupRules, EnableSetRepCommand, LimitedSetRepCommand, fishingFix, simpleConfigOverride, MaxMonsterSight, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, earlyScourgeBosses, requireNaxxStrath, doableNaxx40Bosses, DisableQuestMarkers, DisableRDF, VanillaPvpTitlesKeepPostVanilla, VanillaPvpTitlesEarnPostVanilla, BotAccountsEarnPvPTitles, BotOnlyAdjustments;
-    int progressionLimit, startingProgression, tbcRacesProgressionLevel, tbcRacesStartingProgression, deathKnightProgressionLevel, deathKnightStartingProgression, RequiredZulGurubProgression, tbcArenaSeason, wotlkArenaSeason, BotAccountsMaxLevel;
+    int progressionLimit, startingProgression, tbcRacesProgressionLevel, tbcRacesStartingProgression, deathKnightProgressionLevel, deathKnightStartingProgression, RequiredZulGurubProgression, RequiredZulAmanProgression, tbcArenaSeason, wotlkArenaSeason, BotAccountsMaxLevel;
     uint32 VanillaPvpKillRank1, VanillaPvpKillRank2, VanillaPvpKillRank3, VanillaPvpKillRank4, VanillaPvpKillRank5, VanillaPvpKillRank6, VanillaPvpKillRank7, VanillaPvpKillRank8, VanillaPvpKillRank9, VanillaPvpKillRank10, VanillaPvpKillRank11, VanillaPvpKillRank12, VanillaPvpKillRank13, VanillaPvpKillRank14;
     std::string excludedAccountsRegex, botAccountsRegex, sharedFactionIdsRegex;
 

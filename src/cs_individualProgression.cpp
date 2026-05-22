@@ -36,62 +36,31 @@ public:
         if (!currentState || (!progressionLevel && progressionLevel != 0) || !target || !target->IsInWorld())
             return;
 
+        static const std::unordered_map<uint8, uint32> bossMap =
+        {
+            { 0,  RAGNAROS_KILL     }, // 686
+            { 1,  ONYXIA_KILL       }, // 684
+            { 2,  NEFARIAN_KILL     }, // 685
+            { 5,  C_THUN_KILL       }, // 687
+            { 8,  MALCHEZAAR_KILL   }, // 690
+            { 9,  KAEL_THAS_KILL    }, // 696
+            { 10, ILLIDAN_KILL      }, // 697
+            { 12, KIL_JAEDEN_KILL   }, // 698
+            { 13, KEL_THUZAD_KILL   }, // 575
+            { 15, ANUB_ARAK_KILL    }, // 3916
+            { 16, LICH_KING_KILL    }, // 4597
+            { 17, HALION_KILL       }, // 4815
+        };
+
         uint16 playerGUID = target->GetGUID().GetCounter();
 
-        for (uint8 i = progressionLevel; i < currentState; ++i)
+        for (auto const& [progressionId, achievementId] : bossMap)
         {
-            if (i == 0 && target->HasAchieved(RAGNAROS_KILL)) // 686
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, RAGNAROS_KILL);
-            }
-            else if (i == 1 && target->HasAchieved(ONYXIA_KILL)) // 684
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, ONYXIA_KILL);
-            }
-            else if (i == 2 && target->HasAchieved(NEFARIAN_KILL)) // 685
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, NEFARIAN_KILL);
-            }
-            else if (i == 5 && target->HasAchieved(C_THUN_KILL)) // 687
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, C_THUN_KILL);
-            }
-            else if (i == 8 && target->HasAchieved(MALCHEZAAR_KILL)) //  690
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, MALCHEZAAR_KILL);
-            }
-            else if (i == 9 && target->HasAchieved(KAEL_THAS_KILL)) // 696
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, KAEL_THAS_KILL);
-            }
-            else if (i == 10 && target->HasAchieved(ILLIDAN_KILL)) // 697
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, ILLIDAN_KILL);
-            }
-            else if (i == 11 && target->HasAchieved(ZUL_JIN_KILL)) // 691
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, ZUL_JIN_KILL);
-            }
-            else if (i == 12 && target->HasAchieved(KIL_JAEDEN_KILL)) // 698
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, KIL_JAEDEN_KILL);
-            }
-            else if (i == 13 && target->HasAchieved(KEL_THUZAD_KILL)) // 575
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, KEL_THUZAD_KILL);
-            }
-            else if (i == 15 && target->HasAchieved(ANUB_ARAK_KILL)) // 3916
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, ANUB_ARAK_KILL);
-            }
-            else if (i == 16 && target->HasAchieved(LICH_KING_KILL)) // 4597
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, LICH_KING_KILL);
-            }
-            else if (i == 17 && target->HasAchieved(HALION_KILL)) // 4815
-            {
-                sIndividualProgression->RemovePlayerAchievement(playerGUID, HALION_KILL);
-            }
+            if (progressionId < progressionLevel || progressionId >= currentState)
+                continue;
+
+            if (target->HasAchieved(achievementId))
+                sIndividualProgression->RemovePlayerAchievement(playerGUID, achievementId);
         }
     }
 
@@ -125,7 +94,7 @@ public:
 	    if (!progressionLevel && progressionLevel != 0)
             return false;
 
-        if (progressionLevel > PROGRESSION_WOTLK_TIER_5)
+        if ((progressionLevel > PROGRESSION_WOTLK_TIER_5) || progressionLevel == 11)
         {
             handler->SendSysMessage("Invalid Progression Level.");
             return false;
