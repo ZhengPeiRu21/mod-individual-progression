@@ -97,7 +97,8 @@ public:
 
     static bool HandleGetIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player)
     {
-        player = PlayerIdentifier::FromTargetOrSelf(handler);
+        if (!player)
+            player = PlayerIdentifier::FromTargetOrSelf(handler);
 
         if (!player)
         {
@@ -105,9 +106,15 @@ public:
             return false;
         }
 
+        std::string playername = player->GetName();
         Player* target = player->GetConnectedPlayer();
+        if (!target)
+        {
+            handler->PSendSysMessage("Player |cff00ffff{}|r is not online.", playername);
+            return false;
+        }
+
         uint32 progressionLevel = sIndividualProgression->GetPlayerProgressionFromQuests(target);
-        std::string playername = target->GetName();
 
         handler->PSendSysMessage("Progression Level for |cff00ffff{}|r = |cff00ffff{}|r", playername, progressionLevel);
         return true;
@@ -416,7 +423,8 @@ public:
 
     static bool HandlePVPIndividualProgressionCommand(ChatHandler* handler, Optional<PlayerIdentifier> player)
     {
-        player = PlayerIdentifier::FromTargetOrSelf(handler);
+        if (!player)
+            player = PlayerIdentifier::FromTargetOrSelf(handler);
 
         if (!player)
         {
@@ -424,9 +432,15 @@ public:
             return false;
         }
 
+        std::string playername = player->GetName();
         Player* target = player->GetConnectedPlayer();
+        if (!target)
+        {
+            handler->PSendSysMessage("Player |cff00ffff{}|r is not online.", playername);
+            return false;
+        }
+
         uint32 kills = target->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
-        std::string playername = target->GetName();
         TeamId teamId = target->GetTeamId(true);
 
         IppPvPTitles const pvpTitlesList[14] =
