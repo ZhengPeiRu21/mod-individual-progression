@@ -87,7 +87,7 @@ public:
 	    if (!progressionLevel && progressionLevel != 0)
             return false;
 
-        if (progressionLevel > PROGRESSION_WOTLK_TIER_5)
+        if ((progressionLevel > PROGRESSION_WOTLK_TIER_5) || progressionLevel == 11)
         {
             handler->SendSysMessage("Invalid Progression Level.");
             return false;
