@@ -57,16 +57,17 @@ void IndividualProgression::UpdateProgressionState(Player* player, ProgressionSt
     uint8 currentState = GetPlayerProgressionFromQuests(player);
     if (newState > currentState)
     {
-        uint32 PROGRESSION_QUEST = 66000 + newState;
-        if (player->GetQuestStatus(PROGRESSION_QUEST) != QUEST_STATUS_REWARDED)
+        for (uint8 i = currentState; i <= newState; ++i)
         {
+            uint32 PROGRESSION_QUEST = 66000 + i;
             Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
-            if (quest)
-            {
-                player->AddQuest(quest, nullptr);
-                player->CompleteQuest(PROGRESSION_QUEST);
-                player->RewardQuest(quest, 0, player, false, false);
-            }
+
+            if (!quest)
+                continue;
+
+            player->AddQuest(quest, nullptr);
+            player->CompleteQuest(PROGRESSION_QUEST);
+            player->RewardQuest(quest, 0, player, false, false);
         }
     }
 }
@@ -74,6 +75,9 @@ void IndividualProgression::UpdateProgressionState(Player* player, ProgressionSt
 void IndividualProgression::ForceUpdateProgressionState(Player* player, ProgressionState newState)
 {
     if (!player || !player->IsInWorld())
+        return;
+
+    if (!newState)
         return;
 
     // remove all hidden progression quests first
@@ -84,17 +88,17 @@ void IndividualProgression::ForceUpdateProgressionState(Player* player, Progress
             player->RemoveRewardedQuest(PROGRESSION_QUEST);
     }
 
-    // if newState is non-zero, add the corresponding progression quest
-    if (newState)
+    for (uint8 i = PROGRESSION_MOLTEN_CORE; i <= newState; ++i)
     {
-        uint32 PROGRESSION_QUEST = 66000 + newState;
+        uint32 PROGRESSION_QUEST = 66000 + i;
         Quest const* quest = sObjectMgr->GetQuestTemplate(PROGRESSION_QUEST);
-        if (quest)
-        {
-            player->AddQuest(quest, nullptr);
-            player->CompleteQuest(PROGRESSION_QUEST);
-            player->RewardQuest(quest, 0, player, false, false);
-        }
+
+        if (!quest)
+            continue;
+
+        player->AddQuest(quest, nullptr);
+        player->CompleteQuest(PROGRESSION_QUEST);
+        player->RewardQuest(quest, 0, player, false, false);
     }
 }
 
