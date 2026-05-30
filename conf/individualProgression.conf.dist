@@ -205,7 +205,7 @@ IndividualProgression.DisableRDF = 0
 #        Description: Enable or disable Max Monster Sight.
 #                     The AC default setting is 50 yards. Enabling this will increase the range to 80 yards.
 #                     The reason behind this are the tower and bunker archers in Alterac Valley. 
-#                     These archers should have a 80 yard ranged attack.
+#                     This does NOT effect aggro range.
 #
 #        Default:     1 - Enabled
 #                     0 - Disabled
