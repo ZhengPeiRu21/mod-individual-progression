@@ -185,7 +185,7 @@ public:
             return false;
     }
 
-    void OnPlayerSpellCast(Player* player, Spell* spell, bool skipCheck) override
+    void OnPlayerSpellCast(Player* player, Spell* spell, bool /*skipCheck*/) override
     {
         if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !spell)
             return;
@@ -692,17 +692,17 @@ public:
         }
         if (mapid == MAP_NORTHREND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
-            const UINT16 AREA_COLD_HEARTH_MANOR = 166;
-            const UINT16 AREA_DRYGULCH_RAVINE = 370;
-            const UINT16 AREA_STORMWIND_GREAT_SEA = 2364;
-            const UINT16 AREA_WETLANDS_GREAT_SEA = 2365;
-            const UINT16 AREA_STORMWIND_HARBOR = 4411;
+            const uint16 AREA_COLD_HEARTH_MANOR = 166;
+            const uint16 AREA_DRYGULCH_RAVINE = 370;
+            const uint16 AREA_STORMWIND_GREAT_SEA = 2364;
+            const uint16 AREA_WETLANDS_GREAT_SEA = 2365;
+            const uint16 AREA_STORMWIND_HARBOR = 4411;
 
-            UINT16 NPC_DEATHGUARD_BARTH = 31708; // Zeppelin Crewman in Tirisfal Glades
-            UINT16 NPC_GRUNT_GRITCH = 31726; // Zeppelin Crewman in Durotar
-            UINT16 NPC_SAILOR_JANSEN = 31759;
-            UINT16 NPC_SAILOR_DAVIES = 31761;
-            UINT16 NPC_SAILOR_PICARDO = 31792;
+            uint16 NPC_DEATHGUARD_BARTH = 31708; // Zeppelin Crewman in Tirisfal Glades
+            uint16 NPC_GRUNT_GRITCH = 31726; // Zeppelin Crewman in Durotar
+            uint16 NPC_SAILOR_JANSEN = 31759;
+            uint16 NPC_SAILOR_DAVIES = 31761;
+            uint16 NPC_SAILOR_PICARDO = 31792;
 
             switch (player->GetAreaId())
             {
