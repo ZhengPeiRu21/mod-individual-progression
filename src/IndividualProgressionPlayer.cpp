@@ -707,15 +707,15 @@ public:
             switch (player->GetAreaId())
             {
             case AREA_STORMWIND_GREAT_SEA:
-                if (player->FindNearestCreature(NPC_SAILOR_PICARDO, 100.0f))
+                if (player->FindNearestCreature(NPC_SAILOR_PICARDO, 80.0f))
                     player->TeleportTo(0, -8290.685f, 1395.097f, 4.851f, 0); // Stormwind Harbor
                 break;
             case AREA_STORMWIND_HARBOR:
-                if (player->FindNearestCreature(NPC_SAILOR_JANSEN, 40.0f) || player->FindNearestCreature(NPC_SAILOR_DAVIES, 40.0f))
+                if (player->FindNearestCreature(NPC_SAILOR_JANSEN, 60.0f) || player->FindNearestCreature(NPC_SAILOR_DAVIES, 40.0f))
                     player->TeleportTo(0, -8641.461f, 1322.536f, 5.537f, 0); // Stormwind Harbor
                 break;
             case AREA_WETLANDS_GREAT_SEA:
-                if (player->FindNearestCreature(NPC_SAILOR_JANSEN, 40.0f) || player->FindNearestCreature(NPC_SAILOR_DAVIES, 40.0f))
+                if (player->FindNearestCreature(NPC_SAILOR_JANSEN, 60.0f) || player->FindNearestCreature(NPC_SAILOR_DAVIES, 40.0f))
                     player->TeleportTo(0, -3730.277f, -584.316f, 4.7365f, 0); // Menethil Harbor
                 break;
             case AREA_DUROTAR:
