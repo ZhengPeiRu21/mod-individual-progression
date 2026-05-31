@@ -692,6 +692,44 @@ public:
         }
         if (mapid == MAP_NORTHREND && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         {
+            const UINT16 AREA_COLD_HEARTH_MANOR = 166;
+            const UINT16 AREA_DRYGULCH_RAVINE = 370;
+            const UINT16 AREA_STORMWIND_GREAT_SEA = 2364;
+            const UINT16 AREA_WETLANDS_GREAT_SEA = 2365;
+            const UINT16 AREA_STORMWIND_HARBOR = 4411;
+
+            UINT16 NPC_DEATHGUARD_BARTH = 31708; // Zeppelin Crewman in Tirisfal Glades
+            UINT16 NPC_GRUNT_GRITCH = 31726; // Zeppelin Crewman in Durotar
+            UINT16 NPC_SAILOR_JANSEN = 31759;
+            UINT16 NPC_SAILOR_DAVIES = 31761;
+            UINT16 NPC_SAILOR_PICARDO = 31792;
+
+            switch (player->GetAreaId())
+            {
+            case AREA_STORMWIND_GREAT_SEA:
+                if (player->FindNearestCreature(NPC_SAILOR_PICARDO, 80.0f))
+                    player->TeleportTo(0, -8290.685f, 1395.097f, 4.851f, 0); // Stormwind Harbor
+                break;
+            case AREA_STORMWIND_HARBOR:
+                if (player->FindNearestCreature(NPC_SAILOR_JANSEN, 60.0f) || player->FindNearestCreature(NPC_SAILOR_DAVIES, 40.0f))
+                    player->TeleportTo(0, -8641.461f, 1322.536f, 5.537f, 0); // Stormwind Harbor
+                break;
+            case AREA_WETLANDS_GREAT_SEA:
+                if (player->FindNearestCreature(NPC_SAILOR_JANSEN, 60.0f) || player->FindNearestCreature(NPC_SAILOR_DAVIES, 40.0f))
+                    player->TeleportTo(0, -3730.277f, -584.316f, 4.7365f, 0); // Menethil Harbor
+                break;
+            case AREA_DUROTAR:
+            case AREA_DRYGULCH_RAVINE:
+                if (player->FindNearestCreature(NPC_GRUNT_GRITCH, 40.0f))
+                    player->TeleportTo(1, 1174.13f, -4152.37f, 51.746f, 0); // Durotar Zeppelin Master
+                break;
+            case AREA_TIRISFAL_GLADES:
+            case AREA_COLD_HEARTH_MANOR:
+                if (player->FindNearestCreature(NPC_DEATHGUARD_BARTH, 40.0f))
+                    player->TeleportTo(0, 2060.0942f, 361.5912f, 82.5f, 0); // Tirisfal Glades Zeppelin Master
+                break;
+            }
+
             ChatHandler(player->GetSession()).PSendSysMessage("Progression Level Required = |cff00ffff{}|r", PROGRESSION_TBC_TIER_5);
             return false;
         }
@@ -1176,12 +1214,15 @@ public:
         return true;
     }
 
-    void OnPlayerUpdateArea(Player* player, uint32 /*oldArea*/, uint32 newArea) override
+    void OnPlayerUpdateArea(Player* player, uint32 oldArea, uint32 newArea) override
     {
-        if (!player || !player->IsInWorld() || !newArea)
+        if (!player || !player->IsInWorld() || !newArea || !oldArea)
             return;
 
         if (!sIndividualProgression->enabled || player->IsGameMaster())
+            return;
+
+        if (newArea == oldArea)
             return;
 
         uint32 mapid = player->GetMap()->GetId();
