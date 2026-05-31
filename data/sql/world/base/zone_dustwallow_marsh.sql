@@ -151,18 +151,14 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES (3845, 1133), (4456, 11
 UPDATE `quest_template` SET `LogDescription` = "Speak with Fiora Longears in Theramore." WHERE `ID` = 1132;
 
 /* Fiora Longears - repoint quest tracker POI from her old Darkshore (Auberdine) spawn to Theramore */
-DELETE FROM `quest_poi` WHERE `QuestID` = 1132;
+DELETE FROM `quest_poi` WHERE `QuestID` IN (1132, 1135) AND `id` = 0;
 INSERT INTO `quest_poi` (`QuestID`,`id`,`ObjectiveIndex`,`MapID`,`WorldMapAreaId`,`Floor`,`Priority`,`Flags`,`VerifiedBuild`) VALUES
-(1132, 0, -1, 1, 141, 0, 0, 1, 0);
-DELETE FROM `quest_poi_points` WHERE `QuestID` = 1132;
-INSERT INTO `quest_poi_points` (`QuestID`,`Idx1`,`Idx2`,`X`,`Y`,`VerifiedBuild`) VALUES
-(1132, 0, 0, -3613, -4464, 0);
-
-DELETE FROM `quest_poi` WHERE `QuestID` = 1135 AND `id` = 0;
-INSERT INTO `quest_poi` (`QuestID`,`id`,`ObjectiveIndex`,`MapID`,`WorldMapAreaId`,`Floor`,`Priority`,`Flags`,`VerifiedBuild`) VALUES
+(1132, 0, -1, 1, 141, 0, 0, 1, 0),
 (1135, 0, -1, 1, 141, 0, 0, 1, 0);
-DELETE FROM `quest_poi_points` WHERE `QuestID` = 1135 AND `Idx1` = 0;
+
+DELETE FROM `quest_poi_points` WHERE `QuestID` IN (1132, 1135) AND `Idx1` = 0;
 INSERT INTO `quest_poi_points` (`QuestID`,`Idx1`,`Idx2`,`X`,`Y`,`VerifiedBuild`) VALUES
+(1132, 0, 0, -3613, -4464, 0),
 (1135, 0, 0, -3613, -4464, 0);
 
 /* Old Vanilla Varian Wrynn Npc in Alcaz during Vanilla phases */
