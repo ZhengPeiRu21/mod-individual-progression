@@ -60,17 +60,13 @@ public:
             {
                 case GO_WHELP_SPAWNER:
                     if (instance->GetDifficulty() == RAID_DIFFICULTY_10MAN_HEROIC)
-                    {
                         go->CastSpell((Unit*)nullptr, 91003);
-                    }
                     else
-                    {
                         go->CastSpell((Unit*)nullptr, 17646);
-                    }
+
                     if (Creature* onyxia = GetCreature(DATA_ONYXIA))
-                    {
                         onyxia->AI()->DoAction(-1);
-                    }
+
                     break;
             }
         }
@@ -78,9 +74,7 @@ public:
         bool SetBossState(uint32 type, EncounterState state) override
         {
             if (!InstanceScript::SetBossState(type, state))
-            {
                 return false;
-            }
 
             if (type == DATA_ONYXIA && state == NOT_STARTED)
             {
@@ -159,7 +153,13 @@ public:
                 return false;
             }
 
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+            Group* group = player->GetGroup();
+
+            if (group)
+                group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+            else
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+
             player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
             return true;
 
@@ -171,11 +171,6 @@ public:
                 handler.PSendSysMessage("You need to be level 80 to enter Onyxia\'s Lair.");
                 return false;
             }
-            /* if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET) && !sIndividualProgression->isExcludedFromProgression(player))
-            {
-                handler.PSendSysMessage("You must have the Drakefire Amulet in your inventory to enter Onyxia\'s Lair.");
-                return false;
-            } */
 
             player->TeleportTo(249, 29.1607f, -71.3372f, -8.18032f, 4.58f);
             return true;
