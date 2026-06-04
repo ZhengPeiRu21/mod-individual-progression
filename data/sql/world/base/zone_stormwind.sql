@@ -299,11 +299,11 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 --
 (23, 12783, 35906, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Lieutenant Karter will not sell Reins of the Black War Elekk until the player has completed PROGRESSION_PRE_TBC');
 
--- Quest 'Alicia's Poem' (11451)
+-- Quest: Alicia's Poem (11451)
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 19 AND `SourceEntry` = 11451;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`,
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(19, 0, 11451, 0, 0, 8, 0, 66009, 0, 0, 0, 0, 0, '', 'Quest \'Alicia\'s Poem\' only available after the player has reached PROGRESSION_TBC_TIER_1 (Tier 9)');
+(19, 0, 11451, 0, 0, 8, 0, 66008, 0, 0, 0, 0, 0, '', 'Quest \'Alicia\'s Poem\' only available after the player has reached PROGRESSION_TBC_TIER_1');
 
 UPDATE `gameobject` SET `ScriptName` = 'gobject_ipp_pre_tbc' WHERE `guid` IN (61936, 61940, 61942, 61944, 61945, 61946, 61947, 61949, 61951);
 
