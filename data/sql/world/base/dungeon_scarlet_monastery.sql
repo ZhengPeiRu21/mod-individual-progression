@@ -172,7 +172,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- (4543, 0, 8, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 660595, 614693, 0, 0, 0, 0, 0, 0,          'Bloodmage Thalnos - On Just Died - Respawn Scorn'), -- IP's vanilla version
 (4543, 0, 8, 9, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 660595, 614693, 0, 0, 0, 0, 0, 0,          'Bloodmage Thalnos - On Just Died - Respawn Scorn'), -- IP's vanilla version
 (4543, 0, 9, 10, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 10, 660595, 614693, 0, 0, 0, 0, 0, 0,         'Bloodmage Thalnos - On Just Died - Reset Faction Scorn'),
-(4543, 0, 10, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 146930, 1, 0, 0, 0, 0, 10, 660595, 614693, 0, 0, 0, 0, 0, 0,  'Bloodmage Thalnos - On Respawn - Start Patrol Path Scorn'),
+(4543, 0, 10, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 146930, 1, 0, 0, 0, 0, 10, 660595, 614693, 0, 0, 0, 0, 0, 0,  'Bloodmage Thalnos - On Just Died - Start Patrol Path Scorn'),
 --
 (6426, 0, 0, 0, 9, 0, 100, 0, 3000, 9000, 10000, 20000, 0, 20, 11, 7068, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Anguished Dead - Within 0-20 Range - Cast Veil of Shadows'),
 (6488, 0, 0, 0, 37, 0, 90, 512, 0, 0, 0, 0, 0, 0, 41, 500, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Fallen Champion - On AI Init - Despawn'),
