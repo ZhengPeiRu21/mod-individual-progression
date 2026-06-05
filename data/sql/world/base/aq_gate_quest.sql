@@ -130,3 +130,14 @@ INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (15693, 108744), (156
 
 DELETE FROM `creature_questender` WHERE `id` = 15693 AND `quest` IN (8745, 108744, 108745, 108746, 108747);
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15693, 8745), (15693, 108744), (15693, 108745), (15693, 108746), (15693, 108747);
+
+-- quest: The Nightmare Manifests, solve issue in Nighthaven (Moonglade)
+DELETE FROM `smart_scripts` WHERE `entryorguid` = 1549101 AND `source_type` = 9 AND `id` IN (17, 18, 19);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+--
+(1549101, 9, 17, 0, 0, 0, 100, 0, 1000, 1000, 0, 0, 0, 0, 2, 14, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Eranikus, Tyrant of the Dream - On Script - Set Faction 14'),
+(1549101, 9, 18, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Eranikus, Tyrant of the Dream - On Script - Set Reactstate Aggressive'),
+(1549101, 9, 19, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Eranikus, Tyrant of the Dream - On Script - Remove Unattackable Flags');
