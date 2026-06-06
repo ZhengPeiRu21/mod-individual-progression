@@ -235,8 +235,8 @@ UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10398 AND `i
 UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10398 AND `item` = 16702; -- Thuzadin Necromancer - Devout Bracers
 UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10400 AND `item` = 16697; -- Thuzadin Necromancer - Devout Bracers
 UPDATE `creature_loot_template` SET `Chance` = 1    WHERE `entry` = 10400 AND `item` = 16702; -- Thuzadin Necromancer - Dreadmist Belt
-UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10406 AND `item` = 16681; -- Ghoul Ravener - Beaststalker's Bindings
-UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 10407 AND `item` = 16681; -- Fleshflayer Ghoul - Beaststalker's Bindings
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10406 AND `item` = 16681; -- Ghoul Ravener - Beaststalkers Bindings
+UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 10407 AND `item` = 16681; -- Fleshflayer Ghoul - Beaststalkers Bindings
 UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 10408 AND `item` = 16723; -- Rockwing Gargoyle - Lightforge Belt
 UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 10409 AND `item` = 16723; -- Rockwing Gargoyle - Lightforge Belt
 UPDATE `creature_loot_template` SET `Chance` = 1.25 WHERE `entry` = 10412 AND `item` = 16671; -- Crypt Crawler - Bindings of Elements
@@ -246,23 +246,45 @@ UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 10416 AND `i
 UPDATE `creature_loot_template` SET `Chance` = 2.25 WHERE `entry` = 10417 AND `item` = 16736; -- Venom Belcher - Belt of Valor
 UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10418 AND `item` = 16723; -- Crimson Guardsman - Lightforge Belt
 UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 10420 AND `item` = 16697; -- Crimson Initiate - Devout Bracers
-UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10421 AND `item` = 16681; -- Crimson Defender - Beaststalker's Bindings
-UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 10422 AND `item` = 16685; -- Crimson Sorcerer - Magister's Belt
+UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10421 AND `item` = 16681; -- Crimson Defender - Beaststalkers Bindings
+UPDATE `creature_loot_template` SET `Chance` = 2    WHERE `entry` = 10422 AND `item` = 16685; -- Crimson Sorcerer - Magisters Belt
 UPDATE `creature_loot_template` SET `Chance` = 4    WHERE `entry` = 10423 AND `item` = 16697; -- Crimson Priest - Devout Bracers
 UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10424 AND `item` = 16723; -- Crimson Gallant - Lightforge Belt
-UPDATE `creature_loot_template` SET `Chance` = 3    WHERE `entry` = 10425 AND `item` = 16685; -- Crimson Battle Mage - Magister's Belt
+UPDATE `creature_loot_template` SET `Chance` = 3    WHERE `entry` = 10425 AND `item` = 16685; -- Crimson Battle Mage - Magisters Belt
 UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10426 AND `item` = 16714; -- Crimson Inquisitor - Wildheart Bracers
 UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 10463 AND `item` = 16714; -- Shrieking Banshee - Wildheart Bracers
 UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10464 AND `item` = 16714; -- Wailing Banshee - Wildheart Bracers
 UPDATE `creature_loot_template` SET `Chance` = 3    WHERE `entry` = 11043 AND `item` = 16671; -- Crimson Monk - Bindings of Elements
 
+-- fix Timmy the Cruel spawn
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (10808, -54069);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+--
+(10808, 0, 0, 0, 0, 0, 100, 0, 3000, 8000, 9000, 14000, 0, 0, 11, 17470, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Timmy the Cruel - In Combat - Cast Ravenous Claw'),
+(10808, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Timmy the Cruel - Between Health 0-30% - Cast Enrage'),
+(10808, 0, 2, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Timmy the Cruel - On Aggro - Say Line 0'),
+(10808, 0, 3, 4, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Timmy the Cruel - On Respawn - Set Invisible'),
+(10808, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Timmy the Cruel - On Respawn - Set Faction'),
+--
+(-54069, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 8, 25, 11, 15749, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Crimson Guardsman - Within Range 8-25yd - Cast Shield Charge'),
+(-54069, 0, 1, 0, 0, 0, 100, 0, 4000, 15000, 12000, 25800, 0, 0, 11, 6713, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Crimson Guardsman - In Combat - Cast Disarm'),
+(-54069, 0, 2, 0, 105, 0, 100, 0, 10000, 12000, 10000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Crimson Guardsman - Victim Casting - Cast Shield Bash'),
+(-54069, 0, 3, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Crimson Guardsman - Between 0-15% Health - Flee For Assist'),
+(-54069, 0, 4, 5, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Crimson Guardsman - On Death - Say Line 0'),
+(-54069, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 30, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Crimson Guardsman - On Death - Call For Help'),
+(-54069, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 247227, 10808, 0, 0, 0, 0, 0, 0,            'Crimson Guardsman - On Death - Set Visible: Timmy the Cruel'),
+(-54069, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 247227, 10808, 0, 0, 0, 0, 0, 0,            'Crimson Guardsman - On Death - Set Faction: Timmy the Cruel');
+    
 -- stratholme living side, 3 doors not locked that should require the scarlet key
 UPDATE gameobject_template SET `Data1` = 299 WHERE `entry` IN (175967, 175968, 176194);
 UPDATE gameobject_template_addon SET `flags` = 34 WHERE `entry` IN (175967, 175968, 176194);
 
 -- service gate should open and close, but not lock itself again. I can't get this to work, so I'm keeping the gate open. (old Data2 value was 3000)
 UPDATE `gameobject_template` SET `Data2` = 0 WHERE `entry` = 175368; 
-
+  
 -- Gargoyles
 SET @CGUID    := 329000;  -- creature guid
 SET @WPID     := 3290000; -- waypoint ID
