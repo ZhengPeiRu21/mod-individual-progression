@@ -296,7 +296,7 @@ UPDATE `creature_template` SET `MovementType` = 0 WHERE `entry` = 10808; -- not 
 -- fix waypoints Timmy the Cruel
 DELETE FROM `creature_addon` WHERE `guid` IN (247227);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
-(247227, 2472270, 0, 0, 1, 0, 0, NULL);
+(247227, 2472270, 0, 0, 0, 0, 0, NULL);
 
 DELETE FROM `waypoint_data` WHERE `id` IN (2472270);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES 
