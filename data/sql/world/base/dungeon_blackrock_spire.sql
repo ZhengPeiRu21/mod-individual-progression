@@ -85,6 +85,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (10899, 0, 2, 0, 0, 0, 100, 0, 3000, 6000, 3000, 6000, 0, 0, 11, 16172, 32, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,       'Goraluk Anvilcrack - Within 0-5 Range - Cast Head Crack'),
 (10899, 0, 3, 0, 0, 0, 100, 0, 5000, 8000, 4000, 6000, 0, 0, 11, 6253, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Goraluk Anvilcrack - Within 0-5 Range - Cast Backhand');
 
+-- change creature visible level to ?? (CREATURE_TYPE_FLAG_BOSS_MOB)
+UPDATE `creature_template` SET `type_flags` = type_flags|4 WHERE `entry` IN (9816, 10363, 10429, 10430);
+
 
 /* ---- Lower Blackrock Spire ---- */
 
