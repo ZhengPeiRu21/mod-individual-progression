@@ -256,12 +256,21 @@ UPDATE `creature_loot_template` SET `Chance` = 1.5  WHERE `entry` = 10463 AND `i
 UPDATE `creature_loot_template` SET `Chance` = 1.75 WHERE `entry` = 10464 AND `item` = 16714; -- Wailing Banshee - Wildheart Bracers
 UPDATE `creature_loot_template` SET `Chance` = 3    WHERE `entry` = 11043 AND `item` = 16671; -- Crimson Monk - Bindings of Elements
 
--- fix Timmy the Cruel spawn
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (10808, -54069);
+-- fix The Unforgiven and Timmy the Cruel spawns
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (10516, 10808, -54069);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+--
+(10516, 0, 0, 1, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'The Unforgiven - On Aggro - Set Visible'),
+(10516, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 12, 10387, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 3, 0, 0, 0,                 'The Unforgiven - On Aggro - Summon Creature'),
+(10516, 0, 2, 3, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 12, 10387, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, -3, 0, 0, 0,                'The Unforgiven - On Aggro - Summon Creature'),
+(10516, 0, 3, 4, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 12, 10387, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, -3, 0, 0,                'The Unforgiven - On Aggro - Summon Creature'),
+(10516, 0, 4, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 12, 10387, 8, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0,                 'The Unforgiven - On Aggro - Summon Creature'),
+(10516, 0, 5, 0, 0, 0, 100, 0, 6000, 10000, 11000, 14000, 0, 0, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'The Unforgiven - In Combat - Cast Frost Nova'),
+(10516, 0, 6, 7, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'The Unforgiven - On Respawn - Set Invisible'),
+(10516, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 16331, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'The Unforgiven - On Respawn - Cast Incorporeal Defense');
 --
 (10808, 0, 0, 0, 0, 0, 100, 0, 3000, 8000, 9000, 14000, 0, 0, 11, 17470, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,       'Timmy the Cruel - In Combat - Cast Ravenous Claw'),
 (10808, 0, 1, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Timmy the Cruel - Between Health 0-30% - Cast Enrage'),
@@ -277,6 +286,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-54069, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 39, 30, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Crimson Guardsman - On Death - Call For Help'),
 (-54069, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 247227, 10808, 0, 0, 0, 0, 0, 0,            'Crimson Guardsman - On Death - Set Visible: Timmy the Cruel'),
 (-54069, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 247227, 10808, 0, 0, 0, 0, 0, 0,            'Crimson Guardsman - On Death - Set Faction: Timmy the Cruel');
+
+-- fix spawn location for The Unforgiven
+UPDATE `creature` SET `position_x` = 3719.82, `position_y` = -3426.25, `position_z` = 131.844, `orientation` = 3.3412 WHERE `id1` = 10516;
     
 -- stratholme living side, 3 doors not locked that should require the scarlet key
 UPDATE gameobject_template SET `Data1` = 299 WHERE `entry` IN (175967, 175968, 176194);
