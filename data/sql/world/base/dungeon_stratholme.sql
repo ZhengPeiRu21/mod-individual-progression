@@ -296,7 +296,7 @@ UPDATE gameobject_template_addon SET `flags` = 34 WHERE `entry` IN (175967, 1759
 
 -- service gate should open and close, but not lock itself again. I can't get this to work, so I'm keeping the gate open. (old Data2 value was 3000)
 UPDATE `gameobject_template` SET `Data2` = 0 WHERE `entry` = 175368; 
-  
+
 -- Gargoyles
 SET @CGUID    := 329000;  -- creature guid
 SET @WPID     := 3290000; -- waypoint ID
