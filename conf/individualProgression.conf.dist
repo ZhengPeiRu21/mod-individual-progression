@@ -454,6 +454,19 @@ IndividualProgression.BotAccountsRegex = "^RNDBOT.*"
 #
 IndividualProgression.ExcludedAccountsRegex = ""
 
+# IndividualProgression.EnableAllSpellRanks
+#
+#        Description: Enable this to allow all spell ranks to be cast during WotLK. 
+#                     All spell ranks had the same % mana cost during WotLK, there was no reason to cast lower ranks of spells.
+#                     By default Individual Progression will block vanilla and tbc ranks of spells after the player progresses to WotLK.
+#                     This is done because if patch-V is used these vanilla and tbc spells will have their static mana cost restored.
+#                     They should not exist during WotLK. But if you want them to be available anyways, you can enable this config option.
+#
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+IndividualProgression.EnableAllSpellRanks = 0
+
 # IndividualProgression.EnableSetRepCommand
 #
 #        Description: Enable the .ip setrep command for normal AND gm accounts
