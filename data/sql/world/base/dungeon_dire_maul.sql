@@ -40,7 +40,6 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 
 /* ---- Dire Maul North ----- */
 
-
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (11441, 11444, 11445, 11448, 11450, 11501, 11859, 13036, 13160, 14321, 14322, 14323, 14325, 14326);
@@ -311,7 +310,6 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 /* ---- Dire Maul West -----  */
 
-
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
 (11458, 11459, 11466, 11467, 11469, 11470, 11471, 11472, 11473, 11475, 11476, 11477, 11480, 11483, 11484, 11486, 11487, 11488, 11489, 11496, 14303, 14308, 14398, 14399, 14400);
@@ -480,7 +478,6 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 (248034, 11488, 0, 0, 429, 0, 0, 1, 1, 1, -14.613, 542.093, 28.6039, 3.10576, 86400, 0, 1, 17094, 7302, 2, 0, 0, 0, '', 0, 0, NULL),   -- Illyanna Ravenoak
 (248036, 14308, 0, 0, 429, 0, 0, 1, 1, 0, -11.6649, 544.295, 28.6046, 3.1557, 86400, 0, 0, 15260, 0, 0, 0, 0, 0, '', 0, 0, NULL);      -- Ferra
 
-
 DELETE FROM `creature_addon` WHERE `guid` IN (248013, 248015, 248016); -- unused Residual Monstrosity guids
 DELETE FROM `creature_addon` WHERE `guid` IN (247820, 247821, 247822, 247823, 247826, 247827, 247828, 247829);
 DELETE FROM `creature_addon` WHERE `guid` IN 
@@ -515,7 +512,6 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (@CGUID+16, @WPID+160, 0, 0, 1, 0, 0, ''),
 (@CGUID+17, @WPID+170, 0, 0, 1, 0, 0, ''),
 (@CGUID+18, @WPID+180, 0, 0, 1, 0, 0, '');
-
 
 DELETE FROM `waypoint_data` WHERE `id` IN (2478200, 2478210, 2478220, 2478230, 2478260, 2478270, 2478280, 2478290, 2479150, 2479250, 2480340);
 DELETE FROM `waypoint_data` WHERE `id` IN 
@@ -942,9 +938,385 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (@WPID+180, 17, -20.9416, 925.498, -24.5802, 2.80575, 0, 0, 0, 100, 0),
 (@WPID+180, 18, 20.1434, 910.762, -24.5802, 2.80575, 0, 0, 0, 100, 0);
 
+/* Warlock Quest: Dreadsteed of Xoroth */
+SET @OGUID   := 653000;
+
+DELETE FROM `gameobject` WHERE `guid` IN (99785, 99786, 99787); -- remove permament spawns of Doomsday Candle, Wheel of the Black March and Bell of Dethmoora
+UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` = 7631; -- QUEST_SPECIAL_FLAGS_EXPLORATION_OR_EVENT
+UPDATE `gameobject_template_addon` SET `faction`= 35 WHERE `entry` IN (179672, 179673, 179674);
+UPDATE `gameobject_template` SET `size` = 2 WHERE `entry` IN  (179669, 179670, 179671);
+UPDATE `creature_template` SET `unit_flags` = 0, `flags_extra` = 128, `faction` = 1375 WHERE `entry` = 14501;
+UPDATE `creature_template` SET `unit_flags` = 514, `flags_extra` = 2 WHERE `entry` = 14504;
+
+UPDATE `gameobject_template` SET `AIName`= 'SmartGameObjectAI' WHERE `entry` IN (179672, 179673, 179674);
+DELETE FROM `smart_scripts` WHERE `source_type` = 1 AND `entryorguid` IN (179672, 179673, 179674);
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (17967200, 17967300, 17967400);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+--
+(179672, 1, 0, 0, 70, 0, 100, 0, 2, 0, 0, 0, 0, 0, 80, 17967200, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Wheel of the Black March - On State Changed - Run Script'), -- reduce damage taken by 100
+(179673, 1, 0, 0, 70, 0, 100, 0, 2, 0, 0, 0, 0, 0, 80, 17967300, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Doomsday Candle          - On State Changed - Run Script'), -- deal 250 dmg
+(179674, 1, 0, 0, 70, 0, 100, 0, 2, 0, 0, 0, 0, 0, 80, 17967400, 2, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Bell of Dethmoora        - On State Changed - Run Script'), -- gives 150 mana
+--
+(17967200, 9,  0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 104, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 0, 0, 0, 0, 0, 0, 0,             'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  2, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  3, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  4, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  5, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  6, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  7, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  8, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9,  9, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 10, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 11, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 12, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 13, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 14, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 15, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 16, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 17, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 18, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 19, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 20, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 21, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 22, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 23, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 24, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 25, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 26, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 27, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 1, 1, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Wheel of the Black March - Script - Set Data to Ritual Bunny'),
+(17967200, 9, 28, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 118, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Wheel of the Black March - Script - Set GO state 1'),
+(17967200, 9, 29, 0, 0, 0, 100, 0, 3000, 3000, 0, 0, 0, 0, 50, 179672, 600000, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Wheel of the Black March - Script - Spawn GO'),
+(17967200, 9, 30, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Wheel of the Black March - Script - Despawn GO'),
+--
+(17967300, 9,  0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 104, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 0, 0, 0, 0, 0, 0, 0,             'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  2, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  3, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  4, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  5, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  6, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  7, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  8, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9,  9, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 10, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 11, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 12, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 13, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 14, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 15, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 16, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 17, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 18, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 19, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 20, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 21, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 22, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 23, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 24, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 25, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 26, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 27, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Doomsday Candle - Script - Set Data to Ritual Bunny'),
+(17967300, 9, 28, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 118, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Doomsday Candle - Script - Set GO state 1'),
+(17967300, 9, 29, 0, 0, 0, 100, 0, 3000, 3000, 0, 0, 0, 0, 50, 179673, 60000, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Doomsday Candle - Script - Spawn GO'),
+(17967300, 9, 30, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Doomsday Candle - Script - Despawn GO'),
+--
+(17967400, 9,  0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 104, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 0, 0, 0, 0, 0, 0, 0,             'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  2, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  3, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  4, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  5, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  6, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  7, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  8, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9,  9, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 10, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 11, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 12, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 13, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 14, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 15, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 16, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 17, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 18, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 19, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 20, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 21, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 22, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 23, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 24, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 25, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 26, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 27, 0, 0, 0, 100, 0, 5000, 5000, 0, 0, 0, 0, 45, 3, 3, 0, 0, 0, 0, 19, 14501, 30, 0, 0, 0, 0, 0, 0,      'Bell of Dethmoora - Script - Set Data to Ritual Bunny'),
+(17967400, 9, 28, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 118, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Bell of Dethmoora - Script - Set GO state 1'),
+(17967400, 9, 29, 0, 0, 0, 100, 0, 3000, 3000, 0, 0, 0, 0, 50, 179674, 600000, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Bell of Dethmoora - Script - Spawn GO'),
+(17967400, 9, 30, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Bell of Dethmoora - Script - Despawn GO');
+
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (14482, 14483, 14500, 14501, 14502, 14504, 14506);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (14482, 14483, 14500, 14501, 14502, 14504, 14506);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+--
+(14482, 0, 0, 1, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 100, 0, 0, 0, 0, 0, 0, 0,                  'Xorothian Imp - On Just Summoned - Start Attack'),
+(14482, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Xorothian Imp - On Just Summoned - Set in combat with zone'),
+(14483, 0, 0, 0, 0, 0, 100, 2, 6000, 10000, 9000, 12000, 0, 0, 11, 15284, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Dread Guard - In Combat - Cast Cleave'),
+(14483, 0, 1, 0, 0, 0, 100, 2, 9000, 12000, 7000, 12000, 0, 0, 11, 18663, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Dread Guard - In Combat - Cast Shadow Shock'),
+(14483, 0, 2, 3, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Dread Guard - On Just Summoned - Set in combat with zone'),
+(14483, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 0, 21, 100, 0, 0, 0, 0, 0, 0, 0,                  'Dread Guard - On Just Summoned - Start Attack'),
+--
+(14500, 0, 0, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 1450000, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'J\'eevee - On just summoned - Action list'),
+(14500, 0, 1, 0, 40, 0, 100, 512, 2, 14500, 0, 0, 0, 0, 54, 3000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'J\'eevee - On wp02 reached - Pause wp'),
+(14500, 0, 2, 0, 40, 0, 100, 0, 2, 14500, 0, 0, 0, 0, 1, 1, 3000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'J\'eevee - On wp02 reached - Say text 2'),
+(14500, 0, 3, 0, 40, 0, 100, 512, 7, 14500, 0, 0, 0, 0, 54, 4000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'J\'eevee - On wp07 reached - Pause wp'),
+(14500, 0, 4, 0, 40, 0, 100, 0, 8, 14500, 0, 0, 0, 0, 1, 2, 4000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'J\'eevee - On wp07 reached - Say text 3'),
+(14500, 0, 5, 0, 40, 0, 100, 512, 11, 14500, 0, 0, 0, 0, 54, 4000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'J\'eevee - On wp11 reached - Pause wp'),
+(14500, 0, 6, 0, 40, 0, 100, 512, 12, 14500, 0, 0, 0, 0, 80, 1450001, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'J\'eevee - On wp12 reached - Action list'),
+(14500, 0, 7, 0, 54, 0, 100, 512, 0, 0, 0, 0, 0, 0, 80, 1450002, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'J\'eevee - On just summoned - Run Script'),
+--
+(14501, 0, 0, 0, 38, 0, 100, 0, 1, 1, 0, 0, 0, 0, 11, 23120, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Warlock mount ritual bunny - On Data Set - Cast Black March Blessing'),
+(14501, 0, 1, 0, 38, 0, 100, 0, 2, 2, 0, 0, 0, 0, 11, 23226, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Warlock mount ritual bunny - On Data Set - Cast Ritual Candle Aura'),
+(14501, 0, 2, 0, 38, 0, 100, 0, 3, 3, 0, 0, 0, 0, 11, 23117, 2, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Warlock mount ritual bunny - On Data Set - Cast Ritual Bell Aura'),
+(14501, 0, 3, 4, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Warlock mount ritual bunny - On Just Summoned - Set Invisible'),
+(14501, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Warlock mount ritual bunny - On Just Summoned - Set Faction Friendly'),
+--
+(14502, 0, 0, 1, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 18, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Xorothian Dreadsteed - On Just summoned - Set Immune'),
+(14502, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 1, 0, 0, 0, 14, 99784, 179668, 0, 0, 0, 0, 0, 0,           'Xorothian Dreadsteed - On Just summoned - Remove Warlock Mount Ritual Circle'),
+(14502, 0, 2, 0, 4, 0, 100, 3, 0, 0, 0, 0, 0, 0, 11, 16636, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Xorothian Dreadsteed - On Aggro - Cast Berserker Charge'),
+(14502, 0, 3, 0, 0, 0, 100, 2, 4000, 8000, 20000, 25000, 0, 0, 11, 22713, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,   'Xorothian Dreadsteed - In Combat - Cast Flame Buffet'),
+(14502, 0, 4, 5, 1, 0, 100, 1, 6000, 6000, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Xorothian Dreadsteed - OOC - Set Visible'),
+(14502, 0, 5, 0, 61, 0, 100, 1, 0, 0, 0, 0, 0, 0, 19, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Xorothian Dreadsteed - OOC - Remove Immune'),
+(14502, 0, 6, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 12, 14506, 1, 36000, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'Xorothian Dreadsteed - On 80% HP - Summon Hel Nurath'),
+(14502, 0, 7, 8, 6, 0, 100, 515, 0, 0, 0, 0, 0, 0, 11, 23159, 3, 7, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Xorothian Dreadsteed - On Just Died - Cast Summon Dreadsteed Spirit'),
+(14502, 0, 8, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 15, 7631, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0,                 'Xorothian Dreadsteed - On Just Died - Credit Dreadsteed of Xoroth'),
+--
+(14504, 0, 0, 0, 1, 0, 100, 0, 5000, 5000, 30000, 30000, 0, 0, 89, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'Dreadsteed Spirit - OOC - Random Movement'),
+--
+(14506, 0, 0, 0, 0, 0, 100, 2, 5000, 9000, 22000, 25000, 0, 0, 11, 17146, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Lord Hel\'nurath - In Combat - Cast Shadow Word: Pain'),
+(14506, 0, 1, 0, 0, 0, 100, 2, 11000, 14000, 14000, 20000, 0, 0, 11, 23224, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Lord Hel\'nurath - In Combat - Cast Veil of Shadow'),
+(14506, 0, 2, 0, 0, 0, 100, 2, 4000, 9000, 9000, 15000, 0, 0, 11, 18670, 0, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,    'Lord Hel\'nurath - In Combat - Cast Knock Away'),
+(14506, 0, 3, 0, 0, 0, 100, 2, 9000, 13000, 14000, 17000, 0, 0, 11, 20989, 33, 0, 0, 0, 0, 6, 30, 0, 0, 0, 0, 0, 0, 0, 'Lord Hel\'nurath - In Combat - Cast Sleep'),
+(14506, 0, 4, 0, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Lord Hel\'nurath - On Just Summoned - Say text 0');
+
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1450002);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+--
+(1450002, 9,  0, 0, 0, 0, 100, 512, 0, 0, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                            'J\'eevee - Script - Say Line 4'),
+(1450002, 9,  1, 0, 0, 0, 100, 512, 3000, 3000, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                      'J\'eevee - Script - Say Line 5'),
+(1450002, 9,  2, 0, 0, 0, 100, 512, 0, 0, 0, 0, 0, 0, 59, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                           'J\'eevee - Script - Turn Run On'),
+(1450002, 9,  3, 0, 0, 0, 100, 512, 0, 0, 0, 0, 0, 0, 69, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, -25.1555, 809.829, -29.5358, 2.8889,                  'J\'eevee - Script - Move to Position'),
+(1450002, 9,  4, 0, 0, 0, 100, 512, 3000, 3000, 0, 0, 0, 0, 50, 179674, 600000, 1, 0, 0, 0, 8, 0, 0, 0, 0, -25.1555, 809.829, -29.5358, 2.8889,  'J\'eevee - Script - Summon Bell'),
+(1450002, 9,  5, 0, 0, 0, 100, 512, 2000, 2000, 0, 0, 0, 0, 1, 6, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                      'J\'eevee - Script - Say Line 6'),
+(1450002, 9,  6, 0, 0, 0, 100, 512, 0, 0, 0, 0, 0, 0, 69, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, -43.5413, 825.938, -29.5358, 5.0605,                  'J\'eevee - Script - Move to Position'),
+(1450002, 9,  7, 0, 0, 0, 100, 512, 3000, 3000, 0, 0, 0, 0, 50, 179672, 600000, 1, 0, 0, 0, 8, 0, 0, 0, 0, -43.5413, 825.938, -29.5358, 5.0605,  'J\'eevee - Script - Summon Wheel'),
+(1450002, 9,  8, 0, 0, 0, 100, 512, 2000, 2000, 0, 0, 0, 0, 1, 7, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                      'J\'eevee - Script - Say Line 7'),
+(1450002, 9,  9, 0, 0, 0, 100, 512, 0, 0, 0, 0, 0, 0, 69, 1, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, -47.5403, 802.247, -29.5358, 4.0199,                  'J\'eevee - Script - Move to Position'),
+(1450002, 9, 10, 0, 0, 0, 100, 512, 3000, 3000, 0, 0, 0, 0, 50, 179673, 600000, 1, 0, 0, 0, 8, 0, 0, 0, 0, -47.5403, 802.247, -29.5358, 4.0199,  'J\'eevee - Script - Summon Candle'),
+(1450002, 9, 11, 0, 0, 0, 100, 512, 2000, 2000, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                     'J\'eevee - Script - Evade'),
+(1450002, 9, 12, 0, 0, 0, 100, 512, 2000, 2000, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0,                                     'J\'eevee - Script - Say Line 8'),
+(1450002, 9, 13, 0, 0, 0, 100, 512, 10000, 10000, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                   'J\'eevee - Script - Set Invisible'),
+(1450002, 9, 14, 0, 0, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                           'J\'eevee - Script - Set Faction Friendly');
+
+DELETE FROM `creature_text` WHERE `CreatureID` IN (14500, 14506); 
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
+--
+(14500, 0, 0, 'Ah, here we are! Well let\'s get to work, shall we...?', 12, 0, 100, 0, 0, 0, 9769, 0, 'J\'eevee'),
+(14500, 1, 0, 'Oh, right! Over here now...', 12, 0, 100, 0, 0, 0, 9770, 0, 'J\'eevee'),
+(14500, 2, 0, 'And now... the final step!', 12, 0, 100, 0, 0, 0, 9771, 0, 'J\'eevee'),
+(14500, 3, 0, 'I\'m finished. The parchment is made. Now, return to Gorzeeki...', 12, 0, 100, 0, 0, 0, 9742, 0, 'J\'eevee'),
+(14500, 4, 0, 'Ah, freedom!  Although brief, so sweet it is...', 14, 0, 100, 0, 0, 0, 9705, 0, 'J\'eevee'),
+(14500, 5, 0, 'Well duties call, yes?  First, the bell... to give you vigor!', 12, 0, 100, 0, 0, 0, 9702, 0, 'J\'eevee'),
+(14500, 6, 0, "Next, I'll place the wheel... to protect you from harm.", 12, 0, 100, 0, 0, 0, 9703, 0, 'J\'eevee'),
+(14500, 7, 0, "And finally the candle... to burn those who would thwart you!", 12, 0, 100, 0, 0, 0, 9704, 0, 'J\'eevee'),
+(14500, 8, 0, "$n, my duties are complete and I shall now take my leave.  Luck to you my $g fellow:lady;, and remember to keep the Bell, Wheel and Candle working!", 12, 0, 100, 0, 0, 0, 9706, 0, 'J\'eevee'),
+(14506, 0, 0, "Who dares steal my precious mount?  You will pay for your insolence, mortal!", 14, 0, 100, 0, 0, 0, 9727, 0, 'Lord Hel\'nurath');
+
+DELETE FROM `event_scripts` WHERE `id` = 8420;
+INSERT INTO `event_scripts` (`id`, `delay`, `command`, `datalong`, `datalong2`, `dataint`, `x`, `y`, `z`, `o`) VALUES
+--
+(8420,   0, 10, 14500, 1445000, 0, -38.8, 812.69, -29.53, 0),  -- J\'eevee
+(8420,   0, 10, 14501, 1445000, 0, -37.94, 812.81, -29.45, 0), -- Warlock Mount Ritual Mob - 1445,000 ms despawn
+(8420,  35,  9, 99784, 1410, 0, 0, 0, 0, 0),                   -- 179668 = Warlock Mount Ritual Circle - 1410 seconds despawn
+--
+(8420,  35,  9, @OGUID+101, 1410, 0, 0, 0, 0, 0),              -- Summoning Portals
+(8420,  35,  9, @OGUID+102, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+103, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+104, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+105, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+106, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+107, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+108, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+109, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+110, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+111, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+112, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+113, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+114, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+115, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+116, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+117, 1410, 0, 0, 0, 0, 0),
+(8420,  35,  9, @OGUID+118, 1410, 0, 0, 0, 0, 0),
+--
+(8420,  35, 10, 14482, 1000000, 0, -101.297, 823.417, -28.4163, 6.08438),  -- portal 1
+(8420,  35, 10, 14482, 1000000, 0, -93.8763, 779.921, -28.3179, 0.515906), -- portal 3
+(8420,  35, 10, 14482, 1000000, 0, -60.041, 751.992, -28.2167, 1.22277),   -- portal 5
+(8420,  35, 10, 14482, 1000000, 0, -15.8785, 751.977, -28.1839, 1.89036),  -- portal 7
+(8420,  35, 10, 14482, 1000000, 0, 17.888, 782.132, -28.3403, 2.58545),    -- portal 9
+(8420,  35, 10, 14482, 1000000, 0, 24.354, 824.619, -28.3903, 3.25854),    -- portal 11
+(8420,  35, 10, 14482, 1000000, 0, 2.0333, 863.479, -28.1891, 4.0243),     -- portal 13
+(8420,  35, 10, 14482, 1000000, 0, -40.0954, 877.854, -28.1817, 4.73116),  -- portal 15
+(8420,  35, 10, 14482, 1000000, 0, -80.7216, 862.218, -28.2547, 5.37126),  -- portal 17
+--
+(8420,  60, 10, 14482, 1000000, 0, -101.031, 799.681, -28.4503, 0.150696), -- portal 2
+(8420,  60, 10, 14482, 1000000, 0, -79.4683, 763.098, -28.2475, 0.845775), -- portal 4
+(8420,  60, 10, 14482, 1000000, 0, -37.2637, 747.892, -28.1232, 1.49766),  -- portal 6
+(8420,  60, 10, 14482, 1000000, 0, 3.15252, 763.516, -28.2177, 2.27521),   -- portal 8
+(8420,  60, 10, 14482, 1000000, 0, 24.4288, 802.138, -28.3785, 2.90904),   -- portal 10
+(8420,  60, 10, 14482, 1000000, 0, 16.5093, 846.31, -28.2808, 3.65517),    -- portal 12
+(8420,  60, 10, 14482, 1000000, 0, -17.6461, 874.355, -28.1959, 4.28348),  -- portal 14
+(8420,  60, 10, 14482, 1000000, 0, -62.9614, 873.05, -28.2525, 5.06888),   -- portal 16
+(8420,  60, 10, 14482, 1000000, 0, -93.5993, 845.833, -28.371, 5.68149),   -- portal 18
+--
+(8420,  85,  9, 99782, 1360, 0, 0, 0, 0, 0),                               -- 179669 = Warlock Mount Quest Symbol 1
+(8420,  90, 10, 14482, 1000000, 0, -101.297, 823.417, -28.4163, 6.08438),  -- portal 1
+(8420,  90, 10, 14482, 1000000, 0, -79.4683, 763.098, -28.2475, 0.845775), -- portal 4
+(8420,  90, 10, 14483, 3000000, 0, -15.8785, 751.977, -28.1839, 1.89036),  -- portal 7
+(8420, 110, 10, 14482, 1000000, 0, 24.4288, 802.138, -28.3785, 2.90904),   -- portal 10
+(8420, 110, 10, 14482, 1000000, 0, 2.0333, 863.479, -28.1891, 4.0243),     -- portal 13
+(8420, 110, 10, 14482, 1000000, 0, -62.9614, 873.05, -28.2525, 5.06888),   -- portal 16
+--	
+(8420, 130,  9, 99781, 1315, 0, 0, 0, 0, 0),                               -- 179670 = Warlock Mount Quest Symbol 2
+(8420, 135, 10, 14482, 1000000, 0, -101.031, 799.681, -28.4503, 0.150696), -- portal 2
+(8420, 135, 10, 14482, 1000000, 0, -60.041, 751.992, -28.2167, 1.22277),   -- portal 5
+(8420, 135, 10, 14483, 3000000, 0, 3.15252, 763.516, -28.2177, 2.27521),   -- portal 8
+(8420, 155, 10, 14482, 1000000, 0, 24.354, 824.619, -28.3903, 3.25854),    -- portal 11
+(8420, 155, 10, 14482, 1000000, 0, -17.6461, 874.355, -28.1959, 4.28348),  -- portal 14
+(8420, 155, 10, 14482, 1000000, 0, -80.7216, 862.218, -28.2547, 5.37126),  -- portal 17
+--
+(8420, 175,  9, 99780, 1270, 0, 0, 0, 0, 0),                               -- 179671 = Warlock Mount Quest Symbol 3
+(8420, 180, 10, 14482, 1000000, 0, -93.8763, 779.921, -28.3179, 0.515906), -- portal 3
+(8420, 180, 10, 14482, 1000000, 0, -37.2637, 747.892, -28.1232, 1.49766),  -- portal 6
+(8420, 180, 10, 14483, 3000000, 0, 17.888, 782.132, -28.3403, 2.58545),    -- portal 9
+(8420, 200, 10, 14482, 1000000, 0, 16.5093, 846.31, -28.2808, 3.65517),    -- portal 12
+(8420, 200, 10, 14482, 1000000, 0, -40.0954, 877.854, -28.1817, 4.73116),  -- portal 15
+(8420, 200, 10, 14482, 1000000, 0, -93.5993, 845.833, -28.371, 5.68149),   -- portal 18
+--
+(8420, 220,  9, 99779, 1225, 0, 0, 0, 0, 0),                               -- 179669 = Warlock Mount Quest Symbol 4
+(8420, 225, 10, 14482, 1000000, 0, -79.4683, 763.098, -28.2475, 0.845775), -- portal 4
+(8420, 225, 10, 14482, 1000000, 0, -15.8785, 751.977, -28.1839, 1.89036),  -- portal 7
+(8420, 225, 10, 14483, 3000000, 0, 24.4288, 802.138, -28.3785, 2.90904),   -- portal 10
+(8420, 245, 10, 14482, 1000000, 0, 2.0333, 863.479, -28.1891, 4.0243),     -- portal 13
+(8420, 245, 10, 14482, 1000000, 0, -62.9614, 873.05, -28.2525, 5.06888),   -- portal 16
+(8420, 245, 10, 14482, 1000000, 0, -101.297, 823.417, -28.4163, 6.08438),  -- portal 1
+--
+(8420, 265,  9, 99778, 1180, 0, 0, 0, 0, 0),                               -- 179670 = Warlock Mount Quest Symbol 5
+(8420, 270, 10, 14482, 1000000, 0, -60.041, 751.992, -28.2167, 1.22277),   -- portal 5
+(8420, 270, 10, 14482, 1000000, 0, 3.15252, 763.516, -28.2177, 2.27521),   -- portal 8
+(8420, 270, 10, 14483, 3000000, 0, 24.354, 824.619, -28.3903, 3.25854),    -- portal 11
+(8420, 290, 10, 14482, 1000000, 0, -17.6461, 874.355, -28.1959, 4.28348),  -- portal 14
+(8420, 290, 10, 14482, 1000000, 0, -80.7216, 862.218, -28.2547, 5.37126),  -- portal 17
+(8420, 290, 10, 14482, 1000000, 0, -101.031, 799.681, -28.4503, 0.150696), -- portal 2
+--
+(8420, 310,  9, 99777, 1135, 0, 0, 0, 0, 0),                               -- 179671 = Warlock Mount Quest Symbol 6
+(8420, 315, 10, 14482, 1130000, 0, -37.2637, 747.892, -28.1232, 1.49766),  -- portal 6
+(8420, 315, 10, 14482, 1130000, 0, 17.888, 782.132, -28.3403, 2.58545),    -- portal 9
+(8420, 315, 10, 14483, 1130000, 0, 16.5093, 846.31, -28.2808, 3.65517),    -- portal 12
+(8420, 335, 10, 14482, 1110000, 0, -40.0954, 877.854, -28.1817, 4.73116),  -- portal 15
+(8420, 335, 10, 14482, 1110000, 0, -93.5993, 845.833, -28.371, 5.68149),   -- portal 18
+(8420, 335, 10, 14482, 1110000, 0, -93.8763, 779.921, -28.3179, 0.515906), -- portal 3
+--
+(8420, 355,  9, 99776, 1090, 0, 0, 0, 0, 0),                               -- 179669 = Warlock Mount Quest Symbol 7
+(8420, 360, 10, 14482, 1085000, 0, -15.8785, 751.977, -28.1839, 1.89036),  -- portal 7
+(8420, 360, 10, 14482, 1085000, 0, 24.4288, 802.138, -28.3785, 2.90904),   -- portal 10
+(8420, 360, 10, 14483, 1085000, 0, 2.0333, 863.479, -28.1891, 4.0243),     -- portal 13
+(8420, 380, 10, 14482, 1065000, 0, -62.9614, 873.05, -28.2525, 5.06888),   -- portal 16
+(8420, 380, 10, 14482, 1065000, 0, -101.297, 823.417, -28.4163, 6.08438),  -- portal 1
+(8420, 380, 10, 14482, 1065000, 0, -79.4683, 763.098, -28.2475, 0.845775), -- portal 4
+--
+(8420, 400,  9, 99775, 1045, 0, 0, 0, 0, 0),                               -- 179670 = Warlock Mount Quest Symbol 8
+(8420, 405, 10, 14482, 1040000, 0, 3.15252, 763.516, -28.2177, 2.27521),   -- portal 8
+(8420, 405, 10, 14482, 1040000, 0, 24.354, 824.619, -28.3903, 3.25854),    -- portal 11
+(8420, 405, 10, 14483, 1040000, 0, -17.6461, 874.355, -28.1959, 4.28348),  -- portal 14
+(8420, 425, 10, 14482, 1020000, 0, -80.7216, 862.218, -28.2547, 5.37126),  -- portal 17
+(8420, 425, 10, 14482, 1020000, 0, -101.031, 799.681, -28.4503, 0.150696), -- portal 2
+(8420, 425, 10, 14482, 1020000, 0, -60.041, 751.992, -28.2167, 1.22277),   -- portal 5
+--
+(8420, 445,  9, 99774, 1000, 0, 0, 0, 0, 0),                               -- 179671 = Warlock Mount Quest Symbol 9
+(8420, 445,  9, 99896, 1000, 0, 0, 0, 0, 0),                               -- 179675 = Warlock Mount Quest Portal Spell Focus - 900 seconds despawn time
+(8420, 445, 10, 23837, 1000000, 0, 0, 0, 0, 0);                            -- ELM General Purpose Bunny - 1000,000 ms despawn time
+
+DELETE FROM `event_scripts` WHERE `id` = 8428;
+INSERT INTO `event_scripts` (`id`, `delay`, `command`, `datalong`, `datalong2`, `dataint`, `x`, `y`, `z`, `o`) VALUES
+(8428, 0, 9, 99783, 15, 0, 0, 0, 0, 0),
+(8428, 10, 10, 14502, 9000000, 0, -38.94, 812.85, -29.5359, 4.90495);
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 13 AND `SourceGroup` IN (1, 2) AND `SourceEntry` IN (23120, 23117, 23226);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND `SourceGroup` IN (1, 8) AND `SourceEntry` = 14500 AND `SourceId` = 0;
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 17 AND `SourceGroup` = 0 AND `SourceEntry` IN (23136, 23152) AND `SourceId` = 0;
+
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`,
+`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+--
+(13, 1, 23120, 0, 2, 31, 0, 4, 0, 0, 0, 0, 0, '',          'Black March Blessing targets Player'),
+(13, 1, 23226, 0, 2, 31, 0, 4, 0, 0, 1, 0, 0, '',          'Ritual Candle Aura dont target Player'),
+(13, 2, 23117, 0, 2, 31, 0, 4, 0, 0, 0, 0, 0, '',          'Ritual Bell Aura targets Player'),
+--
+(22, 1, 14500, 0, 0, 22, 1, 289, 0, 0, 0, 0, 0, '',        'J\'eevee - Only run imp delivery script in Scholomance'),
+(22, 8, 14500, 0, 0, 22, 1, 429, 0, 0, 0, 0, 0, '',        'J\'eevee - Only run Xorothian Dreadsteed script in Dire Maul'),
+--
+(17, 0, 23152, 0, 0, 29, 0, 23837, 100, 0, 0, 0, 0, '',    'Can only use Summon Xorothian Dreadsteed scroll if ELM General Purpose Bunny is nearby'),
+(17, 0, 23152, 0, 0, 29, 0, 14502, 100, 0, 1, 0, 0, '',    'Can only use Summon Xorothian Dreadsteed scroll if Xorothian Dreadsteed is NOT nearby'),
+(17, 0, 23152, 0, 0, 29, 0, 14504, 100, 0, 1, 0, 0, '',    'Can only use Summon Xorothian Dreadsteed scroll if Dreadsteed Spirit is NOT nearby'),
+--
+(17, 0, 23136, 0, 0, 29, 0, 14501, 100, 0, 1, 0, 0, '',    'Can only use Jeevees Jar if Warlock Mount Ritual Mob is NOT nearby');
+
+-- fix locations Symbols and Dreadsteed Portal
+DELETE FROM `gameobject` WHERE `guid` BETWEEN 99774 AND 99783;
+DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+101 AND @OGUID+118;
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, 
+`rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES 
+--
+(99774, 179671, 429, 0, 0, 1, 1, -33.5439, 799.742, -29.5359, 2.00921, 0, 0, 0.84395, 0.536422, -900, 0, 1, '', 0, NULL), -- Quest Symbol
+(99775, 179670, 429, 0, 0, 1, 1, -27.8166, 804.138, -29.5359, 2.52128, 0, 0, 0.952286, 0.305207, -900, 0, 1, '', 0, NULL),
+(99776, 179669, 429, 0, 0, 1, 1, -25.0178, 813.414, -29.5359, 3.15588, 0, 0, 0.999974, -0.0071436, -900, 0, 1, '', 0, NULL),
+(99777, 179671, 429, 0, 0, 1, 1, -28.482, 821.983, -29.5359, 3.83134, 0, 0, 0.941118, -0.338078, -900, 0, 1, '', 0, NULL),
+(99778, 179670, 429, 0, 0, 1, 1, -36.6054, 826.473, -29.5359, 4.48085, 0, 0, 0.784052, -0.620695, -900, 0, 1, '', 0, NULL),
+(99779, 179669, 429, 0, 0, 1, 1, -46.0352, 824.511, -29.5359, 5.33299, 0, 0, 0.457425, -0.889248, -900, 0, 1, '', 0, NULL),
+(99780, 179671, 429, 0, 0, 1, 1, -52.2902, 815.636, -29.5359, 6.0006, 0, 0, 0.140823, -0.990035, -900, 0, 1, '', 0, NULL),
+(99781, 179670, 429, 0, 0, 1, 1, -50.7855, 805.731, -29.5359, 0.549925, 0, 0, 0.271511, 0.962435, -900, 0, 1, '', 0, NULL),
+(99782, 179669, 429, 0, 0, 1, 1, -41.0193, 799.045, -29.5359, 1.35102, 0, 0, 0.625295, 0.780388, -900, 0, 1, '', 0, NULL),
+--
+(99783, 179681, 429, 0, 0, 1, 1, -38.94, 812.85, -29.5359, 4.90495, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL), -- Dreadsteed Portal
+--
+(@OGUID+101, 179681, 429, 0, 0, 1, 1, -101.297, 823.417, -28.4163, 6.08438, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+102, 179681, 429, 0, 0, 1, 1, -101.031, 799.681, -28.4503, 0.150696, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+103, 179681, 429, 0, 0, 1, 1, -93.8763, 779.921, -28.3179, 0.515906, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+104, 179681, 429, 0, 0, 1, 1, -79.4683, 763.098, -28.2475, 0.845775, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+105, 179681, 429, 0, 0, 1, 1, -60.041, 751.992, -28.2167, 1.22277, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+106, 179681, 429, 0, 0, 1, 1, -37.2637, 747.892, -28.1232, 1.49766, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+107, 179681, 429, 0, 0, 1, 1, -15.8785, 751.977, -28.1839, 1.89036, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+108, 179681, 429, 0, 0, 1, 1, 3.15252, 763.516, -28.2177, 2.27521, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+109, 179681, 429, 0, 0, 1, 1, 17.888, 782.132, -28.3403, 2.58545, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+110, 179681, 429, 0, 0, 1, 1, 24.4288, 802.138, -28.3785, 2.90904, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+111, 179681, 429, 0, 0, 1, 1, 24.354, 824.619, -28.3903, 3.25854, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+112, 179681, 429, 0, 0, 1, 1, 16.5093, 846.31, -28.2808, 3.65517, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+113, 179681, 429, 0, 0, 1, 1, 2.0333, 863.479, -28.1891, 4.0243, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+114, 179681, 429, 0, 0, 1, 1, -17.6461, 874.355, -28.1959, 4.28348, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+115, 179681, 429, 0, 0, 1, 1, -40.0954, 877.854, -28.1817, 4.73116, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+116, 179681, 429, 0, 0, 1, 1, -62.9614, 873.05, -28.2525, 5.06888, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+117, 179681, 429, 0, 0, 1, 1, -80.7216, 862.218, -28.2547, 5.37126, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL),
+(@OGUID+118, 179681, 429, 0, 0, 1, 1, -93.5993, 845.833, -28.371, 5.68149, 0, 0, 0.635856, -0.771807, -900, 0, 1, '', 0, NULL);
+
 
 /* ---- Dire Maul East ---- */
-
 
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
