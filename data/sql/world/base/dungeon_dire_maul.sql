@@ -944,6 +944,7 @@ SET @OGUID   := 653000;
 DELETE FROM `gameobject` WHERE `guid` IN (99785, 99786, 99787); -- remove permament spawns of Doomsday Candle, Wheel of the Black March and Bell of Dethmoora
 UPDATE `quest_template_addon` SET `SpecialFlags` = 2 WHERE `ID` = 7631; -- QUEST_SPECIAL_FLAGS_EXPLORATION_OR_EVENT
 UPDATE `gameobject_template_addon` SET `faction`= 35 WHERE `entry` IN (179672, 179673, 179674);
+UPDATE `gameobject_template` SET `size` = 2 WHERE `entry` IN  (179669, 179670, 179671);
 UPDATE `creature_template` SET `unit_flags` = 0, `flags_extra` = 128, `faction` = 1375 WHERE `entry` = 14501;
 UPDATE `creature_template` SET `unit_flags` = 514, `flags_extra` = 2 WHERE `entry` = 14504;
 
