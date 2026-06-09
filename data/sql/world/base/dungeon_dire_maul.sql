@@ -312,9 +312,9 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(11458, 11459, 11466, 11467, 11469, 11470, 11471, 11472, 11473, 11475, 11476, 11477, 11480, 11483, 11484, 11486, 11487, 11488, 11489, 11496, 14303, 14308, 14398, 14399, 14400);
+(11458, 11459, 11466, 11467, 11469, 11470, 11471, 11472, 11473, 11475, 11476, 11477, 11480, 11483, 11484, 11486, 11487, 11488, 11489, 11496, 14303, 14308, 14398, 14399, 14400, 14566);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(11458, 11459, 11466, 11467, 11469, 11470, 11471, 11472, 11473, 11475, 11476, 11477, 11480, 11483, 11484, 11486, 11487, 11488, 11489, 11496, 14303, 14308, 14398, 14399, 14400);
+(11458, 11459, 11466, 11467, 11469, 11470, 11471, 11472, 11473, 11475, 11476, 11477, 11480, 11483, 11484, 11486, 11487, 11488, 11489, 11496, 14303, 14308, 14398, 14399, 14400, 14566);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -397,7 +397,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11489, 0, 2, 0, 0, 0, 100, 0, 2000, 4000, 17000, 22000, 0, 0, 11, 22924, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Tendris Warpwood - In Combat - Cast Grasping Vines'),
 (11489, 0, 3, 0, 0, 0, 100, 0, 6000, 12000, 15000, 20000, 0, 0, 11, 22994, 32, 0, 0, 0, 0, 6, 40, 0, 0, 0, 0, 0, 0, 0, 'Tendris Warpwood - In Combat - Cast Entangle'),
 (11489, 0, 4, 0, 0, 0, 100, 0, 9000, 12000, 12000, 15000, 0, 0, 11, 22916, 0, 0, 0, 0, 0, 21, 10, 0, 0, 0, 0, 0, 0, 0, 'Tendris Warpwood - Within 0-10 Range - Cast Uppercut'),
-(11489, 0, 5, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 14566, 4, 120000, 0, 0, 0, 8, 0, 0, 0, 0, 63.5089, 492.417, -23.2966, 3.21228, 'Tendris Warpwood - On Death - Summon Ancient Equine Spirit'),
+(11489, 0, 5, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 248563, 14566, 0, 0, 0, 0, 0, 0,            'Tendris Warpwood - On Death - Set Visible Ancient Equine Spirit'),
 --
 (11496, 0, 0, 1, 38, 0, 100, 512, 1, 1, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 11, 11466, 200, 0, 0, 0, 0, 0, 0,            'Immol\'thar - On Data Set - Set Data'),
 (11496, 0, 1, 2, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 19, 11466, 200, 0, 0, 0, 0, 0, 0,             'Immol\'thar - On Data Set - Say Line 0 Target'),
@@ -420,8 +420,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14399, 0, 0, 0, 0, 0, 100, 0, 4000, 9000, 7000, 12000, 0, 0, 11, 22945, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Arcane Torrent - In Combat - Cast Forked Lightning'),
 (14399, 0, 1, 0, 0, 0, 100, 0, 7000, 14000, 19000, 23000, 0, 0, 11, 22946, 0, 0, 0, 0, 0, 5, 20, 0, 0, 0, 0, 0, 0, 0,  'Arcane Torrent - In Combat - Cast Lightning Cloud'),
 (14400, 0, 0, 0, 1, 0, 100, 0, 1000, 1000, 300000, 300000, 0, 0, 11, 12550, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Arcane Feedback - Out of Combat - Cast Lightning Shield'),
-(14400, 0, 1, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 12550, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Arcane Feedback - In Combat - Cast Lightning Shield');
-
+(14400, 0, 1, 0, 0, 0, 100, 0, 0, 0, 15000, 30000, 0, 0, 11, 12550, 32, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Arcane Feedback - In Combat - Cast Lightning Shield'),
+(14566, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ancient Equine Spirit - On Respawn - Set Invisible');
 
 -- Cadaverous Worm
 DELETE FROM `creature_loot_template` WHERE `entry` = 14370;
