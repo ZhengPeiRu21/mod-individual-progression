@@ -1390,3 +1390,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14349, 0, 1, 0, 0, 0, 100, 0, 5000, 7000, 14000, 19000, 0, 0, 11, 22713, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Pimgib - In Combat - Cast Flame Buffet'),
 (14349, 0, 2, 0, 0, 0, 100, 0, 8000, 12000, 11000, 15000, 0, 0, 11, 16046, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Pimgib - In Combat - Cast Blast Wave'),
 (14349, 0, 3, 0, 0, 0, 100, 0, 0, 0, 30000, 30000, 0, 0, 11, 22710, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Pimgib - In Combat - Cast Enlarge');
+
+-- fix Pusillin text
+UPDATE `smart_scripts` SET `target_type` = 1 WHERE `entryorguid` = 1435404 AND `source_type` = 9 AND `id` = 0 AND `action_type` = 1;
