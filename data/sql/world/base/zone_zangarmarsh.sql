@@ -10,3 +10,7 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES 
 (10437, 0, 1, 'Let me browse your goods.', 8097, 3, 128, 0, 0, 0, 0, '', 0, 0),
 (10437, 1, 3, 'I seek training in Fishing.', 34245, 5, 16, 0, 0, 0, 0, '', 0, 0);
+
+-- fix orientation Innkeeper Coryth Stoktron
+UPDATE `creature` SET `orientation` = 3.61916 WHERE `id1` = 18907;
+UPDATE `waypoint_data` SET `orientation` = 3.61916 WHERE `id` = 678800;
