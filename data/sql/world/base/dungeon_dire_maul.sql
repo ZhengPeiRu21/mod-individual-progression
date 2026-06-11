@@ -147,30 +147,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14323, 0, 13, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 4, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Guard Slip\'kik - On Death - Set Instance Data 4 to 1'),
 (14323, 0, 14, 0, 62, 0, 100, 512, 5733, 0, 0, 0, 0, 0, 11, 22820, 2, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                'Guard Slip\'kik - On Gossip Select - Cast Slip\'kik\'s Savvy'),
 --
-(14325, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                            'Captain Kromcrush - On Aggro - Say Line 0'),
-(14325, 0, 1, 0, 0, 0, 100, 0, 2000, 6000, 7000, 10000, 0, 0, 11, 22859, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Captain Kromcrush - Within 0-5 Range - Cast Mortal Cleave'),
-(14325, 0, 2, 0, 0, 0, 100, 0, 9000, 18000, 15000, 19000, 0, 0, 11, 19134, 1, 0, 0, 0, 0, 6, 10, 0, 0, 0, 0, 0, 0, 0,       'Captain Kromcrush - Within 0-10 Range - Cast Frightening Shout'),
-(14325, 0, 3, 4, 2, 0, 100, 1, 0, 75, 0, 0, 0, 0, 11, 22860, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Kromcrush - Between 0-75% Health - Cast Call Reavers'),
-(14325, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Captain Kromcrush - On Call Reavers - Say Line 1'),
-(14325, 0, 5, 6, 0, 0, 100, 0, 12000, 15000, 19000, 25000, 0, 0, 11, 22857, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Captain Kromcrush - In Combat - Cast Retaliation'),
-(14325, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                           'Captain Kromcrush - On Retaliation - Say Line 2'),
-(14325, 0, 7, 8, 62, 0, 100, 512, 5738, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                     'Captain Kromcrush - On Gossip Option Selected - Close Gossip'),
-(14325, 0, 8, 9, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Captain Kromcrush - On Gossip Option Selected - Say Line 3'),
-(14325, 0, 9, 10, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 18, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Captain Kromcrush - On Gossip Option Selected - Set Unit Flags'),
-(14325, 0, 10, 11, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Captain Kromcrush - On Gossip Option Selected - Set React Passive'),
-(14325, 0, 11, 12, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Kromcrush - On Gossip Option Selected - Set Active'),
-(14325, 0, 12, 13, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Kromcrush - On Gossip Option Selected - Set Npc Flags'),
-(14325, 0, 13, 14, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Captain Kromcrush - On Gossip Option Selected - Cast Enrage'),
-(14325, 0, 14, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 67, 1, 2500, 2500, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Captain Kromcrush - On Gossip Option Selected - Create Timed Event'),
-(14325, 0, 15, 0, 40, 0, 100, 0, 69, 14325, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Captain Kromcrush - On Reached WP69 - Say Line 4'),
-(14325, 0, 16, 17, 40, 0, 100, 512, 76, 14325, 0, 0, 0, 0, 81, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Captain Kromcrush - On Reached WP76 - Set Npc Flags'),
-(14325, 0, 17, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 19, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Captain Kromcrush - On Reached WP76 - Set Remove Flags'),
-(14325, 0, 18, 0, 59, 0, 100, 512, 1, 0, 0, 0, 0, 0, 53, 1, 14325, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Captain Kromcrush - On Timed Event - Start WP'),
-(14325, 0, 19, 0, 60, 0, 100, 769, 5000, 5000, 5000, 5000, 0, 0, 2, 45, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Captain Kromcrush - On Update - Set Faction'),
-(14325, 0, 20, 0, 60, 0, 100, 512, 5000, 5000, 5000, 5000, 0, 0, 81, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Captain Kromcrush - On Update - Set Npc Flags'),
-(14325, 0, 21, 0, 25, 0, 100, 769, 0, 0, 0, 0, 0, 0, 81, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Captain Kromcrush - On Reset - Set Npc Flags'),
-(14325, 0, 22, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 4, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                        'Captain Kromcrush - On Death - Set Instance Data 4 to 1'),
---
 (14326, 0, 0, 0, 9, 0, 100, 0, 0, 0, 10000, 10000, 8, 25, 11, 15749, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,              'Guard Mol\'dar - Within 8-25 Range - Cast Shield Charge'),
 (14326, 0, 1, 0, 105, 0, 50, 0, 0, 0, 9000, 12000, 0, 5, 11, 11972, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,               'Guard Mol\'dar - Target Casting - Cast Shield Bash'),
 (14326, 0, 2, 0, 0, 0, 100, 0, 5000, 8000, 8000, 12000, 0, 0, 11, 15580, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,         'Guard Mol\'dar - Within 0-5 Range - Cast Strike'),
@@ -180,6 +156,43 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14326, 0, 6, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 4, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                         'Guard Mol\'dar - On Death - Set Instance Data 4 to 1'),
 (14326, 0, 7, 0, 62, 0, 100, 0, 5735, 0, 0, 0, 0, 0, 11, 22818, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                   'Guard Mol\'dar - On Gossip Select - Cast Mol\'dar\'s Moxie');
 
+-- fix Captain Kromcrush
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (14325);
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1432501, 1432502);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+--
+(14325, 0, 0, 0, 4, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                       'Captain Kromcrush - On Aggro - Say Line 0'),
+(14325, 0, 1, 0, 0, 0, 100, 0, 2000, 6000, 7000, 10000, 0, 0, 11, 22859, 0, 0, 0, 0, 0, 21, 5, 0, 0, 0, 0, 0, 0, 0,    'Captain Kromcrush - Within 0-5 Range - Cast Mortal Cleave'),
+(14325, 0, 2, 0, 0, 0, 100, 0, 9000, 18000, 15000, 19000, 0, 0, 11, 19134, 1, 0, 0, 0, 0, 5, 10, 0, 0, 0, 0, 0, 0, 0,  'Captain Kromcrush - Within 0-10 Range - Cast Frightening Shout'),
+(14325, 0, 3, 0, 2, 0, 100, 1, 0, 50, 0, 0, 0, 0, 80, 1432501, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Captain Kromcrush - Between 0-50% Health - Run Script 1432501 (No Repeat)'), -- https://youtu.be/7S5oLks5y54?t=1526
+(14325, 0, 4, 5, 0, 0, 100, 0, 12000, 15000, 19000, 25000, 0, 0, 11, 22857, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Captain Kromcrush - In Combat - Cast Retaliation'),
+(14325, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Kromcrush - On Retaliation - Say Line 2'),
+(14325, 0, 6, 0, 62, 0, 100, 512, 5738, 0, 0, 0, 0, 0, 80, 1432502, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Captain Kromcrush - On Gossip Option Selected - Run Script 1432502'),
+--
+(14325, 0, 7, 0, 40, 0, 100, 0, 69, 14325, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Captain Kromcrush - On Reached WP69 - Say Line 4'),
+(14325, 0, 8, 9, 40, 0, 100, 512, 76, 14325, 0, 0, 0, 0, 81, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Captain Kromcrush - On Reached WP76 - Set Npc Flags'),
+(14325, 0, 9, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 19, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Captain Kromcrush - On Reached WP76 - Set Remove Flags'),
+(14325, 0, 10, 0, 59, 0, 100, 512, 1, 0, 0, 0, 0, 0, 53, 1, 14325, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Captain Kromcrush - On Timed Event - Start WP'),
+(14325, 0, 11, 0, 60, 0, 100, 769, 5000, 5000, 5000, 5000, 0, 0, 2, 45, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Captain Kromcrush - On Update - Set Faction'),
+(14325, 0, 12, 0, 60, 0, 100, 512, 5000, 5000, 5000, 5000, 0, 0, 81, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Captain Kromcrush - On Update - Set Npc Flags'),
+(14325, 0, 13, 0, 25, 0, 100, 769, 0, 0, 0, 0, 0, 0, 81, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Captain Kromcrush - On Reset - Set Npc Flags'),
+(14325, 0, 14, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 4, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Captain Kromcrush - On Death - Set Instance Data 4 to 1'),
+
+(1432501, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 11450, 6, 60000, 0, 0, 0, 6, 40, 1, 0, 0, 0, 0, 0, 0,           'Script9 - Captain Kromcrush - Summon Reaver'),
+(1432501, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 11450, 6, 60000, 0, 0, 0, 6, 40, 1, 0, 0, 0, 0, 0, 0,           'Script9 - Captain Kromcrush - Summon Reaver'),
+(1432501, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Script9 - Captain Kromcrush - Say Line 1'),
+
+(1432502, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Captain Kromcrush - Close Gossip'),
+(1432502, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Script9 - Captain Kromcrush - Say Line 3'),
+(1432502, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 18, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Script9 - Captain Kromcrush - Set Unit Flags'),
+(1432502, 9, 3, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Script9 - Captain Kromcrush - Set React Passive'),
+(1432502, 9, 4, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Captain Kromcrush - Set Active'),
+(1432502, 9, 5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Captain Kromcrush - Set Npc Flags'),
+(1432502, 9, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8599, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Script9 - Captain Kromcrush - Cast Enrage'),
+(1432502, 9, 7, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 67, 1, 2500, 2500, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Script9 - Captain Kromcrush - Create Timed Event');
 
 -- fix 3 Gordok Mastiff patrols
 DELETE FROM `creature` WHERE `guid` IN 
