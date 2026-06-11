@@ -171,7 +171,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14325, 0, 4, 5, 0, 0, 100, 0, 12000, 15000, 19000, 25000, 0, 0, 11, 22857, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Captain Kromcrush - In Combat - Cast Retaliation'),
 (14325, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Captain Kromcrush - On Retaliation - Say Line 2'),
 (14325, 0, 6, 0, 62, 0, 100, 512, 5738, 0, 0, 0, 0, 0, 80, 1432502, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Captain Kromcrush - On Gossip Option Selected - Run Script 1432502'),
---
 (14325, 0, 7, 0, 40, 0, 100, 0, 69, 14325, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Captain Kromcrush - On Reached WP69 - Say Line 4'),
 (14325, 0, 8, 9, 40, 0, 100, 512, 76, 14325, 0, 0, 0, 0, 81, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Captain Kromcrush - On Reached WP76 - Set Npc Flags'),
 (14325, 0, 9, 0, 61, 0, 100, 512, 0, 0, 0, 0, 0, 0, 19, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Captain Kromcrush - On Reached WP76 - Set Remove Flags'),
@@ -180,11 +179,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14325, 0, 12, 0, 60, 0, 100, 512, 5000, 5000, 5000, 5000, 0, 0, 81, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,      'Captain Kromcrush - On Update - Set Npc Flags'),
 (14325, 0, 13, 0, 25, 0, 100, 769, 0, 0, 0, 0, 0, 0, 81, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Captain Kromcrush - On Reset - Set Npc Flags'),
 (14325, 0, 14, 0, 6, 0, 100, 512, 0, 0, 0, 0, 0, 0, 34, 4, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Captain Kromcrush - On Death - Set Instance Data 4 to 1'),
-
+--
 (1432501, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 11450, 6, 60000, 0, 0, 0, 6, 40, 1, 0, 0, 0, 0, 0, 0,           'Script9 - Captain Kromcrush - Summon Reaver'),
 (1432501, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 12, 11450, 6, 60000, 0, 0, 0, 6, 40, 1, 0, 0, 0, 0, 0, 0,           'Script9 - Captain Kromcrush - Summon Reaver'),
 (1432501, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Script9 - Captain Kromcrush - Say Line 1'),
-
+--
 (1432502, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                    'Script9 - Captain Kromcrush - Close Gossip'),
 (1432502, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Script9 - Captain Kromcrush - Say Line 3'),
 (1432502, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 18, 768, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Script9 - Captain Kromcrush - Set Unit Flags'),
