@@ -42,9 +42,9 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 
 /* smart scripts */
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
-(11441, 11444, 11445, 11448, 11450, 11501, 11859, 13036, 13160, 14321, 14322, 14323, 14325, 14326);
+(11441, 11444, 11445, 11448, 11450, 11501, 11859, 13036, 13160, 14321, 14322, 14323, 14326);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
-(11441, 11444, 11445, 11448, 11450, 11501, 11859, 13036, 13160, 14321, 14322, 14323, 14325, 14326);
+(11441, 11444, 11445, 11448, 11450, 11501, 11859, 13036, 13160, 14321, 14322, 14323, 14326);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
