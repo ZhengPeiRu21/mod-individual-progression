@@ -42,7 +42,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (17805, 0, 5, 0, 6, 0, 100, 0, 0, 0, 0, 0, 0, 0, 45, 2, 2, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0,                     'Coilfang Slavemaster - On Just Died - Set Data 2 2 (Free Stored Slaves)'),
 --
 (21231, 0, 0, 0, 0, 0, 100, 0, 5000, 12000, 10000, 15000, 0, 0, 11, 38631, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Greyheart Shield-Bearer - In Combat - Cast Avengers Shield'),
-(21231, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 15000, 8, 25, 11, 38630, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Greyheart Shield-Bearer - In Combat - Cast Shield Charge');
+(21231, 0, 1, 0, 9, 0, 100, 0, 0, 0, 10000, 15000, 8, 25, 11, 38630, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Greyheart Shield-Bearer - In Combat - Cast Shield Charge'),
 --
 (21694, 0, 0, 0, 1, 0, 100, 1, 1000, 1000, 0, 0, 0, 0, 11, 34158, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Bog Overlord - Out of Combat - Cast Fungal Decay (No Repeat)'),
 (21694, 0, 1, 0, 0, 0, 100, 0, 5000, 18000, 5000, 18000, 0, 0, 11, 37272, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Bog Overlord - In Combat - Cast Poison Bolt'),
