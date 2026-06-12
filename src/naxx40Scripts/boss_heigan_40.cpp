@@ -289,7 +289,12 @@ public:
             }
 
             _eruptionScheduler.Update(diff);
+			
+            scheduler.Update(diff);
+
+            DoMeleeAttackIfReady();
         }
+		
     };
 };
 
