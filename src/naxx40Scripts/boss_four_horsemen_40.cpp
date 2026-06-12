@@ -236,33 +236,26 @@ public:
                     // Talk(SAY_TAUNT); // should be called by instance scripts, see vMangos instance_naxxramas.cpp
                     if (horsemanId == HORSEMAN_ZELIEK)
                     {
-                        if (sIndividualProgression->doableNaxx40Bosses)
-                        {
-                            int32 bp0 = 222;
-                            CustomSpellValues values;
-                            values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
-                            values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 50); // 30yd
-                            me->CastCustomSpell(SPELL_ZELIEK_HOLY_WRATH, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
-                        }
-                        else
-                        {
-                            int32 bp0 = 443;
-                            CustomSpellValues values;
-                            values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
-                            values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 50); // 30yd
-                            me->CastCustomSpell(SPELL_ZELIEK_HOLY_WRATH, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
-                        }
+                        int32 bp0 = 443;
+
+                        if (sIndividualProgression->doableNaxx40Bosses_4H)
+                            bp0 = 222;
+
+                        CustomSpellValues values;
+                        values.AddSpellMod(SPELLVALUE_BASE_POINT0, bp0);
+                        values.AddSpellMod(SPELLVALUE_MAX_TARGETS, 50); // 30yd
+                        me->CastCustomSpell(SPELL_ZELIEK_HOLY_WRATH, values, me->GetVictim(), TRIGGERED_NONE, nullptr, nullptr, ObjectGuid::Empty);
                     }
                     else if (horsemanId == HORSEMAN_BLAUMEUX)
                     {
-                        if (!sIndividualProgression->doableNaxx40Bosses)
+                        if (!sIndividualProgression->doableNaxx40Bosses_4H)
                         {
                             me->CastSpell(me->GetVictim(), SPELL_BLAUMEUX_VOID_ZONE, false);
                         }
                     }
                     else if (horsemanId == HORSEMAN_MOGRAINE)
                     {
-                        /* if (sIndividualProgression->doableNaxx40Bosses)
+                        /* if (sIndividualProgression->doableNaxx40Bosses_4H)
                         {
                             int32 bp0 = 1080; // 2k to 1k
                             int32 bp1 = 300; // 600 to 300
@@ -321,7 +314,7 @@ class spell_four_horsemen_mark_aura : public AuraScript
 
             int32 damage;
 
-            if (sIndividualProgression->doableNaxx40Bosses)
+            if (sIndividualProgression->doableNaxx40Bosses_4H)
             {
                 switch (GetStackAmount())
                 {
