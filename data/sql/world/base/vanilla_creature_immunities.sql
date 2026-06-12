@@ -310,6 +310,7 @@ UPDATE `creature_template` SET `CreatureImmunitiesId` = -386   WHERE `entry` IN 
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -394   WHERE `entry` IN (16024);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -403   WHERE `entry` IN (16145);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -404   WHERE `entry` IN (16163,16451,16861);
+UPDATE `creature_template` SET `CreatureImmunitiesId` = -410   WHERE `entry` IN (16062);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -417   WHERE `entry` IN (16034);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -419   WHERE `entry` IN (14763,15335);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -422   WHERE `entry` IN (13116,13117,15047,15224);
