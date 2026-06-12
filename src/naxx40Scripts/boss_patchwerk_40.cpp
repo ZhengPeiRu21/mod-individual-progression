@@ -18,6 +18,7 @@
 #include "CreatureScript.h"
 #include "ScriptedCreature.h"
 #include "naxxramas.h"
+#include "IndividualProgression.h"
 
 enum Yells
 {
@@ -148,7 +149,11 @@ public:
                         }
                         if (finalTarget)
                         {
-                            int32 dmg = urand(22100,22850);
+                            int32 dmg = urand(22100, 22850);
+
+                            if (sIndividualProgression->doableNaxx40Bosses_Patchwerk)
+                                dmg = urand(17680, 18280); // 80% of 22100-22850
+
                             me->CastCustomSpell(finalTarget, SPELL_HATEFUL_STRIKE, &dmg, 0, 0, false);
                         }
                         events.Repeat(1200ms);
