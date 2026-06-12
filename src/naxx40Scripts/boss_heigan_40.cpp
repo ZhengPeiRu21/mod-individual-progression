@@ -293,8 +293,7 @@ public:
             scheduler.Update(diff);
 
             DoMeleeAttackIfReady();
-        }
-		
+        }		
     };
 };
 
