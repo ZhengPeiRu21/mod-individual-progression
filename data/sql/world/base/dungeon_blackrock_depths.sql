@@ -306,19 +306,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(-91106, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Respawn - Set Invisible'),
-(-91106, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Respawn - Set Faction'),
-(-91106, 0, 0, 0, 60, 0, 100, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Update - Set in Combat with Zone'),
-(-91107, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Respawn - Set Invisible'),
-(-91107, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Respawn - Set Faction'),
-(-91107, 0, 0, 0, 60, 0, 100, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Anvilrage Guardsman - On Update - Set in Combat with Zone'),
+(-91106, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Anvilrage Guardsman - On Respawn - Set Invisible'),
+(-91106, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Anvilrage Guardsman - On Respawn - Set Faction'),
+(-91107, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Anvilrage Guardsman - On Respawn - Set Invisible'),
+(-91107, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Anvilrage Guardsman - On Respawn - Set Faction'),
 --
-(-608891, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'BRD Bridge Trigger - On Respawn - Set Invisible'),
-(-608891, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,        'BRD Bridge Trigger - On Respawn - Set Faction'),
-(-608891, 0, 2, 3, 101, 0, 100, 0, 1, 10, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 91106, 0, 0, 0, 0, 0, 0, 0, 'BRD Bridge Trigger - On Near Player - Set visible Anvilrage Guardsman 91106'),
-(-608891, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 91106, 0, 0, 0, 0, 0, 0, 0,   'BRD Bridge Trigger - On Near Player - Set Faction Anvilrage Guardsman 91106'),
-(-608891, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,   'BRD Bridge Trigger - On Near Player - Set visible Anvilrage Guardsman 91107'),
-(-608891, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,   'BRD Bridge Trigger - On Near Player - Set Faction Anvilrage Guardsman 91107');
+(-608891, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'BRD Bridge Trigger - On Respawn - Set Invisible'),
+(-608891, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,             'BRD Bridge Trigger - On Respawn - Set Faction'),
+(-608891, 0, 2, 3, 101, 0, 100, 1, 1, 10, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 91106, 0, 0, 0, 0, 0, 0, 0,      'BRD Bridge Trigger - On Near Player - Set visible Anvilrage Guardsman 91106 (No Repeat)'),
+(-608891, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 91106, 0, 0, 0, 0, 0, 0, 0,        'BRD Bridge Trigger - On Near Player - Set Faction Anvilrage Guardsman 91106'),   
+(-608891, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 911060, 0, 0, 0, 0, 0, 10, 91106, 0, 0, 0, 0, 0, 0, 0,  'BRD Bridge Trigger - On Near Player - Start Waypoints Anvilrage Guardsman 91106'),
+(-608891, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,        'BRD Bridge Trigger - On Near Player - Set visible Anvilrage Guardsman 91107'),
+(-608891, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,        'BRD Bridge Trigger - On Near Player - Set Faction Anvilrage Guardsman 91107'),
+(-608891, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 911070, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,  'BRD Bridge Trigger - On Near Player - Start Waypoints Anvilrage Guardsman 91107');
 
 DELETE FROM `creature` WHERE `guid` IN (90728, 91106, 91107, 608891);
 INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
@@ -332,10 +332,23 @@ INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, 
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 47738; -- Fireguard Destroyer(8911)
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 90828; -- Blazing Fireguard(8910)
 
-DELETE FROM `creature_addon` WHERE `guid` IN (47738, 90828);
+DELETE FROM `creature_addon` WHERE `guid` IN (47738, 90828, 91106, 91107);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
 (47738, 477380, 0, 0, 1, 0, 0, NULL),
-(90828, 908280, 0, 0, 1, 0, 0, NULL);
+(90828, 908280, 0, 0, 1, 0, 0, NULL),
+(91106, 911060, 0, 0, 1, 0, 0, NULL),
+(91107, 911070, 0, 0, 1, 0, 0, NULL);
+
+DELETE FROM `waypoint_data` WHERE `id` IN (911060, 911070);
+INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`, `move_type`, `action`, `action_chance`, `wpguid`) VALUES
+--
+(911060, 1, 642.366, -274.516, -43.1092, NULL, 0, 0, 0, 100, 0),
+(911060, 2, 641.597, -281.793, -43.2417, NULL, 0, 1, 0, 100, 0),
+(911060, 3, 686.649, -280.075, -43.1966, NULL, 0, 1, 0, 100, 0),
+--
+(911070, 1, 740.114, -283.345, -42.7508, NULL, 0, 0, 0, 100, 0),
+(911070, 2, 739.453, -278.120, -42.8321, NULL, 0, 1, 0, 100, 0),
+(911070, 3, 686.649, -280.075, -43.1966, NULL, 0, 1, 0, 100, 0);
 
 -- fix Ironhand Guardian's Gout of Flame in room with Magmus
 DELETE FROM `creature_template` WHERE `entry` IN (108982);
