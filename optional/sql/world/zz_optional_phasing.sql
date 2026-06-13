@@ -89,7 +89,17 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 31725  -- Sky-Captain LaFontaine, Zep
 );
 
--- Hide Inscription vendors and trainers
+-- Hide Jewelcrafting vendors and trainers until TBC
+/* UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_tbc' WHERE `entry` IN (
+17512, -- Arred, <JC Supplies> Exodar
+19778, -- Farri, <JC Trainer> Exodar
+16727, -- Padaar <Apprentice JC> Exodar
+16624, -- Gelanthis, <JC Supplies> Silvermoon
+19775, -- Kalinda, <JC Trainer> Silvermoon
+16703  -- Amin <Apprentice JC> Silvermoon
+); */
+
+-- Hide Inscription vendors and trainers until WOTLK
 UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_wotlk' WHERE `entry` IN (
 30706, -- Jo'mah <Inscription Trainer>, Orgrimmar
 30709, -- Poshken Hardbinder <Inscription Trainer>, Thunder Bluff
