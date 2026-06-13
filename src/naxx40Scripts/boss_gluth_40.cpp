@@ -244,8 +244,8 @@ public:
                         }
                     }
 
-                    if (sIndividualProgression->doableNaxx40Bosses)
-                        events.Repeat(9s);
+                    if (sIndividualProgression->doableNaxx40Bosses_Gluth)
+                        events.Repeat(12s);
                     else
                         events.Repeat(3s);
                     break;

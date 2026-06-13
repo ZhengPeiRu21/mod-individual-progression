@@ -263,14 +263,11 @@ public:
                     events.Repeat(30s);
                     break;
                 case EVENT_DISRUPTING_SHOUT:
-                    if (sIndividualProgression->doableNaxx40Bosses)
-                    {
+                    if (sIndividualProgression->doableNaxx40Bosses_Razuvious)
                         me->CastSpell(me, SPELL_DISRUPTING_SHOUT, false);
-                    }
                     else
-                    {
                         me->CastSpell(me, SPELL_MANA_BURN, false);
-                    }
+
                     events.Repeat(25s);
                     break;
                 /* case EVENT_JAGGED_KNIFE:

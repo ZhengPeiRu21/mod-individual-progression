@@ -108,14 +108,19 @@ IndividualProgression.RequireNaxxStrathEntrance = 0
 # IndividualProgression.doableNaxx40Bosses
 #
 #        Description: If enabled, this will make certain bosses in Naxx40 easier.
-#                     - Razuvious will cast disrupting shout instead of mana burn
-#                     - Four Horsemen's ability damage will be much lower. So they can be fought together without a strategy.
-#                     - Gluth will search for a zombie every 9 seconds instead of 3.
+#                     - Four Horsemen's ability damage will be much lower. So they can be fought together without a strategy. 
+#                       Blaumeux's Void Zone will be disabled as well. Bots won't move out of aoe until they take damage, so they were taking massive damage from this.
+#                     - Gluth will search for a zombie every 12 seconds instead of 3.
+#                     - Patchwerk's Hateful Strike will do 80% of it's normal damage.
+#                     - Razuvious will cast disrupting shout instead of mana burn.
 #
 #        Default:     0 - Disabled
 #                     1 - Enabled
 #
-IndividualProgression.doableNaxx40Bosses = 0
+IndividualProgression.doableNaxx40Bosses_4H = 0
+IndividualProgression.doableNaxx40Bosses_Gluth = 0
+IndividualProgression.doableNaxx40Bosses_Patchwerk = 0
+IndividualProgression.doableNaxx40Bosses_Razuvious = 0
 
 # IndividualProgression.MoltenCore.ManualRuneHandling
 #
