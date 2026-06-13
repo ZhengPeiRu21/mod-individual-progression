@@ -598,7 +598,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (@LORD_BLACKWOOD, 0, 2, 0, 106, 0, 100, 0, 13000, 13000, 15000, 15000, 0, 5, 11, 7964, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lord Blackwood - In Combat - Cast Smoke Bomb'),
 --
 (@CULTIST_ENGINEER, 0, 0, 1, 11, 0, 100, 512, 0, 0, 0, 0, 0, 0, 2, 190, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                      'Cultist Engineer - On Respawn - Set Faction 190'),
-(@CULTIST_ENGINEER, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, @CULTIST_ENGINEER, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Cultist Engineer - On Respawn - Set guid to Cultist Engineer'),
+(@CULTIST_ENGINEER, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 36, @CULTIST_ENGINEER, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Cultist Engineer - On Respawn - Set guid to Cultist Engineer'),
 (@CULTIST_ENGINEER, 0, 2, 0, 1, 0, 100, 0, 1000, 2000, 0, 0, 0, 0, 11, 47850, 3, 6, 0, 0, 0, 9, @NECROTIC_SHARD, 0, 15, 1, 0, 0, 0, 0, 'Cultist Engineer - Out of Combat - Cast Scourge Beam'), -- wrong spell, visual incorrect
 (@CULTIST_ENGINEER, 0, 3, 0, 62, 0, 100, 0, 66000, 0, 0, 0, 0, 0, 80, 61623001, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Cultist Engineer - On Gossip Option 0 Selected - Run Script 61623001'),
 (@CULTIST_ENGINEER, 0, 4, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 16568, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,         'Shadow of Doom - In Combat - Cast Mind Flay'),
