@@ -69,7 +69,6 @@ REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (301000, 17966, 0, 100.0, 0, 0, 1, 1),
 (301000, 18422, 0, 100.0, 0, 0, 1, 1),
 (301000, 18423, 0, 100.0, 0, 0, 1, 1),
-(301000, 18492, 0, 100.0, 0, 0, 1, 1),
 (301000, 18705, 0, 40.0, 0, 0, 1, 1),
 (301000, 21108, 0, 100.0, 0, 0, 1, 1),
 (301000, 300000, 300000, 100.0, 0, 0, 2, 2),
@@ -716,7 +715,7 @@ UPDATE `quest_template` SET `Flags` = 0 WHERE `ID` IN (7507, 7508); -- these wer
 UPDATE `quest_template` SET `Flags` = 64 WHERE `ID` = 7509;
 
 -- Unfired Ancient Blade
-UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 0, `description` = 'Bring this blade with you to Onyxia\'s Lair.' WHERE `entry` = 18489; -- was flagged as depreciated item
+UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 22905, `description` = '' WHERE `entry` = 18489; -- add use option to untreated ancient blade
     
 DELETE FROM `gossip_menu` WHERE `TextId` = 60040 AND `MenuId` = 5747;
 DELETE FROM `gossip_menu` WHERE `TextId` IN (60041, 60042, 60043, 60044, 60045, 60046);
