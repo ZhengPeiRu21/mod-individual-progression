@@ -663,11 +663,6 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (311003, 3110030, 0, 0, 1, 0, NULL),
 (311004, 3110040, 0, 0, 1, 0, NULL);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 301000 AND `SourceEntry` IN (18492, 21108);
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(1, 301000, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player has The Only Prescription (8620) in his quest log'),
-(1, 301000, 18492, 0, 0, 9, 0, 7509, 0, 0, 0, 0, 0, '', 'Treated Ancient Blade will only drop when a player has The Forging of Quel Serrar (7509) in his quest log');
-
 DELETE FROM `dungeon_access_template` WHERE `id` = 123;
 INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES
 (123, 249, 2, 50, 70, 0, 'Onyxia\'s Lair - 40man');
@@ -689,22 +684,26 @@ INSERT INTO `lfgdungeons_dbc` VALUES
 (1000, 'Onyxia\'s Lair (Vanilla)', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712190, 60, 83, 60, 60, 83, 249, 2, 0, 2, -1, '', 2, 0, 9, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712188);
     
 -- quests
-DELETE FROM `creature_questender` WHERE `quest` IN (7490, 7491, 7495, 7496, 7497);
+DELETE FROM `creature_queststarter` WHERE `quest` IN (7491, 7493, 7496, 7497, 7509);
+INSERT INTO `creature_queststarter` (`quest`, `id`) VALUES
+(7491, 4949),
+(7493, 14392),
+(7496, 1748),
+(7497, 14394), -- Cloak quest - A
+(7509, 14368);
+
+DELETE FROM `creature_questender` WHERE `quest` IN (7490, 7491, 7495, 7496, 7497, 7507, 7508, 7509);
 INSERT INTO `creature_questender` (`quest`, `id`) VALUES
 (7490, 4949), -- Victory for the Horde
 (7491, 14392),
 (7495, 1748), -- Victory for the Alliance - Bolvar or Varian
 (7495, 29611),
 (7496, 14394),
-(7497, 14394); -- Cloak quest - A
+(7497, 14394), -- Cloak quest - A
+(7507, 14368), -- Lorekeeper Lydros, Foror's Compendium
+(7508, 14368),
+(7509, 14368);
    
-DELETE FROM `creature_queststarter` WHERE `quest` IN (7491, 7493, 7496, 7497);
-INSERT INTO `creature_queststarter` (`quest`, `id`) VALUES
-(7491, 4949),
-(7493, 14392),
-(7496, 1748),
-(7497, 14394); -- Cloak quest - A
-
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7496 WHERE `ID` = 7497; -- Previously 24428
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7490 WHERE `ID` = 7493; -- Previously 24429
 
@@ -719,22 +718,10 @@ UPDATE `quest_template` SET `Flags` = 64 WHERE `ID` = 7509;
 -- Unfired Ancient Blade
 UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 0, `description` = 'Bring this blade with you to Onyxia\'s Lair.' WHERE `entry` = 18489; -- was flagged as depreciated item
     
-DELETE FROM `creature_queststarter` WHERE `quest` = 7509;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(14368, 7509);
-
-DELETE FROM `creature_questender` WHERE `quest` IN (7507, 7508, 7509); -- Lorekeeper Lydros, Foror's Compendium
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(14368, 7507),
-(14368, 7508),
-(14368, 7509);
-
 DELETE FROM `gossip_menu` WHERE `TextId` = 60040 AND `MenuId` = 5747;
-INSERT INTO `gossip_menu` (`MenuId`, `TextId`) VALUES
-(5747, 60040);
-
 DELETE FROM `gossip_menu` WHERE `TextId` IN (60041, 60042, 60043, 60044, 60045, 60046);
 INSERT INTO `gossip_menu` (`MenuId`, `TextId`) VALUES
+(5747,  60040);
 (60041, 60041),
 (60042, 60042),
 (60043, 60043),
@@ -751,13 +738,6 @@ INSERT INTO `npc_text` (`ID`, `text0_0`,  `BroadcastTextID0`) VALUES
 (60044, 'What I offer to you now is one such blade, unfired, unheated, untreated - the most raw and basic form.$b$bNow you merely need TO find a dragon that will willingly enchant the blade.$b$bIf you had an eternity to live,this might be a possibility; but since you are mortal and could very likely cease to exist at any moment, might I recommend trying to persuade one of the lesser dragons to do your bidding.', 0),
 (60045, 'Have you heard of the brood mother of the Black Flight? I believe she is called Onyxia...', 0),
 (60046, 'I have sensed your coming for quite some time, $n. It was written in the pattern of stars.', 0);
-
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` IN (14, 15) AND `SourceGroup` = 5747;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(14, 5747, 60040, 0, 0, 8, 0, 7507, 0, 0, 0, 0, 0, '', 'Lydros Pre Quel\'Serrar Gossip - Requires to have Foror\'s Compendium rewarded'),
-(14, 5747, 60040, 0, 0, 8, 0, 7508, 0, 0, 1, 0, 0, '', 'Lydros Pre Quel\'Serrar Gossip - Requires to not have The Forging of Quel\'Serrar rewarded'),
-(15, 5747, 0, 0, 0, 8, 0, 7507, 0, 0, 0, 0, 0, '', 'Lydros Pre Quel\'Serrar Gossip Option - Requires to have Foror\'s Compendium rewarded'),
-(15, 5747, 0, 0, 0, 8, 0, 7508, 0, 0, 1, 0, 0, '', 'Lydros Pre Quel\'Serrar Gossip Option - Requires to not have The Forging of Quel\'Serrar rewarded');
 
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (5747, 60040, 60041, 60042, 60043, 60044, 60045, 60046);
 INSERT INTO `gossip_menu_option` (`menuID`, `optionid`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
@@ -777,9 +757,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14368, 0, 1, 0, 62, 0, 100, 0, 60045, 0, 0, 0, 56, 18513, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 'Lorekeeper Lydros - Giving A Dull and Flat Elven Blade after cliking on last gossip'), 
 (14368, 0, 2, 0, 62, 0, 100, 0, 60045, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,     'Lorekeeper Lydros - On Gossip Option 0 Selected - Close Gossip');
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 301000 AND `SourceEntry` IN (18492, 21108);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` IN (14, 15) AND `SourceGroup` = 5747;
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 17 AND  `SourceEntry` = 22905;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
+--
+(1, 301000, 18492, 0, 0, 9, 0, 7509, 0, 0, 0, 0, 0, '', 'Treated Ancient Blade will only drop when a player has The Forging of Quel Serrar (7509) in his quest log'),
+(1, 301000, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player has The Only Prescription (8620) in his quest log'),
+--
+(14, 5747, 60040, 0, 0, 8, 0, 7507, 0, 0, 0, 0, 0, '',  'Lydros Pre Quel\'Serrar Gossip - Requires to have Foror\'s Compendium rewarded'),
+(14, 5747, 60040, 0, 0, 8, 0, 7508, 0, 0, 1, 0, 0, '',  'Lydros Pre Quel\'Serrar Gossip - Requires to not have The Forging of Quel\'Serrar rewarded'),
+(15, 5747, 0, 0, 0, 8, 0, 7507, 0, 0, 0, 0, 0, '',      'Lydros Pre Quel\'Serrar Gossip Option - Requires to have Foror\'s Compendium rewarded'),
+(15, 5747, 0, 0, 0, 8, 0, 7508, 0, 0, 1, 0, 0, '',      'Lydros Pre Quel\'Serrar Gossip Option - Requires to not have The Forging of Quel\'Serrar rewarded'),
+--
 (17, 0, 22905, 0, 0, 29, 0, 301000, 10, 0, 0, 0, 0, '', 'Place Unfired Blade - near onyxia');
 
 DELETE FROM spell_linked_spell where spell_trigger = 22905;
