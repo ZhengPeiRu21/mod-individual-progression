@@ -37,6 +37,27 @@ DELETE FROM `pool_template` WHERE `entry` IN (601019);
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
 (601019, 1, 'A Dusty Tome - Dire Maul');
 
+-- fix quest POI and Quest Completion Logs
+UPDATE `quest_poi` SET `WorldMapAreaId` = 121 WHERE `id` = 0 AND `QuestID` IN (5518, 5519, 7461, 7463, 7483, 7484, 7485, 7507, 7508, 7509, 7649, 7650, 7651, 7703, 7877);
+UPDATE `quest_poi_points` SET `X` = -4474, `Y` = 1333 WHERE `Idx1` = 0 AND `QuestID` IN (5518, 5519, 7461, 7463, 7507, 7508, 7509, 7649, 7650, 7651, 7703, 7877);
+
+DELETE FROM `quest_poi_points` WHERE `Idx1` = 0 AND `QuestID` IN (7483, 7484, 7485);
+INSERT INTO `quest_poi_points` (`QuestID`, `Idx1`, `Idx2`, `X`, `Y`, `VerifiedBuild`) VALUES
+(7483, 0, 0, -4474, 1333, 0),
+(7484, 0, 0, -4474, 1333, 0),
+(7485, 0, 0, -4474, 1333, 0);
+
+DELETE FROM `quest_poi` WHERE `id` = 0 AND `QuestID` IN (7483, 7484, 7485);
+INSERT INTO `quest_poi` (`QuestID`, `id`, `ObjectiveIndex`, `MapID`, `WorldMapAreaId`, `Floor`, `Priority`, `Flags`, `VerifiedBuild`) VALUES 
+(7483, 0, -1, 1, 121, 0, 0, 1, 0),
+(7484, 0, -1, 1, 121, 0, 0, 1, 0),
+(7485, 0, -1, 1, 121, 0, 0, 1, 0);
+
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Knot Thimblejack in Dire Maul.'  WHERE `ID` IN (5518, 5519);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Lorekeeper Lydros in Dire Maul.' WHERE `ID` IN (7463, 7483, 7484, 7485, 7507, 7508, 7509, 7649, 7650, 7651);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to Captain Kromcrush in Dire Maul.' WHERE `ID` IN (7703);
+UPDATE `quest_template` SET `QuestCompletionLog` = 'Return to the Athenaeum in Dire Maul.'     WHERE `ID` IN (7877);
+
 
 /* ---- Dire Maul North ----- */
 

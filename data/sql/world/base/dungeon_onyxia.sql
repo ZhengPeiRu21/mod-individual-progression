@@ -1,4 +1,4 @@
-DELETE FROM `creature_template` WHERE `entry` BETWEEN 301000 AND 301003;
+DELETE FROM `creature_template` WHERE `entry` BETWEEN 301000 AND 301002;
 INSERT INTO `creature_template` (`entry`, `name`, `subname`, `minlevel`, `maxlevel`, `faction`, `speed_walk`, `speed_run`, `detection_range`, `rank`, `dmgschool`, `DamageModifier`,
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `family`, `type`, `type_flags`, `lootid`, `skinloot`, `PetSpellDataId`, `mingold`, `maxgold`,
 `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `movementId`, `RegenHealth`, `CreatureImmunitiesId`, `flags_extra`, `ScriptName`) VALUES
@@ -69,7 +69,6 @@ REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (301000, 17966, 0, 100.0, 0, 0, 1, 1),
 (301000, 18422, 0, 100.0, 0, 0, 1, 1),
 (301000, 18423, 0, 100.0, 0, 0, 1, 1),
-(301000, 18492, 0, 100.0, 0, 0, 1, 1),
 (301000, 18705, 0, 40.0, 0, 0, 1, 1),
 (301000, 21108, 0, 100.0, 0, 0, 1, 1),
 (301000, 300000, 300000, 100.0, 0, 0, 2, 2),
@@ -630,7 +629,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (3110040, 11, -113.42, -122.504, -49.0254, 0.69146, 0),
 (3110040, 12, -125.618, -133.461, -51.4287, 3.8802, 0);
 
-DELETE FROM `smart_scripts` WHERE `entryorguid` BETWEEN 301000 AND 301003;
+DELETE FROM `smart_scripts` WHERE `entryorguid` = 301002;
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
@@ -640,7 +639,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (301002, 0, 2, 0, 0, 0, 80, 6, 7000, 7000, 9000, 11000, 0, 11, 15284, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0,   'Onyxian Warder - In Combat - Cast Cleave (Onyxia 40)'),
 (301002, 0, 3, 0, 0, 0, 95, 6, 3000, 3000, 35000, 35000, 0, 11, 12097, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0,  'Onyxian Warder - In Combat - Cast Pierce Armor (Onyxia 40)');
 
-DELETE FROM `creature_text` WHERE `CreatureID` BETWEEN 301000 AND 301003;
+DELETE FROM `creature_text` WHERE `CreatureID` = 301000;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 --
 (301000, 0, 0, "How fortuitous. Usually, I must leave my lair in order to feed.", 14, 0, 100.0, 0, 0, 0, 8286, 0, "Onyxia - Aggro (Onyxia 40)"),
@@ -650,23 +649,18 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (301000, 4, 0, "%s takes in a deep breath...", 41, 0, 100.0, 0, 0, 0, 36542, 0, "Onyxia - Deep Breath Emote (Onyxia 40)"),
 (301000, 5, 0, "You seek to lure me from my clutch? You shall pay for your insolence!", 14, 0, 100.0, 0, 0, 0, 8570, 0, "Onyxia - Boundary Evade (Onyxia 40)");
 
-DELETE FROM `creature_equip_template` WHERE `CreatureID` BETWEEN 301000 and 301003;
-REPLACE INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`) VALUES
+UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 301002;
+DELETE FROM `creature_equip_template` WHERE `CreatureID` = 301002;
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`) VALUES
 (301002, 1, 13631, 0, 0);
 
-UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` IN (301002);
-DELETE FROM `creature_addon` WHERE `guid` BETWEEN 311000 AND 311006;
+DELETE FROM `creature_addon` WHERE `guid` BETWEEN 311000 AND 311004;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `auras`) VALUES
 (311000, 0, 0, 3, 1, 0, NULL),
-(311001, 3110010, 0, 0, 0, 0, NULL),
-(311002, 3110020, 0, 0, 0, 0, NULL),
-(311003, 3110030, 0, 0, 0, 0, NULL),
-(311004, 3110040, 0, 0, 0, 0, NULL);
-
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 301000 AND `SourceEntry` IN (18492, 21108);
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(1, 301000, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player has The Only Prescription (8620) in his quest log'),
-(1, 301000, 18492, 0, 0, 9, 0, 7509, 0, 0, 0, 0, 0, '', 'Treated Ancient Blade will only drop when a player has The Forging of Quel Serrar (7509) in his quest log');
+(311001, 3110010, 0, 0, 1, 0, NULL),
+(311002, 3110020, 0, 0, 1, 0, NULL),
+(311003, 3110030, 0, 0, 1, 0, NULL),
+(311004, 3110040, 0, 0, 1, 0, NULL);
 
 DELETE FROM `dungeon_access_template` WHERE `id` = 123;
 INSERT INTO `dungeon_access_template` (`id`, `map_id`, `difficulty`, `min_level`, `max_level`, `min_avg_item_level`, `comment`) VALUES
@@ -686,48 +680,29 @@ INSERT INTO `instance_encounters` (`entry`, `creditType`, `creditEntry`, `lastEn
 
 DELETE FROM `lfgdungeons_dbc` WHERE `ID` = 1000;
 INSERT INTO `lfgdungeons_dbc` VALUES
-(1000,"Onyxia\\'s Lair (Vanilla)","","","","","","","","","","","","","","","",16712190,60,83,60,60,83,249,2,0,2,-1,"",2,0,9,"","","","","","","","","","","","","","","","",16712188);
+(1000, 'Onyxia\'s Lair (Vanilla)', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712190, 60, 83, 60, 60, 83, 249, 2, 0, 2, -1, '', 2, 0, 9, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 16712188);
+    
+-- quests
+DELETE FROM `creature_queststarter` WHERE `quest` IN (7491, 7493, 7496, 7497, 7509);
+INSERT INTO `creature_queststarter` (`quest`, `id`) VALUES
+(7491, 4949),
+(7493, 14392),
+(7496, 1748),
+(7497, 14394), -- Cloak quest - A
+(7509, 14368);
 
--- Victory for the Alliance - Bolvar or Varian
-DELETE FROM `creature_questender` WHERE `quest` = 7495;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(29611, 7495),
-(1748, 7495);
-
--- Thrall
-DELETE FROM `creature_questender` WHERE `quest` = 7490;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(4949, 7490); -- Victory for the Horde
-
-DELETE FROM `creature_queststarter` WHERE `quest` = 7491;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(4949, 7491);
-
-DELETE FROM `creature_queststarter` WHERE `quest` = 7493;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(14392, 7493);
-
-DELETE FROM `creature_queststarter` WHERE `quest` = 7496;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(1748, 7496);
-
-DELETE FROM `creature_questender` WHERE `quest` = 7491;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(14392, 7491);
-
-DELETE FROM `creature_questender` WHERE `quest` = 7496;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(14394, 7496);
-
--- Cloak quest - A
-DELETE FROM `creature_queststarter` WHERE `quest` = 7497;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(14394, 7497);
-
-DELETE FROM `creature_questender` WHERE `quest` = 7497;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(14394, 7497);
-
+DELETE FROM `creature_questender` WHERE `quest` IN (7490, 7491, 7495, 7496, 7497, 7507, 7508, 7509);
+INSERT INTO `creature_questender` (`quest`, `id`) VALUES
+(7490, 4949), -- Victory for the Horde
+(7491, 14392),
+(7495, 1748), -- Victory for the Alliance - Bolvar or Varian
+(7495, 29611),
+(7496, 14394),
+(7497, 14394), -- Cloak quest - A
+(7507, 14368), -- Lorekeeper Lydros, Foror's Compendium
+(7508, 14368),
+(7509, 14368);
+   
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7496 WHERE `ID` = 7497; -- Previously 24428
 UPDATE `quest_template_addon` SET `PrevQuestID` = 7490 WHERE `ID` = 7493; -- Previously 24429
 
@@ -737,27 +712,15 @@ UPDATE `item_template` SET `startquest` = 7508 WHERE `entry` = 18513; -- Dull El
 
 -- The Forging of Quel'Serrar
 UPDATE `quest_template` SET `Flags` = 0 WHERE `ID` IN (7507, 7508); -- these were flagged as unavailable
-UPDATE `quest_template` SET `Flags` = 64 WHERE `ID` = 7509;
+UPDATE `quest_template` SET `Flags` = 64, `QuestCompletionLog` = 'Return to Lorekeeper Lydros in the Athenaeum in Dire Maul.' WHERE `ID` = 7509;
 
 -- Unfired Ancient Blade
-UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 0, `description` = 'Bring this blade with you to Onyxia\'s Lair.' WHERE `entry` = 18489; -- was flagged as depreciated item
-    
-DELETE FROM `creature_queststarter` WHERE `quest` = 7509;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
-(14368, 7509);
-
-DELETE FROM `creature_questender` WHERE `quest` IN (7507, 7508, 7509); -- Lorekeeper Lydros, Foror's Compendium
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES
-(14368, 7507),
-(14368, 7508),
-(14368, 7509);
+UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 22905, `description` = '' WHERE `entry` = 18489; -- add use option to untreated ancient blade
 
 DELETE FROM `gossip_menu` WHERE `TextId` = 60040 AND `MenuId` = 5747;
-INSERT INTO `gossip_menu` (`MenuId`, `TextId`) VALUES
-(5747, 60040);
-
 DELETE FROM `gossip_menu` WHERE `TextId` IN (60041, 60042, 60043, 60044, 60045, 60046);
 INSERT INTO `gossip_menu` (`MenuId`, `TextId`) VALUES
+(5747,  60040),
 (60041, 60041),
 (60042, 60042),
 (60043, 60043),
@@ -765,7 +728,7 @@ INSERT INTO `gossip_menu` (`MenuId`, `TextId`) VALUES
 (60045, 60045),
 (60046, 60046);
 
-DELETE FROM `npc_text` WHERE `ID` IN (60040, 60041, 60042, 60043, 60044, 60045, 60046);
+DELETE FROM `npc_text` WHERE `ID` BETWEEN 60040 AND 60046;
 INSERT INTO `npc_text` (`ID`, `text0_0`,  `BroadcastTextID0`) VALUES
 (60040, '<Lydros reaches into his robe and presents you with a dull, flat elven blade.>$b$BIn ages past, well before even the War of the Ancients, there existed this blade.', 0),
 (60041, 'The blade itself had to be crafted IN ceremony with the children of the Aspects. A rare occurrence indeed... for not only would a dragon have TO willingly heat and mold the enchanted metal with their breath, they would also need to contain the fury of their own enchantment by using their blood as temper.', 0),
@@ -775,21 +738,14 @@ INSERT INTO `npc_text` (`ID`, `text0_0`,  `BroadcastTextID0`) VALUES
 (60045, 'Have you heard of the brood mother of the Black Flight? I believe she is called Onyxia...', 0),
 (60046, 'I have sensed your coming for quite some time, $n. It was written in the pattern of stars.', 0);
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` IN (14, 15) AND `SourceGroup` = 5747;
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(14,5747,60040,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to have Foror\'s Compendium rewarded'),
-(14,5747,60040,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel\'Serrar Gossip - Requires to not have The Forging of Quel\'Serrar rewarded'),
-(15,5747,0,0,0,8,0,7507,0,0,0,0,0,'','Lydros Pre Quel\'Serrar Gossip Option - Requires to have Foror\'s Compendium rewarded'),
-(15,5747,0,0,0,8,0,7508,0,0,1,0,0,'','Lydros Pre Quel\'Serrar Gossip Option - Requires to not have The Forging of Quel\'Serrar rewarded');
-
 DELETE FROM `gossip_menu_option` WHERE `MenuID` IN (5747, 60040, 60041, 60042, 60043, 60044, 60045, 60046);
 INSERT INTO `gossip_menu_option` (`menuID`, `optionid`, `OptionIcon`, `OptionText`, `OptionBroadcastTextID`, `OptionType`, `OptionNpcFlag`, `ActionMenuID`, `ActionPoiID`, `BoxCoded`, `BoxMoney`, `BoxText`, `BoxBroadcastTextID`, `VerifiedBuild`) VALUES
-(5747,0,0,'(Continue.)', 9519,1,3,60041,0,0,0,NULL,0,0),
-(60041,0,0,'(Continue.)', 9519,1,3,60042,0,0,0,NULL,0,0),
-(60042,0,0,'(Continue.)', 9519,1,3,60043,0,0,0,NULL,0,0),
-(60043,0,0,'(Continue.)', 9519,1,3,60044,0,0,0,NULL,0,0),
-(60044,0,0,'Eh?',0,1,3,60045,0,0,0,NULL,0,0),
-(60045,0,0,'Maybe... What do I do now?',0,1,3,0,0,0,0,NULL,0,0);
+(5747,  0, 0, '(Continue.)',  9519, 1, 3, 60041, 0, 0, 0, NULL, 0, 0), 
+(60041, 0, 0, '(Continue.)',  9519, 1, 3, 60042, 0, 0, 0, NULL, 0, 0), 
+(60042, 0, 0, '(Continue.)',  9519, 1, 3, 60043, 0, 0, 0, NULL, 0, 0), 
+(60043, 0, 0, '(Continue.)',  9519, 1, 3, 60044, 0, 0, 0, NULL, 0, 0), 
+(60044, 0, 0, 'Eh?', 0, 1, 3, 60045, 0, 0, 0, NULL, 0, 0), 
+(60045, 0, 0, 'Maybe... What do I do now?', 0, 1, 3, 0, 0, 0, 0, NULL, 0, 0);
 
 DELETE FROM `smart_scripts` WHERE `entryorguid` = 14368 AND `source_type` = 0 AND `id` IN (1, 2);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
@@ -797,13 +753,23 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 --
-(14368,0,1,0,62,0,100,0,60045,0,0,0,56,18513,1,0,0,0,0,7,0,0,0,0,0,0,0,'Lorekeeper Lydros - Giving A Dull and Flat Elven Blade after cliking on last gossip'),
-(14368,0,2,0,62,0,100,0,60045,0,0,0,72,0,0,0,0,0,0,7,0,0,0,0,0,0,0,'Lorekeeper Lydros - On Gossip Option 0 Selected - Close Gossip');
+(14368, 0, 1, 0, 62, 0, 100, 0, 60045, 0, 0, 0, 56, 18513, 1, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 'Lorekeeper Lydros - Giving A Dull and Flat Elven Blade after cliking on last gossip'), 
+(14368, 0, 2, 0, 62, 0, 100, 0, 60045, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0,     'Lorekeeper Lydros - On Gossip Option 0 Selected - Close Gossip');
 
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 1 AND `SourceGroup` = 301000 AND `SourceEntry` IN (18492, 21108);
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` IN (14, 15) AND `SourceGroup` = 5747;
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 17 AND  `SourceEntry` = 22905;
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
-(17, 0, 22905, 0, 0, 29, 0, 10184, 10, 1, 0, 0, 0, '', 'Place Unfired Blade - near dead onyxia');
+--
+(1, 301000, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player has The Only Prescription (8620) in his quest log'),
+--
+(14, 5747, 60040, 0, 0, 8, 0, 7507, 0, 0, 0, 0, 0, '',  'Lydros Pre Quel\'Serrar Gossip - Requires to have Foror\'s Compendium rewarded'),
+(14, 5747, 60040, 0, 0, 8, 0, 7508, 0, 0, 1, 0, 0, '',  'Lydros Pre Quel\'Serrar Gossip - Requires to not have The Forging of Quel\'Serrar rewarded'),
+(15, 5747, 0, 0, 0, 8, 0, 7507, 0, 0, 0, 0, 0, '',      'Lydros Pre Quel\'Serrar Gossip Option - Requires to have Foror\'s Compendium rewarded'),
+(15, 5747, 0, 0, 0, 8, 0, 7508, 0, 0, 1, 0, 0, '',      'Lydros Pre Quel\'Serrar Gossip Option - Requires to not have The Forging of Quel\'Serrar rewarded'),
+--
+(17, 0, 22905, 0, 0, 29, 0, 301000, 10, 0, 0, 0, 0, '', 'Place Unfired Blade - near onyxia');
 
 DELETE FROM spell_linked_spell where spell_trigger = 22905;
 INSERT INTO spell_linked_spell (spell_trigger, spell_effect, TYPE, COMMENT) VALUES
