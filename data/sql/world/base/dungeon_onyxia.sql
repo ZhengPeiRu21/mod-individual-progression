@@ -712,7 +712,7 @@ UPDATE `item_template` SET `startquest` = 7508 WHERE `entry` = 18513; -- Dull El
 
 -- The Forging of Quel'Serrar
 UPDATE `quest_template` SET `Flags` = 0 WHERE `ID` IN (7507, 7508); -- these were flagged as unavailable
-UPDATE `quest_template` SET `Flags` = 64, `QuestCompletionLog` = 'Return to Lorekeeper Lydros in the Athenaeum in Dire Maul.' WHERE `ID` = 7509;
+UPDATE `quest_template` SET `Flags` = 64 WHERE `ID` = 7509; -- QUEST_FLAGS_RAID
 
 -- Unfired Ancient Blade
 UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 22905, `description` = '' WHERE `entry` = 18489; -- add use option to untreated ancient blade
