@@ -721,7 +721,7 @@ UPDATE `item_template` SET `Flags` = 32768, `spellid_1` = 0, `description` = 'Br
 DELETE FROM `gossip_menu` WHERE `TextId` = 60040 AND `MenuId` = 5747;
 DELETE FROM `gossip_menu` WHERE `TextId` IN (60041, 60042, 60043, 60044, 60045, 60046);
 INSERT INTO `gossip_menu` (`MenuId`, `TextId`) VALUES
-(5747,  60040);
+(5747,  60040),
 (60041, 60041),
 (60042, 60042),
 (60043, 60043),
