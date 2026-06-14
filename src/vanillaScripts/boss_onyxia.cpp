@@ -26,8 +26,8 @@ enum Spells
     SPELL_WINGBUFFET                = 18500,
     SPELL_FLAMEBREATH               = 18435,
     SPELL_CLEAVE                    = 68868,
-    //SPELL_TAILSWEEP                 = 68867,
-    SPELL_TAILSWEEP                 = 15847,
+    // SPELL_TAILSWEEP              = 68867,
+    SPELL_TAIL_SWEEP                = 15847,
     SPELL_FIREBALL                  = 18392,
     SPELL_BELLOWINGROAR             = 18431,
 
@@ -355,7 +355,8 @@ public:
                 }
                 case EVENT_SPELL_TAILSWEEP:
                 {
-                    DoCastAOE(SPELL_TAILSWEEP);
+                    // DoCastAOE(SPELL_TAIL_SWEEP);
+                    me->CastSpell(me, SPELL_TAIL_SWEEP, false);
                     events.Repeat(15s, 20s);
                     break;
                 }
