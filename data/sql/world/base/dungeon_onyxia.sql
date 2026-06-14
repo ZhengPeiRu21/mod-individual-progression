@@ -762,7 +762,6 @@ DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 17 AND  `SourceEntry`
 INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
 `ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
 --
-(1, 301000, 18492, 0, 0, 9, 0, 7509, 0, 0, 0, 0, 0, '', 'Treated Ancient Blade will only drop when a player has The Forging of Quel Serrar (7509) in his quest log'),
 (1, 301000, 21108, 0, 0, 9, 0, 8620, 0, 0, 0, 0, 0, '', 'Draconic for Dummies Chapter VI will drop only when a player has The Only Prescription (8620) in his quest log'),
 --
 (14, 5747, 60040, 0, 0, 8, 0, 7507, 0, 0, 0, 0, 0, '',  'Lydros Pre Quel\'Serrar Gossip - Requires to have Foror\'s Compendium rewarded'),
