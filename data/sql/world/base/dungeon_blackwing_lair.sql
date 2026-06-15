@@ -41,7 +41,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13996, 0, 2, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Blackwing Technician - On Respawn - Disable Auto Attack');
 
 -- Vaelastrasz the Corrupt
-UPDATE `creature_template` SET `flags_extra` = 33025 WHERE `entry` = 13020; -- was 1, now includes CREATURE_FLAG_EXTRA_NO_TAUNT and CREATURE_FLAG_EXTRA_GUARD
+UPDATE `creature_template` SET `flags_extra` = 32769 WHERE `entry` = 13020; -- was 1, now includes CREATURE_FLAG_EXTRA_GUARD
 
 DELETE FROM `spell_script_names` WHERE `spell_id` = 23310 AND `ScriptName` = 'spell_bwl_chromaggus_time_lapse';
 INSERT INTO `spell_script_names` (`spell_id`, `ScriptName`) VALUES
