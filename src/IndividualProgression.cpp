@@ -442,6 +442,8 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_SUNS_REACH_ARMORY:
         case AREA_DAWNSTAR_VILLAGE:
         case AREA_THE_DAWNING_SQUARE:
+            player->RemoveAura(SONG_OF_VICTORY);
+
             if (isBotAccount(player) || player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
             {
                 player->CastSpell(player, IPP_PHASE_II, false);
@@ -578,6 +580,8 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             }
             if (mapid == MAP_MAGISTERS_TERRACE || mapid == MAP_THE_SUNWELL)
             {
+                player->RemoveAura(SONG_OF_VICTORY);
+
                 if (isBotAccount(player) ||
                     (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
