@@ -452,7 +452,6 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 
                 if (isBotAccount(player) ||
                     (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_MANA_CELLS) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_ERRATIC_BEHAVIOR) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_MISSING_MAGISTRIX) == QUEST_STATUS_REWARDED &&
@@ -584,7 +583,6 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 
                 if (isBotAccount(player) ||
                     (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_MANA_CELLS) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_ERRATIC_BEHAVIOR) == QUEST_STATUS_REWARDED &&
                      player->GetQuestStatus(QUEST_MISSING_MAGISTRIX) == QUEST_STATUS_REWARDED &&
