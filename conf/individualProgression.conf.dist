@@ -22,12 +22,12 @@ IndividualProgression.Enable = 1
 
 # IndividualProgression.EnforceGroupRules
 #
-#        Description: Only allow players to group with others in the same progression phase
+#        Description: Enable this to only allow players to group with others in the same progression phase
 #
-#        Default:     1 - Enabled
-#                     0 - Disabled
+#        Default:     0 - Disabled
+#                     1 - Enabled
 #
-IndividualProgression.EnforceGroupRules = 1
+IndividualProgression.EnforceGroupRules = 0
 
 # IndividualProgression.VanillaPowerAdjustment
 #
