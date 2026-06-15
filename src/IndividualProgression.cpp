@@ -442,7 +442,8 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
         case AREA_SUNS_REACH_ARMORY:
         case AREA_DAWNSTAR_VILLAGE:
         case AREA_THE_DAWNING_SQUARE:
-            player->RemoveAura(SONG_OF_VICTORY);
+            if (!isBotAccount(player))
+                player->RemoveAura(SONG_OF_VICTORY);
 
             if (isBotAccount(player) || player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_REVERED)
             {
@@ -450,20 +451,21 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE_III, false);
                 player->CastSpell(player, IPP_PHASE_IV, false);
 
-                if (isBotAccount(player) ||
-                    (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_ERRATIC_BEHAVIOR) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_MISSING_MAGISTRIX) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_DISTRACTION_DEAD_SCAR) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_BATTLE_FOR_ARMORY) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_TAKING_THE_HARBOR) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_INTERCEPT_REINFORCEMENTS) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_ATAMAL_ARMAMENTS) == QUEST_STATUS_REWARDED))
+                if (!isBotAccount(player))
                 {
-                    if (!player->IsMounted() && !player->HasAura(SONG_OF_VICTORY))
-                        player->CastSpell(player, SONG_OF_VICTORY, false);
+                    if (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_ERRATIC_BEHAVIOR) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_MISSING_MAGISTRIX) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_DISTRACTION_DEAD_SCAR) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_BATTLE_FOR_ARMORY) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_TAKING_THE_HARBOR) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_INTERCEPT_REINFORCEMENTS) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_ATAMAL_ARMAMENTS) == QUEST_STATUS_REWARDED)
+                    {
+                        player->AddAura(SONG_OF_VICTORY, player);
+                    }
                 }
             }
             else if (player->GetReputationRank(FACTION_SHATTERED_SUN) >= REP_HONORED)
@@ -580,22 +582,23 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
             }
             if (mapid == MAP_MAGISTERS_TERRACE || mapid == MAP_THE_SUNWELL)
             {
-                player->RemoveAura(SONG_OF_VICTORY);
-
-                if (isBotAccount(player) ||
-                    (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_ERRATIC_BEHAVIOR) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_MISSING_MAGISTRIX) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_DISTRACTION_DEAD_SCAR) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_BATTLE_FOR_ARMORY) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_TAKING_THE_HARBOR) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_INTERCEPT_REINFORCEMENTS) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_ATAMAL_ARMAMENTS) == QUEST_STATUS_REWARDED))
+                if (!isBotAccount(player))
                 {
-					if (!player->IsMounted() && !player->HasAura(SONG_OF_VICTORY))
-                        player->CastSpell(player, SONG_OF_VICTORY, false);
+                    player->RemoveAura(SONG_OF_VICTORY);
+
+                    if (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_ERRATIC_BEHAVIOR) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_MISSING_MAGISTRIX) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_DISTRACTION_DEAD_SCAR) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_BATTLE_FOR_ARMORY) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_TAKING_THE_HARBOR) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_INTERCEPT_REINFORCEMENTS) == QUEST_STATUS_REWARDED &&
+                        player->GetQuestStatus(QUEST_ATAMAL_ARMAMENTS) == QUEST_STATUS_REWARDED)
+                    {
+                        player->AddAura(SONG_OF_VICTORY, player);
+                    }
                 }
             }
             if ((mapid == MAP_SHADOWFANG_KEEP) ||
