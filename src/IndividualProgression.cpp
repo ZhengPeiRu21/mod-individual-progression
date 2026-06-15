@@ -451,9 +451,17 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE_IV, false);
 
                 if (isBotAccount(player) ||
-                    (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED))
+                    (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_MANA_CELLS) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_ERRATIC_BEHAVIOR) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_MISSING_MAGISTRIX) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_DISTRACTION_DEAD_SCAR) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_BATTLE_FOR_ARMORY) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_TAKING_THE_HARBOR) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_INTERCEPT_REINFORCEMENTS) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_ATAMAL_ARMAMENTS) == QUEST_STATUS_REWARDED))
                 {
                     player->CastSpell(player, SONG_OF_VICTORY, false);
                 }
@@ -575,9 +583,17 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->RemoveAura(SONG_OF_VICTORY);
 
                 if (isBotAccount(player) ||
-                    (player->GetQuestStatus(QUEST_CRUSH_DAWNBLADE) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_GREENGILL_COAST) == QUEST_STATUS_REWARDED &&
-                     player->GetQuestStatus(QUEST_ENEMY_AT_BAY) == QUEST_STATUS_REWARDED))
+                    (player->GetQuestStatus(QUEST_SANCTUM_WARDS) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_MANA_CELLS) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_DISCOVERING_ROOTS) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_ERRATIC_BEHAVIOR) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_MISSING_MAGISTRIX) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_DISTRACTION_DEAD_SCAR) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_MAKING_READY) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_BATTLE_FOR_ARMORY) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_TAKING_THE_HARBOR) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_INTERCEPT_REINFORCEMENTS) == QUEST_STATUS_REWARDED &&
+                     player->GetQuestStatus(QUEST_ATAMAL_ARMAMENTS) == QUEST_STATUS_REWARDED))
                 {
                     player->CastSpell(player, SONG_OF_VICTORY, false);
                 }
