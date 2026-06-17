@@ -429,6 +429,7 @@ public:
     void checkIPPhasing(Player* player, uint32 newArea);
     void checkIPProgression(Player* player);
     void UpdateProgressionAchievements(Player* player, uint16 achievementID);
+    void UpdateGroupAttunement(Player* player, std::string location);
     void checkKillProgression(Player* player, Creature* killed);
 	void UpdateAccountReputation(uint32 factionId, uint32 accountId, Player* player);
     void CleanUpVanillaPvpTitles(Player* player);
