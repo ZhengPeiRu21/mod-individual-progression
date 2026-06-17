@@ -215,11 +215,20 @@ void IndividualProgression::UpdateGroupAttunement(Player* player, std::string lo
             for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
             {
                 Player* member = itr->GetSource();
-                if (!member || sIndividualProgression->isBotAccount(member) || member->GetLevel() < 50)
+                if (!member || sIndividualProgression->isBotAccount(member))
                     continue;
 
+                if (member->GetLevel() < 50)
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r needs to be at least level 50.", member->GetName());
+                    continue;
+                }
+
                 if (!member->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+                {
                     member->AddItem(ITEM_DRAKEFIRE_AMULET, 1);
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r received the Drakefire Amulet.", member->GetName());
+                }
             }
             return;
         }
@@ -236,11 +245,26 @@ void IndividualProgression::UpdateGroupAttunement(Player* player, std::string lo
             for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
             {
                 Player* member = itr->GetSource();
-                if (!member || sIndividualProgression->isBotAccount(member) || member->GetLevel() < 70 || isBeforeProgression(member, PROGRESSION_TBC_TIER_2))
+                if (!member || sIndividualProgression->isBotAccount(member))
                     continue;
 
+                if (member->GetLevel() < 70)
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r needs to be at least level 70.", member->GetName());
+                    continue;
+                }
+
+                if (isBeforeProgression(member, PROGRESSION_TBC_TIER_2))
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r needs to have progression level 10 (TBC Tier 2).", member->GetName());
+                    continue;
+                }
+
                 if (!member->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !member->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
+                {
                     member->AddItem(ITEM_MEDALLION_OF_KARABOR, 1);
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r received the Medallion of Karabor.", member->GetName());
+                }
             }
             return;
         }
