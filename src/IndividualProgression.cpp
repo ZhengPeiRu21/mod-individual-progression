@@ -236,7 +236,7 @@ void IndividualProgression::UpdateGroupAttunement(Player* player, std::string lo
             for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
             {
                 Player* member = itr->GetSource();
-                if (!member || sIndividualProgression->isBotAccount(member) || member->GetLevel() < 70)
+                if (!member || sIndividualProgression->isBotAccount(member) || member->GetLevel() < 70 || isBeforeProgression(member, PROGRESSION_TBC_TIER_2))
                     continue;
 
                 if (!member->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !member->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
