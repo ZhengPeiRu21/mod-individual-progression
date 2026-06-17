@@ -195,6 +195,61 @@ void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 acc
     }
 }
 
+void IndividualProgression::UpdateGroupAttunement(Player* player, std::string location)
+{
+    if (!player || !player->IsInWorld() )
+        return;
+
+    if (location.empty())
+        return;
+
+    Group* group = player->GetGroup();
+
+    if (!group)
+        return;
+
+    if (location == "onyxia40" || location == "onyxia")
+    {
+        if (player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+        {
+            for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
+            {
+                Player* member = itr->GetSource();
+                if (!member || sIndividualProgression->isBotAccount(member) || member->GetLevel() < 50)
+                    continue;
+
+                member->AddItem(ITEM_DRAKEFIRE_AMULET, 1);
+            }
+            return;
+        }
+        else
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("You must have the Drakefire Amulet in your inventory to use this command.");
+            return;
+        }
+    }
+    else if (location == "bt" || location == "blacktemple")
+    {
+        if (player->HasItemCount(ITEM_MEDALLION_OF_KARABOR) || player->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
+        {
+            for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
+            {
+                Player* member = itr->GetSource();
+                if (!member || sIndividualProgression->isBotAccount(member) || member->GetLevel() < 70)
+                    continue;
+
+                member->AddItem(ITEM_MEDALLION_OF_KARABOR, 1);
+            }
+            return;
+        }
+        else
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("You must have the Medallion of Karabor in your inventory to use this command.");
+            return;
+        }
+    }
+}
+
 void IndividualProgression::RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId)
 {
 	if (!playerGUID || !achievementId)
