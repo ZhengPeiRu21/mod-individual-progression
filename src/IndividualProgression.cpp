@@ -226,6 +226,12 @@ void IndividualProgression::UpdateGroupAttunement(Player* player, std::string lo
 
                 if (!member->HasItemCount(ITEM_DRAKEFIRE_AMULET))
                 {
+                    if (member->HasItemCount(ITEM_DRAKEFIRE_AMULET, 1, true))
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r has the Drakefire Amulet in their bank.", member->GetName());
+                        continue;
+                    }
+
                     member->AddItem(ITEM_DRAKEFIRE_AMULET, 1);
                     ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r received the Drakefire Amulet.", member->GetName());
                 }
@@ -262,6 +268,12 @@ void IndividualProgression::UpdateGroupAttunement(Player* player, std::string lo
 
                 if (!member->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !member->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
                 {
+                    if (member->HasItemCount(ITEM_MEDALLION_OF_KARABOR, 1, true) || member->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR, 1, true))
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r has the Medallion of Karabor in their bank.", member->GetName());
+                        continue;
+                    }
+
                     member->AddItem(ITEM_MEDALLION_OF_KARABOR, 1);
                     ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r received the Medallion of Karabor.", member->GetName());
                 }
