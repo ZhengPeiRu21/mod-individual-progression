@@ -218,7 +218,8 @@ void IndividualProgression::UpdateGroupAttunement(Player* player, std::string lo
                 if (!member || sIndividualProgression->isBotAccount(member) || member->GetLevel() < 50)
                     continue;
 
-                member->AddItem(ITEM_DRAKEFIRE_AMULET, 1);
+                if (!member->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+                    member->AddItem(ITEM_DRAKEFIRE_AMULET, 1);
             }
             return;
         }
@@ -238,7 +239,8 @@ void IndividualProgression::UpdateGroupAttunement(Player* player, std::string lo
                 if (!member || sIndividualProgression->isBotAccount(member) || member->GetLevel() < 70)
                     continue;
 
-                member->AddItem(ITEM_MEDALLION_OF_KARABOR, 1);
+                if (!member->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !member->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
+                    member->AddItem(ITEM_MEDALLION_OF_KARABOR, 1);
             }
             return;
         }
