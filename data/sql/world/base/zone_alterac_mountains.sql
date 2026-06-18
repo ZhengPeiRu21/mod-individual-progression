@@ -116,17 +116,17 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (63913, 639130, 0, 0, 0, 0, 0, NULL);
 
 -- Jailor Borhuin(2431) and Baron Vardus(2306) - multiple spawn locations 
-DELETE FROM `creature` WHERE `id1` IN (2306, 2431);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id` IN (2306, 2431);
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(16905,  2306, 0, 0, 0, 0, 0, 1, 1, 1, 1180.59, -555.904, 71.1468, 1.8822,  300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', 0, 0, NULL),
-(695010, 2306, 0, 0, 0, 0, 0, 1, 1, 1, 693.333, -905.125, 157.78, 2.69564,  300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=MgH-PCmxnUo
-(695011, 2306, 0, 0, 0, 0, 0, 1, 1, 1, 1107.99, -718.43, 71.5728, 1.84347,  300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=ZLXbrYUfLtI
-(695012, 2306, 0, 0, 0, 0, 0, 1, 1, 1, 1001.61, -790.672, 108.606, 2.31075, 300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=Dk6V9prh2gk
+(16905,  2306, 0, 0, 0, 1, 1, 1, 1180.59, -555.904, 71.1468, 1.8822,  300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', 0, 0, NULL),
+(695010, 2306, 0, 0, 0, 1, 1, 1, 693.333, -905.125, 157.78, 2.69564,  300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=MgH-PCmxnUo
+(695011, 2306, 0, 0, 0, 1, 1, 1, 1107.99, -718.43, 71.5728, 1.84347,  300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=ZLXbrYUfLtI
+(695012, 2306, 0, 0, 0, 1, 1, 1, 1001.61, -790.672, 108.606, 2.31075, 300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=Dk6V9prh2gk
 --
-(17020,  2431, 0, 0, 0, 0, 0, 1, 1, 1, 689.462, -984.645, 165.695, 5.43263, 300, 0, 0, 1536, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(695014, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 750.559, -971.896, 167.587, 1.60003, 300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- https://www.youtube.com/watch?v=3fLlozCjyD0
-(695015, 2431, 0, 0, 0, 0, 0, 1, 1, 1, 679.818, -897.818, 171.806, 4.8398,  300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
+(17020,  2431, 0, 0, 0, 1, 1, 1, 689.462, -984.645, 165.695, 5.43263, 300, 0, 0, 1536, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695014, 2431, 0, 0, 0, 1, 1, 1, 750.559, -971.896, 167.587, 1.60003, 300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL),    -- https://www.youtube.com/watch?v=3fLlozCjyD0
+(695015, 2431, 0, 0, 0, 1, 1, 1, 679.818, -897.818, 171.806, 4.8398,  300, 0, 0, 1537, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 DELETE FROM `pool_creature` WHERE `pool_entry` IN (601008, 601009);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 

@@ -22,7 +22,7 @@ UPDATE `broadcast_text` SET `FemaleText` = 'We\'ve sworn to do our very best to 
 UPDATE `broadcast_text` SET `MaleText` = 'The steam-powered Alliance icebreaker Northspear sails from here to Stormwind Harbor, across the sea in the Eastern Kingdoms.' WHERE `ID` = 25748;
 UPDATE `broadcast_text` SET `FemaleText` = 'The Northspear sails from this dock to Valgarde in the Howling Fjord.$B$BIf you''d like to reach Auberdine, The Bravery sails from Menethil Harbor.' WHERE `ID` = 28636;
 
-UPDATE `creature` SET `id1` = 6086 WHERE `guid` IN (9449, 9518);         -- replace Menethil guards with Auberdine Sentinels
+UPDATE `creature` SET `id` = 6086 WHERE `guid` IN (9449, 9518);         -- replace Menethil guards with Auberdine Sentinels
 DELETE FROM `creature` WHERE `guid` IN (203462, 203463, 203464, 203465); -- remove Auberdine Sentinels from Stormwind Harbor
 
 UPDATE `gameobject_template` SET `name` = "Boat to Menethil Harbor" WHERE `entry` = 176364; -- sign

@@ -17,9 +17,9 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4241, 0, 7, 165, 125, 'Show menu if leatherworking is 125 or higher'), -- Telonis <Artisan Leatherworker>
 (15, 4349, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');       -- Me'lynn <Expert Tailor>
 
--- Batllemasters
-DELETE FROM `creature` WHERE `id1` IN (907, 2302, 5118);
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+-- Battlemasters
+DELETE FROM `creature` WHERE `id` IN (907, 2302, 5118);
+INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
 (600907, 907,  1, 9975.14, 2324.34, 1330.87, 0.0698132, 600), -- Keras Wolfheart <Arathi Basin Battlemaster>
 (602302, 2302, 1, 9977.6, 2313.53, 1330.87, 0.698132, 600),   -- Aethalas <Warsong Gulch Battlemaster>
 (605118, 5118, 1, 9923.77, 2323.84, 1330.87, 1.6057, 600);    -- Brogun Stoneshield <Alterac Valley Battlemaster>

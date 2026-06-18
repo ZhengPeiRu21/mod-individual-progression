@@ -88,12 +88,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- Lorgus Jett spawn locations
-DELETE FROM `creature` WHERE `id1` IN (12902);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id` IN (12902);
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(26173, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -622.355, -10.3501, -22.777, 4.90438, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL),
-(695095, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -455.93, -39.96, -32.5239, 2.5, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL),
-(695096, 12902, 0, 0, 48, 0, 0, 1, 1, 1, -474.22, -86.95, -39.87, 2.98, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL);
+(26173, 12902, 48, 0, 0, 1, 1, 1, -622.355, -10.3501, -22.777, 4.90438, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL),
+(695095, 12902, 48, 0, 0, 1, 1, 1, -455.93, -39.96, -32.5239, 2.5, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL),
+(695096, 12902, 48, 0, 0, 1, 1, 1, -474.22, -86.95, -39.87, 2.98, 86400, 0, 0, 1713, 1236, 0, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `pool_creature` WHERE `pool_entry` IN (601052);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 

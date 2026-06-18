@@ -167,26 +167,26 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- update respawn time for Stonewatch elites
-UPDATE `creature` SET `spawntimesecs` = 900 WHERE `id1` IN (334, 335, 436, 486, 4064, 4065, 4462, 4464);
+UPDATE `creature` SET `spawntimesecs` = 900 WHERE `id` IN (334, 335, 436, 486, 4064, 4065, 4462, 4464);
 
 -- missing patrols
 DELETE FROM `creature` WHERE `guid` IN (17972, 18379, 18389, 18394, 18396, 18397, 18434, 18451, 18455, 26167, 28362, 31829);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
-(18389, 4065, 0, 0, 0, 0, 0, 1, 1, 1, -9440.13, -3073.22, 136.855, 5.02655, 900, 0, 0, 521, 0,    0, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
-(18394, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9441.58, -3077.65, 136.87, 0.436332,  900, 0, 0, 463, 1357, 0, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
-(18396, 4065, 0, 0, 0, 0, 0, 1, 1, 1, -9435.27, -3078.54, 136.875, 2.3911,  900, 0, 0, 521, 0,    0, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
-(18397, 486, 0, 0, 0, 0, 0, 1, 1, 1, -9439.3, -3080.77, 136.87, 1.09956,    900, 0, 1, 1713, 618, 2, 0, 0, 0, '', 0, 0, NULL), -- Tharil'zun
+(18389, 4065, 0, 0, 0, 1, 1, 1, -9440.13, -3073.22, 136.855, 5.02655, 900, 0, 0, 521, 0,    0, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
+(18394, 436, 0, 0, 0, 1, 1, 1, -9441.58, -3077.65, 136.87, 0.436332,  900, 0, 0, 463, 1357, 0, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
+(18396, 4065, 0, 0, 0, 1, 1, 1, -9435.27, -3078.54, 136.875, 2.3911,  900, 0, 0, 521, 0,    0, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
+(18397, 486, 0, 0, 0, 1, 1, 1, -9439.3, -3080.77, 136.87, 1.09956,    900, 0, 1, 1713, 618, 2, 0, 0, 0, '', 0, 0, NULL), -- Tharil'zun
 --
-(17972, 437, 0, 0, 0, 0, 0, 1, 1, 1, -9524.7, -2876.99, 93.2134, 4.76323,   300, 0, 1, 531, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Renegade
-(18379, 4065, 0, 0, 0, 0, 0, 1, 1, 1, -9347.26, -3012.09, 136.79, 1.28981,  900, 0, 1, 521, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
-(18434, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9390.57, -3026.71, 137.051, 2.81873,  900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
-(18451, 4464, 0, 0, 0, 0, 0, 1, 1, 1, -9366.96, -3053.18, 156.778, 1.7764,  900, 0, 1, 699, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Gladiator
-(18455, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9356.56, -3085.09, 164.701, 3.18573,  900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
-(26167, 4065, 0, 0, 0, 0, 0, 1, 1, 1, -9340.59, -3043.07, 136.224, 2.82787, 900, 0, 1, 521, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
-(28362, 4065, 0, 0, 0, 0, 0, 1, 1, 1, -9294.61, -2937.22, 158.264, 1.10709, 900, 0, 1, 521, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
-(31829, 436, 0, 0, 0, 0, 0, 1, 1, 1, -9421.56, -3059.08, 136.809, 0.669421, 900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL); -- Blackrock Shadowcaster
+(17972, 437, 0, 0, 0, 1, 1, 1, -9524.7, -2876.99, 93.2134, 4.76323,   300, 0, 1, 531, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Renegade
+(18379, 4065, 0, 0, 0, 1, 1, 1, -9347.26, -3012.09, 136.79, 1.28981,  900, 0, 1, 521, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
+(18434, 436, 0, 0, 0, 1, 1, 1, -9390.57, -3026.71, 137.051, 2.81873,  900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
+(18451, 4464, 0, 0, 0, 1, 1, 1, -9366.96, -3053.18, 156.778, 1.7764,  900, 0, 1, 699, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Gladiator
+(18455, 436, 0, 0, 0, 1, 1, 1, -9356.56, -3085.09, 164.701, 3.18573,  900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Shadowcaster
+(26167, 4065, 0, 0, 0, 1, 1, 1, -9340.59, -3043.07, 136.224, 2.82787, 900, 0, 1, 521, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
+(28362, 4065, 0, 0, 0, 1, 1, 1, -9294.61, -2937.22, 158.264, 1.10709, 900, 0, 1, 521, 0,    2, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
+(31829, 436, 0, 0, 0, 1, 1, 1, -9421.56, -3059.08, 136.809, 0.669421, 900, 0, 1, 463, 1357, 2, 0, 0, 0, '', 0, 0, NULL); -- Blackrock Shadowcaster
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (18397);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES

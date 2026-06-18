@@ -4,7 +4,7 @@
     If you would like heirlooms to still be available, do not run this file. 
 */
 
-DELETE FROM `creature` WHERE `id1` IN (32509, 35507, 35508);
+DELETE FROM `creature` WHERE `id` IN (32509, 35507, 35508);
 DELETE FROM `creature_addon` WHERE `guid` IN (85227, 88108);
 
 DELETE FROM `npc_vendor` WHERE `item` IN 
