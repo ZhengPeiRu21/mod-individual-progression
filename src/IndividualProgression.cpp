@@ -195,6 +195,99 @@ void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 acc
     }
 }
 
+void IndividualProgression::UpdateGroupAttunement(Player* player, std::string location)
+{
+    if (!player || !player->IsInWorld() )
+        return;
+
+    if (location.empty())
+        return;
+
+    Group* group = player->GetGroup();
+
+    if (!group)
+        return;
+
+    if (location == "onyxia40" || location == "onyxia")
+    {
+        if (player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+        {
+            for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
+            {
+                Player* member = itr->GetSource();
+                if (!member || sIndividualProgression->isBotAccount(member))
+                    continue;
+
+                if (member->GetLevel() < 50)
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r needs to be at least level 50.", member->GetName());
+                    continue;
+                }
+
+                if (!member->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+                {
+                    if (member->HasItemCount(ITEM_DRAKEFIRE_AMULET, 1, true))
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r has the Drakefire Amulet in their bank.", member->GetName());
+                        continue;
+                    }
+
+                    member->AddItem(ITEM_DRAKEFIRE_AMULET, 1);
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r received the Drakefire Amulet.", member->GetName());
+                }
+            }
+            return;
+        }
+        else
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("You must have the Drakefire Amulet in your inventory to use this command.");
+            return;
+        }
+    }
+    else if (location == "bt" || location == "blacktemple")
+    {
+        if (player->HasItemCount(ITEM_MEDALLION_OF_KARABOR) || player->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
+        {
+            for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
+            {
+                Player* member = itr->GetSource();
+                if (!member || sIndividualProgression->isBotAccount(member))
+                    continue;
+
+                if (member->GetLevel() < 70)
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r needs to be at least level 70.", member->GetName());
+                    continue;
+                }
+
+                if (isBeforeProgression(member, PROGRESSION_TBC_TIER_2))
+                {
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r needs to have progression level 10 (TBC Tier 2).", member->GetName());
+                    continue;
+                }
+
+                if (!member->HasItemCount(ITEM_MEDALLION_OF_KARABOR) && !member->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR))
+                {
+                    if (member->HasItemCount(ITEM_MEDALLION_OF_KARABOR, 1, true) || member->HasItemCount(ITEM_BLESSED_MEDALLION_OF_KARABOR, 1, true))
+                    {
+                        ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r has the Medallion of Karabor in their bank.", member->GetName());
+                        continue;
+                    }
+
+                    member->AddItem(ITEM_MEDALLION_OF_KARABOR, 1);
+                    ChatHandler(player->GetSession()).PSendSysMessage("|cff00ffff{}|r received the Medallion of Karabor.", member->GetName());
+                }
+            }
+            return;
+        }
+        else
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("You must have the Medallion of Karabor in your inventory to use this command.");
+            return;
+        }
+    }
+}
+
 void IndividualProgression::RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId)
 {
 	if (!playerGUID || !achievementId)
