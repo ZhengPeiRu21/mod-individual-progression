@@ -65,46 +65,12 @@ public:
         }
     }
 
-    void OnPlayerMapChanged(Player* player) override
-    {
-        if (!sIndividualProgression->enabled || !player || !player->IsInWorld())
-            return;
-
-        if (sIndividualProgression->isNormalAccount(player))
-            sIndividualProgression->checkIPProgression(player);
-
-        if (!sIndividualProgression->isBotAccount(player) || sIndividualProgression->BotAccountsEarnPvPTitles)
-        {
-            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
-            sIndividualProgression->CleanUpVanillaPvpTitles(player);
-        }
-        
-        sIndividualProgression->CheckAdjustments(player);
-    }
-
-    void OnPlayerUpdateZone(Player* player, uint32 /*newZone*/, uint32 newArea) override
-    {
-        if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !newArea)
-            return;
-
-        sIndividualProgression->checkIPPhasing(player, newArea);
-    }
-
     void OnPlayerEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
     {
         if (!player || !player->IsInWorld())
             return;
 
-        // exluded accounts should be effected by server nerfs as well
         sIndividualProgression->CheckAdjustments(player);
-    }
-
-    void OnPlayerLevelChanged(Player* player, uint8 /*oldLevel*/) override
-    {
-        if (!player || !player->IsInWorld())
-            return;
-
-        sIndividualProgression->checkDemonSpells(player);
     }
 
     void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool& /*applySickness*/) override
@@ -179,18 +145,13 @@ public:
         }
     }
 
-    static bool isAttuned(Player* player)
+    void OnPlayerLearnSpell(Player* player, uint32 spellID) override
     {
         if (!player || !player->IsInWorld())
-            return false;
+            return;
 
-        if (!sIndividualProgression->enabled || player->IsGameMaster() || sIndividualProgression->isBotAccount(player))
-            return true;
-
-        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
-            return true;
-        else
-            return false;
+        if (player->getClass() == CLASS_WARLOCK)
+            sIndividualProgression->checkDemonSpells(player, true);
     }
 
     void OnPlayerSpellCast(Player* player, Spell* spell, bool /*skipCheck*/) override
@@ -200,6 +161,9 @@ public:
 
         if (sIndividualProgression->isBotAccount(player)) // bots don't cast lower ranks of spells
             return;
+
+        if (player->getClass() == CLASS_WARLOCK)
+            sIndividualProgression->checkDemonSpells(player, true);
 
         if (sIndividualProgression->EnableAllSpellRanks)
             return;
@@ -619,6 +583,9 @@ public:
         if (!player || !player->IsInWorld())
             return false;
 
+        if (player->getClass() == CLASS_WARLOCK)
+            sIndividualProgression->checkDemonSpells(player, false);
+
         if (!sIndividualProgression->enabled || player->IsGameMaster() || !sIndividualProgression->isNormalAccount(player))
             return true;
 
@@ -842,7 +809,7 @@ public:
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid != MAP_NAXXRAMAS && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
                 return false;
 
-            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= 70 && (!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
+            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= 70 && (!sIndividualProgression->isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
                 return false;
         }
 
@@ -1225,6 +1192,31 @@ public:
         return true;
     }
 
+    void OnPlayerMapChanged(Player* player) override
+    {
+        if (!sIndividualProgression->enabled || !player || !player->IsInWorld())
+            return;
+
+        if (sIndividualProgression->isNormalAccount(player))
+            sIndividualProgression->checkIPProgression(player);
+
+        if (!sIndividualProgression->isBotAccount(player) || sIndividualProgression->BotAccountsEarnPvPTitles)
+        {
+            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
+            sIndividualProgression->CleanUpVanillaPvpTitles(player);
+        }
+
+        sIndividualProgression->CheckAdjustments(player);
+    }
+
+    void OnPlayerUpdateZone(Player* player, uint32 /*newZone*/, uint32 newArea) override
+    {
+        if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !newArea)
+            return;
+
+        sIndividualProgression->checkIPPhasing(player, newArea);
+    }
+
     void OnPlayerUpdateArea(Player* player, uint32 oldArea, uint32 newArea) override
     {
         if (!player || !player->IsInWorld() || !newArea || !oldArea)
@@ -1256,14 +1248,6 @@ public:
         }
 
         sIndividualProgression->checkIPPhasing(player, newArea);
-    }
-
-    void OnPlayerLearnSpell(Player* player, uint32 spellID) override
-    {
-        if (!player || !player->IsInWorld())
-            return;
-
-        sIndividualProgression->checkDemonSpells(player);
     }
 
 };
@@ -1324,20 +1308,6 @@ public:
             return;
 
         sIndividualProgression->SyncBotsProgressionToLeader(group);
-    }
-};
-
-class IndividualPlayerProgression_PetScript : public PetScript
-{
-public:
-    IndividualPlayerProgression_PetScript() : PetScript("IndividualProgression_PetScript") { }
-
-    void OnPetAddToWorld(Pet* pet) override
-    {
-        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
-            return;
-
-        sIndividualProgression->checkDemonSpells(pet->GetOwner());
     }
 };
 
