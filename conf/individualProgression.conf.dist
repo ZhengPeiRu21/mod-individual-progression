@@ -170,7 +170,7 @@ IndividualProgression.TheEye.RequireAllBosses = 1
 #
 IndividualProgression.FishingFix = 1
 
-# IndificualProgression.WarlockDemonTrainers
+# IndividualProgression.WarlockDemonTrainers
 #
 #        Description: In WotLK grimoires became absolete, new ranks and spells were now automatically learned on the respective levels.
 #                     Enable this option to restore Vanilla/TBC behavior so that grimoires need to be purchased.
