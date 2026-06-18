@@ -320,7 +320,7 @@ void IndividualProgression::checkDemonSpells(Player* player)
     if (!player || !player->IsInWorld() || !WarlockDemonTrainers)
         return;
 
-    if (hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
         return;
 
     Pet* pet = player->GetPet();
