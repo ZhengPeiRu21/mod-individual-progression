@@ -65,31 +65,6 @@ public:
         }
     }
 
-    void OnPlayerMapChanged(Player* player) override
-    {
-        if (!sIndividualProgression->enabled || !player || !player->IsInWorld())
-            return;
-
-        if (sIndividualProgression->isNormalAccount(player))
-            sIndividualProgression->checkIPProgression(player);
-
-        if (!sIndividualProgression->isBotAccount(player) || sIndividualProgression->BotAccountsEarnPvPTitles)
-        {
-            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
-            sIndividualProgression->CleanUpVanillaPvpTitles(player);
-        }
-        
-        sIndividualProgression->CheckAdjustments(player);
-    }
-
-    void OnPlayerUpdateZone(Player* player, uint32 /*newZone*/, uint32 newArea) override
-    {
-        if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !newArea)
-            return;
-
-        sIndividualProgression->checkIPPhasing(player, newArea);
-    }
-
     void OnPlayerEquip(Player* player, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) override
     {
         if (!player || !player->IsInWorld())
@@ -169,20 +144,6 @@ public:
                 amount = 0;
             }
         }
-    }
-
-    static bool isAttuned(Player* player)
-    {
-        if (!player || !player->IsInWorld())
-            return false;
-
-        if (!sIndividualProgression->enabled || player->IsGameMaster() || sIndividualProgression->isBotAccount(player))
-            return true;
-
-        if ((player->GetQuestStatus(NAXX40_ATTUNEMENT_1) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(NAXX40_ATTUNEMENT_2) == QUEST_STATUS_REWARDED) || (player->GetQuestStatus(NAXX40_ATTUNEMENT_3) == QUEST_STATUS_REWARDED))
-            return true;
-        else
-            return false;
     }
 
     void OnPlayerSpellCast(Player* player, Spell* spell, bool /*skipCheck*/) override
@@ -834,7 +795,7 @@ public:
             if (instanceTemplate->Parent == MAP_NORTHREND && mapid != MAP_NAXXRAMAS && !sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
                 return false;
 
-            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= 70 && (!isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
+            if (instanceTemplate->Parent == MAP_NORTHREND && mapid == MAP_NAXXRAMAS && player->GetLevel() <= 70 && (!sIndividualProgression->isAttuned(player) ||  sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5) ))
                 return false;
         }
 
@@ -1215,6 +1176,31 @@ public:
             return false;
 
         return true;
+    }
+
+    void OnPlayerMapChanged(Player* player) override
+    {
+        if (!sIndividualProgression->enabled || !player || !player->IsInWorld())
+            return;
+
+        if (sIndividualProgression->isNormalAccount(player))
+            sIndividualProgression->checkIPProgression(player);
+
+        if (!sIndividualProgression->isBotAccount(player) || sIndividualProgression->BotAccountsEarnPvPTitles)
+        {
+            sIndividualProgression->AwardEarnedVanillaPvpTitles(player);
+            sIndividualProgression->CleanUpVanillaPvpTitles(player);
+        }
+
+        sIndividualProgression->CheckAdjustments(player);
+    }
+
+    void OnPlayerUpdateZone(Player* player, uint32 /*newZone*/, uint32 newArea) override
+    {
+        if (!sIndividualProgression->enabled || !player || !player->IsInWorld() || !newArea)
+            return;
+
+        sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
     void OnPlayerUpdateArea(Player* player, uint32 oldArea, uint32 newArea) override
