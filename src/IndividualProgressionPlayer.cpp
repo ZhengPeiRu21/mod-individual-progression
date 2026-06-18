@@ -99,6 +99,14 @@ public:
         sIndividualProgression->CheckAdjustments(player);
     }
 
+    void OnPlayerLevelChanged(Player* player, uint8 /*oldLevel*/) override
+    {
+        if (!player || !player->IsInWorld())
+            return;
+
+        sIndividualProgression->checkDemonSpells(player);
+    }
+
     void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool& /*applySickness*/) override
     {
         if (!player || !player->IsInWorld())
@@ -1250,6 +1258,14 @@ public:
         sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
+    void OnPlayerLearnSpell(Player* player, uint32 spellID) override
+    {
+        if (!player || !player->IsInWorld())
+            return;
+
+        sIndividualProgression->checkDemonSpells(player);
+    }
+
 };
 
 class IndividualPlayerProgression_AccountScript : public AccountScript
@@ -1308,6 +1324,18 @@ public:
             return;
 
         sIndividualProgression->SyncBotsProgressionToLeader(group);
+    }
+};
+
+public:
+    IndividualPlayerProgression_PetScript() : PetScript("IndividualProgression_PetScript") { }
+
+    void OnPetAddToWorld(Pet* pet) override
+    {
+        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
+            return;
+
+        sIndividualProgression->checkDemonSpells(pet->GetOwner());
     }
 };
 
