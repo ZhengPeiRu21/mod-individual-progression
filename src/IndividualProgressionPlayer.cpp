@@ -1327,6 +1327,8 @@ public:
     }
 };
 
+class IndividualPlayerProgression_PetScript : public PetScript
+{
 public:
     IndividualPlayerProgression_PetScript() : PetScript("IndividualProgression_PetScript") { }
 
