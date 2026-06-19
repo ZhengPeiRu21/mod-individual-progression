@@ -3293,7 +3293,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11657, 0, 1, 0, 0, 0, 100, 0, 6000, 9000, 120000, 130000, 0, 0, 11, 12741, 33, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Morloch - Combat - Cast Curse of Weakness'),
 (11657, 0, 2, 0, 0, 0, 100, 0, 11000, 14000, 9000, 15000, 0, 0, 11, 17228, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,   'Morloch - Combat - Cast Shadow Bolt Volley'),
 (11657, 0, 3, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1165701, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Morloch - AI Init - Run Script 1165701'),
-(11657, 0, 4, 0, 1, 0, 100, 0, 5000, 5000, 5000, 5000, 0, 0, 80, 1165701, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Morloch - OOC - Run Script 1165701'),
+(11657, 0, 4, 0, 1, 0, 100, 0, 0, 0, 5000, 5000, 0, 0, 80, 1165701, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Morloch - OOC - Run Script 1165701'),
 --
 (1165701, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 110987, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Morloch - Set visibility Irondeep Trogg ON'),
 (1165701, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 111600, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Morloch - Set visibility Irondeep Shaman ON'),
@@ -3305,7 +3305,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13078, 0, 0, 0, 9, 0, 100, 0, 0, 0, 7000, 9000, 0, 5, 11, 12057, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Umi Thorson - Within 0-5 Range - Cast Strike'),
 (13078, 0, 1, 0, 9, 0, 100, 0, 0, 0, 16000, 21000, 0, 5, 11, 8147, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Umi Thorson - Within 0-5 Range - Cast Thunderclap'),
 (13078, 0, 2, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1307801, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Umi Thorson - AI Init - Run Script 1307801'),
-(13078, 0, 3, 0, 1, 0, 100, 0, 5000, 5000, 5000, 5000, 0, 0, 80, 1307801, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Umi Thorson - OOC - Run Script 1307801'),
+(13078, 0, 3, 0, 1, 0, 100, 0, 0, 0, 5000, 5000, 0, 0, 80, 1307801, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Umi Thorson - OOC - Run Script 1307801'),
 --
 (1307801, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 113080, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Umi Thorson - Set visibility Irondeep Guard ON'),
 (1307801, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 113098, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Umi Thorson - Set visibility Irondeep Surveyor ON'),
@@ -3318,7 +3318,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13079, 0, 1, 0, 9, 0, 100, 0, 0, 0, 7000, 9000, 0, 5, 11, 14516, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Keetar - Within 0-5 Range - Cast Strike'),
 (13079, 0, 2, 0, 9, 0, 100, 0, 0, 0, 7000, 9000, 0, 5, 11, 15496, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,            'Keetar - Within 0-5 Range - Cast Cleave'),
 (13079, 0, 3, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1307901, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Keetar - AI Init - Run Script 1307901'),
-(13079, 0, 4, 0, 1, 0, 100, 0, 5000, 5000, 5000, 5000, 0, 0, 80, 1307901, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Keetar - OOC - Run Script 1307901'),
+(13079, 0, 4, 0, 1, 0, 100, 0, 0, 0, 5000, 5000, 0, 0, 80, 1307901, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Keetar - OOC - Run Script 1307901'),
 --
 (1307901, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 113081, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Keetar - Set visibility Irondeep Raider ON'),
 (1307901, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 113099, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Keetar - Set visibility Irondeep Explorer ON'),
@@ -3332,7 +3332,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (11677, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 8876, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Taskmaster Snivvle - On Reset - Cast Thrash'),
 (11677, 0, 3, 0, 2, 0, 100, 1, 0, 30, 30000, 35000, 0, 0, 11, 16170, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Taskmaster Snivvle - Between 0-30% Health - Cast Bloodlust (No Repeat)'),
 (11677, 0, 4, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1167701, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Taskmaster Snivvle - AI Init - Run Script 1167701'),
-(11677, 0, 5, 0, 1, 0, 100, 0, 5000, 5000, 5000, 5000, 0, 0, 80, 1167701, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Taskmaster Snivvle - OOC - Run Script 1167701'),
+(11677, 0, 5, 0, 1, 0, 100, 0, 0, 0, 5000, 5000, 0, 0, 80, 1167701, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Taskmaster Snivvle - OOC - Run Script 1167701'),
 --
 (1167701, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 110982, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Taskmaster Snivvle - Set visibility Whitewhisker Vermin ON'),
 (1167701, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 111603, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Taskmaster Snivvle - Set visibility Whitewhisker Digger ON'),
@@ -3344,7 +3344,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13086, 0, 0, 0, 105, 0, 50, 0, 0, 0, 13000, 16000, 0, 5, 11, 15655, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,         'Aggi Rumblestomp - On Target Casting - Cast Shield Slam'),
 (13086, 0, 1, 0, 0, 0, 100, 0, 8000, 11000, 12000, 15000, 0, 0, 11, 12169, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aggi Rumblestomp - In Combat - Cast Shield Block'),
 (13086, 0, 2, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1308601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Aggi Rumblestomp - AI Init - Run Script'),
-(13086, 0, 3, 0, 1, 0, 100, 0, 5000, 5000, 5000, 5000, 0, 0, 80, 1308601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Aggi Rumblestomp - OOC - Run Script'),
+(13086, 0, 3, 0, 1, 0, 100, 0, 0, 0, 5000, 5000, 0, 0, 80, 1308601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aggi Rumblestomp - OOC - Run Script'),
 --
 (1308601, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 113087, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Aggi Rumblestomp - Set visibility Coldmine Invader ON'),
 (1308601, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 113096, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Aggi Rumblestomp - Set visibility Coldmine Explorer ON'),
@@ -3356,7 +3356,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13088, 0, 0, 0, 9, 0, 100, 0, 0, 0, 22000, 30000, 0, 5, 11, 15667, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Masha Swiftcut - Within 0-5 Range - Cast Sinister Strike'),
 (13088, 0, 1, 0, 0, 0, 100, 0, 2000, 4000, 14000, 21000, 0, 0, 11, 6434, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Masha Swiftcut - In Combat - Cast Slice and Dice'),
 (13088, 0, 2, 0, 37, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 1308801, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Masha Swiftcut - AI Init - Run Script 1308801'),
-(13088, 0, 3, 0, 1, 0, 100, 0, 5000, 5000, 5000, 5000, 0, 0, 80, 1308801, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Masha Swiftcut - OOC - Run Script 1308801'),
+(13088, 0, 3, 0, 1, 0, 100, 0, 0, 0, 5000, 5000, 0, 0, 80, 1308801, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Masha Swiftcut - OOC - Run Script 1308801'),
 --
 (1308801, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 113089, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Masha Swiftcut - Set visibility Coldmine Guard ON'),
 (1308801, 9, 1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 113097, 0, 200, 1, 0, 0, 0, 0,             'Script9 - Masha Swiftcut - Set visibility Coldmine Surveyor ON'),
