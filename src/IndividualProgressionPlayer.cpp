@@ -1,6 +1,24 @@
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
 #include "Spell.h"
+#include "EventProcessor.h"
+#include "ObjectAccessor.h"
+
+class DelayedDemonSpellCheck : public BasicEvent
+{
+public:
+    DelayedDemonSpellCheck(ObjectGuid playerGuid) : _playerGuid(playerGuid) {}
+
+    bool Execute(uint64 /*time*/, uint32 /*diff*/) override
+    {
+        if (Player* player = ObjectAccessor::FindPlayer(_playerGuid))
+            sIndividualProgression->checkDemonSpells(player);
+        return true;
+    }
+
+private:
+    ObjectGuid _playerGuid;
+};
 
 class IndividualPlayerProgression : public PlayerScript
 {
@@ -70,6 +88,7 @@ public:
         if (!player || !player->IsInWorld())
             return;
 
+        // exluded accounts should be effected by server nerfs as well
         sIndividualProgression->CheckAdjustments(player);
     }
 
@@ -151,7 +170,12 @@ public:
             return;
 
         if (player->getClass() == CLASS_WARLOCK)
-            sIndividualProgression->checkDemonSpells(player, true);
+        {
+            if (spellID < 600000 || spellID > 700000)
+                return;
+
+            sIndividualProgression->checkDemonSpells(player);
+        }
     }
 
     void OnPlayerSpellCast(Player* player, Spell* spell, bool /*skipCheck*/) override
@@ -161,9 +185,6 @@ public:
 
         if (sIndividualProgression->isBotAccount(player)) // bots don't cast lower ranks of spells
             return;
-
-        if (player->getClass() == CLASS_WARLOCK)
-            sIndividualProgression->checkDemonSpells(player, true);
 
         if (sIndividualProgression->EnableAllSpellRanks)
             return;
@@ -582,9 +603,6 @@ public:
     {
         if (!player || !player->IsInWorld())
             return false;
-
-        if (player->getClass() == CLASS_WARLOCK)
-            sIndividualProgression->checkDemonSpells(player, false);
 
         if (!sIndividualProgression->enabled || player->IsGameMaster() || !sIndividualProgression->isNormalAccount(player))
             return true;
@@ -1309,6 +1327,83 @@ public:
 
         sIndividualProgression->SyncBotsProgressionToLeader(group);
     }
+};
+
+class IndividualPlayerProgression_PetScript : public PetScript
+{
+private:
+    static void ScheduleDelayedSpellStrip(Pet* pet)
+    {
+        if (!pet)
+            return;
+        Unit* owner = pet->GetOwner();
+        if (!owner || !owner->IsPlayer())
+            return;
+        if (!owner->ToPlayer()->IsClass(CLASS_WARLOCK, CLASS_CONTEXT_PET))
+            return;
+
+        pet->m_Events.AddEvent(
+            new DelayedDemonSpellStrip(owner->GetGUID()),
+            pet->m_Events.CalculateTime(100));
+    }
+
+public:
+    IndividualPlayerProgression_PetScript() : PetScript("IndividualProgression_PetScript") {}
+
+    void OnPetAddToWorld(Pet* pet) override
+    {
+        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
+            return;
+
+        ScheduleDelayedSpellStrip(pet);
+    }
+
+    void OnInitStatsForLevel(Guardian* guardian, uint8 /*petlevel*/) override
+    {
+        if (!sIndividualProgression->enabled || !guardian)
+            return;
+
+        Pet* pet = guardian->ToPet();
+        if (!pet)
+            return;
+
+        ScheduleDelayedSpellStrip(pet);
+    }
+
+    class DelayedDemonSpellStrip : public BasicEvent
+    {
+    public:
+        explicit DelayedDemonSpellStrip(ObjectGuid ownerGuid, uint8 attempts = 0)
+            : _ownerGuid(ownerGuid), _attempts(attempts) {
+        }
+
+        bool Execute(uint64 /*e_time*/, uint32 /*p_time*/) override
+        {
+            Player* player = ObjectAccessor::FindPlayer(_ownerGuid);
+            if (!player)
+                return true;
+            Pet* pet = player->GetPet();
+            if (!pet)
+                return true;
+
+            // If the LoadPetFromDB async callback hasn't completed yet, poll again.
+            // Cap attempts so a stuck loading flag can't recurse forever.
+            if (pet->isBeingLoaded() && _attempts < 20)
+            {
+                pet->m_Events.AddEvent(
+                    new DelayedDemonSpellStrip(_ownerGuid, _attempts + 1),
+                    pet->m_Events.CalculateTime(100));
+                return true;
+            }
+
+            sIndividualProgression->checkDemonSpells(player);
+            return true;
+        }
+
+    private:
+        ObjectGuid _ownerGuid;
+        uint8      _attempts;
+    };
 };
 
 class IndividualPlayerProgression_UnitScript : public UnitScript
