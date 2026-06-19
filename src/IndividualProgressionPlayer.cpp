@@ -1539,4 +1539,5 @@ void AddSC_mod_individual_progression_player()
     new IndividualPlayerProgression_GroupScript();
     new IndividualPlayerProgression_AccountScript();
     new IndividualPlayerProgression_UnitScript();
+    new IndividualPlayerProgression_PetScript();
 }
