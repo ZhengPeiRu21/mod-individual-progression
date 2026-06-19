@@ -443,7 +443,7 @@ void IndividualProgression::checkDemonSpells(Player* player)
         {
             for (auto it = std::rbegin(dummyIds); it != std::rend(dummyIds); ++it)
             {
-                if (player->HasSpell(*it))
+                if (player->HasSpell(*it) || *it == 603110 || *it == 603716) // 603110 and 603716 are rank 1 dummy IDs for Firebolt and Torment
                 {
                     pet->learnSpell(*it - 600000);
                     return;
@@ -456,7 +456,7 @@ void IndividualProgression::checkDemonSpells(Player* player)
     case NPC_IMP:
         // Firebolt: ranks 2..9 (47964 is WotLK rank 9)
         wipe({ 7799, 7800, 7801, 7802, 11762, 11763, 27267, 47964 });
-        learnHighest({ 607799, 607800, 607801, 607802, 611762, 611763, 627267 });
+        learnHighest({ 603110, 607799, 607800, 607801, 607802, 611762, 611763, 627267 }); // ranks 1-8
 
         // Blood Pact: ranks 1..7 (47982 is WotLK rank 7)
         wipe({ 6307, 7804, 7805, 11766, 11767, 27268, 47982 });
@@ -472,30 +472,30 @@ void IndividualProgression::checkDemonSpells(Player* player)
         break;
 
     case NPC_VOIDWALKER:
-        // Torment
+        // Torment: ranks 2..7 (47985 is WotLK rank 8)
         wipe({ 7809, 7810, 7811, 11774, 11775, 27270, 47984 });
-        learnHighest({ 607809, 607810, 607811, 611774, 611775, 627270 });
+        learnHighest({ 603716, 607809, 607810, 607811, 611774, 611775, 627270 }); // ranks 1-7
 
-        // Sacrifice
-        wipe({ 7812, 19438, 19440, 19441, 19442, 19443, 27273, 47990 });
+        // Sacrifice: ranks 1..9 (47986 is WotLK rank 9)
+        wipe({ 7812, 19438, 19440, 19441, 19442, 19443, 27273, 47985, 47986 });
         learnHighest({ 607812, 619438, 619440, 619441, 619442, 619443, 627273 });
 
-        // Consume Shadows
-        wipe({ 17767, 17850, 17851, 17852, 17853, 17854, 27272, 47988 });
+        // Consume Shadows: ranks 1..9 (47988 is WotLK rank 9)
+        wipe({ 17767, 17850, 17851, 17852, 17853, 17854, 27272, 47987, 47988 });
         learnHighest({ 617767, 617850, 617851, 617852, 617853, 617854, 627272 });
 
-        // Suffering
-        wipe({ 17735, 17750, 17751, 17752, 27271, 33701, 47986 });
+        // Suffering: ranks 1..8 (47990 is WotLK rank 8)
+        wipe({ 17735, 17750, 17751, 17752, 27271, 33701, 47989, 47990 });
         learnHighest({ 617735, 617750, 617751, 617752, 627271, 633701 });
         break;
 
     case NPC_SUCCUBUS:
-        // Lash of Pain
-        wipe({ 7814, 7815, 7816, 11778, 11779, 11780, 27274, 47992 });
+        // Lash of Pain: ranks 1..9 (47992 is WotLK rank 9)
+        wipe({ 7814, 7815, 7816, 11778, 11779, 11780, 27274, 47991, 47992 });
         learnHighest({ 607815, 607816, 611778, 611779, 611780, 627274 });
 
-        // Soothing Kiss
-        wipe({ 6360, 7813, 11784, 11785, 27275, 47991 });
+        // Soothing Kiss: ranks 1..5
+        wipe({ 6360, 7813, 11784, 11785, 27275 });
         learnHighest({ 606360, 607813, 611784, 611785, 627275 });
 
         // Seduction & Lesser Invisibility (single ranks)
@@ -505,35 +505,34 @@ void IndividualProgression::checkDemonSpells(Player* player)
         break;
 
     case NPC_FELHUNTER:
-        // Devour Magic + Shadow Bite chains (WotLK adds 48011 / 57567 family)
-        wipe({ 19505, 19731, 19734, 19736, 27276, 27277, 48011, 54049, 54050,
-              54051, 54052, 54053, 57567 });
+        // Devour Magic + Shadow Bite
+        wipe({ 19505, 19731, 19734, 19736, 27276, 27277, 48011, 54049, 54050, 54051, 54052, 54053 });
         learnHighest({ 619731, 619734, 619736, 627276, 627277 });
 
         // Tainted Blood / Fel Intelligence
-        wipe({ 20429, 20430, 20431, 20432, 27497, 19007, 57564, 57565, 57566 });
+        wipe({ 20429, 20430, 20431, 20432, 27497, 54424, 57564, 57565, 57566, 57567 });
         learnHighest({ 620429, 620430, 620431, 620432, 627497 });
 
-        // Spell Lock
+        // Spell Lock: ranks 1..3
         wipe({ 19244, 19647, 24259 });
         learnHighest({ 619244, 619647 });
 
-        // Paranoia (single rank, passive)
+        // Paranoia (passive)
         wipe({ 19481 });
         learnHighest({ 619481 });
         break;
 
     case NPC_FELGUARD:
-        // Intercept (3 ranks + WotLK rank 47994)
-        wipe({ 30151, 30154, 30199, 30200, 47994 });
+        // Intercept: ranks 1..3
+        wipe({ 30151, 30154, 30199, 30200 });
         learnHighest({ 630154, 630199, 630200 });
 
-        // Cleave (3 ranks + WotLK 47993)
-        wipe({ 30213, 30214, 30222, 30224, 47993 });
+        // Cleave: ranks 1..3
+        wipe({ 30213, 30214, 30222, 30224 });
         learnHighest({ 630214, 630222, 630224 });
 
-        // Anguish (3 ranks + WotLK 47996)
-        wipe({ 33687, 33704, 33705, 33706, 47996 });
+        // Anguish: ranks 1..3
+        wipe({ 33704, 33705, 33706 });
         learnHighest({ 633704, 633705, 633706 });
 
         // Avoidance & Demonic Frenzy (passives)
