@@ -408,12 +408,12 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
     }
 }
 
-void IndividualProgression::checkDemonSpells(Player* player, bool relearn)
+void IndividualProgression::checkDemonSpells(Player* player)
 {
     if (!player || !player->IsInWorld() || !WarlockDemonTrainers)
         return;
 
-    if (sIndividualProgression->isBotAccount(player)) 
+    if (sIndividualProgression->isBotAccount(player))
         return;
 
     if (player->getClass() != CLASS_WARLOCK)
@@ -436,9 +436,6 @@ void IndividualProgression::checkDemonSpells(Player* player, bool relearn)
                     pet->unlearnSpell(id, false, true);
             }
         };
-
-    if (!relearn)
-        return;
 
     // Helper: walk dummy IDs from highest to lowest; learn the highest the player owns.
     // Order matters: dummy list MUST be passed lowest-rank-first; we iterate in reverse.
@@ -1134,7 +1131,7 @@ private:
         sIndividualProgression->doableNaxx40Bosses_Gluth = sConfigMgr->GetOption<bool>("IndividualProgression.doableNaxx40Bosses_Gluth", false);
         sIndividualProgression->doableNaxx40Bosses_Patchwerk = sConfigMgr->GetOption<bool>("IndividualProgression.doableNaxx40Bosses_Patchwerk", false);
         sIndividualProgression->doableNaxx40Bosses_Razuvious = sConfigMgr->GetOption<bool>("IndividualProgression.doableNaxx40Bosses_Razuvious", false);
-        sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", true);
+        sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", false);
         sIndividualProgression->fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
         sIndividualProgression->WarlockDemonTrainers = sConfigMgr->GetOption<bool>("IndividualProgression.WarlockDemonTrainers", true);
         sIndividualProgression->simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
