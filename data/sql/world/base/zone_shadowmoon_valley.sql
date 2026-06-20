@@ -7,7 +7,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (30, 0, 21766, 0, 0, 5, 0, 934, 240, 0, 0, 0, 0, '', 'Only able to activate flight path if friendly with Scryers');
 
 -- fix movement for Parsha
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -3493.5701, `position_y` = 2277.0901, `position_z` = 65.3081 WHERE `id1` = 22024;
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -3493.5701, `position_y` = 2277.0901, `position_z` = 65.3081 WHERE `id` = 22024;
 
 DELETE FROM `creature_addon` WHERE `guid` IN (83112);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 

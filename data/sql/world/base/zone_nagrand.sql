@@ -40,20 +40,20 @@ SET @WPID    := 6700000;
 -- add kodo corpses near the Greater Windrocs
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+6;
 DELETE FROM `creature` WHERE `guid` IN (59582, 60208);
-DELETE FROM `creature` WHERE `id1`  IN (23022); -- needed to remove creature placed by AC
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id`  IN (23022); -- needed to remove creature placed by AC
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
-(@CGUID+1, 17133, 0, 0, 530, 0, 0, 1, 1, 0, -1179.0300, 8585.5195, 35.3682, 2.7576, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
-(@CGUID+2, 17133, 0, 0, 530, 0, 0, 1, 1, 0, -1016.1700, 8313.7002, 16.7102, 5.0091, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
-(@CGUID+3, 17133, 0, 0, 530, 0, 0, 1, 1, 0, -918.2130, 8454.0098, 36.3233, 3.3510, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
-(@CGUID+4, 17133, 0, 0, 530, 0, 0, 1, 1, 0, -781.6080, 8482.6299, 40.5285, 5.8294, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
+(@CGUID+1, 17133, 530, 0, 0, 1, 1, 0, -1179.0300, 8585.5195, 35.3682, 2.7576, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
+(@CGUID+2, 17133, 530, 0, 0, 1, 1, 0, -1016.1700, 8313.7002, 16.7102, 5.0091, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
+(@CGUID+3, 17133, 530, 0, 0, 1, 1, 0, -918.2130, 8454.0098, 36.3233, 3.3510, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
+(@CGUID+4, 17133, 530, 0, 0, 1, 1, 0, -781.6080, 8482.6299, 40.5285, 5.8294, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
 --
-(@CGUID+5, 23022, 0, 0, 530, 0, 0, 1, 1, 0, -1529.1022, 5971.2354, 192.3297, 0, 300, 0, 1, 27945, 6310, 2, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+6, 23022, 0, 0, 530, 0, 0, 1, 1, 0, -1337.0262, 5707.4595, 180.8865, 0, 300, 0, 1, 27945, 6310, 2, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+5, 23022, 530, 0, 0, 1, 1, 0, -1529.1022, 5971.2354, 192.3297, 0, 300, 0, 1, 27945, 6310, 2, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+6, 23022, 530, 0, 0, 1, 1, 0, -1337.0262, 5707.4595, 180.8865, 0, 300, 0, 1, 27945, 6310, 2, 0, 0, 0, '', 0, 0, NULL),
 -- misplaced
-(59582, 17129, 0, 0, 530, 0, 0, 1, 1, 0, -788.8040, 8474.4004, 44.6907, 2.3430, 300, 5, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
-(60208, 17146, 0, 0, 530, 0, 0, 1, 1, 0, -3014.7700, 6524.4902, 99.2735, 2.9321, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
+(59582, 17129, 530, 0, 0, 1, 1, 0, -788.8040, 8474.4004, 44.6907, 2.3430, 300, 5, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
+(60208, 17146, 530, 0, 0, 1, 1, 0, -3014.7700, 6524.4902, 99.2735, 2.9321, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 -- feign death kodos (doesn't seem to work correctly, they do feign death, but their health still shows 100%)
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+4;
@@ -64,8 +64,8 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (@CGUID+4, 0, 0, 7, 0, 65, 0, NULL);
 
 -- fix movement for Gutripper and Bach'lor
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -1099.5699, `position_y` = 8582.3896, `position_z` = 46.3612 WHERE `id1` = 18257; -- Gutripper
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -1915, `position_y` = 8854, `position_z` = 30.8850           WHERE `id1` = 18258; -- Bach'lor
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -1099.5699, `position_y` = 8582.3896, `position_z` = 46.3612 WHERE `id` = 18257; -- Gutripper
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -1915, `position_y` = 8854, `position_z` = 30.8850           WHERE `id` = 18258; -- Bach'lor
 
 DELETE FROM `creature_template_movement` WHERE `CreatureId` IN (18257, 18258);
 INSERT INTO `creature_template_movement` (`CreatureId`, `Ground`, `Swim`, `Flight`, `Rooted`, `Chase`, `Random`, `InteractionPauseTimer`) VALUES 

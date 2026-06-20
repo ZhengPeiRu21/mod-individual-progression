@@ -105,9 +105,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14427, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Gibblesnik - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 
-UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5, `spawntimesecs` = 37800  WHERE `id1` = 14427; -- Gibblesnik
-UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 10 WHERE `id1` = 5937; -- give Vile Sting some movement
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1  WHERE `id1` = 4499; -- Rok'Alim the Pounder, waypoints
+UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5, `spawntimesecs` = 37800  WHERE `id` = 14427; -- Gibblesnik
+UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 10 WHERE `id` = 5937; -- give Vile Sting some movement
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1  WHERE `id` = 4499; -- Rok'Alim the Pounder, waypoints
 
 DELETE FROM `creature_addon` WHERE `guid` = 21591;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 

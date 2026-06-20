@@ -167,7 +167,7 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 
 
 -- Quest: The Dead Fields - Nightlash now gets summoned by killing Rot Hide Mystics
-DELETE FROM `creature` WHERE `id1` = 1983;
+DELETE FROM `creature` WHERE `id` = 1983;
 DELETE FROM `creature_addon` WHERE `guid` = 28379;
 
 -- Quest: Call of Water (Shaman)
