@@ -54,7 +54,7 @@ public:
             if (!sIndividualProgression->isAttuned(player))
             {
                 handler.PSendSysMessage("You are not attuned to Naxxramas.");
-                return allowed = false;
+                allowed = false;
             }
 
             if (!allowed)
