@@ -134,17 +134,46 @@ public:
             return false;
 
         ChatHandler handler(player->GetSession());
-
         Group* group = player->GetGroup();
 
         if (player->GetLevel() <= 70)
         {
+            bool allowed = true;
+
+            if (player->GetLevel() < 50)
+            {
+                handler.PSendSysMessage("You need to be at least level 50.");
+                allowed = false;
+            }
+
+            if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // death knights
+            {
+                handler.PSendSysMessage("Your progression level is too high.");
+                allowed = false;
+            }
+
+            if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
+            {
+                handler.PSendSysMessage("You need to have the Drakefire Amulet in your inventory.");
+                allowed = false;
+            }
+
+            if (!allowed)
+                return false;
+
+            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+
             if (group)
             {
+                group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
+
                 for (GroupReference* itr = group->GetFirstMember(); itr; itr = itr->next())
                 {
                     Player* member = itr->GetSource();
                     if (!member || sIndividualProgression->isBotAccount(member))
+                        continue;
+
+                    if (member->GetGUID() == player->GetGUID()) // not checking the first player again
                         continue;
 
                     bool allowed = true;
@@ -179,21 +208,6 @@ public:
 
                     member->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
                 }
-
-                group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
-            }
-            else
-            {
-                if (player->GetLevel() < 50)
-                    handler.PSendSysMessage("You need to be at least level 50.");
-
-                if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5)) // death knights
-                    handler.PSendSysMessage("Your progression level is too high.");
-
-                if (!player->HasItemCount(ITEM_DRAKEFIRE_AMULET))
-                    handler.PSendSysMessage("You need to have the Drakefire Amulet in your inventory.");
-
-                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
             }
         }
         else
