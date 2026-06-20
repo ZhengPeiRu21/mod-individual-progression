@@ -115,7 +115,7 @@ public:
                         handler.PSendSysMessage("|cff00ffff{}|r is allowed to enter.", member->GetName());
                         member->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_HEROIC);
 
-                        if (player->GetDistance(member) <= 40.0f) 
+                        if (player->GetDistance(member) <= 30.0f && member->GetMapId() != 533) // teleport only if the player is close enough and not already in naxxramas
                             member->TeleportTo(533, 3005.51f, -3434.64f, 304.195f, 6.2831f);
                     }
                 }
