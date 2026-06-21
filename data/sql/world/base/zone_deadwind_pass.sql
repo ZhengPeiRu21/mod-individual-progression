@@ -1,13 +1,13 @@
 /* smart scripts */
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN 
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN
 (7370, 7371, 7372, 7376, 7379, 12377, 12378, 12379, 12380);
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN
 (7370, 7371, 7372, 7376, 7379, 12377, 12378, 12379, 12380);
 
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
-`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`,
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`,
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`,
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 --
 (7370, 0, 0, 0, 0, 0, 100, 0, 1000, 2000, 30000, 40000, 0, 0, 11, 18267, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,    'Restless Shade - In Combat - Cast Curse of Weakness'),
 (7370, 0, 1, 0, 0, 0, 100, 0, 4000, 7000, 9000, 12000, 0, 0, 11, 12531, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Restless Shade - In Combat - Cast Chilling Touch'),
@@ -35,7 +35,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (7371, 7372, 7379);
-INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 --
 (7371, 0, 0, 'I\'ll crush you!',                                  12, 0, 100, 0, 0, 0, 1925, 0, 'Deadwind Mauler'),
 (7371, 0, 1, 'Me smash! You die!',                                12, 0, 100, 0, 0, 0, 1926, 0, 'Deadwind Mauler'),
@@ -50,7 +50,7 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 
 -- Deadwind Brute
 DELETE FROM `creature_loot_template` WHERE `Entry` = 7369;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (7369, 2928, 0, 0.02, 0, 1, 0, 1, 1,  'Deadwind Brute - Dust of Decay'),
 (7369, 3914, 0, 0.02, 0, 1, 0, 1, 1,  'Deadwind Brute - Journeyman\'s Backpack'),
 (7369, 4500, 0, 0.06, 0, 1, 0, 1, 1,  'Deadwind Brute - Traveler\'s Backpack'),
@@ -161,7 +161,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Restless Shade
 DELETE FROM `creature_loot_template` WHERE `Entry` = 7370;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (7370, 24480, 0, 80, 1, 1, 0, 1, 1,   'Restless Shade - Ghostly Essence'),
 (7370, 2928, 0, 0.02, 0, 1, 0, 1, 1,  'Restless Shade - Dust of Decay'),
 (7370, 4500, 0, 0.06, 0, 1, 0, 1, 1,  'Restless Shade - Traveler\'s Backpack'),
@@ -243,7 +243,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Deadwind Mauler
 DELETE FROM `creature_loot_template` WHERE `Entry` = 7371;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (7371, 2449, 0, 0.02, 0, 1, 0, 1, 1,  'Deadwind Mauler - Earthroot'),
 (7371, 3914, 0, 0.02, 0, 1, 0, 1, 1,  'Deadwind Mauler - Journeyman\'s Backpack'),
 (7371, 4500, 0, 0.04, 0, 1, 0, 1, 1,  'Deadwind Mauler - Traveler\'s Backpack'),
@@ -337,7 +337,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Deadwind Warlock
 DELETE FROM `creature_loot_template` WHERE `Entry` = 7372;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (7372, 3914, 0, 0.02, 0, 1, 0, 1, 1,  'Deadwind Warlock - Journeyman\'s Backpack'),
 (7372, 4500, 0, 0.04, 0, 1, 0, 1, 1,  'Deadwind Warlock - Traveler\'s Backpack'),
 (7372, 5759, 0, 0.133, 0, 1, 0, 1, 1, 'Deadwind Warlock - Thorium Lockbox'),
@@ -435,7 +435,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Sky Shadow
 DELETE FROM `creature_loot_template` WHERE `Entry` = 7376;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (7376, 556, 0, 29.353, 0, 1, 0, 1, 1, 'Sky Shadow - Buzzard Beak'),
 (7376, 3395, 0, 0.02, 0, 1, 0, 1, 1,  'Sky Shadow - Recipe: Limited Invulnerability Potion'),
 (7376, 3404, 0, 41.98, 0, 1, 0, 1, 2, 'Sky Shadow - Buzzard Wing'),
@@ -504,7 +504,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Deadwind Ogre Mage
 DELETE FROM `creature_loot_template` WHERE `Entry` = 7379;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (7379, 3395, 0, 0.02, 0, 1, 0, 1, 1,  'Deadwind Ogre Mage - Recipe: Limited Invulnerability Potion'),
 (7379, 3914, 0, 0.02, 0, 1, 0, 1, 1,  'Deadwind Ogre Mage - Journeyman\'s Backpack'),
 (7379, 4500, 0, 0.06, 0, 1, 0, 1, 1,  'Deadwind Ogre Mage - Traveler\'s Backpack'),
@@ -619,7 +619,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Wailing Spectre
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12377;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (12377, 24480, 0, 80, 1, 1, 0, 1, 1,   'Wailing Spectre - Ghostly Essence'),
 (12377, 4500, 0, 0.04, 0, 1, 0, 1, 1,  'Wailing Spectre - Traveler\'s Backpack'),
 (12377, 5759, 0, 0.012, 0, 1, 0, 1, 1, 'Wailing Spectre - Thorium Lockbox'),
@@ -700,7 +700,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Damned Soul
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12378;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (12378, 24480, 0, 80, 1, 1, 0, 1, 1, 'Damned Soul - Ghostly Essence'),
 (12378, 4500, 0, 0.06, 0, 1, 0, 1, 1,  'Damned Soul - Traveler\'s Backpack'),
 (12378, 5759, 0, 0.2, 0, 1, 0, 1, 1,   'Damned Soul - Thorium Lockbox'),
@@ -786,7 +786,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Unliving Caretaker
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12379;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (12379, 24480, 0, 80, 1, 1, 0, 1, 1,   'Unliving Caretaker - Ghostly Essence'),
 (12379, 4500, 0, 0.06, 0, 1, 0, 1, 1,  'Unliving Caretaker - Traveler\'s Backpack'),
 (12379, 5759, 0, 0.24, 0, 1, 0, 1, 1,  'Unliving Caretaker - Thorium Lockbox'),
@@ -874,7 +874,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 
 -- Unliving Resident
 DELETE FROM `creature_loot_template` WHERE `Entry` = 12380;
-INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (12380, 3914, 0, 0.02, 0, 1, 0, 1, 1,  'Unliving Resident - Journeyman\'s Backpack'),
 (12380, 4500, 0, 0.06, 0, 1, 0, 1, 1,  'Unliving Resident - Traveler\'s Backpack'),
 (12380, 5759, 0, 0.009, 0, 1, 0, 1, 1, 'Unliving Resident - Thorium Lockbox'),
@@ -977,7 +977,7 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 DELETE FROM `reference_loot_template` WHERE `Entry` = 600013;
 DELETE FROM `reference_loot_template` WHERE `Entry` BETWEEN 600038 AND 600060;
 
-INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES 
+INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupId`, `MinCount`, `MaxCount`, `Comment`) VALUES
 (600013, 3936, 0, 0, 0, 1, 1, 1, 1,  'Crochet Belt'),
 (600013, 3937, 0, 0, 0, 1, 1, 1, 1,  'Crochet Boots'),
 (600013, 3938, 0, 0, 0, 1, 1, 1, 1,  'Crochet Bracers'),
@@ -1788,6 +1788,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 /* Add Ley Sprites and Mana Sprites removed in 2.0 */
 DELETE FROM `creature`       WHERE `guid` IN (350999, 350998, 350997, 350996, 350995);
 DELETE FROM `creature_addon` WHERE `guid` IN (350999, 350998, 350997, 350996, 350995);
+DELETE FROM `creature_multispawn` WHERE `spawnId` IN (350999, 350998, 350997, 350996, 350995);
 DELETE FROM `waypoint_data`  WHERE `id` IN (3509990, 3509980, 3509970, 3509960, 3509950);
 -- Spawn Point 1
 INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `MovementType`, `spawntimesecs`) VALUES
