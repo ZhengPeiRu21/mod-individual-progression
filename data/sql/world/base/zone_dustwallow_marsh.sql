@@ -128,17 +128,17 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- quest: Stinky's Escape, fix worldserver error
 UPDATE `smart_scripts` SET `link` = 0 WHERE `entryorguid` = 4880 AND `source_type` = 0 AND `id` IN (0, 1);
 
-UPDATE `creature` SET `spawntimesecs` = 18000, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 14230; -- Burgle Eye
+UPDATE `creature` SET `spawntimesecs` = 18000, `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 14230; -- Burgle Eye
 
-DELETE FROM `creature`       WHERE `id1` = 23589;  -- Defias Rummager
-DELETE FROM `creature`       WHERE `id1` = 23841;  -- Razorspine
+DELETE FROM `creature`       WHERE `id` = 23589;  -- Defias Rummager
+DELETE FROM `creature`       WHERE `id` = 23841;  -- Razorspine
 DELETE FROM `creature_addon` WHERE `guid` = 39309; -- Razorspine
 
 /* Fiora Longears - restore her location to Theramore and restore quests that involve her */
-DELETE FROM `creature` WHERE `id1` = 4456;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
+DELETE FROM `creature` WHERE `id` = 4456;
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES
-(37087, 4456, 0, 0, 1, 0, 0, 1, 1, 1, -3613.47, -4464.02, 13.7054, 2.61799, 275, 0, 0, 787, 0, 0, 0, 0, 0, '', 0, NULL);
+(37087, 4456, 1, 0, 0, 1, 1, 1, -3613.47, -4464.02, 13.7054, 2.61799, 275, 0, 0, 787, 0, 0, 0, 0, 0, '', 0, NULL);
 
 DELETE FROM `creature_queststarter` WHERE `id` = 4455 AND `quest` IN (1132);
 DELETE FROM `creature_queststarter` WHERE `id` = 4456 AND `quest` IN (1133, 1135);
@@ -162,14 +162,14 @@ INSERT INTO `quest_poi_points` (`QuestID`,`Idx1`,`Idx2`,`X`,`Y`,`VerifiedBuild`)
 (1135, 0, 0, -3613, -4464, 0);
 
 /* Old Vanilla Varian Wrynn Npc in Alcaz during Vanilla phases */
-DELETE FROM `creature` WHERE `id1` = 11699 AND `map` = 1;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
+DELETE FROM `creature` WHERE `id` = 11699 AND `map` = 1;
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES
-(611699, 11699, 0, 0, 1, 0, 0, 1, 1, 1, -2744.03, -4994.2, 8.26564, 0.0392587, 300, 0, 0, 4121, 0, 0, 0, 0, 0, 'npc_ipp_pre_naxx40', 0, 'Varian Wrynn in Alcaz (Vanilla)');
+(611699, 11699, 1, 0, 0, 1, 1, 1, -2744.03, -4994.2, 8.26564, 0.0392587, 300, 0, 0, 4121, 0, 0, 0, 0, 0, 'npc_ipp_pre_naxx40', 0, 'Varian Wrynn in Alcaz (Vanilla)');
 
 -- fix Deadmire waypoints
 UPDATE `creature_template` SET `MovementType` = 0 WHERE `entry` = 4841;
-UPDATE `creature` SET `position_x` = -4019.49, `position_y` = -3537.49, `position_z` = 29.8848, `orientation` = 0.719014, `MovementType` = 2, `currentwaypoint` = 1 WHERE `id1` = 4841;
+UPDATE `creature` SET `position_x` = -4019.49, `position_y` = -3537.49, `position_z` = 29.8848, `orientation` = 0.719014, `MovementType` = 2, `currentwaypoint` = 1 WHERE `id` = 4841;
 
 DELETE FROM `creature_addon` WHERE `guid` = 33909;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
@@ -275,17 +275,17 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 -- fix Firemane Scout patrols
 DELETE FROM `creature` WHERE `guid` IN (31125, 31126, 31338, 31339, 31487, 31488, 31492, 31493, 34008, 34019);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`,
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
-(31125, 4329, 0, 0, 1, 0, 0, 1, 1, 1, -4929.12, -3419.79, 34.505, 0.149126, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
-(31126, 4331, 0, 0, 1, 0, 0, 1, 1, 1, -4919.24, -3414.86, 34.8467, 0.891532, 720, 0, 0, 1471, 1283, 0, 0, 0, 0, '', 0, 0, NULL),
-(31338, 4329, 0, 0, 1, 0, 0, 1, 1, 1, -4483.9, -3299.28, 37.7059, 4.02391, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
-(31339, 4331, 0, 0, 1, 0, 0, 1, 1, 1, -4477.27, -3294.37, 37.6475, 4.02389, 720, 0, 0, 1471, 1283, 0, 0, 0, 0, '', 0, 0, NULL),
-(31487, 4329, 0, 0, 1, 0, 0, 1, 1, 1, -4378.92, -3504.45, 37.2259, 4.14716, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
-(31488, 4331, 0, 0, 1, 0, 0, 1, 1, 1, -4374.84, -3501.75, 36.4368, 4.14505, 720, 0, 0, 1471, 1283, 0, 0, 0, 0, '', 0, 0, NULL),
-(31492, 4329, 0, 0, 1, 0, 0, 1, 1, 1, -4464.43, -3244.39, 38.2677, 1.24039, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
-(31493, 4331, 0, 0, 1, 0, 0, 1, 1, 1, -4466.32, -3243.72, 38.2725, 1.66456, 720, 0, 0, 1471, 1283, 0, 0, 0, 0, '', 0, 0, NULL);
+(31125, 4329, 1, 0, 0, 1, 1, 1, -4929.12, -3419.79, 34.505, 0.149126, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(31126, 4331, 1, 0, 0, 1, 1, 1, -4919.24, -3414.86, 34.8467, 0.891532, 720, 0, 0, 1471, 1283, 0, 0, 0, 0, '', 0, 0, NULL),
+(31338, 4329, 1, 0, 0, 1, 1, 1, -4483.9, -3299.28, 37.7059, 4.02391, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(31339, 4331, 1, 0, 0, 1, 1, 1, -4477.27, -3294.37, 37.6475, 4.02389, 720, 0, 0, 1471, 1283, 0, 0, 0, 0, '', 0, 0, NULL),
+(31487, 4329, 1, 0, 0, 1, 1, 1, -4378.92, -3504.45, 37.2259, 4.14716, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(31488, 4331, 1, 0, 0, 1, 1, 1, -4374.84, -3501.75, 36.4368, 4.14505, 720, 0, 0, 1471, 1283, 0, 0, 0, 0, '', 0, 0, NULL),
+(31492, 4329, 1, 0, 0, 1, 1, 1, -4464.43, -3244.39, 38.2677, 1.24039, 720, 0, 1, 1751, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(31493, 4331, 1, 0, 0, 1, 1, 1, -4466.32, -3243.72, 38.2725, 1.66456, 720, 0, 0, 1471, 1283, 0, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (31125, 31338, 31487, 31492);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES

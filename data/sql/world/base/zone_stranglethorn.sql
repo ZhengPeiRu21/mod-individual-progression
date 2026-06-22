@@ -315,15 +315,15 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- Bhag'thera(728) and Tethis(730) have multiple spawn locations 
-DELETE FROM `creature` WHERE `id1` IN (728, 730);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id` IN (728, 730);
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(1348,   728, 0, 0, 0, 0, 0, 1, 1, 0, -12191, -944.651, 32.9082, 0.187693, 480, 0, 0, 1753, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(695017, 728, 0, 0, 0, 0, 0, 1, 1, 0, -12016.5, -896.876, 35.3047, 3.59511, 480, 5, 0, 1753, 0, 1, 0, 0, 0, '', 0, 0, NULL),
-(695018, 728, 0, 0, 0, 0, 0, 1, 1, 0, -12380.4, -787.877, 30.3229, 0.779469, 480, 5, 0, 1753, 0, 1, 0, 0, 0, '', 0, 0, NULL),
-(1342,   730, 0, 0, 0, 0, 0, 1, 1, 0, -13076.6, 387.179, 15.4089, 3.01239, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL),
-(695019, 730, 0, 0, 0, 0, 0, 1, 1, 0, -12978.6, 411.841, 21.7456, 3.43503, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL),
-(695020, 730, 0, 0, 0, 0, 0, 1, 1, 0, -13017.2, 193.101, 22.7814, 1.45268, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL);
+(1348,   728, 0, 0, 0, 1, 1, 0, -12191, -944.651, 32.9082, 0.187693, 480, 0, 0, 1753, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(695017, 728, 0, 0, 0, 1, 1, 0, -12016.5, -896.876, 35.3047, 3.59511, 480, 5, 0, 1753, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695018, 728, 0, 0, 0, 1, 1, 0, -12380.4, -787.877, 30.3229, 0.779469, 480, 5, 0, 1753, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(1342,   730, 0, 0, 0, 1, 1, 0, -13076.6, 387.179, 15.4089, 3.01239, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695019, 730, 0, 0, 0, 1, 1, 0, -12978.6, 411.841, 21.7456, 3.43503, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL),
+(695020, 730, 0, 0, 0, 1, 1, 0, -13017.2, 193.101, 22.7814, 1.45268, 480, 5, 0, 1973, 0, 1, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `pool_creature` WHERE `pool_entry` IN (601010, 601011);
 INSERT INTO `pool_creature` (`guid`, `pool_entry`, `chance`, `description`) VALUES 
@@ -341,15 +341,15 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 
 -- Skullsplitter patrols missing formations
 DELETE FROM `creature` WHERE `guid` IN (1408, 1409, 2516, 2517, 2518, 2539);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
-(1408, 780, 0, 0, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.23398, 390, 0, 0, 1357, 1236, 2, 0, 0, 0, '', 0, 0, NULL),
-(1409, 696, 0, 0, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.57862, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(2516, 780, 0, 0, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.0101, 390, 0, 0, 1357, 1236, 2, 0, 0, 0, '', 0, 0, NULL),
-(2517, 667, 0, 0, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.0099, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(2518, 696, 0, 0, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.00976, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(2539, 667, 0, 0, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.5783, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+(1408, 780, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.23398, 390, 0, 0, 1357, 1236, 2, 0, 0, 0, '', 0, 0, NULL),
+(1409, 696, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.57862, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(2516, 780, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.0101, 390, 0, 0, 1357, 1236, 2, 0, 0, 0, '', 0, 0, NULL),
+(2517, 667, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.0099, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(2518, 696, 0, 0, 0, 1, 1, 1, -12663.6, -508.931, 29.5798, 4.00976, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(2539, 667, 0, 0, 0, 1, 1, 1, -12762, -890.346, 52.7586, 2.5783, 390, 0, 0, 1678, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (1408, 2516);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES
@@ -369,10 +369,10 @@ UPDATE `creature_loot_template` SET `Chance` = 4 WHERE `Item` = 3862;
 -- Drop chance for Jungle Stalker Feather was incorrectly set to 80 - updated to 25
 UPDATE `creature_loot_template` SET `Chance` = 25 WHERE `Item` = 3863;
 
-DELETE FROM `creature` WHERE `id1` IN (723);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id` IN (723);
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(600723, 723, 0, 0, 0, 0, 0, 1, 1, 1, -12357.4, -1075.36, 1.94221, 1.94815, 54000, 5, 0, 5346, 0, 1, 0, 0, 0, '', NULL, 0, NULL); 
+(600723, 723, 0, 0, 0, 1, 1, 1, -12357.4, -1075.36, 1.94221, 1.94815, 54000, 5, 0, 5346, 0, 1, 0, 0, 0, '', NULL, 0, NULL); 
     
 DELETE FROM `creature_text` WHERE `CreatureID` IN (675, 723);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 

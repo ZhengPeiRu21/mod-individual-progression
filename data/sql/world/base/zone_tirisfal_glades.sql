@@ -114,8 +114,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature_loot_template` SET `Chance` = 80 WHERE `Entry` = 1890 AND `Item` = 6281;
 
 -- Undertaker Mordo (not sure why we creating a new version of this guy, we only seem to be moving him)
-DELETE FROM `creature` WHERE `id1` = 1568;
-INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+DELETE FROM `creature` WHERE `id` = 1568;
+INSERT INTO `creature` (`guid`, `id`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (601568, 1568, 0, 1, 1678.99, 1667.86, 135.855, 3.76991, 300);
 
 DELETE FROM `creature_addon` WHERE `guid` IN (29803, 601568);
@@ -192,24 +192,24 @@ DELETE FROM `creature_queststarter` WHERE `id` = 5667 AND `quest` = 1470;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5667, 1470);
 
 -- fix respawn times and movement
-UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1910; -- Muad
-UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id1` = 1911; -- Deeb
-UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1936; -- Farmer Solliden
+UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id` = 1910; -- Muad
+UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id` = 1911; -- Deeb
+UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id` = 1936; -- Farmer Solliden
 
-UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 1911;
+UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 1911;
 
 -- fix patrols
 DELETE FROM `creature` WHERE `guid` IN (37920, 38292, 42142, 44762, 44763, 44990, 49222);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
-(37920, 1540, 0, 0, 0, 0, 0, 1, 1, 1, 2943.75, -554.264, 109.317, 3.22052, 300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Vanguard
-(38292, 3547, 0, 0, 0, 0, 0, 1, 1, 1, 2282.38, 343.513, 34.21, 4.52215,    300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Hamlin Atkins
-(42142, 10356, 0, 0, 0, 0, 0, 1, 1, 0, 2405.87, 974.879, 71.1481, 4.45794, 5400, 0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Bayne
-(44762, 1539, 0, 0, 0, 0, 0, 1, 1, 1, 3066.25, -538.546, 126.765, 3.39442, 300,  0, 1, 186, 191, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Neophyte
-(44763, 1538, 0, 0, 0, 0, 0, 1, 1, 1, 3054.86, -558.552, 125.615, 4.58007, 300,  0, 1, 166, 178, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Friar
-(44990, 1655, 0, 0, 0, 0, 0, 1, 1, 0, 2742.71, 785.519, 119.133, 0.453786, 300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Nissa Agamand
-(49222, 1533, 0, 0, 0, 0, 0, 1, 1, 0, 2885.04, 973.306, 116.983, 0.199966, 5400, 0, 1, 187, 0,   2, 0, 0, 0, '', 0, 0, NULL); -- Tormented Spirit
+(37920, 1540, 0, 0, 0, 1, 1, 1, 2943.75, -554.264, 109.317, 3.22052, 300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Vanguard
+(38292, 3547, 0, 0, 0, 1, 1, 1, 2282.38, 343.513, 34.21, 4.52215,    300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Hamlin Atkins
+(42142, 10356, 0, 0, 0, 1, 1, 0, 2405.87, 974.879, 71.1481, 4.45794, 5400, 0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Bayne
+(44762, 1539, 0, 0, 0, 1, 1, 1, 3066.25, -538.546, 126.765, 3.39442, 300,  0, 1, 186, 191, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Neophyte
+(44763, 1538, 0, 0, 0, 1, 1, 1, 3054.86, -558.552, 125.615, 4.58007, 300,  0, 1, 166, 178, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Friar
+(44990, 1655, 0, 0, 0, 1, 1, 0, 2742.71, 785.519, 119.133, 0.453786, 300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Nissa Agamand
+(49222, 1533, 0, 0, 0, 1, 1, 0, 2885.04, 973.306, 116.983, 0.199966, 5400, 0, 1, 187, 0,   2, 0, 0, 0, '', 0, 0, NULL); -- Tormented Spirit
 
 DELETE FROM `creature_addon` WHERE `guid` IN (37920, 38292, 42142, 44762, 44763, 44990, 49222);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 

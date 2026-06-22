@@ -582,13 +582,13 @@ REPLACE INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, 
 (302680, 3475, 0, 0.0, 0, 1, 1, 1);
 
 DELETE FROM `creature` WHERE `guid` BETWEEN 311000 AND 311006;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `MovementType`) VALUES
-(311000, 301000, 0, 0, 249, 4, 0.69628, -211.972, -86.075, 3.19974, 604800, 0.0, 0),
-(311001, 301002, 0, 0, 249, 4, -166.623, -196.003, -66.2619, 5.06806, 6300, 0.0, 2),
-(311002, 301002, 0, 0, 249, 4, -52.9699, -96.8813, -38.6419, 5.66711, 6300, 0.0, 2),
-(311003, 301002, 0, 0, 249, 4, 49.8206, -114.607, -24.3112, 1.24193, 1201, 0.0, 2),
-(311004, 301002, 0, 0, 249, 4, -131.203, -137.47, -52.5151, 0.641988, 1201, 0.0, 2),
-(311005, 301002, 0, 0, 249, 4, -199.097, -209.826, -68.9112, 0.650188, 1201, 0.0, 0);
+INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `MovementType`) VALUES
+(311000, 301000, 249, 4, 0.69628, -211.972, -86.075, 3.19974, 604800, 0.0, 0),
+(311001, 301002, 249, 4, -166.623, -196.003, -66.2619, 5.06806, 6300, 0.0, 2),
+(311002, 301002, 249, 4, -52.9699, -96.8813, -38.6419, 5.66711, 6300, 0.0, 2),
+(311003, 301002, 249, 4, 49.8206, -114.607, -24.3112, 1.24193, 1201, 0.0, 2),
+(311004, 301002, 249, 4, -131.203, -137.47, -52.5151, 0.641988, 1201, 0.0, 2),
+(311005, 301002, 249, 4, -199.097, -209.826, -68.9112, 0.650188, 1201, 0.0, 0);
 
 DELETE FROM `waypoint_data` WHERE `id` IN (3110010, 3110020, 3110030, 3110040);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`) VALUES
@@ -649,7 +649,7 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (301000, 4, 0, "%s takes in a deep breath...", 41, 0, 100.0, 0, 0, 0, 36542, 0, "Onyxia - Deep Breath Emote (Onyxia 40)"),
 (301000, 5, 0, "You seek to lure me from my clutch? You shall pay for your insolence!", 14, 0, 100.0, 0, 0, 0, 8570, 0, "Onyxia - Boundary Evade (Onyxia 40)");
 
-UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` = 301002;
+UPDATE `creature` SET `equipment_id` = 1 WHERE `id` = 301002;
 DELETE FROM `creature_equip_template` WHERE `CreatureID` = 301002;
 INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`) VALUES
 (301002, 1, 13631, 0, 0);

@@ -139,24 +139,24 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (14344, 0, 0, '$s becomes enraged!', 16, 0, 100, 0, 0, 0, 10677, 0, 'Mongress enrage at 30%');
 
 -- Ragepaw, fix movement
-UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 14342;
+UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 14342;
 
 -- fix Irontree Wood Ancients
 SET @IPPPHASE := 65536;
 
-DELETE FROM `creature` WHERE `id1` IN (14524, 14525, 14526);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id` IN (14524, 14525, 14526);
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(614524, 14524, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6194.55, -1176.35, 369.056, 1.1098,  600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(614525, 14525, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6197.12, -1135.42, 366.31,  5.28025, 600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(614526, 14526, 0, 0, 1, 0, 0, 1, @IPPPHASE, 0, 6245.91, -1165.98, 366.325, 2.60598, 600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+(614524, 14524, 1, 0, 0, 1, @IPPPHASE, 0, 6194.55, -1176.35, 369.056, 1.1098,  600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(614525, 14525, 1, 0, 0, 1, @IPPPHASE, 0, 6197.12, -1135.42, 366.31,  5.28025, 600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(614526, 14526, 1, 0, 0, 1, @IPPPHASE, 0, 6245.91, -1165.98, 366.325, 2.60598, 600, 0, 0, 3331, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 
 -- fix Withered Protector waypoints
-DELETE FROM `creature` WHERE `id1` IN (7149);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id` IN (7149);
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(39489, 7149, 0, 0, 1, 0, 0, 1, 1, 0, 6177, -1322.46, 376.746, 5.71257, 300, 0, 1, 4318, 0, 2, 0, 0, 0, '', 0, 0, NULL);
+(39489, 7149, 1, 0, 0, 1, 1, 0, 6177, -1322.46, 376.746, 5.71257, 300, 0, 1, 4318, 0, 2, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_addon` WHERE `guid` IN (39489);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 

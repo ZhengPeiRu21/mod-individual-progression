@@ -102,22 +102,22 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (839101, 9, 3, 0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                                  'Script9 - On Reset - Set Walk');
 
 /* Anvilrage Overseers and Anvilrage Wardens were replaced with new non-elite mobs in 2.3 - restore the originals */
-UPDATE `creature` SET `id1` = 8889 WHERE `id1` = 24818;
-UPDATE `creature` SET `id1` = 8890 WHERE `id1` = 24819;
+UPDATE `creature` SET `id` = 8889 WHERE `id` = 24818;
+UPDATE `creature` SET `id` = 8890 WHERE `id` = 24819;
 
 /* 3 Dark Iron Sentries in the towers were replaced with non-elite dark iron lookouts in 2.3 - restore the originals */
-UPDATE `creature` SET `id1` = 8504 WHERE `guid` = 6830;
-UPDATE `creature` SET `id1` = 8504 WHERE `guid` = 6831;
-UPDATE `creature` SET `id1` = 8504 WHERE `guid` = 6832;
+UPDATE `creature` SET `id` = 8504 WHERE `guid` = 6830;
+UPDATE `creature` SET `id` = 8504 WHERE `guid` = 6831;
+UPDATE `creature` SET `id` = 8504 WHERE `guid` = 6832;
 
 /* Maltorius had 2 elite Dark Iron Sentries next to him that were replaced by a single non-elite dark iron lookout in 2.3 - restore the originals */
-UPDATE `creature` SET `id1` = 8504 WHERE `guid` = 5846;
+UPDATE `creature` SET `id` = 8504 WHERE `guid` = 5846;
 
 DELETE FROM `creature` WHERE `guid` IN (608504, 608505);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(608504, 8504, 0, 0, 0, 0, 0, 1, 1, 1, -6630.98, -1233.1, 209.809, 1.29509, 300, 0, 0, 4950, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(608505, 8504, 0, 0, 0, 0, 0, 1, 1, 1, -7023.45, -1283.97, 258.302, 4.8895, 300, 0, 0, 4950, 0, 0, 0, 0, 0, '', NULL, 0, NULL); -- 4th tower Dark Iron Sentry
+(608504, 8504, 0, 0, 0, 1, 1, 1, -6630.98, -1233.1, 209.809, 1.29509, 300, 0, 0, 4950, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(608505, 8504, 0, 0, 0, 1, 1, 1, -7023.45, -1283.97, 258.302, 4.8895, 300, 0, 0, 4950, 0, 0, 0, 0, 0, '', NULL, 0, NULL); -- 4th tower Dark Iron Sentry
 
 /* Group Maltorius together with the 2 sentries */
 DELETE FROM `creature_formations` WHERE `leaderGUID` = 5845;
