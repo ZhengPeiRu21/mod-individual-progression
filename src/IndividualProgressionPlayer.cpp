@@ -1113,38 +1113,36 @@ public:
             }
         }
 
-        if (!sIndividualProgression->disableDefaultProgression)
-        {
-            Group* group = killer->GetGroup();
-
-            bool CustomCreatureKilled = false;
-
-            if (group)
+        Group* group = killer->GetGroup();
+        
+        if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
+        {       
+            if (!sIndividualProgression->disableDefaultProgression)
             {
-                for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+                bool CustomCreatureKilled = false;
+                
+                if (group)
                 {
-                    Player* member = itr->GetSource();
-                    if (!member || !sIndividualProgression->isNormalAccount(member))
-                        continue;
+                    for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+                    {
+                        Player* member = itr->GetSource();
+                        if (!member || !sIndividualProgression->isNormalAccount(member))
+                            continue;
 
-                    if (sIndividualProgression->checkCustomKillProgression(killer, killed))
+                        if (sIndividualProgression->checkCustomKillProgression(killer, killed))
+                            CustomCreatureKilled = true;
+                    }
+                }
+                else // no group
+                {
+                    if (sIndividualProgression->checkCustomKillProgression(killer, killed)) 
                         CustomCreatureKilled = true;
                 }
-            }
-            else // no group
-            {
-                if (sIndividualProgression->checkCustomKillProgression(killer, killed)) 
-                    CustomCreatureKilled = true;
-            }
 
-            if (CustomCreatureKilled)
-                return;
-        }
-
-        if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
-        {
-            Group* group = killer->GetGroup();
-            
+                if (CustomCreatureKilled)
+                    return;
+            }
+   
             if (killed->GetEntry() == COLOSSUS_ZORA || killed->GetEntry() == COLOSSUS_REGAL || killed->GetEntry() == COLOSSUS_ASHI)
             {
                 // no group
@@ -1171,12 +1169,11 @@ public:
                             member->CompleteQuest(QUEST_COLOSSUS_ASHI);
                     }
                 }
-
                 return;
             }
 
-            uint32 entry = killed->GetEntry();
-
+            uint32 ENTRY_KILLED = killed->GetEntry();
+            
             if (group)
             {
                 for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
@@ -1187,14 +1184,14 @@ public:
 
                     if (killer->IsAtLootRewardDistance(member))
                     {
-                        if (!sIndividualProgression->hasCustomProgressionValue(entry))
+                        if (!sIndividualProgression->hasCustomProgressionValue(ENTRY_KILLED))
                             sIndividualProgression->checkKillProgression(member, killed);
                     }
                 }
             }
             else // no group
             {
-                if (!sIndividualProgression->hasCustomProgressionValue(entry))
+                if (!sIndividualProgression->hasCustomProgressionValue(ENTRY_KILLED))
                     sIndividualProgression->checkKillProgression(killer, killed);
             }
         }
