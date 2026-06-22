@@ -1173,7 +1173,7 @@ public:
             }
 
             uint32 ENTRY_KILLED = killed->GetEntry();
-            
+
             if (group)
             {
                 for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
