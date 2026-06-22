@@ -130,10 +130,10 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 15 WHERE `guid` IN (42970, 42997, 43036);
 
 -- Deathclasp waypoints
-DELETE FROM `creature` WHERE `id1` = 15196;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id` = 15196;
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(42921, 15196, 0, 0, 1, 0, 0, 1, 1, 0, -8102.7, 967.628, 59.7207, 2.96696, 600, 0, 1, 8883, 0, 2, 0, 0, 0, '', 0, 0, NULL); 
+(42921, 15196, 1, 0, 0, 1, 1, 0, -8102.7, 967.628, 59.7207, 2.96696, 600, 0, 1, 8883, 0, 2, 0, 0, 0, '', 0, 0, NULL); 
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` = 42921;
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES 
@@ -163,22 +163,22 @@ SET @CGUID    := 651000;
 DELETE FROM `creature` WHERE `guid` IN (42969, 42983, 42984); 
 DELETE FROM `creature_addon` WHERE `guid` IN (42969, 42983, 42984); 
 
-DELETE FROM `creature` WHERE `id1` = 15308;
+DELETE FROM `creature` WHERE `id` = 15308;
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+8;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(43322, 15308, 0, 0, 1, 0, 0, 1, 1, 1, -7612.16, 1619.85, 2.5204, -1.45604, 3600, 0, 1, 7369, 11502, 2, 0, 0, 0, '', 0, 0, NULL),
-(43323, 15308, 0, 0, 1, 0, 0, 1, 1, 1, -6888.79, 1636.61, 2.8743, 0.795651, 3600, 0, 1, 7369, 11502, 2, 0, 0, 0, '', 0, 0, NULL),
+(43322, 15308, 1, 0, 0, 1, 1, 1, -7612.16, 1619.85, 2.5204, -1.45604, 3600, 0, 1, 7369, 11502, 2, 0, 0, 0, '', 0, 0, NULL),
+(43323, 15308, 1, 0, 0, 1, 1, 1, -6888.79, 1636.61, 2.8743, 0.795651, 3600, 0, 1, 7369, 11502, 2, 0, 0, 0, '', 0, 0, NULL),
 --
-(@CGUID+1, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7612.38, 1616.86, 2.49802, 4.73518, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 43322
-(@CGUID+2, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7609.12, 1619.94, 1.11992, 4.57025, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+3, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7611.79, 1623.39, 2.2698, 4.66057, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+4, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -7615.12, 1620.55, 4.36953, 4.7077, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+1, 11880, 1, 0, 0, 1, 1, 1, -7612.38, 1616.86, 2.49802, 4.73518, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 43322
+(@CGUID+2, 11880, 1, 0, 0, 1, 1, 1, -7609.12, 1619.94, 1.11992, 4.57025, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+3, 11880, 1, 0, 0, 1, 1, 1, -7611.79, 1623.39, 2.2698, 4.66057, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+4, 11880, 1, 0, 0, 1, 1, 1, -7615.12, 1620.55, 4.36953, 4.7077, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
 --
-(@CGUID+5, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6886.17, 1638.31, 3.01842, 0.563139, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 43323
-(@CGUID+6, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6890.34, 1638.63, 2.71004, 0.567064, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+7, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6890.95, 1635.1, 2.7273, 0.535647, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+8, 11880, 0, 0, 1, 0, 0, 1, 1, 1, -6887.17, 1634.11, 3.02476, 0.618115, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
+(@CGUID+5, 11880, 1, 0, 0, 1, 1, 1, -6886.17, 1638.31, 3.01842, 0.563139, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 43323
+(@CGUID+6, 11880, 1, 0, 0, 1, 1, 1, -6890.34, 1638.63, 2.71004, 0.567064, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+7, 11880, 1, 0, 0, 1, 1, 1, -6890.95, 1635.1, 2.7273, 0.535647, 300, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+8, 11880, 1, 0, 0, 1, 1, 1, -6887.17, 1634.11, 3.02476, 0.618115, 300, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (11880);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-651001, -651002, -651003, -651004, -651005, -651006, -651007, -651008);
@@ -413,16 +413,16 @@ DELETE FROM `creature` WHERE `guid` IN (43202, 43203);
 DELETE FROM `creature_addon` WHERE `guid` IN (43202, 43203); 
 DELETE FROM `waypoint_data` WHERE `id` IN (432020, 432030); 
 
-DELETE FROM `creature` WHERE `id1` = 15541;
+DELETE FROM `creature` WHERE `id` = 15541;
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+11 AND @CGUID+15;
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
-(43201, 15541, 0, 0, 1, 0, 0, 1, 1, 1, -6374.21, 532.318, 6.19409, 4.31401, 600, 0, 1, 10529, 0, 2, 0, 0, 0, '', 0, 0, NULL),
-(@CGUID+11, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6365.12, 537.924, 7.15975, 6.17294, 600, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 15541
-(@CGUID+12, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6362.22, 546.458, 7.44477, 6.01315, 600, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+13, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6360.62, 550.402, 7.53199, 5.87763, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+14, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6365.58, 534.399, 7.14401, 6.2507, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+15, 15542, 0, 0, 1, 0, 0, 1, 1, 1, -6365.58, 534.399, 7.14401, 6.2507, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
+(43201, 15541, 1, 0, 0, 1, 1, 1, -6374.21, 532.318, 6.19409, 4.31401, 600, 0, 1, 10529, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(@CGUID+11, 15542, 1, 0, 0, 1, 1, 1, -6365.12, 537.924, 7.15975, 6.17294, 600, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 15541
+(@CGUID+12, 15542, 1, 0, 0, 1, 1, 1, -6362.22, 546.458, 7.44477, 6.01315, 600, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+13, 15542, 1, 0, 0, 1, 1, 1, -6360.62, 550.402, 7.53199, 5.87763, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+14, 15542, 1, 0, 0, 1, 1, 1, -6365.58, 534.399, 7.14401, 6.2507, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+15, 15542, 1, 0, 0, 1, 1, 1, -6365.58, 534.399, 7.14401, 6.2507, 600, 0, 0, 3876, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (15542);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (-651011, -651012, -651013, -651014, -651015);

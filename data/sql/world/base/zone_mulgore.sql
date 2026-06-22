@@ -71,7 +71,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (5807, 0, 0, 0, 9, 0, 100, 0, 0, 0, 8000, 12000, 0, 5, 11, 12166, 32, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'The Rake - Within 0-5 Range - Cast Muscle Tear');
 
 -- Mazzranache, waypoints
-UPDATE `creature` SET `spawntimesecs` = 9000, `MovementType` = 2, `currentwaypoint` = 1 WHERE `id1` = 3068;
+UPDATE `creature` SET `spawntimesecs` = 9000, `MovementType` = 2, `currentwaypoint` = 1 WHERE `id` = 3068;
 
 DELETE FROM `creature_addon` WHERE `guid` = 26908;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
@@ -145,15 +145,15 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (269080, 64, -1731.65, -542.165, -13.1692, NULL, 0, 0, 0, 100, 0);
 
 -- Galak Centaur, waypoints
-DELETE FROM `creature` WHERE `id1` IN (2967, 2968);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id` IN (2967, 2968);
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(25998, 2967, 0, 0, 1, 0, 0, 1, 1, 1, -2261.41, -1456.51, 46.2608, 5.28361, 375, 0, 1, 176, 0, 2, 0, 0, 0, '', 0, 0, NULL),
-(25999, 2967, 0, 0, 1, 0, 0, 1, 1, 1, -2227.05, -1386.47, 43.9742, 5.23882, 375, 0, 1, 176, 0, 2, 0, 0, 0, '', 0, 0, NULL),
-(26000, 2967, 0, 0, 1, 0, 0, 1, 1, 1, -2227.05, -1386.47, 43.9742, 4.17968, 375, 0, 1, 176, 0, 2, 0, 0, 0, '', 0, 0, NULL),
-(26001, 2968, 0, 0, 1, 0, 0, 1, 1, 1, -2261.41, -1456.51, 46.2608, 5.28312, 375, 0, 0, 198, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(26002, 2968, 0, 0, 1, 0, 0, 1, 1, 1, -2227.05, -1386.47, 43.9742, 5.23876, 375, 0, 0, 198, 0, 0, 0, 0, 0, '', 0, 0, NULL),
-(26019, 2968, 0, 0, 1, 0, 0, 1, 1, 1, -2227.05, -1386.47, 43.9742, 4.17969, 375, 0, 0, 198, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+(25998, 2967, 1, 0, 0, 1, 1, 1, -2261.41, -1456.51, 46.2608, 5.28361, 375, 0, 1, 176, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(25999, 2967, 1, 0, 0, 1, 1, 1, -2227.05, -1386.47, 43.9742, 5.23882, 375, 0, 1, 176, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(26000, 2967, 1, 0, 0, 1, 1, 1, -2227.05, -1386.47, 43.9742, 4.17968, 375, 0, 1, 176, 0, 2, 0, 0, 0, '', 0, 0, NULL),
+(26001, 2968, 1, 0, 0, 1, 1, 1, -2261.41, -1456.51, 46.2608, 5.28312, 375, 0, 0, 198, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(26002, 2968, 1, 0, 0, 1, 1, 1, -2227.05, -1386.47, 43.9742, 5.23876, 375, 0, 0, 198, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(26019, 2968, 1, 0, 0, 1, 1, 1, -2227.05, -1386.47, 43.9742, 4.17969, 375, 0, 0, 198, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 DELETE FROM `creature_formations` WHERE `leaderGUID` IN (25998, 25999, 26000);
 INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`, `point_1`, `point_2`) VALUES

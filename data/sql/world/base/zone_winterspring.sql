@@ -152,9 +152,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- update Respawn Times and Movement
-UPDATE `creature` SET `spawntimesecs` = 115200, `MovementType` = 1, `Wander_distance` = 5 WHERE `id1` = 10201; -- Lady Hederine
-UPDATE `creature` SET `spawntimesecs` = 37800,  `MovementType` = 1, `Wander_distance` = 5 WHERE `id1` = 10196; -- General Colbatann
-UPDATE `creature` SET `spawntimesecs` = 75600                                             WHERE `id1` = 10198; -- Kashoch the Reaver
+UPDATE `creature` SET `spawntimesecs` = 115200, `MovementType` = 1, `Wander_distance` = 5 WHERE `id` = 10201; -- Lady Hederine
+UPDATE `creature` SET `spawntimesecs` = 37800,  `MovementType` = 1, `Wander_distance` = 5 WHERE `id` = 10196; -- General Colbatann
+UPDATE `creature` SET `spawntimesecs` = 75600                                             WHERE `id` = 10198; -- Kashoch the Reaver
 
 
 DELETE FROM `creature_text` WHERE `CreatureID` IN (7451, 7454, 10200);

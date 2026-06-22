@@ -102,7 +102,7 @@ INSERT INTO `gameobject` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, 
 
 UPDATE `gameobject_template` SET `ScriptName` = "go_cavernsoftimedoor" WHERE `entry` = 176996;
 
-UPDATE `creature` SET `position_x` = -8175.67, `position_y` = -4718.28, `position_z` = 26.3489, `orientation` = 1.88496 WHERE `id1` = 15192;
+UPDATE `creature` SET `position_x` = -8175.67, `position_y` = -4718.28, `position_z` = 26.3489, `orientation` = 1.88496 WHERE `id` = 15192;
 
 -- fix Omgorn the Lost waypoints, was placed on wrong continent
 UPDATE `creature` SET `map` = 1 WHERE `guid` IN (152280, 152281);
@@ -144,10 +144,10 @@ SET @Evee      := 125177;
 SET @Ecton     := 125178;
 
 DELETE FROM `creature` WHERE `guid` IN (@CGUID+41, @CGUID+42);
-DELETE FROM `creature` WHERE `id1` IN (25177, 25178, 26378, @Evee, @Ecton);
-DELETE FROM `creature` WHERE `id1` IN (32359, 32360, 32362, 32407, 33915, 33917, 33920, 33924, 33928, 33929, 33934, 33935, 33939, 34088, 34090, 34093);
+DELETE FROM `creature` WHERE `id` IN (25177, 25178, 26378, @Evee, @Ecton);
+DELETE FROM `creature` WHERE `id` IN (32359, 32360, 32362, 32407, 33915, 33917, 33920, 33924, 33928, 33929, 33934, 33935, 33939, 34088, 34090, 34093);
 
-INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (@CGUID+41, 20278,   1, -7119.02, -3779.06, 8.78404, 0, 180),     -- Vixton Pinchwhistle, WotLK Season 1
 (@CGUID+42, @Vixton, 1, -7119.02, -3779.06, 8.78404, 0, 180),     -- Vixton Pinchwhistle, WotLK Season 2

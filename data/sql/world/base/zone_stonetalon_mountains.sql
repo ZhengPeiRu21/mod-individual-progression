@@ -160,19 +160,19 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature` SET `MovementType` = 1, `Wander_distance` = 5 WHERE `guid` = 51889;
 
 -- fix waypoints, spawn locations and respawn times
-DELETE FROM `creature` WHERE `id1` IN (4202, 5916, 11921);
-INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id` IN (4202, 5916, 11921);
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
-(29254,  4202, 0, 0, 1, 0, 0, 1, 1, 1, 1605.99, 96.7067, 98.6662, 0.191986, 300, 0, 0, 840, 0, 0, 0, 0, 0, '', 0, 0, NULL),     -- Gerenzo Wrenchwhistle
-(695116, 4202, 0, 0, 1, 0, 0, 1, 1, 1, 1608.36, 185.02, 104.705, 3.56047,   300, 0, 0, 840, 0, 0, 0, 0, 0, '', 0, 0, NULL),
+(29254,  4202, 1, 0, 0, 1, 1, 1, 1605.99, 96.7067, 98.6662, 0.191986, 300, 0, 0, 840, 0, 0, 0, 0, 0, '', 0, 0, NULL),     -- Gerenzo Wrenchwhistle
+(695116, 4202, 1, 0, 0, 1, 1, 1, 1608.36, 185.02, 104.705, 3.56047,   300, 0, 0, 840, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 --
-(51888,  5916, 0, 0, 1, 0, 0, 1, 1, 1, 2413.89, 1675.03, 316.675, 5.08935, 38000, 0, 1, 2070, 732, 2, 0, 0, 0, '', 0, 0, NULL), -- Amarassan
+(51888,  5916, 1, 0, 0, 1, 1, 1, 2413.89, 1675.03, 316.675, 5.08935, 38000, 0, 1, 2070, 732, 2, 0, 0, 0, '', 0, 0, NULL), -- Amarassan
 --
-(29447,  11921, 0, 0, 1, 0, 0, 1, 1, 0, 511.902, 708.578, 80.1161, 3.54302, 300, 3, 0, 1563, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- Besseleth
-(695112, 11921, 0, 0, 1, 0, 0, 1, 1, 0, 511.902, 708.578, 80.1161, 3.54302, 300, 3, 0, 1563, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- more likely to spawn here
-(695113, 11921, 0, 0, 1, 0, 0, 1, 1, 0, 573.739, 571.18, 79.9735, 4.17277,  300, 0, 0, 1563, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=vn-4B5U1v1E
-(695114, 11921, 0, 0, 1, 0, 0, 1, 1, 0, 581.379, 681.811, 78.715, 0.571724, 300, 3, 0, 1563, 0, 1, 0, 0, 0, '', NULL, 0, NULL); -- https://www.youtube.com/watch?v=B3FH62CEvW8
+(29447,  11921, 1, 0, 0, 1, 1, 0, 511.902, 708.578, 80.1161, 3.54302, 300, 3, 0, 1563, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- Besseleth
+(695112, 11921, 1, 0, 0, 1, 1, 0, 511.902, 708.578, 80.1161, 3.54302, 300, 3, 0, 1563, 0, 1, 0, 0, 0, '', 0, 0, NULL),    -- more likely to spawn here
+(695113, 11921, 1, 0, 0, 1, 1, 0, 573.739, 571.18, 79.9735, 4.17277,  300, 0, 0, 1563, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=vn-4B5U1v1E
+(695114, 11921, 1, 0, 0, 1, 1, 0, 581.379, 681.811, 78.715, 0.571724, 300, 3, 0, 1563, 0, 1, 0, 0, 0, '', NULL, 0, NULL); -- https://www.youtube.com/watch?v=B3FH62CEvW8
 
 
 DELETE FROM `pool_creature` WHERE `pool_entry` IN (601029, 601030);
