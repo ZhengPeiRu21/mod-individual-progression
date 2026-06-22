@@ -1112,7 +1112,35 @@ public:
                 }
             }
         }
-        
+
+        if (!sIndividualProgression->disableDefaultProgression)
+        {
+            Group* group = killer->GetGroup();
+
+            bool CustomCreatureKilled = false;
+
+            if (group)
+            {
+                for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+                {
+                    Player* member = itr->GetSource();
+                    if (!member || !sIndividualProgression->isNormalAccount(member))
+                        continue;
+
+                    if (sIndividualProgression->checkCustomKillProgression(killer, killed))
+                        CustomCreatureKilled = true;
+                }
+            }
+            else // no group
+            {
+                if (sIndividualProgression->checkCustomKillProgression(killer, killed)) 
+                    CustomCreatureKilled = true;
+            }
+
+            if (CustomCreatureKilled)
+                return;
+        }
+
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {
             Group* group = killer->GetGroup();
@@ -1147,7 +1175,7 @@ public:
                 return;
             }
 
-            sIndividualProgression->checkKillProgression(killer, killed); // no group
+            uint32 entry = killed->GetEntry();
 
             if (group)
             {
@@ -1158,8 +1186,16 @@ public:
                         continue;
 
                     if (killer->IsAtLootRewardDistance(member))
-                        sIndividualProgression->checkKillProgression(member, killed);
+                    {
+                        if (!sIndividualProgression->hasCustomProgressionValue(entry))
+                            sIndividualProgression->checkKillProgression(member, killed);
+                    }
                 }
+            }
+            else // no group
+            {
+                if (!sIndividualProgression->hasCustomProgressionValue(entry))
+                    sIndividualProgression->checkKillProgression(killer, killed);
             }
         }
     }
