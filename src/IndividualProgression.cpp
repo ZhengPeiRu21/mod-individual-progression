@@ -443,7 +443,8 @@ void IndividualProgression::checkDemonSpells(Player* player)
         {
             for (auto it = std::rbegin(dummyIds); it != std::rend(dummyIds); ++it)
             {
-                if (player->HasSpell(*it) || *it == 603110 || *it == 603716) // 603110 and 603716 are rank 1 dummy IDs for Firebolt and Torment
+                // 603110, 603716, 619505 and 607814 are rank 1 dummy IDs for Firebolt, Torment, Devour Magic and Lash of Pain
+                if (player->HasSpell(*it) || *it == 603110 || *it == 603716 || *it == 619505 || *it == 607814) 
                 {
                     pet->learnSpell(*it - 600000);
                     return;
@@ -492,7 +493,7 @@ void IndividualProgression::checkDemonSpells(Player* player)
     case NPC_SUCCUBUS:
         // Lash of Pain: ranks 1..9 (47992 is WotLK rank 9)
         wipe({ 7814, 7815, 7816, 11778, 11779, 11780, 27274, 47991, 47992 });
-        learnHighest({ 607815, 607816, 611778, 611779, 611780, 627274 });
+        learnHighest({ 607814, 607815, 607816, 611778, 611779, 611780, 627274 });
 
         // Soothing Kiss: ranks 1..5
         wipe({ 6360, 7813, 11784, 11785, 27275 });
@@ -507,7 +508,7 @@ void IndividualProgression::checkDemonSpells(Player* player)
     case NPC_FELHUNTER:
         // Devour Magic + Shadow Bite
         wipe({ 19505, 19731, 19734, 19736, 27276, 27277, 48011, 54049, 54050, 54051, 54052, 54053 });
-        learnHighest({ 619731, 619734, 619736, 627276, 627277 });
+        learnHighest({ 619505, 619731, 619734, 619736, 627276, 627277 });
 
         // Tainted Blood / Fel Intelligence
         wipe({ 20429, 20430, 20431, 20432, 27497, 54424, 57564, 57565, 57566, 57567 });
