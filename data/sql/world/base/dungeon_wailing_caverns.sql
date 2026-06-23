@@ -85,11 +85,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- fix Respawn and Movement
-UPDATE `creature` SET `spawntimesecs` = 172800, `MovementType` = 1, `wander_distance` = 2 WHERE `id` = 3652; -- Trigore the Lasher
-UPDATE `creature` SET `spawntimesecs` = 54000,  `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 3672; -- Boahn
+UPDATE `creature` SET `spawntimesecs` = 172800, `MovementType` = 1, `wander_distance` = 2 WHERE `id1` = 3652; -- Trigore the Lasher
+UPDATE `creature` SET `spawntimesecs` = 54000,  `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 3672; -- Boahn
 
-DELETE FROM `creature` WHERE `id` IN (3655, 3671);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` IN (3655, 3671);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (14055,  3655, 1, 0, 0, 1, 1, 1, -658.948, -2006.91, 61.816, 3.46793,     275, 0, 0, 386, 0, 0, 0, 0, 0, '', 0, 0, NULL),   -- Mad Magglish

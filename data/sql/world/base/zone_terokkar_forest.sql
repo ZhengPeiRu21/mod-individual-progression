@@ -78,7 +78,7 @@ UPDATE `smart_scripts` SET `target_type` = 21, `target_param1` = 40 WHERE `entry
 UPDATE `smart_scripts` SET `target_type` = 21, `target_param1` = 40 WHERE `entryorguid` = 16769 AND `source_type` = 0 AND `id` = 17;
 
 DELETE FROM `creature` WHERE `guid` IN (247237, 622441);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (247237, 22441, 530, 0, 0, 1, 1, 0, -3400.86, 4665.3, 99.6544, 4.62677, 300, 0, 0, 29570, 0, 0, 0, 0, 0, '', 0, 0, 'SAI Target'),
 (622441, 122441, 530, 0, 0, 1, 1, 0, -3536.9500, 4552.8501, 83.9206, 1.4071, 300, 0, 1, 29570, 0, 2, 0, 0, 0, '', 0, 0, 'Patrol');
@@ -165,7 +165,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 -- fix movement Rotting Forest-Rager (entry 22307)
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `wander_distance` = 0 WHERE `guid` IN (78435, 78436, 78437, 78438, 78439);
-DELETE FROM `creature` WHERE `guid` = 133907 AND `id` = 22307; -- misplaced
+DELETE FROM `creature` WHERE `guid` = 133907 AND `id1` = 22307; -- misplaced
 
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN 78435 AND 78439;
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
@@ -287,8 +287,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- fix speed Monstrous Kaliri - https://www.youtube.com/watch?v=vLIzGAOyQjY
 UPDATE `creature_template` SET `speed_walk` = 4 WHERE `Entry` = 23051; -- was set to 14
 
-DELETE FROM `creature` WHERE `id` IN (21644, 21649, 21650, 21651, 21723, 21728, 21730, 21763, 21787, 21804, 21911, 23029, 23051, 23219);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (21644, 21649, 21650, 21651, 21723, 21728, 21730, 21763, 21787, 21804, 21911, 23029, 23051, 23219);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 
 -- Skettis Wing Guard

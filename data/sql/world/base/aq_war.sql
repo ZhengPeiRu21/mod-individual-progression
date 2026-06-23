@@ -47,7 +47,7 @@ INSERT INTO `creature_text` (`CreatureID`,`GroupID`,`ID`,`Text`,`Type`,`Language
 
 -- add bosses to Silithus and Darkshore 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+101 AND @CGUID+140;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+101,15810,1,0,0,1,@IPPPHASE,0,4386.996582, 550.179260, 54.762119, 0.581150,1800,5,0,0,0,1,0,0,0,'',0),
 (@CGUID+102,15810,1,0,0,1,@IPPPHASE,0,4388.178711, 513.457581, 53.590897, 3.921458,1800,5,0,0,0,1,0,0,0,'',0),

@@ -206,7 +206,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (14425, 0, 1, 0, 2, 0, 100, 1, 0, 15, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                      'Gnawbone - Between 0-15% Health - Flee For Assist (No Repeat)');
 
 -- Garneg Charskull, fix respawn time
-UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id` = 2108; 
+UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` = 2108; 
 
 -- Quest: Digging Through the Ooze - Sida's Bag drop chance 
 UPDATE `creature_loot_template` SET `Chance` = 10 WHERE `Item` = 3349 AND `Entry` = 1031; -- Crimson Ooze
@@ -215,8 +215,8 @@ UPDATE `creature_loot_template` SET `Chance` = 5  WHERE `Item` = 3349 AND `Entry
 
 -- missing patrols
 DELETE FROM `pool_creature` WHERE `pool_entry` = 1072; -- remove 22 spawn locations used by AC, we are now using waypoints
-DELETE FROM `creature` WHERE `id` IN (14424);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` IN (14424);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (91113, 14424, 0, 0, 0, 1, 1, 0, -2752.94, -1311.99, 6.14436, 1.69779, 39600, 0, 1, 734, 0, 2, 0, 0, 0, '', 0, 0, NULL); -- Mirelow
 

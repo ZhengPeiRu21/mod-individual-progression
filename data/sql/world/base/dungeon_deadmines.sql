@@ -99,7 +99,7 @@ SET @IPPPHASE_III := 262144;
 
 DELETE FROM `creature` WHERE guid IN 
 (79139, 79144, 79151, 79152, 79170, 79171, 79177, 79188, 79189, 79207, 79229, 79230, 79233, 79244, 79245, 79273, 79277, 79280, 79281, 79283, 79284, 79285, 79373, 79374, 79376, 79377);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (79244, 634,  36, 0, 0, 1, @IPPPHASE, 1, -90.571, -400.149, 58.4755, 3.20291, 86400, 0, 1, 1158, 0,   2, 0, 0, 0, '', 0, 0, NULL),

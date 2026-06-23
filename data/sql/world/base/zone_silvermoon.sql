@@ -1,7 +1,7 @@
 -- Restore M'uru
 SET @MURU_GUID := 352043;
 DELETE FROM `creature` WHERE `guid` = @MURU_GUID;
-INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`) VALUES
 (@MURU_GUID, 17544, 530, 9850.99, -7522.666, -9.157837, 1.537163);
 
 UPDATE `creature_template` SET `rank` = 3, `type_flags` = 4 WHERE `entry` = 17544; -- M'uru
@@ -159,7 +159,7 @@ UPDATE `conditions` SET `ConditionValue2` = 17544 WHERE `SourceTypeOrReferenceId
 
 -- Restore Lady Liadrin and move Magister Astalor Bloodsworn a bit.
 DELETE FROM `creature` WHERE `guid` IN (96976, 617076);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (96976,  17718, 530, 0, 0, 1, 1, 0, 9859.45, -7519.19, -8.06573, 1.69273, 180, 0, 0, 3484, 5751, 0, 0, 0, 0, '', 0, 0, NULL),        -- Magister Astalor Bloodsworn
 (617076, 17076, 530, 0, 0, 1, 1, 0, 9862.12, -7518.44, -8.06524, 1.86945, 300, 0, 0, 1214000, 33870, 0, 0, 0, 0, '', NULL, 0, NULL); -- Lady Liadrin

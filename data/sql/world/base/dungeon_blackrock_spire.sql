@@ -254,7 +254,7 @@ DELETE FROM `creature` WHERE `guid` IN
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+14 AND @CGUID+19;
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+31 AND @CGUID+36;
 
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (43560, 9241, 229, 0, 0, 1, 1, 1, -73.1897, -517.357, -7.14292, 0.00402808, 10800, 0, 0, 8097, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (43764, 9259, 229, 0, 0, 1, 1, 1, -61.9859, -406.51, -18.9337, 5.27176, 10800, 0, 0, 8097, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -381,8 +381,8 @@ DELETE FROM `waypoint_data` WHERE `id` = 926800;
 
 -- Bannok Grimaxe (9596), spawn locations
 DELETE FROM `creature` WHERE `guid` IN (44020, 44318); -- creatures placed in Bannok Grimaxe's spawn locations by AC
-DELETE FROM `creature` WHERE `id` IN (9596);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` IN (9596);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (@CGUID+11, 9596, 229, 0, 0, 1, 1, 1, -26.6918, -428.557, -18.935, 2.25881, 10800, 0, 0, 8883, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+12, 9596, 229, 0, 0, 1, 1, 1, -74.0576, -406.988, -18.935, 5.22526, 10800, 0, 0, 8883, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -446,7 +446,7 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 
 -- fix missing patrols
 DELETE FROM `creature` WHERE `guid` IN (@CGUID+1, @CGUID+2, @CGUID+3, @CGUID+4, @CGUID+5, @CGUID+6, @CGUID+7, @CGUID+8,  @CGUID+9, @CGUID+21, @CGUID+22);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (@CGUID+1, 9583, 229, 0, 0, 1, 1, 1, -138.983, -369.133, 58.079,  0, 10800, 0, 1, 8883, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Bloodaxe Veteran

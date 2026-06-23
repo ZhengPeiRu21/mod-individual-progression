@@ -21,7 +21,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- fix Arzeth the Merciless worldserver error
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `id` = 19354;
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `id1` = 19354;
 
 -- fix Pit Commander worldserver error
 UPDATE `smart_scripts` SET `event_type` = 61 WHERE `entryorguid` = 18945 AND `id` = 4;

@@ -31,8 +31,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `smart_scripts` SET `event_type` = 61 WHERE `entryorguid` = 22374 AND `source_type` = 0 AND `id` = 1;
 
 -- TBC battlemasters
-DELETE FROM `creature` WHERE `id` IN (20269, 20271, 20272, 20273, 20274, 20276, 20339, 20362, 20384, 20395);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (20269, 20271, 20272, 20273, 20274, 20276, 20339, 20362, 20384, 20395);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (207610, 20269, 530, 0, 0, 1, 1, 1, -1971.8900, 5269.0400, -38.7644, 3.0718, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -53,7 +53,7 @@ DELETE FROM `game_event_creature` WHERE `guid` IN (72252, 72364, 207610, 207611,
 DELETE FROM `creature` WHERE `guid` IN (63451, 88251, 88252, 88254, 207710, 207711);
 
 -- change Shattered Sun Marksmen into Warriors. Marksmen refuse to use waypoints to run towards the Quel'Danas portal
-UPDATE `creature` SET `id` = 25115 WHERE `guid` IN (165106, 165107, 165108, 165109);
+UPDATE `creature` SET `id1` = 25115 WHERE `guid` IN (165106, 165107, 165108, 165109);
 
 
 /* Scryer's Tier */
@@ -85,7 +85,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (667360, 13, -2110.05, 5512.4, 49.4188, NULL, 0, 0, 0, 100, 0);
 
 DELETE FROM `creature` WHERE `guid` IN (@CGUID+17, @CGUID+18, @CGUID+19, @CGUID+20, @CGUID+23, @CGUID+24, @CGUID+25, @CGUID+26);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+17, 18547, 530, 0, 0, 1, 1, 1, -2107.36, 5641.19, 50.31, 3.25, 300, 0, 0, 3611, 5875, 0, 0, 0, 0, '', 0, 0, NULL), -- Scryer Arcanist
@@ -104,9 +104,9 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 -- remove creatures placed by AC
 DELETE FROM `creature` WHERE `guid` IN (68495, 68496, 68497, 68498, 68492, 68493, 68494, 68923, 68924, 68925, 68926, 68927, 68928, 68929, 69136, 69137, 69138, 69139);
 
-DELETE FROM `creature` WHERE `id` IN (19346, 19377, 19378);
+DELETE FROM `creature` WHERE `id1` IN (19346, 19377, 19378);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+12;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (68962,     19346, 530, 0, 0, 1, 1, 0, -1764.84, 5726.25, 126.538, 4.27606, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', 0, 0, NULL),      -- Harbring Erothem

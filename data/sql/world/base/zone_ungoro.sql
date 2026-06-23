@@ -108,20 +108,20 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (911700, 9, 2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'J.D. Collie - On Script - Say Line 0'),
 (911700, 9, 3, 0, 0, 0, 100, 0, 10000, 10000, 0, 0, 0, 0, 15, 4321, 0, 0, 0, 0, 0, 12, 1, 0, 0, 0, 0, 0, 0, 0, 'J.D. Collie - On Script - Quest Credit \'Making Sense of It\'');
 
-UPDATE `creature` SET `spawntimesecs` = 54000  WHERE `id` = 6581; -- Ravasaur Matriarch
-UPDATE `creature` SET `spawntimesecs` = 47000  WHERE `id` = 6582; -- Clutchmother Zavas
-UPDATE `creature` SET `spawntimesecs` = 108000 WHERE `id` = 6583; -- Gruff
-UPDATE `creature` SET `spawntimesecs` = 108000 WHERE `id` = 6584; -- King Mosh
-UPDATE `creature` SET `spawntimesecs` = 23400  WHERE `id` = 6585; -- Uhk'loc
+UPDATE `creature` SET `spawntimesecs` = 54000  WHERE `id1` = 6581; -- Ravasaur Matriarch
+UPDATE `creature` SET `spawntimesecs` = 47000  WHERE `id1` = 6582; -- Clutchmother Zavas
+UPDATE `creature` SET `spawntimesecs` = 108000 WHERE `id1` = 6583; -- Gruff
+UPDATE `creature` SET `spawntimesecs` = 108000 WHERE `id1` = 6584; -- King Mosh
+UPDATE `creature` SET `spawntimesecs` = 23400  WHERE `id1` = 6585; -- Uhk'loc
 
-UPDATE `creature` SET`MovementType` = 1, `wander_distance` = 5 WHERE `id` IN (6581, 6582, 6583, 6585);
+UPDATE `creature` SET`MovementType` = 1, `wander_distance` = 5 WHERE `id1` IN (6581, 6582, 6583, 6585);
 
 -- U'cha, waypoints
 -- https://www.youtube.com/watch?v=UYj7pj7Jqf4&t=10s
 -- https://www.youtube.com/watch?v=Ee2KVKJuINw&t=200s
 -- https://www.youtube.com/watch?v=_YKpLAzQaX8&t=150s
 
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `id` = 9622; -- U'cha
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `id1` = 9622; -- U'cha
 
 DELETE FROM `creature_addon` WHERE `guid` IN (24254);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 

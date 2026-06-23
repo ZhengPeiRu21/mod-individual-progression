@@ -192,7 +192,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 DELETE FROM `creature` WHERE `guid` IN (40068, 40070);
 DELETE FROM `creature` WHERE `guid` BETWEEN 695001 AND 695007;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (40068, 4288, 189, 0, 0, 1, 1, 1, 201.223, -232.896, 18.5307, 3.14066, 86400, 0, 1, 3489, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Beastmaster

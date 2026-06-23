@@ -64,8 +64,8 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (79, 0, 2, 'No kill me! No kill me!', 12, 0, 100, 0, 0, 0, 1863, 0, 'Narg the Taskmaster');
 
 -- Hogger, fix missing waypoints and spawn points, entry 448, guid 80531
-DELETE FROM `creature` WHERE `id` = 448;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` = 448;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (80531, 448, 0, 0, 0, 1, 1, 1, -9946, 604.266, 38.2862, 0.297245, 180, 0, 1, 666, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 (695022, 448, 0, 0, 0, 1, 1, 1, -9947.88, 594.773, 39.608, 5.19393, 180, 15, 0, 666, 0, 1, 0, 0, 0, '', 0, 0, NULL),
@@ -223,8 +223,8 @@ INSERT INTO `creature_questitem` (`CreatureEntry`, `Idx`, `ItemId`, `VerifiedBui
 (299, 0, 750, 0);
 
 -- Restore Mirror Lake Orchard creatures removed in WotLK
-DELETE FROM `creature` WHERE `guid` IN (80391, 80392, 80393, 80394, 80396, 80397, 80399, 80400, 80401, 80402, 80403, 80404, 80405) AND `id` IN (116, 94);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `guid` IN (80391, 80392, 80393, 80394, 80396, 80397, 80399, 80400, 80401, 80402, 80403, 80404, 80405) AND `id1` IN (116, 94);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (80391, 116, 0, 0, 0, 1, 1, 1, -9441.48, 469.81, 53.2758, 4.26422, 180, 5, 0, 156, 0, 1, 0, 0, 0, '', 0),
 (80392, 116, 0, 0, 0, 1, 1, 1, -9444.94, 473.775, 52.3257, 4.03171, 180, 5, 0, 156, 0, 1, 0, 0, 0, '', 0),

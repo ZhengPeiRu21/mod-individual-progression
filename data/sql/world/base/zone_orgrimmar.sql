@@ -29,10 +29,10 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4209, 0, 7, 165, 50,  'Show menu if leatherworking is 50 or higher'), -- Karolek <Expert Leatherworker>
 (15, 4347, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');      -- Magar <Expert Tailor>
 
-DELETE FROM `creature` WHERE `id` = 3230 AND `map`= 1;
+DELETE FROM `creature` WHERE `id1` = 3230 AND `map`= 1;
 DELETE FROM `creature` WHERE `guid` IN (10299, 203492, 203493, 203494, 203495);
-DELETE FROM `creature` WHERE `id` IN (3890, 14720, 14942, 15006);
-INSERT INTO `creature` (`guid`, `id`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+DELETE FROM `creature` WHERE `id1` IN (3890, 14720, 14942, 15006);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (603230, 3230,  1, 1, 1938.55, -4133.22, 41.1424, 4.07636, 300), -- Nazgrel <Advisor to Thrall>
 (10299,  3296,  1, 1, 1620.45, -4252.84, 47.5273, 3.7001,  300), -- Orgrimmar Grunt
 (603890, 3890,  1, 1, 1991.89, -4793.95, 56.0462, 3.27581, 300), -- Brakgul Deathbringer <Warsong Gulch Battlemaster>
@@ -41,7 +41,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `equipment_id`, `position_x`, `posi
 (615006, 15006, 1, 1, 2002.26, -4796.74, 56.8471, 3.00197, 600); -- Deze Snowbane <Arathis Basin Battlemaster>
 
 -- Master Pyreanor <Paladin Trainer>
-UPDATE `creature` SET `position_x`= 1940.23, `position_y`= -4135.53, `position_z`= 41.1522, `orientation`= 3.12425  WHERE `id` = 23128;
+UPDATE `creature` SET `position_x`= 1940.23, `position_y`= -4135.53, `position_z`= 41.1522, `orientation`= 3.12425  WHERE `id1` = 23128;
 
 -- Knowledge of the Orb of Orahil (Warlock)
 DELETE FROM `creature_queststarter` WHERE `id` = 3326 AND `quest` = 4967;
@@ -97,11 +97,11 @@ UPDATE `creature_template` SET `subname` = 'Arena Vendor'                      W
 UPDATE `creature_template_addon` SET `mount` = 0 WHERE `entry` = 12796;
 
 DELETE FROM `creature` WHERE `guid` IN (125688, 125690, 125694, 125695, 612792, 612793, 612794, 612795, 612796, 612799, 614581, 623396, 623447, 626397, 620278, 626396); -- 00_cleanup
-DELETE FROM `creature` WHERE `id`  IN (12788, 19850, 32383, 32385, 34036, 34037, 34038, 34058, 34059, 34060);
+DELETE FROM `creature` WHERE `id1`  IN (12788, 19850, 32383, 32385, 34036, 34037, 34038, 34058, 34059, 34060);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+18;
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+101 AND @CGUID+118;
 
-INSERT INTO `creature` (`guid`, `id`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (@CGUID+101, 12799, 1, 1, 1632.21, -4262.19, 49.027, 3.63029, 430),     -- Sergeant Ba'sha <Accessories Quartermaster>, Vanilla
 (@CGUID+102, @Stonehide, 1, 1, 1657.6, -4191.97, 56.383, 4.52365, 180), -- Brave Stonehide <Officer Accessories Quartermaster>, Vanilla
@@ -337,7 +337,7 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 
 
 -- WotLK pvp vendors
-DELETE FROM `creature` WHERE `id` IN 
+DELETE FROM `creature` WHERE `id1` IN 
 (34043,  -- Lady Palanseer <Armor Quartermaster>
  34063); -- Blood Guard Zar'shi <Northrend Armor Quartermaster>
 

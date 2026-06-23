@@ -321,7 +321,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-608891, 0, 7, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 911070, 0, 0, 0, 0, 0, 10, 91107, 0, 0, 0, 0, 0, 0, 0,  'BRD Bridge Trigger - On Near Player - Start Waypoints Anvilrage Guardsman 91107');
 
 DELETE FROM `creature` WHERE `guid` IN (90728, 91106, 91107, 608891);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (90728,  8911, 230, 0, 0, 1, 1, 0, 754.091, -73.9451, -46.2159, 0.84735, 7200, 0, 1, 7599, 0, 2, 0, 0, 0, '', 0, 0, NULL),
@@ -360,8 +360,8 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 --
 (108982, 0, 0, 0, 0, 0, 'Ironhand Guardian', NULL, NULL, 0, 60, 60, 0, 15, 0, 1, 1.14286, 1, 1, 20, 1, 0, 0.1, 2000, 2000, 1, 1, 1, 70, 2048, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 'SmartAI', 0, 1, 3, 2, 1, 1, 0, 0, 1, 0, 2, '', 0);
 
-DELETE FROM `creature` WHERE `id` IN (8982, 108982);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (8982, 108982);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (47323, 108982, 230, 0, 0, 1, 1, 0, 1407.29, -587.299, -91.9711, 3.15905, 7200, 0, 0, 126, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -437,7 +437,7 @@ DELETE FROM `creature` WHERE `guid` IN (
 47799, 47800, 47801, 47802, 47803,
 90658, 90659, 90660, 90661, 90662);
 
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (45857, 8895, 230, 0, 0, 1, 1, 1, 734.342, -115.562, -71.8692, 2.29181, 7200, 0, 1, 5502, 3728, 2, 0, 0, 0, '', 0, 0, NULL), -- Anvilrage Officer
@@ -582,7 +582,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 -- fix officer packs that are misplaced and have wrong movement
 DELETE FROM `creature` WHERE guid IN (90653, 90654, 90655, 90656, 90657, 90680, 90681, 90682, 90683, 90684, 90839, 90840, 90841, 90842, 90843);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (90653, 8895, 230, 0, 0, 1, 1, 1, 678.689, -121.644, -72.0716, 1.21643, 7200, 0, 0, 5502, 3728, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -607,7 +607,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 DELETE FROM `creature` WHERE `guid` IN (
 45896, 45897, 45898, 45915, 45916, 45917, 45924, 45925, 45926, 47825, 47826, 47827, 47830, 47831, 47832, 
 90686, 90687, 90688, 90855, 90856, 90857, 90866, 90867, 90868, 90918, 90917, 90916, 91084, 91085, 91086);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (45896, 8921, 230, 0, 0, 1, 1, 0, 511.225, -178.22, -60.0722, 1.86715, 7200, 0, 0, 2672, 0, 0, 0, 0, 0, '', 0, 0, NULL),

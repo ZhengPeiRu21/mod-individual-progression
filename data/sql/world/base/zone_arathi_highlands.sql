@@ -143,8 +143,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (4481, 0, 3, 0, 2, 0, 100, 1, 0, 30, 0, 0, 0, 0, 25, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,                     'Marcel Dabyrie - Between 0-30% Health - Flee For Assist (No Repeat)');
 
 -- multiple spawn locations for Prince Nazjak
-DELETE FROM `creature` WHERE `id` IN (2779);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` IN (2779);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (84713, 2779, 0, 0, 0, 1, 1, 1, -2316.75, -1582.54, -36.352, 4.89399, 115200, 5, 0, 1902, 0, 1, 0, 0, 0, '', 0, 0, NULL),
@@ -180,7 +180,7 @@ DELETE FROM `creature` WHERE `guid` = 11228; -- (11228, 2564, 0, 0, 0, 0, 0, 1, 
 DELETE FROM `creature_addon` WHERE `guid` = 11228;
 
 -- remove non elite Syndicate thief from Stromgarde
-DELETE FROM `creature` WHERE `id` = 24477;
+DELETE FROM `creature` WHERE `id1` = 24477;
 
 -- delete all guids for id 24477 from creature_addon
 DELETE FROM `creature_addon` WHERE `guid` IN 

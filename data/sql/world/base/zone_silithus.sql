@@ -130,8 +130,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 15 WHERE `guid` IN (42970, 42997, 43036);
 
 -- Deathclasp waypoints
-DELETE FROM `creature` WHERE `id` = 15196;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` = 15196;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (42921, 15196, 1, 0, 0, 1, 1, 0, -8102.7, 967.628, 59.7207, 2.96696, 600, 0, 1, 8883, 0, 2, 0, 0, 0, '', 0, 0, NULL); 
 
@@ -163,9 +163,9 @@ SET @CGUID    := 651000;
 DELETE FROM `creature` WHERE `guid` IN (42969, 42983, 42984); 
 DELETE FROM `creature_addon` WHERE `guid` IN (42969, 42983, 42984); 
 
-DELETE FROM `creature` WHERE `id` = 15308;
+DELETE FROM `creature` WHERE `id1` = 15308;
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+8;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (43322, 15308, 1, 0, 0, 1, 1, 1, -7612.16, 1619.85, 2.5204, -1.45604, 3600, 0, 1, 7369, 11502, 2, 0, 0, 0, '', 0, 0, NULL),
 (43323, 15308, 1, 0, 0, 1, 1, 1, -6888.79, 1636.61, 2.8743, 0.795651, 3600, 0, 1, 7369, 11502, 2, 0, 0, 0, '', 0, 0, NULL),
@@ -413,9 +413,9 @@ DELETE FROM `creature` WHERE `guid` IN (43202, 43203);
 DELETE FROM `creature_addon` WHERE `guid` IN (43202, 43203); 
 DELETE FROM `waypoint_data` WHERE `id` IN (432020, 432030); 
 
-DELETE FROM `creature` WHERE `id` = 15541;
+DELETE FROM `creature` WHERE `id1` = 15541;
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+11 AND @CGUID+15;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (43201, 15541, 1, 0, 0, 1, 1, 1, -6374.21, 532.318, 6.19409, 4.31401, 600, 0, 1, 10529, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 (@CGUID+11, 15542, 1, 0, 0, 1, 1, 1, -6365.12, 537.924, 7.15975, 6.17294, 600, 0, 0, 3998, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- escort of 15541

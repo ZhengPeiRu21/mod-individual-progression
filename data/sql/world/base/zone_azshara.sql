@@ -128,7 +128,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature_loot_template` SET `Chance` = 100 WHERE `Entry` = 6109 AND `Item` = 18704;
 
 -- Antilos, fix spawn time and movement
-UPDATE `creature` SET `spawntimesecs` = 115200, `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 6648;
+UPDATE `creature` SET `spawntimesecs` = 115200, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 6648;
 
 -- Quest: Kim'jael's "Missing" Equipment, fix drop rate 'Some Rune', was 100%
 UPDATE `creature_loot_template` SET `Chance` = 15 WHERE `Item` = 13815;

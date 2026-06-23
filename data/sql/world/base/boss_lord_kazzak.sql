@@ -20,8 +20,8 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (12397, 7, 0, 'The universe will be remade.', 14, 0, 0, 0, 0, 11339, 20083, 0, 'kazzak SAY_WIPE'),
 (12397, 8, 0, 'Kazzak is supreme!', 16, 0, 0, 0, 0, 0, 0, 0, 'kazzak SAY_SUPREME_VANILA');
 
-DELETE FROM `creature` WHERE `guid` = 156950 AND `id` = 12397;
-INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `spawntimesecs`, `MovementType`) VALUES
+DELETE FROM `creature` WHERE `guid` = 156950 AND `id1` = 12397;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `spawntimesecs`, `MovementType`) VALUES
 (156950, 12397, 0, -12226.8, -2433.57, 1.76505, 5.01826, 259200, 604800, 1);
    
 DELETE FROM `creature_template_model` WHERE `CreatureID` = 12397;

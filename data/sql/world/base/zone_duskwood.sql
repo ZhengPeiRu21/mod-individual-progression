@@ -111,7 +111,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- fix respawn time of Lord Malathrom and Naraxis
-UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id` IN (503, 574);
+UPDATE `creature` SET `spawntimesecs` = 23400 WHERE `id1` IN (503, 574);
 
 -- Nothing but the Truth, should require deepstrider tumor(6082)
 DELETE FROM `item_dbc` WHERE `ID` = 6082;

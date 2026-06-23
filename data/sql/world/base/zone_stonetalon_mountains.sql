@@ -160,8 +160,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature` SET `MovementType` = 1, `Wander_distance` = 5 WHERE `guid` = 51889;
 
 -- fix waypoints, spawn locations and respawn times
-DELETE FROM `creature` WHERE `id` IN (4202, 5916, 11921);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` IN (4202, 5916, 11921);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (29254,  4202, 1, 0, 0, 1, 1, 1, 1605.99, 96.7067, 98.6662, 0.191986, 300, 0, 0, 840, 0, 0, 0, 0, 0, '', 0, 0, NULL),     -- Gerenzo Wrenchwhistle

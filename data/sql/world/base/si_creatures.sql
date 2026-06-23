@@ -37,7 +37,7 @@ SET @SCORN                 := 614693;
 SET @LORD_BLACKWOOD        := 614695;
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+1720;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 
 -- Skeletal Soldier
@@ -1534,11 +1534,11 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 (@CGUID+1720, @SKELETAL_SHOCKTROOPER, 0, 0, 0, 1, 1, 0, 1797.03, -2837.68, 71.2373, 1.05181, 300, 0, 0, 8241, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 
-UPDATE `creature` SET `ScriptName` = 'npc_ipp_si' WHERE `id` IN 
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_si' WHERE `id1` IN 
 (@ARGENT_RECRUITER, @ARGENT_SCOUT, @ARGENT_EMISSARY, @ARGENT_MESSENGER, @ARGENT_QUARTERMASTER, @ARGENT_OUTFITTER,
  @KEEPER_OF_THE_ROLLS, @COMMANDER_THOMAS, @LIEUTENANT_ORRIN, @LIEUTENANT_NEVELL, @LIEUTENANT_LISANDE, @LIEUTENANT_DAGEL, @LIEUTENANT_RUKAG, @LIEUTENANT_BEITHA); -- 29441, 29442
 
-UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id` IN 
+UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `id1` IN 
 (@CULTIST_ENGINEER, @GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH, @LUMBERING_HORROR,
  @SEVER, @BALZAPHON, @LADY_FALTHERESS, @REVANCHION, @SCORN, @LORD_BLACKWOOD); 
 
@@ -1546,11 +1546,11 @@ UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` BETWEEN @CGUID+240 AN
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` BETWEEN @CGUID+192 AND @CGUID+197; -- Mouth of Kel'Thuzad
 UPDATE `creature` SET `phaseMask` = @IPPPHASE WHERE `guid` BETWEEN @CGUID     AND @CGUID+191; -- Skeletal Soldier, Spectral Apparition, Spectral Spirit, Skeletal Trooper
 
-UPDATE `creature` SET `wander_distance` = 4,  `MovementType` = 1 WHERE `id` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
-UPDATE `creature` SET `wander_distance` = 20, `MovementType` = 1 WHERE `id` IN (@LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
+UPDATE `creature` SET `wander_distance` = 4,  `MovementType` = 1 WHERE `id1` IN (@GHOUL_BERSERKER, @SPECTRAL_SOLDIER, @SKELETAL_SHOCKTROOPER);
+UPDATE `creature` SET `wander_distance` = 20, `MovementType` = 1 WHERE `id1` IN (@LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 
-UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id` IN (@NECROTIC_SHARD, @CULTIST_ENGINEER);
-UPDATE `creature` SET `spawntimesecs` = 3600 WHERE `id` IN (@LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
+UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id1` IN (@NECROTIC_SHARD, @CULTIST_ENGINEER);
+UPDATE `creature` SET `spawntimesecs` = 3600 WHERE `id1` IN (@LUMBERING_HORROR, @SPIRIT_OF_THE_DAMNED, @BONE_WITCH);
 
 -- undo AC adding IP's creatures to event 17
 DELETE FROM `game_event_creature` WHERE `eventEntry` = 17 AND `guid` BETWEEN @CGUID AND @CGUID+191;

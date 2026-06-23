@@ -112,11 +112,11 @@ UPDATE `creature_template` SET `subname` = 'Journeyman Tailor'        WHERE `ent
 UPDATE `creature_template` SET `subname` = 'Expert Tailor'            WHERE `entry` IN (16640, 16729);
 
 -- Delete added riding trainers
-DELETE FROM creature WHERE `id` IN (35093, 35100);
+DELETE FROM creature WHERE `id1` IN (35093, 35100);
 DELETE FROM creature_addon WHERE `guid` IN (88165, 88166);
 
 -- Optional - delete TBC trainers added in WotLK 3.1
-DELETE FROM creature WHERE `id` IN 
+DELETE FROM creature WHERE `id1` IN 
 (33608, 33609, 33610, 33611, 33612, 33613, 33614, 33615, 33616, 33617, 33618, 33619, 
 33621, 33623, 33630, 33631, 33633, 33634, 33635, 33636, 33637, 33639, 33640, 33641, 
 33674, 33675, 33676, 33677, 33678, 33680, 33681, 33682, 33683, 33684, 35099, 35101);
@@ -218,8 +218,8 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@Brumman, 0, 18177, 1, 1, 12340),
 (@Grikka, 0, 20059, 1, 1, 12340);
 
-DELETE FROM `creature` WHERE `id` IN (@Darmari, @Barim, @Brumman, @Grikka);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+DELETE FROM `creature` WHERE `id1` IN (@Darmari, @Barim, @Brumman, @Grikka);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (619187, @Darmari, 530, 0, 0, 1, 1, 1, -2060.92, 5256.68, -38.3819, 0.767945, 300, 0, 0, 3498, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (618754, @Barim, 530, 0, 0, 1, 1, 1, 148.588, 2636.02, 86.018, 1.27409, 300, 0, 0, 3113, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (618771, @Brumman, 530, 0, 0, 1, 1, 1, -721.657, 2745.26, 94.0548, 3.45575, 300, 0, 0, 3113, 0, 0, 0, 0, 0, '', 0, 0, NULL),
