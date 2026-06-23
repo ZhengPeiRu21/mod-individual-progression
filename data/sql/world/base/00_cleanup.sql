@@ -28,6 +28,9 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id1` IN (20278); -- Vixton Pinc
 
 /* the following edits are temporary */
 
+-- remove pvp progression requirements to show pvp gear. added rank requirements back
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `Comment` = "Vanilla PvP Ranked Gear (IPP)";
+
 -- remove vanilla AV landmines, default is no landmines
 SET @OGUID := 657000;
 DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+101 AND @OGUID+499;
