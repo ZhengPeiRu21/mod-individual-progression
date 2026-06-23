@@ -1270,3 +1270,326 @@ INSERT INTO `npc_vendor` (`entry`, `item`, `ExtendedCost`) VALUES
 (34093, 51412, 2939), (34093, 51432, 2939), (34093, 51440, 2947), (34093, 51442, 2947), (34093, 51444, 2947), (34093, 51446, 2947), (34093, 51448, 2947), (34093, 51450, 2939), (34093, 51454, 2940),
 (34093, 51457, 2939), (34093, 51481, 2939), (34093, 51516, 2944), (34093, 51518, 2944), (34093, 51520, 2944), (34093, 51522, 2944), (34093, 51524, 2944), (34093, 51526, 2947), (34093, 51528, 2947),
 (34093, 51529, 2947), (34093, 51534, 2938);
+
+
+/* PvP Gear Vendor Rep Requirements */
+
+-- Illiyana Moonblaze <Silverwing Supply Officer>
+UPDATE `item_template` SET `RequiredReputationFaction` = 890, `RequiredReputationRank` = 5 WHERE `entry` IN
+(19514, 19515, 19516, 19517, 19522, 19523, 19524, 19525, 19530, 19531, 19532, 19533, 19538, 19539, 19540, 19541, 20428, 20431, 20439, 20444);
+UPDATE `item_template` SET `RequiredReputationFaction` = 890, `RequiredReputationRank` = 6 WHERE `entry` IN
+(19546, 19547, 19548, 19549, 19554, 19555, 19556, 19557, 19562, 19563, 19564, 19565, 19570, 19571, 19572, 19573, 20434, 20438, 20440, 20443);
+UPDATE `item_template` SET `RequiredReputationFaction` = 890, `RequiredReputationRank` = 7 WHERE `entry` IN
+(19506, 22672, 22748, 22749, 22750, 22752, 22753);
+
+-- Kelm Hargunth <Warsong Supply Officer>
+UPDATE `item_template` SET `RequiredReputationFaction` = 889, `RequiredReputationRank` = 5 WHERE `entry` IN
+(19510, 19511, 19512, 19513, 19518, 19519, 19520, 19521, 19526, 19527, 19528, 19529, 19534, 19535, 19536, 19537, 20426, 20427, 20429, 20442);
+UPDATE `item_template` SET `RequiredReputationFaction` = 889, `RequiredReputationRank` = 6 WHERE `entry` IN
+(19542, 19543, 19544, 19545, 19550, 19551, 19552, 19553, 19558, 19559, 19560, 19561, 19566, 19567, 19568, 19569, 20425, 20430, 20437, 20441);
+UPDATE `item_template` SET `RequiredReputationFaction` = 889, `RequiredReputationRank` = 7 WHERE `entry` IN
+(19505, 22651, 22673, 22676, 22740, 22741, 22747);
+
+-- Samuel Hawke <League of Arathor Supply Officer>
+UPDATE `item_template` SET `RequiredReputationFaction` = 509, `RequiredReputationRank` = 5 WHERE `entry` IN
+(20041, 20042, 20043, 20044, 20045, 20046, 20047, 20088, 20089, 20090, 20097, 20098, 20099, 20103, 20104, 20105, 20106, 20107, 20108, 20115, 20116, 20117, 20118, 20119, 20120, 20124, 20125, 20126);
+UPDATE `item_template` SET `RequiredReputationFaction` = 509, `RequiredReputationRank` = 6 WHERE `entry` IN
+(20048, 20049, 20050, 20051, 20052, 20053, 20054, 20091, 20092, 20093, 20094, 20095, 20096, 20100, 20101, 20102, 20109, 20110, 20111, 20112, 20113, 20114, 20121, 20122, 20123, 20127, 20128, 20129);
+UPDATE `item_template` SET `RequiredReputationFaction` = 509, `RequiredReputationRank` = 7 WHERE `entry` IN
+(20055, 20056, 20057, 20058, 20059, 20060, 20061, 20069, 20070, 20073);
+
+-- Rutherford Twing <Defilers Supply Officer>
+UPDATE `item_template` SET `RequiredReputationFaction` = 510, `RequiredReputationRank` = 5 WHERE `entry` IN
+(20150, 20151, 20152, 20153, 20163, 20164, 20165, 20166, 20171, 20172, 20173, 20174, 20177, 20178, 20179, 20180, 20190, 20191, 20192, 20193, 20195, 20196, 20197, 20198, 20204, 20205, 20206, 20207);
+UPDATE `item_template` SET `RequiredReputationFaction` = 510, `RequiredReputationRank` = 6 WHERE `entry` IN
+(20154, 20155, 20156, 20157, 20159, 20160, 20161, 20162, 20167, 20168, 20169, 20170, 20181, 20182, 20183, 20185, 20186, 20187, 20188, 20189, 20199, 20200, 20201, 20202, 20208, 20209, 20210, 20211);
+UPDATE `item_template` SET `RequiredReputationFaction` = 510, `RequiredReputationRank` = 7 WHERE `entry` IN
+(20068, 20158, 20175, 20176, 20184, 20194, 20203, 20212, 20214, 20220);
+
+    
+-- these need to be hidden. they cannot get a reputation requirement, because some of these items have the same ID for both alliance and horde.
+-- you can only set 1 reputation requirement for an item.
+-- AB is an exception. all AB items are unique to either faction
+
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `SourceGroup` IN (13216, 13217, 13218, 13219, 14753, 14754);
+INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `ConditionTypeOrReference`, `ConditionValue1`, `ConditionValue2`, `Comment`) VALUES 
+-- Gaelden Hammersmith <Stormpike Supply Officer>
+(23, 13216, 17349, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 17352, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19032, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19307, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19318, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 17348, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 17351, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19301, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19084, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19086, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19097, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19098, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19094, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19093, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19092, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19091, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19316, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19317, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19045, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19100, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19102, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19104, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19320, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19319, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19030, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19312, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19315, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19308, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19311, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19309, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19310, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19323, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19321, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19325, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 21563, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13216, 19324, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+-- Thanthaldis Snowgleam <Stormpike Supply Officer>
+(23, 13217, 17349, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 17352, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19032, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19307, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19318, 5, 730, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 17348, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 17351, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19301, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19084, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19086, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19097, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19098, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19094, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19093, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19092, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19091, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19316, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19317, 5, 730, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19045, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19100, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19102, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19104, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19320, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19319, 5, 730, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19030, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19312, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19315, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19308, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19311, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19309, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19310, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19323, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19321, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19325, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 21563, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13217, 19324, 5, 730, 128, 'Vanilla PvP Gear Conditions'),
+-- Grunnda Wolfheart <Frostwolf Supply Officer>
+(23, 13218, 17349, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 17352, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19031, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19307, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19318, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 17348, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 17351, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19301, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19083, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19085, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19095, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19096, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19090, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19089, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19088, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19087, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19316, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19317, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19046, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19099, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19101, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19103, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19320, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19319, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19029, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19312, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19315, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19308, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19311, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19309, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19310, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19323, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19321, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19325, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 21563, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13218, 19324, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+-- Jekyll Flandring <Frostwolf Supply Officer>
+(23, 13219, 17349, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 17352, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19031, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19307, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19318, 5, 729, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 17348, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 17351, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19301, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19083, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19085, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19095, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19096, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19090, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19089, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19088, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19087, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19316, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19317, 5, 729, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19046, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19099, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19101, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19103, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19320, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19319, 5, 729, 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19029, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19312, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19315, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19308, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19311, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19309, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19310, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19323, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19321, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19325, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 21563, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+(23, 13219, 19324, 5, 729, 128, 'Vanilla PvP Gear Conditions'),
+
+-- Illiyana Moonblaze <Silverwing Supply Officer>
+(23, 14753, 17349, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 17352, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19060, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19061, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19062, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19066, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19067, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19068, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 21565, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 21566, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 21567, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 21568, 5, 890, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+--
+(23, 14753, 17348, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 17351, 5, 890, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+--
+(23, 14753, 19578, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19580, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19581, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19582, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19583, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19584, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19587, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19589, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19590, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19595, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19596, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14753, 19597, 5, 890, 128, 'Vanilla PvP Gear Conditions'),
+--
+(23, 14753, 30497, 8, 66008, 0, 'Illiyana Moonblaze - Sentinel\'s Mail Leggings'), -- not available during vanilla
+
+-- Kelm Hargunth <Warsong Supply Officer>
+(23, 14754, 17349, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 17352, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19060, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19061, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19062, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19066, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19067, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19068, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 21565, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 21566, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 21567, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 21568, 5, 889, 16 + 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+--
+(23, 14754, 17348, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 17351, 5, 889, 32 + 64 + 128, 'Vanilla PvP Gear Conditions'),
+--
+(23, 14754, 19578, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19580, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19581, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19582, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19583, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19584, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19587, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19589, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19590, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19595, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19596, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+(23, 14754, 19597, 5, 889, 128, 'Vanilla PvP Gear Conditions'),
+--
+(23, 14754, 30498, 8, 66008, 0, 'Kelm Hargunth - Outrider\'s Lamellar Legguards'); -- not available during vanilla
+
+/* Alliance Vanilla PvP Gear Rank Requirements */
+UPDATE `item_template` SET `requiredhonorrank` = 5  WHERE `entry` IN (15196);
+UPDATE `item_template` SET `requiredhonorrank` = 6  WHERE `entry` IN (18854, 18856, 18857, 18858, 18859, 18862, 18863, 18864, 29593);
+UPDATE `item_template` SET `requiredhonorrank` = 7  WHERE `entry` IN (16342, 18440, 18441);
+UPDATE `item_template` SET `requiredhonorrank` = 8  WHERE `entry` IN (18442, 18443, 18444);
+UPDATE `item_template` SET `requiredhonorrank` = 9  WHERE `entry` IN (16315, 16336, 16337, 18448, 18449, 18454, 18455, 18452, 18453, 18445, 18447, 18456, 18457);
+UPDATE `item_template` SET `requiredhonorrank` = 10 WHERE `entry` IN (15198);
+UPDATE `item_template` SET `requiredhonorrank` = 11 WHERE `entry` IN (16401, 16403, 23278, 23279, 16393, 16397, 23280, 23281, 17562, 17564, 23282, 23283, 23274, 23275, 16392, 16396, 23284, 23285, 29594, 29595, 16405, 16406, 23286, 23287, 17594, 17596, 23288, 23289, 16369, 16391, 23290, 23291);
+UPDATE `item_template` SET `requiredhonorrank` = 12 WHERE `entry` IN (16425, 23292, 16426, 23293, 23294, 16422, 23295, 16421, 17567, 23296, 17568, 23297, 23272, 23273, 16417, 23298, 16419, 23299, 29596, 29597, 16430, 23300, 16431, 23301, 17599, 23302, 17600, 23303, 16414, 23304, 16413, 23305);
+UPDATE `item_template` SET `requiredhonorrank` = 14 WHERE `entry` IN (23306, 16428, 16427, 23307, 16416, 17598, 16423, 23308, 23309, 16424, 23310, 17569, 23311, 17566, 23276, 23277, 23312, 23313, 16420, 16418, 29598, 29599, 16429, 23314, 16432, 23315, 17601, 23316, 23317, 23318, 23319, 16415);
+UPDATE `item_template` SET `requiredhonorrank` = 15 WHERE `entry` IN (18241, 18242, 18243, 18244);
+UPDATE `item_template` SET `requiredhonorrank` = 16 WHERE `entry` IN (16462, 16463, 16467, 16459, 16448, 16450, 17583, 17584, 17579, 16472, 16471, 16475, 16446, 16454, 16456, 29606, 29607, 29608, 16483, 16484, 16479, 17608, 17603, 17607, 16437, 16440, 16442);
+UPDATE `item_template` SET `requiredhonorrank` = 17 WHERE `entry` IN (16466, 16465, 16468, 17578, 16441, 16452, 16451, 16449, 17581, 17580, 17602, 16473, 16474, 16476, 16453, 16457, 16455, 29609, 29610, 29611, 16477, 16478, 16480, 17604, 17605, 16444, 16443);
+UPDATE `item_template` SET `requiredhonorrank` = 18 WHERE `entry` IN (12584, 18825, 18827, 18830, 18833, 18836, 18838, 18843, 18847, 18855, 18865, 18867, 18869, 18873, 18876, 23451, 23452, 23453, 23454, 23455, 23456);
+
+/* Horde Vanilla PvP Gear Rank Requirements */
+UPDATE `item_template` SET `requiredhonorrank` = 5  WHERE `entry` IN (15197);
+UPDATE `item_template` SET `requiredhonorrank` = 6  WHERE `entry` IN (18834, 18845, 18846, 18849, 18850, 18851, 18852, 18853, 29592);
+UPDATE `item_template` SET `requiredhonorrank` = 7  WHERE `entry` IN (16341, 18427, 18461);
+UPDATE `item_template` SET `requiredhonorrank` = 8  WHERE `entry` IN (15200, 16335, 18428);
+UPDATE `item_template` SET `requiredhonorrank` = 9  WHERE `entry` IN (16340, 18434, 18436, 16497, 18435, 16532, 18432, 18429, 18430, 16486, 18437);
+UPDATE `item_template` SET `requiredhonorrank` = 10 WHERE `entry` IN (15199);
+UPDATE `item_template` SET `requiredhonorrank` = 11 WHERE `entry` IN (16531, 16530, 22843, 22862, 16494, 16496, 22863, 22852, 17576, 17577, 22865, 22855, 29600, 29601, 22864, 16498, 16499, 22856, 22857, 16519, 22867, 16518, 16343, 30710, 16509, 22868, 16510, 22858, 17616, 17617, 22869, 22859, 16485, 16487, 22870, 22860);
+UPDATE `item_template` SET `requiredhonorrank` = 12 WHERE `entry` IN (16517, 16525, 16529, 22874, 16527, 22875, 16493, 16504, 22877, 22878, 16502, 16495, 17574, 17575, 17571, 22881, 17572, 22884, 29602, 29603, 22879, 16500, 16505, 16508, 22880, 16522, 16520, 22876, 16523, 22887, 16513, 16512, 16511, 22872, 22873, 16515, 17615, 22882, 17614, 17611, 22885, 17612, 16488, 22883, 16490, 16491, 22886);
+UPDATE `item_template` SET `requiredhonorrank` = 14 WHERE `entry` IN (16526, 23251, 16528, 23252, 23253, 16503, 23254, 16501, 23255, 17570, 17573, 23256, 29604, 29605, 16506, 23257, 16507, 23258, 23259, 16521, 23260, 16524, 16514, 23244, 16516, 23243, 17610, 23261, 23262, 17613, 23263, 16489, 23264, 16492);
+UPDATE `item_template` SET `requiredhonorrank` = 15 WHERE `entry` IN (18245, 18246, 18247, 18248);
+UPDATE `item_template` SET `requiredhonorrank` = 16 WHERE `entry` IN (16569, 16572, 16571, 16567, 16570, 16556, 16554, 16553, 16555, 16552, 17589, 17586, 17587, 17588, 17593, 29612, 29613, 29614, 16559, 16557, 16564, 16560, 16558, 16573, 16576, 16574, 16579, 16575, 16546, 16545, 16548, 16547, 16543, 17618, 17619, 17621, 17620, 17625, 16539, 16538, 16540, 16537, 16534);
+UPDATE `item_template` SET `requiredhonorrank` = 17 WHERE `entry` IN (16565, 16566, 16568, 16551, 16549, 16550, 17591, 17590, 17592, 29615, 29616, 29617, 16563, 16561, 16562, 16577, 16578, 16580, 16541, 16542, 16544, 17623, 17622, 17624, 16536, 16533, 16535);
+UPDATE `item_template` SET `requiredhonorrank` = 18 WHERE `entry` IN (18831, 23459, 23464, 16345, 18866, 18828, 18837, 23457, 23465, 18877, 18848, 18871, 18868, 23461, 23467, 18840, 18835, 18844, 18826, 23458, 23466, 18860, 23462, 23468, 23469, 18874);
+
+-- Gold prices for new Vanilla 60 PvP items added during 2.0
+UPDATE `item_template` SET `BuyPrice` = 43208,  `SellPrice` = 8641  WHERE `entry` = 23314; -- Lieutenant Commander's Plate Helmet
+UPDATE `item_template` SET `BuyPrice` = 285448, `SellPrice` = 57089 WHERE `entry` = 23457; -- High Warlord's Destroyer
+UPDATE `item_template` SET `BuyPrice` = 228358, `SellPrice` = 45671 WHERE `entry` = 23458; -- High Warlord's Spellblade
+UPDATE `item_template` SET `BuyPrice` = 228358, `SellPrice` = 45671 WHERE `entry` = 23459; -- High Warlord's Battle Mace
+UPDATE `item_template` SET `BuyPrice` = 228358, `SellPrice` = 45671 WHERE `entry` = 23461; -- High Warlord's Quickblade
+UPDATE `item_template` SET `BuyPrice` = 301810, `SellPrice` = 75452 WHERE `entry` = 23462; -- High Warlord's Tome of Destruction
+UPDATE `item_template` SET `BuyPrice` = 67983,  `SellPrice` = 13596 WHERE `entry` = 29594; -- Knight-Lieutenant's Mail Greaves
+UPDATE `item_template` SET `BuyPrice` = 50804,  `SellPrice` = 10160 WHERE `entry` = 29595; -- Knight-Lieutenant's Mail Vices
+UPDATE `item_template` SET `BuyPrice` = 82858,  `SellPrice` = 16571 WHERE `entry` = 29596; -- Knight-Captain's Mail Hauberk
+UPDATE `item_template` SET `BuyPrice` = 83178,  `SellPrice` = 16635 WHERE `entry` = 29597; -- Knight-Captain's Mail Legguards
+UPDATE `item_template` SET `BuyPrice` = 64573,  `SellPrice` = 12914 WHERE `entry` = 29598; -- Lieutenant Commander's Mail Headguard
+UPDATE `item_template` SET `BuyPrice` = 64619,  `SellPrice` = 12923 WHERE `entry` = 29599; -- Lieutenant Commander's Mail Pauldrons
+UPDATE `item_template` SET `BuyPrice` = 44482,  `SellPrice` = 8896  WHERE `entry` = 29600; -- Blood Guard's Lamellar Gauntlets
+UPDATE `item_template` SET `BuyPrice` = 49869,  `SellPrice` = 9973  WHERE `entry` = 29601; -- Blood Guard's Lamellar Sabatons
+UPDATE `item_template` SET `BuyPrice` = 70653,  `SellPrice` = 14130 WHERE `entry` = 29602; -- Legionnaire's Lamellar Breastplate
+UPDATE `item_template` SET `BuyPrice` = 90275,  `SellPrice` = 18055 WHERE `entry` = 29603; -- Legionnaire's Lamellar Leggings
+UPDATE `item_template` SET `BuyPrice` = 65771,  `SellPrice` = 13154 WHERE `entry` = 29604; -- Champion's Lamellar Headguard
+UPDATE `item_template` SET `BuyPrice` = 92684,  `SellPrice` = 18536 WHERE `entry` = 29605; -- Champion's Lamellar Shoulders
+UPDATE `item_template` SET `BuyPrice` = 111087, `SellPrice` = 22217 WHERE `entry` = 29606; -- Marshal's Mail Boots
+UPDATE `item_template` SET `BuyPrice` = 69095,  `SellPrice` = 13819 WHERE `entry` = 29607; -- Marshal's Mail Gauntlets
+UPDATE `item_template` SET `BuyPrice` = 147067, `SellPrice` = 29413 WHERE `entry` = 29608; -- Marshal's Mail Leggings
+UPDATE `item_template` SET `BuyPrice` = 166014, `SellPrice` = 33202 WHERE `entry` = 29609; -- Field Marshal's Mail Armor
+UPDATE `item_template` SET `BuyPrice` = 124055, `SellPrice` = 24811 WHERE `entry` = 29610; -- Field Marshal's Mail Helm
+UPDATE `item_template` SET `BuyPrice` = 123156, `SellPrice` = 24631 WHERE `entry` = 29611; -- Field Marshal's Mail Spaulders
+UPDATE `item_template` SET `BuyPrice` = 111087, `SellPrice` = 22217 WHERE `entry` = 29612; -- General's Lamellar Boots
+UPDATE `item_template` SET `BuyPrice` = 69095,  `SellPrice` = 13819 WHERE `entry` = 29613; -- General's Lamellar Gloves
+UPDATE `item_template` SET `BuyPrice` = 147067, `SellPrice` = 29413 WHERE `entry` = 29614; -- General's Lamellar Legplates
+UPDATE `item_template` SET `BuyPrice` = 130894, `SellPrice` = 26178 WHERE `entry` = 29615; -- Warlord's Lamellar Chestplate
+UPDATE `item_template` SET `BuyPrice` = 145586, `SellPrice` = 29117 WHERE `entry` = 29616; -- Warlord's Lamellar Faceguard
+UPDATE `item_template` SET `BuyPrice` = 147331, `SellPrice` = 29466 WHERE `entry` = 29617; -- Warlord's Lamellar Pauldrons
+
+-- Fix prices for Vanilla PvP mounts (100 golds)
+UPDATE `item_template` SET `BuyPrice` = 1000000 WHERE `entry` IN (18241, 18242, 18243, 18244, 18245, 18246, 18247, 18248);
+
+-- Update Vanilla ExtendedCost (items now cost gold, this disables the honor costs)
+UPDATE `npc_vendor` SET `ExtendedCost` = 0 WHERE `entry` IN (12777, 12792, 12799, 12805, 26394, 26396, 112781, 112783, 112785, 112793, 112794, 112795, 112796);
