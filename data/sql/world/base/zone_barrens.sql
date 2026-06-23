@@ -380,8 +380,8 @@ UPDATE `quest_template_addon` SET `PrevQuestID` = 871  WHERE `ID` = 5041; -- Sup
 
 UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1 WHERE `guid` = 15085; -- Isha Iwak, waypoints
 
-DELETE FROM `creature` WHERE `id` IN (3392, 3434, 3435, 3436, 3438, 3472, 3474, 5830, 5832, 5834, 5835);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` IN (3392, 3434, 3435, 3436, 3438, 3472, 3474, 5830, 5832, 5834, 5835);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (13984,  3392, 1, 0, 0, 1, 1, 1, -4181.31, -2184.33, 50.2665, 0.292325, 240, 5, 0, 600, 618, 1, 0, 0, 0, '', 0, 0, NULL),  -- Prospector Khazgorm
@@ -879,7 +879,7 @@ DELETE FROM `creature` WHERE `guid` BETWEEN 20301 AND 20309; -- Razormane Hunter
 DELETE FROM `creature` WHERE `guid` BETWEEN 20563 AND 20574; -- Kolkar Pack Runner
 DELETE FROM `creature` WHERE `guid` BETWEEN 20855 AND 20860; -- Kolkar Packhound
 DELETE FROM `creature` WHERE `guid` BETWEEN 20863 AND 20869; -- Kolkar Packhound
-INSERT INTO `creature` (`guid`, `id`,`map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`,`map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (20301, 3265, 1, 0, 0, 1, 1, 1, -38.8009, -3234.81, 91.8888, 5.10638, 275, 0, 1, 222, 0, 2, 0, 0, 0, '', 0, 0, NULL),

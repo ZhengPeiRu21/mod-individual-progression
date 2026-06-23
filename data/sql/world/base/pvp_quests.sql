@@ -74,8 +74,8 @@ INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`,
 (@HW_TBC, 0, 15387, 1, 1, 12340),
 (@ABG_TBC, 0, 27154, 1, 1, 12340);
 
-DELETE FROM `creature` WHERE `id` IN (@HW, @ABG, @HW_TBC, @ABG_TBC);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (@HW, @ABG, @HW_TBC, @ABG_TBC);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+201, @HW, 1, 0, 0, 1, 1, 1, -1381.13, -87.0034, 159.532, 3.14159, 300, 0, 0, 1, 0, 0, 0, 0, 0, '', 0, 0, NULL),

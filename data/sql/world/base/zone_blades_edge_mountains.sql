@@ -64,7 +64,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `smart_scripts` SET `target_type` = 1 WHERE `entryorguid` = 19747 AND `event_type` = 4 AND `id` = 15;
 
 -- fix movement for Dreadwing
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = 1582.5800, `position_y` = 5299.3701, `position_z` = 267.8560 WHERE `id` = 21032;
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = 1582.5800, `position_y` = 5299.3701, `position_z` = 267.8560 WHERE `id1` = 21032;
 
 DELETE FROM `creature_addon` WHERE `guid` IN (73837);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 

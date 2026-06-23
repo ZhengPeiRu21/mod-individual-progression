@@ -177,8 +177,8 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 UPDATE `quest_template_addon` SET `PrevQuestID` = 527 WHERE `ID` = 546;
 
 -- fix creature movement and spawn locations
-DELETE FROM `creature` WHERE `id` IN (232, 2403, 2427, 2428, 2450, 14275, 14276, 14277, 14280);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` IN (232, 2403, 2427, 2428, 2450, 14275, 14276, 14277, 14280);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (16520,  232, 0, 0, 0, 1, 1, 1, -341.604, 3.60308, 60.3681, 2.21657,        300, 0, 0, 617, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Farmer Ray
@@ -412,7 +412,7 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (@CGUID+40, 148400, 0, 0, 1, 0, 0, NULL);
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+10 AND @CGUID+42;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (@CGUID+10, 607068, 0, 0, 0, 1, 1, 1, -1262.56, 479.974, 10.5137, 5.06174,  600, 0, 0, 1, 1, 0, 0, 0, 0, '', 0, 0, NULL), -- Condemned Acolyte
@@ -460,5 +460,5 @@ INSERT INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `Q
 SET @IPPPHASE    := 65536; 
 SET @IPPPHASE_II := 131072;
 
-UPDATE `creature` SET `phaseMask` = @IPPPHASE_II WHERE `id` IN (7068, 7069, 7070, 7071, 7072, 7075);
-UPDATE `creature` SET `phaseMask` = @IPPPHASE    WHERE `id` IN (607068, 607069, 607070, 607071, 607072, 7073, 7074, 607075);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II WHERE `id1` IN (7068, 7069, 7070, 7071, 7072, 7075);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE    WHERE `id1` IN (607068, 607069, 607070, 607071, 607072, 7073, 7074, 607075);

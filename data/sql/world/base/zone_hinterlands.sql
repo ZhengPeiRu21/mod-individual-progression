@@ -119,7 +119,7 @@ UPDATE `creature` SET `spawntimesecs` = 37800, `MovementType` = 1, `wander_dista
 
 -- Grimungous, fix spawn and waypoints
 DELETE FROM `creature` WHERE `guid` = 77480;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (77480, 8215, 0, 0, 0, 1, 1, 0, 45.1769, -4277.32, 122.17, 4.22167, 115200, 0, 1, 6645, 0, 2, 0, 0, 0, '', 0, 0, NULL);
 

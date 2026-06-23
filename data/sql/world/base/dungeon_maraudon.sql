@@ -118,9 +118,9 @@ DELETE FROM `creature_addon` WHERE `guid` IN
 SET @CGUID  := 652000;
 SET @WPID   := 6520000;
 
-DELETE FROM `creature` WHERE `id` = 12242;
+DELETE FROM `creature` WHERE `id1` = 12242;
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+32;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (54684, 12242, 349, 0, 0, 1, 1, 1, 790.473, -500.472, -53.0402, 0.600063, 86400, 0, 1, 5346, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Spirit of Maraudos <The Fourth Khan>
@@ -437,8 +437,8 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (@WPID+310, 30, 128.322, -274.962, -108.678, 5.98555, 0, 0, 0, 100, 0);
 
 -- The Nameless Prophet, should have multiple spawn locations and almost instant respawn - https://www.youtube.com/watch?v=NzIngiFj1lQ
-DELETE FROM `creature` WHERE `id` = 13718;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` = 13718;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (@CGUID+41, 13718, 1, 0, 0, 1, 1, 0, -1417.84, 2969.18, 124.195, 1.51197, 5, 0, 0, 3804, 1332, 0, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+42, 13718, 1, 0, 0, 1, 1, 0, -1472.66, 2964.98, 122.436, 4.91161, 5, 0, 0, 3804, 1332, 0, 0, 0, 0, '', NULL, 0, NULL),

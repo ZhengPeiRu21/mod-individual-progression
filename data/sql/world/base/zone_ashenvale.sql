@@ -328,9 +328,9 @@ DELETE FROM `creature_text` WHERE `CreatureID` = 3816;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
 (3816, 0, 0, '%s charges!', 16, 0, 100, 0, 0, 0, 37643, 0, 'Wild Buck');
 
-UPDATE `creature` SET `spawntimesecs` = 75600, `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 10642; -- Eck'alom
-UPDATE `creature` SET `spawntimesecs` = 30600, `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 10643; -- Mugglefin
-UPDATE `creature` SET `spawntimesecs` = 37800, `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 12037; -- Ursul'lok
+UPDATE `creature` SET `spawntimesecs` = 75600, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 10642; -- Eck'alom
+UPDATE `creature` SET `spawntimesecs` = 30600, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 10643; -- Mugglefin
+UPDATE `creature` SET `spawntimesecs` = 37800, `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 12037; -- Ursul'lok
 
 -- Glowing Soul Gem(5366), fix drop rate
 UPDATE `creature_loot_template` SET `Chance` = 4 WHERE `Item` = 5366;

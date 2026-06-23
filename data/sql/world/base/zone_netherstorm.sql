@@ -152,7 +152,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (2028104, 9, 2, 0, 0, 0, 100, 0, 6000, 6000, 0, 0, 0, 0, 1, 5, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                            'Script9 - Talk'); -- let's get out of here
 
 UPDATE `creature_template` SET `detection_range` = 10, `MovementType` = 0 WHERE `entry` = 20281;
-UPDATE `creature` SET `MovementType` = 0 WHERE `id` = 20281;
+UPDATE `creature` SET `MovementType` = 0 WHERE `id1` = 20281;
 DELETE FROM `waypoints` WHERE `entry` = 20281;
 
 DELETE FROM `creature_addon` WHERE `guid` IN (72042);
@@ -203,8 +203,8 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (20281, 8, 0, 'Very well.  Before we head down there, take a moment to prepare yourself.', 12, 0, 100, 0, 0, 0, 17940, 0, 'Drijya');
 
 -- add waypoints for Summoner Kanthin
-DELETE FROM `creature` WHERE `id` IN (19657, 19653);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (19657, 19653);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (70089, 19653, 530, 0, 0, 1, 1, 0, 2948.9099, 2280.3501, 161.7080, 5.9072, 300, 0, 0, 2530, 0, 0, 0, 0, 0, '', 0, 0, NULL),    -- Glacius
@@ -251,9 +251,9 @@ SET @Krixel     := 123396;
 SET @Leeni      := 124392;
 
 DELETE FROM `creature` WHERE `guid` IN (@CGUID+71, @CGUID+72);
-DELETE FROM `creature` WHERE `id` IN (23396, 24392, 26352, @Leeni, @Krixel);
-DELETE FROM `creature` WHERE `id` IN (32354, 33919, 33930, 33941, 32355, 33916, 33932, 33933, 32356, 33918, 33931, 33940, 34089, 34091, 34094);
-INSERT INTO `creature` (`guid`, `id`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+DELETE FROM `creature` WHERE `id1` IN (23396, 24392, 26352, @Leeni, @Krixel);
+DELETE FROM `creature` WHERE `id1` IN (32354, 33919, 33930, 33941, 32355, 33916, 33932, 33933, 32356, 33918, 33931, 33940, 34089, 34091, 34094);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 --
 (@CGUID+71, 20278,   530, 1, 1, 3070.16, 3635.11, 143.864, 0.750492, 180), -- Vixton Pinchwhistle, WotLK Season 1
 (@CGUID+72, @Vixton, 530, 1, 1, 3070.16, 3635.11, 143.864, 0.750492, 180), -- Vixton Pinchwhistle, WotLK Season 2
@@ -320,8 +320,8 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 SET @CGUID   := 670000;
 SET @WPID    := 6700000;
 
-DELETE FROM `creature` WHERE `id` IN (18875, 19642);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (18875, 19642);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+101, 18875, 530, 0, 0, 1, 1, 1, 2493.2236, 4047.8603, 133.6053, 0.0523, 300, 0, 0, 6326, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -493,8 +493,8 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 SET @CGUID   := 670000;
 SET @WPID    := 6700000;
 
-DELETE FROM `creature` WHERE `id` IN (18852, 18853, 18855, 18857, 19453, 19643);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (18852, 18853, 18855, 18857, 19453, 19643);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+201, 18853, 530, 0, 0, 1, 1, 1, 2810.81, 3923.14, 147.125, 0.122173, 360, 0, 0, 6326, 0, 0, 0, 0, 0, '', 0, 0, NULL),
@@ -632,7 +632,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+341 AND @CGUID+343;
 DELETE FROM `creature` WHERE `guid` BETWEEN 69406 AND 69417;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+341, 19421, 530, 0, 0, 1, 1, 0, 3008.33, 4225.37, 160.777, 2.25655, 300, 0, 0, 42, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Netherstorm Crystal Target

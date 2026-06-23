@@ -54,8 +54,8 @@ INSERT INTO `gossip_menu_option` (`MenuID`, `OptionID`, `OptionIcon`, `OptionTex
 (2849, 11, 0, 'A profession trainer', 6635, 1, 1, 2847, 0, 0, 0, NULL, 0, 0);
 
 -- Batllemasters
-DELETE FROM `creature` WHERE `id` IN (347, 2804, 15007, 20386);
-INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
+DELETE FROM `creature` WHERE `id1` IN (347, 2804, 15007, 20386);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES
 (600347, 347, 0, 1331.94, 334.713, -63.6249, 3.40339, 900),
 (602804, 2804, 0, 1262.97, 353.389, -63.6165, 5.46288, 900),
 (615007, 15007, 0, 1282.43, 284.592, -63.6281, 1.27409, 900),
@@ -124,7 +124,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 
 DELETE FROM `creature` WHERE `guid` IN (@Faranell_guid, @Varimathras, 31901, 43466, 79263);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+44;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@Faranell_guid,@Faranell_entry, 0, 0, 0, 1, 1, 1, 1434.48, 404.854, -85.1753, 2.26893, 300, 0, 0, 2215, 1807, 0, 0, 0, 0, '', 0, 0, NULL), -- Master Apothecary Faranell
@@ -181,8 +181,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_II  WHERE `guid` IN (@Faranell_guid, @Varimathras); -- pre Wrathgate
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (31900, 31901, 43466, 79263, 203394, 203395, 203420);   -- post Wrathgate
 
-UPDATE `creature` SET `phaseMask` = @IPPPHASE_II  WHERE `id` = 5624;  -- pre Wrathgate
-UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id` = 36213; -- post Wrathgate
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II  WHERE `id1` = 5624;  -- pre Wrathgate
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `id1` = 36213; -- post Wrathgate
 
 -- guard waypoints, can use existing ones
 DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+12, @CGUID+13, @CGUID+17);

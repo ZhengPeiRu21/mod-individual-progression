@@ -2462,7 +2462,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 (304800, 23219, 0, 0.0, 0, 1, 1, 1);
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @GUID AND @GUID+1065;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (@GUID+0,  @CENTRY+68, 533, 0, 0, 4, 1, 0, 2689.72, -3579.8, 261.325, 1.16002, 30, 5, 0, 1, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
@@ -5362,7 +5362,7 @@ INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`,
 (@CENTRY+86, 1, 4991, 0, 0),
 (@CENTRY+87, 1, 12285, 0, 0);
 
-UPDATE `creature` SET `equipment_id` = 1 WHERE `id` IN (@CENTRY+5,@CENTRY+7,@CENTRY+36,@CENTRY+37,@CENTRY+38,@CENTRY+39,@CENTRY+40,@CENTRY+44,@CENTRY+45,@CENTRY+48,@CENTRY+49,@CENTRY+50,
+UPDATE `creature` SET `equipment_id` = 1 WHERE `id1` IN (@CENTRY+5,@CENTRY+7,@CENTRY+36,@CENTRY+37,@CENTRY+38,@CENTRY+39,@CENTRY+40,@CENTRY+44,@CENTRY+45,@CENTRY+48,@CENTRY+49,@CENTRY+50,
 @CENTRY+52,@CENTRY+53,@CENTRY+54,16157,16158,@CENTRY+55,@CENTRY+57,@CENTRY+60,@CENTRY+61,@CENTRY+62,@CENTRY+63,@CENTRY+70,16451,16452,@CENTRY+80,@CENTRY+84,16861,@CENTRY+85,@CENTRY+86,@CENTRY+87);
 
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN @GUID AND @GUID+1063;
@@ -5802,7 +5802,7 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (@CENTRY+97, 0, 0, 0, 0, 0, 'Naxx40 Strath Entrance Trigger', '', NULL, 0, 70, 70, 1, 35, 0, 1, 1.14286, 1, 1, 20, 0, 0, 1, 2000, 2000, 1, 1, 1, 33554432, 2048, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 'npc_naxx40_area_trigger', 0);
 
 DELETE FROM `creature` WHERE `guid` = 352042;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (352042, @CENTRY+97, 329, 0, 0, 1, 1, 0, 3929.06, -3372.12, 119.653, 4.71395, 300, 0, 0, 6986, 0, 0, 0, 0, 0, '', 0);
 
 -- Razuvious
@@ -5819,8 +5819,8 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 -- Gothik Visuals
 -- re-do spawn locations for triggers
 SET @CGUID := @GUID + 1100;
-DELETE FROM `creature` WHERE `id`= @CENTRY+47 AND `guid` BETWEEN @CGUID AND @CGUID+14;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1`= @CENTRY+47 AND `guid` BETWEEN @CGUID AND @CGUID+14;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 (@CGUID+0,  @CENTRY+47, 533, 3456, 3456, 4, 1, 0, 2643.73095703125,  -3399.680908203125, 284.18292236328125,  6.091198921203613281, 7200, 0, 0, 17010, 0, 0, 0, 0, 0, '', 46248, 0, 'living side soul trigger (south) - Naxx40'),
 (@CGUID+1,  @CENTRY+47, 533, 3456, 3456, 4, 1, 0, 2739.994873046875, -3399.779296875,    284.294647216796875, 6.108652114868164062, 7200, 0, 0, 17010, 0, 0, 0, 0, 0, '', 46248, 0, 'living side soul trigger (north) - Naxx40'),
@@ -5868,7 +5868,7 @@ SET
     `HealthModifier` = `HealthModifier` * @HEALTH_MULTIPLIER,
     `ArmorModifier`  = `ArmorModifier`  * @ARMOR_MULTIPLIER
 WHERE `entry` IN (
-    SELECT `id`
+    SELECT `id1`
     FROM `creature`
     WHERE `map` = 533 AND `spawnMask` = 4
 );

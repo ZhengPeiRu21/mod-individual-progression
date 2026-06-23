@@ -3,7 +3,7 @@ SET @OGUID    := 650000;
 
 -- Collector Npcs
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+30;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 -- Alliance Collector Npcs
 (@CGUID+1,15383,0,0,0,1,1,1,-4914.29,-1228.1,501.65,3.66003,300,0,0,13495,0,0,0,0,0,'',0),
 (@CGUID+2,15431,0,0,0,1,1,1,-4915.32,-1220.84,501.658,4.07551,300,0,0,14355,0,0,0,0,0,'',0),
@@ -39,7 +39,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- Commendation Npcs
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+31 AND @CGUID+50;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 -- Alliance Commendation Npcs
 (@CGUID+31,15731,0,0,0,1,1,0,-4938.75,-1206.29,501.658,4.03146,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
 (@CGUID+32,15733,0,0,0,1,1,0,-4936.65,-1209.73,501.658,3.95796,300,0,0,2614,0,0,0,0,0,'npc_ipp_we',0),
@@ -86,7 +86,7 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES (15700, 8792), (15701, 
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+51 AND @CGUID+58;
 DELETE FROM `creature` WHERE `guid` = 86424; -- placed by AC - copy of 15707
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+51,15702,1,0,0,1,1,0,-1209.58, 100.22, 134.661, 3.15905,300,0,0,15260,0,0,0,0,0,'',0),
 (@CGUID+52,15703,0,0,0,1,1,0,1572.58, 272.707, -43.0193, 5.02655,300,0,0,15260,0,0,0,0,0,'',0),
 (@CGUID+53,15704,1,0,0,1,1,0,1653.07, -4403.81, 18.5819, 4.45059,300,0,0,15260,0,0,0,0,0,'',0),
@@ -98,7 +98,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- War Effort Commanders
 DELETE FROM `creature` WHERE `guid` IN (@CGUID+59, @CGUID+60);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
 (@CGUID+59,15701,0,0,0,1,1,1,-4961.68,-1243.19,501.672,2.46488,300,0,1,30520,0,2,0,134254592,0,'',0),
 (@CGUID+60,15700,1,0,0,1,1,1,1581.39,-4202.27,41.8233,4.96133,300,0,1,30520,0,2,0,134217728,0,'',0);
 

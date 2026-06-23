@@ -1782,7 +1782,7 @@ INSERT INTO `reference_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `
 
 /* Add Ley Sprites and Mana Sprites removed in 2.0 */
 DELETE FROM `creature` WHERE `guid` IN (350995, 350996, 350997, 350998, 350999);
-INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `MovementType`, `spawntimesecs`) VALUES
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`, `MovementType`, `spawntimesecs`) VALUES
 (350995, 12381, 0, -11177.200195, -2033.979980, 47.158798, 2.9482, 0, 2, 340),
 (350996, 12381, 0, -10922.000000, -1968.719971, 114.875999, 0.990982, 0, 2, 340),
 (350997, 12381, 0, -10807.400391, -2072.270020, 121.989998, 5.83641, 0, 2, 340),
@@ -1797,13 +1797,14 @@ INSERT INTO `creature_addon` (`guid`, `path_id`) VALUES
 (350998, 3509980),
 (350999, 3509990);
 
-DELETE FROM `creature_multispawn` WHERE `spawnId` IN (350995, 350996, 350997, 350998, 350999);
-INSERT INTO `creature_multispawn` (`spawnId`, `entry`) VALUES 
-(350995, 12382),
-(350996, 12382),
-(350997, 12382),
-(350998, 12382),
-(350999, 12382);
+DELETE FROM `creature_multispawn` WHERE `guid` IN (350995, 350996, 350997, 350998, 350999);
+INSERT INTO `creature_multispawn` (`guid`, `id1`, `id2`, `id3`) VALUES 
+(350995, 12382, 0, 0),
+(350996, 12382, 0, 0),
+(350997, 12382, 0, 0),
+(350998, 12382, 0, 0),
+(350999, 12382, 0, 0);
+
 
 DELETE FROM `waypoint_data`  WHERE `id` IN (3509950, 3509960, 3509970, 3509980, 3509990);
 INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `delay`) VALUES

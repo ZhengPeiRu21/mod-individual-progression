@@ -26,8 +26,8 @@ INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry
 (15, 4351, 0, 7, 197, 50,  'Show menu if tailoring is 50 or higher');       -- Tepa <Expert Tailor>
 
 -- battlemasters
-DELETE FROM `creature` WHERE `id` IN (7427, 10360, 12198, 34976, 34978);
-INSERT INTO `creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+DELETE FROM `creature` WHERE `id1` IN (7427, 10360, 12198, 34976, 34978);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (607427, 7427,  1, -1384.29, -98.6163, 159.018, 2.87979, 300), -- Taim Ragetotem <Alterac Valley Battlemaster>
 (610360, 10360, 1, -1381.29, -75.9809, 160.602, 3.19395, 300), -- Kergul Bloodaxe <Warsong Gulch Battlemaster>
 (612198, 12198, 1, -995.143, 217.173, 104.729, 4.46804,  300); -- Martin Lindsey <Arathi Basin Battlemaster>

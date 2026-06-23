@@ -289,8 +289,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-54069, 0, 8, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 2472270, 0, 0, 0, 0, 0, 10, 247227, 10808, 0, 0, 0, 0, 0, 0,     'Crimson Guardsman - On Death - Start Waypoints: Timmy the Cruel');
 
 -- fix spawn locations
-UPDATE `creature` SET `position_x` = 3719.82, `position_y` = -3426.25, `position_z` = 131.844, `orientation` = 3.3412 WHERE `id` = 10516;
-UPDATE `creature` SET `position_x` = 3614.7, `position_y` = -3187.64, `position_z` = 131.406, `MovementType` = 0 WHERE `id` = 10808;
+UPDATE `creature` SET `position_x` = 3719.82, `position_y` = -3426.25, `position_z` = 131.844, `orientation` = 3.3412 WHERE `id1` = 10516;
+UPDATE `creature` SET `position_x` = 3614.7, `position_y` = -3187.64, `position_z` = 131.406, `MovementType` = 0 WHERE `id1` = 10808;
 UPDATE `creature_template` SET `MovementType` = 0 WHERE `entry` = 10808; -- not 2, else waypoints will start on spawn
 
 -- fix waypoints Timmy the Cruel
@@ -334,8 +334,8 @@ SET @WPID     := 3290000; -- waypoint ID
 
 DELETE FROM `creature_addon` WHERE `guid` = 53854; -- remove old data, we creating new creatures
 
-DELETE FROM `creature` WHERE `id` IN (10408, 10409, 10809);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (10408, 10409, 10809);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (52147,    10809, 329, 0, 0, 1, 1, 0, 4058.86, -3530.33, 122.247, 0, 86400, 0, 1, 15260, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Stonespine

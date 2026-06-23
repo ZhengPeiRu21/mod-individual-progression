@@ -40,8 +40,8 @@ SET @WPID    := 6700000;
 -- add kodo corpses near the Greater Windrocs
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+6;
 DELETE FROM `creature` WHERE `guid` IN (59582, 60208);
-DELETE FROM `creature` WHERE `id`  IN (23022); -- needed to remove creature placed by AC
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1`  IN (23022); -- needed to remove creature placed by AC
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (@CGUID+1, 17133, 530, 0, 0, 1, 1, 0, -1179.0300, 8585.5195, 35.3682, 2.7576, 300, 0, 0, 1, 0, 0, 0, 258, 0, '', NULL, 0, NULL),
@@ -64,8 +64,8 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (@CGUID+4, 0, 0, 7, 0, 65, 0, NULL);
 
 -- fix movement for Gutripper and Bach'lor
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -1099.5699, `position_y` = 8582.3896, `position_z` = 46.3612 WHERE `id` = 18257; -- Gutripper
-UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -1915, `position_y` = 8854, `position_z` = 30.8850           WHERE `id` = 18258; -- Bach'lor
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -1099.5699, `position_y` = 8582.3896, `position_z` = 46.3612 WHERE `id1` = 18257; -- Gutripper
+UPDATE `creature` SET `MovementType` = 2, `currentwaypoint` = 1, `position_x` = -1915, `position_y` = 8854, `position_z` = 30.8850           WHERE `id1` = 18258; -- Bach'lor
 
 DELETE FROM `creature_template_movement` WHERE `CreatureId` IN (18257, 18258);
 INSERT INTO `creature_template_movement` (`CreatureId`, `Ground`, `Swim`, `Flight`, `Rooted`, `Chase`, `Random`, `InteractionPauseTimer`) VALUES 

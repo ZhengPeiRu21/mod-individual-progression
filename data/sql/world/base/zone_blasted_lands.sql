@@ -117,7 +117,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 -- Portal Seeker missing waypoints
 DELETE FROM `creature` WHERE `guid` = 605981;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (605981, 5981, 0, 0, 0, 1, 1, 1, -11384.5, -2998.08, -0.819786, 2.103, 430, 0, 1, 2158, 4650, 2, 0, 0, 0, '', NULL, 0, NULL);
 
@@ -148,7 +148,7 @@ SET @WPID        := 6560000;
 SET @IPPPHASE_II := 131072;
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID AND @CGUID+212;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 
 (@CGUID,   19287, 0, 0, 0, 1, @IPPPHASE_II, 0, -11871, -3218.74, -14.8771, 0.159796, 120, 0, 0, 3297, 2434, 0, 0, 0, 0, '', NULL, 0, NULL),        -- Invading Voidwalker

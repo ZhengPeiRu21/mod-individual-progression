@@ -114,8 +114,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature_loot_template` SET `Chance` = 80 WHERE `Entry` = 1890 AND `Item` = 6281;
 
 -- Undertaker Mordo (not sure why we creating a new version of this guy, we only seem to be moving him)
-DELETE FROM `creature` WHERE `id` = 1568;
-INSERT INTO `creature` (`guid`, `id`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
+DELETE FROM `creature` WHERE `id1` = 1568;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`) VALUES 
 (601568, 1568, 0, 1, 1678.99, 1667.86, 135.855, 3.76991, 300);
 
 DELETE FROM `creature_addon` WHERE `guid` IN (29803, 601568);
@@ -192,15 +192,15 @@ DELETE FROM `creature_queststarter` WHERE `id` = 5667 AND `quest` = 1470;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (5667, 1470);
 
 -- fix respawn times and movement
-UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id` = 1910; -- Muad
-UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id` = 1911; -- Deeb
-UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id` = 1936; -- Farmer Solliden
+UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1910; -- Muad
+UPDATE `creature` SET `spawntimesecs` = 7200 WHERE `id1` = 1911; -- Deeb
+UPDATE `creature` SET `spawntimesecs` = 5400 WHERE `id1` = 1936; -- Farmer Solliden
 
-UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id` = 1911;
+UPDATE `creature` SET `MovementType` = 1, `wander_distance` = 5 WHERE `id1` = 1911;
 
 -- fix patrols
 DELETE FROM `creature` WHERE `guid` IN (37920, 38292, 42142, 44762, 44763, 44990, 49222);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (37920, 1540, 0, 0, 0, 1, 1, 1, 2943.75, -554.264, 109.317, 3.22052, 300,  0, 1, 198, 0,   2, 0, 0, 0, '', 0, 0, NULL), -- Scarlet Vanguard

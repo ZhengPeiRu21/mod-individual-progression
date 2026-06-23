@@ -125,7 +125,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 -- Khan Dez'Hepah, 3 spawn locations
 DELETE FROM `creature` WHERE `guid` IN (29141, 27042, 27052);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (29141, 5600, 1, 0, 0, 1, 1, 1, -795.566, 934.17, 90.5846, 2.77507,  300, 0, 0, 1342, 0, 0, 0, 0, 0, '', 0, 0, NULL),
 (27042, 5600, 1, 0, 0, 1, 1, 1, -947.212, 954.353, 96.303, 4.27606,  300, 0, 0, 1342, 0, 0, 0, 0, 0, '', 0, 0, NULL), -- https://www.youtube.com/watch?v=tkMfTwnqFNY
@@ -215,7 +215,7 @@ UPDATE `broadcast_text_locale` SET `MaleText` = 'Salutations, $c. Je suis Rexxar
 UPDATE `creature_template_model` SET `CreatureDisplayID` = 11660 WHERE `CreatureID` = 10182;
 
 DELETE FROM `creature` WHERE `guid` IN (29113, 610204);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, 
 `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (29113, 10182, 1, 0, 0, 1, 1, 1, 248.28, 1834.76, 86.2291, 3.32486, 550, 0, 1, 647400, 0, 2, 0, 0, 0, '', 0, 0, NULL),
 (610204, 10204, 1, 0, 0, 1, 1, 0, 247.329, 1830.72, 86.2303, 3.36506, 550, 0, 0, 161850, 0, 0, 0, 0, 0, '', 0, 0, NULL);
@@ -587,7 +587,7 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 
 -- fix kodo patrols
 DELETE FROM `creature` WHERE `guid` IN (28272, 28273, 28274, 28295, 28278, 28279, 28280, 28298, 28282, 28283, 28284, 28299);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (28272, 4700, 1, 0, 0, 1, 1, 0, -1313.12, 957.979, 91.9389, 1.58056,  180, 0, 1, 1570, 0, 2, 0, 0, 0, '', 0, 0, NULL),
@@ -786,7 +786,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 I'm removing this script from the kodo patrols so I can use smartAI to despawn the patrol when it reaches it's last waypoint and to keep them active so the formation stays intact
 this does mean that the kodos in the patrol can't be used for the Kodo Roundup quest, but the alternative is teleporting kodos catching up to the leader */
 UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` IN (4700, 4701);
-UPDATE `creature` SET `ScriptName` = 'npc_aged_dying_ancient_kodo' WHERE `id` IN (4700, 4701);
+UPDATE `creature` SET `ScriptName` = 'npc_aged_dying_ancient_kodo' WHERE `id1` IN (4700, 4701);
 UPDATE `creature` SET `ScriptName` = '' WHERE `guid` IN (28272, 28273, 28274, 28278, 28279, 28280, 28282, 28283, 28284, 28295, 28298, 28299);
 
 
@@ -795,7 +795,7 @@ DELETE FROM `creature` WHERE `guid` IN (
 27939, 27940, 27941, 27942, 27943, 27949, 27950, 27951, 27952, 27953, 27954, 27955, 27956, 27957, 27958,
 27959, 27960, 27961, 27962, 27963, 27964, 27965, 27966, 27967, 27968, 27969, 27970, 27971, 27972, 27973);
 
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (27939, 4688, 1, 0, 0, 1, 1, 0, -1726.32, 2567.95, 107.69, 0.39374,  300, 0, 1, 444, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Bonepaw Hyena

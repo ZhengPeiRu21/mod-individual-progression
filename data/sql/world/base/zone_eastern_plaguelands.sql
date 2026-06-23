@@ -194,8 +194,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- fix spawn locations, respawn and movement
-DELETE FROM `creature` WHERE `id` IN (10822, 10823, 10827);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (10822, 10823, 10827);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (86607,  10822, 0, 0, 0, 1, 1, 1, 3314, -4855.85, 167.322, 2.50322, 18000, 5, 0, 3876, 0, 1, 0, 0, 0, '', 0, 0,        'Warlord Thresh\'jin'),
 (695028, 10822, 0, 0, 0, 1, 1, 1, 3221.36, -4710.45, 158.034, 5.60277, 18000, 0, 0, 3876, 0, 0, 0, 0, 0, '', 0, 0,     'Warlord Thresh\'jin'), -- https://www.youtube.com/watch?v=1fU3H5dqXZI

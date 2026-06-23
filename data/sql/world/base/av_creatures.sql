@@ -2,8 +2,8 @@ SET @CGUID    := 657000;
 
 /* VANILLA */
 
-DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `id` IN (10986, 10991, 11675, 11678, 11837, 11838, 11839, 11840, 13959);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `id1` IN (10986, 10991, 11675, 11678, 11837, 11838, 11839, 11840, 13959);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 -- Snowblind Harpy
 (@CGUID+1, 10986, 30, 0, 0, 1, 1, 0, 103.903, 83.4279, 3.3603, 5.97373, 120, 2, 0, 3189, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
@@ -81,8 +81,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 /* TBC */
 
-DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 2 AND `id` IN (10986, 10991, 11675, 11678, 11837, 11838, 11839, 11840, 13959);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 2 AND `id1` IN (10986, 10991, 11675, 11678, 11837, 11838, 11839, 11840, 13959);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 -- Snowblind Harpy
 (@CGUID+64, 10986, 30, 0, 0, 2, 1, 0, 103.903, 83.4279, 3.3603, 5.97373, 300, 2, 0, 4331, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
@@ -173,8 +173,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 /* WOTLK */
 
-DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 4 AND `id` IN (10986, 10991, 11675, 11678, 11837, 11838, 11839, 11840, 13959);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 4 AND `id1` IN (10986, 10991, 11675, 11678, 11837, 11838, 11839, 11840, 13959);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 -- Snowblind Harpy
 (@CGUID+140, 10986, 30, 0, 0, 4, 1, 0, 103.903, 83.4279, 3.3603, 5.97373, 300, 2, 0, 7435, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
@@ -267,7 +267,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- Alliance
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+301 AND @CGUID+399;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+301, 13318, 30, 0, 0, 1, 1, 1, 652.073, -117.387, 49.7097, 0.974652, 432000, 0, 1, 31440, 0, 2, 0, 0, 0, '', NULL, 0, NULL),   -- Commander Mortimer
@@ -335,8 +335,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- Horde
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+401 AND @CGUID+499;
-DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` IN (2, 4) AND `id` = 13448;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` IN (2, 4) AND `id1` = 13448;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+401, 13152, 30, 0, 0, 1, 1, 1, -1090.32, -349.623, 54.6447, 0.0349066, 432000, 0, 0, 31440, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Commander Malgor
@@ -390,7 +390,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- Winterax Hold
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+501 AND @CGUID+599;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+501, 12159, 30, 0, 0, 1, 1, 0, -256.68, -301.7, 6.7, 3.44473, 7200, 0, 0, 113295, 0, 0, 0, 0, 0, '', NULL, 0, NULL),           -- Korrak the Bloodrager (spawns after 2 hours)
@@ -407,7 +407,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- Guards, Archers, Patrols (alliance)
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+601 AND @CGUID+699;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+601, 113358, 30, 0, 0, 1, 1, 1, 569.395, -101.064, 52.8296, 2.34974, 120, 0, 0, 4442, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Stormpike Bowman
@@ -498,7 +498,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- Guards, Archers, Patrols (horde)
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+701 AND @CGUID+799;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+701, 113359, 30, 0, 0, 1, 1, 1, -573.522, -271.854, 75.0078, 3.9619, 120, 0, 0, 4442, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Frostwolf Bowman
@@ -599,7 +599,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- Archers, TBC
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 2 AND `guid` BETWEEN @CGUID+801 AND @CGUID+836;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+801, 113358, 30, 0, 0, 2, 1, 1, 569.395, -101.064, 52.8296, 2.34974, 120, 0, 0, 7230, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- TBC Stormpike Bowman
@@ -638,7 +638,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 -- Archers, WOTLK
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 4 AND `guid` BETWEEN @CGUID+841 AND @CGUID+876;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+841, 113358, 30, 0, 0, 4, 1, 1, 569.395, -101.064, 52.8296, 2.34974, 120, 0, 0, 7230, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- WOTLK Stormpike Bowman
@@ -680,7 +680,7 @@ SET @CGUID    := 674000;
 
 /* Irondeep Mine - Vanilla */
 DELETE FROM `creature` WHERE `spawnMask` = 1 AND `guid` BETWEEN @CGUID+1 AND @CGUID+300;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+1, 110987, 30, 0, 0, 1, 1, 1, 821.531, -334.511, 65.6551, 4.85141, 300, 0, 0, 1227, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Irondeep Trogg
@@ -934,7 +934,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 /* Irondeep Mine - TBC */
 DELETE FROM `creature` WHERE `spawnMask` = 2 AND `guid` BETWEEN @CGUID+301 AND @CGUID+600;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+301, 110987, 30, 0, 0, 2, 1, 1, 821.531, -334.511, 65.6551, 4.85141, 300, 0, 0, 1227, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Irondeep Trogg
@@ -1188,7 +1188,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 /* Irondeep Mine - WotLK */
 DELETE FROM `creature` WHERE `spawnMask` = 4 AND `guid` BETWEEN @CGUID+601 AND @CGUID+900;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+601, 110987, 30, 0, 0, 4, 1, 1, 821.531, -334.511, 65.6551, 4.85141, 300, 0, 0, 1227, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Irondeep Trogg
@@ -1442,7 +1442,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 /* Coldtooth Mine - Vanilla */
 DELETE FROM `creature` WHERE `spawnMask` = 1 AND `guid` BETWEEN @CGUID+1001 AND @CGUID+1300;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+1001, 110982, 30, 0, 0, 1, 1, 1, -865.249, -131.622, 62.6325, 2.90284, 300, 0, 0, 1227, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Whitewhisker Vermin
@@ -1713,7 +1713,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 /* Coldtooth Mine - TBC */
 DELETE FROM `creature` WHERE `spawnMask` = 2 AND `guid` BETWEEN @CGUID+1301 AND @CGUID+1600;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+1301, 110982, 30, 0, 0, 2, 1, 1, -865.249, -131.622, 62.6325, 2.90284, 300, 0, 0, 1227, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Whitewhisker Vermin
@@ -1984,7 +1984,7 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 
 /* Coldtooth Mine - WotLK */
 DELETE FROM `creature` WHERE `spawnMask` = 4 AND `guid` BETWEEN @CGUID+1601 AND @CGUID+1900;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+1601, 110982, 30, 0, 0, 4, 1, 1, -865.249, -131.622, 62.6325, 2.90284, 300, 0, 0, 1227, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Whitewhisker Vermin

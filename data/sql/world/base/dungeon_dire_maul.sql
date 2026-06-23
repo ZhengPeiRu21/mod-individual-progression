@@ -219,7 +219,7 @@ DELETE FROM `creature` WHERE `guid` IN
 (248093, 248094, 248095, 248096, 248097, 248098, 248099, 248100, 248101, 248106, 248107, 248108, 248131, 248132, 
 248135, 248136, 248137, 248138, 248145, 248146, 248147, 248155, 248163, 248164, 248171, 248176, 248179, 248180, 248186); -- 248155, 248186, 248101 (not used anymore)
 
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (248093, 13036, 429, 0, 0, 1, 1, 0, 346.936, -43.3005, -25.6162, 1.12652,  7200, 3, 0, 3758, 0, 1, 0, 0, 0, '', 0, 0, NULL),
@@ -462,12 +462,12 @@ UPDATE `creature_template` SET `lootid` = 0 WHERE `entry` = 14370;
 UPDATE `creature_template_model` SET `DisplayScale` = 0.25  WHERE `CreatureID` = 14370;
 
 -- fix waypoints
-DELETE FROM `creature` WHERE `id` IN (11459, 11484, 11488, 14308);
+DELETE FROM `creature` WHERE `id1` IN (11459, 11484, 11488, 14308);
 DELETE FROM `creature` WHERE `guid` IN (247932, 247933); -- unused Eldreth Phantasm guids
 DELETE FROM `creature` WHERE `guid` IN (247915, 247925);
 DELETE FROM `creature` WHERE `guid` IN (@CGUID+21, @CGUID+22, @CGUID+23, @CGUID+24, @CGUID+25, @CGUID+26);
 
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (247820, 11459, 429, 0, 0, 1, 1, 0, -92.0732, 344.012, -4.98579, 4.65212,     7200, 0, 1, 16704, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Ironbark Protector

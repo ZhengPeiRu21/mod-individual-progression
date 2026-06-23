@@ -82,7 +82,7 @@ SET @WPID   := 6520000;
 
 -- fix patrols
 DELETE FROM `creature` WHERE `guid` IN (45710, 81482, 81505, 81530, 81531, 81532, 81581, 81582, 81583, 81587, 81588, 81601, @CGUID+101, @CGUID+102, @CGUID+103);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (45710, 5650, 209, 0, 0, 1, 1, 1, 1658.52, 805.539, 9.29566, 1.36264, 18000, 0, 1, 4278, 2966, 2, 0, 0, 0, '', 0, 0, NULL),

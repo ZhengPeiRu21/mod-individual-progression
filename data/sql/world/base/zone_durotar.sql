@@ -119,8 +119,8 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- fix multiple spawn locations and respawn times
-DELETE FROM `creature` WHERE `id` IN (3204, 5809, 5822, 5824, 5826);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` IN (3204, 5809, 5822, 5824, 5826);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (695041, 3204, 1, 0, 0, 1, 1, 1, 1454.2, -4701.82, -2.62193, 4.57276, 300, 0, 0, 178, 382, 0, 0, 0, 0, '', 0, 0, NULL),   -- Gazz'uz
@@ -192,8 +192,8 @@ INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 UPDATE `creature` SET `spawntimesecs` = 3600, `MovementType` = 1, `Wander_distance` = 5 WHERE `guid` = 12260;
 
 -- Death Flayer, fix waypoints and respawn time
-DELETE FROM `creature` WHERE `id` = 5823;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+DELETE FROM `creature` WHERE `id1` = 5823;
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (12322, 5823, 1, 0, 0, 1, 1, 0, 57.4579, -3894.15, 42.8933, 0.345736, 5400, 0, 1, 222, 0, 2, 0, 0, 0, '', 0, 0, NULL);
 

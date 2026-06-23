@@ -116,8 +116,8 @@ INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `e
 (63913, 639130, 0, 0, 0, 0, 0, NULL);
 
 -- Jailor Borhuin(2431) and Baron Vardus(2306) - multiple spawn locations 
-DELETE FROM `creature` WHERE `id` IN (2306, 2431);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (2306, 2431);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 (16905,  2306, 0, 0, 0, 1, 1, 1, 1180.59, -555.904, 71.1468, 1.8822,  300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', 0, 0, NULL),
 (695010, 2306, 0, 0, 0, 1, 1, 1, 693.333, -905.125, 157.78, 2.69564,  300, 0, 0, 1239, 3191, 0, 0, 0, 0, '', NULL, 0, NULL), -- https://www.youtube.com/watch?v=MgH-PCmxnUo

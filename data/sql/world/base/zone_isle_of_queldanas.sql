@@ -233,9 +233,9 @@ SET @WPID   := 6730000;
 SET @IPPPHASE_III := 262144;
 SET @IPPPHASE_V   := 1048576;
 
-DELETE FROM `creature` WHERE `id` IN (25001, 25002, 25003);
+DELETE FROM `creature` WHERE `id1` IN (25001, 25002, 25003);
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+2 AND @CGUID+5;
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+1,  25003, 530, 0, 0, 1, 1, 1, 12583.2998, -6916.2798, 4.6855, 6.2606, 300, 0, 1, 7084, 0, 2, 0, 0, 0, '', NULL, 0, NULL), -- Emissary of Hate
 --
@@ -431,8 +431,8 @@ DELETE FROM `creature_addon` WHERE `guid` BETWEEN 97023 AND 97035;
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN 97073 AND 97081;
 
 DELETE FROM `creature` WHERE `guid` BETWEEN @CGUID+171 AND @CGUID+175;
-DELETE FROM `creature` WHERE `id` IN (22323, 24918, 24919);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+DELETE FROM `creature` WHERE `id1` IN (22323, 24918, 24919);
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
 `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES 
 --
 (@CGUID+101, 22323, 530, 0, 0, 1, 1, 0, 779.805, 2025.520, 272.724, 2.082, 300, 5, 0, 6986, 0, 1, 0, 0, 0, '', 0, 0, NULL),

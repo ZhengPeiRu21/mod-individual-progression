@@ -167,11 +167,11 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 
 -- update respawn time for Stonewatch elites
-UPDATE `creature` SET `spawntimesecs` = 900 WHERE `id` IN (334, 335, 436, 486, 4064, 4065, 4462, 4464);
+UPDATE `creature` SET `spawntimesecs` = 900 WHERE `id1` IN (334, 335, 436, 486, 4064, 4065, 4462, 4464);
 
 -- missing patrols
 DELETE FROM `creature` WHERE `guid` IN (17972, 18379, 18389, 18394, 18396, 18397, 18434, 18451, 18455, 26167, 28362, 31829);
-INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
+INSERT INTO `creature` (`guid`, `id1`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, 
 `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
 --
 (18389, 4065, 0, 0, 0, 1, 1, 1, -9440.13, -3073.22, 136.855, 5.02655, 900, 0, 0, 521, 0,    0, 0, 0, 0, '', 0, 0, NULL), -- Blackrock Sentry
