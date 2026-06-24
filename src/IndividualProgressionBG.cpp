@@ -103,28 +103,16 @@ public:
             switch (battlegroundType)
             {
             case BATTLEGROUND_AB:
-                if (playerTeamId == TEAM_ALLIANCE && player->hasQuest(11335))
-                    player->CompleteQuest(11335);
-                else if (playerTeamId == TEAM_HORDE && player->hasQuest(11339))
-                    player->CompleteQuest(11339);
+                player->CastSpell(player, SPELL_AB_QUEST_REWARD, true);
                 break;
             case BATTLEGROUND_AV:
-                if (playerTeamId == TEAM_ALLIANCE && player->hasQuest(11336))
-                    player->CompleteQuest(11336);
-                else if (playerTeamId == TEAM_HORDE && player->hasQuest(11340))
-                    player->CompleteQuest(11340);
+                player->CastSpell(player, SPELL_AV_QUEST_REWARD, true);
                 break;
             case BATTLEGROUND_EY:
-                if (playerTeamId == TEAM_ALLIANCE && player->hasQuest(11337))
-                    player->CompleteQuest(11337);
-                else if (playerTeamId == TEAM_HORDE && player->hasQuest(11341))
-                    player->CompleteQuest(11341);
+                player->CastSpell(player, SPELL_EY_QUEST_REWARD, true);
                 break;
             case BATTLEGROUND_WS:
-                if (playerTeamId == TEAM_ALLIANCE && player->hasQuest(11338))
-                    player->CompleteQuest(11338);
-                else if (playerTeamId == TEAM_HORDE && player->hasQuest(11342))
-                    player->CompleteQuest(11342);
+                player->CastSpell(player, SPELL_WS_QUEST_REWARD, true);
                 break;
             }
         }
