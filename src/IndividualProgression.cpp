@@ -150,6 +150,35 @@ uint8 IndividualProgression::GetAccountProgression(uint32 accountId)
     return progressionLevel;
 }
 
+void IndividualProgression::UpdateRNDbotSpells(Player* player)
+{
+    if (!player || !player->IsInWorld())
+        return;
+
+    if (!sIndividualProgression->isBotAccount(player))
+        return;
+
+    switch (player->getClass())
+    {
+    case CLASS_WARLOCK:
+        if (player->GetLevel() >= 40)
+            player->learnSpell(1710, false); // Summon Felsteed
+        break;
+    case CLASS_PALADIN:
+        if (player->GetLevel() >= 40)
+            player->learnSpell(13820, false); // Summon Warhorse
+        break;
+    case CLASS_DRUID:
+        if (player->GetLevel() >= 10)
+            player->learnSpell(18960, false); // Teleport: Moonglade
+        if (player->GetLevel() >= 16)
+            player->learnSpell(1066, false); // Aquatic Form
+        break;
+    default:
+        return;
+    }
+}
+
 void IndividualProgression::UpdateAccountReputation(uint32 factionId, uint32 accountId, Player* player)
 {
     if (!factionId || !accountId || !player || !player->IsInWorld())
