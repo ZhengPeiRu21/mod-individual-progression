@@ -113,18 +113,18 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 (69109,     19377, 530, 0, 0, 1, 1, 1, -1978.8900, 5673.5498, 117.6500, 3.75246, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', 0, 0, NULL), -- Neophyte Nemarn
 (69110,     19378, 530, 0, 0, 1, 1, 1, -1729.16, 5813.11, 148.757, 1.0821, 300, 0, 0, 4422, 2620, 2, 0, 0, 0, '', 0, 0, NULL),    -- Anchorite Nindumen
 --
-(@CGUID+1,  19153, 530, 0, 0, 1, 1, 1, -1793.7200, 5629.2598, 130.8950, 1.2901, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL), -- Aldor Neophyte
-(@CGUID+2,  19153, 530, 0, 0, 1, 1, 1, -1794.1899, 5612.8599, 130.8950, 1.0829, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+3,  19153, 530, 0, 0, 1, 1, 1, -1805.9500, 5622.2402, 130.8950, 1.1808, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+4,  19153, 530, 0, 0, 1, 1, 1, -1799.0601, 5611.7202, 130.8950, 1.2887, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+5,  19337, 530, 0, 0, 1, 1, 1, -1789.2000, 5624.5000, 130.8950, 1.8921, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL), -- Aldor Marksman
-(@CGUID+6,  19337, 530, 0, 0, 1, 1, 1, -1802.3101, 5625.4702, 130.8950, 1.2240, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+7,  19337, 530, 0, 0, 1, 1, 1, -1805.6100, 5617.3198, 130.8950, 1.2529, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+8,  19337, 530, 0, 0, 1, 1, 1, -1801.1100, 5631.8599, 130.8950, 1.2802, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+9,  19390, 530, 0, 0, 1, 1, 1, -1803.7100, 5612.8501, 130.8730, 1.1850, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL), -- Mounted Neophyte
-(@CGUID+10, 19390, 530, 0, 0, 1, 1, 1, -1797.2100, 5626.5498, 130.8870, 1.3349, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+11, 19390, 530, 0, 0, 1, 1, 1, -1793.7900, 5622.9902, 130.8900, 1.3154, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL),
-(@CGUID+12, 19390, 530, 0, 0, 1, 1, 1, -1801.9000, 5620.6802, 130.8920, 1.3707, 300, 0, 0, 6986, 0, 2, 0, 0, 0, '', NULL, 0, NULL);
+(@CGUID+1,  19153, 530, 0, 0, 1, 1, 1, -1793.7200, 5629.2598, 130.8950, 1.2901, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Aldor Neophyte
+(@CGUID+2,  19153, 530, 0, 0, 1, 1, 1, -1794.1899, 5612.8599, 130.8950, 1.0829, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+3,  19153, 530, 0, 0, 1, 1, 1, -1805.9500, 5622.2402, 130.8950, 1.1808, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+4,  19153, 530, 0, 0, 1, 1, 1, -1799.0601, 5611.7202, 130.8950, 1.2887, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+5,  19337, 530, 0, 0, 1, 1, 1, -1789.2000, 5624.5000, 130.8950, 1.8921, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Aldor Marksman
+(@CGUID+6,  19337, 530, 0, 0, 1, 1, 1, -1802.3101, 5625.4702, 130.8950, 1.2240, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+7,  19337, 530, 0, 0, 1, 1, 1, -1805.6100, 5617.3198, 130.8950, 1.2529, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+8,  19337, 530, 0, 0, 1, 1, 1, -1801.1100, 5631.8599, 130.8950, 1.2802, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+9,  19390, 530, 0, 0, 1, 1, 1, -1803.7100, 5612.8501, 130.8730, 1.1850, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL), -- Mounted Neophyte
+(@CGUID+10, 19390, 530, 0, 0, 1, 1, 1, -1797.2100, 5626.5498, 130.8870, 1.3349, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+11, 19390, 530, 0, 0, 1, 1, 1, -1793.7900, 5622.9902, 130.8900, 1.3154, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL),
+(@CGUID+12, 19390, 530, 0, 0, 1, 1, 1, -1801.9000, 5620.6802, 130.8920, 1.3707, 30, 0, 0, 6986, 0, 0, 0, 0, 0, '', NULL, 0, NULL);
 
 DELETE FROM `creature_addon` WHERE `guid` IN (68962, 69109, 69110);
 DELETE FROM `creature_addon` WHERE `guid` BETWEEN @CGUID+1 AND @CGUID+12;
@@ -386,70 +386,82 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (-672001, 0, 0, 0, 108, 0, 100, 0, 13, 6720010, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Aldor Neophyte - On Waypoint Reached - Despawn Self'),
 (-672001, 0, 1, 0, 108, 0, 100, 0, 4, 6720010, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aldor Neophyte - On Waypoint Reached - Salute'),
-(-672001, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Reset - Set Active'),
+(-672001, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Active'),
+(-672001, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Invisible'),
+(-672001, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Faction Friendly'),
 (-672002, 0, 0, 0, 108, 0, 100, 0, 13, 6720020, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Aldor Neophyte - On Waypoint Reached - Despawn Self'),
 (-672002, 0, 1, 0, 108, 0, 100, 0, 4, 6720020, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aldor Neophyte - On Waypoint Reached - Salute'),
-(-672002, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Reset - Set Active'),
+(-672002, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Active'),
+(-672002, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Invisible'),
+(-672002, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Faction Friendly'),
 (-672003, 0, 0, 0, 108, 0, 100, 0, 12, 6720030, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Aldor Neophyte - On Waypoint Reached - Despawn Self'),
 (-672003, 0, 1, 0, 108, 0, 100, 0, 3, 6720030, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aldor Neophyte - On Waypoint Reached - Salute'),
-(-672003, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Reset - Set Active'),
+(-672003, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Active'),
+(-672003, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Invisible'),
+(-672003, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Faction Friendly'),
 (-672004, 0, 0, 0, 108, 0, 100, 0, 14, 6720040, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Aldor Neophyte - On Waypoint Reached - Despawn Self'),
 (-672004, 0, 1, 0, 108, 0, 100, 0, 4, 6720040, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aldor Neophyte - On Waypoint Reached - Salute'),
-(-672004, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Reset - Set Active'),
+(-672004, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Active'),
+(-672004, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Invisible'),
+(-672004, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Neophyte - On Respawn - Set Faction Friendly'),
 --
 (-672005, 0, 0, 0, 108, 0, 100, 0, 13, 6720050, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Aldor Marksman - On Waypoint Reached - Despawn Self'),
 (-672005, 0, 1, 0, 108, 0, 100, 0, 4, 6720050, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aldor Marksman - On Waypoint Reached - Salute'),
-(-672005, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Reset - Set Active'),
+(-672005, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Active'),
+(-672005, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Invisible'),
+(-672005, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Faction Friendly'),
 (-672006, 0, 0, 0, 108, 0, 100, 0, 13, 6720060, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Aldor Marksman - On Waypoint Reached - Despawn Self'),
 (-672006, 0, 1, 0, 108, 0, 100, 0, 4, 6720060, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aldor Marksman - On Waypoint Reached - Salute'),
-(-672006, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Reset - Set Active'),
+(-672006, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Active'),
+(-672006, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Invisible'),
+(-672006, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Faction Friendly'),
 (-672007, 0, 0, 0, 108, 0, 100, 0, 13, 6720070, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Aldor Marksman - On Waypoint Reached - Despawn Self'),
 (-672007, 0, 1, 0, 108, 0, 100, 0, 4, 6720070, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aldor Marksman - On Waypoint Reached - Salute'),
-(-672007, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Reset - Set Active'),
+(-672007, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Active'),
+(-672007, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Invisible'),
+(-672007, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Faction Friendly'),
 (-672008, 0, 0, 0, 108, 0, 100, 0, 16, 6720080, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Aldor Marksman - On Waypoint Reached - Despawn Self'),
 (-672008, 0, 1, 0, 108, 0, 100, 0, 4, 6720080, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Aldor Marksman - On Waypoint Reached - Salute'),
-(-672008, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Reset - Set Active'),
+(-672008, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Active'),
+(-672008, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Invisible'),
+(-672008, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Aldor Marksman - On Respawn - Set Faction Friendly'),
 --
 (-672009, 0, 0, 0, 108, 0, 100, 0, 14, 6720090, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Mounted Neophyte - On Waypoint Reached - Despawn Self'),
 (-672009, 0, 1, 0, 108, 0, 100, 0, 4, 6720090, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Mounted Neophyte - On Waypoint Reached - Salute'),
-(-672009, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Reset - Set Active'),
+(-672009, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Active'),
+(-672009, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Invisible'),
+(-672009, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Faction Friendly'),
 (-672010, 0, 0, 0, 108, 0, 100, 0, 13, 6720100, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Mounted Neophyte - On Waypoint Reached - Despawn Self'),
 (-672010, 0, 1, 0, 108, 0, 100, 0, 4, 6720100, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Mounted Neophyte - On Waypoint Reached - Salute'),
-(-672010, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Reset - Set Active'),
+(-672010, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Active'),
+(-672010, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Invisible'),
+(-672010, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Faction Friendly'),
 (-672011, 0, 0, 0, 108, 0, 100, 0, 12, 6720110, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Mounted Neophyte - On Waypoint Reached - Despawn Self'),
 (-672011, 0, 1, 0, 108, 0, 100, 0, 3, 6720110, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Mounted Neophyte - On Waypoint Reached - Salute'),
-(-672011, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Reset - Set Active'),
+(-672011, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Active'),
+(-672011, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Invisible'),
+(-672011, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Faction Friendly'),
 (-672012, 0, 0, 0, 108, 0, 100, 0, 12, 6720120, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,  'Mounted Neophyte - On Waypoint Reached - Despawn Self'),
 (-672012, 0, 1, 0, 108, 0, 100, 0, 3, 6720120, 0, 0, 0, 0, 5, 66, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Mounted Neophyte - On Waypoint Reached - Salute'),
-(-672012, 0, 2, 0, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Reset - Set Active');
+(-672012, 0, 2, 3, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Active'),
+(-672012, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Invisible'),
+(-672012, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Mounted Neophyte - On Respawn - Set Faction Friendly');
 
 UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (19346, 19377, 19378);
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (19346, 19377, 19378);
-DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1934600, 1934601, 1937700, 1937800, 1937801);
+DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (1934600, 1934601, 1934602, 1937700, 1937800, 1937801);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
 `action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
 `target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
 --
-(19346, 0, 0, 1, 108, 0, 100, 0, 1, 689620, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672001, 19153, 0, 0, 0, 0, 0, 0, 'Harbinger Erothem - On Waypoint Reached - Respawn Aldor Neophyte'),
-(19346, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672002, 19153, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Respawn Aldor Neophyte'),
-(19346, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672003, 19153, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Respawn Aldor Neophyte'),
-(19346, 0, 3, 4, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672004, 19153, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Respawn Aldor Neophyte'),
-(19346, 0, 4, 5, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672005, 19337, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Respawn Aldor Marksman'),
-(19346, 0, 5, 6, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672006, 19337, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Respawn Aldor Marksman'),
-(19346, 0, 6, 7, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672007, 19337, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Respawn Aldor Marksman'),
-(19346, 0, 7, 8, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672008, 19337, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Respawn Aldor Marksman'),
-(19346, 0, 8, 9, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672009, 19390, 0, 0, 0, 0, 0, 0,       'Harbinger Erothem - On Waypoint Reached - Respawn Mounted Neophyte'),
-(19346, 0, 9, 10, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672010, 19390, 0, 0, 0, 0, 0, 0,      'Harbinger Erothem - On Waypoint Reached - Respawn Mounted Neophyte'),
-(19346, 0, 10, 11, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672011, 19390, 0, 0, 0, 0, 0, 0,     'Harbinger Erothem - On Waypoint Reached - Respawn Mounted Neophyte'),
-(19346, 0, 11, 12, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 70, 0, 0, 0, 0, 0, 0, 10, 672012, 19390, 0, 0, 0, 0, 0, 0,     'Harbinger Erothem - On Waypoint Reached - Respawn Mounted Neophyte'),
-(19346, 0, 12, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 691100, 0, 0, 0, 0, 0, 10, 69110, 19378, 0, 0, 0, 0, 0, 0, 'Harbinger Erothem - On Waypoint Reached - Movement Resume Anchorite Nindumen'),
---
-(19346, 0, 13, 0, 108, 0, 100, 0, 2,  689620, 0, 0, 0, 0, 80, 1934600, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Harbinger Erothem - On Waypoint Reached - Run Script 1934600'), -- speech
-(19346, 0, 14, 0, 108, 0, 100, 0, 8,  689620, 0, 0, 0, 0, 80, 1934601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Harbinger Erothem - On Waypoint Reached - Run Script 1934601'),
-(19346, 0, 15, 0, 108, 0, 100, 0, 11, 689620, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Harbinger Erothem - On Waypoint Reached - Say Line 2'), -- May it be so.
-(19346, 0, 16, 0,  25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Harbinger Erothem - On Reset - Set Active'),
+(19346, 0, 0, 1, 108, 0, 100, 0, 1, 689620, 0, 0, 0, 0, 80, 1934602, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,     'Harbinger Erothem - On Waypoint Reached - Run Script 1934602'),
+(19346, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, 691100, 0, 0, 0, 0, 0, 10, 69110, 19378, 0, 0, 0, 0, 0, 0,  'Harbinger Erothem - On Waypoint Reached - Movement Resume Anchorite Nindumen'),
+(19346, 0, 2, 0, 108, 0, 100, 0, 2,  689620, 0, 0, 0, 0, 80, 1934600, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Harbinger Erothem - On Waypoint Reached - Run Script 1934600'), -- speech
+(19346, 0, 3, 0, 108, 0, 100, 0, 8,  689620, 0, 0, 0, 0, 80, 1934601, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,    'Harbinger Erothem - On Waypoint Reached - Run Script 1934601'),
+(19346, 0, 4, 0, 108, 0, 100, 0, 10, 689620, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Harbinger Erothem - On Waypoint Reached - Say Line 2'), -- May it be so.
+(19346, 0, 5, 0,  25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 48, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Harbinger Erothem - On Reset - Set Active'),
 --
 (19377, 0, 0, 0, 108, 0, 100, 0, 12,  691090, 0, 0, 0, 0, 80, 1937700, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'Neophyte Nemarn - On Waypoint Reached - Run Script 1937700'),
 --
@@ -467,6 +479,25 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 --
 (1934601, 9, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                 'Script9 - Harbinger Erothem - Say Line 0'), -- I have a request
 (1934601, 9, 1, 0, 0, 0, 100, 0, 10000, 10000, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Script9 - Harbinger Erothem - Say Line 1'), -- We've just sent
+--
+(1934602, 9,  0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 19153, 0, 120, 1, 0, 0, 0, 0,              'Script9 - Harbinger Erothem - Set visibility Aldor Neophyte ON'),
+(1934602, 9,  1, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 19337, 0, 120, 1, 0, 0, 0, 0,              'Script9 - Harbinger Erothem - Set visibility Aldor Marksman ON'),
+(1934602, 9,  2, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 19390, 0, 120, 1, 0, 0, 0, 0,              'Script9 - Harbinger Erothem - Set visibility Mounted Neophyte ON'),
+(1934602, 9,  3, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 19390, 0, 120, 1, 0, 0, 0, 0,               'Script9 - Harbinger Erothem - Reset Faction Aldor Neophyte'),
+(1934602, 9,  4, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 19390, 0, 120, 1, 0, 0, 0, 0,               'Script9 - Harbinger Erothem - Reset Faction Aldor Marksman'),
+(1934602, 9,  5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 19390, 0, 120, 1, 0, 0, 0, 0,               'Script9 - Harbinger Erothem - Reset Faction Mounted Neophyte'),
+(1934602, 9,  6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+10, 0, 0, 0, 0, 0, 10, 672001, 19153, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Aldor Neophyte'),
+(1934602, 9,  7, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+20, 0, 0, 0, 0, 0, 10, 672002, 19153, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Aldor Neophyte'),
+(1934602, 9,  8, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+30, 0, 0, 0, 0, 0, 10, 672003, 19153, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Aldor Neophyte'),
+(1934602, 9,  9, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+40, 0, 0, 0, 0, 0, 10, 672004, 19153, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Aldor Neophyte'),
+(1934602, 9, 10, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+50, 0, 0, 0, 0, 0, 10, 672005, 19337, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Aldor Marksman'),
+(1934602, 9, 11, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+60, 0, 0, 0, 0, 0, 10, 672006, 19337, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Aldor Marksman'),
+(1934602, 9, 12, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+70, 0, 0, 0, 0, 0, 10, 672007, 19337, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Aldor Marksman'),
+(1934602, 9, 13, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+80, 0, 0, 0, 0, 0, 10, 672008, 19337, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Aldor Marksman'),
+(1934602, 9, 14, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+90, 0, 0, 0, 0, 0, 10, 672009, 19390, 0, 0, 0, 0, 0, 0,  'Script9 - Harbinger Erothem - Start Waypoins Mounted Neophyte'),
+(1934602, 9, 15, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+100, 0, 0, 0, 0, 0, 10, 672010, 19390, 0, 0, 0, 0, 0, 0, 'Script9 - Harbinger Erothem - Start Waypoins Mounted Neophyte'),
+(1934602, 9, 16, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+110, 0, 0, 0, 0, 0, 10, 672011, 19390, 0, 0, 0, 0, 0, 0, 'Script9 - Harbinger Erothem - Start Waypoins Mounted Neophyte'),
+(1934602, 9, 17, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 232, @WPID+120, 0, 0, 0, 0, 0, 10, 672012, 19390, 0, 0, 0, 0, 0, 0, 'Script9 - Harbinger Erothem - Start Waypoins Mounted Neophyte'),
 --
 (1937700, 9, 0,  0, 0, 0, 100, 1, 0, 0, 0, 0, 0, 0, 5, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Script9 - Neophyte Nemarn - OneShotBow'),
 (1937700, 9, 1,  0, 0, 0, 100, 1, 2000, 2000, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Script9 - Neophyte Nemarn - Say Line 0'),
