@@ -1236,6 +1236,66 @@ public:
         sIndividualProgression->checkIPPhasing(player, newArea);
     }
 
+    bool OnPlayerCanEquipItem(Player* player, uint8 /*slot*/, uint16& /*dest*/, Item* pItem, bool /*swap*/, bool /*not_loading*/) override
+    {
+        if (!player || !pItem)
+            return false;
+
+        if (pItem->GetTemplate()->RequiredHonorRank == 0)
+            return true;
+
+        if (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) == 0) // value is 0 player login
+            return true;
+
+        switch (pItem->GetTemplate()->RequiredHonorRank)
+        {
+        case 5:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 5);
+            break;
+        case 6:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 6);
+            break;
+        case 7:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 7);
+            break;
+        case 8:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 8);
+            break;
+        case 9:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 9);
+            break;
+        case 10:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 10);
+            break;
+        case 11:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 11);
+            break;
+        case 12:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 12);
+            break;
+        case 13:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 13);
+            break;
+        case 14:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 14);
+            break;
+        case 15:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 15);
+            break;
+        case 16:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 16);
+            break;
+        case 17:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 17);
+            break;
+        case 18:
+            return (player->GetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK) >= 18);
+            break;
+        default:
+            break;
+        }
+        return true;
+    }
 };
 
 class IndividualPlayerProgression_AccountScript : public AccountScript
