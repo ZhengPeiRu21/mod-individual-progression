@@ -382,6 +382,8 @@ UPDATE `quest_template` SET `RewardItem1` = 20560, `RewardAmount1` = 3 WHERE `ID
 UPDATE `quest_template` SET `RewardItem1` = 29024, `RewardAmount1` = 3 WHERE `ID` IN (11337, 11341); -- Call to Arms: Eye of the Storm (repeatable)
 UPDATE `quest_template` SET `RewardItem1` = 20558, `RewardAmount1` = 3 WHERE `ID` IN (11338, 11342); -- Call to Arms: Warsong Gulch (repeatable)
 
+UPDATE `quest_template` SET `Flags` = 4162 WHERE `ID` IN (11335, 11339, 11336, 11340, 11337, 11341, 11338, 11342); -- set completable in a raid
+
 UPDATE `quest_template_addon` SET `PrevQuestID` = 13476, `SpecialFlags` = 1 WHERE `ID` = 13475;
 UPDATE `quest_template_addon` SET `PrevQuestID` = 13478, `SpecialFlags` = 1 WHERE `ID` = 13477;
 

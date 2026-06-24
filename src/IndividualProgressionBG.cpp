@@ -63,6 +63,7 @@ public:
             return;
 
         const TeamId playerTeamId = player->GetBgTeamId();
+        const uint8 playerLevel = player->GetLevel();
 
         uint8_t rewardQuantity = 1;
 
@@ -95,6 +96,25 @@ public:
             draft.AddItem(item);
             draft.SendMailTo(transaction, MailReceiver(player, player->GetGUID().GetRawValue()), MailSender(MAIL_CREATURE, battlemasterId));
             CharacterDatabase.CommitTransaction(transaction);
+        }
+
+        if (playerLevel >= 60 && playerLevel <= 70 && playerTeamId == winner)
+        {
+            switch (battlegroundType)
+            {
+            case BATTLEGROUND_AB:
+                player->CastSpell(player, SPELL_AB_QUEST_REWARD, true);
+                break;
+            case BATTLEGROUND_AV:
+                player->CastSpell(player, SPELL_AV_QUEST_REWARD, true);
+                break;
+            case BATTLEGROUND_EY:
+                player->CastSpell(player, SPELL_EY_QUEST_REWARD, true);
+                break;
+            case BATTLEGROUND_WS:
+                player->CastSpell(player, SPELL_WS_QUEST_REWARD, true);
+                break;
+            }
         }
     }
 
