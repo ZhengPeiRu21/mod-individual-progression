@@ -63,6 +63,7 @@ public:
             return;
 
         const TeamId playerTeamId = player->GetBgTeamId();
+        const uint8 playerLevel = player->GetLevel();
 
         uint8_t rewardQuantity = 1;
 
@@ -95,6 +96,37 @@ public:
             draft.AddItem(item);
             draft.SendMailTo(transaction, MailReceiver(player, player->GetGUID().GetRawValue()), MailSender(MAIL_CREATURE, battlemasterId));
             CharacterDatabase.CommitTransaction(transaction);
+        }
+
+        if (playerLevel >= 60 && playerLevel <= 70 && playerTeamId == winner)
+        {
+            switch (battlegroundType)
+            {
+            case BATTLEGROUND_AB:
+                if (playerTeamId == TEAM_ALLIANCE && player->hasQuest(11335))
+                    player->CompleteQuest(11335);
+                else if (playerTeamId == TEAM_HORDE && player->hasQuest(11339))
+                    player->CompleteQuest(11339);
+                break;
+            case BATTLEGROUND_AV:
+                if (playerTeamId == TEAM_ALLIANCE && player->hasQuest(11336))
+                    player->CompleteQuest(11336);
+                else if (playerTeamId == TEAM_HORDE && player->hasQuest(11340))
+                    player->CompleteQuest(11340);
+                break;
+            case BATTLEGROUND_EY:
+                if (playerTeamId == TEAM_ALLIANCE && player->hasQuest(11337))
+                    player->CompleteQuest(11337);
+                else if (playerTeamId == TEAM_HORDE && player->hasQuest(11341))
+                    player->CompleteQuest(11341);
+                break;
+            case BATTLEGROUND_WS:
+                if (playerTeamId == TEAM_ALLIANCE && player->hasQuest(11338))
+                    player->CompleteQuest(11338);
+                else if (playerTeamId == TEAM_HORDE && player->hasQuest(11342))
+                    player->CompleteQuest(11342);
+                break;
+            }
         }
     }
 
