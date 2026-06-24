@@ -1117,7 +1117,7 @@ public:
         
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
         {       
-            if (!sIndividualProgression->disableDefaultProgression)
+            if (sIndividualProgression->disableDefaultProgression)
             {
                 bool CustomCreatureKilled = false;
                 
