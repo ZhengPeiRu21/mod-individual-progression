@@ -1112,11 +1112,37 @@ public:
                 }
             }
         }
+
+        Group* group = killer->GetGroup();
         
         if (killed->GetCreatureTemplate()->rank > CREATURE_ELITE_NORMAL)
-        {
-            Group* group = killer->GetGroup();
-            
+        {       
+            if (sIndividualProgression->disableDefaultProgression)
+            {
+                bool CustomCreatureKilled = false;
+                
+                if (group)
+                {
+                    for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
+                    {
+                        Player* member = itr->GetSource();
+                        if (!member || !sIndividualProgression->isNormalAccount(member))
+                            continue;
+
+                        if (sIndividualProgression->checkCustomKillProgression(killer, killed))
+                            CustomCreatureKilled = true;
+                    }
+                }
+                else // no group
+                {
+                    if (sIndividualProgression->checkCustomKillProgression(killer, killed)) 
+                        CustomCreatureKilled = true;
+                }
+
+                if (CustomCreatureKilled)
+                    return;
+            }
+   
             if (killed->GetEntry() == COLOSSUS_ZORA || killed->GetEntry() == COLOSSUS_REGAL || killed->GetEntry() == COLOSSUS_ASHI)
             {
                 // no group
@@ -1143,11 +1169,10 @@ public:
                             member->CompleteQuest(QUEST_COLOSSUS_ASHI);
                     }
                 }
-
                 return;
             }
 
-            sIndividualProgression->checkKillProgression(killer, killed); // no group
+            uint32 ENTRY_KILLED = killed->GetEntry();
 
             if (group)
             {
@@ -1158,8 +1183,16 @@ public:
                         continue;
 
                     if (killer->IsAtLootRewardDistance(member))
-                        sIndividualProgression->checkKillProgression(member, killed);
+                    {
+                        if (!sIndividualProgression->hasCustomProgressionValue(ENTRY_KILLED))
+                            sIndividualProgression->checkKillProgression(member, killed);
+                    }
                 }
+            }
+            else // no group
+            {
+                if (!sIndividualProgression->hasCustomProgressionValue(ENTRY_KILLED))
+                    sIndividualProgression->checkKillProgression(killer, killed);
             }
         }
     }

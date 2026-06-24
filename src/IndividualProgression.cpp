@@ -749,6 +749,25 @@ void IndividualProgression::checkIPProgression(Player* killer)
     }
 }
 
+bool IndividualProgression::checkCustomKillProgression(Player* killer, Creature* killed)
+{
+    if (!enabled)
+        return false;
+
+    if (!killed || !killer || !killer->IsInWorld())
+        return false;
+
+    uint32 entry = killed->GetEntry();
+
+    if (hasCustomProgressionValue(entry))
+    {
+        UpdateProgressionState(killer, static_cast<ProgressionState>(customProgressionMap[entry]));
+        return true;
+    }
+
+    return false;
+}
+
 void IndividualProgression::checkKillProgression(Player* killer, Creature* killed)
 {
     if (!enabled)
@@ -759,6 +778,7 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
 
     uint32 entry = killed->GetEntry();
 
+    /*
     if (hasCustomProgressionValue(entry))
     {
         UpdateProgressionState(killer, static_cast<ProgressionState>(customProgressionMap[entry]));
@@ -767,6 +787,7 @@ void IndividualProgression::checkKillProgression(Player* killer, Creature* kille
 
     if (disableDefaultProgression)
         return;
+    */
 
     static const std::unordered_map<uint32, ProgressionState> bossMap =
     {
