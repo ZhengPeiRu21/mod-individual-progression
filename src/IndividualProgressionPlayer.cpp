@@ -27,6 +27,9 @@ public:
 
         if (!sIndividualProgression->isNormalAccount(player)) // bot or exluded account
         {
+            if (sIndividualProgression->isBotAccount(player))
+                sIndividualProgression->UpdateRNDbotSpells(player); // give class spells to RNDbots that have been removed from trainers by IP.
+            
             if (player->GetLevel() <= 60)
                 sIndividualProgression->ForceUpdateProgressionState(player, static_cast<ProgressionState>(0));
             else if ((player->GetLevel() > 60) && (player->GetLevel() <= 70))
@@ -72,6 +75,15 @@ public:
 
         // exluded accounts should be effected by server nerfs as well
         sIndividualProgression->CheckAdjustments(player);
+    }
+
+    void OnPlayerLevelChanged(Player* player, uint8 /*oldLevel*/) override
+    {
+        if (!player || !player->IsInWorld())
+            return;
+
+        if (sIndividualProgression->isBotAccount(player))
+            sIndividualProgression->UpdateRNDbotSpells(player);
     }
 
     void OnPlayerResurrect(Player* player, float /*restore_percent*/, bool& /*applySickness*/) override
