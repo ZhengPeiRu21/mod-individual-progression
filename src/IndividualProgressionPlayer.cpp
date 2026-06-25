@@ -1358,17 +1358,19 @@ public:
             return true;
 
         uint8 highestProgression = sIndividualProgression->GetAccountProgression(accountId);
-        if (charRace == RACE_DRAENEI || charRace == RACE_BLOODELF)
+        bool allowed = true;
+        
+        if ((charRace == RACE_DRAENEI || charRace == RACE_BLOODELF) && sIndividualProgression->tbcRacesProgressionLevel != 0)
         {
             if (highestProgression < sIndividualProgression->tbcRacesProgressionLevel)
-                return false;
+                allowed = false;
         }
-        else if (charClass == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightProgressionLevel)
+        if (charClass == CLASS_DEATH_KNIGHT && sIndividualProgression->deathKnightProgressionLevel != 0)
         {
             if (highestProgression < sIndividualProgression->deathKnightProgressionLevel)
-                return false;
+                allowed = false;
         }
-        return true;
+        return allowed;
     }
 };
 
