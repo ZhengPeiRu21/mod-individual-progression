@@ -161,18 +161,18 @@ void IndividualProgression::UpdateRNDbotSpells(Player* player)
     switch (player->getClass())
     {
     case CLASS_WARLOCK:
-        if (player->GetLevel() >= 40)
-            player->learnSpell(1710, false); // Summon Felsteed
+        if (player->GetLevel() >= 40 && !player->HasSpell(1710)) // Summon Felsteed
+            player->learnSpell(1710, false);
         break;
     case CLASS_PALADIN:
-        if (player->GetLevel() >= 40)
-            player->learnSpell(13820, false); // Summon Warhorse
+        if (player->GetLevel() >= 40 && !player->HasSpell(13820)) // Summon Warhorse
+            player->learnSpell(13820, false);
         break;
     case CLASS_DRUID:
-        if (player->GetLevel() >= 10)
-            player->learnSpell(18960, false); // Teleport: Moonglade
-        if (player->GetLevel() >= 16)
-            player->learnSpell(1066, false); // Aquatic Form
+        if (player->GetLevel() >= 10 && !player->HasSpell(18960)) // Teleport: Moonglade
+            player->learnSpell(18960, false);
+        if (player->GetLevel() >= 16 && !player->HasSpell(1066)) // Aquatic Form
+            player->learnSpell(1066, false);
         break;
     default:
         return;
