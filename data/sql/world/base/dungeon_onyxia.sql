@@ -63,7 +63,8 @@ INSERT INTO `spell_dbc` (`ID`, `Category`, `DispelType`, `Mechanic`, `Attributes
 '','','','','','','','','','','','','','','','',16712188,'','','','','','','','','','','','','','','','',16712188,'','','','','','','','','','','','','','','','',16712188,
 0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0);
 
-DELETE FROM `creature_loot_template` WHERE `Item` = 18705;
+DELETE FROM `creature_loot_template` WHERE `Item` = 18705; -- Mature Black Dragon Sinew
+DELETE FROM `creature_loot_template` WHERE `Item` = 18492; -- Treated Ancient Blade
 
 REPLACE INTO `creature_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `GroupId`, `MinCount`, `MaxCount`) VALUES
 (301000, 17966, 0, 100.0, 0, 0, 1, 1),
