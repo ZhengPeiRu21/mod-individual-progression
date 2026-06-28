@@ -73,8 +73,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 -- Mazzranache, waypoints
 UPDATE `creature` SET `spawntimesecs` = 9000, `MovementType` = 2, `currentwaypoint` = 1 WHERE `id` = 3068;
 
-DELETE FROM `creature_addon` WHERE `guid` = 26908;
+DELETE FROM `creature_addon` WHERE `guid` IN (26213, 26908);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES 
+(26213, 0, 0, 0, 0, 0, 0, NULL),
 (26908, 269080, 0, 0, 0, 0, 0, NULL);
 
 DELETE FROM `waypoint_data` WHERE `id` = 269080;
