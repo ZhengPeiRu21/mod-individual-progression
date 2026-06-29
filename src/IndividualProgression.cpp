@@ -506,12 +506,15 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 602649, 614916, 614917, 614918, 614919, 614920, 614921, 627047 });
 
         // Furious Howl, ranks 1-4
-        wipe({ 24604, 24605, 24603, 24597 });
+        wipe({ 24604, 24605, 24603, 24597, 64494 });
         learnHighest({ 624604, 624605, 624603, 624597 });
 
         // Dash, ranks 1-3
-        wipe({ 23099, 23109, 23110 });
+        wipe({ 23099, 23109, 23110, 61684 });
         learnHighest({ 623099, 623109, 623110 });
+
+        // Cower
+        wipe({ 1742 });
     }
 
 }
