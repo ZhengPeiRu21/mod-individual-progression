@@ -436,6 +436,85 @@ void IndividualProgression::SyncBotsProgressionToLeader(Group* group)
     }
 }
 
+void IndividualProgression::checkHunterPetSpells(Player* player)
+{
+    if (!player || !player->IsInWorld())
+        return;
+
+    if (sIndividualProgression->isBotAccount(player))
+        return;
+
+    if (player->getClass() != CLASS_HUNTER)
+        return;
+
+    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        return;
+
+    Pet* pet = player->GetPet();
+    if (!pet)
+        return;
+
+    Creature* creature = pet->ToCreature();
+    if (!creature)
+        return;
+
+    const CreatureTemplate* creatureTemplate = creature->GetCreatureTemplate();
+    if (!creatureTemplate)
+        return;
+
+    CreatureFamilyEntry const* familyEntry = nullptr;
+    if (creature && creature->GetCreatureTemplate())
+        familyEntry = sCreatureFamilyStore.LookupEntry(creature->GetCreatureTemplate()->family);
+
+    std::string familyName = familyEntry->Name[0];
+
+
+    auto wipe = [pet](std::initializer_list<uint32> ids)
+        {
+            for (uint32 id : ids)
+            {
+                if (pet->HasSpell(id))
+                    pet->unlearnSpell(id, false, true);
+            }
+        };
+
+    auto learnHighest = [pet, player](std::initializer_list<uint32> dummyIds)
+        {
+            for (auto it = std::rbegin(dummyIds); it != std::rend(dummyIds); ++it)
+            {
+                if (player->HasSpell(*it))
+                {
+                    pet->learnSpell(*it - 600000);
+                    return;
+                }
+            }
+        };
+
+    if (familyName == "Wolf")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
+
+        // Growl, ranks 1-8
+        wipe({ 2649, 14916, 14917, 14918, 14919, 14920, 14921, 27047 });
+        learnHighest({ 602649, 614916, 614917, 614918, 614919, 614920, 614921, 627047 });
+
+        // Furious Howl, ranks 1-4
+        wipe({ 24604, 24605, 24603, 24597 });
+        learnHighest({ 624604, 624605, 624603, 624597 });
+
+        // Dash, ranks 1-3
+        wipe({ 23099, 23109, 23110 });
+        learnHighest({ 623099, 623109, 623110 });
+    }
+
+}
+
 void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
 {
     if (!player || !player->IsInWorld())
