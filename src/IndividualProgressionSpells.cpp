@@ -23,10 +23,10 @@ private:
     ObjectGuid _playerGuid;
 };
 
-class IndividualPlayerProgression : public PlayerScript
+class IndividualPlayerProgressionSpells : public PlayerScript
 {
 public:
-    IndividualPlayerProgression() : PlayerScript("IndividualProgression") { }
+    IndividualPlayerProgressionSpells() : PlayerScript("IndividualProgression") { }
 
     void OnPlayerLearnSpell(Player* player, uint32 spellID) override
     {
@@ -730,7 +730,7 @@ public:
 
 void AddSC_mod_individual_progression_spells()
 {
-    new IndividualPlayerProgression();
+    new IndividualPlayerProgressionSpells();
     new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_UnitScript();
 }
