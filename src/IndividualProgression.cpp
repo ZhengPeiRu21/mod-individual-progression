@@ -5,6 +5,7 @@
 #include "IndividualProgression.h"
 #include "naxxramas_40.h"
 #include "ReputationMgr.h"
+#include "PetDefines.h"
 
 IndividualProgression* IndividualProgression::instance()
 {
@@ -513,6 +514,142 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 623099, 623109, 623110 });
     }
 
+}
+
+void IndividualProgression::checkDemonSpells(Player* player)
+{
+    if (!player || !player->IsInWorld() || !WarlockDemonTrainers)
+        return;
+
+    if (sIndividualProgression->isBotAccount(player))
+        return;
+
+    if (player->getClass() != CLASS_WARLOCK)
+        return;
+
+    if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+        return;
+
+    Pet* pet = player->GetPet();
+    if (!pet)
+        return;
+
+    // Helper: unlearn every spell in a list if present on the pet.
+    // clear_ab=true so removed spells leave the action bar.
+    auto wipe = [pet](std::initializer_list<uint32> ids)
+        {
+            for (uint32 id : ids)
+            {
+                if (pet->HasSpell(id))
+                    pet->unlearnSpell(id, false, true);
+            }
+        };
+
+    // Helper: walk dummy IDs from highest to lowest; learn the highest the player owns.
+    // Order matters: dummy list MUST be passed lowest-rank-first; we iterate in reverse.
+    auto learnHighest = [pet, player](std::initializer_list<uint32> dummyIds)
+        {
+            for (auto it = std::rbegin(dummyIds); it != std::rend(dummyIds); ++it)
+            {
+                // 603110, 603716, 619505 and 607814 are rank 1 dummy IDs for Firebolt, Torment, Devour Magic and Lash of Pain
+                if (player->HasSpell(*it) || *it == 603110 || *it == 603716 || *it == 619505 || *it == 607814)
+                {
+                    pet->learnSpell(*it - 600000);
+                    return;
+                }
+            }
+        };
+
+    switch (pet->GetEntry())
+    {
+    case NPC_IMP:
+        // Firebolt: ranks 2..9 (47964 is WotLK rank 9)
+        wipe({ 7799, 7800, 7801, 7802, 11762, 11763, 27267, 47964 });
+        learnHighest({ 603110, 607799, 607800, 607801, 607802, 611762, 611763, 627267 }); // ranks 1-8
+
+        // Blood Pact: ranks 1..7 (47982 is WotLK rank 7)
+        wipe({ 6307, 7804, 7805, 11766, 11767, 27268, 47982 });
+        learnHighest({ 606307, 607804, 607805, 611766, 611767, 627268 });
+
+        // Fire Shield: ranks 1..7 (47983 is WotLK rank 7)
+        wipe({ 2947, 8316, 8317, 11770, 11771, 27269, 47983 });
+        learnHighest({ 602947, 608316, 608317, 611770, 611771, 627269 });
+
+        // Phase Shift (single rank)
+        wipe({ 4511 });
+        learnHighest({ 604511 });
+        break;
+
+    case NPC_VOIDWALKER:
+        // Torment: ranks 2..7 (47985 is WotLK rank 8)
+        wipe({ 7809, 7810, 7811, 11774, 11775, 27270, 47984 });
+        learnHighest({ 603716, 607809, 607810, 607811, 611774, 611775, 627270 }); // ranks 1-7
+
+        // Sacrifice: ranks 1..9 (47986 is WotLK rank 9)
+        wipe({ 7812, 19438, 19440, 19441, 19442, 19443, 27273, 47985, 47986 });
+        learnHighest({ 607812, 619438, 619440, 619441, 619442, 619443, 627273 });
+
+        // Consume Shadows: ranks 1..9 (47988 is WotLK rank 9)
+        wipe({ 17767, 17850, 17851, 17852, 17853, 17854, 27272, 47987, 47988 });
+        learnHighest({ 617767, 617850, 617851, 617852, 617853, 617854, 627272 });
+
+        // Suffering: ranks 1..8 (47990 is WotLK rank 8)
+        wipe({ 17735, 17750, 17751, 17752, 27271, 33701, 47989, 47990 });
+        learnHighest({ 617735, 617750, 617751, 617752, 627271, 633701 });
+        break;
+
+    case NPC_SUCCUBUS:
+        // Lash of Pain: ranks 1..9 (47992 is WotLK rank 9)
+        wipe({ 7814, 7815, 7816, 11778, 11779, 11780, 27274, 47991, 47992 });
+        learnHighest({ 607814, 607815, 607816, 611778, 611779, 611780, 627274 });
+
+        // Soothing Kiss: ranks 1..5
+        wipe({ 6360, 7813, 11784, 11785, 27275 });
+        learnHighest({ 606360, 607813, 611784, 611785, 627275 });
+
+        // Seduction & Lesser Invisibility (single ranks)
+        wipe({ 6358, 7870 });
+        learnHighest({ 606358 });
+        learnHighest({ 607870 });
+        break;
+
+    case NPC_FELHUNTER:
+        // Devour Magic + Shadow Bite
+        wipe({ 19505, 19731, 19734, 19736, 27276, 27277, 48011, 54049, 54050, 54051, 54052, 54053 });
+        learnHighest({ 619505, 619731, 619734, 619736, 627276, 627277 });
+
+        // Tainted Blood / Fel Intelligence
+        wipe({ 20429, 20430, 20431, 20432, 27497, 54424, 57564, 57565, 57566, 57567 });
+        learnHighest({ 620429, 620430, 620431, 620432, 627497 });
+
+        // Spell Lock: ranks 1..3
+        wipe({ 19244, 19647, 24259 });
+        learnHighest({ 619244, 619647 });
+
+        // Paranoia (passive)
+        wipe({ 19481 });
+        learnHighest({ 619481 });
+        break;
+
+    case NPC_FELGUARD:
+        // Intercept: ranks 1..3
+        wipe({ 30151, 30154, 30199, 30200 });
+        learnHighest({ 630154, 630199, 630200 });
+
+        // Cleave: ranks 1..3
+        wipe({ 30213, 30214, 30222, 30224 });
+        learnHighest({ 630214, 630222, 630224 });
+
+        // Anguish: ranks 1..3
+        wipe({ 33704, 33705, 33706 });
+        learnHighest({ 633704, 633705, 633706 });
+
+        // Avoidance & Demonic Frenzy (passives)
+        wipe({ 32234, 32852 });
+        learnHighest({ 632234 });
+        learnHighest({ 632852 });
+        break;
+    }
 }
 
 void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
@@ -1125,6 +1262,7 @@ private:
         sIndividualProgression->doableNaxx40Bosses_Razuvious = sConfigMgr->GetOption<bool>("IndividualProgression.doableNaxx40Bosses_Razuvious", false);
         sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", false);
         sIndividualProgression->fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
+        sIndividualProgression->WarlockDemonTrainers = sConfigMgr->GetOption<bool>("IndividualProgression.WarlockDemonTrainers", true);
         sIndividualProgression->simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
         sIndividualProgression->progressionLimit = sConfigMgr->GetOption<uint8>("IndividualProgression.ProgressionLimit", 0);
         sIndividualProgression->startingProgression = sConfigMgr->GetOption<uint8>("IndividualProgression.StartingProgression", 0);
