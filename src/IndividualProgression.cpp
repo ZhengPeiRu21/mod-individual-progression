@@ -516,7 +516,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
 
 }
 
-void IndividualProgression::checkDemonSpells(Player* player)
+void IndividualProgression::checkWarlockPetSpells(Player* player)
 {
     if (!player || !player->IsInWorld() || !WarlockDemonTrainers)
         return;
