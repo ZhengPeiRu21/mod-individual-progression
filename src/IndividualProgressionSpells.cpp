@@ -81,6 +81,8 @@ public:
 
                 uint32 PetSpellDataId = (*result)[0].Get<uint32>();
 
+                ChatHandler(player->GetSession()).PSendSysMessage("PetSpellDataId = {}", PetSpellDataId);
+
                 CreatureSpellDataEntry const* spellDataEntry = sCreatureSpellDataStore.LookupEntry(PetSpellDataId);
 
                 if (!spellDataEntry)
@@ -94,12 +96,21 @@ public:
                     if (PetSpell == 0)
                         continue;
 
+                    ChatHandler(player->GetSession()).PSendSysMessage("PetSpell = {}", PetSpell);
+
                     if (!player->HasSpell(PetSpell + 600000))
                     {
                         std::string SpellName = sSpellStore.LookupEntry(PetSpell)->SpellName[0];
 
+                        uint8 SpellRank = 1;
+
+                        QueryResult result = WorldDatabase.Query("SELECT sr.rank FROM spell_ranks sr WHERE sr.spell_id = {};", PetSpell);
+
+                        if (result)
+                            SpellRank = (*result)[0].Get<uint8>();
+
                         player->learnSpell(PetSpell + 600000);
-                        ChatHandler(player->GetSession()).PSendSysMessage("You have learned spell: {}", SpellName);
+                        ChatHandler(player->GetSession()).PSendSysMessage("You have learned spell: {} (Rank {}).", SpellName, SpellRank);
                     }
                 }
                 return; // spell Tame Beast was cast, no need to check anything else
