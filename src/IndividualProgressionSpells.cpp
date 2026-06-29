@@ -1,10 +1,56 @@
 #include "IndividualProgression.h"
 #include "Spell.h"
+#include "EventProcessor.h"
+#include "ObjectAccessor.h"
+
+class DelayedDemonSpellCheck : public BasicEvent
+{
+public:
+    DelayedDemonSpellCheck(ObjectGuid playerGuid) : _playerGuid(playerGuid) {}
+
+    bool Execute(uint64 /*time*/, uint32 /*diff*/) override
+    {
+        if (Player* player = ObjectAccessor::FindPlayer(_playerGuid))
+        {
+            sIndividualProgression->checkHunterPetSpells(player);
+            sIndividualProgression->checkDemonSpells(player);
+        }
+
+        return true;
+    }
+
+private:
+    ObjectGuid _playerGuid;
+};
 
 class IndividualPlayerProgression : public PlayerScript
 {
 public:
     IndividualPlayerProgression() : PlayerScript("IndividualProgression") { }
+
+    void OnPlayerLearnSpell(Player* player, uint32 spellID) override
+    {
+        if (!player || !player->IsInWorld())
+            return;
+
+        if (sIndividualProgression->isBotAccount(player))
+            return;
+
+        if (player->getClass() == CLASS_HUNTER)
+        {
+            if (spellID < 600000 || spellID > 700000)
+                return;
+
+            sIndividualProgression->checkHunterPetSpells(player);
+        }
+        else if (player->getClass() == CLASS_WARLOCK)
+        {
+            if (spellID < 600000 || spellID > 700000)
+                return;
+
+            sIndividualProgression->checkDemonSpells(player);
+        }
+    }
 
     void OnPlayerSpellCast(Player* player, Spell* spell, bool /*skipCheck*/) override
     {
@@ -475,6 +521,86 @@ public:
     }
 };
 
+class IndividualPlayerProgression_PetScript : public PetScript
+{
+private:
+    static void ScheduleDelayedSpellStrip(Pet* pet)
+    {
+        if (!pet)
+            return;
+
+        Unit* owner = pet->GetOwner();
+
+        if (!owner || !owner->IsPlayer())
+            return;
+
+        if (!owner->ToPlayer()->IsClass(CLASS_WARLOCK, CLASS_CONTEXT_PET) && !owner->ToPlayer()->IsClass(CLASS_HUNTER, CLASS_CONTEXT_PET))
+            return;
+
+        pet->m_Events.AddEvent(
+            new DelayedPetSpellStrip(owner->GetGUID()),
+            pet->m_Events.CalculateTime(100));
+    }
+
+public:
+    IndividualPlayerProgression_PetScript() : PetScript("IndividualProgression_PetScript") {}
+
+    void OnPetAddToWorld(Pet* pet) override
+    {
+        if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
+            return;
+
+        ScheduleDelayedSpellStrip(pet);
+    }
+
+    void OnInitStatsForLevel(Guardian* guardian, uint8 /*petlevel*/) override
+    {
+        if (!sIndividualProgression->enabled || !guardian)
+            return;
+
+        Pet* pet = guardian->ToPet();
+        if (!pet)
+            return;
+
+        ScheduleDelayedSpellStrip(pet);
+    }
+
+    class DelayedPetSpellStrip : public BasicEvent
+    {
+    public:
+        explicit DelayedPetSpellStrip(ObjectGuid ownerGuid, uint8 attempts = 0)
+            : _ownerGuid(ownerGuid), _attempts(attempts) {
+        }
+
+        bool Execute(uint64 /*e_time*/, uint32 /*p_time*/) override
+        {
+            Player* player = ObjectAccessor::FindPlayer(_ownerGuid);
+            if (!player)
+                return true;
+            Pet* pet = player->GetPet();
+            if (!pet)
+                return true;
+
+            // If the LoadPetFromDB async callback hasn't completed yet, poll again.
+            // Cap attempts so a stuck loading flag can't recurse forever.
+            if (pet->isBeingLoaded() && _attempts < 20)
+            {
+                pet->m_Events.AddEvent(
+                    new DelayedPetSpellStrip(_ownerGuid, _attempts + 1),
+                    pet->m_Events.CalculateTime(100));
+                return true;
+            }
+
+            sIndividualProgression->checkHunterPetSpells(player);
+            return true;
+        }
+
+    private:
+        ObjectGuid _ownerGuid;
+        uint8      _attempts;
+    };
+};
+
 class IndividualPlayerProgression_UnitScript : public UnitScript
 {
 public:
@@ -605,5 +731,6 @@ public:
 void AddSC_mod_individual_progression_spells()
 {
     new IndividualPlayerProgression();
+    new IndividualPlayerProgression_PetScript();
     new IndividualPlayerProgression_UnitScript();
 }
