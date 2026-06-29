@@ -13,7 +13,7 @@ public:
         if (Player* player = ObjectAccessor::FindPlayer(_playerGuid))
         {
             sIndividualProgression->checkHunterPetSpells(player);
-            sIndividualProgression->checkDemonSpells(player);
+            sIndividualProgression->checkWarlockPetSpells(player);
         }
 
         return true;
@@ -48,7 +48,7 @@ public:
             if (spellID < 600000 || spellID > 700000)
                 return;
 
-            sIndividualProgression->checkDemonSpells(player);
+            sIndividualProgression->checkWarlockPetSpells(player);
         }
     }
 
