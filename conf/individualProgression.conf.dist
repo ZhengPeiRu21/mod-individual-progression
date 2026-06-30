@@ -170,6 +170,17 @@ IndividualProgression.TheEye.RequireAllBosses = 1
 #
 IndividualProgression.FishingFix = 1
 
+# IndividualProgression.VanillaHunterPets
+#
+#        Description: In WotLK you no longer had to tame beasts to learn new pet spells and ranks. 
+#                     New pet spells and ranks were now automatically learned on the respective levels.
+#                     Enable this option to restore Vanilla/TBC behavior so that specific beasts need to be tamed to learn new pet spells and ranks.
+#
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+IndividualProgression.VanillaHunterPets = 1
+
 # IndividualProgression.WarlockDemonTrainers
 #
 #        Description: In WotLK grimoires became absolete, new ranks and spells were now automatically learned on the respective levels.
