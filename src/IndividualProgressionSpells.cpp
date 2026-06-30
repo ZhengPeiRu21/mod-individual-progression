@@ -62,6 +62,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
     if (creature && creature->GetCreatureTemplate())
         familyEntry = sCreatureFamilyStore.LookupEntry(creature->GetCreatureTemplate()->family);
 
+    if (!familyEntry)
+        return;
+
     std::string familyName = familyEntry->Name[0];
 
 
@@ -94,29 +97,28 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
 
         // Claw, ranks 1-9
         wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
-        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
 
         // Furious Howl, ranks 1-4
-        wipe({ 24604, 24605, 24603, 24597, 64494 });
+        wipe({ 24604, 64491, 64492, 64493, 64494 });
         learnHighest({ 624604, 624605, 624603, 624597 });
 
         // Dash, ranks 1-3
-        wipe({ 23099, 23109, 23110, 61684 });
-        learnHighest({ 623099, 623109, 623110 });
+        wipe({ 61684 });
+        learnHighest({ 661684 }); // 623099, 623109, 623110
 
         // Cower
         wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
-
-    if (familyName == "Cat")
+    else if (familyName == "Cat")
     {
         // Claw, ranks 1-9
         wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
         learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
 
         // Dash, ranks 1-3
-        wipe({ 23099, 23109, 23110, 61684 });
-        learnHighest({ 623099, 623109, 623110 });
+        wipe({ 61684 });
+        learnHighest({ 661684 }); // 623099, 623109, 623110
 
         // Prowl, ranks 1-3
         wipe({ 24450, 24452, 24453 });
@@ -127,8 +129,337 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
 
         // Cower
         wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
+    else if (familyName == "Spider")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
 
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Bear")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Boar")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Charge
+        wipe({ 61685 });
+        learnHighest({ 661685 }); // 607371, 626177, 626178, 626201, 627685
+
+        // Dash, ranks 1-3
+        wipe({ 61684 });
+        learnHighest({ 661684 }); // 623099, 623109, 623110
+
+        // Gore
+        wipe({ 35290, 35291, 35292, 35293, 35294, 35295 });
+        // can learn if player has reached TBC
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Crocolisk")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Carrion Bird")
+    {
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
+
+        // Dive
+        wipe({ 23145 });
+        learnHighest({ 623145 }); // 623147, 623148
+
+        // Screech
+        wipe({ 24423, 24577, 24578, 24579, 27051 });
+        learnHighest({ 624423, 624577, 624578, 624579, 627051 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Crab")
+    {
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Gorilla")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Thunderstomp
+        wipe({ 26090 });
+        learnHighest({ 626090 }); // 626187, 626188
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Raptor")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Tallstrider")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Dash, ranks 1-3
+        wipe({ 61684 });
+        learnHighest({ 661684 }); // 623099, 623109, 623110
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Scorpid")
+    {
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
+
+        // Scorpid Poison
+        wipe({ 24640, 24583, 24586, 24587, 27060 });
+        learnHighest({ 624640, 624583, 624586, 624587, 627060 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Turtle")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Shell Shield
+        wipe({ 26064 });
+        learnHighest({ 626064 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Bat")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Dive
+        wipe({ 23145 });
+        learnHighest({ 623145 }); // 623147, 623148
+
+        // Screech
+        wipe({ 24423, 24577, 24578, 24579, 27051 });
+        learnHighest({ 624423, 624577, 624578, 624579, 627051 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Hyena")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Dash, ranks 1-3
+        wipe({ 61684 });
+        learnHighest({ 661684 }); // 623099, 623109, 623110
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Bird of Prey")
+    {
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
+
+        // Dive
+        wipe({ 23145 });
+        learnHighest({ 623145 }); // 623147, 623148
+
+        // Screech
+        wipe({ 24423, 24577, 24578, 24579, 27051 });
+        learnHighest({ 624423, 624577, 624578, 624579, 627051 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Wind Serpent")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Lightning Breath
+        wipe({ 24844, 25008, 25009, 25010, 25011, 25012 });
+        learnHighest({ 624844, 625008, 625009, 625010, 625011, 625012 }); // spell levels don't match, damage is fine, need to check required minimum levels
+
+        // Dive
+        wipe({ 23145 });
+        learnHighest({ 623145 }); // 623147, 623148
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Dragonhawk")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Dive
+        wipe({ 23145 });
+        learnHighest({ 623145 }); // 623147, 623148
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Ravager")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Gore
+        wipe({ 35290, 35291, 35292, 35293, 35294, 35295 });
+        learnHighest({ 635290, 635291, 635292, 635293, 635294 }); // todo, add different versions to `creaturespelldata_dbc`
+
+        // Dash, ranks 1-3
+        wipe({ 61684 });
+        learnHighest({ 661684 }); // 623099, 623109, 623110
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Warp Stalker")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+        learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
+
+        // Warp
+        wipe({ 35346 });
+        learnHighest({ 635346 });
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Sporebat")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Dive
+        wipe({ 23145 });
+        learnHighest({ 623145 }); // 623147, 623148
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Nether Ray")
+    {
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
+        learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
+
+        // Dive
+        wipe({ 23145 });
+        learnHighest({ 623145 }); // 623147, 623148
+
+        // Cower
+        wipe({ 1742 });
+        learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+    }
+    else if (familyName == "Serpent") // WotLK
+    {
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 }); // Bite, ranks 1-9
+        wipe({ 35387, 35389, 35392, 55555, 55556, 55557 }); // Poison Spit
+        wipe({ 61684 }); // Dash
+        wipe({ 1742 }); // Cower
+    }
+    else if (familyName == "Moth") // WotLK
+    {    
+        wipe({ 50318, 52012, 52013, 52014, 52015, 52016 });  // Serenity Dust
+        wipe({ 49966, 49967, 49968, 49969, 49970, 49971, 49972, 49973, 49974, 49975, 49976 }); // Smack
+        wipe({ 52825 }); // Swoop
+        wipe({ 23145 }); // Dive
+        wipe({ 1742 }); // Cower
+    }
+    else if (familyName == "Chimaera") // WotLK
+    {
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 }); // Bite, ranks 1-9
+        wipe({ 54644, 55488, 55489, 55490, 55491, 55492 }); // Froststorm Breath
+        wipe({ 23145 });  // Dive
+        wipe({ 1742 }); // Cower
+    }
+    else if (familyName == "Silithid") // WotLK
+    {
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 }); // Claw, ranks 1-9
+        wipe({ 54706, 55505, 55506, 55507, 55508, 55509 }); // Venom Web Spray
+        wipe({ 61684 }); // Dash
+        wipe({ 1742 }); // Cower
+    }
 }
 
 void IndividualProgression::checkWarlockPetSpells(Player* player)
@@ -287,6 +618,7 @@ private:
     ObjectGuid _playerGuid;
 };
 
+
 class IndividualPlayerProgressionSpells : public PlayerScript
 {
 public:
@@ -361,6 +693,17 @@ public:
                         continue;
 
                     ChatHandler(player->GetSession()).PSendSysMessage("PetSpell = {}", PetSpell);
+
+                    // "if config option enabled" could be added here to award the correct pet spells for people that use patch-V or patch-S
+
+                    if (PetSpell == 23147 || PetSpell == 23148) // Dive, ranks 2-3 don't exist, learning rank 1 instead
+                        PetSpell = 23145;
+                    else if (PetSpell == 26187 || PetSpell == 26188) // Thunderstomp, ranks 2-3 don't exist, learning rank 1 instead
+                        PetSpell = 26090;
+                    else if (PetSpell == 23099 || PetSpell == 23109 || PetSpell == 23110) // Dash, ranks 1-3 don't exist, learning WotLK version instead
+                        PetSpell = 61684;
+                    else if (PetSpell == 7371 || PetSpell == 26177 || PetSpell == 26178 || PetSpell == 26201 || PetSpell == 27685) // Charge, don't exist, learning WotLK version instead
+                        PetSpell = 61685;
 
                     if (!player->HasSpell(PetSpell + 600000))
                     {
@@ -870,7 +1213,7 @@ public:
                 sIndividualProgression->checkHunterPetSpells(player);
             if (player->getClass() == CLASS_WARLOCK)
                 sIndividualProgression->checkWarlockPetSpells(player);
-            
+
             return true;
         }
 
