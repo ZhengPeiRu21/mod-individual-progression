@@ -866,7 +866,11 @@ public:
                 return true;
             }
 
-            sIndividualProgression->checkHunterPetSpells(player);
+            if (player->getClass() == CLASS_HUNTER)
+                sIndividualProgression->checkHunterPetSpells(player);
+            if (player->getClass() == CLASS_WARLOCK)
+                sIndividualProgression->checkWarlockPetSpells(player);
+            
             return true;
         }
 
