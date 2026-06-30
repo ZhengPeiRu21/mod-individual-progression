@@ -34,7 +34,7 @@ void IndividualProgression::UpdateRNDbotSpells(Player* player)
 
 void IndividualProgression::checkHunterPetSpells(Player* player)
 {
-    if (!player || !player->IsInWorld())
+    if (!player || !player->IsInWorld() || !VanillaHunterPets)
         return;
 
     if (sIndividualProgression->isBotAccount(player))
