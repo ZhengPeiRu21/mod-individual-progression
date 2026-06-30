@@ -1018,6 +1018,7 @@ private:
         sIndividualProgression->doableNaxx40Bosses_Razuvious = sConfigMgr->GetOption<bool>("IndividualProgression.doableNaxx40Bosses_Razuvious", false);
         sIndividualProgression->enforceGroupRules = sConfigMgr->GetOption<bool>("IndividualProgression.EnforceGroupRules", false);
         sIndividualProgression->fishingFix = sConfigMgr->GetOption<bool>("IndividualProgression.FishingFix", true);
+        sIndividualProgression->VanillaHunterPets = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaHunterPets", true);
         sIndividualProgression->WarlockDemonTrainers = sConfigMgr->GetOption<bool>("IndividualProgression.WarlockDemonTrainers", true);
         sIndividualProgression->simpleConfigOverride = sConfigMgr->GetOption<bool>("IndividualProgression.SimpleConfigOverride", true);
         sIndividualProgression->progressionLimit = sConfigMgr->GetOption<uint8>("IndividualProgression.ProgressionLimit", 0);
