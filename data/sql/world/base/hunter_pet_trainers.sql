@@ -1,15 +1,20 @@
 /* 
-    This file restores hunter pet trainers in the Eastern Kingdoms and Kalimdor
-    In WotLK these trainers became absolete, new pet abilities and ranks were now automatically learned on the respective levels.
+    In WotLK new pet abilities and ranks were now automatically learned on the respective levels.
+    This file will restore the Vanilla/TBC way of training hunter pets.
+    You will have to tame specific beasts to learn new pet spells and ranks.
 
 	During vanilla tamed pets would have a chance on using their spells to teach the hunter that spell.
 	The hunter could then teach any future pet, that is able to learn it, that spell.
+	I've not restored this functionality, because it would require a complicated override of the function `OnSpellCast` that would run on EVERY spell cast on the server
 	
-	Hunters will now learn dummy spell when they tame a beast that has abilities the hunter hasn't learned yet.
+	Instead, hunters will now learn a dummy spell while taming a beast that has spells/ranks the hunter hasn't learned yet.
 	This module will strip the hunter pets of the spells given to them by AzerothCore.
 	And then learn the pet the spells it can learn and the hunter has the dummy spells for.
 	
 	Growl, Stamina, Armor and Resistances will still be automatically learned.
+	WotLK pet spells, that did not exist, are stripped from hunter pets as well, until WotLK.
+	
+	When the player gets to WotLK, all pets will learn all spells automatically again.
 */
 
 -- learn dummy spells after reading Hunter guides and taming beasts
