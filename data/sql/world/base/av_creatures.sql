@@ -405,8 +405,8 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 (@CGUID+514, 13957, 30, 0, 0, 1, 1, 1, -256.546, -85.6227, 54.7618, 3.48414, 432000, 5, 0, 9156, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
 (@CGUID+515, 13958, 30, 0, 0, 1, 1, 1, -205.135, -112.672, 78.5781, 3.16218, 432000, 0, 0, 7107, 4738, 0, 0, 0, 0, '', NULL, 0, NULL), -- Winterax Seer
 --
-(@CGUID+521, 13256, 30, 0, 0, 1, 1, 0, -252.56, -298.18, 6.67, 0, 432000, 0, 0, 125750, 19888, 0, 0, 0, 0, '', NULL, 0, NULL),         -- LOKHOLAR_THE_ICE_LORD
-(@CGUID+522, 13419, 30, 0, 0, 1, 1, 0, -278.02, -289.58, 6.77, 0, 432000, 0, 0, 125750, 37290, 0, 0, 0, 0, '', NULL, 0, NULL);         -- IVUS_THE_FOREST_LORD
+(@CGUID+521, 13256, 30, 0, 0, 1, 1, 0, -252.56, -298.18, 6.67, 0, 432000, 40, 0, 125750, 19888, 1, 0, 0, 0, '', NULL, 0, NULL),        -- LOKHOLAR_THE_ICE_LORD
+(@CGUID+522, 13419, 30, 0, 0, 1, 1, 0, -278.02, -289.58, 6.77, 0, 432000, 40, 0, 125750, 37290, 1, 0, 0, 0, '', NULL, 0, NULL);        -- IVUS_THE_FOREST_LORD
 
 -- Guards, Archers, Patrols (alliance)
 DELETE FROM `creature` WHERE `map` = 30 AND `spawnMask` = 1 AND `guid` BETWEEN @CGUID+601 AND @CGUID+699;
