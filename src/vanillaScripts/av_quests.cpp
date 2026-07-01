@@ -1,5 +1,22 @@
 /*
- * Restores Alterac Valley turn-in quest (elemental summons + air-strike)
+ * ip_av_turnins.cpp
+ *
+ * Restores Alterac Valley turn-in quest EFFECTS (elemental summons + air-strike
+ * hook) WITHOUT editing core BattlegroundAV.cpp.
+ *
+ * Why this works: the AV turn-in still runs the normal quest-reward path, so the
+ * module hook PlayerScript::OnPlayerCompleteQuest fires on turn-in. From there we
+ * read the player's Battleground, key a per-match counter off the BG instance id,
+ * and summon directly into the instance map. Core BG file is never touched.
+ *
+ * ALL APIs below were verified against this server's source (file:line in the
+ * accompanying README). The only things NOT derivable from core — and therefore
+ * marked TODO — are the authentic spawn coordinates and the air-strike spell.
+ *
+ * Build: drop this file in modules/mod-individual-progression/src/ , then declare
+ *   void AddSC_ip_av_turnins();
+ * in IndividualProgression_loader.cpp and call it from
+ *   AddSC_mod_individual_progression() (alongside the other AddSC_* calls).
  */
 
 #include "IndividualProgression.h"
@@ -29,16 +46,18 @@ enum AVTurnInQuests
 
 enum AVTurnInNpcs
 {
-    NPC_IVUS_THE_FOREST_LORD  = 13419, // Alliance elemental
-    NPC_LOKHOLAR_THE_ICE_LORD = 13256  // Horde elemental
+    // because summons can't have waypoints (they don't have a GUID),
+    // on spawn, the dummy NPC will make the real bosses appear and start their waypoints
+    NPC_DUMMY_IVUS_THE_FOREST_LORD  = 113419, // Alliance elemental
+    NPC_DUMMY_LOKHOLAR_THE_ICE_LORD = 113256  // Horde elemental
 };
 
 struct SummonPos { float x, y, z, o; };
-static SummonPos const IVUS_POS     = { -260.0f, -290.0f, 6.7f, 0.0f };
-static SummonPos const LOKHOLAR_POS = { -260.0f, -290.0f, 6.7f, 0.0f };
+static SummonPos const IVUS_POS     = { -278.02f, -289.58f, 6.77f, 0.0f };
+static SummonPos const LOKHOLAR_POS = { -252.56f, -298.18f, 6.67f, 0.0f };
 
-static constexpr uint32 BOSS_POINTS_REQUIRED  = 200;
-static constexpr uint32 ELEMENTAL_LIFETIME_MS = 1800000; // 1800000 = 30 minutes
+static constexpr uint32 BOSS_POINTS_REQUIRED = 200;
+static constexpr uint32 DUMMY_LIFETIME_MS = 900000; // 900000 = 15 minutes, enough time to start the pathing of the real bosses.
 
 // Per-match accumulation, keyed by Battleground instance id (Battleground.h:333).
 struct AVQuestState
@@ -76,9 +95,9 @@ public:
 
                 if (!st.allianceElemental && st.allianceBoss >= BOSS_POINTS_REQUIRED)
                 {
-                    player->SummonCreature(NPC_IVUS_THE_FOREST_LORD,
+                    player->SummonCreature(NPC_DUMMY_IVUS_THE_FOREST_LORD,
                         IVUS_POS.x, IVUS_POS.y, IVUS_POS.z, IVUS_POS.o,
-                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, ELEMENTAL_LIFETIME_MS);
+                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
                     st.allianceElemental = true;
                 }
                 break;
@@ -89,9 +108,9 @@ public:
 
                 if (!st.allianceElemental && st.allianceBoss >= BOSS_POINTS_REQUIRED)
                 {
-                    player->SummonCreature(NPC_IVUS_THE_FOREST_LORD,
+                    player->SummonCreature(NPC_DUMMY_IVUS_THE_FOREST_LORD,
                         IVUS_POS.x, IVUS_POS.y, IVUS_POS.z, IVUS_POS.o,
-                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, ELEMENTAL_LIFETIME_MS);
+                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
                     st.allianceElemental = true;
                 }
                 break;
@@ -102,9 +121,9 @@ public:
 
                 if (!st.hordeElemental && st.hordeBoss >= BOSS_POINTS_REQUIRED)
                 {
-                    player->SummonCreature(NPC_LOKHOLAR_THE_ICE_LORD,
+                    player->SummonCreature(NPC_DUMMY_LOKHOLAR_THE_ICE_LORD,
                         LOKHOLAR_POS.x, LOKHOLAR_POS.y, LOKHOLAR_POS.z, LOKHOLAR_POS.o,
-                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, ELEMENTAL_LIFETIME_MS);
+                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
                     st.hordeElemental = true;
                 }
                 break;
@@ -115,9 +134,9 @@ public:
 
                 if (!st.hordeElemental && st.hordeBoss >= BOSS_POINTS_REQUIRED)
                 {
-                    player->SummonCreature(NPC_LOKHOLAR_THE_ICE_LORD,
+                    player->SummonCreature(NPC_DUMMY_LOKHOLAR_THE_ICE_LORD,
                         LOKHOLAR_POS.x, LOKHOLAR_POS.y, LOKHOLAR_POS.z, LOKHOLAR_POS.o,
-                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, ELEMENTAL_LIFETIME_MS);
+                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
                     st.hordeElemental = true;
                 }
                 break;
