@@ -140,6 +140,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Web, WotLK only
+        wipe({ 4167 });
     }
     else if (familyName == "Bear")
     {
@@ -154,6 +157,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Swipe, WotLK only
+        wipe({ 50256, 53526, 53528, 53529, 53532, 53533 });
     }
     else if (familyName == "Boar")
     {
@@ -171,7 +177,8 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
 
         // Gore
         wipe({ 35290, 35291, 35292, 35293, 35294, 35295 });
-        // can learn if player has reached TBC
+        if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC)) // can learn if player has reached TBC
+            learnHighest({ 635290, 635291, 635292, 635293, 635294 });
 
         // Cower
         wipe({ 1742 });
@@ -186,6 +193,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Bad Attitude, WotLK only
+        wipe({ 50433, 52395, 52396, 52397, 52398, 52399 });
     }
     else if (familyName == "Carrion Bird")
     {
@@ -204,6 +214,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Bite, ranks 1-9
+        wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
     }
     else if (familyName == "Crab")
     {
@@ -214,6 +227,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Pin, WotLK only
+        wipe({ 50245, 53544, 53545, 53546, 53547, 53548 });
     }
     else if (familyName == "Gorilla")
     {
@@ -228,6 +244,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Smack, WotLK only
+        wipe({ 49966, 49967, 49968, 49969, 49970, 49971, 49972, 49973, 49974 });
     }
     else if (familyName == "Raptor")
     {
@@ -242,6 +261,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Savage Rend, WotLK only
+        wipe({ 50498, 53578, 53579, 53580, 53581, 53582 });
     }
     else if (familyName == "Tallstrider")
     {
@@ -256,6 +278,12 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Claw, ranks 1-9
+        wipe({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 });
+
+        // Dust Cloud, WotLK only
+        wipe({ 50285 });
     }
     else if (familyName == "Scorpid")
     {
@@ -302,6 +330,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Sonic Blast, WotLK only
+        wipe({ 50519, 53564, 53565, 53566, 53567, 53568 });
     }
     else if (familyName == "Hyena")
     {
@@ -316,6 +347,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Tendon Rip, WotLK only
+        wipe({ 50271, 53571, 53572, 53573, 53574, 53575 });
     }
     else if (familyName == "Bird of Prey")
     {
@@ -334,6 +368,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Snatch, WotLK only
+        wipe({ 50541, 53537, 53538, 53540, 53542, 53543 });
     }
     else if (familyName == "Wind Serpent")
     {
@@ -359,6 +396,10 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         wipe({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 });
         learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
 
+        // Fire Breath, ranks 1-2 (3-5 are WotLK only)
+        wipe({ 34889, 35323, 55482, 55483, 55484, 55485 });
+        learnHighest({ 634889, 635323 });
+
         // Dive
         wipe({ 23145 });
         learnHighest({ 623145 }); // 623147, 623148
@@ -375,7 +416,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
 
         // Gore
         wipe({ 35290, 35291, 35292, 35293, 35294, 35295 });
-        learnHighest({ 635290, 635291, 635292, 635293, 635294 }); // todo, add different versions to `creaturespelldata_dbc`
+        learnHighest({ 635290, 635291, 635292, 635293, 635294 });
 
         // Dash, ranks 1-3
         wipe({ 61684 });
@@ -384,6 +425,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Ravage, WotLK only
+        wipe({ 50518, 53558, 53559, 53560, 53561, 53562 });
     }
     else if (familyName == "Warp Stalker")
     {
@@ -416,6 +460,12 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Smack, WotLK only
+        wipe({ 49966, 49967, 49968, 49969, 49970, 49971, 49972, 49973, 49974, 49975, 49976 });
+
+        // Spore Cloud, WotLK only
+        wipe({ 50274, 53593, 53594, 53596, 53597, 53598 });
     }
     else if (familyName == "Nether Ray")
     {
@@ -430,6 +480,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Nether Shock, WotLK only
+        wipe({ 50479, 53584, 53586, 53587, 53588, 53589 });
     }
     else if (familyName == "Serpent") // WotLK
     {
