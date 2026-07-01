@@ -109,6 +109,9 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Rake, WotLK only
+        wipe({ 59881, 59882, 59883, 59884, 59885, 59886 });
     }
     else if (familyName == "Cat")
     {
@@ -124,12 +127,12 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         wipe({ 24450, 24452, 24453 });
         learnHighest({ 624450, 624452, 624453 });
 
-        // Rake
-        wipe({ 59881, 59882, 59883, 59884, 59885, 59886 });
-
         // Cower
         wipe({ 1742 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+
+        // Rake, WotLK only
+        wipe({ 59881, 59882, 59883, 59884, 59885, 59886 });
     }
     else if (familyName == "Spider")
     {
