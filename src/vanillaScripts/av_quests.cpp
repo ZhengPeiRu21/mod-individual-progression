@@ -1,22 +1,5 @@
-/*
- * ip_av_turnins.cpp
- *
- * Restores Alterac Valley turn-in quest EFFECTS (elemental summons + air-strike
- * hook) WITHOUT editing core BattlegroundAV.cpp.
- *
- * Why this works: the AV turn-in still runs the normal quest-reward path, so the
- * module hook PlayerScript::OnPlayerCompleteQuest fires on turn-in. From there we
- * read the player's Battleground, key a per-match counter off the BG instance id,
- * and summon directly into the instance map. Core BG file is never touched.
- *
- * ALL APIs below were verified against this server's source (file:line in the
- * accompanying README). The only things NOT derivable from core — and therefore
- * marked TODO — are the authentic spawn coordinates and the air-strike spell.
- *
- * Build: drop this file in modules/mod-individual-progression/src/ , then declare
- *   void AddSC_ip_av_turnins();
- * in IndividualProgression_loader.cpp and call it from
- *   AddSC_mod_individual_progression() (alongside the other AddSC_* calls).
+/* 
+ * Restores Alterac Valley turn-in quest (elemental summons + air-strike)
  */
 
 #include "IndividualProgression.h"
