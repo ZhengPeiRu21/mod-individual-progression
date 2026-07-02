@@ -654,27 +654,6 @@ void IndividualProgression::checkWarlockPetSpells(Player* player)
     }
 }
 
-class DelayedDemonSpellCheck : public BasicEvent
-{
-public:
-    DelayedDemonSpellCheck(ObjectGuid playerGuid) : _playerGuid(playerGuid) {}
-
-    bool Execute(uint64 /*time*/, uint32 /*diff*/) override
-    {
-        if (Player* player = ObjectAccessor::FindPlayer(_playerGuid))
-        {
-            sIndividualProgression->checkHunterPetSpells(player);
-            sIndividualProgression->checkWarlockPetSpells(player);
-        }
-
-        return true;
-    }
-
-private:
-    ObjectGuid _playerGuid;
-};
-
-
 class IndividualPlayerProgressionSpells : public PlayerScript
 {
 public:
@@ -688,14 +667,7 @@ public:
         if (sIndividualProgression->isBotAccount(player))
             return;
 
-        if (player->getClass() == CLASS_HUNTER)
-        {
-            if (spellID < 600000 || spellID > 700000)
-                return;
-
-            sIndividualProgression->checkHunterPetSpells(player);
-        }
-        else if (player->getClass() == CLASS_WARLOCK)
+        if (player->getClass() == CLASS_WARLOCK)
         {
             if (spellID < 600000 || spellID > 700000)
                 return;
@@ -1198,7 +1170,7 @@ public:
 class IndividualPlayerProgression_PetScript : public PetScript
 {
 private:
-    static void ScheduleDelayedSpellStrip(Pet* pet)
+    static void ScheduleDelayedSpellCheck(Pet* pet)
     {
         if (!pet)
             return;
@@ -1212,8 +1184,8 @@ private:
             return;
 
         pet->m_Events.AddEvent(
-            new DelayedPetSpellStrip(owner->GetGUID()),
-            pet->m_Events.CalculateTime(100));
+            new DelayedPetSpellCheck(owner->GetGUID()),
+            pet->m_Events.CalculateTime(200));
     }
 
 public:
@@ -1224,7 +1196,7 @@ public:
         if (!sIndividualProgression->enabled || !pet || !pet->GetOwner())
             return;
 
-        ScheduleDelayedSpellStrip(pet);
+        ScheduleDelayedSpellCheck(pet);
     }
 
     void OnInitStatsForLevel(Guardian* guardian, uint8 /*petlevel*/) override
@@ -1236,13 +1208,13 @@ public:
         if (!pet)
             return;
 
-        ScheduleDelayedSpellStrip(pet);
+        ScheduleDelayedSpellCheck(pet);
     }
 
-    class DelayedPetSpellStrip : public BasicEvent
+    class DelayedPetSpellCheck : public BasicEvent
     {
     public:
-        explicit DelayedPetSpellStrip(ObjectGuid ownerGuid, uint8 attempts = 0)
+        explicit DelayedPetSpellCheck(ObjectGuid ownerGuid, uint8 attempts = 0)
             : _ownerGuid(ownerGuid), _attempts(attempts) {
         }
 
@@ -1257,11 +1229,11 @@ public:
 
             // If the LoadPetFromDB async callback hasn't completed yet, poll again.
             // Cap attempts so a stuck loading flag can't recurse forever.
-            if (pet->isBeingLoaded() && _attempts < 20)
+            if (pet->isBeingLoaded() && _attempts < 10)
             {
                 pet->m_Events.AddEvent(
-                    new DelayedPetSpellStrip(_ownerGuid, _attempts + 1),
-                    pet->m_Events.CalculateTime(100));
+                    new DelayedPetSpellCheck(_ownerGuid, _attempts + 1),
+                    pet->m_Events.CalculateTime(200));
                 return true;
             }
 
