@@ -107,7 +107,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 661684 }); // 623099, 623109, 623110
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Rake, WotLK only
@@ -128,7 +128,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 624450, 624452, 624453 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Rake, WotLK only
@@ -141,7 +141,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Web, WotLK only
@@ -158,7 +158,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Swipe, WotLK only
@@ -184,7 +184,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
             learnHighest({ 635290, 635291, 635292, 635293, 635294 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Crocolisk")
@@ -194,7 +194,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Bad Attitude, WotLK only
@@ -215,7 +215,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 624423, 624577, 624578, 624579, 627051 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Bite, ranks 1-9
@@ -228,7 +228,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Pin, WotLK only
@@ -245,7 +245,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 626090 }); // 626187, 626188
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Smack, WotLK only
@@ -262,7 +262,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Savage Rend, WotLK only
@@ -279,7 +279,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 661684 }); // 623099, 623109, 623110
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Claw, ranks 1-9
@@ -299,7 +299,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 624640, 624583, 624586, 624587, 627060 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Turtle")
@@ -313,7 +313,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 626064 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Bat")
@@ -331,7 +331,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 624423, 624577, 624578, 624579, 627051 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Sonic Blast, WotLK only
@@ -348,7 +348,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 661684 }); // 623099, 623109, 623110
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Tendon Rip, WotLK only
@@ -369,7 +369,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 624423, 624577, 624578, 624579, 627051 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Snatch, WotLK only
@@ -390,7 +390,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 623145 }); // 623147, 623148
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Dragonhawk")
@@ -408,7 +408,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 623145 }); // 623147, 623148
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Ravager")
@@ -426,7 +426,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 661684 }); // 623099, 623109, 623110
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Ravage, WotLK only
@@ -447,7 +447,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 635346 });
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Sporebat")
@@ -461,7 +461,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 623145 }); // 623147, 623148
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Smack, WotLK only
@@ -481,7 +481,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         learnHighest({ 623145 }); // 623147, 623148
 
         // Cower
-        wipe({ 1742 });
+        wipe({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 });
         learnHighest({ 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Nether Shock, WotLK only
