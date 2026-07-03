@@ -1,105 +1,164 @@
 /*
- * ip_av_turnins.cpp
+ * Restores Alterac Valley turn-in quest.
+ * EFFECTS (elemental summons, armor scraps defender upgrades, supplies gossip report, air-strike hook)
+ * WITHOUT editing core BattlegroundAV.cpp.
  *
- * Restores Alterac Valley turn-in quest EFFECTS (elemental summons + air-strike
- * hook) WITHOUT editing core BattlegroundAV.cpp.
+ * Why this works: the AV turn-in still runs the normal quest-reward path, so
+ * the module hook PlayerScript::OnPlayerCompleteQuest fires on turn-in
+ * (PlayerQuest.cpp: end of Player::RewardQuest). From there we read the
+ * player's Battleground, key a per-match counter off the BG instance id, and
+ * act directly on the instance map. Core BG files are never touched.
  *
- * Why this works: the AV turn-in still runs the normal quest-reward path, so the
- * module hook PlayerScript::OnPlayerCompleteQuest fires on turn-in. From there we
- * read the player's Battleground, key a per-match counter off the BG instance id,
- * and summon directly into the instance map. Core BG file is never touched.
+ * Armor scraps: the defenders spawned by av_creatures.sql are upgraded in place with Creature::UpdateEntry().
+ * SetOriginalEntry() is called first so the upgrade survives respawns
+ * Creature::Respawn() only reverts a creature whose entry differs from its original entry (Creature.cpp,
  *
- * ALL APIs below were verified against this server's source (file:line in the
- * accompanying README). The only things NOT derivable from core — and therefore
- * marked TODO — are the authentic spawn coordinates and the air-strike spell.
+ * Supplies gossip: both turn-in NPCs already have the retail option "How many more supplies are needed for the next upgrade?" in the base DB.
+ * An AllCreatureScript answers it INSIDE the gossip window (dynamic text is sent as gossip item labels; npc_text is static DB text and cannot carry live numbers).
+ * Returning true from CanCreatureGossipSelect suppresses the default handling, which also stops Murgot's old static submenu (5627) from replacing the live report.
  *
- * Build: drop this file in modules/mod-individual-progression/src/ , then declare
- *   void AddSC_ip_av_turnins();
- * in IndividualProgression_loader.cpp and call it from
- *   AddSC_mod_individual_progression() (alongside the other AddSC_* calls).
+ * Config (see individualProgression.conf.dist):
+ *   IndividualProgression.AV.ScrapsSeasoned      (default 25 turn-ins = 500 scraps)
+ *   IndividualProgression.AV.ScrapsVeteran       (default 50 turn-ins = 1000 scraps)
+ *   IndividualProgression.AV.ScrapsChampion      (default 75 turn-ins = 1500 scraps)
+ *   IndividualProgression.AV.BossPointsRequired  (default 200)
+ *   IndividualProgression.AV.GossipExactNumbers  (default 0 — estimates only)
  */
 
 #include "IndividualProgression.h"
-#include "ScriptMgr.h"
-#include "Player.h"
+#include "av_quests.h"
 #include "Battleground.h"
-#include "SharedDefines.h"   // BATTLEGROUND_AV  (SharedDefines.h:3737)
-#include "QuestDef.h"
+#include "Creature.h"
+#include "GossipDef.h"
+#include "Map.h"
+#include "Player.h"
+#include "ScriptedGossip.h"
+#include "ScriptMgr.h"
 #include <unordered_map>
 
-enum AVTurnInQuests
+namespace
 {
-    // Air strikes (Call of Air) — Stormpike / Alliance
-    AV_Q_A_COMMANDER1 = 6942,
-    AV_Q_A_COMMANDER2 = 6941,
-    AV_Q_A_COMMANDER3 = 6943,
-    // Air strikes (Call of Air) — Frostwolf / Horde
-    AV_Q_H_COMMANDER1 = 6825,
-    AV_Q_H_COMMANDER2 = 6826,
-    AV_Q_H_COMMANDER3 = 6827,
-    // Elemental summon (boss turn-ins)
-    AV_Q_A_BOSS1 = 7386, // 5 crystal — Alliance
-    AV_Q_A_BOSS2 = 6881, // 1 crystal - Alliance
-    AV_Q_H_BOSS1 = 7385, // 5 blood - Horde
-    AV_Q_H_BOSS2 = 6801, // 1 blood - Horde
-    // Armor Scraps (turn-ins)
-    AV_Q_A_SCRAPS1 = 7223, // 20 scraps
-    AV_Q_A_SCRAPS2 = 6781,
-    AV_Q_H_SCRAPS1 = 7224,
-    AV_Q_H_SCRAPS2 = 6741,
+    std::unordered_map<uint32, AVQuestState> avState;
 
-    NPC_SCRAPPY_A  = 157011,
-    NPC_SCRAPPY_H  = 157012
-};
+    uint32 ScrapsThreshold(uint8 tier)
+    {
+        switch (tier)
+        {
+            case 1:  return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsSeasoned", 25);
+            case 2:  return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsVeteran", 50);
+            default: return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsChampion", 75);
+        }
+    }
 
-enum AVTurnInNpcs
-{
-    // because summons can't have waypoints (they don't have a GUID),
-    // on spawn, the dummy NPC will make the real bosses appear and start their waypoints after 10 minutes
-    NPC_DUMMY_IVUS_THE_FOREST_LORD  = 113419, // Alliance elemental
-    NPC_DUMMY_LOKHOLAR_THE_ICE_LORD = 113256  // Horde elemental
-};
+    uint32 BossPointsRequired()
+    {
+        return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.BossPointsRequired", 200);
+    }
 
-struct SummonPos { float x, y, z, o; };
-static SummonPos const IVUS_POS     = { -278.02f, -289.58f, 6.77f, 0.0f };
-static SummonPos const LOKHOLAR_POS = { -252.56f, -298.18f, 6.67f, 0.0f };
-static SummonPos const SCRAPPY_POS  = { -260.0f, -290.0f, 6.7f, 0.0f };
+    // Upgrade every DB-spawned defender of `team` to `newTier`.
+    // the map's spawn-id store only contains DB spawns, so summons are not effected.
+    // Dead defenders only get their original entry moved up; Creature::Respawn() then brings them back already upgraded. 
+    void UpgradeDefenders(Battleground* bg, TeamId team, uint8 newTier)
+    {
+        auto const& chains = team == TEAM_ALLIANCE ? AV_ALLIANCE_DEFENDER_CHAINS : AV_HORDE_DEFENDER_CHAINS;
 
-static constexpr uint32 SCRAPS_SEASONED = 25; // todo: make these config options
-static constexpr uint32 SCRAPS_VETERAN  = 50;
-static constexpr uint32 SCRAPS_CHAMPION = 75;
-static constexpr uint32 BOSS_POINTS_REQUIRED = 200;
+        for (auto const& pair : bg->GetBgMap()->GetCreatureBySpawnIdStore())
+        {
+            Creature* defender = pair.second;
+            if (!defender)
+                continue;
 
-static constexpr uint32 DUMMY_LIFETIME_MS = 900000; // 900000 = 15 minutes, enough time to start the pathing of the real bosses.
-static constexpr uint32 IMP_LIFETIME_MS = 300000;
+            for (AVDefenderChain const& chain : chains)
+            {
+                if (!chain.entries[0]) // placeholder chain, not filled in yet
+                    continue;
 
-// Per-match accumulation, keyed by Battleground instance id (Battleground.h:333).
-struct AVQuestState
-{
-    uint32 allianceBoss      = 0;
-    uint32 hordeBoss         = 0;
-    uint32 allianceScraps    = 0;
-    uint32 hordeScraps       = 0;
+                bool isLowerTier = false;
+                for (uint8 tier = 0; tier < newTier; ++tier)
+                {
+                    if (defender->GetEntry() == chain.entries[tier])
+                    {
+                        isLowerTier = true;
+                        break;
+                    }
+                }
 
-    bool   allianceElemental = false; // already summoned this match?
-    bool   hordeElemental    = false;
+                if (!isLowerTier)
+                    continue;
 
-    bool   allianceSeasoned  = false;
-    bool   allianceVeteran   = false;
-    bool   allianceChampion  = false;
+                defender->SetOriginalEntry(chain.entries[newTier]);
+                if (chain.upgradeAliveImmediately && defender->IsAlive())
+                    defender->UpdateEntry(chain.entries[newTier], defender->GetCreatureData(), true);
+                break;
+            }
+        }
+    }
 
-    bool   hordeSeasoned     = false;
-    bool   hordeVeteran      = false;
-    bool   hordeChampion     = false;
+    void HandleBossTurnIn(Player* player, AVQuestState& state, TeamId team, uint32 points)
+    {
+        state.bossPoints[team] += points;
 
+        bool isAlliance = team == TEAM_ALLIANCE;
+        ChatHandler(player->GetSession()).PSendSysMessage("{}: {}/{}",
+            isAlliance ? "Ivus the Forest Lord" : "Lokholar the Ice Lord",
+            state.bossPoints[team], BossPointsRequired());
 
-};
-static std::unordered_map<uint32, AVQuestState> s_avState;
+        if (state.elementalSummoned[team] || state.bossPoints[team] < BossPointsRequired())
+            return;
+
+        AVSummonPos const& pos = isAlliance ? AV_IVUS_POS : AV_LOKHOLAR_POS;
+        player->SummonCreature(isAlliance ? NPC_DUMMY_IVUS_THE_FOREST_LORD : NPC_DUMMY_LOKHOLAR_THE_ICE_LORD,
+            pos.x, pos.y, pos.z, pos.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, AV_DUMMY_LIFETIME_MS);
+        state.elementalSummoned[team] = true;
+    }
+
+    void HandleScrapsTurnIn(Player* player, Battleground* bg, AVQuestState& state, TeamId team)
+    {
+        uint32 turnIns = ++state.scrapTurnIns[team];
+
+        uint8 targetTier = state.defenderTier[team];
+        while (targetTier < AV_DEFENDER_TIER_CHAMPION && turnIns >= ScrapsThreshold(targetTier + 1))
+            ++targetTier;
+
+        if (targetTier < AV_DEFENDER_TIER_CHAMPION)
+            ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}",
+                turnIns, ScrapsThreshold(targetTier + 1));
+
+        if (targetTier > state.defenderTier[team])
+        {
+            state.defenderTier[team] = targetTier;
+            UpgradeDefenders(bg, team, targetTier);
+        }
+    }
+
+    // Estimate for the supplies gossip option, using existing broadcast texts as examples
+    char const* ScrapsEstimateLine(AVQuestState const& state, TeamId team)
+    {
+        uint8 tier = state.defenderTier[team];
+        if (tier >= AV_DEFENDER_TIER_CHAMPION)
+            return "I cannot store any more supplies. I have all I can handle!";
+
+        uint32 next = ScrapsThreshold(tier + 1);
+        uint32 prev = tier > 0 ? ScrapsThreshold(tier) : 0;
+        uint32 turnIns = state.scrapTurnIns[team];
+
+        uint32 interval = next > prev ? next - prev : 1;
+        uint32 remaining = next > turnIns ? next - turnIns : 0;
+
+        if (remaining * 4 >= interval * 3)      // less than a quarter done
+            return "I barely have any supplies for upgrades.";
+        if (remaining * 4 >= interval * 2)      // under halfway
+            return "I need many more supplies in order to upgrade our units.";
+        if (remaining * 4 <= interval * 2 && remaining * 4 >= interval * 3)     // over halfwy and under three-quarters
+            return "I have about half the supplies needed to upgrade our units.";
+        return "I almost have enough supplies for the next upgrade!"; // over three-quarters done
+    }
+}
 
 class ip_av_quests_player : public PlayerScript
 {
 public:
-    ip_av_quests_player() : PlayerScript("ip_av_turnins_player") { }
+    ip_av_quests_player() : PlayerScript("ip_av_quests_player") { }
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
     {
@@ -110,140 +169,47 @@ public:
         if (!bg || bg->GetBgTypeID(true) != BATTLEGROUND_AV)
             return;
 
-        AVQuestState& st = s_avState[bg->GetInstanceID()];
+        AVQuestState& state = avState[bg->GetInstanceID()];
 
         switch (quest->GetQuestId())
         {
             // ---------------- Summon Elemental Boss ----------------
             case AV_Q_A_BOSS1:
-                st.allianceBoss = st.allianceBoss + 5;
-
-                ChatHandler(player->GetSession()).PSendSysMessage("Ivus the Forest Lord: {}/{}", st.allianceBoss, BOSS_POINTS_REQUIRED);
-
-                if (!st.allianceElemental && st.allianceBoss >= BOSS_POINTS_REQUIRED)
-                {
-                    player->SummonCreature(NPC_DUMMY_IVUS_THE_FOREST_LORD,
-                        IVUS_POS.x, IVUS_POS.y, IVUS_POS.z, IVUS_POS.o,
-                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
-                    st.allianceElemental = true;
-                }
+                HandleBossTurnIn(player, state, TEAM_ALLIANCE, 5);
                 break;
             case AV_Q_A_BOSS2:
-                st.allianceBoss = st.allianceBoss + 1;
-
-                ChatHandler(player->GetSession()).PSendSysMessage("Ivus the Forest Lord: {}/{}", st.allianceBoss, BOSS_POINTS_REQUIRED);
-
-                if (!st.allianceElemental && st.allianceBoss >= BOSS_POINTS_REQUIRED)
-                {
-                    player->SummonCreature(NPC_DUMMY_IVUS_THE_FOREST_LORD,
-                        IVUS_POS.x, IVUS_POS.y, IVUS_POS.z, IVUS_POS.o,
-                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
-                    st.allianceElemental = true;
-                }
+                HandleBossTurnIn(player, state, TEAM_ALLIANCE, 1);
                 break;
             case AV_Q_H_BOSS1:
-                st.hordeBoss = st.hordeBoss + 5;
-
-                ChatHandler(player->GetSession()).PSendSysMessage("Lokholar the Ice Lord: {}/{}", st.hordeBoss, BOSS_POINTS_REQUIRED);
-
-                if (!st.hordeElemental && st.hordeBoss >= BOSS_POINTS_REQUIRED)
-                {
-                    player->SummonCreature(NPC_DUMMY_LOKHOLAR_THE_ICE_LORD,
-                        LOKHOLAR_POS.x, LOKHOLAR_POS.y, LOKHOLAR_POS.z, LOKHOLAR_POS.o,
-                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
-                    st.hordeElemental = true;
-                }
+                HandleBossTurnIn(player, state, TEAM_HORDE, 5);
                 break;
             case AV_Q_H_BOSS2:
-                st.hordeBoss = st.hordeBoss + 1;
-
-                ChatHandler(player->GetSession()).PSendSysMessage("Lokholar the Ice Lord: {}/{}", st.hordeBoss, BOSS_POINTS_REQUIRED);
-
-                if (!st.hordeElemental && st.hordeBoss >= BOSS_POINTS_REQUIRED)
-                {
-                    player->SummonCreature(NPC_DUMMY_LOKHOLAR_THE_ICE_LORD,
-                        LOKHOLAR_POS.x, LOKHOLAR_POS.y, LOKHOLAR_POS.z, LOKHOLAR_POS.o,
-                        TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
-                    st.hordeElemental = true;
-                }
+                HandleBossTurnIn(player, state, TEAM_HORDE, 1);
                 break;
 
-            // ---------------- Armor Scraps ----------------------            
+            // ---------------- Armor Scraps ----------------
             case AV_Q_A_SCRAPS1:
             case AV_Q_A_SCRAPS2:
-                st.allianceScraps = st.allianceScraps + 1;
-
-                if (st.allianceScraps <= SCRAPS_SEASONED)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.allianceScraps, SCRAPS_SEASONED);
-                else if (st.allianceScraps <= SCRAPS_VETERAN)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.allianceScraps, SCRAPS_VETERAN);
-                else if (st.allianceScraps <= SCRAPS_CHAMPION)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.allianceScraps, SCRAPS_CHAMPION);
-
-                if (!st.allianceSeasoned && st.allianceScraps >= SCRAPS_SEASONED)
-                {
-                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
-                    player->SummonCreature(NPC_SCRAPPY_A, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
-                    st.allianceSeasoned = true;
-                }
-                else if (!st.allianceVeteran && st.allianceScraps >= SCRAPS_VETERAN)
-                {
-                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
-                    player->SummonCreature(NPC_SCRAPPY_A, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
-                    st.allianceVeteran = true;
-                }
-                else if (!st.allianceChampion && st.allianceScraps >= SCRAPS_CHAMPION)
-                {
-                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
-                    player->SummonCreature(NPC_SCRAPPY_A, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
-                    st.allianceChampion = true;
-                }
+                HandleScrapsTurnIn(player, bg, state, TEAM_ALLIANCE);
                 break;
             case AV_Q_H_SCRAPS1:
             case AV_Q_H_SCRAPS2:
-                st.hordeScraps = st.hordeScraps + 1;
-
-                if (st.hordeScraps <= SCRAPS_SEASONED)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.hordeScraps, SCRAPS_SEASONED);
-                else if (st.hordeScraps <= SCRAPS_VETERAN)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.hordeScraps, SCRAPS_VETERAN);
-                else if (st.hordeScraps <= SCRAPS_CHAMPION)
-                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.hordeScraps, SCRAPS_CHAMPION);
-
-                if (!st.hordeSeasoned && st.hordeScraps >= SCRAPS_SEASONED)
-                {
-                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
-                    player->SummonCreature(NPC_SCRAPPY_H, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
-                    st.hordeSeasoned = true;
-                }
-                else if (!st.hordeVeteran && st.hordeScraps >= SCRAPS_VETERAN)
-                {
-                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
-                    player->SummonCreature(NPC_SCRAPPY_H, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
-                    st.hordeVeteran = true;
-                }
-                else if (!st.hordeChampion && st.hordeScraps >= SCRAPS_CHAMPION)
-                {
-                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
-                    player->SummonCreature(NPC_SCRAPPY_H, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
-                    st.hordeChampion = true;
-                }
+                HandleScrapsTurnIn(player, bg, state, TEAM_HORDE);
                 break;
 
-            // ---------------- Air strikes (Call of Air) ----------------------
+            // ---------------- Air strikes (Call of Air) ----------------
             case AV_Q_A_COMMANDER1:
             case AV_Q_A_COMMANDER2:
             case AV_Q_A_COMMANDER3:
             case AV_Q_H_COMMANDER1:
             case AV_Q_H_COMMANDER2:
             case AV_Q_H_COMMANDER3:
-                // TODO: the retail air-strike bombing spell is NOT present in core
-                // (verified: no reference anywhere). Pick an approach:
-                //   (a) SummonCreature a stealthed "bomber" trigger over the enemy
-                //       and have it cast an AoE damage spell on a short timer, or
+                // TODO: the retail air-strike bombing spell is not present in
+                // core. Pick an approach:
+                //   (a) SummonCreature a stealthed "bomber" trigger over the
+                //       enemy base and have it cast an AoE spell on a timer, or
                 //   (b) cast an existing AoE/visual via player->CastSpell at a
                 //       position near the enemy base.
-                // Implement once a spell id / bomber entry is chosen.
                 break;
 
             default:
@@ -252,21 +218,64 @@ public:
     }
 };
 
-// Clear per-match state when the BG is destroyed so s_avState can't grow forever.
+class ip_av_quests_gossip : public AllCreatureScript
+{
+public:
+    ip_av_quests_gossip() : AllCreatureScript("ip_av_quests_gossip") { }
+
+    bool CanCreatureGossipSelect(Player* player, Creature* creature, uint32 /*sender*/, uint32 action) override
+    {
+        uint32 entry = creature->GetEntry();
+        if (entry != NPC_MURGOT_DEEPFORGE && entry != NPC_SMITH_REGZAR)
+            return false;
+
+        // DB-driven options arrive with action = OptionType; the supplies line is the only GOSSIP-type option either NPC has.
+        if (action != GOSSIP_OPTION_GOSSIP)
+            return false;
+
+        Battleground* bg = player->GetBattleground();
+        if (!bg || bg->GetBgTypeID(true) != BATTLEGROUND_AV)
+            return false;
+
+        TeamId team = entry == NPC_MURGOT_DEEPFORGE ? TEAM_ALLIANCE : TEAM_HORDE;
+        AVQuestState& state = avState[bg->GetInstanceID()];
+
+        ClearGossipMenuFor(player);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT,
+            Acore::StringFormat("Our units are upgraded to {}, but I don\'t have enough supplies to upgrade them.", AV_TIER_NAMES[state.defenderTier[team]]),
+            GOSSIP_SENDER_MAIN, 0);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, ScrapsEstimateLine(state, team), GOSSIP_SENDER_MAIN, 0);
+
+        if (sConfigMgr->GetOption<bool>("IndividualProgression.AV.GossipExactNumbers", false)
+            && state.defenderTier[team] < AV_DEFENDER_TIER_CHAMPION)
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT,
+                Acore::StringFormat("(Turn-ins: {}/{})", state.scrapTurnIns[team],
+                    ScrapsThreshold(state.defenderTier[team] + 1)),
+                GOSSIP_SENDER_MAIN, 0);
+        }
+
+        SendGossipMenuFor(player, entry == NPC_MURGOT_DEEPFORGE ? NPC_TEXT_MURGOT : NPC_TEXT_REGZAR, creature);
+        return true;
+    }
+};
+
+// Clear per-match state when the BG is destroyed so avState can't grow forever.
 class ip_av_quests_bg : public AllBattlegroundScript
 {
 public:
-    ip_av_quests_bg() : AllBattlegroundScript("ip_av_turnins_bg") { }
+    ip_av_quests_bg() : AllBattlegroundScript("ip_av_quests_bg") { }
 
     void OnBattlegroundDestroy(Battleground* bg) override
     {
         if (bg)
-            s_avState.erase(bg->GetInstanceID());
+            avState.erase(bg->GetInstanceID());
     }
 };
 
 void AddSC_mod_individual_progression_av_quests()
 {
     new ip_av_quests_player();
+    new ip_av_quests_gossip();
     new ip_av_quests_bg();
 }
