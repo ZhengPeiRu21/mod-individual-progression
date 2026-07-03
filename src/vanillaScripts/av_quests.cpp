@@ -1,5 +1,22 @@
-/* 
- * Restores Alterac Valley turn-in quest (elemental summons + air-strike)
+/*
+ * ip_av_turnins.cpp
+ *
+ * Restores Alterac Valley turn-in quest EFFECTS (elemental summons + air-strike
+ * hook) WITHOUT editing core BattlegroundAV.cpp.
+ *
+ * Why this works: the AV turn-in still runs the normal quest-reward path, so the
+ * module hook PlayerScript::OnPlayerCompleteQuest fires on turn-in. From there we
+ * read the player's Battleground, key a per-match counter off the BG instance id,
+ * and summon directly into the instance map. Core BG file is never touched.
+ *
+ * ALL APIs below were verified against this server's source (file:line in the
+ * accompanying README). The only things NOT derivable from core — and therefore
+ * marked TODO — are the authentic spawn coordinates and the air-strike spell.
+ *
+ * Build: drop this file in modules/mod-individual-progression/src/ , then declare
+ *   void AddSC_ip_av_turnins();
+ * in IndividualProgression_loader.cpp and call it from
+ *   AddSC_mod_individual_progression() (alongside the other AddSC_* calls).
  */
 
 #include "IndividualProgression.h"
@@ -24,13 +41,21 @@ enum AVTurnInQuests
     AV_Q_A_BOSS1 = 7386, // 5 crystal — Alliance
     AV_Q_A_BOSS2 = 6881, // 1 crystal - Alliance
     AV_Q_H_BOSS1 = 7385, // 5 blood - Horde
-    AV_Q_H_BOSS2 = 6801  // 1 blood - Horde
+    AV_Q_H_BOSS2 = 6801, // 1 blood - Horde
+    // Armor Scraps (turn-ins)
+    AV_Q_A_SCRAPS1 = 7223, // 20 scraps
+    AV_Q_A_SCRAPS2 = 6781,
+    AV_Q_H_SCRAPS1 = 7224,
+    AV_Q_H_SCRAPS2 = 6741,
+
+    NPC_SCRAPPY_A  = 157011,
+    NPC_SCRAPPY_H  = 157012
 };
 
 enum AVTurnInNpcs
 {
     // because summons can't have waypoints (they don't have a GUID),
-    // on spawn, the dummy NPC will make the real bosses appear and start their waypoints
+    // on spawn, the dummy NPC will make the real bosses appear and start their waypoints after 10 minutes
     NPC_DUMMY_IVUS_THE_FOREST_LORD  = 113419, // Alliance elemental
     NPC_DUMMY_LOKHOLAR_THE_ICE_LORD = 113256  // Horde elemental
 };
@@ -38,17 +63,36 @@ enum AVTurnInNpcs
 struct SummonPos { float x, y, z, o; };
 static SummonPos const IVUS_POS     = { -278.02f, -289.58f, 6.77f, 0.0f };
 static SummonPos const LOKHOLAR_POS = { -252.56f, -298.18f, 6.67f, 0.0f };
+static SummonPos const SCRAPPY_POS  = { -260.0f, -290.0f, 6.7f, 0.0f };
 
+static constexpr uint32 SCRAPS_SEASONED = 25; // todo: make these config options
+static constexpr uint32 SCRAPS_VETERAN  = 50;
+static constexpr uint32 SCRAPS_CHAMPION = 75;
 static constexpr uint32 BOSS_POINTS_REQUIRED = 200;
+
 static constexpr uint32 DUMMY_LIFETIME_MS = 900000; // 900000 = 15 minutes, enough time to start the pathing of the real bosses.
+static constexpr uint32 IMP_LIFETIME_MS = 300000;
 
 // Per-match accumulation, keyed by Battleground instance id (Battleground.h:333).
 struct AVQuestState
 {
     uint32 allianceBoss      = 0;
     uint32 hordeBoss         = 0;
+    uint32 allianceScraps    = 0;
+    uint32 hordeScraps       = 0;
+
     bool   allianceElemental = false; // already summoned this match?
     bool   hordeElemental    = false;
+
+    bool   allianceSeasoned  = false;
+    bool   allianceVeteran   = false;
+    bool   allianceChampion  = false;
+
+    bool   hordeSeasoned     = false;
+    bool   hordeVeteran      = false;
+    bool   hordeChampion     = false;
+
+
 };
 static std::unordered_map<uint32, AVQuestState> s_avState;
 
@@ -70,7 +114,7 @@ public:
 
         switch (quest->GetQuestId())
         {
-            // ---------------- Elemental summon (boss turn-ins) ----------------
+            // ---------------- Summon Elemental Boss ----------------
             case AV_Q_A_BOSS1:
                 st.allianceBoss = st.allianceBoss + 5;
 
@@ -121,6 +165,68 @@ public:
                         LOKHOLAR_POS.x, LOKHOLAR_POS.y, LOKHOLAR_POS.z, LOKHOLAR_POS.o,
                         TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, DUMMY_LIFETIME_MS);
                     st.hordeElemental = true;
+                }
+                break;
+
+            // ---------------- Armor Scraps ----------------------            
+            case AV_Q_A_SCRAPS1:
+            case AV_Q_A_SCRAPS2:
+                st.allianceScraps = st.allianceScraps + 1;
+
+                if (st.allianceScraps <= SCRAPS_SEASONED)
+                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.allianceScraps, SCRAPS_SEASONED);
+                else if (st.allianceScraps <= SCRAPS_VETERAN)
+                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.allianceScraps, SCRAPS_VETERAN);
+                else if (st.allianceScraps <= SCRAPS_CHAMPION)
+                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.allianceScraps, SCRAPS_CHAMPION);
+
+                if (!st.allianceSeasoned && st.allianceScraps >= SCRAPS_SEASONED)
+                {
+                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
+                    player->SummonCreature(NPC_SCRAPPY_A, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
+                    st.allianceSeasoned = true;
+                }
+                else if (!st.allianceVeteran && st.allianceScraps >= SCRAPS_VETERAN)
+                {
+                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
+                    player->SummonCreature(NPC_SCRAPPY_A, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
+                    st.allianceVeteran = true;
+                }
+                else if (!st.allianceChampion && st.allianceScraps >= SCRAPS_CHAMPION)
+                {
+                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
+                    player->SummonCreature(NPC_SCRAPPY_A, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
+                    st.allianceChampion = true;
+                }
+                break;
+            case AV_Q_H_SCRAPS1:
+            case AV_Q_H_SCRAPS2:
+                st.hordeScraps = st.hordeScraps + 1;
+
+                if (st.hordeScraps <= SCRAPS_SEASONED)
+                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.hordeScraps, SCRAPS_SEASONED);
+                else if (st.hordeScraps <= SCRAPS_VETERAN)
+                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.hordeScraps, SCRAPS_VETERAN);
+                else if (st.hordeScraps <= SCRAPS_CHAMPION)
+                    ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}", st.hordeScraps, SCRAPS_CHAMPION);
+
+                if (!st.hordeSeasoned && st.hordeScraps >= SCRAPS_SEASONED)
+                {
+                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
+                    player->SummonCreature(NPC_SCRAPPY_H, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
+                    st.hordeSeasoned = true;
+                }
+                else if (!st.hordeVeteran && st.hordeScraps >= SCRAPS_VETERAN)
+                {
+                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
+                    player->SummonCreature(NPC_SCRAPPY_H, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
+                    st.hordeVeteran = true;
+                }
+                else if (!st.hordeChampion && st.hordeScraps >= SCRAPS_CHAMPION)
+                {
+                    // summon a helper imp that will visit each graveyard and change the template of the imp present at each graveyard.
+                    player->SummonCreature(NPC_SCRAPPY_H, SCRAPPY_POS.x, SCRAPPY_POS.y, SCRAPPY_POS.z, SCRAPPY_POS.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, IMP_LIFETIME_MS);
+                    st.hordeChampion = true;
                 }
                 break;
 
