@@ -2630,18 +2630,6 @@ UPDATE `creature_template` SET `name` = 'Commander Dardosh' WHERE `entry` = 1314
 UPDATE `creature_template` SET `name` = 'Lieutenant Murp' WHERE `entry` = 13146;
 UPDATE `creature_template` SET `speed_walk` = 2, `flags_extra` = 0 WHERE entry IN (13256, 13419); -- remove CREATURE_FLAG_EXTRA_INSTANCE_BIND for elemental bosses
 
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 22 AND `ConditionTypeOrReference` = 29 AND `SourceEntry` IN (@CENTRY+1, @CENTRY+2);
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 29 AND `ConditionTypeOrReference` = 29 AND `SourceEntry` IN (112050, 112053);
-INSERT INTO `conditions` (`SourceTypeOrReferenceId`, `SourceGroup`, `SourceEntry`, `SourceId`, `ElseGroup`, `ConditionTypeOrReference`, `ConditionTarget`, 
-`ConditionValue1`, `ConditionValue2`, `ConditionValue3`, `NegativeCondition`, `ErrorType`, `ErrorTextId`, `ScriptName`, `Comment`) VALUES
---
--- (22, 1, @CENTRY+1, 0, 0, 29, 0, 12050, 20, 0, 0, 0, 0, '', 'AV Imp (Alliance) only sets defenders visible if GY is under alliance control'),
--- (22, 1, @CENTRY+2, 0, 0, 29, 0, 12053, 20, 0, 0, 0, 0, '', 'AV Imp (Horde) only sets defenders visible if GY is under horde control'),
---
-(29, 0, 112050, 0, 0, 29, 0, 12050, 20, 0, 0, 0, 0, '', 'Stormpike Defender respawns only if GY is under alliance control'), -- check if AC defender is alive
-(29, 0, 112053, 0, 0, 29, 0, 12053, 20, 0, 0, 0, 0, '', 'Frostwolf Guardian respawns only if GY is under horde control');
-
-
 -- Creature Text for NPC_LOKHOLAR_THE_ICE_LORD and NPC_IVUS_THE_FOREST_LORD
 DELETE FROM `creature_text` WHERE `CreatureID` IN (13256, 13419);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
