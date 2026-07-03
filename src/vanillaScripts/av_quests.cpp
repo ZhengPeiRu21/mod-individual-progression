@@ -44,15 +44,30 @@ namespace
     {
         switch (tier)
         {
-            case 1:  return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsSeasoned", 25);
-            case 2:  return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsVeteran", 50);
-            default: return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsChampion", 75);
+        case 1:  return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsSeasoned", 25);
+        case 2:  return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsVeteran", 50);
+        default: return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.ScrapsChampion", 75);
         }
     }
 
     uint32 BossPointsRequired()
     {
         return sConfigMgr->GetOption<uint32>("IndividualProgression.AV.BossPointsRequired", 200);
+    }
+
+    bool UpgradeReady(AVQuestState const& state, TeamId team)
+    {
+        return state.defenderTier[team] < AV_DEFENDER_TIER_CHAMPION
+            && state.scrapTurnIns[team] >= ScrapsThreshold(state.defenderTier[team] + 1);
+    }
+
+    uint32 SupplyTextId(AVQuestState const& state, TeamId team)
+    {
+        AVSupplyTexts const& texts = team == TEAM_ALLIANCE ? AV_SUPPLY_TEXTS_ALLIANCE : AV_SUPPLY_TEXTS_HORDE;
+        uint8 tier = state.defenderTier[team];
+        if (tier >= AV_DEFENDER_TIER_CHAMPION)
+            return texts.maxed;
+        return UpgradeReady(state, team) ? texts.ready[tier] : texts.notReady[tier];
     }
 
     // Upgrade every DB-spawned defender of `team` to `newTier`.
@@ -112,23 +127,22 @@ namespace
         state.elementalSummoned[team] = true;
     }
 
-    void HandleScrapsTurnIn(Player* player, Battleground* bg, AVQuestState& state, TeamId team)
+    void HandleScrapsTurnIn(Player* player, AVQuestState& state, TeamId team)
     {
         uint32 turnIns = ++state.scrapTurnIns[team];
 
-        uint8 targetTier = state.defenderTier[team];
-        while (targetTier < AV_DEFENDER_TIER_CHAMPION && turnIns >= ScrapsThreshold(targetTier + 1))
-            ++targetTier;
+        if (!UpgradeReady(state, team))
+            return;
 
-        if (targetTier < AV_DEFENDER_TIER_CHAMPION)
-            ChatHandler(player->GetSession()).PSendSysMessage("Armor Scraps: {}/{}",
-                turnIns, ScrapsThreshold(targetTier + 1));
+        // Threshold reached: stop taking scraps until the upgrade is triggered
+        uint32 npcEntry = team == TEAM_ALLIANCE ? NPC_MURGOT_DEEPFORGE : NPC_SMITH_REGZAR;
+        if (Creature* quartermaster = player->FindNearestCreature(npcEntry, 50.0f))
+            quartermaster->RemoveNpcFlag(UNIT_NPC_FLAG_QUESTGIVER);
 
-        if (targetTier > state.defenderTier[team])
-        {
-            state.defenderTier[team] = targetTier;
-            UpgradeDefenders(bg, team, targetTier);
-        }
+        ChatHandler(player->GetSession()).PSendSysMessage(
+            "{} has enough supplies to upgrade your troops to {} — speak with him to begin the upgrade!",
+            team == TEAM_ALLIANCE ? "Murgot Deepforge" : "Smith Regzar",
+            AV_TIER_NAMES[state.defenderTier[team] + 1]);
     }
 
     // Estimate for the supplies gossip option, using existing broadcast texts as examples
@@ -149,16 +163,40 @@ namespace
             return "I barely have any supplies for upgrades.";
         if (remaining * 4 >= interval * 2)      // under halfway
             return "I need many more supplies in order to upgrade our units.";
-        if (remaining * 4 <= interval * 2 && remaining * 4 >= interval * 3)     // over halfwy and under three-quarters
+        if (remaining * 4 <= interval * 2 && remaining * 4 >= interval * 3)     // over halfway and under three-quarters
             return "I have about half the supplies needed to upgrade our units.";
         return "I almost have enough supplies for the next upgrade!"; // over three-quarters done
+    }
+
+    void SendSupplyStatus(Player* player, Creature* creature, AVQuestState& state, TeamId team)
+    {
+        ClearGossipMenuFor(player);
+
+        if (UpgradeReady(state, team))
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_BATTLE,
+                Acore::StringFormat("Upgrade our troops to {}!", AV_TIER_NAMES[state.defenderTier[team] + 1]),
+                GOSSIP_SENDER_MAIN, AV_GOSSIP_ACTION_UPGRADE);
+        }
+        else if (state.defenderTier[team] < AV_DEFENDER_TIER_CHAMPION)
+        {
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, ScrapsEstimateLine(state, team), GOSSIP_SENDER_MAIN, 0);
+
+            if (sConfigMgr->GetOption<bool>("IndividualProgression.AV.GossipExactNumbers", false))
+                AddGossipItemFor(player, GOSSIP_ICON_CHAT,
+                    Acore::StringFormat("(Turn-ins: {}/{})", state.scrapTurnIns[team],
+                        ScrapsThreshold(state.defenderTier[team] + 1)),
+                    GOSSIP_SENDER_MAIN, 0);
+        }
+
+        SendGossipMenuFor(player, SupplyTextId(state, team), creature);
     }
 }
 
 class ip_av_quests_player : public PlayerScript
 {
 public:
-    ip_av_quests_player() : PlayerScript("ip_av_quests_player") { }
+    ip_av_quests_player() : PlayerScript("ip_av_quests_player") {}
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
     {
@@ -174,46 +212,46 @@ public:
         switch (quest->GetQuestId())
         {
             // ---------------- Summon Elemental Boss ----------------
-            case AV_Q_A_BOSS1:
-                HandleBossTurnIn(player, state, TEAM_ALLIANCE, 5);
-                break;
-            case AV_Q_A_BOSS2:
-                HandleBossTurnIn(player, state, TEAM_ALLIANCE, 1);
-                break;
-            case AV_Q_H_BOSS1:
-                HandleBossTurnIn(player, state, TEAM_HORDE, 5);
-                break;
-            case AV_Q_H_BOSS2:
-                HandleBossTurnIn(player, state, TEAM_HORDE, 1);
-                break;
+        case AV_Q_A_BOSS1:
+            HandleBossTurnIn(player, state, TEAM_ALLIANCE, 5);
+            break;
+        case AV_Q_A_BOSS2:
+            HandleBossTurnIn(player, state, TEAM_ALLIANCE, 1);
+            break;
+        case AV_Q_H_BOSS1:
+            HandleBossTurnIn(player, state, TEAM_HORDE, 5);
+            break;
+        case AV_Q_H_BOSS2:
+            HandleBossTurnIn(player, state, TEAM_HORDE, 1);
+            break;
 
             // ---------------- Armor Scraps ----------------
-            case AV_Q_A_SCRAPS1:
-            case AV_Q_A_SCRAPS2:
-                HandleScrapsTurnIn(player, bg, state, TEAM_ALLIANCE);
-                break;
-            case AV_Q_H_SCRAPS1:
-            case AV_Q_H_SCRAPS2:
-                HandleScrapsTurnIn(player, bg, state, TEAM_HORDE);
-                break;
+        case AV_Q_A_SCRAPS1:
+        case AV_Q_A_SCRAPS2:
+            HandleScrapsTurnIn(player, state, TEAM_ALLIANCE);
+            break;
+        case AV_Q_H_SCRAPS1:
+        case AV_Q_H_SCRAPS2:
+            HandleScrapsTurnIn(player, state, TEAM_HORDE);
+            break;
 
             // ---------------- Air strikes (Call of Air) ----------------
-            case AV_Q_A_COMMANDER1:
-            case AV_Q_A_COMMANDER2:
-            case AV_Q_A_COMMANDER3:
-            case AV_Q_H_COMMANDER1:
-            case AV_Q_H_COMMANDER2:
-            case AV_Q_H_COMMANDER3:
-                // TODO: the retail air-strike bombing spell is not present in
-                // core. Pick an approach:
-                //   (a) SummonCreature a stealthed "bomber" trigger over the
-                //       enemy base and have it cast an AoE spell on a timer, or
-                //   (b) cast an existing AoE/visual via player->CastSpell at a
-                //       position near the enemy base.
-                break;
+        case AV_Q_A_COMMANDER1:
+        case AV_Q_A_COMMANDER2:
+        case AV_Q_A_COMMANDER3:
+        case AV_Q_H_COMMANDER1:
+        case AV_Q_H_COMMANDER2:
+        case AV_Q_H_COMMANDER3:
+            // TODO: the retail air-strike bombing spell is not present in
+            // core. Pick an approach:
+            //   (a) SummonCreature a stealthed "bomber" trigger over the
+            //       enemy base and have it cast an AoE spell on a timer, or
+            //   (b) cast an existing AoE/visual via player->CastSpell at a
+            //       position near the enemy base.
+            break;
 
-            default:
-                break;
+        default:
+            break;
         }
     }
 };
@@ -221,42 +259,64 @@ public:
 class ip_av_quests_gossip : public AllCreatureScript
 {
 public:
-    ip_av_quests_gossip() : AllCreatureScript("ip_av_quests_gossip") { }
+    ip_av_quests_gossip() : AllCreatureScript("ip_av_quests_gossip") {}
+
+    bool CanCreatureGossipHello(Player* player, Creature* creature) override
+    {
+        TeamId team;
+        AVQuestState* state = GetState(player, creature, team);
+        if (!state)
+            return false;
+
+        player->PrepareGossipMenu(creature, creature->GetCreatureTemplate()->GossipMenuId, true);
+        SendGossipMenuFor(player, SupplyTextId(*state, team), creature);
+        return true;
+    }
 
     bool CanCreatureGossipSelect(Player* player, Creature* creature, uint32 /*sender*/, uint32 action) override
     {
-        uint32 entry = creature->GetEntry();
-        if (entry != NPC_MURGOT_DEEPFORGE && entry != NPC_SMITH_REGZAR)
+        TeamId team;
+        AVQuestState* state = GetState(player, creature, team);
+        if (!state)
             return false;
 
-        // DB-driven options arrive with action = OptionType; the supplies line is the only GOSSIP-type option either NPC has.
-        if (action != GOSSIP_OPTION_GOSSIP)
-            return false;
+        // The supplies question (the only DB gossip option on these NPCs;
+        // DB-driven options arrive with action = OptionType).
+        if (action == GOSSIP_OPTION_GOSSIP)
+        {
+            SendSupplyStatus(player, creature, *state, team);
+            return true;
+        }
+
+        // The script-added upgrade button.
+        if (action == AV_GOSSIP_ACTION_UPGRADE)
+        {
+            if (UpgradeReady(*state, team))
+            {
+                ++state->defenderTier[team];
+                UpgradeDefenders(player->GetBattleground(), team, state->defenderTier[team]);
+                creature->SetNpcFlag(UNIT_NPC_FLAG_QUESTGIVER); // resume turn-ins
+            }
+            SendSupplyStatus(player, creature, *state, team); // show the new status
+            return true;
+        }
+
+        return false;
+    }
+
+private:
+    static AVQuestState* GetState(Player* player, Creature* creature, TeamId& team)
+    {
+        uint32 entry = creature->GetEntry();
+        if (entry != NPC_MURGOT_DEEPFORGE && entry != NPC_SMITH_REGZAR)
+            return nullptr;
 
         Battleground* bg = player->GetBattleground();
         if (!bg || bg->GetBgTypeID(true) != BATTLEGROUND_AV)
-            return false;
+            return nullptr;
 
-        TeamId team = entry == NPC_MURGOT_DEEPFORGE ? TEAM_ALLIANCE : TEAM_HORDE;
-        AVQuestState& state = avState[bg->GetInstanceID()];
-
-        ClearGossipMenuFor(player);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT,
-            Acore::StringFormat("Our units are upgraded to {}, but I don\'t have enough supplies to upgrade them.", AV_TIER_NAMES[state.defenderTier[team]]),
-            GOSSIP_SENDER_MAIN, 0);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, ScrapsEstimateLine(state, team), GOSSIP_SENDER_MAIN, 0);
-
-        if (sConfigMgr->GetOption<bool>("IndividualProgression.AV.GossipExactNumbers", false)
-            && state.defenderTier[team] < AV_DEFENDER_TIER_CHAMPION)
-        {
-            AddGossipItemFor(player, GOSSIP_ICON_CHAT,
-                Acore::StringFormat("(Turn-ins: {}/{})", state.scrapTurnIns[team],
-                    ScrapsThreshold(state.defenderTier[team] + 1)),
-                GOSSIP_SENDER_MAIN, 0);
-        }
-
-        SendGossipMenuFor(player, entry == NPC_MURGOT_DEEPFORGE ? NPC_TEXT_MURGOT : NPC_TEXT_REGZAR, creature);
-        return true;
+        team = entry == NPC_MURGOT_DEEPFORGE ? TEAM_ALLIANCE : TEAM_HORDE;
+        return &avState[bg->GetInstanceID()];
     }
 };
 
@@ -264,7 +324,7 @@ public:
 class ip_av_quests_bg : public AllBattlegroundScript
 {
 public:
-    ip_av_quests_bg() : AllBattlegroundScript("ip_av_quests_bg") { }
+    ip_av_quests_bg() : AllBattlegroundScript("ip_av_quests_bg") {}
 
     void OnBattlegroundDestroy(Battleground* bg) override
     {
