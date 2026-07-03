@@ -74,16 +74,22 @@ uint8 constexpr AV_DEFENDER_TIER_CHAMPION = 3;
 // true  — living creatures morph the moment the stage is reached
 // false — the upgrade is only staged via SetOriginalEntry(); the creature finishes its current life and respawns as the new tier
 
-std::array<AVDefenderChain, 3> constexpr AV_ALLIANCE_DEFENDER_CHAINS = { {
-    { { 112050, 113326, 113331, 113422 }, true  }, // graveyard defenders
-    { { 0, 0, 0, 0 },                     true  }, // mine defenders  — PLACEHOLDER, fill in when entries exist
-    { { 0, 0, 0, 0 },                     false }, // patrols         — PLACEHOLDER, respawn-only per Grim's notes
+std::array<AVDefenderChain, 6> constexpr AV_ALLIANCE_DEFENDER_CHAINS = { {
+    { { 112050, 13326, 13331, 13422 }, true  }, // graveyard defenders
+    { { 113080, 13552, 13553, 13554 }, true  }, // Irondeep Guard
+    { { 113098, 13555, 13556, 13557 }, true  }, // Irondeep Surveyor
+    { { 113087, 13549, 13550, 13551 }, true  }, // Coldmine Invader
+    { { 113096, 13546, 13547, 13548 }, true  }, // Coldmine Explorer
+    { { 0, 0, 0, 0 },                  false }, // patrols/bunkers/towers
 } };
 
-std::array<AVDefenderChain, 3> constexpr AV_HORDE_DEFENDER_CHAINS = { {
-    { { 112053, 113328, 113332, 113421 }, true  }, // graveyard guardians
-    { { 0, 0, 0, 0 },                     true  }, // mine defenders  — PLACEHOLDER
-    { { 0, 0, 0, 0 },                     false }, // patrols         — PLACEHOLDER, respawn-only
+std::array<AVDefenderChain, 6> constexpr AV_HORDE_DEFENDER_CHAINS = { {
+    { { 112053, 13328, 13332, 13421 }, true  }, // graveyard guardians
+    { { 113081, 13543, 13544, 13545 }, true  }, // Irondeep Raider
+    { { 113099, 13540, 13541, 13542 }, true  }, // Irondeep Explorer
+    { { 113089, 13534, 13535, 13536 }, true  }, // Coldmine Guard
+    { { 113097, 13537, 13538, 13539 }, true  }, // Coldmine Surveyor
+    { { 0, 0, 0, 0 },                  false }, // patrols/bunkers/towers
 } };
 
 constexpr char const* AV_TIER_NAMES[4] = { "Regular", "Seasoned", "Veteran", "Champion" };
