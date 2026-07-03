@@ -140,7 +140,7 @@ namespace
             quartermaster->RemoveNpcFlag(UNIT_NPC_FLAG_QUESTGIVER);
 
         ChatHandler(player->GetSession()).PSendSysMessage(
-            "{} has enough supplies to upgrade your troops to {} — speak with him to begin the upgrade!",
+            "{} has enough supplies, speak with him to upgrade your troops to {}!",
             team == TEAM_ALLIANCE ? "Murgot Deepforge" : "Smith Regzar",
             AV_TIER_NAMES[state.defenderTier[team] + 1]);
     }
@@ -174,7 +174,7 @@ namespace
 
         if (UpgradeReady(state, team))
         {
-            AddGossipItemFor(player, GOSSIP_ICON_BATTLE,
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT,
                 Acore::StringFormat("Upgrade our troops to {}!", AV_TIER_NAMES[state.defenderTier[team] + 1]),
                 GOSSIP_SENDER_MAIN, AV_GOSSIP_ACTION_UPGRADE);
         }
