@@ -1,4 +1,3 @@
-SET @CENTRY   := 157000;
 SET @CGUID    := 657000;
 SET @WPID     := 6570000;
 
@@ -1360,8 +1359,6 @@ DELETE FROM `creature_template` WHERE `entry` IN
  111602, 113080, 113081, 113098, 113099, 113396, 113397, 122750, 122747, 122748, 122743, 122746, 122749, 122741, 122744, 122745, 132021, 132018, 132019, 132014, 132017, 132020, 132012, 132015, 132016,
  112050, 122690, 132091, 113326, 122714, 132062, 113331, 122588, 132125, 113422, 122608, 131932, 112053, 122674, 131981, 113328, 122715, 132063, 113332, 122589, 132126, 113421, 122609, 131933);
 
-DELETE FROM `creature_template` WHERE `entry` IN (@CENTRY+1, @CENTRY+2, @CENTRY+11, @CENTRY+12);
-
 INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
 `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `rank`, `dmgschool`, `DamageModifier`, 
 `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
@@ -1380,12 +1377,6 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (114284,0,0,0,0,0,'Stormpike Battleguard',NULL,NULL,0,61,61,0,1216,0,1,1.14286,1,1,20,1,0,7.4,2000,2000,1,1,1,4608,2048,0,0,7,0,14284,0,0,0,0,432,569,'',1,1,6,1,1,1,0,0,1,0,0,'',0),
 (113358,122766,132089,0,0,0,'Stormpike Bowman',NULL,NULL,0,59,60,0,1216,0,1,1.14286,1,1,80,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,0,0,0,0,65,648,'',0,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
 (113359,122739,131978,0,0,0,'Frostwolf Bowman',NULL,NULL,0,59,60,0,1214,0,1,1.14286,1,1,80,0,0,2.3,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,0,0,0,0,65,765,'',1,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
---
-(@CENTRY+1,0,0,0,0,0,'AV Imp (Alliance)','',NULL,0,1,1,0,190,0,1,1.14286,1,1,20,0,0,1,2000,2000,1,1,2,768,2048,0,0,10,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,130,'',0),
-(@CENTRY+2,0,0,0,0,0,'AV Imp (Horde)','',NULL,0,1,1,0,190,0,1,1.14286,1,1,20,0,0,1,2000,2000,1,1,2,768,2048,0,0,10,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,130,'',0),
---
-(@CENTRY+11,0,0,0,0,0,'Scrappy (Alliance)','',NULL,0,1,1,0,190,0,1,1.14286,1,1,20,0,0,1,2000,2000,1,1,2,768,2048,0,0,10,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,130,'',0),
-(@CENTRY+12,0,0,0,0,0,'Scrappy (Horde)','',NULL,0,1,1,0,190,0,1,1.14286,1,1,20,0,0,1,2000,2000,1,1,2,768,2048,0,0,10,0,0,0,0,0,0,0,0,'',0,1,1,1,1,1,0,0,1,0,130,'',0),
 --
 (122739,0,0,0,0,0,'Frostwolf Bowman (1)','',NULL,0,69,70,0,1214,0,1.27,1.14286,1,1,80,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13359,0,0,0,0,524,694,'',1,1,1.5,1.5,1,1,0,0,1,0,0,'',0), -- TBC
 (122766,0,0,0,0,0,'Stormpike Bowman (1)','',NULL,0,69,70,0,1216,0,1.27,1.14286,1,1,80,0,0,1,2000,2000,1,1,1,4608,2048,0,0,7,0,13358,0,0,0,0,520,688,'',0,1,1.5,1.5,1,1,0,0,1,0,0,'',0),
@@ -1923,8 +1914,6 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 (113397, 'zhCN', '深铁矿洞苦工', '', 18019),
 (113397, 'zhTW', '深鐵礦坑苦工', '', 18019);
 
--- DELETE FROM `creature_template_model` WHERE `CreatureID` IN (@CENTRY+1, @CENTRY+2, @CENTRY+11, @CENTRY+12);
-DELETE FROM `creature_template_model` WHERE `CreatureID` BETWEEN @CENTRY+1 AND @CENTRY+16;
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN 
 (110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 122739, 122766, 131978, 132089, 113256, 113419, 110982, 111603, 111604, 113087, 
  113089, 113096, 113097, 113316, 113317, 122782, 122778, 122779, 122731, 122730, 122729, 122734, 122733, 122732, 132143, 132139, 132140, 131948, 131947, 131946, 131951, 131950, 131949, 110987, 111600, 
@@ -1932,11 +1921,6 @@ DELETE FROM `creature_template_model` WHERE `CreatureID` IN
  112050, 122690, 132091, 113326, 122714, 132062, 113331, 122588, 132125, 113422, 122608, 131932, 112053, 122674, 131981, 113328, 122715, 132063, 113332, 122589, 132126, 113421, 122609, 131933);
 
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
---
-(@CENTRY+1, 1, 17188, 1, 1, 0),
-(@CENTRY+2, 1, 17188, 1, 1, 0),
-(@CENTRY+11, 1, 17188, 1, 1, 0),
-(@CENTRY+12, 1, 17188, 1, 1, 0),
 --
 (112050, 0, 13274, 1, 1, 12340),
 (112050, 1, 13275, 1, 1, 12340),
@@ -2287,17 +2271,12 @@ UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN
  110982, 111603, 111604, 113087, 113089, 113096, 113097, 113316, 113317, 110987, 111600, 111602, 113080, 113081, 113098, 113099, 113396, 113397,
  112050, 112053, 12050, 13326, 13331, 13422, 12053, 13328, 13332, 13421);
 
-UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (@CENTRY+1, @CENTRY+2, @CENTRY+11, @CENTRY+12);
-
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN 
 (10981, 10982, 10987, 10990, 11600, 11602, 11603, 11604, 11605, 12051, 12127, 12159, 13256, 13419,
  13080, 13081, 13087, 13089, 13096, 13097, 13098, 13099, 13316, 13317, 13358, 13359, 13396, 13397, 14282, 14283, 14284,
  110981, 110990, 112051, 112127, 113358, 113359, 114282, 114283, 114284, 113179, 113180, 113181, 113437, 113438, 113439, 113256, 113419,
  110982, 111603, 111604, 113087, 113089, 113096, 113097, 113316, 113317, 110987, 111600, 111602, 113080, 113081, 113098, 113099, 113396, 113397,
  112050, 112053, 12050, 13326, 13331, 13422, 12053, 13328, 13332, 13421); -- Graveyard guards
-
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (@CENTRY+1, @CENTRY+2, @CENTRY+11, @CENTRY+12);
-DELETE FROM `smart_scripts` WHERE `source_type` = 9 AND `entryorguid` IN (15701101, 15701201);
 
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
 `event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
@@ -2308,13 +2287,13 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (113256, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Lokholar the Ice Lord (Dummy) - On Just Summoned - Set Faction Friendly'),
 (113256, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 13256, 0, 40, 0, 0, 0, 0, 0,               'Lokholar the Ice Lord (Dummy) - On Just Summoned - Set visibility Lokholar the Ice Lord ON'),
 (113256, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 13256, 0, 40, 0, 0, 0, 0, 0,                'Lokholar the Ice Lord (Dummy) - On Just Summoned - Reset Faction Lokholar the Ice Lord'),
-(113256, 0, 4, 0, 1, 0, 100, 0, 600000, 600000, 0, 0, 0, 0, 232, @WPID+5180, 0,0,0,0,0, 9, 13256, 0, 40, 0,0,0,0,0,    'Lokholar the Ice Lord (Dummy) - After 10 Minutes - Start Waypoints Lokholar the Ice Lord'),
+(113256, 0, 4, 0, 1, 0, 100, 0, 600000, 600000, 0, 0, 0, 0, 232, @WPID+5180, 0, 0, 0, 0, 0, 9, 13256, 0, 40, 0, 0, 0, 0, 0, 'Lokholar the Ice Lord (Dummy) - After 10 Minutes - Start Waypoints Lokholar the Ice Lord'),
 
 (113419, 0, 0, 1, 54, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Ivus the Forest Lord (Dummy) - On Just Summoned - Set Invisible'),
 (113419, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Ivus the Forest Lord (Dummy) - On Just Summoned - Set Faction Friendly'),
 (113419, 0, 2, 3, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 1, 0, 0, 0, 0, 0, 9, 13419, 0, 40, 0, 0, 0, 0, 0,               'Ivus the Forest Lord (Dummy) - On Just Summoned - Set visibility Ivus the Forest Lord ON'),
 (113419, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 13419, 0, 40, 0, 0, 0, 0, 0,                'Ivus the Forest Lord (Dummy) - On Just Summoned - Reset Faction Ivus the Forest Lord'),
-(113419, 0, 4, 0, 1, 0, 100, 0, 600000, 600000, 0, 0, 0, 0, 232, @WPID+5190, 0,0,0,0,0, 9, 13419, 0, 40, 0,0,0,0,0,    'Ivus the Forest Lord (Dummy) - After 10 Minutes - Start Waypoints Ivus the Forest Lord'),
+(113419, 0, 4, 0, 1, 0, 100, 0, 600000, 600000, 0, 0, 0, 0, 232, @WPID+5190, 0, 0, 0, 0, 0, 9, 13419, 0, 40, 0, 0, 0, 0, 0, 'Ivus the Forest Lord (Dummy) - After 10 Minutes - Start Waypoints Ivus the Forest Lord'),
 --
 (13256, 0, 0, 0, 9, 0, 100, 0, 0, 0, 3400, 4800, 0, 40, 11, 21369, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,           'Lokholar the Ice Lord - Within 0-40 Range - Cast Frostbolt'),
 (13256, 0, 1, 0, 106, 0, 100, 0, 0, 0, 16000, 19000, 0, 10, 11, 14907, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'Lokholar the Ice Lord - Within 0-10 Range - Cast Frost Nova'),
@@ -2335,14 +2314,12 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (13419, 0, 2, 0, 0, 0, 100, 0, 7000, 7000, 8000, 12000, 0, 0, 11, 21669, 32, 0, 0, 0, 0, 5, 40, 0, 0, 0, 0, 0, 0, 0,   'Ivus the Forest Lord - In Combat - Cast Moonfire'),
 (13419, 0, 3, 0, 0, 0, 100, 0, 5000, 5000, 3000, 7000, 0, 0, 11, 21670, 32, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,    'Ivus the Forest Lord - In Combat - Cast Faerie Fire'),
 (13419, 0, 4, 0, 0, 0, 100, 0, 0, 0, 6000, 8000, 0, 0, 11, 20654, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,           'Ivus the Forest Lord - In Combat - Cast Roots'),
--- (13419, 0, 5, 6, 5, 0, 100, 0, 0, 0, 0, 0, 0, 0, 11, 21307, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Ivus the Forest Lord - On Killed Unit - Cast Swell of Souls'),
--- (13419, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                   'Ivus the Forest Lord - On Killed Unit - Say Text 2'),
-(13419, 0, 7, 8, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ivus the Forest Lord - On Respawn - Set Invisible'),
-(13419, 0, 8, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ivus the Forest Lord - On Respawn - Set Faction Friendly'),
-(13419, 0, 9, 0, 108, 0, 100, 1, 1, @WPID+5190, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Ivus the Forest Lord - On Waypoint Reached - Say Text 0'), -- just summoned
-(13419, 0, 10, 0, 108, 0, 100, 1, 21, @WPID+5190, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Ivus the Forest Lord - On Waypoint Reached - Say Text 1'), -- left Field of Strife
-(13419, 0, 11, 0, 108, 0, 100, 1, 40, @WPID+5190, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Ivus the Forest Lord - On Waypoint Reached - Say Text 3'), -- reached enemy base
-(13419, 0, 12, 0, 108, 0, 100, 1, 41, @WPID+5190, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Ivus the Forest Lord - On Waypoint Reached - Despawn'),
+(13419, 0, 5, 6, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ivus the Forest Lord - On Respawn - Set Invisible'),
+(13419, 0, 6, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Ivus the Forest Lord - On Respawn - Set Faction Friendly'),
+(13419, 0, 7, 0, 108, 0, 100, 1, 1, @WPID+5190, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,            'Ivus the Forest Lord - On Waypoint Reached - Say Text 0'), -- just summoned
+(13419, 0, 8, 0, 108, 0, 100, 1, 21, @WPID+5190, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Ivus the Forest Lord - On Waypoint Reached - Say Text 1'), -- left Field of Strife
+(13419, 0, 9, 0, 108, 0, 100, 1, 40, @WPID+5190, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Ivus the Forest Lord - On Waypoint Reached - Say Text 3'), -- reached enemy base
+(13419, 0, 10, 0, 108, 0, 100, 1, 41, @WPID+5190, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Ivus the Forest Lord - On Waypoint Reached - Despawn'),
 --
 (12159, 0, 0, 1, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Korrak the Bloodrager - On Respawn - Set Invisible'),
 (12159, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Korrak the Bloodrager - On Respawn - Set Faction Friendly'),
@@ -2384,45 +2361,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (112053, 0, 3, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Frostwolf Guardian - On Respawn - Set Faction Friendly'),
 (112053, 0, 4, 5, 103, 0, 100, 0, 0, 12053, 1, 20, 5000, 0, 47, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Frostwolf Guardian - GY controlled by Horde - Set Visible'), -- check for AC defender
 (112053, 0, 5, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf Guardian - GY controlled by Horde - Reset Faction'),
---
-(@CENTRY+1, 0, 0, 0, 103, 0, 100, 1, 0, @CENTRY+11, 1, 20, 3000, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'AV Imp (Alliance) - On Near Scrappy - Set Phase 1 (No Repeat)'),
-(@CENTRY+1, 0, 1, 0, 1, 1, 100, 0, 0, 0, 5000, 5000, 0, 0, 36, 113326, 0,0,0,0,0, 9, 112050, 0, 40, 0,0,0,0,0,         'AV Imp (Alliance) - OOC - Update Entry to Seasoned Defender (Phase 1)'),
-(@CENTRY+1, 0, 2, 0, 103, 1, 100, 1, 0, @CENTRY+11, 1, 20, 3000, 0, 22, 2, 0,0,0,0,0, 1, 0, 0, 0, 0, 0, 0, 0, 0,       'AV Imp (Alliance) - On Near Scrappy - Set Phase 2 (No Repeat)'),
-(@CENTRY+1, 0, 3, 0, 1, 2, 100, 0, 0, 0, 5000, 5000, 0, 0, 36, 113331, 0,0,0,0,0, 9, 113326, 0, 40, 0,0,0,0,0,         'AV Imp (Alliance) - OOC - Update Entry to Veteran Defender (Phase 2)'),
-(@CENTRY+1, 0, 4, 0, 103, 2, 100, 1, 0, @CENTRY+11, 1, 20, 3000, 0, 22, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'AV Imp (Alliance) - On Near Scrappy - Set Phase 3 (No Repeat)'),
-(@CENTRY+1, 0, 5, 0, 1, 4, 100, 0, 0, 0, 5000, 5000, 0, 0, 36, 113422, 0,0,0,0,0, 9, 113331, 0, 40, 0,0,0,0,0,         'AV Imp (Alliance) - OOC - Update Entry to Champion Defender (Phase 3)'),
-
-(@CENTRY+2, 0, 0, 0, 103, 0, 100, 1, 0, @CENTRY+12, 1, 20, 3000, 0, 22, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'AV Imp (Horde) - On Near Scrappy -  Set Phase 1 (No Repeat)'),
-(@CENTRY+2, 0, 1, 0, 1, 1, 100, 0, 0, 0, 5000, 5000, 0, 0, 36, 113328, 0,0,0,0,0, 9, 112053, 0, 40, 0,0,0,0,0,         'AV Imp (Horde) - OOC - Update Entry to Seasoned Guardian (Phase 1)'),
-(@CENTRY+2, 0, 2, 0, 103, 1, 100, 1, 0, @CENTRY+12, 1, 20, 3000, 0, 22, 2, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'AV Imp (Horde) - On Near Scrappy -  Set Phase 2 (No Repeat)'),
-(@CENTRY+2, 0, 3, 0, 1, 2, 100, 0, 0, 0, 5000, 5000, 0, 0, 36, 113332, 0,0,0,0,0, 9, 113328, 0, 40, 0,0,0,0,0,         'AV Imp (Horde) - OOC - Update Entry to Veteran Guardian (Phase 2)'),
-(@CENTRY+2, 0, 4, 0, 103, 2, 100, 1, 0, @CENTRY+12, 1, 20, 3000, 0, 22, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,   'AV Imp (Horde) - On Near Scrappy -  Set Phase 3 (No Repeat)'),
-(@CENTRY+2, 0, 5, 0, 1, 4, 100, 0, 0, 0, 5000, 5000, 0, 0, 36, 113421, 0,0,0,0,0, 9, 113332, 0, 40, 0,0,0,0,0,         'AV Imp (Horde) - OOC - Update Entry to Champion Guardian (Phase 3)'),
---
-(@CENTRY+11, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Scrappy (Alliance) - On Reset - Set Invisible'),
-(@CENTRY+11, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Scrappy (Alliance) - On Reset - Set Faction Friendly'),
-(@CENTRY+11, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 15701101, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Scrappy (Alliance) - On Reset - Run Script'),
-(@CENTRY+12, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Scrappy (Horde) - On Reset - Set Invisible'),
-(@CENTRY+12, 0, 1, 2, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                'Scrappy (Horde) - On Reset - Set Faction Friendly'),
-(@CENTRY+12, 0, 2, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 80, 15701201, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Scrappy (Horde) - On Reset - Run Script'),
---
-(15701101, 9, 0, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, 639.359, -33.8604, 45.8978, 0,    'Script9 - Scrappy (Alliance) - Teleport to GY1'),
-(15701101, 9, 1, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, 668.165, -292.627, 30.2883, 0,    'Script9 - Scrappy (Alliance) - Teleport to GY2'),
-(15701101, 9, 2, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, 75.9303, -403.070, 46.2573, 0,    'Script9 - Scrappy (Alliance) - Teleport to GY3'),
-(15701101, 9, 3, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, -204.668, -115.001, 78.5348, 0,   'Script9 - Scrappy (Alliance) - Teleport to GY4'),
-(15701101, 9, 4, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, -611.971, -398.223, 60.8585, 0,   'Script9 - Scrappy (Alliance) - Teleport to GY5'),
-(15701101, 9, 5, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, -1084.17, -345.717, 55.1429, 0,   'Script9 - Scrappy (Alliance) - Teleport to GY6'),
-(15701101, 9, 6, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, -1402.77, -309.658, 89.3692, 0,   'Script9 - Scrappy (Alliance) - Teleport to GY7'),
-(15701101, 9, 7, 0, 0, 0, 100, 0, 1000, 1000,0,0,0,0, 41, 1000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Script9 - Scrappy (Alliance) - Despawn'),
---
-(15701201, 9, 0, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, -1402.77, -309.658, 89.3692, 0,   'Script9 - Scrappy (Horde) - Teleport to GY7'),
-(15701201, 9, 1, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, -1084.17, -345.717, 55.1429, 0,   'Script9 - Scrappy (Horde) - Teleport to GY6'),
-(15701201, 9, 2, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, -611.971, -398.223, 60.8585, 0,   'Script9 - Scrappy (Horde) - Teleport to GY5'),
-(15701201, 9, 3, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, -204.668, -115.001, 78.5348, 0,   'Script9 - Scrappy (Horde) - Teleport to GY4'),
-(15701201, 9, 4, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, 75.9303, -403.070, 46.2573, 0,    'Script9 - Scrappy (Horde) - Teleport to GY3'),
-(15701201, 9, 5, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, 668.165, -292.627, 30.2883, 0,    'Script9 - Scrappy (Horde) - Teleport to GY2'),
-(15701201, 9, 6, 0, 0, 0, 100, 0, 3000, 3000,0,0,0,0, 62, 30, 0,0,0,0,0, 1, 0,0,0,0, 639.359, -33.8604, 45.8978, 0,    'Script9 - Scrappy (Horde) - Teleport to GY1'),
-(15701201, 9, 7, 0, 0, 0, 100, 0, 1000, 1000, 0, 0, 0, 0, 41, 1000, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,          'Script9 - Scrappy (Horde) - Despawn'),
 --
 (10981, 0, 0, 1, 25, 0, 100, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf - On Reset - Set Invisible'), -- disable originals
 (10981, 0, 1, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 35, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                     'Frostwolf - On Reset - Set Faction Friendly'),
@@ -2629,6 +2567,7 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature_template` SET `name` = 'Commander Dardosh' WHERE `entry` = 13140;
 UPDATE `creature_template` SET `name` = 'Lieutenant Murp' WHERE `entry` = 13146;
 UPDATE `creature_template` SET `speed_walk` = 2, `flags_extra` = 0 WHERE entry IN (13256, 13419); -- remove CREATURE_FLAG_EXTRA_INSTANCE_BIND for elemental bosses
+UPDATE `gossip_menu` SET `TextID` = 6066 WHERE `MenuID` IN (5021, 5124); 
 
 -- Creature Text for NPC_LOKHOLAR_THE_ICE_LORD and NPC_IVUS_THE_FOREST_LORD
 DELETE FROM `creature_text` WHERE `CreatureID` IN (13256, 13419);
@@ -2645,7 +2584,7 @@ INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Lan
 (13419, 3, 0, 'Your base is forfeit, mortals! From its ashes shall rise life!', 14, 0, 100, 0, 0, 0, 8739, 0, 'Ivus the Forest Lord - Reached Enemy Base');
 
 -- Waypoints for NPC_LOKHOLAR_THE_ICE_LORD and NPC_IVUS_THE_FOREST_LORD
-DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+518, @CGUID+519, @CGUID+521, @CGUID+522);
+DELETE FROM `creature_addon` WHERE `guid` IN (@CGUID+518, @CGUID+519);
 INSERT INTO `creature_addon` (`guid`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
 (@CGUID+518, @WPID+5180, 0, 0, 0, 0, 0, NULL),
 (@CGUID+519, @WPID+5190, 0, 0, 0, 0, 0, NULL);
@@ -3837,7 +3776,3 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (1308801, 9, 3, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 113089, 0, 200, 1, 0, 0, 0, 0,              'Script9 - Masha Swiftcut - Reset Faction Coldmine Guard'),
 (1308801, 9, 4, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 113097, 0, 200, 1, 0, 0, 0, 0,              'Script9 - Masha Swiftcut - Reset Faction Coldmine Surveyor'),
 (1308801, 9, 5, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 9, 113316, 0, 200, 1, 0, 0, 0, 0,              'Script9 - Masha Swiftcut - Reset Faction Coldmine Peon');
-
-    
-DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 29 AND `ConditionTypeOrReference` = 29 AND `SourceEntry` IN 
-(110982, 111603, 111604, 113089, 113097, 113316, 113087, 113096, 113317, 110987, 111600, 111602, 113081, 113099, 113397, 113080, 113098, 113396, 113358, 113359); -- 00_cleanup
