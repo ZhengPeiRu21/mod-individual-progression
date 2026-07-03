@@ -28,6 +28,10 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id` IN (20278); -- Vixton Pinch
 
 /* the following edits are temporary */
 
+-- remove AV conditons that aren't used anymore
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 29 AND `ConditionTypeOrReference` = 29 AND `SourceEntry` IN 
+(110982, 111603, 111604, 113089, 113097, 113316, 113087, 113096, 113317, 110987, 111600, 111602, 113081, 113099, 113397, 113080, 113098, 113396, 113358, 113359); -- 00_cleanup
+
 -- remove pvp progression requirements to show pvp gear. added rank requirements back
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `Comment` = "Vanilla PvP Ranked Gear (IPP)";
 
