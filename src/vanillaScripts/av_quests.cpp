@@ -140,8 +140,9 @@ namespace
             quartermaster->RemoveNpcFlag(UNIT_NPC_FLAG_QUESTGIVER);
 
         ChatHandler(player->GetSession()).PSendSysMessage(
-            "{} has enough supplies, speak with him to upgrade your troops to {}!",
+            "{} has enough supplies, speak with {} to upgrade your troops to {}!",
             team == TEAM_ALLIANCE ? "Murgot Deepforge" : "Smith Regzar",
+            team == TEAM_ALLIANCE ? "her" : "him",
             AV_TIER_NAMES[state.defenderTier[team] + 1]);
     }
 
