@@ -38,17 +38,27 @@ enum AVTurnInNpcs : uint32
 {
     // Summons can't have waypoints (no DB guid), so a dummy is summoned and the
     // permanently spawned (invisible) real boss starts its waypoint path instead.
-    NPC_DUMMY_IVUS_THE_FOREST_LORD  = 113419, // Alliance
+    NPC_DUMMY_IVUS_THE_FOREST_LORD = 113419, // Alliance
     NPC_DUMMY_LOKHOLAR_THE_ICE_LORD = 113256, // Horde
 
+    // npc_text shown as the window text when answering the supplies gossip option
+    // (the NPCs' own greeting texts, from gossip_menu 5021/5124).
     NPC_MURGOT_DEEPFORGE = 13257,  // Alliance
-    NPC_SMITH_REGZAR     = 13176   // Horde
+    NPC_SMITH_REGZAR = 13176   // Horde
 };
 
-// npc_text shown as the window text when answering the supplies gossip option
-// (the NPCs' own greeting texts, from gossip_menu 5021/5124).
-uint32 constexpr NPC_TEXT_MURGOT = 6073;
-uint32 constexpr NPC_TEXT_REGZAR = 6786;
+struct AVSupplyTexts
+{
+    std::array<uint32, 3> notReady;
+    std::array<uint32, 3> ready;
+    uint32 maxed;
+};
+
+AVSupplyTexts constexpr AV_SUPPLY_TEXTS_ALLIANCE = { { 6073, 6217, 6218 }, { 6219, 6220, 6790 }, 6222 };
+AVSupplyTexts constexpr AV_SUPPLY_TEXTS_HORDE = { { 6785, 6786, 6787 }, { 6788, 6789, 6790 }, 6791 };
+
+// action id for the script-added "Upgrade our troops!" gossip button
+uint32 constexpr AV_GOSSIP_ACTION_UPGRADE = 90001;
 
 struct AVDefenderChain
 {
@@ -56,29 +66,30 @@ struct AVDefenderChain
     bool upgradeAliveImmediately;
 };
 
-uint8 constexpr AV_DEFENDER_TIER_NONE     = 0;
+uint8 constexpr AV_DEFENDER_TIER_NONE = 0;
 uint8 constexpr AV_DEFENDER_TIER_CHAMPION = 3;
 
 // Defender upgrade chains. entries[0] is the base creature the SQL spawns; entries[1..3] are the Seasoned/Veteran/Champion copies.
 // The base entry carries the SmartAI that shows/hides the defenders with node ownership — Creature::UpdateEntry() is called with updateAI=false
 // true  — living creatures morph the moment the stage is reached
 // false — the upgrade is only staged via SetOriginalEntry(); the creature finishes its current life and respawns as the new tier
-std::array<AVDefenderChain, 3> constexpr AV_ALLIANCE_DEFENDER_CHAINS = {{
+
+std::array<AVDefenderChain, 3> constexpr AV_ALLIANCE_DEFENDER_CHAINS = { {
     { { 112050, 113326, 113331, 113422 }, true  }, // graveyard defenders
     { { 0, 0, 0, 0 },                     true  }, // mine defenders  — PLACEHOLDER, fill in when entries exist
     { { 0, 0, 0, 0 },                     false }, // patrols         — PLACEHOLDER, respawn-only per Grim's notes
-}};
+} };
 
-std::array<AVDefenderChain, 3> constexpr AV_HORDE_DEFENDER_CHAINS = {{
+std::array<AVDefenderChain, 3> constexpr AV_HORDE_DEFENDER_CHAINS = { {
     { { 112053, 113328, 113332, 113421 }, true  }, // graveyard guardians
     { { 0, 0, 0, 0 },                     true  }, // mine defenders  — PLACEHOLDER
     { { 0, 0, 0, 0 },                     false }, // patrols         — PLACEHOLDER, respawn-only
-}};
+} };
 
 constexpr char const* AV_TIER_NAMES[4] = { "Regular", "Seasoned", "Veteran", "Champion" };
 
 struct AVSummonPos { float x, y, z, o; };
-AVSummonPos constexpr AV_IVUS_POS     = { -278.02f, -289.58f, 6.77f, 0.0f };
+AVSummonPos constexpr AV_IVUS_POS = { -278.02f, -289.58f, 6.77f, 0.0f };
 AVSummonPos constexpr AV_LOKHOLAR_POS = { -252.56f, -298.18f, 6.67f, 0.0f };
 
 uint32 constexpr AV_DUMMY_LIFETIME_MS = 900000; // 15 min: enough to start the real boss pathing
@@ -87,10 +98,10 @@ uint32 constexpr AV_DUMMY_LIFETIME_MS = 900000; // 15 min: enough to start the r
 // All arrays are indexed by TeamId (TEAM_ALLIANCE = 0, TEAM_HORDE = 1).
 struct AVQuestState
 {
-    std::array<uint32, 2> bossPoints        = { 0, 0 };
-    std::array<bool,   2> elementalSummoned = { false, false };
-    std::array<uint32, 2> scrapTurnIns      = { 0, 0 };
-    std::array<uint8,  2> defenderTier      = { AV_DEFENDER_TIER_NONE, AV_DEFENDER_TIER_NONE };
+    std::array<uint32, 2> bossPoints = { 0, 0 };
+    std::array<bool, 2> elementalSummoned = { false, false };
+    std::array<uint32, 2> scrapTurnIns = { 0, 0 };
+    std::array<uint8, 2> defenderTier = { AV_DEFENDER_TIER_NONE, AV_DEFENDER_TIER_NONE };
 };
 
 #endif // MOD_IP_AV_QUESTS_H
