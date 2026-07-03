@@ -2567,7 +2567,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 UPDATE `creature_template` SET `name` = 'Commander Dardosh' WHERE `entry` = 13140;
 UPDATE `creature_template` SET `name` = 'Lieutenant Murp' WHERE `entry` = 13146;
 UPDATE `creature_template` SET `speed_walk` = 2, `flags_extra` = 0 WHERE entry IN (13256, 13419); -- remove CREATURE_FLAG_EXTRA_INSTANCE_BIND for elemental bosses
-UPDATE `gossip_menu` SET `TextID` = 6066 WHERE `MenuID` IN (5021, 5124); 
 
 -- Creature Text for NPC_LOKHOLAR_THE_ICE_LORD and NPC_IVUS_THE_FOREST_LORD
 DELETE FROM `creature_text` WHERE `CreatureID` IN (13256, 13419);
