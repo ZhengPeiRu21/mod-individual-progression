@@ -205,16 +205,31 @@ IndividualProgression.DisableQuestMarkers = 1
 #
 IndividualProgression.DisableRDF = 0
 
-# IndividualProgression.MaxMonsterSight
+# IndividualProgression.AlteracValley
 #
-#        Description: Enable or disable Max Monster Sight.
-#                     The AC default setting is 50 yards. Enabling this will increase the range to 80 yards.
+#        Description: Number of Armor Scraps quest TURN-INS (20 scraps each) a team needs before its graveyard defenders upgrade to the next tier.
+#        Default:     25 / 50 / 75  (= 500 / 1000 / 1500 scraps) (suggested: 10 / 20 / 30)
+#
+#        Description: Turn-in points required to summon the elemental boss
+#                     (5-item turn-in = 5 points, single turn-in = 1 point).
+#        Default:     200 (suggested: 100)
+#
+#        Description: The supplies gossip option on Smith Regzar / Murgot Deepforge
+#                     normally answers with an estimate. 
+#                     Set to 1 to also show the exact turn-in count (useful while testing).
+#        Default:     0
+#
+#        Description: The AC default setting is 50 yards. Enabling this will increase the range to 80 yards.
 #                     The reason behind this are the tower and bunker archers in Alterac Valley. 
 #                     This does NOT effect aggro range.
-#
 #        Default:     1 - Enabled
 #                     0 - Disabled
 #
+IndividualProgression.AV.ScrapsSeasoned = 25
+IndividualProgression.AV.ScrapsVeteran  = 50
+IndividualProgression.AV.ScrapsChampion = 75
+IndividualProgression.AV.BossPointsRequired = 200
+IndividualProgression.AV.GossipExactNumbers = 0
 IndividualProgression.MaxMonsterSight = 1
 
 # IndividualProgression.QuestMoneyAtLevelCap
