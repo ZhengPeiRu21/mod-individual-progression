@@ -208,7 +208,7 @@ IndividualProgression.DisableRDF = 0
 # IndividualProgression.AlteracValley
 #
 #        Description: Number of Armor Scraps quest TURN-INS (20 scraps each) a team needs before its graveyard defenders upgrade to the next tier.
-#        Default:     25 / 50 / 75  (= 500 / 1000 / 1500 scraps) (suggested: 10 / 20 / 30)
+#        Default:     25 / 50 / 75  (= 500 / 1000 / 1500 scraps) (suggested: 12 / 24 / 36)
 #
 #        Description: Turn-in points required to summon the elemental boss
 #                     (5-item turn-in = 5 points, single turn-in = 1 point).
