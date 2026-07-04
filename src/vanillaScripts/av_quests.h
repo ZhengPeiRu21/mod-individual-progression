@@ -95,10 +95,10 @@ std::array<AVDefenderChain, 6> constexpr AV_HORDE_DEFENDER_CHAINS = { {
 constexpr char const* AV_TIER_NAMES[4] = { "Regular", "Seasoned", "Veteran", "Champion" };
 
 struct AVSummonPos { float x, y, z, o; };
-AVSummonPos constexpr AV_IVUS_POS = { -278.02f, -289.58f, 6.77f, 0.0f };
-AVSummonPos constexpr AV_LOKHOLAR_POS = { -252.56f, -298.18f, 6.67f, 0.0f };
+AVSummonPos constexpr AV_IVUS_POS = { 729.200f, -78.8120f, 51.6335f, 0.0f };
+AVSummonPos constexpr AV_LOKHOLAR_POS = { -1319.56f, -342.675f, 60.3404f, 0.0f };
 
-uint32 constexpr AV_DUMMY_LIFETIME_MS = 900000; // 15 min: enough to start the real boss pathing
+uint32 constexpr AV_DUMMY_LIFETIME_MS = 10000; // 10 seconds
 
 // Per-match accumulation, keyed by Battleground instance id (Battleground.h:333).
 // All arrays are indexed by TeamId (TEAM_ALLIANCE = 0, TEAM_HORDE = 1).
