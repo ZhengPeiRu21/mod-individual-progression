@@ -171,7 +171,7 @@ UPDATE `quest_offer_reward` SET `RewardText` = 'What horrors you must have faced
 UPDATE `quest_request_items` SET `CompletionText` = 'Did the Black Knight appear unexpectedly as Timear foresaw?' WHERE `ID` = 14199;
 UPDATE `quest_template_addon` SET `ExclusiveGroup` = 24579 WHERE `ID` = 14199;
 
-DELETE FROM `pool_quest` WHERE `pool_entry` = 5678 AND `entry` = 14199;
+DELETE FROM `pool_quest` WHERE `entry` = 14199;
 INSERT INTO `pool_quest` (`entry`, `pool_entry`, `description`) VALUES
 (14199, 5678, 'Proof of Demise: The Black Knight');
 
