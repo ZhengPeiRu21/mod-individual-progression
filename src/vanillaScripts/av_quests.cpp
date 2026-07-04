@@ -103,7 +103,11 @@ namespace
 
                 defender->SetOriginalEntry(chain.entries[newTier]);
                 if (chain.upgradeAliveImmediately && defender->IsAlive())
+                {
+                    uint16 currentFaction = defender->GetFaction();
                     defender->UpdateEntry(chain.entries[newTier], defender->GetCreatureData(), true);
+                    defender->SetFaction(currentFaction);
+                }
                 break;
             }
         }
