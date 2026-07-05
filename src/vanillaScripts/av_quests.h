@@ -44,8 +44,53 @@ enum AVTurnInNpcs : uint32
     // npc_text shown as the window text when answering the supplies gossip option
     // (the NPCs' own greeting texts, from gossip_menu 5021/5124).
     NPC_MURGOT_DEEPFORGE = 13257,  // Alliance
-    NPC_SMITH_REGZAR = 13176   // Horde
+    NPC_SMITH_REGZAR = 13176,  // Horde
+
+    // Base-camp wing commanders (creature_queststarter/-ender for the Call of
+    // Air quests). Hidden once their fleet's beacon has been handed out.
+    NPC_WING_CMDR_GUSE = 13179,      // Horde
+    NPC_WING_CMDR_JEZTOR = 13180,    // Horde
+    NPC_WING_CMDR_MULVERICK = 13181, // Horde
+    NPC_WING_CMDR_ICHMAN = 13437,    // Alliance
+    NPC_WING_CMDR_SLIDORE = 13438,   // Alliance
+    NPC_WING_CMDR_VIPORE = 13439     // Alliance
 };
+
+enum AVBeaconItems : uint32
+{
+    ITEM_BEACON_MULVERICK = 17323, // snowfall graveyard
+    ITEM_BEACON_GUSE = 17324,      // east crater
+    ITEM_BEACON_JEZTOR = 17325,    // west crater
+    ITEM_BEACON_ICHMAN = 17505,    // snowfall graveyard
+    ITEM_BEACON_VIPORE = 17506,    // west crater
+    ITEM_BEACON_SLIDORE = 17507    // east crater
+};
+
+// Reputation gates for receiving a beacon (REP_HONORED or better)
+uint32 constexpr AV_FACTION_FROSTWOLF_CLAN = 729;
+uint32 constexpr AV_FACTION_STORMPIKE_GUARD = 730;
+uint32 constexpr AV_FACTION_FRIENDLY = 35;
+
+// One fleet per Call of Air quest. `index` is the per-team slot (0..2) into
+// AVQuestState::airTurnIns / beaconIssued.
+struct AVAirFleet
+{
+    uint32 questId;
+    TeamId team;
+    uint8 index;
+    uint32 beaconItem;
+    uint32 questGiverEntry;
+    char const* commanderName;
+};
+
+std::array<AVAirFleet, 6> constexpr AV_AIR_FLEETS = { {
+    { AV_Q_H_COMMANDER1, TEAM_HORDE, 0, ITEM_BEACON_GUSE,      NPC_WING_CMDR_GUSE,      "Guse" },      // 6825
+    { AV_Q_H_COMMANDER2, TEAM_HORDE, 1, ITEM_BEACON_JEZTOR,    NPC_WING_CMDR_JEZTOR,    "Jeztor" },    // 6826
+    { AV_Q_H_COMMANDER3, TEAM_HORDE, 2, ITEM_BEACON_MULVERICK, NPC_WING_CMDR_MULVERICK, "Mulverick" }, // 6827
+    { AV_Q_A_COMMANDER3, TEAM_ALLIANCE, 0, ITEM_BEACON_ICHMAN,  NPC_WING_CMDR_ICHMAN,  "Ichman" },     // 6943
+    { AV_Q_A_COMMANDER1, TEAM_ALLIANCE, 1, ITEM_BEACON_SLIDORE, NPC_WING_CMDR_SLIDORE, "Slidore" },    // 6942
+    { AV_Q_A_COMMANDER2, TEAM_ALLIANCE, 2, ITEM_BEACON_VIPORE,  NPC_WING_CMDR_VIPORE,  "Vipore" }      // 6941
+} };
 
 struct AVSupplyTexts
 {
@@ -108,6 +153,10 @@ struct AVQuestState
     std::array<bool, 2> elementalSummoned = { false, false };
     std::array<uint32, 2> scrapTurnIns = { 0, 0 };
     std::array<uint8, 2> defenderTier = { AV_DEFENDER_TIER_NONE, AV_DEFENDER_TIER_NONE };
+
+    // Call of Air: per-team, per-fleet (indexed by AVAirFleet::index)
+    std::array<std::array<uint32, 3>, 2> airTurnIns = { { { 0, 0, 0 }, { 0, 0, 0 } } };
+    std::array<std::array<bool, 3>, 2> beaconIssued = { { { false, false, false }, { false, false, false } } };
 };
 
 #endif // MOD_IP_AV_QUESTS_H
