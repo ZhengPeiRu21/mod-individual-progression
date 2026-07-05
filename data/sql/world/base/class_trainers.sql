@@ -37,7 +37,7 @@ INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
 (20406, 4), -- Champion Cyssa Dawnrose
 (23128, 4); -- Master Pyreanor
 
-DELETE FROM `trainer_spell` WHERE `TrainerId` = 3 AND `SpellId` IN (5502, 13820, 23214, 25290, 25291, 25292);
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 3 AND `SpellId` IN (5502, 13820, 23214, 23215, 25290, 25291, 25292, 34766, 34767);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqAbility1`, `ReqAbility2`, `ReqAbility3`, `ReqLevel`, `VerifiedBuild`) VALUES
 -- (3,5502,4000,0,0,0,0,0,20,0), -- quest, Sense Undead
 -- (3,13820,3500,0,0,0,0,0,40,0), -- quest, Summon Warhorse
@@ -50,18 +50,18 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 -- (3,53408,1000,0,0,0,0,0,12,0), -- optional, Judgement of Wisdom, level 12 -> 71
 -- (3,62124,3000,0,0,0,0,0,16,0), -- optional, Hand of Reckoning, level 16 -> 71
 
-DELETE FROM `trainer_spell` WHERE `TrainerId` = 4 AND `SpellId` IN (5502, 13820, 23214, 25290, 25291, 25292);
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 4 AND `SpellId` IN (5502, 13820, 23214, 23215, 25290, 25291, 25292, 34766, 34767);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqAbility1`, `ReqAbility2`, `ReqAbility3`, `ReqLevel`, `VerifiedBuild`) VALUES
--- (3,5502,4000,0,0,0,0,0,20,0), -- quest, Sense Undead
--- (3,13820,3500,0,0,0,0,0,40,0), -- quest, Summon Warhorse
--- (3,23214,3500,0,0,13819,33391,0,60,0), -- quest, Summon Charger
+-- (4,5502,4000,0,0,0,0,0,20,0), -- quest, Sense Undead
+-- (4,13820,3500,0,0,0,0,0,40,0), -- quest, Summon Warhorse
+-- (4,34767,3500,0,0,13819,33391,0,60,0), -- quest, Summon Charger
 (4,25290,50000,0,0,19854,0,0,61,0), -- book, Blessing of Wisdom (Rank 6), level 60 -> 61
 (4,25291,50000,0,0,19838,0,0,61,0), -- book, Blessing of Might (Rank 7), level 60 -> 61
 (4,25292,46000,0,0,10329,0,0,61,0); -- book, Holy Light (Rank 9), level 60 -> 61
--- (3,31789,4000,0,0,0,0,0,14,0), -- optional, Righteous Defense, level 14 -> 61
--- (3,53407,9000,0,0,0,0,0,28,0), -- optional, Judgement of Justice, level 28 -> 71
--- (3,53408,1000,0,0,0,0,0,12,0), -- optional, Judgement of Wisdom, level 12 -> 71
--- (3,62124,3000,0,0,0,0,0,16,0), -- optional, Hand of Reckoning, level 16 -> 71
+-- (4,31789,4000,0,0,0,0,0,14,0), -- optional, Righteous Defense, level 14 -> 61
+-- (4,53407,9000,0,0,0,0,0,28,0), -- optional, Judgement of Justice, level 28 -> 71
+-- (4,53408,1000,0,0,0,0,0,12,0), -- optional, Judgement of Wisdom, level 12 -> 71
+-- (4,62124,3000,0,0,0,0,0,16,0), -- optional, Hand of Reckoning, level 16 -> 71
 
 -- Hunter
 DELETE FROM `trainer_spell` WHERE `TrainerId` = 7 AND `SpellId` IN (5118, 19801, 25294, 25295, 25296);
