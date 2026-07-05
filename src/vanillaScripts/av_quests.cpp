@@ -172,6 +172,57 @@ namespace
         return "I almost have enough supplies for the next upgrade!"; // over three-quarters done
     }
 
+    void HandleAirStrikeTurnIn(Player* player, AVQuestState& state, AVAirFleet const& fleet)
+    {
+        if (state.beaconIssued[fleet.team][fleet.index])
+            return; // strike already called this match; the commander should be hidden anyway
+
+        uint32 turnIns = ++state.airTurnIns[fleet.team][fleet.index];
+        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.AirStrikeTurnIns", 50);
+
+        ChatHandler(player->GetSession()).PSendSysMessage("{}'s Fleet: {}/{}", fleet.commanderName, turnIns, required);
+
+        if (turnIns < required)
+            return;
+
+        // Threshold reached: this turn-in claims the beacon, if the player qualifies.
+        // On failure nothing is consumed permanently — the next qualifying turn-in claims it.
+        uint32 repFaction = fleet.team == TEAM_HORDE ? AV_FACTION_FROSTWOLF_CLAN : AV_FACTION_STORMPIKE_GUARD;
+        if (player->GetReputationRank(repFaction) < REP_HONORED)
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage(
+                "Wing Commander {} only entrusts the beacon to those Honored with the {}.",
+                fleet.commanderName, fleet.team == TEAM_HORDE ? "Frostwolf Clan" : "Stormpike Guard");
+            return;
+        }
+
+        ItemPosCountVec dest;
+        if (player->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, fleet.beaconItem, 1) != EQUIP_ERR_OK)
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage(
+                "Your bags are full! Make room and complete one more turn-in to receive the beacon.");
+            return;
+        }
+
+        Item* beacon = player->StoreNewItem(dest, fleet.beaconItem, true);
+        if (!beacon)
+            return;
+
+        player->SendNewItem(beacon, 1, true, false);
+        state.beaconIssued[fleet.team][fleet.index] = true;
+
+        // The fleet has lifted off: its base-camp commander disappears for the match.
+        if (Creature* commander = player->FindNearestCreature(fleet.questGiverEntry, 100.0f))
+        {
+            commander->SetVisible(false);
+            commander->SetFaction(AV_FACTION_FRIENDLY);
+        }
+
+        ChatHandler(player->GetSession()).PSendSysMessage(
+            "Wing Commander {} hands you his beacon and takes to the skies! Plant it at the target location.",
+            fleet.commanderName);
+    }
+
     void SendSupplyStatus(Player* player, Creature* creature, AVQuestState& state, TeamId team)
     {
         ClearGossipMenuFor(player);
@@ -246,14 +297,15 @@ public:
         case AV_Q_H_COMMANDER1:
         case AV_Q_H_COMMANDER2:
         case AV_Q_H_COMMANDER3:
-            // TODO: the retail air-strike bombing spell is not present in
-            // core. Pick an approach:
-            //   (a) SummonCreature a stealthed "bomber" trigger over the
-            //       enemy base and have it cast an AoE spell on a timer, or
-            //   (b) cast an existing AoE/visual via player->CastSpell at a
-            //       position near the enemy base.
+            for (AVAirFleet const& fleet : AV_AIR_FLEETS)
+            {
+                if (fleet.questId == quest->GetQuestId())
+                {
+                    HandleAirStrikeTurnIn(player, state, fleet);
+                    break;
+                }
+            }
             break;
-
         default:
             break;
         }
