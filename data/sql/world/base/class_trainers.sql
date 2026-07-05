@@ -30,12 +30,12 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 -- Paladin
 DELETE FROM `creature_default_trainer` WHERE `CreatureId` IN (16275, 16679, 16680, 16681, 20406, 23128);
 INSERT INTO `creature_default_trainer` (`CreatureId`, `TrainerId`) VALUES
-(16275, 3), -- Noellene
-(16679, 3), -- Osselan
-(16680, 3), -- Ithelis
-(16681, 3), -- Champion Bachi
-(20406, 3), -- Champion Cyssa Dawnrose
-(23128, 3); -- Master Pyreanor
+(16275, 4), -- Noellene
+(16679, 4), -- Osselan
+(16680, 4), -- Ithelis
+(16681, 4), -- Champion Bachi
+(20406, 4), -- Champion Cyssa Dawnrose
+(23128, 4); -- Master Pyreanor
 
 DELETE FROM `trainer_spell` WHERE `TrainerId` = 3 AND `SpellId` IN (5502, 13820, 23214, 25290, 25291, 25292);
 INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqAbility1`, `ReqAbility2`, `ReqAbility3`, `ReqLevel`, `VerifiedBuild`) VALUES
@@ -45,6 +45,19 @@ INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`
 (3,25290,50000,0,0,19854,0,0,61,0), -- book, Blessing of Wisdom (Rank 6), level 60 -> 61
 (3,25291,50000,0,0,19838,0,0,61,0), -- book, Blessing of Might (Rank 7), level 60 -> 61
 (3,25292,46000,0,0,10329,0,0,61,0); -- book, Holy Light (Rank 9), level 60 -> 61
+-- (3,31789,4000,0,0,0,0,0,14,0), -- optional, Righteous Defense, level 14 -> 61
+-- (3,53407,9000,0,0,0,0,0,28,0), -- optional, Judgement of Justice, level 28 -> 71
+-- (3,53408,1000,0,0,0,0,0,12,0), -- optional, Judgement of Wisdom, level 12 -> 71
+-- (3,62124,3000,0,0,0,0,0,16,0), -- optional, Hand of Reckoning, level 16 -> 71
+
+DELETE FROM `trainer_spell` WHERE `TrainerId` = 4 AND `SpellId` IN (5502, 13820, 23214, 25290, 25291, 25292);
+INSERT INTO `trainer_spell` (`TrainerId`, `SpellId`, `MoneyCost`, `ReqSkillLine`, `ReqSkillRank`, `ReqAbility1`, `ReqAbility2`, `ReqAbility3`, `ReqLevel`, `VerifiedBuild`) VALUES
+-- (3,5502,4000,0,0,0,0,0,20,0), -- quest, Sense Undead
+-- (3,13820,3500,0,0,0,0,0,40,0), -- quest, Summon Warhorse
+-- (3,23214,3500,0,0,13819,33391,0,60,0), -- quest, Summon Charger
+(4,25290,50000,0,0,19854,0,0,61,0), -- book, Blessing of Wisdom (Rank 6), level 60 -> 61
+(4,25291,50000,0,0,19838,0,0,61,0), -- book, Blessing of Might (Rank 7), level 60 -> 61
+(4,25292,46000,0,0,10329,0,0,61,0); -- book, Holy Light (Rank 9), level 60 -> 61
 -- (3,31789,4000,0,0,0,0,0,14,0), -- optional, Righteous Defense, level 14 -> 61
 -- (3,53407,9000,0,0,0,0,0,28,0), -- optional, Judgement of Justice, level 28 -> 71
 -- (3,53408,1000,0,0,0,0,0,12,0), -- optional, Judgement of Wisdom, level 12 -> 71
