@@ -164,7 +164,7 @@ UPDATE `quest_template` SET `Flags` = 32968,
 `QuestDescription` = 'My counterpart, Archmage Timear, has asked me to warn you of something dire. Soon, you will be participating in the Trial of the Champions at the Argent Coliseum in Icecrown. You must beware of interference from one known only as the Black Knight.$B$BBring me a fragment of his soul that the Kirin Tor will know he is dealt with. I am told that failing to do so will be your own undoing.',
 `QuestCompletionLog` = 'Return to Archmage Lan\'dalock in Dalaran.'
 WHERE `ID` = 14199;
-   
+
 -- 00_cleanup, revert changes made to quest: Proof of Demise: The Black Knight, this quest can't be completed until WotLK TotC
 UPDATE `quest_offer_reward` SET `RewardText` = '<Archmage Lan\'dalock breathes a sigh of relief.>$b$bTo be honest, I feared the worst had befallen you. It\'s difficult to stand idly by while others, such as yourself, deal with the matters of life and death which confront our world seemingly on a daily basis.$b$bNow what are we going to do with that gigantic ring?' WHERE `ID` = 13253;
 UPDATE `quest_offer_reward` SET `RewardText` = 'What horrors you must have faced while traversing the Upper City.$b$b<Lan\'dalock glances down at the tarnished crown clutched in your fist.>$b$bPerhaps we should put that aside for their new king whenever the nerubians decide to coronate one?' WHERE `ID` = 13254;
