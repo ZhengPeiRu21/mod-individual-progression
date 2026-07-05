@@ -34,9 +34,9 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 -- (@CGUID+322, 13447, 30, 0, 0, 2, 1, 1, 596.68, -83.0633, 39.0051, 6.24828, 430, 0, 0, 8883, 0, 0, 0, 0, 0, '', NULL, 0, NULL),      -- Corporal Noreg Stormpike (tbc)
 -- (@CGUID+323, 13447, 30, 0, 0, 4, 1, 1, 596.68, -83.0633, 39.0051, 6.24828, 430, 0, 0, 8883, 0, 0, 0, 0, 0, '', NULL, 0, NULL),      -- Corporal Noreg Stormpike (wotlk)
 --
-(@CGUID+331, 113437, 30, 0, 0, 1, 1, 1, -205.716, -109.444, 103.695, 0, 300, 10, 0, 30520, 0, 1, 0, 0, 0, '', NULL, 0, NULL),          -- Wing Commander Ichman - air strike (snowfall graveyard)
-(@CGUID+332, 113438, 30, 0, 0, 1, 1, 1, -283.877, -318.774, 30.002, 0, 300, 10, 0, 28710, 0, 1, 0, 0, 0, '', NULL, 0, NULL),           -- Wing Commander Slidore - air strike (east crater)
-(@CGUID+333, 113439, 30, 0, 0, 1, 1, 1, -236.557, -257.686, 29.052, 0, 300, 10, 0, 30520, 0, 1, 0, 0, 0, '', NULL, 0, NULL),           -- Wing Commander Vipore - air strike (west crater)
+(@CGUID+331, 113437, 30, 0, 0, 1, 1, 1, -205.716, -109.444, 103.695, 0, 300, 20, 0, 30520, 0, 1, 0, 0, 0, '', NULL, 0, NULL),          -- Wing Commander Ichman - air strike (snowfall graveyard)
+(@CGUID+332, 113438, 30, 0, 0, 1, 1, 1, -283.877, -318.774, 30.002, 0, 300, 30, 0, 28710, 0, 1, 0, 0, 0, '', NULL, 0, NULL),           -- Wing Commander Slidore - air strike (east crater)
+(@CGUID+333, 113439, 30, 0, 0, 1, 1, 1, -236.557, -257.686, 29.052, 0, 300, 30, 0, 30520, 0, 1, 0, 0, 0, '', NULL, 0, NULL),           -- Wing Commander Vipore - air strike (west crater)
 --
 (@CGUID+341, 110990, 30, 0, 0, 1, 1, 0, -117.881, -382.485, 13.0603, 2.36797, 300, 5, 0, 2980, 0, 1, 0, 0, 0, '', NULL, 0, NULL),      -- Alterac Ram
 (@CGUID+342, 110990, 30, 0, 0, 1, 1, 0, 712.271, -260.598, 32.0573, 4.07736, 300, 5, 0, 2980, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
@@ -110,9 +110,9 @@ INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `p
 (@CGUID+422, 13448, 30, 0, 0, 2, 1, 1, -1212.11, -261.774, 73.4561, 5.79449, 430, 0, 0, 5568, 0, 0, 0, 0, 0, '', NULL, 0, NULL),       -- Sergeant Yazra Bloodsnarl (tbc)
 (@CGUID+423, 13448, 30, 0, 0, 4, 1, 1, -1212.11, -261.774, 73.4561, 5.79449, 430, 0, 0, 5568, 0, 0, 0, 0, 0, '', NULL, 0, NULL),       -- Sergeant Yazra Bloodsnarl (wotlk)
 --
-(@CGUID+431, 113179, 30, 0, 0, 1, 1, 1, -283.877, -318.774, 30.002, 0, 300, 10, 0, 29610, 0, 1, 0, 0, 0, '', NULL, 0, NULL),           -- Wing Commander Guse - air strike (east crater)
-(@CGUID+432, 113180, 30, 0, 0, 1, 1, 1, -236.557, -257.686, 29.052, 0, 300, 10, 0, 28710, 0, 1, 0, 0, 0, '', NULL, 0, NULL),           -- Wing Commander Jeztor - air strike (west crater)
-(@CGUID+433, 113181, 30, 0, 0, 1, 1, 1, -205.716, -109.444, 103.695, 0, 300, 10, 0, 30520, 0, 1, 0, 0, 0, '', NULL, 0, NULL),          -- Wing Commander Mulverick - air strike (snowfall graveyard)
+(@CGUID+431, 113179, 30, 0, 0, 1, 1, 1, -283.877, -318.774, 30.002, 0, 300, 30, 0, 29610, 0, 1, 0, 0, 0, '', NULL, 0, NULL),           -- Wing Commander Guse - air strike (east crater)
+(@CGUID+432, 113180, 30, 0, 0, 1, 1, 1, -236.557, -257.686, 29.052, 0, 300, 30, 0, 28710, 0, 1, 0, 0, 0, '', NULL, 0, NULL),           -- Wing Commander Jeztor - air strike (west crater)
+(@CGUID+433, 113181, 30, 0, 0, 1, 1, 1, -205.716, -109.444, 103.695, 0, 300, 20, 0, 30520, 0, 1, 0, 0, 0, '', NULL, 0, NULL),          -- Wing Commander Mulverick - air strike (snowfall graveyard)
 --
 (@CGUID+441, 110981, 30, 0, 0, 1, 1, 0, -857.527, -463.559, 47.8953, 0.262911, 430, 5, 0, 2338, 0, 1, 0, 0, 0, '', NULL, 0, NULL),     -- Frostwolf
 (@CGUID+442, 110981, 30, 0, 0, 1, 1, 0, -426.1, -132.265, 24.4058, 1.58416, 430, 5, 0, 2338, 0, 1, 0, 0, 0, '', NULL, 0, NULL),
