@@ -1,28 +1,6 @@
 /*
  * Restores Alterac Valley turn-in quest.
- * EFFECTS (elemental summons, armor scraps defender upgrades, supplies gossip report, air-strike hook)
  * WITHOUT editing core BattlegroundAV.cpp.
- *
- * Why this works: the AV turn-in still runs the normal quest-reward path, so
- * the module hook PlayerScript::OnPlayerCompleteQuest fires on turn-in
- * (PlayerQuest.cpp: end of Player::RewardQuest). From there we read the
- * player's Battleground, key a per-match counter off the BG instance id, and
- * act directly on the instance map. Core BG files are never touched.
- *
- * Armor scraps: the defenders spawned by av_creatures.sql are upgraded in place with Creature::UpdateEntry().
- * SetOriginalEntry() is called first so the upgrade survives respawns
- * Creature::Respawn() only reverts a creature whose entry differs from its original entry (Creature.cpp,
- *
- * Supplies gossip: both turn-in NPCs already have the retail option "How many more supplies are needed for the next upgrade?" in the base DB.
- * An AllCreatureScript answers it INSIDE the gossip window (dynamic text is sent as gossip item labels; npc_text is static DB text and cannot carry live numbers).
- * Returning true from CanCreatureGossipSelect suppresses the default handling, which also stops Murgot's old static submenu (5627) from replacing the live report.
- *
- * Config (see individualProgression.conf.dist):
- *   IndividualProgression.AV.ScrapsSeasoned      (default 25 turn-ins = 500 scraps)
- *   IndividualProgression.AV.ScrapsVeteran       (default 50 turn-ins = 1000 scraps)
- *   IndividualProgression.AV.ScrapsChampion      (default 75 turn-ins = 1500 scraps)
- *   IndividualProgression.AV.BossPointsRequired  (default 200)
- *   IndividualProgression.AV.GossipExactNumbers  (default 0 — estimates only)
  */
 
 #include "IndividualProgression.h"
@@ -59,6 +37,11 @@ namespace
     {
         return state.defenderTier[team] < AV_DEFENDER_TIER_CHAMPION
             && state.scrapTurnIns[team] >= ScrapsThreshold(state.defenderTier[team] + 1);
+    }
+
+    bool CavalryReady(AVQuestState const& state, TeamId team)
+    {
+        return (state.StablesCompleted[team] && state.HarnessesCompleted[team]);
     }
 
     uint32 SupplyTextId(AVQuestState const& state, TeamId team)
@@ -122,13 +105,13 @@ namespace
             isAlliance ? "Ivus the Forest Lord" : "Lokholar the Ice Lord",
             state.bossPoints[team], BossPointsRequired());
 
-        if (state.elementalSummoned[team] || state.bossPoints[team] < BossPointsRequired())
+        if (state.ElementalSummoned[team] || state.bossPoints[team] < BossPointsRequired())
             return;
 
-        AVSummonPos const& pos = isAlliance ? AV_IVUS_POS : AV_LOKHOLAR_POS;
-        player->SummonCreature(isAlliance ? NPC_DUMMY_IVUS_THE_FOREST_LORD : NPC_DUMMY_LOKHOLAR_THE_ICE_LORD,
-            pos.x, pos.y, pos.z, pos.o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, AV_DUMMY_LIFETIME_MS);
-        state.elementalSummoned[team] = true;
+        AVSummonPos const& pos = isAlliance ? NPC_DRUIDS_POS_A : NPC_DRUIDS_POS_H;
+        player->SummonCreature(isAlliance ? NPC_AV_DUMMY_A : NPC_AV_DUMMY_H,
+            pos.x, pos.y, pos.z, pos.o, TEMPSUMMON_TIMED_DESPAWN, AV_DUMMY_LIFETIME_MS);
+        state.ElementalSummoned[team] = true;
     }
 
     void HandleScrapsTurnIn(Player* player, AVQuestState& state, TeamId team)
@@ -147,6 +130,60 @@ namespace
             "Speak with {} to upgrade your troops to {}!",
             team == TEAM_ALLIANCE ? "Murgot Deepforge" : "Smith Regzar",
             AV_TIER_NAMES[state.defenderTier[team] + 1]);
+    }
+
+    void HandleStablesTurnIn(Player* player, AVQuestState& state, TeamId team)
+    {
+        uint32 turnIns = ++state.stablesTurnIns[team];
+        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.StablesTurnIns", 2);
+        uint32 npcEntry = team == TEAM_ALLIANCE ? NPC_AV_STABLE_MASTER_A : NPC_AV_STABLE_MASTER_H;
+
+        if (turnIns < required)
+            return;
+
+        state.StablesCompleted[team] = true;
+
+        if (state.HarnessesCompleted[team] == false)
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("We still need more harnesses, please help the Cavalry Commander.");
+            return;
+        }
+    }
+
+    void HandleHarnessTurnIn(Player* player, AVQuestState& state, TeamId team)
+    {
+        uint32 turnIns = ++state.harnessTurnIns[team];
+        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.HarnessTurnIns", 2);
+
+        ChatHandler(player->GetSession()).PSendSysMessage("Harness turn-ins: {}/{}", turnIns, required);
+
+        if (turnIns < required)
+            return;
+
+        state.HarnessesCompleted[team] = true;
+
+        if (state.StablesCompleted[team] == false)
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("We still need more mounts, please help the stables.");
+            return;
+        }
+
+        bool isAlliance = team == TEAM_ALLIANCE;
+
+        uint32 npcEntryQuest = team == TEAM_ALLIANCE ? NPC_CAV_CMDR_A : NPC_CAV_CMDR_H;
+        uint32 npcEntryPatrol = team == TEAM_ALLIANCE ? NPC_CAV_CMDR_A_PATROL : NPC_CAV_CMDR_H_PATROL;
+
+        Creature* npcQuest = player->FindNearestCreature(npcEntryQuest, 50.0f);
+        Creature* npcPatrol = player->FindNearestCreature(npcEntryPatrol, 50.0f);
+
+        if (!npcQuest || !npcPatrol)
+            return;
+
+        npcQuest->SetVisible(false);
+        npcQuest->SetFaction(AV_FACTION_FRIENDLY);
+
+        npcPatrol->SetVisible(true);
+        npcPatrol->SetFaction(isAlliance ? AV_FACTION_STORMPIKE_PVP : AV_FACTION_FROSTWOLF_PVP);
     }
 
     // Estimate for the supplies gossip option, using existing broadcast texts as examples
@@ -266,7 +303,7 @@ public:
 
         switch (quest->GetQuestId())
         {
-            // ---------------- Summon Elemental Boss ----------------
+            // ----------- Summon Elemental Boss -----------
         case AV_Q_A_BOSS1:
             HandleBossTurnIn(player, state, TEAM_ALLIANCE, 5);
             break;
@@ -290,6 +327,22 @@ public:
             HandleScrapsTurnIn(player, state, TEAM_HORDE);
             break;
 
+            // --------------- Empty Stables ---------------
+        case AV_Q_A_STABLES:
+            HandleStablesTurnIn(player, state, TEAM_ALLIANCE);
+            break;
+        case AV_Q_H_STABLES:
+            HandleStablesTurnIn(player, state, TEAM_HORDE);
+            break;
+
+            // ----------------- Harnesses -----------------
+        case AV_Q_A_HARNESS:
+            HandleHarnessTurnIn(player, state, TEAM_ALLIANCE);
+            break;
+        case AV_Q_H_HARNESS:
+            HandleHarnessTurnIn(player, state, TEAM_HORDE);
+            break;
+
             // ---------------- Air strikes (Call of Air) ----------------
         case AV_Q_A_COMMANDER1:
         case AV_Q_A_COMMANDER2:
@@ -306,6 +359,7 @@ public:
                 }
             }
             break;
+
         default:
             break;
         }
