@@ -135,8 +135,10 @@ namespace
     void HandleStablesTurnIn(Player* player, AVQuestState& state, TeamId team)
     {
         uint32 turnIns = ++state.stablesTurnIns[team];
-        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.StablesTurnIns", 2);
+        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.StablesTurnIns", 10);
         uint32 npcEntry = team == TEAM_ALLIANCE ? NPC_AV_STABLE_MASTER_A : NPC_AV_STABLE_MASTER_H;
+
+        ChatHandler(player->GetSession()).PSendSysMessage("Mount turn-ins: {}/{}", turnIns, required);
 
         if (turnIns < required)
             return;
@@ -153,7 +155,7 @@ namespace
     void HandleHarnessTurnIn(Player* player, AVQuestState& state, TeamId team)
     {
         uint32 turnIns = ++state.harnessTurnIns[team];
-        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.HarnessTurnIns", 2);
+        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.HarnessTurnIns", 10);
 
         ChatHandler(player->GetSession()).PSendSysMessage("Harness turn-ins: {}/{}", turnIns, required);
 
