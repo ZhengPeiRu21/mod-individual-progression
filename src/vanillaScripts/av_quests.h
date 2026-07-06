@@ -31,16 +31,22 @@ enum AVTurnInQuests : uint32
     AV_Q_A_SCRAPS1 = 7223, // Armor Scraps
     AV_Q_A_SCRAPS2 = 6781, // More Armor Scraps
     AV_Q_H_SCRAPS1 = 7224, // Enemy Booty
-    AV_Q_H_SCRAPS2 = 6741  // More Booty!
+    AV_Q_H_SCRAPS2 = 6741,  // More Booty!
+
+    /// Wolf/Ram Riders
+    AV_Q_H_STABLES = 7001, // Empty Stables - Horde
+    AV_Q_A_STABLES = 7027, // Empty Stables - Alliance
+    AV_Q_H_HARNESS = 7002, // Ram Hide Harnesses - Horde
+    AV_Q_A_HARNESS = 7026  // Ram Riding Harnesses - Alliance
 };
 
 enum AVTurnInNpcs : uint32
 {
-    NPC_DUMMY_IVUS_THE_FOREST_LORD  = 113419,  // Alliance
-    NPC_DUMMY_LOKHOLAR_THE_ICE_LORD = 113256, // Horde
+    NPC_AV_DUMMY_H          = 113256, // Horde
+    NPC_AV_DUMMY_A          = 113419, // Alliance
 
-    NPC_MURGOT_DEEPFORGE    = 13257, // Alliance
     NPC_SMITH_REGZAR        = 13176, // Horde
+    NPC_MURGOT_DEEPFORGE    = 13257, // Alliance
 
     NPC_WING_CMDR_GUSE      = 13179, // Horde
     NPC_WING_CMDR_JEZTOR    = 13180,
@@ -48,7 +54,15 @@ enum AVTurnInNpcs : uint32
 
     NPC_WING_CMDR_ICHMAN    = 13437, // Alliance
     NPC_WING_CMDR_SLIDORE   = 13438,
-    NPC_WING_CMDR_VIPORE    = 13439
+    NPC_WING_CMDR_VIPORE    = 13439,
+
+    NPC_AV_STABLE_MASTER_H  = 13616, // Horde
+    NPC_AV_STABLE_MASTER_A  = 13617, // Alliance
+
+    NPC_CAV_CMDR_H          = 13441, // Horde
+    NPC_CAV_CMDR_A          = 13577, // Alliance
+    NPC_CAV_CMDR_H_PATROL   = 113441,
+    NPC_CAV_CMDR_A_PATROL   = 113577
 };
 
 enum AVBeaconItems : uint32
@@ -65,6 +79,8 @@ enum AVBeaconItems : uint32
 uint32 constexpr AV_FACTION_FROSTWOLF_CLAN = 729;
 uint32 constexpr AV_FACTION_STORMPIKE_GUARD = 730;
 uint32 constexpr AV_FACTION_FRIENDLY = 35;
+uint32 constexpr AV_FACTION_FROSTWOLF_PVP = 1214;
+uint32 constexpr AV_FACTION_STORMPIKE_PVP = 1216;
 
 struct AVAirFleet
 {
@@ -134,8 +150,8 @@ std::array<AVDefenderChain, 6> constexpr AV_HORDE_DEFENDER_CHAINS = { {
 constexpr char const* AV_TIER_NAMES[4] = { "Regular", "Seasoned", "Veteran", "Champion" };
 
 struct AVSummonPos { float x, y, z, o; };
-AVSummonPos constexpr AV_IVUS_POS = { 729.200f, -78.8120f, 51.6335f, 0.0f };
-AVSummonPos constexpr AV_LOKHOLAR_POS = { -1319.56f, -342.675f, 60.3404f, 0.0f };
+AVSummonPos constexpr NPC_DRUIDS_POS_A = { 729.200f, -78.8120f, 51.6335f, 0.0f };
+AVSummonPos constexpr NPC_DRUIDS_POS_H = { -1319.56f, -342.675f, 60.3404f, 0.0f };
 
 uint32 constexpr AV_DUMMY_LIFETIME_MS = 10000; // 10 seconds
 
@@ -143,10 +159,16 @@ uint32 constexpr AV_DUMMY_LIFETIME_MS = 10000; // 10 seconds
 // All arrays are indexed by TeamId (TEAM_ALLIANCE = 0, TEAM_HORDE = 1).
 struct AVQuestState
 {
-    std::array<uint32, 2> bossPoints = { 0, 0 };
-    std::array<bool, 2> elementalSummoned = { false, false };
-    std::array<uint32, 2> scrapTurnIns = { 0, 0 };
+    std::array<bool, 2> ElementalSummoned = { false, false };
+    std::array<bool, 2> StablesCompleted = { false, false };
+    std::array<bool, 2> HarnessesCompleted = { false, false };
+
     std::array<uint8, 2> defenderTier = { AV_DEFENDER_TIER_NONE, AV_DEFENDER_TIER_NONE };
+
+    std::array<uint32, 2> bossPoints = { 0, 0 };
+    std::array<uint32, 2> scrapTurnIns = { 0, 0 };
+    std::array<uint32, 2> harnessTurnIns = { 0, 0 };
+    std::array<uint32, 2> stablesTurnIns = { 0, 0 };
 
     // Call of Air: per-team, per-fleet (indexed by AVAirFleet::index)
     std::array<std::array<uint32, 3>, 2> airTurnIns = { { { 0, 0, 0 }, { 0, 0, 0 } } };
