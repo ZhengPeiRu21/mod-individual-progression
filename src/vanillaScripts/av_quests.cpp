@@ -308,15 +308,21 @@ public:
         if (item->GetEntry() == ITEM_FROSTWOLF_MUZZLE && creature->GetEntry() == NPC_AV_FROSTWOLF)
         {
             if (player->HasQuest(AV_Q_H_STABLES) && player->GetQuestStatus(AV_Q_H_STABLES) == QUEST_STATUS_INCOMPLETE)
+            {
                 player->CompleteQuest(AV_Q_H_STABLES);
+                return true;
+            }
         }
         else if (item->GetEntry() == ITEM_STORMPIKE_COLLAR && creature->GetEntry() == NPC_AV_ALTERAC_RAM)
         {
             if (player->HasQuest(AV_Q_A_STABLES) && player->GetQuestStatus(AV_Q_A_STABLES) == QUEST_STATUS_INCOMPLETE)
+            {
                 player->CompleteQuest(AV_Q_A_STABLES);
+                return true;
+            }
         }
 
-        return true;
+        return false;
     }
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
