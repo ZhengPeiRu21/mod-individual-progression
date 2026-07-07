@@ -283,7 +283,7 @@ public:
 class npc_archmage_landalock_ipp_3_4 : public CreatureScript
 {
 public:
-    npc_archmage_landalock_ipp_3_4() : CreatureScript("npc_archmage_landalock_3_4") {}
+    npc_archmage_landalock_ipp_3_4() : CreatureScript("npc_archmage_landalock") {}
 
     CreatureAI* GetAI(Creature* creature) const override
     {
