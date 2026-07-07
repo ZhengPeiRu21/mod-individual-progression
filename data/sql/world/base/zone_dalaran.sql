@@ -102,7 +102,7 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (120735,0,0,0,0,0,'Archmage Lan\'dalock',NULL,NULL,10061,80,80,2,2007,3,1,1.14286,1,1,20,1,0,4.6,2000,2000,1,1,8,33536,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,10,10,1,1,0,0,1,0,2,'',0);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_archmage_landalock_3_3' WHERE `entry` = 120735;
-UPDATE `creature_template` SET `ScriptName` = 'npc_archmage_landalock_3_4' WHERE `entry` = 20735;
+UPDATE `creature_template` SET `ScriptName` = 'npc_archmage_landalock' WHERE `entry` = 20735;
 
 DELETE FROM `creature` WHERE `guid` = 620553;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
