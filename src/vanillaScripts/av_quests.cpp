@@ -295,36 +295,29 @@ public:
         if (!player || !item)
             return false;
 
-        Battleground* bg = player->GetBattleground();
-        if (!bg || bg->GetBgTypeID(true) != BATTLEGROUND_AV)
-            return false;
-
-        Unit* selected = player->GetSelectedUnit();
-        if (!selected)
-            return false;
-
-        Creature* creature = selected->ToCreature();
-        if (!creature)
-            return false;
-
-        if (item->GetEntry() == ITEM_FROSTWOLF_MUZZLE && creature->GetEntry() == NPC_AV_FROSTWOLF)
+        if (item->GetEntry() == ITEM_FROSTWOLF_MUZZLE || item->GetEntry() == ITEM_STORMPIKE_COLLAR)
         {
-            if (player->HasQuest(AV_Q_H_STABLES) && player->GetQuestStatus(AV_Q_H_STABLES) == QUEST_STATUS_INCOMPLETE)
+            Unit* selected = player->GetSelectedUnit();
+            if (!selected)
+                return false;
+
+            Creature* creature = selected->ToCreature();
+            if (!creature)
+                return false;
+
+            if (creature->GetEntry() == NPC_AV_FROSTWOLF)
             {
-                player->CompleteQuest(AV_Q_H_STABLES);
-                return true;
+                if (player->HasQuest(AV_Q_H_STABLES) && player->GetQuestStatus(AV_Q_H_STABLES) == QUEST_STATUS_INCOMPLETE)
+                    player->CompleteQuest(AV_Q_H_STABLES);
+            }
+            else if (creature->GetEntry() == NPC_AV_ALTERAC_RAM)
+            {
+                if (player->HasQuest(AV_Q_A_STABLES) && player->GetQuestStatus(AV_Q_A_STABLES) == QUEST_STATUS_INCOMPLETE)
+                    player->CompleteQuest(AV_Q_A_STABLES);
             }
         }
-        else if (item->GetEntry() == ITEM_STORMPIKE_COLLAR && creature->GetEntry() == NPC_AV_ALTERAC_RAM)
-        {
-            if (player->HasQuest(AV_Q_A_STABLES) && player->GetQuestStatus(AV_Q_A_STABLES) == QUEST_STATUS_INCOMPLETE)
-            {
-                player->CompleteQuest(AV_Q_A_STABLES);
-                return true;
-            }
-        }
-
-        return false;
+        
+        return true;
     }
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
