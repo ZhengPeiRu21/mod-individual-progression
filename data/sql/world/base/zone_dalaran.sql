@@ -102,7 +102,7 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (120735,0,0,0,0,0,'Archmage Lan\'dalock',NULL,NULL,10061,80,80,2,2007,3,1,1.14286,1,1,20,1,0,4.6,2000,2000,1,1,8,33536,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,10,10,1,1,0,0,1,0,2,'',0);
 
 UPDATE `creature_template` SET `ScriptName` = 'npc_archmage_landalock_3_3' WHERE `entry` = 120735;
-UPDATE `creature_template` SET `ScriptName` = 'npc_archmage_landalock_3_4' WHERE `entry` = 20735;
+UPDATE `creature_template` SET `ScriptName` = 'npc_archmage_landalock' WHERE `entry` = 20735;
 
 DELETE FROM `creature` WHERE `guid` = 620553;
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
@@ -123,6 +123,10 @@ INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `Ver
 DELETE FROM `creature_template_model` WHERE `CreatureID` = 120735;
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
 (120735, 0, 19744, 1, 1, 51831);
+
+DELETE FROM `creature_equip_template` WHERE `CreatureID` = 120735;
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES 
+(120735, 1, 34884, 0, 0, 18019);
 
 DELETE FROM `creature_queststarter` WHERE `id` = 120735;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
@@ -234,6 +238,7 @@ DELETE FROM `pool_template` WHERE `entry` = 90000;
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (90000, 1, 'Heroic Dungeon Dailies');
 
+DELETE FROM `pool_quest` WHERE `entry` = 14199 AND `pool_entry` = 5678; -- 00_cleanup
 DELETE FROM `pool_quest` WHERE `pool_entry` = 90000;
 INSERT INTO `pool_quest` (`entry`, `pool_entry`, `description`) VALUES
 (13245, 90000, 'Proof of Demise: Ingvar the Plunderer'),
