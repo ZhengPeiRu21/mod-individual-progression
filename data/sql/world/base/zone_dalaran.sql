@@ -91,13 +91,72 @@ INSERT INTO `creature_questender` (`id`, `quest`) VALUES
 (31439, 13255),
 (31439, 13256);
 
--- Archmage Lan'dalock / Proof of Demise: The Black Knight
-DELETE FROM `creature_queststarter` WHERE `id` = 20735 AND `quest` = 14199;
-INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (20735, 14199);
-DELETE FROM `creature_questender` WHERE `id` = 20735 AND `quest` = 14199;
-INSERT INTO `creature_questender` (`id`, `quest`) VALUES (20735, 14199);
+-- Archmage Lan'dalock: between patch 3.3 - patch 3.4 now handles the daily quests. from 3.4 onwards he gives weekly quests.
+DELETE FROM `creature_template` WHERE `entry` = 120735;
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, 
+`minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `rank`, `dmgschool`, `DamageModifier`, 
+`BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, 
+`PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, 
+`RegenHealth`, `CreatureImmunitiesId`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+--
+(120735,0,0,0,0,0,'Archmage Lan\'dalock',NULL,NULL,10061,80,80,2,2007,3,1,1.14286,1,1,20,1,0,4.6,2000,2000,1,1,8,33536,2048,0,0,7,0,0,0,0,0,0,0,0,'',1,1,10,10,1,1,0,0,1,0,2,'',0);
 
-UPDATE `quest_template` SET `Flags` = 4232 WHERE `ID` IN (13245, 13246, 13247, 13248, 13249, 13250, 13251, 13252, 13253, 13254, 13255, 13256, 14199);
+UPDATE `creature_template` SET `ScriptName` = 'npc_archmage_landalock_3_3' WHERE `entry` = 120735;
+UPDATE `creature_template` SET `ScriptName` = 'npc_archmage_landalock_3_4' WHERE `entry` = 20735;
+
+DELETE FROM `creature` WHERE `guid` = 620553;
+INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, 
+`wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
+(620553, 120735, 571, 0, 0, 1, 1, 1, 5697.56, 576.957, 653.806, 4.24115, 300, 0, 0, 1, 88140, 0, 0, 0, 0, '', 0, 0, NULL);
+
+DELETE FROM `creature_template_locale` WHERE `entry` = 120735;
+INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
+(120735, 'deDE', 'Erzmagier Lan\'dalock', '', 18019),
+(120735, 'esES', 'Archimago Lan\'dalock', '', 18019),
+(120735, 'esMX', 'Archimago Lan\'dalock', '', 18019),
+(120735, 'frFR', 'Archimage Lan\'dalock', '', 18019),
+(120735, 'koKR', '대마법사 랜달록', '', 18019),
+(120735, 'ruRU', 'Верховный маг Лан\'далок', '', 18019),
+(120735, 'zhCN', '大法师兰达洛克', '', 18019),
+(120735, 'zhTW', '大法師朗達拉克', '', 18019);
+
+DELETE FROM `creature_template_model` WHERE `CreatureID` = 120735;
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
+(120735, 0, 19744, 1, 1, 51831);
+
+DELETE FROM `creature_queststarter` WHERE `id` = 120735;
+INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
+(120735, 13245),
+(120735, 13246),
+(120735, 13247),
+(120735, 13248),
+(120735, 13249),
+(120735, 13250),
+(120735, 13251),
+(120735, 13252),
+(120735, 13253),
+(120735, 13254),
+(120735, 13255),
+(120735, 13256),
+(120735, 14199);
+
+DELETE FROM `creature_questender` WHERE `id` = 120735;
+INSERT INTO `creature_questender` (`id`, `quest`) VALUES
+(120735, 13245),
+(120735, 13246),
+(120735, 13247),
+(120735, 13248),
+(120735, 13249),
+(120735, 13250),
+(120735, 13251),
+(120735, 13252),
+(120735, 13253),
+(120735, 13254),
+(120735, 13255),
+(120735, 13256),
+(120735, 14199);
+
+UPDATE `quest_template` SET `Flags` = 4232 WHERE `ID` IN (13245, 13246, 13247, 13248, 13249, 13250, 13251, 13252, 13253, 13254, 13255, 13256, 14199); -- set daily quest
 
 UPDATE `quest_template` SET
 `LogDescription` = 'Archmage Timear in Dalaran wants you to return with the Axe of the Plunderer.$B$BThis quest may only be completed on Heroic difficulty.',
@@ -159,7 +218,7 @@ UPDATE `quest_template` SET
 `QuestCompletionLog` = 'Return to Archmage Timear in Dalaran.'
 WHERE `ID` = 13256;
 
-UPDATE `quest_template` SET `Flags` = 32968,
+UPDATE `quest_template` SET
 `LogDescription` = 'Archmage Lan\'dalock in Dalaran wants you to return with a Fragment of the Black Knight\'s Soul.$B$BThis quest may only be completed on Heroic difficulty.',
 `QuestDescription` = 'My counterpart, Archmage Timear, has asked me to warn you of something dire. Soon, you will be participating in the Trial of the Champions at the Argent Coliseum in Icecrown. You must beware of interference from one known only as the Black Knight.$B$BBring me a fragment of his soul that the Kirin Tor will know he is dealt with. I am told that failing to do so will be your own undoing.',
 `QuestCompletionLog` = 'Return to Archmage Lan\'dalock in Dalaran.'
@@ -170,10 +229,6 @@ UPDATE `quest_offer_reward` SET `RewardText` = '<Archmage Lan\'dalock breathes a
 UPDATE `quest_offer_reward` SET `RewardText` = 'What horrors you must have faced while traversing the Upper City.$b$b<Lan\'dalock glances down at the tarnished crown clutched in your fist.>$b$bPerhaps we should put that aside for their new king whenever the nerubians decide to coronate one?' WHERE `ID` = 13254;
 UPDATE `quest_request_items` SET `CompletionText` = 'Did the Black Knight appear unexpectedly as Timear foresaw?' WHERE `ID` = 14199;
 UPDATE `quest_template_addon` SET `ExclusiveGroup` = 24579 WHERE `ID` = 14199;
-
-DELETE FROM `pool_quest` WHERE `entry` = 14199;
-INSERT INTO `pool_quest` (`entry`, `pool_entry`, `description`) VALUES
-(14199, 5678, 'Proof of Demise: The Black Knight');
 
 DELETE FROM `pool_template` WHERE `entry` = 90000;
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
@@ -192,7 +247,8 @@ INSERT INTO `pool_quest` (`entry`, `pool_entry`, `description`) VALUES
 (13253, 90000, 'Proof of Demise: Loken'),
 (13254, 90000, 'Proof of Demise: Anub\'arak'),
 (13255, 90000, 'Proof of Demise: Herald Volazj'),
-(13256, 90000, 'Proof of Demise: Cyanigosa');
+(13256, 90000, 'Proof of Demise: Cyanigosa'),
+(14199, 90000, 'Proof of Demise: The Black Knight');
 
 DELETE FROM `creature_template_addon` WHERE `entry` = 31618; -- Keristrasza Image
 INSERT INTO `creature_template_addon` (`entry`, `path_id`, `mount`, `bytes1`, `bytes2`, `emote`, `visibilityDistanceType`, `auras`) VALUES
