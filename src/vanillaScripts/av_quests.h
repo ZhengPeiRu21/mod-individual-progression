@@ -58,6 +58,8 @@ enum AVTurnInNpcs : uint32
 
     NPC_AV_STABLE_MASTER_H  = 13616, // Horde
     NPC_AV_STABLE_MASTER_A  = 13617, // Alliance
+    NPC_AV_FROSTWOLF        = 110981,
+    NPC_AV_ALTERAC_RAM      = 110990,
 
     NPC_CAV_CMDR_H          = 13441, // Horde
     NPC_CAV_CMDR_A          = 13577, // Alliance
@@ -73,6 +75,12 @@ enum AVBeaconItems : uint32
     ITEM_BEACON_ICHMAN    = 17505, // snowfall graveyard
     ITEM_BEACON_VIPORE    = 17506, // west crater
     ITEM_BEACON_SLIDORE   = 17507  // east crater
+};
+
+enum AVEmptyStablesItems : uint32
+{
+    ITEM_FROSTWOLF_MUZZLE = 17626,
+    ITEM_STORMPIKE_COLLAR = 17689
 };
 
 // Reputation gates for receiving a beacon (REP_HONORED or better)
