@@ -29,7 +29,7 @@ Options are provided that allow changes to the player experience, based on prefe
 ## How to Install
 Please see [How to Install](https://github.com/ZhengPeiRu21/mod-individual-progression/wiki/How-to-Install)
 
-- You need a custom version of AzerothCore for this module! https://github.com/Grimfeather/azerothcore-wotlk
+- You need my fork of AzerothCore for this module! https://github.com/Grimfeather/azerothcore-wotlk
 - This fork uses the default branch of mod-playerbots/azerothcore-wotlk as it's base. I need to do this to be able to make my own changes to AzerothCore. 
 Going through the process of making pull requests for AzerothCore and test phases on the playerbots fork takes months. This no longer makes sense. I can't wait months for every small change I want to make.
 
