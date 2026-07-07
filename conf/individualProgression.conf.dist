@@ -240,6 +240,9 @@ IndividualProgression.DisableRDF = 0
 #                     The receiving player must be Honored with Frostwolf Clan / Stormpike Guard.
 #        Default:     50
 #
+#        Description: Number of Empty Stables and Ram Harnesses quest turn-ins required to send the cavalry out.
+#        Default:     10
+#
 #        Description: The supplies gossip option on Smith Regzar / Murgot Deepforge
 #                     normally answers with an estimate. 
 #                     Set to 1 to also show the exact turn-in count (useful while testing).
@@ -256,6 +259,7 @@ IndividualProgression.AV.ScrapsVeteran  = 50
 IndividualProgression.AV.ScrapsChampion = 75
 IndividualProgression.AV.BossPointsRequired = 200
 IndividualProgression.AV.AirStrikeTurnIns = 50
+IndividualProgression.AV.StablesTurnIns = 10
 IndividualProgression.AV.GossipExactNumbers = 0
 IndividualProgression.MaxMonsterSight = 1
 
