@@ -17,8 +17,7 @@ enum ArchmageTimearQuests
     QUEST_PROOF_OF_DEMISE_LOKEN = 13253,
     QUEST_PROOF_OF_DEMISE_ANUB_ARAK = 13254,
     QUEST_PROOF_OF_DEMISE_HERALD_VOLAZJ = 13255,
-    QUEST_PROOF_OF_DEMISE_CYANIGOSA = 13256,
-    QUEST_PROOF_OF_DEMISE_THE_BLACK_KNIGHT = 14199
+    QUEST_PROOF_OF_DEMISE_CYANIGOSA = 13256
 };
 
 enum ArchmageTimearImages
@@ -34,8 +33,7 @@ enum ArchmageTimearImages
     NPC_LOKEN_IMAGE = 31625,
     NPC_ANUB_ARAK_IMAGE = 31626,
     NPC_HERALD_VOLAZJ_IMAGE = 31627,
-    NPC_CYANIGOSA_IMAGE = 31629,
-    NPC_THE_BLACK_KNIGHT_IMAGE = 35461
+    NPC_CYANIGOSA_IMAGE = 31629
 };
 
 class npc_archmage_timear : public CreatureScript
@@ -84,10 +82,8 @@ public:
                 return NPC_ANUB_ARAK_IMAGE;
             case QUEST_PROOF_OF_DEMISE_HERALD_VOLAZJ:
                 return NPC_HERALD_VOLAZJ_IMAGE;
-            case QUEST_PROOF_OF_DEMISE_CYANIGOSA:
+            default: // QUEST_PROOF_OF_DEMISE_CYANIGOSA:
                 return NPC_CYANIGOSA_IMAGE;
-            default: //case QUEST_PROOF_OF_DEMISE_THE_BLACK_KNIGHT:
-                return NPC_THE_BLACK_KNIGHT_IMAGE;
             }
         }
 
@@ -148,7 +144,8 @@ enum ArchmageLandalockQuests
     QUEST_IGNIS_THE_FURNACE_MASTER_MUST_DIE = 24587,
     QUEST_XT_002_DECONSTRUCTOR_MUST_DIE     = 24588,
     QUEST_LORD_JARAXXUS_MUST_DIE            = 24589,
-    QUEST_LORD_MARROWGAR_MUST_DIE           = 24590
+    QUEST_LORD_MARROWGAR_MUST_DIE           = 24590,
+    QUEST_PROOF_OF_DEMISE_THE_BLACK_KNIGHT  = 14199
 };
 
 enum ArchmageLandalockImages
@@ -164,7 +161,8 @@ enum ArchmageLandalockImages
     NPC_IGNIS_THE_FURNACE_MASTER_IMAGE  = 37859,
     NPC_XT_002_DECONSTRUCTOR_IMAGE      = 37861,
     NPC_LORD_JARAXXUS_IMAGE             = 37862,
-    NPC_LORD_MARROWGAR_IMAGE            = 37864
+    NPC_LORD_MARROWGAR_IMAGE            = 37864,
+    NPC_THE_BLACK_KNIGHT_IMAGE          = 35461
 };
 
 class npc_archmage_landalock_ipp : public CreatureScript
@@ -222,8 +220,10 @@ public:
                     return NPC_XT_002_DECONSTRUCTOR_IMAGE;
                 case QUEST_LORD_JARAXXUS_MUST_DIE:
                     return NPC_LORD_JARAXXUS_IMAGE;
-                default: //case QUEST_LORD_MARROWGAR_MUST_DIE:
+                case QUEST_LORD_MARROWGAR_MUST_DIE:
                     return NPC_LORD_MARROWGAR_IMAGE;
+                default: // QUEST_PROOF_OF_DEMISE_THE_BLACK_KNIGHT:
+                    return NPC_THE_BLACK_KNIGHT_IMAGE;
             }
         }
 

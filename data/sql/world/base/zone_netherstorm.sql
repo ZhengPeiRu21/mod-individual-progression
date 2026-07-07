@@ -70,6 +70,38 @@ UPDATE `creature` SET `position_x` = 2185.01, `position_y` = 2281.85, `position_
 UPDATE `creature` SET `position_x` = 2246.56, `position_y` = 2294.01, `position_z` = 86.2593 WHERE `guid` = 67476;
 UPDATE `creature` SET `position_x` = 2189.28, `position_y` = 2225.27, `position_z` = 82.2145 WHERE `guid` = 67480;
 
+-- fix Eye of Culuthas at Runes of Farahlon
+UPDATE `creature_template` SET faction = 2023, `unit_flags` = 131072, `AIName` = 'SmartAI', `flags_extra` = 8322 WHERE `entry` = 21157;
+UPDATE `creature_template` SET `unit_flags` = 512, `flags_extra` = 134217728 WHERE `entry` = 20394; -- CREATURE_FLAG_EXTRA_DONT_OVERRIDE_SAI_ENTRY (load ENTRY + GUID SAI)
+UPDATE `creature_template` SET `unit_flags` = 512 WHERE `entry` = 20141;
+
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (20394, 21157);
+DELETE FROM `smart_scripts` WHERE `entryorguid` IN (-72357, -72358, -72360, -72362, -72363);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
+--
+(20394, 0, 0, 0, 0, 0, 100, 0, 4000, 6000, 12000, 12000, 0, 0, 11, 36414, 0, 0, 0, 0, 0, 5, 30, 0, 0, 0, 0, 0, 0, 0,   'Eye of Culuthas - In Combat - Cast Focused Bursts'),
+(20394, 0, 1, 0, 9, 0, 100, 0, 0, 0, 15000, 30000, 0, 5, 11, 36398, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,          'Eye of Culuthas - Within 0-5 Range - Cast Tongue Lash'),
+(21157, 0, 0, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 33554432, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,              'Culuthas Scan Target Dummy - On Respawn - Remove UNIT_FLAG_NOT_SELECTABLE'),
+--
+(-72357, 0, 2, 0, 1, 0, 100, 0, 0, 0, 12000, 12000, 0, 0, 11, 36414, 0, 0, 0, 0, 0, 19, 21157, 30, 0, 0, 0, 0, 0, 0,   'Eye of Culuthas - OOC - Cast Focused Bursts'),
+(-72357, 0, 3, 4, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 512, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Eye of Culuthas - On Respawn - Remove UNIT_FLAG_IMMUNE_TO_NPC'),
+(-72357, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Eye of Culuthas - On Respawn - Stop Combat Movement'),
+(-72358, 0, 2, 0, 1, 0, 100, 0, 0, 0, 12000, 12000, 0, 0, 11, 36414, 0, 0, 0, 0, 0, 19, 21157, 30, 0, 0, 0, 0, 0, 0,   'Eye of Culuthas - OOC - Cast Focused Bursts'),
+(-72358, 0, 3, 4, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 512, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Eye of Culuthas - On Respawn - Remove UNIT_FLAG_IMMUNE_TO_NPC'),
+(-72358, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Eye of Culuthas - On Respawn - Stop Combat Movement'),
+(-72360, 0, 2, 0, 1, 0, 100, 0, 0, 0, 12000, 12000, 0, 0, 11, 36414, 0, 0, 0, 0, 0, 19, 21157, 30, 0, 0, 0, 0, 0, 0,   'Eye of Culuthas - OOC - Cast Focused Bursts'),
+(-72360, 0, 3, 4, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 512, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Eye of Culuthas - On Respawn - Remove UNIT_FLAG_IMMUNE_TO_NPC'),
+(-72360, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Eye of Culuthas - On Respawn - Stop Combat Movement'),
+(-72362, 0, 2, 0, 1, 0, 100, 0, 0, 0, 12000, 12000, 0, 0, 11, 36414, 0, 0, 0, 0, 0, 19, 21157, 30, 0, 0, 0, 0, 0, 0,   'Eye of Culuthas - OOC - Cast Focused Bursts'),
+(-72362, 0, 3, 4, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 512, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Eye of Culuthas - On Respawn - Remove UNIT_FLAG_IMMUNE_TO_NPC'),
+(-72362, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Eye of Culuthas - On Respawn - Stop Combat Movement'),
+(-72363, 0, 2, 0, 1, 0, 100, 0, 0, 0, 12000, 12000, 0, 0, 11, 36414, 0, 0, 0, 0, 0, 19, 21157, 30, 0, 0, 0, 0, 0, 0,   'Eye of Culuthas - OOC - Cast Focused Bursts'),
+(-72363, 0, 3, 4, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 19, 512, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                  'Eye of Culuthas - On Respawn - Remove UNIT_FLAG_IMMUNE_TO_NPC'),
+(-72363, 0, 4, 0, 61, 0, 100, 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,                    'Eye of Culuthas - On Respawn - Stop Combat Movement');
+
 -- fix quest: Escape from the Staging Grounds (didn't complete, because closest player was stored as target, now using invoker)
 DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (20763);
 INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
