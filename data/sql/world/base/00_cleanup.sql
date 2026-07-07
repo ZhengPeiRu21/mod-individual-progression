@@ -28,14 +28,19 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id` IN (20278); -- Vixton Pinch
 
 /* the following edits are temporary */
 
+-- remove AV conditons that aren't used anymore
+DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 29 AND `ConditionTypeOrReference` = 29 AND `SourceEntry` IN 
+(110982, 111603, 111604, 113089, 113097, 113316, 113087, 113096, 113317, 110987, 111600, 111602, 113081, 113099, 113397, 113080, 113098, 113396, 113358, 113359); -- 00_cleanup
+
 -- remove pvp progression requirements to show pvp gear. added rank requirements back
 DELETE FROM `conditions` WHERE `SourceTypeOrReferenceId` = 23 AND `ConditionTypeOrReference` = 8 AND `Comment` = "Vanilla PvP Ranked Gear (IPP)";
 
 -- remove vanilla AV landmines, default is no landmines
-SET @OGUID := 657000;
-DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+101 AND @OGUID+499;
+-- SET @OGUID := 657000;
+-- DELETE FROM `gameobject` WHERE `guid` BETWEEN @OGUID+101 AND @OGUID+499;
 
 -- undo changes made to wotlk naxx creatures - 00_cleanup.sql
+/*
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -420 WHERE `entry` IN (16168, 16446);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -417 WHERE `entry` IN (16243);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -416 WHERE `entry` IN (15976, 15978, 15979);
@@ -73,3 +78,4 @@ UPDATE `creature_template` SET `CreatureImmunitiesId` = -303 WHERE `entry` IN (1
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -286 WHERE `entry` IN (16028);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -93  WHERE `entry` IN (23561, 23562, 23563, 25463, 25465, 28357, 28658, 28890, 28919, 29112, 29113, 31099);
 UPDATE `creature_template` SET `CreatureImmunitiesId` =  0   WHERE `entry` IN (16082, 16137, 16286, 16363, 16385, 16400, 16419, 20350, 20423, 23876, 28619);
+*/
