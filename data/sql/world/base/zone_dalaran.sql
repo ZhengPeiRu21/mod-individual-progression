@@ -124,6 +124,10 @@ DELETE FROM `creature_template_model` WHERE `CreatureID` = 120735;
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
 (120735, 0, 19744, 1, 1, 51831);
 
+DELETE FROM `creature_equip_template` WHERE `CreatureID` = 120735;
+INSERT INTO `creature_equip_template` (`CreatureID`, `ID`, `ItemID1`, `ItemID2`, `ItemID3`, `VerifiedBuild`) VALUES 
+(120735, 1, 34884, 0, 0, 18019);
+
 DELETE FROM `creature_queststarter` WHERE `id` = 120735;
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES
 (120735, 13245),
