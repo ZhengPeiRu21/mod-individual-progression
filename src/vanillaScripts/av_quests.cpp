@@ -53,8 +53,7 @@ namespace
         return UpgradeReady(state, team) ? texts.ready[tier] : texts.notReady[tier];
     }
 
-    // Upgrade every DB-spawned defender of `team` to `newTier`.
-    // the map's spawn-id store only contains DB spawns, so summons are not effected.
+    // Upgrade every DB-spawned defender of `team` to `newTier`, summons are not effected.
     // Dead defenders only get their original entry moved up; Creature::Respawn() then brings them back already upgraded. 
     void UpgradeDefenders(Battleground* bg, TeamId team, uint8 newTier)
     {
@@ -155,7 +154,7 @@ namespace
     void HandleHarnessTurnIn(Player* player, AVQuestState& state, TeamId team)
     {
         uint32 turnIns = ++state.harnessTurnIns[team];
-        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.HarnessTurnIns", 10);
+        uint32 required = sConfigMgr->GetOption<uint32>("IndividualProgression.AV.StablesTurnIns", 10);
 
         ChatHandler(player->GetSession()).PSendSysMessage("Harness turn-ins: {}/{}", turnIns, required);
 
@@ -202,11 +201,11 @@ namespace
         uint32 interval = next > prev ? next - prev : 1;
         uint32 remaining = next > turnIns ? next - turnIns : 0;
 
-        if (remaining * 4 >= interval * 3)      // less than a quarter done
+        if (remaining * 4 >= interval * 3)  // less than a quarter done
             return "I barely have any supplies for upgrades.";
-        if (remaining * 4 >= interval * 2)      // under halfway
+        if (remaining * 4 >= interval * 2)  // under halfway
             return "I need many more supplies in order to upgrade our units.";
-        if (remaining * 4 <= interval * 2 && remaining * 4 >= interval * 3)     // over halfway and under three-quarters
+        if (remaining * 4 <= interval * 2 && remaining * 4 >= interval * 3) // over halfway and under three-quarters
             return "I have about half the supplies needed to upgrade our units.";
         return "I almost have enough supplies for the next upgrade!"; // over three-quarters done
     }
@@ -225,7 +224,6 @@ namespace
             return;
 
         // Threshold reached: this turn-in claims the beacon, if the player qualifies.
-        // On failure nothing is consumed permanently — the next qualifying turn-in claims it.
         uint32 repFaction = fleet.team == TEAM_HORDE ? AV_FACTION_FROSTWOLF_CLAN : AV_FACTION_STORMPIKE_GUARD;
         if (player->GetReputationRank(repFaction) < REP_HONORED)
         {
@@ -291,6 +289,35 @@ class ip_av_quests_player : public PlayerScript
 {
 public:
     ip_av_quests_player() : PlayerScript("ip_av_quests_player") {}
+
+    bool OnPlayerCanCastItemUseSpell(Player* player, Item* item, SpellCastTargets const& /*targets*/, uint8 /*cast_count*/, uint32 /*glyphIndex*/) override
+    {
+        if (!player || !item)
+            return false;
+
+        Battleground* bg = player->GetBattleground();
+        if (!bg || bg->GetBgTypeID(true) != BATTLEGROUND_AV)
+            return false;
+
+        Unit* selected = player->GetSelectedUnit();
+        Creature* creature = selected->ToCreature();
+
+        if (!creature)
+            return false;
+
+        if (item->GetEntry() == ITEM_FROSTWOLF_MUZZLE && creature->GetEntry() == NPC_AV_FROSTWOLF)
+        {
+            if (player->HasQuest(AV_Q_H_STABLES) && player->GetQuestStatus(AV_Q_H_STABLES) == QUEST_STATUS_INCOMPLETE)
+                player->CompleteQuest(AV_Q_H_STABLES);
+        }
+        else if (item->GetEntry() == ITEM_STORMPIKE_COLLAR && creature->GetEntry() == NPC_AV_ALTERAC_RAM)
+        {
+            if (player->HasQuest(AV_Q_A_STABLES) && player->GetQuestStatus(AV_Q_A_STABLES) == QUEST_STATUS_INCOMPLETE)
+                player->CompleteQuest(AV_Q_A_STABLES);
+        }
+
+        return true;
+    }
 
     void OnPlayerCompleteQuest(Player* player, Quest const* quest) override
     {
