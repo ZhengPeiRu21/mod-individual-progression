@@ -48,6 +48,7 @@ void AddSC_mod_individual_progression_player();
 void AddSC_mod_individual_progression_pvp();
 void AddSC_mod_individual_progression_battleground();
 void AddSC_mod_individual_progression_ioq();
+void AddSC_mod_individual_progression_spells();
 void AddSC_npc_archmage_timear();
 void AddSC_karazhan_70();
 void AddSC_the_eye_70();
@@ -100,6 +101,7 @@ void Addmod_individual_progressionScripts()
     AddSC_mod_individual_progression_pvp();
     AddSC_mod_individual_progression_battleground();
     AddSC_mod_individual_progression_ioq();
+    AddSC_mod_individual_progression_spells();
     AddSC_npc_archmage_timear();
     AddSC_karazhan_70();
     AddSC_the_eye_70();
