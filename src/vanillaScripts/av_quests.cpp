@@ -300,8 +300,10 @@ public:
             return false;
 
         Unit* selected = player->GetSelectedUnit();
-        Creature* creature = selected->ToCreature();
+        if (!selected)
+            return false;
 
+        Creature* creature = selected->ToCreature();
         if (!creature)
             return false;
 
