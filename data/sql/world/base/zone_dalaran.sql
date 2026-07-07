@@ -234,6 +234,7 @@ DELETE FROM `pool_template` WHERE `entry` = 90000;
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES
 (90000, 1, 'Heroic Dungeon Dailies');
 
+DELETE FROM `pool_quest` WHERE `entry` = 14199 AND `pool_entry` = 5678; -- 00_cleanup
 DELETE FROM `pool_quest` WHERE `pool_entry` = 90000;
 INSERT INTO `pool_quest` (`entry`, `pool_entry`, `description`) VALUES
 (13245, 90000, 'Proof of Demise: Ingvar the Plunderer'),
