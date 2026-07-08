@@ -68,8 +68,6 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
 
     std::string familyName = familyEntry->Name[0];
 
-    // Helper: bring one ability line to its desired state, touching only what differs.
-    // the highest dummy the player owns decides the spell the pet keeps. Every other id in wipeIds is unlearned.
     auto reconcile = [pet, player](std::initializer_list<uint32> wipeIds, std::initializer_list<uint32> dummyIds)
         {
             uint32 keepId = 0;
@@ -90,6 +88,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
 
             if (keepId && !pet->HasSpell(keepId))
                 pet->learnSpell(keepId);
+
         };
 
     if (familyName == "Wolf")
@@ -107,7 +106,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 61684 }, { 661684 }); // 623099, 623109, 623110
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Rake, WotLK only
         reconcile({ 59881, 59882, 59883, 59884, 59885, 59886 }, {});
@@ -124,7 +123,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 24450, 24452, 24453 }, { 624450, 624452, 624453 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Rake, WotLK only
         reconcile({ 59881, 59882, 59883, 59884, 59885, 59886 }, {});
@@ -135,7 +134,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 }, { 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Web, WotLK only
         reconcile({ 4167 }, {});
@@ -149,7 +148,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 }, { 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Swipe, WotLK only
         reconcile({ 50256, 53526, 53528, 53529, 53532, 53533 }, {});
@@ -172,7 +171,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
             reconcile({ 35290, 35291, 35292, 35293, 35294, 35295 }, {});
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Crocolisk")
     {
@@ -180,7 +179,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 }, { 617253, 617255, 617256, 617257, 617258, 617259, 617260, 617261, 627050 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Bad Attitude, WotLK only
         reconcile({ 50433, 52395, 52396, 52397, 52398, 52399 }, {});
@@ -197,7 +196,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 24423, 24577, 24578, 24579, 27051 }, { 624423, 624577, 624578, 624579, 627051 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Bite, ranks 1-9
         reconcile({ 17253, 17255, 17256, 17257, 17258, 17259, 17260, 17261, 27050 }, {});
@@ -208,7 +207,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 }, { 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Pin, WotLK only
         reconcile({ 50245, 53544, 53545, 53546, 53547, 53548 }, {});
@@ -222,7 +221,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 26090 }, { 626090 }); // 626187, 626188
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Smack, WotLK only
         reconcile({ 49966, 49967, 49968, 49969, 49970, 49971, 49972, 49973, 49974 }, {});
@@ -236,7 +235,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 }, { 616827, 616828, 616829, 616830, 616831, 616832, 603010, 603009, 627049 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Savage Rend, WotLK only
         reconcile({ 50498, 53578, 53579, 53580, 53581, 53582 }, {});
@@ -250,7 +249,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 61684 }, { 661684 }); // 623099, 623109, 623110
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Claw, ranks 1-9
         reconcile({ 16827, 16828, 16829, 16830, 16831, 16832, 3010, 3009, 27049 }, {});
@@ -267,7 +266,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 24640, 24583, 24586, 24587, 27060 }, { 624640, 624583, 624586, 624587, 627060 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Turtle")
     {
@@ -278,7 +277,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 26064 }, { 626064 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Bat")
     {
@@ -292,7 +291,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 24423, 24577, 24578, 24579, 27051 }, { 624423, 624577, 624578, 624579, 627051 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Sonic Blast, WotLK only
         reconcile({ 50519, 53564, 53565, 53566, 53567, 53568 }, {});
@@ -306,7 +305,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 61684 }, { 661684 }); // 623099, 623109, 623110
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Tendon Rip, WotLK only
         reconcile({ 50271, 53571, 53572, 53573, 53574, 53575 }, {});
@@ -323,7 +322,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 24423, 24577, 24578, 24579, 27051 }, { 624423, 624577, 624578, 624579, 627051 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Snatch, WotLK only
         reconcile({ 50541, 53537, 53538, 53540, 53542, 53543 }, {});
@@ -340,7 +339,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 23145 }, { 623145 }); // 623147, 623148
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Dragonhawk")
     {
@@ -354,7 +353,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 23145 }, { 623145 }); // 623147, 623148
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Ravager")
     {
@@ -368,7 +367,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 61684 }, { 661684 }); // 623099, 623109, 623110
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Ravage, WotLK only
         reconcile({ 50518, 53558, 53559, 53560, 53561, 53562 }, {});
@@ -385,7 +384,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 35346 }, { 635346 });
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
     }
     else if (familyName == "Sporebat")
     {
@@ -396,7 +395,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 23145 }, { 623145 }); // 623147, 623148
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Smack, WotLK only
         reconcile({ 49966, 49967, 49968, 49969, 49970, 49971, 49972, 49973, 49974, 49975, 49976 }, {});
@@ -413,7 +412,7 @@ void IndividualProgression::checkHunterPetSpells(Player* player)
         reconcile({ 23145 }, { 623145 }); // 623147, 623148
 
         // Cower
-        reconcile({ 1742, 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
+        // reconcile({ 1742, 1753, 1754, 1755, 1756, 16697, 27048 }, { 601742, 601753, 601754, 601755, 601756, 616697, 627048 });
 
         // Nether Shock, WotLK only
         reconcile({ 50479, 53584, 53586, 53587, 53588, 53589 }, {});
@@ -616,7 +615,7 @@ public:
 
                 uint32 PetSpellDataId = (*result)[0].Get<uint32>();
 
-                ChatHandler(player->GetSession()).PSendSysMessage("PetSpellDataId = {}", PetSpellDataId);
+                // ChatHandler(player->GetSession()).PSendSysMessage("PetSpellDataId = {}", PetSpellDataId);
 
                 CreatureSpellDataEntry const* spellDataEntry = sCreatureSpellDataStore.LookupEntry(PetSpellDataId);
 
@@ -631,7 +630,7 @@ public:
                     if (PetSpell == 0)
                         continue;
 
-                    ChatHandler(player->GetSession()).PSendSysMessage("PetSpell = {}", PetSpell);
+                    // ChatHandler(player->GetSession()).PSendSysMessage("PetSpell = {}", PetSpell);
 
                     // "if config option enabled" could be added here to award the correct pet spells for people that use patch-V or patch-S
 
@@ -1104,11 +1103,8 @@ private:
         if (!owner->ToPlayer()->IsClass(CLASS_WARLOCK, CLASS_CONTEXT_PET) && !owner->ToPlayer()->IsClass(CLASS_HUNTER, CLASS_CONTEXT_PET))
             return;
 
-        // Every pet load fires BOTH hooks back to back:
-        // Pet::LoadPetFromDB calls InitStatsForLevel (-> OnInitStatsForLevel), then
-        // Map::AddToMap -> Pet::AddToWorld (-> OnPetAddToWorld). Without this guard
-        // two DelayedPetSpellChecks get queued and the spell check runs twice,
-        // producing the doubled unlearn/learn chat messages.
+        // Pet::LoadPetFromDB calls InitStatsForLevel (-> OnInitStatsForLevel), then Map::AddToMap -> Pet::AddToWorld (-> OnPetAddToWorld).
+        // Without this guard two DelayedPetSpellChecks get queued and the spell check runs twice, producing doubled unlearn/learn chat messages.
         PendingPetSpellCheck* pending = pet->CustomData.GetDefault<PendingPetSpellCheck>(PENDING_CHECK_KEY);
         if (pending->pending)
             return;
@@ -1161,8 +1157,6 @@ public:
 
             // If the LoadPetFromDB async callback hasn't completed yet, poll again.
             // Cap attempts so a stuck loading flag can't recurse forever.
-            // The pending flag stays set while polling - it only guards against a
-            // second check being queued, not against this one finishing its wait.
             if (pet->isBeingLoaded() && _attempts < 10)
             {
                 pet->m_Events.AddEvent(
