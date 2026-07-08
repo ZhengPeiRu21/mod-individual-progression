@@ -400,27 +400,31 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 (-673005, 0, 5, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511530, 2511533, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script'),
 (-673005, 0, 6, 0, 11, 0, 100, 0, 0, 0, 0, 0, 0, 0, 88, 2511540, 2511543, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 'Shattered Sun Warrior - On Respawn - Run Random Script');
 
-DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (24918);
-INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`, 
-`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`, 
-`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`, 
-`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES 
+UPDATE `creature_template` SET `AIName` = 'SmartAI' WHERE `entry` IN (24918, 25158);
+DELETE FROM `smart_scripts` WHERE `source_type` = 0 AND `entryorguid` IN (24918, 25158);
+INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_type`, `event_phase_mask`, `event_chance`, `event_flags`,
+`event_param1`, `event_param2`, `event_param3`, `event_param4`, `event_param5`, `event_param6`,
+`action_type`, `action_param1`, `action_param2`, `action_param3`, `action_param4`, `action_param5`, `action_param6`,
+`target_type`, `target_param1`, `target_param2`, `target_param3`, `target_param4`, `target_x`, `target_y`, `target_z`, `target_o`, `comment`) VALUES
 --
 (24918, 0, 0, 0, 0, 0, 100, 0, 4000, 6000, 7000, 9000, 0, 0, 11, 14873, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,     'Felblood Initiate - In Combat - Cast \'Sinister Strike\''),
 (24918, 0, 1, 0, 0, 0, 100, 0, 17000, 22000, 20000, 26000, 0, 0, 11, 29098, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 'Felblood Initiate - In Combat - Cast \'Bitter Withdrawal\''),
 (24918, 0, 2, 0, 0, 0, 100, 0, 8000, 12000, 18000, 22000, 0, 0, 11, 35871, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0,  'Felblood Initiate - In Combat - Cast \'Spellbreaker\''),
 (24918, 0, 3, 0, 8, 0, 100, 512, 44937, 0, 0, 0, 0, 0, 36, 24955, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,           'Felblood Initiate - On Spellhit \'Fel Siphon\' - Update Template To \'Emaciated Felblood\''),
 (24918, 0, 4, 0, 1, 0, 25, 0, 0, 0, 30000, 30000, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,               'Felblood Initiate - Out of Combat - Random Yell'),
-(24918, 0, 5, 0, 1, 0, 100, 0, 0, 0, 15000, 45000, 0, 0, 11, 46319, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Felblood Initiate - Out of Combat - Cast \'Felblood Channel\'');
+(24918, 0, 5, 0, 1, 0, 100, 0, 0, 0, 15000, 45000, 0, 0, 11, 46319, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,         'Felblood Initiate - Out of Combat - Cast \'Felblood Channel\''),
+(25158, 0, 0, 0, 8, 0, 100, 0, 45072, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0,                  'Brutallus - On Spell Hit - Say text 0');
 
-DELETE FROM `creature_text` WHERE `CreatureID` = 24918;
+DELETE FROM `creature_text` WHERE `CreatureID` IN (24918, 25158);
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES
 --
 (24918, 0, 0, 'Unparalleled power... I... crave... more!', 14, 0, 100, 0, 0, 0, 23984, 0,                                  'Felblood Initiate - Random Yell OOC'),
 (24918, 0, 1, 'Fel energy... courses through my veins!', 14, 0, 100, 0, 0, 0, 23985, 0,                                    'Felblood Initiate - Random Yell OOC'),
 (24918, 0, 2, 'Your life force is my nourishment, demon... Kil\'jaeden\'s gift to us!', 14, 0, 100, 0, 0, 0, 23986, 0,     'Felblood Initiate - Random Yell OOC'),
 (24918, 0, 3, 'I will soon be stronger than any elf! I will serve at Kil\'jaeden\'s side!', 14, 0, 100, 0, 0, 0, 23987, 0, 'Felblood Initiate - Random Yell OOC'),
-(24918, 0, 4, 'More... more... MORE!!!', 14, 0, 100, 0, 0, 0, 23988, 0,                                                    'Felblood Initiate - Random Yell OOC');
+(24918, 0, 4, 'More... more... MORE!!!', 14, 0, 100, 0, 0, 0, 23988, 0,                                                    'Felblood Initiate - Random Yell OOC'),
+--
+(25158, 0, 0, 'What is this pathetic magic? How about you come back with twenty-four of your best friends and try again, $r!', 14, 0, 100, 0, 0, 0, 24206, 0, 'Brutallus - Say on Spellhit');
 
 
 SET @CGUID    := 673000;
