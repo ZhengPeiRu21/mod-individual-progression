@@ -10,8 +10,6 @@
 
 enum BlackUrn
 {
-    DATA_NIGHTBANE     = 11,
-    NPC_NIGHTBANE      = 17225,
     ITEM_BLACKENED_URN = 24140
 };
 
