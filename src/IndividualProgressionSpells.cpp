@@ -564,9 +564,9 @@ void IndividualProgression::checkWarlockPetSpells(Player* player)
     }
 }
 
- class IndividualPlayerProgressionSpells : public PlayerScript
- {
- public:
+class IndividualPlayerProgressionSpells : public PlayerScript
+{
+public:
     IndividualPlayerProgressionSpells() : PlayerScript("IndividualProgression") {}
 
     uint32 GetItemSpellId_2(uint32 itemEntry)
