@@ -17,6 +17,9 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 22) AND (`SourceGroup` IN (6, 7)) AND (`SourceEntry` = 15551) AND (`ConditionTypeOrReference` = 29);
 
+UPDATE `creature_template` SET `ScriptName` = 'boss_midnight_ipp' WHERE `entry` = 16151;
+UPDATE `creature_template` SET `ScriptName` = 'boss_midnight' WHERE `entry` = 605; -- assigning old script to unused entry to avoid worldserver error about script not being assigned in database
+
 -- Restore Enchanting formula drops to their pre-3.1 rates
 UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` IN (22559, 22561, 22545, 22560);
 
