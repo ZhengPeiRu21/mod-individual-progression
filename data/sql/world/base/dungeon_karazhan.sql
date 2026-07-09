@@ -17,9 +17,6 @@ INSERT INTO `smart_scripts` (`entryorguid`, `source_type`, `id`, `link`, `event_
 
 DELETE FROM `conditions` WHERE (`SourceTypeOrReferenceId` = 22) AND (`SourceGroup` IN (6, 7)) AND (`SourceEntry` = 15551) AND (`ConditionTypeOrReference` = 29);
 
-UPDATE `creature_template` SET `ScriptName` = 'boss_midnight_ipp' WHERE `entry` = 16151;
-UPDATE `creature_template` SET `ScriptName` = 'boss_midnight' WHERE `entry` = 605; -- assigning old script to unused entry to avoid worldserver error about script not being assigned in database
-
 -- Restore Enchanting formula drops to their pre-3.1 rates
 UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` IN (22559, 22561, 22545, 22560);
 
@@ -27,3 +24,14 @@ UPDATE `creature_loot_template` SET `Chance` = 5 WHERE `Item` IN (22559, 22561, 
 UPDATE `item_template` SET `Quality` = 1, `SellPrice` = 0, `description` = 'Used to summon Nightbane in Karazhan' WHERE (`entry` = 24140);
 UPDATE `quest_template` SET `StartItem` = 24140 WHERE `ID` = 9644;
 UPDATE `quest_template_addon` SET `ProvidedItemCount` = 1 WHERE (`ID` = 9644);
+
+-- fix boss reset with Midnight not respawning correctly
+UPDATE `creature_template` SET `ScriptName` = 'boss_midnight_ipp' WHERE `entry` = 16151;
+UPDATE `creature_template` SET `ScriptName` = 'boss_midnight' WHERE `entry` = 605; -- assigning old script to unused entry to avoid worldserver error about script not being assigned in database
+
+-- fix worldserver error when Midnight kills a player, Midnight needs the text as well for Attumen to say the line
+DELETE FROM `creature_text` WHERE `CreatureID` = 16151;
+INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
+(16151, 0, 0, '%s calls for her master!', 16, 0, 100, 0, 0, 0, 13439, 0, 'midnight EMOTE_CALL_ATTUMEN'),
+(16151, 1, 0, '%s rushes to her master\'s aid.', 16, 0, 100, 0, 0, 0, 13455, 0, 'midnight EMOTE_MOUNT_UP'),
+(16151, 3, 0, 'Well done, Midnight!', 14, 0, 100, 0, 0, 9173, 15334, 0, 'attumen SAY_MIDNIGHT_KILL');
