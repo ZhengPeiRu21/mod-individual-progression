@@ -639,17 +639,16 @@ public:
                         {
                             if (item->GetEntry() == id)
                             {
-                                if (prevRank == 0)
+                                uint32 currSpell = GetItemSpellId_2(id);
+                                if (currSpell && player->HasSpell(currSpell))
+                                {
+                                    ChatHandler(player->GetSession()).PSendSysMessage("Your pet already knows this spell.");
+                                    return -1;
+                                }
+                                else if (prevRank == 0)
                                     return 1; // first rank: allow
                                 else
                                 {
-                                    uint32 currSpell = GetItemSpellId_2(id);
-                                    if (currSpell && player->HasSpell(currSpell))
-                                    {
-                                        ChatHandler(player->GetSession()).PSendSysMessage("Your pet already knows this spell.");
-                                        return -1;
-                                    }
-
                                     uint32 prevSpell = GetItemSpellId_2(prevRank);
                                     if (prevSpell && player->HasSpell(prevSpell))
                                         return 1;
