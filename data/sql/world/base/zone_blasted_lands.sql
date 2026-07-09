@@ -142,6 +142,9 @@ INSERT INTO `waypoint_data` (`id`, `point`, `position_x`, `position_y`, `positio
 (6059810, 13, -11370.7, -2855.8, 4.71995, NULL, 0, 0, 0, 100, 0),
 (6059810, 14, -11358.6, -2796.98, 5.47431, NULL, 0, 0, 0, 100, 0);
 
+-- change Teremus visible level to ?? (CREATURE_TYPE_FLAG_BOSS_MOB)
+UPDATE `creature_template` SET `type_flags` = type_flags|4 WHERE `entry` = 7846;
+
 -- Quest: Into the Breach
 SET @CGUID       := 656000;
 SET @WPID        := 6560000;
