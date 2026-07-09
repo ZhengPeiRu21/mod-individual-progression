@@ -564,10 +564,181 @@ void IndividualProgression::checkWarlockPetSpells(Player* player)
     }
 }
 
-class IndividualPlayerProgressionSpells : public PlayerScript
-{
-public:
+ class IndividualPlayerProgressionSpells : public PlayerScript
+ {
+ public:
     IndividualPlayerProgressionSpells() : PlayerScript("IndividualProgression") {}
+
+    uint32 GetItemSpellId_2(uint32 itemEntry)
+    {
+        QueryResult result = WorldDatabase.Query("SELECT spellid_2 FROM item_template WHERE entry = {};", itemEntry);
+        if (!result)
+            return 0;
+
+        return (*result)[0].Get<uint32>();
+    }
+
+    bool OnPlayerCanCastItemUseSpell(Player* player, Item* item, SpellCastTargets const& /*targets*/, uint8 /*cast_count*/, uint32 /*glyphIndex*/) override
+    {
+        if (!player || !player->IsInWorld())
+            return false;
+
+        if (player->getClass() != CLASS_WARLOCK)
+            return true;
+
+        if (sIndividualProgression->hasPassedProgression(player, PROGRESSION_TBC_TIER_5))
+            return true;
+
+        static constexpr std::array<uint16, 83> WARLOCK_GRIMOIRES = {
+         16302, 16316, 16317, 16318, 16319, 16320, 16321, 16322, 16323, 16324, 16325, 16326, 16327, 16328, 16329, 16330, 16331,
+         16346, 16347, 16348, 16349, 16350, 16351, 16352, 16353, 16354, 16355, 16356, 16357, 16358, 16359, 16360, 16361, 16362,
+         16363, 16364, 16365, 16366, 16368, 16371, 16372, 16373, 16374, 16375, 16376, 16377, 16378, 16379, 16380, 16381, 16382,
+         16383, 16384, 16385, 16386, 16387, 16388, 16389, 16390, 22179, 22180, 22181, 22182, 22183, 22184, 22185, 22186, 22187,
+         22188, 22189, 22190, 23711, 23730, 23731, 23734, 23745, 23755, 25469, 25900, 28068, 28071, 28072, 28073 };
+
+        for (uint16 itemId : WARLOCK_GRIMOIRES)
+        {
+            if (item->GetEntry() == itemId)
+            {
+                Pet* pet = player->GetPet();
+                if (!pet)
+                    return false;
+
+                // Grimoire groups
+                static constexpr std::array<uint16, 7> IMP_GRIMOIRES_FIREBOLT = { 16302, 16316, 16317, 16318, 16319, 16320, 22179 };
+                static constexpr std::array<uint16, 6> IMP_GRIMOIRES_BLOOD_PACT = { 16321, 16322, 16323, 16324, 16325, 22180 };
+                static constexpr std::array<uint16, 6> IMP_GRIMOIRES_FIRE_SHIELD = { 16326, 16327, 16328, 16329, 16330, 22181 };
+                static constexpr uint16 IMP_GRIMOIRES_PHASE_SHIFT = 16331;
+
+                static constexpr std::array<uint16, 6> VOID_GRIMOIRES_TORMENT = { 16346, 16347, 16348, 16349, 16350, 22182 };
+                static constexpr std::array<uint16, 7> VOID_GRIMOIRES_SACRIFICE = { 16351, 16352, 16353, 16354, 16355, 16356, 22185 };
+                static constexpr std::array<uint16, 7> VOID_GRIMOIRES_SHADOWS = { 16357, 16358, 16359, 16360, 16361, 16362, 22184 };
+                static constexpr std::array<uint16, 6> VOID_GRIMOIRES_SUFFERING = { 16363, 16364, 16365, 16366, 22183, 28068 };
+
+                static constexpr std::array<uint16, 6> SUCCUBUS_GRIMOIRES_LASH = { 16368, 16371, 16372, 16373, 16374, 22186 };
+                static constexpr std::array<uint16, 5> SUCCUBUS_GRIMOIRES_KISS = { 16375, 16376, 16377, 16378, 22187 };
+                static constexpr uint16 SUCCUBUS_GRIMOIRES_SEDUCTION = 16379;
+                static constexpr uint16 SUCCUBUS_GRIMOIRES_INVISIBILITY = 16380;
+
+                static constexpr std::array<uint16, 5> FELHUNTER_GRIMOIRES_DEVOUR = { 16381, 16382, 16383, 22188, 22189 };
+                static constexpr std::array<uint16, 5> FELHUNTER_GRIMOIRES_BLOOD = { 16384, 16385, 16386, 16387, 22190 };
+                static constexpr std::array<uint16, 2> FELHUNTER_GRIMOIRES_LOCK = { 16388, 16389 };
+                static constexpr uint16 FELHUNTER_GRIMOIRES_PARANOIA = 16390;
+
+                static constexpr std::array<uint16, 3> FELGUARD_GRIMOIRES_INTERCEPT = { 23711, 23730, 23731 };
+                static constexpr std::array<uint16, 3> FELGUARD_GRIMOIRES_CLEAVE = { 23734, 23745, 23755 };
+                static constexpr std::array<uint16, 3> FELGUARD_GRIMOIRES_ANGUISH = { 28071, 28072, 28073 };
+                static constexpr uint16 FELGUARD_GRIMOIRES_AVOIDANCE = 25469;
+                static constexpr uint16 FELGUARD_GRIMOIRES_FRENZY = 25900;
+
+                // Returns: 0 = not matched, 1 = allowed, -1 = disallowed
+                auto checkGrimoire = [this, player, item](auto const& ids) -> int
+                    {
+                        uint16 prevRank = 0;
+                        for (uint16 id : ids)
+                        {
+                            if (item->GetEntry() == id)
+                            {
+                                if (prevRank == 0)
+                                    return 1; // first rank: allow
+                                else
+                                {
+                                    uint32 currSpell = GetItemSpellId_2(id);
+                                    if (currSpell && player->HasSpell(currSpell))
+                                    {
+                                        ChatHandler(player->GetSession()).PSendSysMessage("Your pet already knows this spell.");
+                                        return -1;
+                                    }
+
+                                    uint32 prevSpell = GetItemSpellId_2(prevRank);
+                                    if (prevSpell && player->HasSpell(prevSpell))
+                                        return 1;
+                                    else
+                                    {
+                                        ChatHandler(player->GetSession()).PSendSysMessage("Your pet needs to learn the previous rank first.");
+                                        return -1;
+                                    }
+                                }
+                            }
+                            prevRank = id;
+                        }
+                        return 0;
+                    };
+
+                switch (pet->GetEntry())
+                {
+                case NPC_IMP:
+                {
+                    if (int result = checkGrimoire(IMP_GRIMOIRES_FIREBOLT); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(IMP_GRIMOIRES_BLOOD_PACT); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(IMP_GRIMOIRES_FIRE_SHIELD); result != 0)
+                        return result == 1;
+                    if (item->GetEntry() == IMP_GRIMOIRES_PHASE_SHIFT)
+                        return true;
+                    break;
+                }
+                case NPC_VOIDWALKER:
+                {
+                    if (int result = checkGrimoire(VOID_GRIMOIRES_TORMENT); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(VOID_GRIMOIRES_SACRIFICE); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(VOID_GRIMOIRES_SHADOWS); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(VOID_GRIMOIRES_SUFFERING); result != 0)
+                        return result == 1;
+                    break;
+                }
+                case NPC_SUCCUBUS:
+                {
+                    if (int result = checkGrimoire(SUCCUBUS_GRIMOIRES_LASH); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(SUCCUBUS_GRIMOIRES_KISS); result != 0)
+                        return result == 1;
+                    if (item->GetEntry() == SUCCUBUS_GRIMOIRES_SEDUCTION)
+                        return true;
+                    if (item->GetEntry() == SUCCUBUS_GRIMOIRES_INVISIBILITY)
+                        return true;
+                    break;
+                }
+                case NPC_FELHUNTER:
+                {
+                    if (int result = checkGrimoire(FELHUNTER_GRIMOIRES_DEVOUR); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(FELHUNTER_GRIMOIRES_BLOOD); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(FELHUNTER_GRIMOIRES_LOCK); result != 0)
+                        return result == 1;
+                    if (item->GetEntry() == FELHUNTER_GRIMOIRES_PARANOIA)
+                        return true;
+                    break;
+                }
+                case NPC_FELGUARD:
+                {
+                    if (int result = checkGrimoire(FELGUARD_GRIMOIRES_INTERCEPT); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(FELGUARD_GRIMOIRES_CLEAVE); result != 0)
+                        return result == 1;
+                    if (int result = checkGrimoire(FELGUARD_GRIMOIRES_ANGUISH); result != 0)
+                        return result == 1;
+                    if (item->GetEntry() == FELGUARD_GRIMOIRES_AVOIDANCE)
+                        return true;
+                    if (item->GetEntry() == FELGUARD_GRIMOIRES_FRENZY)
+                        return true;
+                    break;
+                }
+                default:
+                    break;
+                }
+
+                ChatHandler(player->GetSession()).PSendSysMessage("Your demon needs to be nearby to learn this spell.");
+                return false;
+            }
+        }
+        return true;
+    }
 
     void OnPlayerLearnSpell(Player* player, uint32 spellID) override
     {
