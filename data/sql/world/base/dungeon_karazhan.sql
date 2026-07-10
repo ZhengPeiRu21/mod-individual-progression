@@ -25,10 +25,6 @@ UPDATE `item_template` SET `Quality` = 1, `SellPrice` = 0, `description` = 'Used
 UPDATE `quest_template` SET `StartItem` = 24140 WHERE `ID` = 9644;
 UPDATE `quest_template_addon` SET `ProvidedItemCount` = 1 WHERE (`ID` = 9644);
 
--- fix boss reset with Midnight not respawning correctly
-UPDATE `creature_template` SET `ScriptName` = 'boss_midnight_ipp' WHERE `entry` = 16151;
-UPDATE `creature_template` SET `ScriptName` = 'boss_midnight' WHERE `entry` = 605; -- assigning old script to unused entry to avoid worldserver error about script not being assigned in database
-
 -- fix worldserver error when Midnight kills a player, Midnight needs the text as well for Attumen to say the line
 DELETE FROM `creature_text` WHERE `CreatureID` = 16151;
 INSERT INTO `creature_text` (`CreatureID`, `GroupID`, `ID`, `Text`, `Type`, `Language`, `Probability`, `Emote`, `Duration`, `Sound`, `BroadcastTextId`, `TextRange`, `comment`) VALUES 
