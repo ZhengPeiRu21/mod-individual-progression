@@ -6,7 +6,6 @@
 #include "ScriptMgr.h"
 // #include "CreatureScript.h"
 #include "ScriptedCreature.h"
-#include "karazhan.h"
 
 enum BlackUrn
 {
@@ -50,6 +49,17 @@ enum Phases
     PHASE_MOUNTED
 };
 
+enum KZDataTypes
+{
+    DATA_ATTUMEN = 0,
+    DATA_NIGHTBANE = 11,
+
+    NPC_MIDNIGHT = 16151,
+    NPC_NIGHTBANE = 17225,
+    NPC_ATTUMEN_THE_HUNTSMAN = 15550,
+    NPC_ATTUMEN_THE_HUNTSMAN_MOUNTED = 16152,
+};
+
 enum Actions
 {
     ACTION_SET_MIDNIGHT_PHASE
@@ -82,121 +92,132 @@ public:
     }
 };
 
-struct boss_midnight_ipp : public BossAI
+class boss_midnight_ipp : public CreatureScript
 {
-    boss_midnight_ipp(Creature* creature) : BossAI(creature, DATA_ATTUMEN), _phase(PHASE_NONE) { }
+public:
+    boss_midnight_ipp() : CreatureScript("boss_midnight") {}
 
-    void Reset() override
+    struct boss_midnight : public BossAI
     {
-        BossAI::Reset();
-        me->SetVisible(true);
-        me->SetReactState(REACT_DEFENSIVE);
-    }
+        boss_midnight(Creature* creature) : BossAI(creature, DATA_ATTUMEN), _phase(PHASE_NONE) {}
 
-    bool CanMeleeHit()
-    {
-        return me->GetVictim() && (me->GetVictim()->GetPositionZ() < 53.0f || me->GetVictim()->GetDistance(me->GetHomePosition()) < 50.0f);
-    }
-
-    void DamageTaken(Unit* /*attacker*/, uint32& damage, DamageEffectType /*damageType*/, SpellSchoolMask /*damageSchoolMask*/) override
-    {
-        // Midnight never dies, let health fall to 1 and prevent further damage.
-        if (damage >= me->GetHealth())
+        void Reset() override
         {
-            damage = me->GetHealth() - 1;
+            BossAI::Reset();
+            me->SetVisible(true);
+            me->SetReactState(REACT_DEFENSIVE);
         }
 
-        if (_phase == PHASE_NONE && me->HealthBelowPctDamaged(95, damage))
+        bool CanMeleeHit()
         {
-            _phase = PHASE_ATTUMEN_ENGAGES;
-            Talk(EMOTE_CALL_ATTUMEN);
-            DoCastAOE(SPELL_SUMMON_ATTUMEN);
+            return me->GetVictim() && (me->GetVictim()->GetPositionZ() < 53.0f || me->GetVictim()->GetDistance(me->GetHomePosition()) < 50.0f);
         }
-        else if (_phase == PHASE_ATTUMEN_ENGAGES && me->HealthBelowPctDamaged(25, damage))
-        {
-            _phase = PHASE_MOUNTED;
-            DoCastAOE(SPELL_MOUNT, true);
-        }
-    }
 
-    void JustSummoned(Creature* summon) override
-    {
-        if (summon->GetEntry() == NPC_ATTUMEN_THE_HUNTSMAN)
+        void DamageTaken(Unit* /*attacker*/, uint32& damage, DamageEffectType /*damageType*/, SpellSchoolMask /*damageSchoolMask*/) override
         {
-            summon->AI()->AttackStart(me->GetVictim());
-            summon->AI()->Talk(SAY_APPEAR);
-        }
-        BossAI::JustSummoned(summon);
-    }
+            // Midnight never dies, let health fall to 1 and prevent further damage.
+            if (damage >= me->GetHealth())
+            {
+                damage = me->GetHealth() - 1;
+            }
 
-    void DoAction(int32 actionId) override
-    {
-        if (actionId == ACTION_SET_MIDNIGHT_PHASE)
-        {
-            _phase = PHASE_MOUNTED;
+            if (_phase == PHASE_NONE && me->HealthBelowPctDamaged(95, damage))
+            {
+                _phase = PHASE_ATTUMEN_ENGAGES;
+                Talk(EMOTE_CALL_ATTUMEN);
+                DoCastAOE(SPELL_SUMMON_ATTUMEN);
+            }
+            else if (_phase == PHASE_ATTUMEN_ENGAGES && me->HealthBelowPctDamaged(25, damage))
+            {
+                _phase = PHASE_MOUNTED;
+                DoCastAOE(SPELL_MOUNT, true);
+            }
         }
-    }
+
+        void JustSummoned(Creature* summon) override
+        {
+            if (summon->GetEntry() == NPC_ATTUMEN_THE_HUNTSMAN)
+            {
+                summon->AI()->AttackStart(me->GetVictim());
+                summon->AI()->Talk(SAY_APPEAR);
+            }
+            BossAI::JustSummoned(summon);
+        }
+
+        void DoAction(int32 actionId) override
+        {
+            if (actionId == ACTION_SET_MIDNIGHT_PHASE)
+            {
+                _phase = PHASE_MOUNTED;
+            }
+        }
 
         void JustEngagedWith(Unit* who) override
-    {
-        BossAI::JustEngagedWith(who);
-        scheduler.Schedule(15s, 25s, [this](TaskContext task)
         {
-            DoCastVictim(SPELL_KNOCKDOWN);
-            task.Repeat(15s, 25s);
-        });
-    }
+            BossAI::JustEngagedWith(who);
+            scheduler.Schedule(15s, 25s, [this](TaskContext task)
+                {
+                    DoCastVictim(SPELL_KNOCKDOWN);
+                    task.Repeat(15s, 25s);
+                });
+        }
 
-    void EnterEvadeMode(EvadeReason /*why*/) override
-    {
-        me->SetVisible(false);
-        me->SetReactState(REACT_DEFENSIVE);
-
-        // Stop combat and movement to ensure a clean teleport
-        me->AttackStop();
-        me->RemoveAllAttackers();
-        me->GetMotionMaster()->MoveIdle();
-
-        Position home = me->GetHomePosition();
-        me->NearTeleportTo(home.GetPositionX(), home.GetPositionY(), home.GetPositionZ(), home.GetOrientation());
-        me->SendTeleportPacket(home);
-
-        _phase = PHASE_NONE;
-    }
-
-    void KilledUnit(Unit* /*victim*/) override
-    {
-        if (_phase == PHASE_ATTUMEN_ENGAGES)
+        void EnterEvadeMode(EvadeReason /*why*/) override
         {
-            if (Creature* attumen = instance->GetCreature(DATA_ATTUMEN))
+            me->SetVisible(false);
+            me->SetReactState(REACT_DEFENSIVE);
+
+            // Stop combat and movement to ensure a clean teleport
+            me->AttackStop();
+            me->RemoveAllAttackers();
+            me->GetMotionMaster()->MoveIdle();
+
+            Position home = me->GetHomePosition();
+            me->NearTeleportTo(home.GetPositionX(), home.GetPositionY(), home.GetPositionZ(), home.GetOrientation());
+            me->SendTeleportPacket(home);
+
+            _phase = PHASE_NONE;
+        }
+
+        void KilledUnit(Unit* /*victim*/) override
+        {
+            if (_phase == PHASE_ATTUMEN_ENGAGES)
             {
-                Talk(SAY_MIDNIGHT_KILL, attumen);
+                if (Creature* attumen = instance->GetCreature(DATA_ATTUMEN))
+                {
+                    Talk(SAY_MIDNIGHT_KILL, attumen);
+                }
             }
         }
-    }
 
-    void UpdateAI(uint32 diff) override
-    {
-        if (_phase != PHASE_MOUNTED)
+        void UpdateAI(uint32 diff) override
         {
-            if (!UpdateVictim())
+            if (_phase != PHASE_MOUNTED)
             {
-                return;
+                if (!UpdateVictim())
+                {
+                    return;
+                }
+                if (!CanMeleeHit())
+                {
+                    BossAI::EnterEvadeMode(EvadeReason::EVADE_REASON_BOUNDARY);
+                }
             }
-            if (!CanMeleeHit())
-            {
-                BossAI::EnterEvadeMode(EvadeReason::EVADE_REASON_BOUNDARY);
-            }
+            scheduler.Update(diff, std::bind(&BossAI::DoMeleeAttackIfReady, this));
         }
-        scheduler.Update(diff, std::bind(&BossAI::DoMeleeAttackIfReady, this));
-    }
 
-private:
-    uint8 _phase;
+    private:
+        uint8 _phase;
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new typename boss_midnight(creature);
+    }
 };
 
 void AddSC_karazhan_70()
 {
-    RegisterKarazhanCreatureAI(boss_midnight_ipp);
+    new boss_midnight_ipp();
     new go_blackened_urn_70();
 }
