@@ -18,8 +18,18 @@
 #include "GameObjectScript.h"
 #include "InstanceScript.h"
 #include "Player.h"
+#include "CreatureScript.h"
+#include "ScriptedCreature.h"
 
-enum
+#define BRDScriptName "instance_blackrock_depths"
+
+template <class AI, class T>
+inline AI* GetBlackrockDepthsAI(T* obj)
+{
+    return GetInstanceAI<AI>(obj, BRDScriptName);
+}
+
+enum DarkKeepers
 {
     NPC_DARK_KEEPER_VORFALK    = 9437,
     NPC_DARK_KEEPER_BETHEK     = 9438,
@@ -34,6 +44,21 @@ enum
     GO_ZIMREL                  = 164823,
     GO_OFGUT                   = 164824,
     GO_PELVER                  = 164825
+};
+
+enum Spells
+{
+    SPELL_FIERYBURST = 13900,
+    SPELL_WARSTOMP = 24375
+};
+
+enum DataTypes
+{
+    TYPE_LYCEUM = 5,
+    TYPE_IRON_HALL = 6,
+
+    DATA_GOLEM_DOOR_N = 22,
+    DATA_GOLEM_DOOR_S = 23
 };
 
 class gobject_dark_keeper_portrait : public GameObjectScript
@@ -100,7 +125,98 @@ public:
     }
 };
 
+class boss_magmus_50_59_B : public CreatureScript
+{
+public:
+    boss_magmus_50_59_B() : CreatureScript("boss_magmus") {}
+
+    struct boss_magmus : public BossAI
+    {
+        boss_magmus(Creature* creature) : BossAI(creature, TYPE_IRON_HALL) {}
+
+        void JustEngagedWith(Unit* /*who*/) override
+        {
+            if (instance)
+                instance->SetData(TYPE_IRON_HALL, IN_PROGRESS);
+
+            _JustEngagedWith();
+
+            if (instance)
+            {
+                instance->HandleGameObject(instance->GetGuidData(DATA_GOLEM_DOOR_N), false);
+                instance->HandleGameObject(instance->GetGuidData(DATA_GOLEM_DOOR_S), false);
+            }
+
+            events.ScheduleEvent(SPELL_WARSTOMP, 8s, 12s);
+            events.ScheduleEvent(SPELL_FIERYBURST, 4s, 8s);
+        }
+
+        void JustDied(Unit* /*killer*/) override
+        {
+            if (instance)
+            {
+                instance->HandleGameObject(instance->GetGuidData(DATA_GOLEM_DOOR_N), true);
+                instance->HandleGameObject(instance->GetGuidData(DATA_GOLEM_DOOR_S), true);
+            }
+        }
+
+        void Reset() override
+        {
+            if (!instance)
+                return;
+
+            // Open or close the bossroom doors depending on the previous event state.
+            if (instance->GetData(TYPE_LYCEUM) == DONE)
+            {
+                // Previous event completed: open the doors so players can leave the boss room.
+                instance->HandleGameObject(instance->GetGuidData(DATA_GOLEM_DOOR_N), true);
+                instance->HandleGameObject(instance->GetGuidData(DATA_GOLEM_DOOR_S), true);
+            }
+            else
+            {
+                // Previous event not completed: keep the doors closed.
+                instance->HandleGameObject(instance->GetGuidData(DATA_GOLEM_DOOR_N), false);
+                instance->HandleGameObject(instance->GetGuidData(DATA_GOLEM_DOOR_S), false);
+            }
+        }
+
+        void UpdateAI(uint32 diff) override
+        {
+            //Return since we have no target
+            if (!UpdateVictim())
+                return;
+
+            events.Update(diff);
+
+            while (uint32 eventId = events.ExecuteEvent())
+            {
+                switch (eventId)
+                {
+                case SPELL_WARSTOMP:
+                    DoCastVictim(SPELL_WARSTOMP);
+                    events.ScheduleEvent(SPELL_WARSTOMP, 8s, 12s);
+                    break;
+                case SPELL_FIERYBURST:
+                    DoCastVictim(SPELL_FIERYBURST);
+                    events.ScheduleEvent(SPELL_FIERYBURST, 4s, 8s);
+                    break;
+                default:
+                    break;
+                }
+            }
+
+            DoMeleeAttackIfReady();
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new typename boss_magmus(creature);
+    }
+};
+
 void AddSC_instance_blackrock_depths_50_59_B()
 {
     new gobject_dark_keeper_portrait();
+    new boss_magmus_50_59_B();
 }
