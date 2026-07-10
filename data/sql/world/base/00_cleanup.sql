@@ -28,6 +28,11 @@ DELETE FROM `creature` WHERE `guid` = 88156 AND `id` IN (20278); -- Vixton Pinch
 
 /* the following edits are temporary */
 
+
+-- restore Midnight script, now properly overriding the script
+UPDATE `creature_template` SET `ScriptName` = 'boss_midnight' WHERE `entry` = 16151;
+UPDATE `creature_template` SET `ScriptName` = '' WHERE `entry` = 605;
+
 -- restore AC's Ironhand Guardians
 DELETE FROM `creature_template` WHERE `entry` IN (108982);
 DELETE FROM `creature_template_model` WHERE `CreatureID` = 108982; -- 00_cleanup
