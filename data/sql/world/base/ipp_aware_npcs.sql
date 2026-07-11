@@ -98,6 +98,10 @@ UPDATE `creature` SET `phaseMask` = 1 WHERE `id` IN (24938, 25115, 27667); -- 00
 UPDATE `creature` SET `phaseMask` = @IPPPHASE     WHERE `id`  IN (17076, 19475, 24932, 25134, 25135, 25136, 25137, 25138, 25141, 25142, 25143, 25153, 25155, 25167, 25885, 27666);
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_III WHERE `guid` IN (165102, 165103, 165104, 165105, 165106, 165107, 165108, 165109);
 
+-- Throne of Kil'jaeden
+UPDATE `creature` SET `phaseMask` = @IPPPHASE    WHERE `id` IN (22295, 22297, 22301, 22302, 22303);
+UPDATE `creature` SET `phaseMask` = @IPPPHASE_II WHERE `id` IN (24918, 24919, 24933, 24937);
+
 -- Silvermoon City, M'uru
 UPDATE `creature` SET `phaseMask` = @IPPPHASE_II WHERE `guid` IN (96982, 96980, 96981, 96979, 96978, 352043);
 
