@@ -211,7 +211,7 @@ public:
 
     CreatureAI* GetAI(Creature* creature) const override
     {
-        return new typename boss_magmus(creature);
+        return new boss_magmus(creature);
     }
 };
 
