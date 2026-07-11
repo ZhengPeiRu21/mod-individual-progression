@@ -302,7 +302,7 @@ public:
 
     CreatureAI* GetAI(Creature* creature) const override
     {
-        return new typename boss_attumen(creature);
+        return new boss_attumen(creature);
     }
 };
 
@@ -428,7 +428,7 @@ public:
 
     CreatureAI* GetAI(Creature* creature) const override
     {
-        return new typename boss_midnight(creature);
+        return new boss_midnight(creature);
     }
 };
 
