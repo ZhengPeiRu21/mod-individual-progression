@@ -53,6 +53,7 @@ enum KZDataTypes
 {
     DATA_ATTUMEN = 0,
     DATA_NIGHTBANE = 11,
+    DATA_MIDNIGHT = 32,
 
     NPC_MIDNIGHT = 16151,
     NPC_NIGHTBANE = 17225,
@@ -92,6 +93,220 @@ public:
     }
 };
 
+
+class boss_attumen_ipp : public CreatureScript
+{
+public:
+    boss_attumen_ipp() : CreatureScript("boss_attumen") {}
+
+    struct boss_attumen : public BossAI
+    {
+        boss_attumen(Creature* creature) : BossAI(creature, DATA_ATTUMEN)
+        {
+            Initialize();
+        }
+
+        void Initialize()
+        {
+            _phase = PHASE_NONE;
+        }
+
+        void Reset() override
+        {
+            Initialize();
+        }
+
+        void EnterEvadeMode(EvadeReason why) override
+        {
+            if (Creature* midnight = instance->GetCreature(DATA_MIDNIGHT))
+            {
+                midnight->AI()->EnterEvadeMode(why);
+            }
+            me->DespawnOrUnsummon();
+        }
+
+        void ScheduleTasks() override
+        {
+            scheduler.Schedule(15s, 25s, [this](TaskContext task)
+                {
+                    DoCastVictim(SPELL_SHADOWCLEAVE);
+                    task.Repeat(15s, 25s);
+                });
+            scheduler.Schedule(25s, 45s, [this](TaskContext task)
+                {
+                    if (Unit* target = SelectTarget(SelectTargetMethod::Random, 0))
+                    {
+                        DoCast(target, SPELL_INTANGIBLE_PRESENCE);
+                    }
+
+                    task.Repeat(25s, 45s);
+                });
+            scheduler.Schedule(30s, 1min, [this](TaskContext task)
+                {
+                    Talk(SAY_RANDOM);
+                    task.Repeat(30s, 1min);
+                });
+        }
+
+        void DamageTaken(Unit* /*attacker*/, uint32& damage, DamageEffectType /*damageType*/, SpellSchoolMask /*damageSchoolMask*/) override
+        {
+            // Attumen does not die until he mounts Midnight, let health fall to 1 and prevent further damage.
+            if (damage >= me->GetHealth() && _phase != PHASE_MOUNTED)
+            {
+                damage = me->GetHealth() - 1;
+            }
+            if (_phase == PHASE_ATTUMEN_ENGAGES && me->HealthBelowPctDamaged(25, damage))
+            {
+                _phase = PHASE_NONE;
+
+                if (Creature* midnight = instance->GetCreature(DATA_MIDNIGHT))
+                {
+                    midnight->AI()->DoCastAOE(SPELL_MOUNT, true);
+                }
+            }
+        }
+
+        void KilledUnit(Unit* victim) override
+        {
+            if (victim->IsPlayer())
+            {
+                Talk(SAY_KILL);
+            }
+        }
+
+        void JustSummoned(Creature* summon) override
+        {
+            if (summon->GetEntry() == NPC_ATTUMEN_THE_HUNTSMAN_MOUNTED)
+            {
+                if (Creature* midnight = instance->GetCreature(DATA_MIDNIGHT))
+                {
+                    if (midnight->GetHealth() > me->GetHealth())
+                    {
+                        summon->SetHealth(midnight->GetHealth());
+                    }
+                    else
+                    {
+                        summon->SetHealth(me->GetHealth());
+                    }
+                    summon->AI()->DoZoneInCombat();
+                }
+            }
+            BossAI::JustSummoned(summon);
+        }
+
+        void IsSummonedBy(WorldObject* summoner) override
+        {
+            if (summoner->GetEntry() == NPC_MIDNIGHT)
+            {
+                _phase = PHASE_ATTUMEN_ENGAGES;
+            }
+            if (summoner->GetEntry() == NPC_ATTUMEN_THE_HUNTSMAN)
+            {
+                _phase = PHASE_MOUNTED;
+                DoCastSelf(SPELL_SPAWN_SMOKE);
+                scheduler.Schedule(10s, 25s, [this](TaskContext task)
+                    {
+                        Unit* target = nullptr;
+                        std::vector<Unit*> target_list;
+                        for (auto* ref : me->GetThreatMgr().GetUnsortedThreatList())
+                        {
+                            target = ref->GetVictim();
+                            if (target && !target->IsWithinDist(me, 8.00f, false) && target->IsWithinDist(me, 25.0f, false))
+                            {
+                                target_list.push_back(target);
+                            }
+                            target = nullptr;
+                        }
+                        if (!target_list.empty())
+                        {
+                            target = Acore::Containers::SelectRandomContainerElement(target_list);
+                        }
+                        DoCast(target, SPELL_CHARGE);
+                        task.Repeat(10s, 25s);
+                    });
+                scheduler.Schedule(25s, 35s, [this](TaskContext task)
+                    {
+                        DoCastVictim(SPELL_KNOCKDOWN);
+                        task.Repeat(25s, 35s);
+                    });
+            }
+        }
+
+        void JustDied(Unit* /*killer*/) override
+        {
+            Talk(SAY_DEATH);
+            if (Creature* midnight = instance->GetCreature(DATA_MIDNIGHT))
+            {
+                midnight->KillSelf();
+            }
+            _JustDied();
+        }
+
+        void UpdateAI(uint32 diff) override
+        {
+            if (_phase != PHASE_NONE && !UpdateVictim())
+                return;
+
+            scheduler.Update(diff, [this] { DoMeleeAttackIfReady(); });
+        }
+
+        void SpellHit(Unit* /*caster*/, SpellInfo const* spellInfo) override
+        {
+            if (spellInfo->Mechanic == MECHANIC_DISARM)
+            {
+                Talk(SAY_DISARMED);
+            }
+
+            if (spellInfo->Id == SPELL_MOUNT)
+            {
+                if (Creature* midnight = instance->GetCreature(DATA_MIDNIGHT))
+                {
+                    _phase = PHASE_NONE;
+                    scheduler.CancelAll();
+                    midnight->AI()->DoAction(ACTION_SET_MIDNIGHT_PHASE);
+                    midnight->AttackStop();
+                    midnight->RemoveAllAttackers();
+                    midnight->SetReactState(REACT_PASSIVE);
+                    midnight->GetMotionMaster()->MoveFollow(me, 2.0f, 0.0f);
+                    midnight->AI()->Talk(EMOTE_MOUNT_UP);
+                    me->AttackStop();
+                    me->RemoveAllAttackers();
+                    me->SetReactState(REACT_PASSIVE);
+                    me->GetMotionMaster()->MoveFollow(midnight, 2.0f, 0.0f);
+                    Talk(SAY_MOUNT);
+                    scheduler.Schedule(1s, [this](TaskContext task)
+                        {
+                            if (Creature* midnight = instance->GetCreature(DATA_MIDNIGHT))
+                            {
+                                if (me->IsWithinDist2d(midnight, 5.0f))
+                                {
+                                    DoCastAOE(SPELL_SUMMON_ATTUMEN_MOUNTED);
+                                    me->DespawnOrUnsummon(1s, 0s);
+                                    midnight->SetVisible(false);
+                                }
+                                else
+                                {
+                                    midnight->GetMotionMaster()->MoveFollow(me, 2.0f, 0.0f);
+                                    me->GetMotionMaster()->MoveFollow(midnight, 2.0f, 0.0f);
+                                    task.Repeat();
+                                }
+                            }
+                        });
+                }
+            }
+        }
+
+    private:
+        uint8 _phase;
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new typename boss_attumen(creature);
+    }
+};
+
+
 class boss_midnight_ipp : public CreatureScript
 {
 public:
@@ -104,7 +319,7 @@ public:
         void Reset() override
         {
             BossAI::Reset();
-            me->SetVisible(true);
+            // me->SetVisible(true);
             me->SetReactState(REACT_DEFENSIVE);
         }
 
@@ -164,8 +379,8 @@ public:
 
         void EnterEvadeMode(EvadeReason /*why*/) override
         {
-            me->SetVisible(false);
             me->SetReactState(REACT_DEFENSIVE);
+            me->SetFullHealth();
 
             // Stop combat and movement to ensure a clean teleport
             me->AttackStop();
@@ -177,6 +392,7 @@ public:
             me->SendTeleportPacket(home);
 
             _phase = PHASE_NONE;
+            me->SetVisible(true);
         }
 
         void KilledUnit(Unit* /*victim*/) override
@@ -218,6 +434,7 @@ public:
 
 void AddSC_karazhan_70()
 {
+    new boss_attumen_ipp();
     new boss_midnight_ipp();
     new go_blackened_urn_70();
 }
