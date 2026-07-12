@@ -31,6 +31,9 @@ UPDATE `creature_template` SET `ScriptName` = 'npc_ipp_aqwewar' WHERE `entry` IN
 -- Phasing Cenarion Hold guards
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_preaq' WHERE `id` = 15184 AND `guid` IN (42782, 42783, 42768);
 
+-- Phasing Ysuria <Portal Trainer> in Theramore
+UPDATE `creature` SET `ScriptName` = 'npc_ipp_tbc_t4' WHERE `id` = 27703;
+
 -- Phasing ZG quest NPCs on YoJamba Isle and in Tanaris
 UPDATE `creature` SET `ScriptName` = 'npc_ipp_zg' WHERE `id` IN (10460, 14902, 14903, 14904, 14905, 14910, 15070);
 
