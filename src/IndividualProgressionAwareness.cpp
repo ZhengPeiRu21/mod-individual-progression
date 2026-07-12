@@ -600,6 +600,34 @@ public:
     }
 };
 
+class npc_ipp_tbc_t4 : public CreatureScript
+{
+public:
+    npc_ipp_tbc_t4() : CreatureScript("npc_ipp_tbc_t4") { }
+
+    struct npc_ipp_tbc_t4AI: ScriptedAI
+    {
+        explicit npc_ipp_tbc_t4AI(Creature* creature) : ScriptedAI(creature) { };
+
+        bool CanBeSeen(Player const* player) override
+        {
+            if (player->IsGameMaster() || !sIndividualProgression->enabled)
+                return true;
+
+            Player* target = ObjectAccessor::FindConnectedPlayer(player->GetGUID());
+            if (sIndividualProgression->hasPassedProgression(target, PROGRESSION_TBC_TIER_4))
+                return true;
+            else
+                return false;
+        }
+    };
+
+    CreatureAI* GetAI(Creature* creature) const override
+    {
+        return new npc_ipp_tbc_t4AI(creature);
+    }
+};
+
 class npc_ipp_za : public CreatureScript
 {
 public:
@@ -811,6 +839,7 @@ void AddSC_mod_individual_progression_awareness()
     new gobject_ipp_tbc();
     new gobject_ipp_tbc_t4();         // Shattered Sun
     new gobject_ipp_wotlk();
+	
     new npc_ipp_preaq();              // Cenarion Hold NPCs
     new npc_ipp_zg();
     new npc_ipp_we();                 // War Effort NPCs in cities
@@ -824,6 +853,7 @@ void AddSC_mod_individual_progression_awareness()
     new npc_ipp_tbc();
     new npc_ipp_tbc_pre_t3();         // TBC leatherworking vendors
     new npc_ipp_tbc_t3();             // TBC leatherworking vendors
+	new npc_ipp_tbc_t4();             // Ysuria <Portal Trainer>
     new npc_ipp_za();
     new npc_ipp_pre_wotlk();
     new npc_ipp_wotlk();
