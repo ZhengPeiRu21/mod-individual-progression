@@ -617,6 +617,16 @@ void IndividualProgression::checkIPPhasing(Player* player, uint32 newArea)
                 player->CastSpell(player, IPP_PHASE_III, false);
             }
             break;
+        case AREA_THRONE_OF_KILJAEDEN:
+            if (isBeforeProgression(player, PROGRESSION_TBC_TIER_4))
+            {
+                player->CastSpell(player, IPP_PHASE, false);
+            }
+            else if (hasPassedProgression(player, PROGRESSION_TBC_TIER_4))
+            {
+                player->CastSpell(player, IPP_PHASE_II, false);
+            }
+            break;
         case AREA_FOREST_SONG:
             if (hasPassedProgression(player, PROGRESSION_PRE_TBC))
             {
