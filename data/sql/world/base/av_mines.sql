@@ -73,6 +73,26 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 (132140,0,0,0,0,0,'Whitewhisker Geomancer (2)','','',0,73,74,0,26,0,1.76,1.14286,1,1,20,0,0,1,2000,2000,1,1,2,0,2048,0,0,7,0,11604,0,0,0,0,0,0,'',1,1,0.65,0.5,1,1,0,0,1,0,0,'',0),
 (132143,0,0,0,0,0,'Whitewhisker Vermin (2)','','',0,72,73,0,26,0,1.76,1.14286,1,1,20,0,0,1,2000,2000,1,1,1,0,2048,0,0,7,0,10982,0,0,0,0,0,0,'',1,1,0.65,1.5,1,1,0,0,1,0,0,'',0);
 
+-- fix min/max levels of mine defenders
+UPDATE `creature_template` SET `minlevel` = 70, `maxlevel` = 70 WHERE `entry` = 22532; -- Champion Coldmine Surveyor (1)
+UPDATE `creature_template` SET `minlevel` = 66, `maxlevel` = 67 WHERE `entry` = 22754; -- Seasoned Coldmine Surveyor (1)
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` = 31930; -- Champion Coldmine Surveyor (2)
+UPDATE `creature_template` SET `minlevel` = 76, `maxlevel` = 77 WHERE `entry` = 32060; -- Seasoned Coldmine Surveyor (2)
+UPDATE `creature_template` SET `minlevel` = 70, `maxlevel` = 70 WHERE `entry` = 22530; -- Champion Coldmine Guard (1)
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` = 31928; -- Champion Coldmine Guard (2)
+UPDATE `creature_template` SET `minlevel` = 70, `maxlevel` = 70 WHERE `entry` = 22534; -- Champion Irondeep Explorer (1)
+UPDATE `creature_template` SET `minlevel` = 68, `maxlevel` = 69 WHERE `entry` = 22774; -- Veteran Irondeep Explorer (1)
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` = 31935; -- Champion Irondeep Explorer (2)
+UPDATE `creature_template` SET `minlevel` = 78, `maxlevel` = 79 WHERE `entry` = 32128; -- Veteran Irondeep Explorer (2)
+UPDATE `creature_template` SET `minlevel` = 70, `maxlevel` = 70 WHERE `entry` = 22536; -- Champion Irondeep Raider (1)
+UPDATE `creature_template` SET `minlevel` = 69, `maxlevel` = 69 WHERE `entry` = 22776; -- Veteran Irondeep Raider (1)
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` = 31937; -- Champion Irondeep Raider (2)
+UPDATE `creature_template` SET `minlevel` = 79, `maxlevel` = 79 WHERE `entry` = 32130; -- Veteran Irondeep Raider (2)
+UPDATE `creature_template` SET `minlevel` = 70, `maxlevel` = 70 WHERE `entry` = 22537; -- Champion Irondeep Surveyor (1)
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` = 31938; -- Champion Irondeep Surveyor (2)
+UPDATE `creature_template` SET `minlevel` = 70, `maxlevel` = 70 WHERE `entry` = 22535; -- Champion Irondeep Guard (1)
+UPDATE `creature_template` SET `minlevel` = 80, `maxlevel` = 80 WHERE `entry` = 31936; -- Champion Irondeep Guard (2)
+
 DELETE FROM `creature_template_addon` WHERE `entry` IN 
 (110987, 111600, 111602, 113080, 113081, 113098, 113099, 113396, 113397, 122750, 122747, 122748, 122743, 122746, 122749, 122741, 122744, 122745, 
  132021, 132018, 132019, 132014, 132020, 132012, 132015, 132016, 132017, 132143, 132139, 132140, 131948, 131947, 131946, 131951, 131950, 131949, 
