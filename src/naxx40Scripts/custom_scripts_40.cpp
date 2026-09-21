@@ -1,3 +1,4 @@
+#include "Chat.h"
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
@@ -31,7 +32,20 @@ public:
         Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
         if (diff == RAID_DIFFICULTY_10MAN_HEROIC)
         {
-            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+            // Correct the GROUP's difficulty, not just the player's -- the instance is
+            // created from the group's difficulty, which the player-only Set below never
+            // touched, so a grouped player on Heroic (the common case with bots) landed in
+            // Naxx40 every time and never self-corrected. Also return here without
+            // teleporting on this pass, so the corrected difficulty is in effect the next
+            // time this trigger fires, instead of one trip too late.
+            if (Group* group = player->GetGroup())
+                group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+            else
+                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+
+            ChatHandler(player->GetSession()).PSendSysMessage(
+                "Naxxramas has no Heroic mode. Raid difficulty set to 10 Player Normal - please enter again.");
+            return true;
         }
         switch (areaTrigger->entry)
         {
