@@ -26,13 +26,15 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* areaTrigger) override
     {
+        Group* group = player->GetGroup();
+
         // Do not allow entrance to Naxx 40 from Northrend
-        // Change 10 man heroic to regular 10 man, as when 10 man heroic is not available
-        Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
-        if (diff == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
+        if (group && group->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
+            group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+
+        if (player->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
             player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
-        }
+        
         switch (areaTrigger->entry)
         {
             // Naxx 10 and 25 entrances
