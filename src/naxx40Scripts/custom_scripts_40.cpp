@@ -1,4 +1,3 @@
-#include "Chat.h"
 #include "Player.h"
 #include "ScriptMgr.h"
 #include "ScriptedCreature.h"
@@ -27,26 +26,15 @@ public:
 
     bool OnTrigger(Player* player, AreaTrigger const* areaTrigger) override
     {
-        // Do not allow entrance to Naxx 40 from Northrend
-        // Change 10 man heroic to regular 10 man, as when 10 man heroic is not available
-        Difficulty diff = player->GetGroup() ? player->GetGroup()->GetDifficulty(true) : player->GetDifficulty(true);
-        if (diff == RAID_DIFFICULTY_10MAN_HEROIC)
-        {
-            // Correct the GROUP's difficulty, not just the player's -- the instance is
-            // created from the group's difficulty, which the player-only Set below never
-            // touched, so a grouped player on Heroic (the common case with bots) landed in
-            // Naxx40 every time and never self-corrected. Also return here without
-            // teleporting on this pass, so the corrected difficulty is in effect the next
-            // time this trigger fires, instead of one trip too late.
-            if (Group* group = player->GetGroup())
-                group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
-            else
-                player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+        Group* group = player->GetGroup();
 
-            ChatHandler(player->GetSession()).PSendSysMessage(
-                "Naxxramas has no Heroic mode. Raid difficulty set to 10 Player Normal - please enter again.");
-            return true;
-        }
+        // Do not allow entrance to Naxx 40 from Northrend
+        if (group && group->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
+            group->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+
+        if (player->GetDifficulty(true) == RAID_DIFFICULTY_10MAN_HEROIC)
+            player->SetRaidDifficulty(RAID_DIFFICULTY_10MAN_NORMAL);
+        
         switch (areaTrigger->entry)
         {
             // Naxx 10 and 25 entrances
