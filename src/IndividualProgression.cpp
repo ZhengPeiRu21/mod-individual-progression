@@ -317,12 +317,17 @@ void IndividualProgression::UpdateGroupAttunement(Player* player, std::string lo
     }
 }
 
-void IndividualProgression::RemovePlayerAchievement(uint16 playerGUID, uint16 achievementId)
+// Drops the stored achievement row only. AchievementMgr keeps completed achievements in memory for
+// the rest of the session and never re-saves an entry it has not marked changed, so the removal is
+// invisible until the player relogs. Never use this for anything the core re-grants on its own -
+// the rank achievements are re-earned from ACHIEVEMENT_CRITERIA_TYPE_OWN_RANK the moment the
+// matching title is known again, which would announce the achievement to the whole server.
+void IndividualProgression::RemovePlayerAchievement(ObjectGuid::LowType playerGUID, uint32 achievementId)
 {
 	if (!playerGUID || !achievementId)
         return;
 
-    CharacterDatabase.Query("DELETE FROM `character_achievement` WHERE `guid` = {} AND `achievement` = {}", playerGUID, achievementId);
+    CharacterDatabase.Execute("DELETE FROM `character_achievement` WHERE `guid` = {} AND `achievement` = {}", playerGUID, achievementId);
 }
 
 void IndividualProgression::LoadCustomProgressionEntries(std::string const& customProgressionString)
@@ -861,102 +866,87 @@ void IndividualProgression::UpdateProgressionAchievements(Player* player, uint16
     player->CompletedAchievement(entry);
 }
 
+uint32 IndividualProgression::GetVanillaPvpKillRequirement(uint8 rank) const
+{
+    uint32 const killRequirements[IPP_PVP_RANK_COUNT] =
+    {
+        VanillaPvpKillRank1,  VanillaPvpKillRank2,  VanillaPvpKillRank3,  VanillaPvpKillRank4,
+        VanillaPvpKillRank5,  VanillaPvpKillRank6,  VanillaPvpKillRank7,  VanillaPvpKillRank8,
+        VanillaPvpKillRank9,  VanillaPvpKillRank10, VanillaPvpKillRank11, VanillaPvpKillRank12,
+        VanillaPvpKillRank13, VanillaPvpKillRank14
+    };
+
+    return rank < IPP_PVP_RANK_COUNT ? killRequirements[rank] : 0;
+}
+
+// Highest rank the player's lifetime honorable kills entitle them to, or -1 for no rank at all.
+int8 IndividualProgression::GetEarnedVanillaPvpRank(Player* player) const
+{
+    if (!player || !player->IsInWorld())
+        return -1;
+
+    uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+
+    for (int8 rank = int8(IPP_PVP_RANK_COUNT) - 1; rank >= 0; --rank)
+        if (kills >= GetVanillaPvpKillRequirement(rank))
+            return rank;
+
+    return -1;
+}
+
+// Highest rank the hidden rank quests say the player has actually been granted, or -1 for none.
+int8 IndividualProgression::GetRecordedVanillaPvpRank(Player* player) const
+{
+    if (!player || !player->IsInWorld())
+        return -1;
+
+    for (int8 rank = int8(IPP_PVP_RANK_COUNT) - 1; rank >= 0; --rank)
+        if (player->GetQuestStatus(IPP_PVP_QUEST_BASE + rank + 1) == QUEST_STATUS_REWARDED)
+            return rank;
+
+    return -1;
+}
+
+// Removes the rank titles the player is not entitled to. Every rank they have actually reached
+// stays known and selectable - only the ranks above the current one are taken away. Keeping the
+// lower titles is also what keeps their achievements stable, since the core credits those from
+// ACHIEVEMENT_CRITERIA_TYPE_OWN_RANK and only while the matching title is known.
 void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
 {
     if (!player || !player->IsInWorld())
         return;
 
     TeamId teamId = player->GetTeamId(true);
-    uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
-    uint16 playerGUID = player->GetGUID().GetCounter();
-    const uint32 PVP_QUEST = 66100;
+    if (teamId != TEAM_ALLIANCE && teamId != TEAM_HORDE)
+        return;
 
-    IppPvPTitles const pvpTitlesList[14] =
-    {
-        { sIndividualProgression->VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
-        { sIndividualProgression->VanillaPvpKillRank2,  TitleData[RANK_TWO].TitleId[teamId]      },
-        { sIndividualProgression->VanillaPvpKillRank3,  TitleData[RANK_THREE].TitleId[teamId]    },
-        { sIndividualProgression->VanillaPvpKillRank4,  TitleData[RANK_FOUR].TitleId[teamId]     },
-        { sIndividualProgression->VanillaPvpKillRank5,  TitleData[RANK_FIVE].TitleId[teamId]     },
-        { sIndividualProgression->VanillaPvpKillRank6,  TitleData[RANK_SIX].TitleId[teamId]      },
-        { sIndividualProgression->VanillaPvpKillRank7,  TitleData[RANK_SEVEN].TitleId[teamId]    },
-        { sIndividualProgression->VanillaPvpKillRank8,  TitleData[RANK_EIGHT].TitleId[teamId]    },
-        { sIndividualProgression->VanillaPvpKillRank9,  TitleData[RANK_NINE].TitleId[teamId]     },
-        { sIndividualProgression->VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId]      },
-        { sIndividualProgression->VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId]   },
-        { sIndividualProgression->VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId]   },
-        { sIndividualProgression->VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
-        { sIndividualProgression->VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
-    };
+    // Ranks are given up entirely once the player leaves Vanilla, unless configured to persist.
+    bool dropAllRanks = !VanillaPvpTitlesKeepPostVanilla && hasPassedProgression(player, PROGRESSION_PRE_TBC);
 
-    if (!sIndividualProgression->VanillaPvpTitlesKeepPostVanilla && sIndividualProgression->hasPassedProgression(player, PROGRESSION_PRE_TBC))
+    // What the player was actually granted, capped by what their kills still entitle them to so
+    // that raising the configured requirements takes ranks back off them. Characters from before
+    // the rank quests existed have no record at all, so fall back to their kills for those.
+    int8 recordedRank = GetRecordedVanillaPvpRank(player);
+    int8 entitledRank = GetEarnedVanillaPvpRank(player);
+    int8 heldRank = (recordedRank < 0 || recordedRank > entitledRank) ? entitledRank : recordedRank;
+
+    int8 earnedRank = dropAllRanks ? -1 : heldRank;
+
+    for (int8 rank = earnedRank + 1; rank < int8(IPP_PVP_RANK_COUNT); ++rank)
     {
-        for (IppPvPTitles title : pvpTitlesList)
-        {
-            if (player->HasTitle(title.TitleId))
-                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
-        }
-    }
-    else
-    {
-        for (IppPvPTitles title : pvpTitlesList)
-        {
-            if (kills < title.RequiredKills && player->HasTitle(title.TitleId))
-                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId), true);
-        }
+        CharTitlesEntry const* titleEntry = sCharTitlesStore.LookupEntry(TitleData[rank].TitleId[teamId]);
+
+        if (titleEntry && player->HasTitle(titleEntry))
+            player->SetTitle(titleEntry, true);
     }
 
-	int8_t highestRank = -1;
-
-	for (int8_t i = 13; i > -1; --i)
-	{
-		if (kills >= pvpTitlesList[i].RequiredKills)
-		{
-			highestRank = i;
-			break;
-		}
-	}
-
-	for (int8_t i = 13; i > -1; --i)
+    // Keep the hidden rank quests in step with the ranks the player still holds.
+    for (int8 rank = int8(IPP_PVP_RANK_COUNT) - 1; rank > earnedRank; --rank)
     {
-		uint32_t achievementId = AchievementData[i].TitleId[teamId];
-
-		if (highestRank == i || !player->HasAchieved(achievementId))
-			continue;
-
-		RemovePlayerAchievement(playerGUID, achievementId);
-    }
-
-	// remove all hidden pvp quests
-    for (uint8 i = 1; i <= 14; ++i)
-    {
-        uint32 questId = PVP_QUEST + i;
+        uint32 questId = IPP_PVP_QUEST_BASE + rank + 1;
 
         if (player->GetQuestStatus(questId) == QUEST_STATUS_REWARDED)
             player->RemoveRewardedQuest(questId);
-    }
-
-    uint8 i = 1;
-
-    // add hidden pvp quests
-    for (IppPvPTitles title : pvpTitlesList)
-    {
-        if (player->HasTitle(title.TitleId))
-        {
-		    for (uint8 j = 1; j <= i; ++j)
-            {
-                uint32 questId = PVP_QUEST + j;
-                Quest const* quest = sObjectMgr->GetQuestTemplate(questId);
-
-                if (quest)
-                {
-                    player->AddQuest(quest, nullptr);
-                    player->CompleteQuest(questId);
-                    player->RewardQuest(quest, 0, player, false, false);
-                }
-            }
-        }
-		++i;
     }
 }
 
@@ -965,66 +955,65 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
     if (!player || !player->IsInWorld())
         return;
 
-    if (isBeforeProgression(player, PROGRESSION_PRE_TBC) || VanillaPvpTitlesKeepPostVanilla)
+    // New ranks stop being earned at the Dark Portal unless the config extends it past Vanilla.
+    if (!isBeforeProgression(player, PROGRESSION_PRE_TBC) && !VanillaPvpTitlesEarnPostVanilla)
+        return;
+
+    TeamId teamId = player->GetTeamId(true);
+    if (teamId != TEAM_ALLIANCE && teamId != TEAM_HORDE)
+        return;
+
+    int8 earnedRank = GetEarnedVanillaPvpRank(player);
+    if (earnedRank < 0)
+        return;
+
+    CharTitlesEntry const* highestTitle = sCharTitlesStore.LookupEntry(TitleData[earnedRank].TitleId[teamId]);
+    if (!highestTitle)
+        return;
+
+    // Hand out every rank the player has reached, and record it in the hidden quest so the
+    // `conditions` table can gate ranked gear on it. SetTitle does nothing when the title is
+    // already known, so this settles after the first pass instead of churning on every zone change.
+    for (int8 rank = 0; rank <= earnedRank; ++rank)
     {
-        TeamId teamId = player->GetTeamId(true);
-        uint32 kills = player->GetUInt32Value(PLAYER_FIELD_LIFETIME_HONORABLE_KILLS);
+        if (CharTitlesEntry const* titleEntry = sCharTitlesStore.LookupEntry(TitleData[rank].TitleId[teamId]))
+            player->SetTitle(titleEntry);
 
-        IppPvPTitles const pvpTitlesList[14] =
+        uint32 questId = IPP_PVP_QUEST_BASE + rank + 1;
+
+        if (player->GetQuestStatus(questId) != QUEST_STATUS_REWARDED)
         {
-            { VanillaPvpKillRank14, TitleData[RANK_FOURTEEN].TitleId[teamId] },
-            { VanillaPvpKillRank13, TitleData[RANK_THIRTEEN].TitleId[teamId] },
-            { VanillaPvpKillRank12, TitleData[RANK_TWELVE].TitleId[teamId]   },
-            { VanillaPvpKillRank11, TitleData[RANK_ELEVEN].TitleId[teamId]   },
-            { VanillaPvpKillRank10, TitleData[RANK_TEN].TitleId[teamId]      },
-            { VanillaPvpKillRank9,  TitleData[RANK_NINE].TitleId[teamId]     },
-            { VanillaPvpKillRank8,  TitleData[RANK_EIGHT].TitleId[teamId]    },
-            { VanillaPvpKillRank7,  TitleData[RANK_SEVEN].TitleId[teamId]    },
-            { VanillaPvpKillRank6,  TitleData[RANK_SIX].TitleId[teamId]      },
-            { VanillaPvpKillRank5,  TitleData[RANK_FIVE].TitleId[teamId]     },
-            { VanillaPvpKillRank4,  TitleData[RANK_FOUR].TitleId[teamId]     },
-            { VanillaPvpKillRank3,  TitleData[RANK_THREE].TitleId[teamId]    },
-            { VanillaPvpKillRank2,  TitleData[RANK_TWO].TitleId[teamId]      },
-            { VanillaPvpKillRank1,  TitleData[RANK_ONE].TitleId[teamId]      },
-		};
-
-        int highestTitle = -1;
-
-        // add highest title
-        for (IppPvPTitles title : pvpTitlesList)
-        {
-            if (kills >= title.RequiredKills)
+            if (Quest const* quest = sObjectMgr->GetQuestTemplate(questId))
             {
-                player->SetTitle(sCharTitlesStore.LookupEntry(title.TitleId));
-                highestTitle = title.TitleId;
-					
-                constexpr int ALLIANCE_PVP_RANK_OFFSET = 4; // rank 1-4 are not used, need to add 4 to align with rank 1 = title ID 5
-                constexpr int HORDE_PVP_RANK_OFFSET = 10;  // horde titles start at ID 15, need to subtract 10 to align with rank 1 = title ID 5
-
-                if (teamId == TEAM_ALLIANCE)
-                    player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId + ALLIANCE_PVP_RANK_OFFSET);
-                else // teamId == TEAM_HORDE
-                    player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, title.TitleId - HORDE_PVP_RANK_OFFSET);
-							
-                break;
+                player->AddQuest(quest, nullptr);
+                player->CompleteQuest(questId);
+                player->RewardQuest(quest, 0, player, false, false);
             }
         }
-
-        const uint32_t chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
-        const bool usesPvPTitle = ((chosenTitleId != 0 && chosenTitleId < 29) || isBotAccount(player)); // PvP Titles go from 1 to 28.
-
-        // remove all titles except highest
-        for (IppPvPTitles title : pvpTitlesList)
-        {
-            const int titleId = title.TitleId;
-
-            if (highestTitle != titleId)
-                player->SetTitle(sCharTitlesStore.LookupEntry(titleId), true);
-        }
-
-        if (highestTitle != -1 && usesPvPTitle)
-            player->SetCurrentTitle(sCharTitlesStore.LookupEntry(highestTitle));
     }
+
+    // The core credits each rank achievement from ACHIEVEMENT_CRITERIA_TYPE_OWN_RANK, but only
+    // fires that when a title actually changes. Ask for it directly so a player whose titles are
+    // all in place, yet lost achievements to the old cleanup code, gets them credited back.
+    player->UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_OWN_RANK);
+
+    constexpr uint32 ALLIANCE_PVP_RANK_OFFSET = 4; // rank 1-4 are not used, need to add 4 to align with rank 1 = title ID 5
+    constexpr uint32 HORDE_PVP_RANK_OFFSET = 10;   // horde titles start at ID 15, need to subtract 10 to align with rank 1 = title ID 5
+
+    uint32 lifetimeRank = teamId == TEAM_ALLIANCE
+        ? highestTitle->ID + ALLIANCE_PVP_RANK_OFFSET
+        : highestTitle->ID - HORDE_PVP_RANK_OFFSET;
+
+    player->SetByteValue(PLAYER_FIELD_BYTES, PLAYER_FIELD_BYTES_OFFSET_LIFETIME_MAX_PVP_RANK, uint8(lifetimeRank));
+
+    uint32 chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
+    bool chosenIsPvpRank = chosenTitleId != 0 && chosenTitleId < 29; // PvP Titles go from 1 to 28.
+
+    // Every rank the player reached stays selectable, so a deliberate choice of a lower one has to
+    // stick. Only move them back to their highest rank when the title they had picked is a rank
+    // they no longer hold. Bots never pick for themselves, so they always show their current rank.
+    if (isBotAccount(player) || (chosenIsPvpRank && !player->HasTitle(chosenTitleId)))
+        player->SetCurrentTitle(highestTitle);
 }
 
 class IndividualPlayerProgression_WorldScript : public WorldScript

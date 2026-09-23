@@ -53,7 +53,7 @@ public:
             { 17, HALION_KILL       }, // 4815
         };
 
-        uint16 playerGUID = target->GetGUID().GetCounter();
+        ObjectGuid::LowType playerGUID = target->GetGUID().GetCounter();
 
         for (auto const& [progressionId, achievementId] : bossMap)
         {
