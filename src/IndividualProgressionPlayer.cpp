@@ -581,8 +581,13 @@ public:
 
     bool OnPlayerBeforeTeleport(Player* player, uint32 mapid, float x, float y, float z, float /*orientation*/, uint32 /*options*/, Unit* /*target*/) override
     {
-        if (!player || !player->IsInWorld())
+        if (!player)
             return false;
+
+        // Not in world means between maps. The core only teleports such a player as a fallback (homebind
+        // after a failed worldport ack), and refusing it strands the player on no map for the session.
+        if (!player->IsInWorld())
+            return true;
 
         if (!sIndividualProgression->enabled || player->IsGameMaster() || !sIndividualProgression->isNormalAccount(player))
             return true;
