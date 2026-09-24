@@ -1159,35 +1159,6 @@ public:
                     return;
             }
    
-            if (killed->GetEntry() == COLOSSUS_ZORA || killed->GetEntry() == COLOSSUS_REGAL || killed->GetEntry() == COLOSSUS_ASHI)
-            {
-                // no group
-                if (killed->GetEntry() == COLOSSUS_ZORA)
-                    killer->CompleteQuest(QUEST_COLOSSUS_ZORA);
-                else if (killed->GetEntry() == COLOSSUS_REGAL)
-                    killer->CompleteQuest(QUEST_COLOSSUS_REGAL);
-                else if (killed->GetEntry() == COLOSSUS_ASHI)
-                    killer->CompleteQuest(QUEST_COLOSSUS_ASHI);    
-               
-                if (group)
-                {
-                    for (GroupReference* itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
-                    {
-                        Player* member = itr->GetSource();
-                        if (!member || !sIndividualProgression->isNormalAccount(member))
-                            continue;
-
-                        if (killed->GetEntry() == COLOSSUS_ZORA)
-                            member->CompleteQuest(QUEST_COLOSSUS_ZORA);
-                        else if (killed->GetEntry() == COLOSSUS_REGAL)
-                            member->CompleteQuest(QUEST_COLOSSUS_REGAL);
-                        else if (killed->GetEntry() == COLOSSUS_ASHI)
-                            member->CompleteQuest(QUEST_COLOSSUS_ASHI);
-                    }
-                }
-                return;
-            }
-
             uint32 ENTRY_KILLED = killed->GetEntry();
 
             if (group)
