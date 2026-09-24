@@ -584,8 +584,7 @@ public:
         if (!player)
             return false;
 
-        // Not in world means between maps. The core only teleports such a player as a fallback (homebind
-        // after a failed worldport ack), and refusing it strands the player on no map for the session.
+        // Not in world means between maps. The core only teleports such a player as a fallback (homebind after a failed worldport ack), and refusing it strands the player on no map for the session.
         if (!player->IsInWorld())
             return true;
 
