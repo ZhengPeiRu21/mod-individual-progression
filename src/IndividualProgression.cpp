@@ -907,10 +907,10 @@ int8 IndividualProgression::GetRecordedVanillaPvpRank(Player* player) const
     return -1;
 }
 
-// Removes the rank titles the player is not entitled to. Every rank they have actually reached
-// stays known and selectable - only the ranks above the current one are taken away. Keeping the
-// lower titles is also what keeps their achievements stable, since the core credits those from
-// ACHIEVEMENT_CRITERIA_TYPE_OWN_RANK and only while the matching title is known.
+// Removes the rank titles the player is not entitled to, leaving the one rank they currently hold.
+// AwardEarnedVanillaPvpTitles runs first and asks the core to credit the rank achievements while
+// the titles are known, so taking the lower ones back here costs the player nothing: a completed
+// achievement is never revoked. Keep that order if this is ever called from somewhere else.
 void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
 {
     if (!player || !player->IsInWorld())
@@ -932,8 +932,15 @@ void IndividualProgression::CleanUpVanillaPvpTitles(Player* player)
 
     int8 earnedRank = dropAllRanks ? -1 : heldRank;
 
-    for (int8 rank = earnedRank + 1; rank < int8(IPP_PVP_RANK_COUNT); ++rank)
+    // Vanilla gave a player the title of their current rank and nothing else, which matters because
+    // killing a high ranked player paid more honor and a Grand Marshal had no way to hide behind a
+    // Private title. Ranks below the current one are taken away unless the server opts out with
+    // VanillaPvpKeepAllEarnedTitles, and ranks above it always go.
+    for (int8 rank = 0; rank < int8(IPP_PVP_RANK_COUNT); ++rank)
     {
+        if (rank == earnedRank || (VanillaPvpKeepAllEarnedTitles && rank < earnedRank))
+            continue;
+
         CharTitlesEntry const* titleEntry = sCharTitlesStore.LookupEntry(TitleData[rank].TitleId[teamId]);
 
         if (titleEntry && player->HasTitle(titleEntry))
@@ -971,13 +978,24 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
     if (!highestTitle)
         return;
 
-    // Hand out every rank the player has reached, and record it in the hidden quest so the
-    // `conditions` table can gate ranked gear on it. SetTitle does nothing when the title is
-    // already known, so this settles after the first pass instead of churning on every zone change.
+    // Record every rank the player has reached in its hidden quest so the `conditions` table can
+    // gate ranked gear on it. SetTitle does nothing when the title is already known, so this
+    // settles after the first pass instead of churning on every zone change.
     for (int8 rank = 0; rank <= earnedRank; ++rank)
     {
-        if (CharTitlesEntry const* titleEntry = sCharTitlesStore.LookupEntry(TitleData[rank].TitleId[teamId]))
-            player->SetTitle(titleEntry);
+        // Vanilla showed the current rank and nothing else, so that is the only title handed out
+        // unless the server keeps all of them. A lower rank whose achievement is missing is still
+        // granted for this pass, because ACHIEVEMENT_CRITERIA_TYPE_OWN_RANK is credited off a known
+        // title. CleanUpVanillaPvpTitles takes it back straight after, and once the achievement is
+        // there the grant stops happening.
+        bool grantTitle = VanillaPvpKeepAllEarnedTitles || rank == earnedRank
+            || !player->HasAchieved(AchievementData[rank].AchievementId[teamId]);
+
+        if (grantTitle)
+        {
+            if (CharTitlesEntry const* titleEntry = sCharTitlesStore.LookupEntry(TitleData[rank].TitleId[teamId]))
+                player->SetTitle(titleEntry);
+        }
 
         uint32 questId = IPP_PVP_QUEST_BASE + rank + 1;
 
@@ -993,8 +1011,8 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
     }
 
     // The core credits each rank achievement from ACHIEVEMENT_CRITERIA_TYPE_OWN_RANK, but only
-    // fires that when a title actually changes. Ask for it directly so a player whose titles are
-    // all in place, yet lost achievements to the old cleanup code, gets them credited back.
+    // fires that when a title actually changes. Ask for it directly so a player whose title is
+    // already in place, yet lost the achievement to the old cleanup code, gets it credited back.
     player->UpdateAchievementCriteria(ACHIEVEMENT_CRITERIA_TYPE_OWN_RANK);
 
     constexpr uint32 ALLIANCE_PVP_RANK_OFFSET = 4; // rank 1-4 are not used, need to add 4 to align with rank 1 = title ID 5
@@ -1009,10 +1027,12 @@ void IndividualProgression::AwardEarnedVanillaPvpTitles(Player* player)
     uint32 chosenTitleId = player->GetUInt32Value(PLAYER_CHOSEN_TITLE);
     bool chosenIsPvpRank = chosenTitleId != 0 && chosenTitleId < 29; // PvP Titles go from 1 to 28.
 
-    // Every rank the player reached stays selectable, so a deliberate choice of a lower one has to
-    // stick. Only move them back to their highest rank when the title they had picked is a rank
-    // they no longer hold. Bots never pick for themselves, so they always show their current rank.
-    if (isBotAccount(player) || (chosenIsPvpRank && !player->HasTitle(chosenTitleId)))
+    // A player showing a rank title is moved to their current rank, since that is the only rank
+    // title they keep. With VanillaPvpKeepAllEarnedTitles on, a lower rank they picked themselves
+    // has to stick, and they are only moved when the rank they had picked is one they no longer
+    // hold. Bots never pick for themselves, so they always show their current rank. A non-PvP title
+    // is left alone either way.
+    if (isBotAccount(player) || (chosenIsPvpRank && (!VanillaPvpKeepAllEarnedTitles || !player->HasTitle(chosenTitleId))))
         player->SetCurrentTitle(highestTitle);
 }
 
@@ -1068,6 +1088,7 @@ private:
         sIndividualProgression->VanillaPvpKillRank14 = sConfigMgr->GetOption<uint32>("IndividualProgression.VanillaPvpKillRequirement.Rank14", 24000);
         sIndividualProgression->VanillaPvpTitlesKeepPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpTitlesPersistAfterVanilla", true);
         sIndividualProgression->VanillaPvpTitlesEarnPostVanilla = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpEarnTitlesAfterVanilla", false);
+        sIndividualProgression->VanillaPvpKeepAllEarnedTitles = sConfigMgr->GetOption<bool>("IndividualProgression.VanillaPvpKeepAllEarnedTitles", false);
         sIndividualProgression->BotAccountsEarnPvPTitles = sConfigMgr->GetOption<bool>("IndividualProgression.BotAccountsEarnPvPTitles", false);
         sIndividualProgression->DisableRDF = sConfigMgr->GetOption<bool>("IndividualProgression.DisableRDF", false);
         sIndividualProgression->DisableQuestMarkers = sConfigMgr->GetOption<bool>("IndividualProgression.DisableQuestMarkers", true);

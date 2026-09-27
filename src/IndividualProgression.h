@@ -268,6 +268,11 @@ struct IppPvPTitleData
     uint32 TitleId[2];
 };
 
+struct IppPvPAchievementData
+{
+    uint32 AchievementId[2];
+};
+
 enum IppRanks
 {                             //    A                           H
     RANK_ONE            = 0,  // Private                 &    Scout
@@ -381,6 +386,25 @@ IppPvPTitleData const TitleData[IPP_PVP_RANK_COUNT] =
     { GRAND_MARSHAL,        HIGH_WARLORD       }
 };
 
+// The achievement each rank grants, used to spot the ones a character is missing.
+IppPvPAchievementData const AchievementData[IPP_PVP_RANK_COUNT] =
+{
+    { ACHIEVEMENT_PRIVATE,              ACHIEVEMENT_SCOUT              },
+    { ACHIEVEMENT_CORPORAL,             ACHIEVEMENT_GRUNT              },
+    { ACHIEVEMENT_SERGEANT,             ACHIEVEMENT_SERGEANT_H         },
+    { ACHIEVEMENT_MASTER_SERGEANT,      ACHIEVEMENT_SENIOR_SERGEANT    },
+    { ACHIEVEMENT_SERGEANT_MAJOR,       ACHIEVEMENT_FIRST_SERGEANT     },
+    { ACHIEVEMENT_KNIGHT,               ACHIEVEMENT_STONE_GUARD        },
+    { ACHIEVEMENT_KNIGHT_LIEUTENANT,    ACHIEVEMENT_BLOOD_GUARD        },
+    { ACHIEVEMENT_KNIGHT_CAPTAIN,       ACHIEVEMENT_LEGIONNAIRE        },
+    { ACHIEVEMENT_KNIGHT_CHAMPION,      ACHIEVEMENT_CENTURION          },
+    { ACHIEVEMENT_LIEUTENANT_COMMANDER, ACHIEVEMENT_CHAMPION           },
+    { ACHIEVEMENT_COMMANDER,            ACHIEVEMENT_LIEUTENANT_GENERAL },
+    { ACHIEVEMENT_MARSHAL,              ACHIEVEMENT_GENERAL            },
+    { ACHIEVEMENT_FIELD_MARSHAL,        ACHIEVEMENT_WARLORD            },
+    { ACHIEVEMENT_GRAND_MARSHAL,        ACHIEVEMENT_HIGH_WARLORD       }
+};
+
 class IndividualProgression
 {
 public:
@@ -389,7 +413,7 @@ public:
     std::map<uint32, uint8> customProgressionMap;
     questXpMapType questXpMap;
     float vanillaPowerAdjustment, tbcPowerAdjustment, vanillaHealingAdjustment, tbcHealingAdjustment;
-    bool enabled, questXpFix, enforceGroupRules, EnableSetRepCommand, EnableAllSpellRanks, LimitedSetRepCommand, fishingFix, simpleConfigOverride, MaxMonsterSight, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, earlyScourgeBosses, requireNaxxStrath, doableNaxx40Bosses_4H, doableNaxx40Bosses_Gluth, doableNaxx40Bosses_Patchwerk, doableNaxx40Bosses_Razuvious, DisableQuestMarkers, DisableRDF, VanillaPvpTitlesKeepPostVanilla, VanillaPvpTitlesEarnPostVanilla, BotAccountsEarnPvPTitles, BotOnlyAdjustments;
+    bool enabled, questXpFix, enforceGroupRules, EnableSetRepCommand, EnableAllSpellRanks, LimitedSetRepCommand, fishingFix, simpleConfigOverride, MaxMonsterSight, questMoneyAtLevelCap, repeatableVanillaQuestsXp, disableDefaultProgression, earlyDungeonSet2, earlyScourgeBosses, requireNaxxStrath, doableNaxx40Bosses_4H, doableNaxx40Bosses_Gluth, doableNaxx40Bosses_Patchwerk, doableNaxx40Bosses_Razuvious, DisableQuestMarkers, DisableRDF, VanillaPvpTitlesKeepPostVanilla, VanillaPvpTitlesEarnPostVanilla, VanillaPvpKeepAllEarnedTitles, BotAccountsEarnPvPTitles, BotOnlyAdjustments;
     int progressionLimit, startingProgression, tbcRacesProgressionLevel, tbcRacesStartingProgression, deathKnightProgressionLevel, deathKnightStartingProgression, RequiredZulGurubProgression, RequiredZulAmanProgression, tbcArenaSeason, wotlkArenaSeason, BotAccountsMaxLevel;
     uint32 VanillaPvpKillRank1, VanillaPvpKillRank2, VanillaPvpKillRank3, VanillaPvpKillRank4, VanillaPvpKillRank5, VanillaPvpKillRank6, VanillaPvpKillRank7, VanillaPvpKillRank8, VanillaPvpKillRank9, VanillaPvpKillRank10, VanillaPvpKillRank11, VanillaPvpKillRank12, VanillaPvpKillRank13, VanillaPvpKillRank14;
     std::string excludedAccountsRegex, botAccountsRegex, sharedFactionIdsRegex;
