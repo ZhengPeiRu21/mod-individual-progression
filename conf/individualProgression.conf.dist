@@ -422,6 +422,19 @@ IndividualProgression.VanillaPvpTitlesPersistAfterVanilla = 1
 #
 IndividualProgression.VanillaPvpEarnTitlesAfterVanilla = 0
 
+# IndividualProgression.VanillaPvpKeepAllEarnedTitles
+#
+#        Description: Players keep every Vanilla PvP rank title they have earned and can pick any of
+#                     them, instead of only holding the title of their current rank.
+#                     In Vanilla you only ever had the one title of your current rank. Killing a
+#                     higher ranked player paid more honor, so letting a Grand Marshal display a
+#                     Private title would misrepresent them.
+#
+#        Default:     0 - Disabled (Default, Blizzlike)
+#                     1 - Enabled
+#
+IndividualProgression.VanillaPvpKeepAllEarnedTitles = 0
+
 # IndividualProgression.BotAccountsEarnPvPTitles
 #
 #        Description: Enable / Disable bot accounts earning pvp titles.
