@@ -242,11 +242,7 @@ INSERT INTO `creature_immunities` (`ID`,`SchoolMask`,`DispelTypeMask`,`Mechanics
 (-10230,124,0,2013534244,'','',0,0,'IP vanilla: school=0x7C(FIRE|NATURE|FROST|SHADOW|ARCANE), legacy mech=0x3C020C12(DISORIENTED|FEAR|SNARE|STUN|BANISH|DAZE|DISCOVERY|IMMUNE_SHIELD|SAPPED)'),
 (-10231,124,0,2031386622,'','',0,0,'IP vanilla: school=0x7C(FIRE|NATURE|FROST|SHADOW|ARCANE), legacy mech=0x3C8A3FFF(CHARM|DISORIENTED|DISARM|DISTRACT|FEAR|GRIP|ROOT|SLOW_ATTACK|SILENCE|SLEEP|SNARE|STUN|FREEZE|KNOCKOUT|BANISH|SHACKLE|HORROR|DAZE|DISCOVERY|IMMUNE_SHIELD|SAPPED)'),
 (-10232,127,0,2147483646,'','',0,0,'IP vanilla: school=0x7F(NORMAL|HOLY|FIRE|NATURE|FROST|SHADOW|ARCANE), legacy mech=0x3FFFFFFF(CHARM|DISORIENTED|DISARM|DISTRACT|FEAR|GRIP|ROOT|SLOW_ATTACK|SILENCE|SLEEP|SNARE|STUN|FREEZE|KNOCKOUT|BLEED|BANDAGE|POLYMORPH|BANISH|SHIELD|SHACKLE|MOUNT|INFECTED|TURN|HORROR|INVULNERABILITY|INTERRUPT|DAZE|DISCOVERY|IMMUNE_SHIELD|SAPPED)'),
--- Emperor Vek'lor: the vanilla mechanic set (-280) plus the physical-school and taunt immunity the core
--- gives him; assigning -280 alone dropped both, so melee and taunts worked on the caster twin. Mirror of
--- Vek'nilash's -282 (magic-school immune, same mechanics, no taunt).
 (-10233,1,0,1234599614,'114','11',0,0,'IP vanilla: school=0x1(NORMAL), legacy mech=0x24CB3F5F(CHARM|DISORIENTED|DISARM|DISTRACT|FEAR|ROOT|SILENCE|SLEEP|SNARE|STUN|FREEZE|KNOCKOUT|POLYMORPH|BANISH|SHACKLE|TURN|HORROR|DAZE|SAPPED), flags=NO_TAUNT, effects=114(ATTACK_ME), auras=11(BIND)');
-
 
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -68 WHERE `entry` IN
 (764,765,832,1039,1040,1041,1081,1244,1812,1813,1851,1955,1956,1964,2022,2027,2029,2030,2156,2157,2166,2258,2551,2592,2723,2749,2751,2752,2761,2762,2776,2794,2887,2919,
@@ -321,7 +317,6 @@ UPDATE `creature_template` SET `CreatureImmunitiesId` = -422   WHERE `entry` IN 
 UPDATE `creature_template` SET `CreatureImmunitiesId` = 1998   WHERE `entry` IN (15471,15473);
 
 -- assign new entries
-UPDATE `creature_template` SET `CreatureImmunitiesId` = -10233 WHERE `entry` IN (15276); -- Emperor Vek'lor
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10000 WHERE `entry` IN (5763);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10001 WHERE `entry` IN (16378);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10003 WHERE `entry` IN (12496,12498);
@@ -512,3 +507,4 @@ UPDATE `creature_template` SET `CreatureImmunitiesId` = -10226 WHERE `entry` IN 
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10227 WHERE `entry` IN (10184);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10228 WHERE `entry` IN (8278);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10232 WHERE `entry` IN (15922);
+UPDATE `creature_template` SET `CreatureImmunitiesId` = -10233 WHERE `entry` IN (15276); -- Emperor Vek'lor
