@@ -4,7 +4,7 @@
 -- Replaces the broken vanilla_mechanic_immunity.sql and vanilla_spell_school_immunity.sql
 -- after the AzerothCore 2026_03_22_03 update (creature_immunities table).
 
-DELETE FROM `creature_immunities` WHERE `ID` BETWEEN -10232 AND -10000;
+DELETE FROM `creature_immunities` WHERE `ID` BETWEEN -10233 AND -10000;
 INSERT INTO `creature_immunities` (`ID`,`SchoolMask`,`DispelTypeMask`,`MechanicsMask`,`Effects`,`Auras`,`ImmuneAoE`,`ImmuneChain`,`Comment`) VALUES
 --
 (-10000,0,0,128,   '','',0,0,'IP vanilla: legacy mech=0x40(ROOT)'),
@@ -241,8 +241,8 @@ INSERT INTO `creature_immunities` (`ID`,`SchoolMask`,`DispelTypeMask`,`Mechanics
 (-10229,124,0,2013284388,'','',0,0,'IP vanilla: school=0x7C(FIRE|NATURE|FROST|SHADOW|ARCANE), legacy mech=0x3C002412(DISORIENTED|FEAR|SNARE|KNOCKOUT|DAZE|DISCOVERY|IMMUNE_SHIELD|SAPPED)'),
 (-10230,124,0,2013534244,'','',0,0,'IP vanilla: school=0x7C(FIRE|NATURE|FROST|SHADOW|ARCANE), legacy mech=0x3C020C12(DISORIENTED|FEAR|SNARE|STUN|BANISH|DAZE|DISCOVERY|IMMUNE_SHIELD|SAPPED)'),
 (-10231,124,0,2031386622,'','',0,0,'IP vanilla: school=0x7C(FIRE|NATURE|FROST|SHADOW|ARCANE), legacy mech=0x3C8A3FFF(CHARM|DISORIENTED|DISARM|DISTRACT|FEAR|GRIP|ROOT|SLOW_ATTACK|SILENCE|SLEEP|SNARE|STUN|FREEZE|KNOCKOUT|BANISH|SHACKLE|HORROR|DAZE|DISCOVERY|IMMUNE_SHIELD|SAPPED)'),
-(-10232,127,0,2147483646,'','',0,0,'IP vanilla: school=0x7F(NORMAL|HOLY|FIRE|NATURE|FROST|SHADOW|ARCANE), legacy mech=0x3FFFFFFF(CHARM|DISORIENTED|DISARM|DISTRACT|FEAR|GRIP|ROOT|SLOW_ATTACK|SILENCE|SLEEP|SNARE|STUN|FREEZE|KNOCKOUT|BLEED|BANDAGE|POLYMORPH|BANISH|SHIELD|SHACKLE|MOUNT|INFECTED|TURN|HORROR|INVULNERABILITY|INTERRUPT|DAZE|DISCOVERY|IMMUNE_SHIELD|SAPPED)');
-
+(-10232,127,0,2147483646,'','',0,0,'IP vanilla: school=0x7F(NORMAL|HOLY|FIRE|NATURE|FROST|SHADOW|ARCANE), legacy mech=0x3FFFFFFF(CHARM|DISORIENTED|DISARM|DISTRACT|FEAR|GRIP|ROOT|SLOW_ATTACK|SILENCE|SLEEP|SNARE|STUN|FREEZE|KNOCKOUT|BLEED|BANDAGE|POLYMORPH|BANISH|SHIELD|SHACKLE|MOUNT|INFECTED|TURN|HORROR|INVULNERABILITY|INTERRUPT|DAZE|DISCOVERY|IMMUNE_SHIELD|SAPPED)'),
+(-10233,1,0,1234599614,'114','11',0,0,'IP vanilla: school=0x1(NORMAL), legacy mech=0x24CB3F5F(CHARM|DISORIENTED|DISARM|DISTRACT|FEAR|ROOT|SILENCE|SLEEP|SNARE|STUN|FREEZE|KNOCKOUT|POLYMORPH|BANISH|SHACKLE|TURN|HORROR|DAZE|SAPPED), flags=NO_TAUNT, effects=114(ATTACK_ME), auras=11(BIND)');
 
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -68 WHERE `entry` IN
 (764,765,832,1039,1040,1041,1081,1244,1812,1813,1851,1955,1956,1964,2022,2027,2029,2030,2156,2157,2166,2258,2551,2592,2723,2749,2751,2752,2761,2762,2776,2794,2887,2919,
@@ -298,7 +298,6 @@ UPDATE `creature_template` SET `CreatureImmunitiesId` = -125   WHERE `entry` IN 
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -229   WHERE `entry` IN (644);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -265   WHERE `entry` IN (11947);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -273   WHERE `entry` IN (2784,3057,3516,4949,4968,7937,7999,10181,10540,15517,15547);
-UPDATE `creature_template` SET `CreatureImmunitiesId` = -280   WHERE `entry` IN (15276);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -281   WHERE `entry` IN (13020);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -288   WHERE `entry` IN (7846,13256,14435,15302);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -297   WHERE `entry` IN (7031);
@@ -508,3 +507,4 @@ UPDATE `creature_template` SET `CreatureImmunitiesId` = -10226 WHERE `entry` IN 
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10227 WHERE `entry` IN (10184);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10228 WHERE `entry` IN (8278);
 UPDATE `creature_template` SET `CreatureImmunitiesId` = -10232 WHERE `entry` IN (15922);
+UPDATE `creature_template` SET `CreatureImmunitiesId` = -10233 WHERE `entry` IN (15276); -- Emperor Vek'lor
