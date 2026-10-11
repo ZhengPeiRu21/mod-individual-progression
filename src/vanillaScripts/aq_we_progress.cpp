@@ -133,6 +133,9 @@ static std::string BuildWarEffortText(WarEffortStatus const& status)
         text += Acore::StringFormat("$B$B{} more signets and our preparations are complete. Every delivery to the collectors "
             "earns you more.", status.signetsNeeded - status.signetsCarried);
 
+    // The commanders also hand out the 'Signets for War Supplies' quests, which take signets.
+    text += "$B$BMind the war supplies I offer: signets you trade to me for them are spent, and no longer count.";
+
     return text;
 }
 
