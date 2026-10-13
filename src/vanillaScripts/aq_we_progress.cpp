@@ -101,8 +101,7 @@ static std::string BuildWarEffortText(WarEffortStatus const& status)
 {
     if (status.done)
     {
-        std::string text = "Your part in the war effort is done, $N: every kind of supply delivered and your signets "
-            "handed in.";
+        std::string text = "Your part in the war effort is done, $N: every kind of supply delivered and your signets handed in.";
 
         if (!status.sentOn)
             text += "$B$BTravel to Silithus and report to Baristolth of the Shifting Sands in Cenarion Hold.";
@@ -112,7 +111,7 @@ static std::string BuildWarEffortText(WarEffortStatus const& status)
 
     std::string text = "Here is where you stand in the war effort, $N.";
 
-    text += Acore::StringFormat("$B$BSupplies: {} of {} kinds delivered.", status.kindsDelivered, status.kinds);
+    text += Acore::StringFormat("$B$BSupplies: {} out of {} delivered.", status.kindsDelivered, status.kinds);
 
     std::string missing;
     for (std::string const& name : status.missing)
@@ -127,15 +126,15 @@ static std::string BuildWarEffortText(WarEffortStatus const& status)
     }
 
     if (!missing.empty())
-        text += Acore::StringFormat("$BStill to deliver: {}.", missing);
+        text += Acore::StringFormat("$B$BStill to deliver:$B{}.", missing);
 
-    text += Acore::StringFormat("$B$B{}s: {} of {}", status.signetName, status.signetsCarried, status.signetsNeeded);
+    text += Acore::StringFormat("$B$B{}s:$B{} out of {}", status.signetName, status.signetsCarried, status.signetsNeeded);
     if (status.signetsBanked)
         text += Acore::StringFormat(", and {} more in your bank", status.signetsBanked);
     text += ".";
 
     if (status.ReadyToHandIn())
-        text += "$B$BYou have everything I asked for. Hand me the signets and our preparations are complete.";
+        text += "$B$BYou have everything I asked for.$BHand me the signets and your task here will be done.";
     else if (status.kindsDelivered < status.kinds)
         text += Acore::StringFormat("$B$BDeliver every kind of supply to the collectors at least once and bring me {} signets. "
             "Then our preparations are complete.", status.signetsNeeded);
