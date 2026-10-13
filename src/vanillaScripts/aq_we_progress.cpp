@@ -98,7 +98,7 @@ static std::string BuildWarEffortText(WarEffortStatus const& status)
 {
     if (status.done)
         return "Your part in the war effort is done, $N: every kind of supply delivered and your signets handed in."
-            "$B$BThe Scarab Gong in Silithus waits for whoever is ready to open the gates.";
+            "$B$BTravel to Silithus and report to Baristolth of the Shifting Sands in Cenarion Hold.";
 
     std::string text = "Here is where you stand in the war effort, $N.";
 
