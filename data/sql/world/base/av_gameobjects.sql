@@ -939,3 +939,6 @@ INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `chance`, `description`) VA
 DELETE FROM `pool_template` WHERE `entry` = 601057;
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`) VALUES 
 (601057, 50, 'Gathering Resources - AV');
+
+-- In a battleground a player can only open objects whose faction is friendly to them, and 94 is friendly to monsters only.
+UPDATE `gameobject_template_addon` SET `faction` = 0 WHERE `entry` IN (175404, 176643, 176645); -- Rich Thorium Vein, Small Thorium Vein, Mithril Deposit
