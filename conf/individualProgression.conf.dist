@@ -458,6 +458,7 @@ IndividualProgression.BotAccountsMaxLevel = 80
 #                     This is for accounts that are used for bots.
 #                     If the Playerbots module is enabled, "^RNDBOT.*" will exclude randombots from Individual Progression.
 #                     To add more accounts you need to use capital letters and this format: "(^RNDBOT.*|TEST1|TEST2)"
+#                     Which accounts match is remembered until the config is reloaded or the server restarts.
 #
 #        Default:     "^RNDBOT.*"
 #
@@ -468,6 +469,7 @@ IndividualProgression.BotAccountsRegex = "^RNDBOT.*"
 #        Description: A regular expression to match account names that should be excluded from Individual Progression.
 #                     This is useful for accounts that are used for testing or other purposes where progression should not be enforced.
 #                     To add more accounts you need to use capital letters and this format: "(ACCOUNTA|ACCOUNTB)"
+#                     Which accounts match is remembered until the config is reloaded or the server restarts.
 #
 #        Default:     ""
 #
