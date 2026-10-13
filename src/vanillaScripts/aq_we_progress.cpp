@@ -15,6 +15,7 @@ enum WarEffortProgress
 
     QUEST_COMPLETE_WAR_EFFORT_A    = 108850,
     QUEST_COMPLETE_WAR_EFFORT_H    = 108855,
+    QUEST_WHAT_TOMORROW_BRINGS     = 8286,
 
     // Not a row in npc_text. The text is sent to the client under this id each time a
     // commander is spoken to.
@@ -45,6 +46,7 @@ static constexpr std::array<WarEffortSide, 2> WarEffortSides =
 struct WarEffortStatus
 {
     bool done = false;                 // 'Complete the War Effort' rewarded
+    bool sentOn = false;               // 'What Tomorrow Brings' taken or done
     uint32 kinds = 0;
     uint32 kindsDelivered = 0;
     std::vector<std::string> missing;  // items of the kinds not delivered yet
@@ -70,6 +72,7 @@ static bool GetWarEffortStatus(Player* player, WarEffortSide const& side, WarEff
         return false;
 
     status.done = player->GetQuestRewardStatus(side.finalQuest);
+    status.sentOn = player->GetQuestStatus(QUEST_WHAT_TOMORROW_BRINGS) != QUEST_STATUS_NONE;
 
     for (uint32 questId : side.deliveries)
     {
@@ -97,8 +100,15 @@ static bool GetWarEffortStatus(Player* player, WarEffortSide const& side, WarEff
 static std::string BuildWarEffortText(WarEffortStatus const& status)
 {
     if (status.done)
-        return "Your part in the war effort is done, $N: every kind of supply delivered and your signets handed in."
-            "$B$BTravel to Silithus and report to Baristolth of the Shifting Sands in Cenarion Hold.";
+    {
+        std::string text = "Your part in the war effort is done, $N: every kind of supply delivered and your signets "
+            "handed in.";
+
+        if (!status.sentOn)
+            text += "$B$BTravel to Silithus and report to Baristolth of the Shifting Sands in Cenarion Hold.";
+
+        return text;
+    }
 
     std::string text = "Here is where you stand in the war effort, $N.";
 
@@ -130,8 +140,11 @@ static std::string BuildWarEffortText(WarEffortStatus const& status)
         text += Acore::StringFormat("$B$BDeliver every kind of supply to the collectors at least once and bring me {} signets. "
             "Then our preparations are complete.", status.signetsNeeded);
     else
-        text += Acore::StringFormat("$B$B{} more signets and our preparations are complete. Every delivery to the collectors "
-            "earns you more.", status.signetsNeeded - status.signetsCarried);
+    {
+        uint32 signetsShort = status.signetsNeeded - status.signetsCarried;
+        text += Acore::StringFormat("$B$B{} more {} and our preparations are complete. Every delivery to the collectors "
+            "earns you more.", signetsShort, signetsShort == 1 ? "signet" : "signets");
+    }
 
     // The commanders also hand out the 'Signets for War Supplies' quests, which take signets.
     text += "$B$BMind the war supplies I offer: signets you trade to me for them are spent, and no longer count.";
