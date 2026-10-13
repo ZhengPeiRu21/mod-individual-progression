@@ -39,6 +39,7 @@ void AddSC_custom_scripts_40();
 void AddSC_Ipp_Wotlk_Modded_Scripts();
 void AddSC_aq_scripts();
 void AddSC_aq_we_scripts();
+void AddSC_aq_we_progress();
 void AddSC_cot_scripts();
 void AddSC_misc_scripts();
 void AddSC_ipp_spell_scripts();
@@ -91,6 +92,7 @@ void Addmod_individual_progressionScripts()
     AddSC_Ipp_Wotlk_Modded_Scripts();
     AddSC_aq_scripts();
     AddSC_aq_we_scripts();
+    AddSC_aq_we_progress();
     AddSC_cot_scripts();
     AddSC_misc_scripts();
     AddSC_ipp_spell_scripts();
