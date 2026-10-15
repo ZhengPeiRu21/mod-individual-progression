@@ -118,6 +118,9 @@ public:
             return false;
         }
 
+        if (handler->HasLowerSecurity(target))
+            return false;
+
         uint8 currentState = sIndividualProgression->GetPlayerProgressionFromQuests(target);
         uint32 currentArea = target->GetAreaId();
 
@@ -176,7 +179,10 @@ public:
         uint32 accountId = player ? player->GetSession()->GetAccountId() : 0;
         
         if (!player || !accountId)
+        {
+            handler->SendSysMessage("Player not found.");
             return false;
+        }
 
         Group* group = player->GetGroup();
         
@@ -368,6 +374,9 @@ public:
             handler->PSendSysMessage("Player |cff00ffff{}|r is not online.", playername);
             return false;
         }
+
+        if (handler->HasLowerSecurity(target))
+            return false;
 
         uint32 progressionLevel = sIndividualProgression->GetPlayerProgressionFromQuests(target);
 
