@@ -369,16 +369,63 @@ bool IndividualProgression::isAttuned(Player* player)
         return false;
 }
 
+void IndividualProgression::LoadAccountRegexes()
+{
+    auto compile = [](std::string const& option, std::string const& pattern)
+    {
+        try
+        {
+            return std::regex(pattern);
+        }
+        catch (std::regex_error const& e)
+        {
+            LOG_ERROR("module", "IndividualProgression: {} \"{}\" is not a valid regular expression ({}). No account will match it.", option, pattern, e.what());
+            return std::regex();
+        }
+    };
+
+    std::regex excluded = compile("IndividualProgression.ExcludedAccountsRegex", excludedAccountsRegex);
+    std::regex bot = compile("IndividualProgression.BotAccountsRegex", botAccountsRegex);
+
+    std::unique_lock<std::shared_mutex> lock(_accountMatchLock);
+    _excludedAccountsRegex = std::move(excluded);
+    _botAccountsRegex = std::move(bot);
+    _accountMatchCache.clear();
+}
+
+IndividualProgression::AccountMatch IndividualProgression::GetAccountMatch(uint32 accountId)
+{
+    {
+        std::shared_lock<std::shared_mutex> lock(_accountMatchLock);
+        auto itr = _accountMatchCache.find(accountId);
+        if (itr != _accountMatchCache.end())
+            return itr->second;
+    }
+
+    // AccountMgr::GetName is a blocking login database query, so it runs without the lock held
+    std::string accountName;
+    if (!AccountMgr::GetName(accountId, accountName))
+        return {};
+
+    std::unique_lock<std::shared_mutex> lock(_accountMatchLock);
+    AccountMatch match;
+    match.excluded = std::regex_match(accountName, _excludedAccountsRegex);
+    match.bot = std::regex_match(accountName, _botAccountsRegex);
+    _accountMatchCache[accountId] = match;
+    return match;
+}
+
 bool IndividualProgression::isExcludedAccount(Player* player)
 {
     if (!player)
         return false;
 
-    std::string accountName;
-    bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
-    std::regex excludedAccountsRegex(sIndividualProgression->excludedAccountsRegex);
+    return isExcludedAccount(player->GetSession()->GetAccountId());
+}
 
-    return (accountNameFound && std::regex_match(accountName, excludedAccountsRegex));
+bool IndividualProgression::isExcludedAccount(uint32 accountId)
+{
+    return GetAccountMatch(accountId).excluded;
 }
 
 bool IndividualProgression::isBotAccount(Player* player)
@@ -386,11 +433,12 @@ bool IndividualProgression::isBotAccount(Player* player)
     if (!player)
         return false;
 
-    std::string accountName;
-    bool accountNameFound = AccountMgr::GetName(player->GetSession()->GetAccountId(), accountName);
-    std::regex botAccountsRegex(sIndividualProgression->botAccountsRegex);
+    return isBotAccount(player->GetSession()->GetAccountId());
+}
 
-    return (accountNameFound && std::regex_match(accountName, botAccountsRegex));
+bool IndividualProgression::isBotAccount(uint32 accountId)
+{
+    return GetAccountMatch(accountId).bot;
 }
 
 bool IndividualProgression::isNormalAccount(Player* player)
@@ -1096,6 +1144,7 @@ private:
         sIndividualProgression->BotOnlyAdjustments = sConfigMgr->GetOption<bool>("IndividualProgression.BotOnlyAdjustments", false);
         sIndividualProgression->excludedAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.ExcludedAccountsRegex", "");
         sIndividualProgression->botAccountsRegex = sConfigMgr->GetOption<std::string>("IndividualProgression.BotAccountsRegex", "^RNDBOT.*");
+        sIndividualProgression->LoadAccountRegexes();
         sIndividualProgression->EnableSetRepCommand = sConfigMgr->GetOption<bool>("IndividualProgression.EnableSetRepCommand", false);
         sIndividualProgression->EnableAllSpellRanks = sConfigMgr->GetOption<bool>("IndividualProgression.EnableAllSpellRanks", false);
         sIndividualProgression->LimitedSetRepCommand = sConfigMgr->GetOption<bool>("IndividualProgression.LimitedSetRepCommand", true);

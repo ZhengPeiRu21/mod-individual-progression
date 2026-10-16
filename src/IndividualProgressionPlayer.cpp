@@ -1336,12 +1336,7 @@ public:
         }
 
         // Check if the account is a bot or excluded from progression
-        std::string accountName;
-        bool accountNameFound = AccountMgr::GetName(accountId, accountName);
-        std::regex botAccountsRegex(sIndividualProgression->botAccountsRegex);
-        std::regex excludedAccountsRegex(sIndividualProgression->excludedAccountsRegex);
-  
-        if (accountNameFound && (std::regex_match(accountName, botAccountsRegex) || std::regex_match(accountName, excludedAccountsRegex)))
+        if (sIndividualProgression->isBotAccount(accountId) || sIndividualProgression->isExcludedAccount(accountId))
             return true;
 
         uint8 highestProgression = sIndividualProgression->GetAccountProgression(accountId);
