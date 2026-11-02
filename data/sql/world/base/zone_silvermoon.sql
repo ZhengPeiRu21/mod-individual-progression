@@ -18,6 +18,7 @@ INSERT INTO `quest_template` (`ID`, `QuestType`, `QuestLevel`, `MinLevel`, `Ques
 UPDATE `quest_template_addon` SET `NextQuestID` = 9685 WHERE `ID` IN (9684, 109684);
 
 UPDATE `quest_template` SET 
+`LogDescription` = 'Speak with Magister Astalor Bloodsworn in the hidden chamber beneath Blood Knight headquarters.',
 `QuestDescription` = 'Do not think me unduly harsh, $N. Stillblade knew well what he was being sent to do. He understood and accepted his duty and is an example for all aspiring Blood Knights.$B$BMy words are no eulogy, $N. Stillblade\'s service to us is far from over and you will be the instrument of his resurrection.$B$BYour education in the order\'s ways has just begun. With the betrayal of Kael\'thas and the loss of our power source, you must learn new methods of wielding the Light. Seek out Magister Astalor Bloodsworn.'
 WHERE `ID` = 9681;
 
@@ -27,6 +28,7 @@ UPDATE `quest_template` SET
 WHERE `ID` = 9684;
 
 UPDATE `quest_template` SET 
+`LogDescription` = "Speak with Magister Astalor Bloodsworn in the hidden chamber beneath Blood Knight headquarters.",
 `QuestDescription` = "Do not think me unduly harsh, $N. Stillblade knew well what he was being sent to do. He understood and accepted his duty and is an example for all aspiring Blood Knights.$B$BMy words are no eulogy, $N. Stillblade's service to us is far from over and you will be the instrument of his resurrection.$B$BYour education in the use of the Light has focused on mere charms and parlor tricks thus far. The time has come for you to learn of the nature and breadth of our power. Seek out Magister Astalor Bloodsworn."
 WHERE `ID` = 109681;
 
